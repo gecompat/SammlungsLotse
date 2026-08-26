@@ -74,6 +74,10 @@ registry-integrity vom GitHub-Actions-Anbieter. Die Regeln gelten für
 Administratoren. Force-Pushes und Branch-Löschung sind gesperrt. Offene
 Review-Gespräche müssen vor dem Merge aufgelöst sein.
 
+Branchschutz-Nachweis-Pull-Request:
+
+https://github.com/gecompat/SammlungsLotse/pull/7
+
 ## Nächster Schritt
 
 Nach Integration dieser Initialisierung beginnt eine eigene
