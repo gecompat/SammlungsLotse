@@ -2,8 +2,23 @@
 
 Status: AUTHORITATIVE
 
-Die Entwicklungsplanung hat noch nicht begonnen. Es gibt keinen
-Produktbacklog und keine freigegebene technische Roadmap.
+Die ergebnisoffene Entwicklungsplanung hat begonnen. Es gibt weiterhin keinen
+angenommenen Produktbacklog und keine freigegebene technische Roadmap.
+
+## Aktueller Brainstorming-Stand
+
+Die E-Book-Linie wird als möglicher erster Schwerpunkt untersucht, ist aber
+noch nicht ausgewählt. Der aktuelle Stand trennt bewusst Möglichkeiten,
+Untersuchungshypothesen, Experimente und spätere Entscheidungen:
+
+- [E-Book-Möglichkeitenraum](EBOOK_LANDSCAPE.md);
+- [E-Book-Erkundungs- und Erkenntnisplan](EBOOK_EXPLORATION_PLAN.md).
+
+WI-0002 ist `in_progress`. CAP-0002, REQ-0001, TEST-0001, EXP-0001 und
+GATE-0001 sind vorgeschlagen. RISK-0001 hält das bereits anerkannte Risiko
+einer frühen fachlichen oder technischen Kopplung fest. Keines dieser
+Artefakte wählt einen Technologie-Stack oder autorisiert Produktcode oder
+schreibende Operationen.
 
 ## Verbindliche Ausgangsbasis
 
@@ -31,8 +46,8 @@ Die erste Planungs-Wave soll:
    Arbeitsgegenstände über die Registry registrieren;
 8. erst danach eine ausführbare Reihenfolge bilden.
 
-Eine E-Book-Linie ist ein naheliegender Kandidat, aber in diesem Dokument noch
-nicht als erste Implementierungs-Wave entschieden.
+Eine E-Book-Linie ist ein naheliegender Kandidat, aber weiterhin nicht als
+erste Implementierungs-Wave entschieden.
 
 ## Nicht übernehmen
 
