@@ -1,0 +1,1 @@
+"""SammlungsLotse repository tests."""

@@ -17,3 +17,13 @@ Foundation validation covers Foundation integration integrity only. Preserve and
 
 Chat history, memory, prior scratchpads, and vendor-specific project prompts are not durable project truth.
 <!-- AI_REPOSITORY_FOUNDATION:END -->
+
+## Project-owned authority
+
+Before project work, read docs/governance/PROJECT_RULES.md. That document
+routes to the project sources required for the current scope.
+
+Project facts, product boundaries, terminology, state, decisions and planning
+authority are owned by the documents under docs/ and .ai/artifact_registry.json.
+Foundation rules remain the protected baseline and do not replace those
+project-owned sources.

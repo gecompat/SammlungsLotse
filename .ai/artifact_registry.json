@@ -1,0 +1,130 @@
+{
+  "artifacts": {
+    "CAP-0001": {
+      "acceptance_criteria": "SammlungsLotse reduziert manuellen Aufwand, hält Fachsysteme konsistent und erklärt wesentliche Analyse- und Integrationsentscheidungen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a03e7f-489c-765d-8a9c-53c4ec02406a",
+      "created_on": "2026-08-26",
+      "external_refs": [],
+      "kind": "capability",
+      "locator": "docs/product/PROJECT_CHARTER.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "DEC-0001",
+          "type": "governed_by"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        }
+      ],
+      "status": "accepted",
+      "title": "Domänenübergreifende Qualitäts-, Such- und Integrationsassistenz"
+    },
+    "DEC-0001": {
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a03e7f-489c-7472-880b-a749eab5f316",
+      "created_on": "2026-08-26",
+      "external_refs": [
+        {
+          "system": "github_repository",
+          "value": "gecompat/FolioTone"
+        }
+      ],
+      "kind": "decision",
+      "locator": "docs/decisions/DEC-0001-INDEPENDENT_PROJECT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0001",
+          "type": "governs"
+        }
+      ],
+      "status": "accepted",
+      "title": "SammlungsLotse als eigenständiges Projekt"
+    },
+    "DEC-0002": {
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a03e7f-489c-7586-9d57-b79976c69765",
+      "created_on": "2026-08-26",
+      "external_refs": [],
+      "kind": "decision",
+      "locator": "docs/decisions/DEC-0002-DOMAIN_SYSTEMS_LEAD.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0001",
+          "type": "governs"
+        }
+      ],
+      "status": "accepted",
+      "title": "Führende Fachsysteme"
+    },
+    "DEC-0003": {
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a03e7f-489c-7d11-9dba-f39bbfb207c6",
+      "created_on": "2026-08-26",
+      "external_refs": [
+        {
+          "system": "foundation_source_commit",
+          "value": "2892b6656933e735b8ab3684af1327ae5a8afc86"
+        }
+      ],
+      "kind": "decision",
+      "locator": "docs/decisions/DEC-0003-ARTIFACT_REGISTRY.md",
+      "registration_state": "REGISTERED",
+      "relations": [],
+      "status": "accepted",
+      "title": "Zentrale Artefaktregistrierung"
+    }
+  },
+  "prefixes": {
+    "CAP": {
+      "kind": "capability",
+      "width": 4
+    },
+    "DEC": {
+      "kind": "decision",
+      "width": 4
+    },
+    "EXP": {
+      "kind": "experiment",
+      "width": 4
+    },
+    "GATE": {
+      "kind": "gate",
+      "width": 4
+    },
+    "INC": {
+      "kind": "incident",
+      "width": 4
+    },
+    "OPS": {
+      "kind": "operational_control",
+      "width": 4
+    },
+    "REL": {
+      "kind": "release",
+      "width": 4
+    },
+    "REQ": {
+      "kind": "requirement",
+      "width": 4
+    },
+    "RISK": {
+      "kind": "risk",
+      "width": 4
+    },
+    "TEST": {
+      "kind": "test_contract",
+      "width": 4
+    },
+    "WI": {
+      "kind": "work_item",
+      "width": 4
+    }
+  },
+  "profile": "foundation-artifact-registry/v2",
+  "schema_version": 2
+}

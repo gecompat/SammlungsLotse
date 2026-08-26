@@ -1,5 +1,10 @@
 # Keep LF-authored Foundation payload byte-identical on Windows checkouts.
+* text=auto
 /.gitattributes text eol=lf
+/.editorconfig text eol=lf
+/.gitignore text eol=lf
+/LICENSE text eol=lf
+/.github/CODEOWNERS text eol=lf
 /.ai/foundation/ARTIFACT_REGISTRATION_POLICY.md text eol=lf
 /.ai/foundation/CENTRAL_ARTIFACT_REGISTRY_POLICY.md text eol=lf
 /.ai/foundation/FOUNDATION_RULESET.md text eol=lf
@@ -11,3 +16,20 @@
 /.ai/foundation/schemas/artifact-registry-v2.schema.json text eol=lf
 /.ai/foundation/schemas/feature-catalog.schema.json text eol=lf
 /.ai/foundation/schemas/upgrade-assessment.schema.json text eol=lf
+
+# Project-authored text files use stable LF line endings on all platforms.
+*.md text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.svg text eol=lf
+
+*.gif binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
