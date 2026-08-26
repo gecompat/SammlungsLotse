@@ -1,0 +1,36 @@
+name: Repository Quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  repository-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate project repository contracts
+        run: python tools/governance/validate_repository.py
+      - name: Validate artifact registry
+        run: >-
+          python .ai/foundation/artifact_registry_github/registry_semantic.py
+          validate
+          --registry .ai/artifact_registry.json
+      - name: Run governance tests
+        run: python -m unittest discover -s tests -p "test_*.py"
+      - name: Compile governance tools
+        run: >-
+          python -m compileall -q
+          .ai/foundation/artifact_registry_github
+          tools/governance

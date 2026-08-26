@@ -1,0 +1,4 @@
+* @gecompat
+/.ai/artifact_registry.json @gecompat
+/docs/decisions/ @gecompat
+/docs/governance/ @gecompat
