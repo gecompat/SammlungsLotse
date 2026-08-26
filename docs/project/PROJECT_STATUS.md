@@ -2,11 +2,11 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-08-26
+Stand: 2026-08-27
 
 ## Phase
 
-Repository- und Projektinitialisierung vor der Entwicklungsplanung.
+Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 
 ## Vorhanden
 
@@ -23,7 +23,11 @@ Repository- und Projektinitialisierung vor der Entwicklungsplanung.
 - lokale Registry- und Repository-Prüfwerkzeuge;
 - Pull-Request-Workflows für Registry- und Repository-Integrität;
 - aktiver Branchschutz für main mit strikt erforderlichen GitHub-Actions-
-  Checks repository-quality und registry-integrity.
+  Checks repository-quality und registry-integrity;
+- registrierter E-Book-Möglichkeitenraum CAP-0002 und vorgeschlagene
+  mehrdimensionale Qualitätsanforderung REQ-0001;
+- laufender Erkundungsgegenstand WI-0002 mit RISK-0001, TEST-0001, EXP-0001
+  und GATE-0001.
 
 ## Nicht vorhanden
 
@@ -32,11 +36,18 @@ Repository- und Projektinitialisierung vor der Entwicklungsplanung.
 - Laufzeit- oder Deploymentkonzept;
 - Produktdatenbank oder Suchindex;
 - öffentliche REST-, Agent-, CLI- oder Browser-Schnittstelle;
-- Entwicklungsbacklog oder technische Roadmap;
+- angenommener Entwicklungsbacklog oder freigegebene technische Roadmap;
 - übernommener FolioTone-Code;
 - Release.
 
 ## Validierung
+
+E-Book-Planungsstand: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
+2026-08-27. `tools/governance/validate_repository.py` und die
+v2-Registry-Validierung waren für zwölf registrierte Artefakte erfolgreich.
+Fünf synthetische Governance-Unit-Tests, `compileall` und `git diff --check`
+waren erfolgreich. Dies belegt Dokument- und Governance-Integrität, nicht
+Produktlaufzeit oder fachliche E-Book-Akzeptanz; Produktcode existiert nicht.
 
 FOUNDATION_INTEGRITY: validated am 2026-08-26 für Foundation 1.7.0 und
 artifact-registry-github. Der Foundation-Validator aus Quellcommit
@@ -91,8 +102,10 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-Nach Integration dieser Initialisierung beginnt eine eigene
-Entwicklungsplanungs-Wave gemäß docs/planning/README.md.
+WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes werden
+Nutzerfragen und Messgrößen präzisiert, der synthetische Referenzkorpus
+TEST-0001 konkretisiert und EXP-0001 in kleine entscheidungsfähige
+Experimente zerlegt. GATE-0001 bleibt bis zu ausreichender Evidenz offen.
 
 ## Offene Punkte
 
@@ -105,5 +118,6 @@ Entwicklungsplanungs-Wave gemäß docs/planning/README.md.
 
 ## Blocker
 
-Keine bekannten Blocker für den Beginn der Entwicklungsplanung nach Abschluss
-dieser Wave.
+Keine bekannten Blocker für die weitere read-only Entwicklungsplanung. Die
+fehlende Auswahl des ersten Vertikalablaufs ist beabsichtigt und blockiert
+Produktimplementierung sowie schreibende Fähigkeiten.
