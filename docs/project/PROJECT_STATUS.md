@@ -56,6 +56,10 @@ ist bis zum Validierungs-Pull-Request not executed. Der Pull Request darf nur
 bei erfolgreichen Repository Quality- und Artifact Registry Integrity-Checks
 gemergt werden.
 
+Validierungs-Pull-Request:
+
+https://github.com/gecompat/SammlungsLotse/pull/6
+
 ## Nächster Schritt
 
 Nach Integration dieser Initialisierung beginnt eine eigene
