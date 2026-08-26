@@ -8,7 +8,7 @@ Foundation-Check belegt nicht die Projektrichtigkeit.
 ## FOUNDATION_INTEGRITY
 
 Die Foundation-Quellversion besitzt den kanonischen Validator. Für die
-installierte Foundation 1.6.0 und die ausgewählte Fähigkeit
+installierte Foundation 1.7.0 und die ausgewählte Fähigkeit
 artifact-registry-github lautet der allgemeine Aufruf:
 
     python tools/foundation_validator.py \
@@ -20,6 +20,11 @@ artifact-registry-github lautet der allgemeine Aufruf:
 Der Befehl wird im ausgecheckten Foundation-Quellrepository des dokumentierten
 Quellcommits ausgeführt. Der Validator wird gemäß Foundation-Manifest nicht in
 dieses Zielrepository kopiert.
+
+Der installierte Quellstand ist
+`d49f978f33001fcc098998ff7c04ffb209b28033`. Die vollständige semantische
+Upgrade-Bewertung steht in
+[FOUNDATION_UPGRADE_1_7.md](FOUNDATION_UPGRADE_1_7.md).
 
 ## PROJECT_SEMANTIC
 
@@ -60,6 +65,22 @@ Beim ersten Pull Request, der die Registry einführt, existiert kein
 Registry-Basisstand. In diesem einmaligen Bootstrap-Fall wird der Head
 vollständig validiert. Merge- und Cross-PR-Vergleiche beginnen mit dem ersten
 nachfolgenden Pull Request.
+
+## Verfügbarkeit verpflichtender Prüfungen
+
+Ein ausgeführter Check mit fachlichem Fehler ist `VALIDATION_FAILURE` und darf
+nicht umgangen werden. Kann ein Check wegen nachgewiesener externer
+Infrastrukturstörung kein vertrauenswürdiges Ergebnis erzeugen, ist er
+`INFRASTRUCTURE_UNAVAILABLE`. Ist die Ursache ungeklärt, lautet die
+Klassifikation `UNKNOWN`.
+
+SammlungsLotse besitzt derzeit kein autorisiertes Break-Glass-Verfahren.
+Deshalb bleiben fehlende erforderliche Checks unabhängig von der
+Klassifikation merge-blockierend. Eine spätere Einführung benötigt eine
+angenommene Projektentscheidung, einen weiterhin prüfbaren Pull Request,
+begrenzte Berechtigungen und verpflichtende Nachvalidierung nach der
+Wiederherstellung. Ein fehlendes Ergebnis wird niemals als `validated`
+dargestellt.
 
 ## Evidenz
 

@@ -1,5 +1,5 @@
 schema_version: 1
-foundation_ruleset_version: 1.6.0
+foundation_ruleset_version: 1.7.0
 canonical_entrypoint: AGENTS.md
 authority:
   required_or_baseline:
@@ -10,6 +10,7 @@ authority:
     - .ai/foundation/ARTIFACT_REGISTRATION_POLICY.md
     - .ai/foundation/CENTRAL_ARTIFACT_REGISTRY_POLICY.md
     - .ai/foundation/UPGRADE_APPLICABILITY_POLICY.md
+    - .ai/foundation/REPOSITORY_CONTINUITY_POLICY.md
     - .ai/foundation/feature_catalog.json
     - .ai/foundation/WORKING_RULES.md
     - .ai/foundation/MODEL_ROUTING_POLICY.md
@@ -98,6 +99,16 @@ upgrade_contract:
   silent_skip_prohibited: true
   surface_results: RECOMMENDED_DECISION_REQUIRED_CONFLICT
   unknown_installed_version_behavior: resolve_baseline_or_conservative_assessment
+continuity_contract:
+  policy: .ai/foundation/REPOSITORY_CONTINUITY_POLICY.md
+  classification: VALIDATION_FAILURE_INFRASTRUCTURE_UNAVAILABLE_UNKNOWN
+  validation_failure_bypass: prohibited
+  infrastructure_unavailable_bypass: project_selectable
+  unknown_bypass: prohibited
+  audit_path_required: true
+  direct_push_break_glass: prohibited
+  deferred_validation_after_recovery: required
+  target_repository_administration: recommend_never_silently_configure
 validation_contract:
   foundation_integrity:
     label: FOUNDATION_INTEGRITY
@@ -111,6 +122,17 @@ validation_contract:
     label: RUNTIME_EMPIRICAL
     authority: target_repository
     purpose: tests_builds_integrations_runtime_research_data_and_manual_validation
+  text_content_equivalence:
+    utf8_crlf_lf_equivalent: true
+    lone_cr_significant: true
+    final_newline_significant: true
+    binary_byte_exact: true
+    target_gitattributes_behavior: preserve_project_policy_do_not_create_for_eol_only_foundation_drift
+  validation_availability:
+    classifications: VALIDATION_FAILURE_INFRASTRUCTURE_UNAVAILABLE_UNKNOWN
+    validation_failure_break_glass: prohibited
+    infrastructure_unavailable_break_glass: project_selectable
+    missing_validation_remains_pending: true
   status_vocabulary:
     foundation_reserved_meanings: not_executed_pending_manual_validation_validated
     target_extensions_allowed: true

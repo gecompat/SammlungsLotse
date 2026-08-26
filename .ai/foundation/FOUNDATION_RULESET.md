@@ -1,7 +1,7 @@
 # AI Repository Foundation Ruleset
 
 Status: AUTHORITATIVE BASELINE
-Ruleset version: 1.6.0
+Ruleset version: 1.7.0
 
 This directory contains reusable governance rules, machine-readable schemas, the semantic feature catalog, and the source-license notice required for transferred Foundation material. Optional capability files are installed only when explicitly selected. The ruleset does not describe the Foundation source project and does not define the target project's README, root license, architecture, backlog, status, or release state.
 
@@ -21,19 +21,20 @@ Existing project rules do not need to be rewritten into these labels. Use semant
 - language-neutral artifact creation, Registration Authority, `DIRECT`/`DEFERRED`, concurrency, and human/AI allocation: `ARTIFACT_REGISTRATION_POLICY.md`
 - central JSON registry v2, derived sequence allocation, object-level merge, Git-merge verification, cross-PR preflight, and generated planning views: `CENTRAL_ARTIFACT_REGISTRY_POLICY.md`
 - semantic upgrade delta/applicability and mandatory recommendation surfacing: `UPGRADE_APPLICABILITY_POLICY.md`
+- repository/CI availability, break-glass safety boundaries, and deferred validation: `REPOSITORY_CONTINUITY_POLICY.md`
 - semantic feature catalog: `feature_catalog.json`
 - registration schemas: `schemas/artifact-record.schema.json`, `schemas/artifact-registry.schema.json`, `schemas/artifact-registry-v2.schema.json`, `schemas/artifact-registration-request.schema.json`
 - upgrade schemas: `schemas/feature-catalog.schema.json`, `schemas/upgrade-assessment.schema.json`
 - authorization and working behavior: `WORKING_RULES.md`
 - model/resource selection and target-policy mapping: `MODEL_ROUTING_POLICY.md`
-- validation, status vocabulary, and manual test plans: `VALIDATION_POLICY.md`
+- validation, status vocabulary, portable LF/CRLF drift semantics, infrastructure availability, and manual test plans: `VALIDATION_POLICY.md`
 - data handling and narrow provenance exceptions: `DATA_PRIVACY_AND_CONFIDENTIALITY.md`
 - safe operations: `SECURITY_AND_SAFE_OPERATIONS.md`
 - documentation truth: `DOCUMENTATION_POLICY.md`
 - third-party/licensing: `THIRD_PARTY_AND_LICENSING.md`
 - evidence/sources: `SOURCE_AND_EVIDENCE_POLICY.md`
 - dependencies/services: `DEPENDENCY_POLICY.md`
-- machine-readable authority, integration, identity, registration, central-registry, upgrade, and validation index: `repo_map.yaml`
+- machine-readable authority, integration, identity, registration, central-registry, upgrade, continuity, and validation index: `repo_map.yaml`
 
 ## Discovery boundary
 
@@ -71,7 +72,15 @@ Python is not a required runtime. PowerShell remains a first-class supported ref
 
 Foundation validation supplements rather than replaces the target repository's validation system. The Foundation validator covers `FOUNDATION_INTEGRITY` only. Project-specific semantic correctness remains under `PROJECT_SEMANTIC`; executable/empirical behavior remains under `RUNTIME_EMPIRICAL`. Existing project validators, static contracts, tests, reviews, and manual validation remain authoritative for those scopes when affected.
 
+For UTF-8 Foundation text, LF and CRLF-only working-tree representations are equivalent for installation planning and drift detection. Do not create or modify target `.gitattributes` solely to silence Git EOL conversion. Lone CR, final-newline changes, actual content changes, and binary/non-UTF-8 differences remain significant.
+
+A required check that ran and found a substantive defect is `VALIDATION_FAILURE` and must not be bypassed under break-glass policy. A check that cannot produce a trustworthy result because its external execution infrastructure is unavailable may be classified `INFRASTRUCTURE_UNAVAILABLE`; a project-defined break-glass path may then preserve repository continuity while keeping missing validation pending for post-recovery execution. `UNKNOWN` is non-bypassable until classified.
+
 A local override or drift warning identifies a difference; it is not semantic approval of that difference. A green Foundation validator must never be used as evidence that the entire target project is validated.
+
+## Repository continuity boundary
+
+Mandatory CI can become an availability single point of failure when the repository is also the durable coordination channel. `REPOSITORY_CONTINUITY_POLICY.md` allows a narrowly audited break-glass path for infrastructure unavailability only. Preserve an auditable PR path, core branch safety, local evidence where available, residual-risk recording, and post-recovery validation. Never fabricate a successful check or silently configure target repository bypass permissions.
 
 ## Provenance and license notice
 

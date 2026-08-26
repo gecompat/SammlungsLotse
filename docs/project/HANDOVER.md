@@ -8,6 +8,9 @@ Stand: 2026-08-26
 
 SammlungsLotse ist als eigenständiges Projekt initialisiert. Die
 Produktimplementierung und Entwicklungsplanung haben noch nicht begonnen.
+AI Repository Foundation 1.7.0 ist semantisch integriert. Die Bewertung steht
+unter docs/governance/FOUNDATION_UPGRADE_1_7.md.
+
 main ist geschützt. Änderungen benötigen die erfolgreichen Checks
 repository-quality und registry-integrity.
 
@@ -38,7 +41,10 @@ docs/planning/README.md und registriert alle dauerhaften Planungsartefakte in
 - Persistenz und Suche;
 - Deployment und UI;
 - konkrete REST- und Agent-Verträge;
-- konkrete FolioTone-Wiederverwendung.
+- konkrete FolioTone-Wiederverwendung;
+- ein optionales Repository-Continuity-Verfahren mit getrennten Rulesets,
+  autorisierten Akteuren und Ausfallschwelle. Bis zu einer angenommenen
+  Entscheidung existiert kein Break-Glass-Bypass.
 
 ## Validierung
 
