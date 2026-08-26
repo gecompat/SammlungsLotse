@@ -124,7 +124,8 @@ parent und depends_on dürfen keine Zyklen bilden.
 ## GitHub-Administration
 
 Die Workflow-Datei allein erzwingt keinen Branchschutz. Der Statuscheck für
-Registry-Integrität und der allgemeine Repository-Qualitätscheck sollen nach
-ihrem ersten erfolgreichen Lauf als erforderliche Checks für main
-konfiguriert werden. Eine solche Repository-Administration wird nur nach
-getrennter Prüfung ihres tatsächlichen Zustands als aktiv bezeichnet.
+Registry-Integrität und der allgemeine Repository-Qualitätscheck sind nach
+ihren ersten erfolgreichen Läufen als erforderliche Checks für main
+konfiguriert. Der aktive Zustand und die zugeordneten Check-Anbieter wurden
+getrennt über die GitHub-API geprüft. Der aktuelle Nachweis steht in
+docs/project/PROJECT_STATUS.md.
