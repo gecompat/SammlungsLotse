@@ -1,0 +1,13 @@
+# Keep LF-authored Foundation payload byte-identical on Windows checkouts.
+/.gitattributes text eol=lf
+/.ai/foundation/ARTIFACT_REGISTRATION_POLICY.md text eol=lf
+/.ai/foundation/CENTRAL_ARTIFACT_REGISTRY_POLICY.md text eol=lf
+/.ai/foundation/FOUNDATION_RULESET.md text eol=lf
+/.ai/foundation/PROJECT_RULES.md text eol=lf
+/.ai/foundation/SEMANTIC_INTEGRATION_POLICY.md text eol=lf
+/.ai/foundation/UPGRADE_APPLICABILITY_POLICY.md text eol=lf
+/.ai/foundation/feature_catalog.json text eol=lf
+/.ai/foundation/repo_map.yaml text eol=lf
+/.ai/foundation/schemas/artifact-registry-v2.schema.json text eol=lf
+/.ai/foundation/schemas/feature-catalog.schema.json text eol=lf
+/.ai/foundation/schemas/upgrade-assessment.schema.json text eol=lf
