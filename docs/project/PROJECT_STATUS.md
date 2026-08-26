@@ -12,7 +12,9 @@ Repository- und Projektinitialisierung vor der Entwicklungsplanung.
 
 - eigenständiges GitHub-Repository und lokale Codex-Projektzuordnung;
 - MIT-Lizenz für eigenständig entwickelte SammlungsLotse-Inhalte;
-- AI Repository Foundation 1.6.0;
+- AI Repository Foundation 1.7.0;
+- vollständige semantische 1.7-Upgrade-Bewertung unter
+  docs/governance/FOUNDATION_UPGRADE_1_7.md;
 - Projektauftrag, Produktgrenzen und Glossar;
 - projektbezogene Datenschutz-, Git-, Dokumentations- und
   Wiederverwendungsregeln;
@@ -36,17 +38,22 @@ Repository- und Projektinitialisierung vor der Entwicklungsplanung.
 
 ## Validierung
 
-FOUNDATION_INTEGRITY: validated am 2026-08-26 für Foundation 1.6.0 und
+FOUNDATION_INTEGRITY: validated am 2026-08-26 für Foundation 1.7.0 und
 artifact-registry-github. Der Foundation-Validator aus Quellcommit
-2892b6656933e735b8ab3684af1327ae5a8afc86 meldete im Profil full:
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete im Profil full:
 4 INFO, 0 WARNING, 0 ERROR und 0 BLOCKING.
 
 PROJECT_SEMANTIC: validated am 2026-08-26 durch
-tools/governance/validate_repository.py und die v2-Registry-Validierung.
+tools/governance/validate_repository.py und die v2-Registry-Validierung für
+fünf registrierte Artefakte.
 
 RUNTIME_EMPIRICAL: validated am 2026-08-26 für die Governance-Werkzeuge unter
 Python 3.12.10. Fünf synthetische Unit-Tests waren erfolgreich. compileall und
 git diff --check waren erfolgreich. Eine Produktlaufzeit existiert nicht.
+
+FOUNDATION_SOURCE: validated am 2026-08-26. Transfer-Manifest- und
+Feature-Catalog-Guard meldeten jeweils 0 BLOCKING. Alle 72 synthetischen
+Foundation-Unit-Tests waren erfolgreich.
 
 Repository Quality: validated auf GitHub für den exakten initialen
 main-Merge-Commit 4c0818c6bd649b346f5648d5b7c030c3b80a0af7:
@@ -74,6 +81,10 @@ registry-integrity vom GitHub-Actions-Anbieter. Die Regeln gelten für
 Administratoren. Force-Pushes und Branch-Löschung sind gesperrt. Offene
 Review-Gespräche müssen vor dem Merge aufgelöst sein.
 
+Es existieren keine Repository-Rulesets und kein autorisiertes
+Break-Glass-Verfahren. Die Foundation-1.7-Empfehlung zur
+Repository-Kontinuität ist bewertet, aber nicht administrativ aktiviert.
+
 Branchschutz-Nachweis-Pull-Request:
 
 https://github.com/gecompat/SammlungsLotse/pull/8
@@ -87,6 +98,10 @@ Entwicklungsplanungs-Wave gemäß docs/planning/README.md.
 
 - Eine professionelle Markenähnlichkeitsprüfung ist vor einer wirtschaftlich
   wesentlichen breiten Vermarktung weiterhin erforderlich.
+- Eine spätere Entscheidung kann getrennte Core-Safety- und CI-Gates-Rulesets
+  mit eng begrenztem Pull-Request-only-Bypass ausschließlich für nachgewiesene
+  `INFRASTRUCTURE_UNAVAILABLE`-Fälle bewerten. Bis dahin bleibt jeder fehlende
+  erforderliche Check merge-blockierend.
 
 ## Blocker
 

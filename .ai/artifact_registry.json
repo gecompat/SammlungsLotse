@@ -77,6 +77,24 @@
       "relations": [],
       "status": "accepted",
       "title": "Zentrale Artefaktregistrierung"
+    },
+    "WI-0001": {
+      "acceptance_criteria": "Foundation 1.7 ist semantisch bewertet, manifestgetreu integriert, lokal und in GitHub validiert sowie ohne Änderung der bestehenden Registration Authority auf origin/main übernommen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a03f98-ff1d-73e3-8b57-291e4c07cdfa",
+      "created_on": "2026-08-26",
+      "external_refs": [
+        {
+          "system": "foundation_source_commit",
+          "value": "d49f978f33001fcc098998ff7c04ffb209b28033"
+        }
+      ],
+      "kind": "work_item",
+      "locator": "docs/governance/FOUNDATION_UPGRADE_1_7.md",
+      "registration_state": "REGISTERED",
+      "relations": [],
+      "status": "done",
+      "title": "AI Repository Foundation 1.7 integrieren"
     }
   },
   "prefixes": {
