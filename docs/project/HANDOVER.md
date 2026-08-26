@@ -8,6 +8,8 @@ Stand: 2026-08-26
 
 SammlungsLotse ist als eigenständiges Projekt initialisiert. Die
 Produktimplementierung und Entwicklungsplanung haben noch nicht begonnen.
+main ist geschützt. Änderungen benötigen die erfolgreichen Checks
+repository-quality und registry-integrity.
 
 Die maßgeblichen Produktgrenzen stehen in docs/product/PROJECT_CHARTER.md und
 docs/architecture/BOUNDARIES.md. Die Startentscheidungen stehen unter
