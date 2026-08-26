@@ -46,9 +46,15 @@ RUNTIME_EMPIRICAL: validated am 2026-08-26 für die Governance-Werkzeuge unter
 Python 3.12.10. Fünf synthetische Unit-Tests waren erfolgreich. compileall und
 git diff --check waren erfolgreich. Eine Produktlaufzeit existiert nicht.
 
-Die GitHub-Workflow-Ausführung ist bis zum Pull Request not executed. Der
-Merge darf nur erfolgen, wenn Repository Quality und Artifact Registry
-Integrity für den exakten Pull-Request-Head erfolgreich sind.
+Repository Quality: validated auf GitHub für den exakten initialen
+main-Merge-Commit 4c0818c6bd649b346f5648d5b7c030c3b80a0af7:
+
+https://github.com/gecompat/SammlungsLotse/actions/runs/32983348296
+
+Artifact Registry Integrity: Die erste vollständige Pull-Request-Ausführung
+ist bis zum Validierungs-Pull-Request not executed. Der Pull Request darf nur
+bei erfolgreichen Repository Quality- und Artifact Registry Integrity-Checks
+gemergt werden.
 
 ## Nächster Schritt
 
