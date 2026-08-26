@@ -76,7 +76,7 @@ Review-Gespräche müssen vor dem Merge aufgelöst sein.
 
 Branchschutz-Nachweis-Pull-Request:
 
-https://github.com/gecompat/SammlungsLotse/pull/7
+https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
