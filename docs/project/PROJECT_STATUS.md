@@ -19,7 +19,9 @@ Repository- und Projektinitialisierung vor der Entwicklungsplanung.
 - angenommene Startentscheidungen DEC-0001 bis DEC-0003;
 - zentrale Artefaktregistrierung im v2-Profil;
 - lokale Registry- und Repository-Prüfwerkzeuge;
-- Pull-Request-Workflows für Registry- und Repository-Integrität.
+- Pull-Request-Workflows für Registry- und Repository-Integrität;
+- aktiver Branchschutz für main mit strikt erforderlichen GitHub-Actions-
+  Checks repository-quality und registry-integrity.
 
 ## Nicht vorhanden
 
@@ -51,14 +53,30 @@ main-Merge-Commit 4c0818c6bd649b346f5648d5b7c030c3b80a0af7:
 
 https://github.com/gecompat/SammlungsLotse/actions/runs/32983348296
 
-Artifact Registry Integrity: Die erste vollständige Pull-Request-Ausführung
-ist bis zum Validierungs-Pull-Request not executed. Der Pull Request darf nur
-bei erfolgreichen Repository Quality- und Artifact Registry Integrity-Checks
-gemergt werden.
+Repository Quality und Artifact Registry Integrity: validated auf GitHub für
+den exakten Head f7e048bd3f438b1f74a52390d4d63bb2e72a48e7 des
+Validierungs-Pull-Requests:
+
+https://github.com/gecompat/SammlungsLotse/actions/runs/32983701050
+
+https://github.com/gecompat/SammlungsLotse/actions/runs/32983700984
 
 Validierungs-Pull-Request:
 
 https://github.com/gecompat/SammlungsLotse/pull/6
+
+Der Validierungs-Pull-Request wurde als Merge-Commit
+44fbdea5aff7cc4e56503e88814aa752103d1653 integriert.
+
+GitHub-Administration: validated am 2026-08-26 über die GitHub-API. main
+verlangt die strikt aktuellen Checks repository-quality und
+registry-integrity vom GitHub-Actions-Anbieter. Die Regeln gelten für
+Administratoren. Force-Pushes und Branch-Löschung sind gesperrt. Offene
+Review-Gespräche müssen vor dem Merge aufgelöst sein.
+
+Branchschutz-Nachweis-Pull-Request:
+
+https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
@@ -67,8 +85,6 @@ Entwicklungsplanungs-Wave gemäß docs/planning/README.md.
 
 ## Offene Punkte
 
-- GitHub-Required-Checks können erst nach vorhandenen erfolgreichen
-  Workflow-Läufen belastbar konfiguriert und verifiziert werden.
 - Eine professionelle Markenähnlichkeitsprüfung ist vor einer wirtschaftlich
   wesentlichen breiten Vermarktung weiterhin erforderlich.
 
