@@ -33,3 +33,8 @@
 *.jpeg binary
 *.png binary
 *.webp binary
+
+# TEST-0001 binary inputs must remain byte-identical to their manifest hashes.
+/tests/fixtures/**/*.epub binary
+/tests/fixtures/**/*.pdf binary
+/tests/fixtures/**/*.part binary

@@ -1,17 +1,22 @@
 # TEST-0001: Synthetischer E-Book-Referenzkorpus
 
-Status: PROPOSED TEST CONTRACT — FIXTURES NOT EXECUTED
+Status: READY — SYNTHETIC CORE FIXTURES VALIDATED
 
 Stand: 2026-08-27
 
-Artifacts: TEST-0001, WI-0003
+Artifacts: TEST-0001, WI-0002, WI-0003
 
 ## Zweck
 
 TEST-0001 definiert die Sollfälle, gegen die spätere E-Book-Verfahren
-reproduzierbar bewertet werden. Dieses Dokument ist der Testvertrag. Die
-eigentlichen Dateien, Generatoren, Hashmanifeste und Laufberichte entstehen
-erst in einer nachfolgenden Wave.
+reproduzierbar bewertet werden. Dieses Dokument ist der Testvertrag. Die 26
+`Kern`-Fälle sind als Fixture-Version `0.1.0` erzeugt und validiert. Die vier
+`Ausbau`-Fälle bleiben Vertragsbestandteil, sind aber noch nicht materialisiert.
+
+Generator, Manifest und Fixture-Einstieg stehen unter
+[tests/fixtures/ebook/test-0001](../../tests/fixtures/ebook/test-0001/README.md).
+Die Fixture-Validierung ist noch kein Lauf von EXP-0002 bis EXP-0005 und kein
+fachlicher Produktbeleg.
 
 Der Korpus verwendet keine realen privaten Medien oder Sammlungsinventare. Er
 autorisiert weder Toolinstallation noch Produktcode, externe Anfragen oder
@@ -57,12 +62,17 @@ werden weiterhin über die Registration Authority registriert.
   abgeleiteter Form verwendet.
 - Ein öffentlicher Upstream-Test belegt nicht automatisch die
   SammlungsLotse-Akzeptanz; sein lokales Oracle bleibt ausdrücklich.
+- Der Generator verwendet ausschließlich die Python-Standardbibliothek,
+  öffnet kein Netzwerk und verweigert ein bereits vorhandenes
+  Ausgabeverzeichnis. Er enthält keine Produkt-, Adapter- oder
+  Analyseimplementierung.
 
 ## Kernkorpus v0.1
 
-`Kern` bezeichnet die erste ausführbare Fassung. `Ausbau` bleibt im Vertrag,
+`Kern` bezeichnet die ausführbare Fassung `0.1.0`. `Ausbau` bleibt im Vertrag,
 wird aber nicht benötigt, um die ersten vier Experimente zu beginnen, sofern
-deren eigene Eingänge vollständig abgedeckt sind.
+deren eigene werkzeugspezifische Eingänge im jeweiligen Experimentprofil
+vollständig materialisiert werden.
 
 | case_key | Stufe | Konstruktion | Wesentliches Oracle |
 |---|---|---|---|
@@ -115,9 +125,12 @@ Entscheidungsgegenstand und noch keine kanonische Zusammenführung.
 
 ## Zielbibliotheken
 
-Die erste Korpusfassung enthält mindestens zwei synthetische Calibre-
-Zielbibliotheken mit absichtlich unterschiedlichen Regeln. Ihre Namen und
-Inhalte sind rein fiktiv. Das Oracle beschreibt:
+Die erste Korpusfassung enthält zwei versionierte synthetische
+Zielbibliothek-Snapshots mit absichtlich unterschiedlichen Regeln, Feldern,
+Formaten, Custom Columns und fiktiven Büchern. Sie bilden keine interne
+Calibre-Datenbank nach. Eine später für EXP-0002 benötigte lauffähige
+Calibre-Bibliothek wird aus diesen Verträgen ausschließlich über das dort
+qualifizierte, unterstützte Toolprofil erzeugt. Das Oracle beschreibt:
 
 - welche Felder und Formate im read-only Snapshot erwartet werden;
 - welche lokalen Locators intern benötigt und nach außen bereinigt werden;
@@ -126,10 +139,12 @@ Inhalte sind rein fiktiv. Das Oracle beschreibt:
 - welche Fälle kein geeignetes Ziel besitzen;
 - dass keine interne Calibre-Tabelle direkt geändert wird.
 
-## Ausführungsmanifest der nächsten Wave
+## Ausführungsmanifest v0.1.0
 
-Die Fixture-Wave erzeugt ein maschinenlesbares Manifest aus diesem Vertrag.
-Das Format wird erst in dieser Wave ausgewählt. Es muss mindestens enthalten:
+Das maschinenlesbare JSON-Manifest liegt unter
+`tests/fixtures/ebook/test-0001/v0.1/manifest.json`. `schema_version` 1 bleibt
+ein Fixture-Vertrag und wählt weder Produktpersistenz noch öffentliche API.
+Das Manifest enthält:
 
 - TEST-0001 und Fixture-Version;
 - `case_key` und erzeugte Bestandteile;
@@ -139,21 +154,45 @@ Das Format wird erst in dieser Wave ausgewählt. Es muss mindestens enthalten:
 - erlaubte Ergebnisvarianten;
 - verbotene Wirkungen;
 - Lizenz- und Herkunftsnachweis;
-- Generator- und Toolprofil, falls ein Werkzeug beteiligt war.
+- Generator- und Toolprofil, falls ein Werkzeug beteiligt war;
+- die vier ausdrücklich noch nicht materialisierten `Ausbau`-Fallkeys.
 
-## Passkriterien für die Fixture-Wave
+Das Manifest enthält 26 Kernfälle und 44 Komponenten. Jede Komponente besitzt
+einen relativen Locator, Rolle, Medientyp, Größe und SHA-256. Jedes Oracle
+enthält zusätzlich Qualitätsdimension, Ressourcenprofil, Prüfmethode und
+verbotene Wirkungen.
 
-TEST-0001 bleibt bis zur tatsächlichen Fixture-Erzeugung und Prüfung
-`proposed`. Die erste ausführbare Fassung ist ausreichend, wenn:
+## Ergebnis der Fixture-Wave
 
-- alle `Kern`-Fälle reproduzierbar erzeugt werden;
-- jeder Fall ein maschinenlesbares und menschlich prüfbares Oracle besitzt;
-- Hashes und Herkunft vollständig sind;
-- keine privaten oder nicht weiterverteilbaren Inhalte enthalten sind;
-- absichtlich ungültige Fälle nicht versehentlich als allgemeine
-  Referenzqualität dargestellt werden;
-- mindestens zwei unabhängige Identitätsstufen und beide Routingergebnisse
-  einschließlich Enthaltung geprüft werden können;
-- Original-Fixtures während aller read-only Versuche unverändert bleiben;
-- Registry-, Dokumentations- und relevante Laufzeitprüfungen erfolgreich
-  sind.
+TEST-0001 ist nach tatsächlicher Erzeugung und Prüfung der ersten ausführbaren
+Fassung `ready`. Die Passkriterien sind für Version `0.1.0` erfüllt:
+
+- alle 26 `Kern`-Fälle wurden reproduzierbar erzeugt;
+- jeder Fall besitzt ein maschinenlesbares Oracle und die Tabelle oben bleibt
+  der menschlich prüfbare Vertrag;
+- Hashes, Größen, Erzeugungsverfahren, Herkunft und MIT-Lizenz sind
+  vollständig manifestiert;
+- alle Inhalte sind unabhängig erzeugt und synthetisch;
+- ungültige, riskante und Ressourcenlimitfälle sind ausdrücklich
+  klassifiziert;
+- Byte-, Repräsentations-, Ausgaben- und Werkbeziehungen sowie eindeutiges
+  Routing und erwartete Enthaltung sind prüfbar;
+- die read-only Prüfung einschließlich kontrolliertem Timeout ließ alle
+  Original-Fixtures unverändert;
+- Registry-, Dokumentations-, Reproduzierbarkeits- und Laufzeitprüfungen
+  waren erfolgreich.
+
+## Validierung und Grenzen
+
+Lokal validiert am 2026-08-27 unter Python 3.12.10:
+
+    python tools/fixtures/validate_ebook_reference_corpus.py
+
+Ergebnis: 26 Fälle, 44 Komponenten, bytegenau reproduzierbar und während der
+Prüfung unverändert. Der Validator prüft außerdem zentrale positive und
+negative Sollbeziehungen, beide Routingresultate, Pfad- und
+Expansionserkennung sowie einen synthetischen 100-ms-Timeout.
+
+Nicht ausgeführt wurden Calibre, EPUBCheck, Ace oder ein anderes externes
+E-Book-Werkzeug. Die `Ausbau`-Fälle, tatsächliche Werkzeugbefunde und alle
+EXP-0002- bis EXP-0005-Ergebnisse bleiben offen.

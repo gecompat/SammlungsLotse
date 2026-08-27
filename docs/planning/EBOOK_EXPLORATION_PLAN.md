@@ -15,9 +15,10 @@ ohne SammlungsLotse früh an einen Stack, ein Format, ein Fachsystemdetail,
 eine Suchtechnik, eine Benutzeroberfläche oder einen Writer zu koppeln.
 
 Der vollständige fachliche Möglichkeitenraum steht in
-[EBOOK_LANDSCAPE.md](EBOOK_LANDSCAPE.md). Der Plan führt noch keine
-Experimente aus und autorisiert keinen Produktcode oder schreibenden
-Operationstyp.
+[EBOOK_LANDSCAPE.md](EBOOK_LANDSCAPE.md). Der Plan autorisiert keinen
+Produktcode oder schreibenden Operationstyp. Die TEST-0001-Fixture-
+Validierung wurde ausgeführt; die Experimente EXP-0002 bis EXP-0005 wurden
+noch nicht ausgeführt.
 
 Die konkretisierten Nutzerentscheidungen und Messverträge stehen in
 [EBOOK_SCENARIOS_AND_METRICS.md](EBOOK_SCENARIOS_AND_METRICS.md). TEST-0001
@@ -142,10 +143,11 @@ Mögliche Messgrößen sind:
 ### B2 — TEST-0001: synthetischer Referenzkorpus
 
 Die konkreten Kern- und Ausbau-Sollfälle, Oracles, Datenregeln und
-Passkriterien der nächsten Fixture-Wave stehen in
-[EBOOK_REFERENCE_CORPUS.md](EBOOK_REFERENCE_CORPUS.md). TEST-0001 bleibt
-`proposed`, weil noch keine Fixtures erzeugt oder ausgeführt wurden. Die
-folgende Liste bleibt die kategorische Übersicht.
+Passkriterien stehen in
+[EBOOK_REFERENCE_CORPUS.md](EBOOK_REFERENCE_CORPUS.md). TEST-0001 ist nach
+Erzeugung und Validierung aller 26 `Kern`-Fälle in Fixture-Version `0.1.0`
+`ready`. Die vier `Ausbau`-Fälle und werkzeugspezifische Experimentmaterialien
+bleiben offen. Die folgende Liste bleibt die kategorische Übersicht.
 
 Der Referenzkorpus soll kleine, nachvollziehbare Sollfälle statt reale private
 Sammlungsdaten enthalten. Vorgesehene Fallgruppen sind:
@@ -376,15 +378,18 @@ Dokument enthält bewusst keine gewichtete Nutzwertanalyse.
 
 ## Nächste Analyse
 
-WI-0003 hat B1 auf Dokumentationsebene abgeschlossen. WI-0002 bleibt
+WI-0003 hat B1 auf Dokumentationsebene abgeschlossen. Die TEST-0001-
+Kernfixtures, Oracles, Hashes, Herkunft und verbotenen Wirkungen sind in
+Version `0.1.0` reproduzierbar manifestiert und validiert. WI-0002 bleibt
 `in_progress`. Die nächste Wave beginnt weiterhin keinen Produktcode:
 
-1. TEST-0001-Kernfixtures reproduzierbar erzeugen und ihr Oracle validieren;
-2. Herkunft, Lizenz, Hashes und verbotene Wirkungen maschinenlesbar
-   manifestieren;
-3. EXP-0005 als Sicherheitsqualifikation vorbereiten;
-4. EXP-0002 und EXP-0003 unabhängig mit den passenden Fixtures ausführen;
-5. EXP-0004 erst nach vollständigen positiven und negativen Identitätspaaren
+1. für EXP-0005 genau ein Werkzeug- und Ausführungsprofil auswählen und vor
+   der Ausführung Lizenz, Herkunft und Sicherheitsgrenzen dokumentieren;
+2. EXP-0005 netzwerklos gegen valide, ungültige und ressourcenbegrenzende
+   TEST-0001-Fixtures ausführen;
+3. EXP-0002 und EXP-0003 danach unabhängig mit den passenden Fixtures
    ausführen;
-6. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
+4. EXP-0004 erst nach vollständigen positiven und negativen Identitätspaaren
+   ausführen;
+5. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
    vergleichen.

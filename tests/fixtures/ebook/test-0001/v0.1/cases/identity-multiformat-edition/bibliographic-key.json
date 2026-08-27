@@ -1,0 +1,7 @@
+{
+  "edition_key": "urn:test:edition:multi-format",
+  "formats": [
+    "EPUB",
+    "PDF"
+  ]
+}

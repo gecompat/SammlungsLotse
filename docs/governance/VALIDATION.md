@@ -41,13 +41,23 @@ zweite Prüfung kontrolliert die v2-Registry-Semantik.
 
 ## RUNTIME_EMPIRICAL
 
-Für die Governance-Werkzeuge gelten:
+Für die Governance- und Fixture-Werkzeuge gelten:
 
     python -m unittest discover -s tests -p "test_*.py"
 
     python -m compileall -q \
       .ai/foundation/artifact_registry_github \
-      tools/governance
+      tools/governance \
+      tools/fixtures
+
+Für die ausführbare synthetische TEST-0001-Kernfassung gilt zusätzlich:
+
+    python tools/fixtures/validate_ebook_reference_corpus.py
+
+Die Prüfung validiert Manifest, Hashes, Herkunft, zentrale Fallorakel,
+Datenschutzgrenzen, einen kontrollierten Timeout, bytegenaue Regeneration und
+die Unverändertheit aller Fixture-Eingänge. Sie führt keine externen
+E-Book-Werkzeuge und keines der Experimente EXP-0002 bis EXP-0005 aus.
 
 Produktbezogene Runtime-Prüfungen werden erst mit dem Technologie-Stack und
 den ersten Arbeitsgegenständen definiert.

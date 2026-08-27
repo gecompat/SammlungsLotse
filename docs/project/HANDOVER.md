@@ -28,19 +28,20 @@ GATE-0001 bleibt offen.
 WI-0003 ist auf Dokumentationsebene abgeschlossen. Die sechs
 Nutzerentscheidungen und Messverträge stehen unter
 docs/planning/EBOOK_SCENARIOS_AND_METRICS.md. TEST-0001 ist unter
-docs/planning/EBOOK_REFERENCE_CORPUS.md bis auf Kern- und Ausbau-Sollfälle,
-Oracles und Datenregeln konkretisiert, aber noch nicht ausgeführt. Die
-getrennten, ebenfalls noch nicht ausgeführten Experimentverträge EXP-0002 bis
-EXP-0005 stehen unter docs/planning/EBOOK_EXPERIMENTS.md.
+docs/planning/EBOOK_REFERENCE_CORPUS.md als Fixture-Version `0.1.0` mit allen
+26 `Kern`-Fällen, 44 Komponenten, Hashes, Herkunft und Oracles ausführbar und
+validiert. Die vier `Ausbau`-Fälle bleiben offen. Die getrennten, noch nicht
+ausgeführten Experimentverträge EXP-0002 bis EXP-0005 stehen unter
+docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-Die nächste Arbeit setzt WI-0002 mit der TEST-0001-Fixture-Wave fort. Sie
-erzeugt ausschließlich die synthetischen `Kern`-Fälle, dokumentiert Herkunft,
-Hashes und maschinenlesbare Oracles und validiert ihre verbotenen Wirkungen.
-Erst danach werden EXP-0002 bis EXP-0005 einzeln ausgeführt. Die Arbeit beginnt
-weder Produktcode noch einen Writer und trifft keine Technologie- oder
-Vertikalablaufentscheidung vor GATE-0001.
+Die nächste Arbeit setzt WI-0002 mit EXP-0005 fort. Vor der Ausführung wird
+genau ein Werkzeug- und Ausführungsprofil mit Lizenz, Herkunft, Eingangs-,
+Ausgangs-, Netzwerk-, Prozess- und Ressourcenlimits festgelegt. Danach wird es
+netzwerklos gegen valide, ungültige und ressourcenbegrenzende TEST-0001-
+Fixtures qualifiziert. Die Arbeit beginnt weder Produktcode noch einen Writer
+und trifft keine Technologie- oder Vertikalablaufentscheidung vor GATE-0001.
 
 ## Harte Grenzen
 
@@ -63,7 +64,6 @@ Vertikalablaufentscheidung vor GATE-0001.
 - erster E-Book-Vertikalablauf;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - konkrete Calibre-, Werkzeug- und Metadatenprovider-Adapter;
-- Format des TEST-0001-Ausführungsmanifests und konkrete Fixture-Generatoren;
 - konkrete, empirisch qualifizierte Werkzeug- und Ausführungsprofile für
   EXP-0002 bis EXP-0005;
 - ein optionales Repository-Continuity-Verfahren mit getrennten Rulesets,

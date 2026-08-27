@@ -9,3 +9,7 @@ verboten.
 
 Binäre Fixtures werden erst mit einem registrierten Testvertrag oder
 Arbeitsgegenstand aufgenommen.
+
+Der erste ausführbare Korpus ist
+[TEST-0001 für E-Books](ebook/test-0001/README.md). Seine binären Bestandteile
+sind vollständig synthetisch, manifestiert und reproduzierbar erzeugt.

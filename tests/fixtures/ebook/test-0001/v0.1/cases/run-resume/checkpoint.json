@@ -1,0 +1,11 @@
+{
+  "completed_steps": [
+    "snapshot",
+    "hash"
+  ],
+  "next_step": "format",
+  "result_keys": [
+    "input.size",
+    "input.sha256"
+  ]
+}
