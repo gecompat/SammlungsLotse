@@ -32,20 +32,21 @@ docs/planning/EBOOK_REFERENCE_CORPUS.md als aktive Fixture-Version `0.2.0` mit a
 26 `Kern`-Fällen, 44 Komponenten, Hashes, Herkunft und Oracles ausführbar und
 validiert; `0.1.0` bleibt als historischer Snapshot erhalten. Die vier
 `Ausbau`-Fälle bleiben offen. EXP-0005 ist mit elf erfolgreichen
-Isolationskriterien abgeschlossen. Die noch nicht ausgeführten Verträge
-EXP-0002 bis EXP-0004 stehen mit dem Ergebnis unter
+Isolationskriterien abgeschlossen. EXP-0002 ist mit dreizehn erfolgreichen
+Calibre-Projektionskriterien abgeschlossen; der direkte read-only Mount ist
+als nicht unterstützt und die Copy-on-read-Grenze als erfolgreich belegt.
+Die noch nicht ausgeführten Verträge EXP-0003 und EXP-0004 stehen unter
 docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-Die nächste Arbeit setzt WI-0002 mit EXP-0002 fort. Genau zwei synthetische
-Calibre-Bibliotheken werden zunächst ausschließlich über dokumentierte
-Calibre-Schreibbefehle als Experimentmaterial erzeugt. Die eigentliche
-Bestandsprojektion verwendet danach nur eine minimale dokumentierte
-`calibredb`-Leseoperation im qualifizierten netzwerklosen Profil und prüft
-Pfadlecks, Wiederholbarkeit und Vorher-/Nachher-Zustand. Die Arbeit beginnt
-weder Produktcode noch einen Writer und trifft keine Technologie- oder
-Vertikalablaufentscheidung vor GATE-0001.
+Die nächste Arbeit setzt WI-0002 mit EXP-0003 fort. EPUBCheck- und
+Ace-Rohberichte werden unabhängig und verlustfrei gegen die passenden
+synthetischen TEST-0001-Fälle erhoben und erst danach in gemeinsame,
+erklärbare Befunde projiziert. Werkzeugcodes, Originalschweregrade,
+Fundstellen, Profile und manueller Prüfbedarf müssen erhalten bleiben. Die
+Arbeit beginnt weder Produktcode noch einen Writer und trifft keine
+Technologie- oder Vertikalablaufentscheidung vor GATE-0001.
 
 ## Harte Grenzen
 
@@ -69,8 +70,9 @@ Vertikalablaufentscheidung vor GATE-0001.
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - konkrete Calibre-, Werkzeug- und Metadatenprovider-Adapter;
 - konkrete, empirisch qualifizierte Werkzeug- und Ausführungsprofile für
-  EXP-0002 bis EXP-0004; EXP-0005 qualifiziert nur einen wegwerfbaren
-  Sicherheitsweg und wählt keine Produktlaufzeit;
+  EXP-0003 und EXP-0004; EXP-0002 qualifiziert nur den Copy-on-read-
+  Calibre-Zugriff und EXP-0005 nur einen wegwerfbaren Sicherheitsweg; beide
+  wählen keine Produktlaufzeit;
 - ein optionales Repository-Continuity-Verfahren mit getrennten Rulesets,
   autorisierten Akteuren und Ausfallschwelle. Bis zu einer angenommenen
   Entscheidung existiert kein Break-Glass-Bypass.

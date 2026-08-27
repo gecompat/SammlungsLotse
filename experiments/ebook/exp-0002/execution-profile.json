@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "experiment": "EXP-0002",
+  "profile_id": "exp-0002-podman-calibre-9.13.0/v1",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "tool": {
+    "name": "calibre",
+    "version": "9.13.0",
+    "license_spdx": "GPL-3.0-only",
+    "license_source": "https://manual.calibre-ebook.com/develop.html",
+    "release_url": "https://download.calibre-ebook.com/9.13.0/",
+    "artifact_url": "https://download.calibre-ebook.com/9.13.0/calibre-9.13.0-x86_64.txz",
+    "artifact_size_bytes": 192554776,
+    "artifact_sha512": "c018cb47805040a9a83dc16986db618c539a7dc62f85da2760b7e22e0e8ada7533a01be797cdbd04a5d5f66c8efa2b0ac2db4819700e561351267cb4842a3fc6",
+    "signature_index": "https://calibre-ebook.com/signatures/"
+  },
+  "base_image": {
+    "reference": "docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17",
+    "linux_amd64_manifest_sha256": "a249c9f47e05708dd367f3fe8ada03cf347390fad66fb8b0518c0ef55ae3cb84",
+    "version": "3.12.14-slim-trixie"
+  },
+  "image_tag": "localhost/sammlungslotse-exp-0002:calibre-9.13.0",
+  "container_runtime": {
+    "provider": "podman",
+    "minimum_version": "6.1.0",
+    "platform": "linux/amd64",
+    "network": "none",
+    "read_only_root": true,
+    "user": "65532:65532",
+    "capabilities": [],
+    "no_new_privileges": true,
+    "pids_limit": 64,
+    "cpus": 1.0,
+    "memory_bytes": 1073741824,
+    "memory_swap_bytes": 1073741824,
+    "timeout_seconds": 30,
+    "max_output_file_bytes": 1048576,
+    "tmpfs_bytes": 67108864
+  },
+  "environment_allowlist": {
+    "CALIBRE_CONFIG_DIRECTORY": "/config",
+    "HOME": "/tmp/home",
+    "LANG": "C.UTF-8",
+    "PATH": "/opt/calibre:/usr/local/bin:/usr/bin:/bin",
+    "QT_QPA_PLATFORM": "offscreen"
+  },
+  "projection": {
+    "schema_id": "exp-0002-calibre-projection/v1",
+    "base_fields": [
+      "title",
+      "authors",
+      "languages",
+      "tags",
+      "identifiers",
+      "formats"
+    ],
+    "target_profiles": {
+      "technical-library": {
+        "custom_fields": ["review_state"]
+      },
+      "young-readers-library": {
+        "custom_fields": ["audience"]
+      }
+    },
+    "unknown_field_probe": "not_registered",
+    "local_access_strategy": "disposable-copy-on-read",
+    "direct_read_only_mount": "expected-unsupported-calibre-9.13.0",
+    "absolute_paths_allowed": false,
+    "direct_database_access_allowed": false
+  }
+}

@@ -200,6 +200,8 @@ Literal auf die für EPUB 3 weiterhin geltende Paketversion `3.0`, ohne die
 Fallzahl, Fallkeys oder Oracles zu verändern.
 
 EPUBCheck wurde im Rahmen von EXP-0005 gegen die aktuelle Fassung ausgeführt;
-der Sicherheits- und Reproduzierbarkeitsnachweis war erfolgreich. Calibre und
-Ace sowie die fachlichen Werkzeugbefunde aus EXP-0002 und EXP-0003 bleiben
-offen. Die `Ausbau`-Fälle sind weiterhin nicht materialisiert.
+der Sicherheits- und Reproduzierbarkeitsnachweis war erfolgreich. EXP-0002
+hat zwei daraus synthetisch materialisierte Calibre-Bibliotheken erfolgreich
+über eine Copy-on-read-Grenze projiziert. Ace sowie die fachlichen
+EPUB-/Accessibility-Befunde aus EXP-0003 bleiben offen. Die `Ausbau`-Fälle
+sind weiterhin nicht materialisiert.
