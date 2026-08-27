@@ -5,7 +5,7 @@ Status: BRAINSTORMING — KEINE AUSFÜHRBARE PRODUKTROADMAP
 Stand: 2026-08-27
 
 Artifacts: WI-0002, WI-0003, REQ-0002, RISK-0001, TEST-0001, EXP-0001 bis
-EXP-0005, GATE-0001
+EXP-0006, GATE-0001
 
 ## Ziel
 
@@ -178,12 +178,12 @@ werden.
 
 ### B3 — EXP-0001: wegwerfbare Experimente
 
-EXP-0001 bleibt der Sammelrahmen. Die nun entscheidungsreifen Fragen für
-read-only Calibre-Projektion, EPUB-Evidenz, gestufte Identität und isolierte
-Werkzeugausführung sind als EXP-0002 bis EXP-0005 registriert. Ihre
-kanonischen Eingänge, Pass-, Fail- und Stoppkriterien stehen in
-[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md). EXP-0002 bis EXP-0005 sind
-ausgeführt.
+EXP-0001 bleibt der Sammelrahmen. Die entscheidungsreifen Fragen für
+read-only Calibre-Projektion, EPUB-Evidenz, gestufte Identität, isolierte
+Werkzeugausführung und Eingangstriage-Preflight sind als EXP-0002 bis
+EXP-0006 registriert. Ihre kanonischen Eingänge, Pass-, Fail- und
+Stoppkriterien stehen in [EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md).
+EXP-0002 bis EXP-0005 sind ausgeführt; EXP-0006 ist `proposed`.
 
 #### Calibre-Lesezugang (EXP-0002)
 
@@ -268,6 +268,18 @@ Fragen:
 - Sind Toolprofile reproduzierbar, versioniert und providerneutral
   beschreibbar?
 - Beschädigt ein Abbruch niemals Original oder Fachsystembestand?
+
+#### Eingangstriage-Preflight (EXP-0006)
+
+Fragen:
+
+- Kann eine flache, begrenzte Inspektion Formatfähigkeit und nächste Aktion
+  vor jedem tiefen Werkzeuglauf getrennt bestimmen?
+- Bleiben instabile, unbekannte, geschützte und riskante Eingänge zuverlässig
+  außerhalb des tiefen EPUB-Wegs?
+- Bleiben `unsupported`, `unknown`, Reviewbedarf und Enthaltung getrennt?
+- Sind alle Entscheidungen zweifach reproduzierbar, netzwerklos und ohne
+  Original- oder Fachsystemschreibwirkung?
 
 #### Schreibender Sandbox-Versuch
 
@@ -399,6 +411,7 @@ keine Produktprognose. WI-0002 und der Vergleich der beiden
 Produktzuschnitte sind abgeschlossen. GATE-0001 bleibt nach der begründeten
 Vertagung `proposed`: Beide Kandidaten besitzen noch keine ausreichende
 End-to-End-Evidenz. Vor der erneuten Gate-Auswertung ist genau eine weitere
-Evidenzwelle vorgesehen: ein read-only Eingangstriage-Preflight für Format-
-und Fähigkeitsklassifikation. Diese Wave ist noch nicht registriert oder zur
-Ausführung autorisiert und beginnt weiterhin keinen Produktcode.
+Evidenzwelle vorgesehen: der als EXP-0006 registrierte read-only
+Eingangstriage-Preflight für Format- und Fähigkeitsklassifikation. Sein
+Experimentvertrag ist spezifiziert, die Ausführung aber noch nicht begonnen
+oder autorisiert. Auch EXP-0006 beginnt keinen Produktcode.

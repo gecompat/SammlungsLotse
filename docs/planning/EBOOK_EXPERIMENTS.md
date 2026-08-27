@@ -1,16 +1,18 @@
 # E-Book-Experimentverträge
 
-Status: RUNTIME_EMPIRICAL COMPLETE — EXP-0002 TO EXP-0005 PASSED
+Status: EXP-0002 TO EXP-0005 PASSED — EXP-0006 PROPOSED
 
 Stand: 2026-08-27
 
-Artifacts: EXP-0001, EXP-0002, EXP-0003, EXP-0004, EXP-0005
+Artifacts: EXP-0001, EXP-0002, EXP-0003, EXP-0004, EXP-0005, EXP-0006
 
 ## Zweck und Grenze
 
-Dieses Dokument zerlegt den Sammelrahmen EXP-0001 in vier kleine,
-entscheidungsfähige Experimente. Die Experimentfragen und Passkriterien sind
-dauerhaft; ihre Implementierungen dürfen wegwerfbar bleiben.
+Dieses Dokument zerlegt den Sammelrahmen EXP-0001 in kleine,
+entscheidungsfähige Experimente. EXP-0002 bis EXP-0005 sind ausgeführt;
+EXP-0006 ist registriert und spezifiziert, aber noch nicht ausgeführt. Die
+Experimentfragen und Passkriterien sind dauerhaft; ihre Implementierungen
+dürfen wegwerfbar bleiben.
 
 Kein Experiment wählt den Produkt-Stack, baut eine gemeinsame
 Produktarchitektur oder autorisiert einen Writer. Alle Eingänge stammen aus
@@ -325,12 +327,143 @@ Das Ergebnis qualifiziert ausschließlich diesen wegwerfbaren Podman-
 Linux/amd64-Weg. Es wählt keinen Produktcontainer und ersetzt nicht die
 fachliche Werkzeugbewertung in EXP-0003.
 
+## EXP-0006 — Read-only Eingangstriage-Preflight
+
+Status: REGISTRIERT — NICHT AUSGEFÜHRT
+
+### Entscheidungsfrage
+
+Kann ein flacher, begrenzter Preflight vor jedem tiefen Werkzeuglauf die
+vorhandenen synthetischen S2-Eingänge reproduzierbar so klassifizieren, dass
+kein instabiler, unbekannter, geschützter oder riskanter Eingang irrtümlich
+für die tiefe read-only EPUB-Prüfung freigegeben wird?
+
+Die Gegenhypothese lautet: Die vorhandenen Signale reichen für diese Grenze
+nicht aus oder verlangen bereits unvertretbar tiefe beziehungsweise
+gekoppelte Parser. Auch dieses Ergebnis wäre entscheidungsfähige Evidenz.
+
+### Experimentgrenze
+
+Der Preflight ist kein Produktadapter und keine allgemeine Formatbibliothek.
+Er darf nur die für die Entscheidung erforderlichen Bytes und
+Containerangaben begrenzt als Daten inspizieren. Er führt keinen eingebetteten
+Inhalt aus, folgt keiner entfernten Referenz, umgeht keinen Schutz und
+extrahiert nicht am Original.
+
+Die experimentelle Ausgabe hält mindestens getrennt:
+
+- `format_capability`: `supported`, `unsupported` oder `unknown`;
+- `next_action`: `continue_deep_read_only`, `defer`, `stop`, `review` oder
+  `abstain`;
+- `deep_tool_allowed`: explizites Boolean nur für den geprüften tiefen
+  EPUB-Werkzeugweg;
+- Rohbeobachtungen, Befunde, Evidenzreferenzen und Begründung;
+- angewandtes TEST-0001-Ressourcenprofil und beobachtete Wirkungen.
+
+Diese Literale sind ein Experimentvertrag, kein vorweggenommener öffentlicher
+Produktvertrag.
+
+### Eingänge und Sollentscheidungen
+
+EXP-0006 bindet sich an TEST-0001 `0.2.0`. Die folgende Matrix ist vor dem
+Lauf fest und wird nicht aus dem Ergebnis abgeleitet:
+
+| Eingang oder Kontrolle | `format_capability` | `next_action` | `deep_tool_allowed` |
+|---|---|---|---|
+| `ingress-stable-minimal` | `supported` | `continue_deep_read_only` | `true` |
+| `epub33-valid-reflow` | `supported` | `continue_deep_read_only` | `true` |
+| `ingress-growing-file` | `unknown` | `defer` | `false` |
+| `container-corrupt` | `unsupported` | `stop` | `false` |
+| `container-path-traversal` | `supported` | `stop` | `false` |
+| `container-expansion-limit` | `supported` | `stop` | `false` |
+| `protected-or-encrypted` | `unsupported` | `stop` | `false` |
+| `format-unknown` | `unknown` | `abstain` | `false` |
+| `epub-active-or-remote` | `supported` | `review` | `false` |
+| PDF-Komponente aus `identity-multiformat-edition` | `unsupported` | `stop` | `false` |
+| `run-tool-timeout` nach positiver Vorprüfung | `supported` | `stop` | `true` |
+
+`unsupported` für die PDF-Komponente gilt nur für den in EXP-0006 geprüften
+tiefen EPUB-Weg. Es ist keine Aussage, dass SammlungsLotse oder ein späterer
+Adapter PDF grundsätzlich nicht unterstützen darf.
+
+### Sichere Reihenfolge
+
+1. Eingangsgröße, Hash und Stabilität gegen den versionierten Snapshot prüfen.
+2. Inhaltssignatur vor Dateiendung und ungeprüften Metadaten bewerten.
+3. Container-Eintragsnamen und deklarierte Größen ohne Extraktion gegen die
+   TEST-0001-Grenzen prüfen.
+4. Schutzmarker sowie aktive und entfernte Referenzen begrenzt als Daten
+   inspizieren, ohne Inhalt auszuführen oder abzurufen.
+5. Fähigkeit, Folgeentscheidung, Befunde und Begründung getrennt ausgeben.
+6. Einen tiefen Werkzeugweg nur bei `deep_tool_allowed=true` starten; die
+   Timeout-Kontrolle muss danach weiterhin begrenzt stoppen.
+
+### Zu erhebende Evidenz
+
+- genaue Fixture-, Manifest-, Runner- und Profilhashes;
+- alle erwarteten und tatsächlich beobachteten Klassifikationen je Zeile;
+- Rohbeobachtungen und Befunde aus dem TEST-0001-Oracle;
+- Fälle, in denen ein tiefer Werkzeugstart erlaubt, verhindert oder
+  kontrolliert beendet wurde;
+- zwei unabhängige Wiederholungen mit semantischem Ergebnisdigest;
+- Vorher-/Nachher-Hashes aller Eingänge;
+- Netzwerk-, Dateisystem-, Zeit-, Prozess- und Ausgabegrenzen;
+- Abweichungen ohne nachträgliche Schwellen- oder Profiländerung.
+
+### Passkriterien
+
+- alle elf Matrixzeilen entsprechen der vorab festgelegten Sollentscheidung;
+- kein Fall mit `deep_tool_allowed=false` startet einen tiefen Werkzeugweg;
+- sicherheitskritische Fehlfreigaben betragen exakt null;
+- Signatur, Schutz-, Pfad-, Expansion-, Aktivinhalt- und Remote-Befunde bleiben
+  als getrennte Evidenz sichtbar;
+- `unsupported`, `unknown`, `review` und `abstain` werden nicht
+  zusammengefasst oder als generischer Fehler ausgegeben;
+- beide Wiederholungen sind semantisch identisch;
+- Originalhashes bleiben unverändert; Netzwerk-, Fachsystem- und
+  Originalschreibwirkungen sind exakt null;
+- der 100-ms-Timeout aus `run-tool-timeout` beendet den synthetischen Helfer
+  samt Kindprozessen und schreibt nur in den erlaubten temporären Bereich;
+- alle fallgebundenen Eingangs-, Expansions- und Zeitgrenzen stammen aus dem
+  versionierten TEST-0001-Manifest.
+
+Die Metriken werden je Matrixzeile und Fehlerklasse ausgewiesen. Ein
+Gesamtscore darf eine sicherheitskritische Fehlfreigabe nicht ausgleichen.
+
+### Fail- und Stoppkriterien
+
+- ein instabiler, unbekannter, geschützter, defekter oder riskanter Eingang
+  erreicht entgegen der Matrix den tiefen Werkzeugweg;
+- Dateiendung oder ungeprüfte Metadaten überschreiben die Inhaltssignatur;
+- der Versuch benötigt eine reale oder private Datei, ein Fachsystem oder
+  Netzwerkzugriff;
+- eingebetteter Inhalt wird ausgeführt, eine Remote-Ressource abgerufen,
+  Schutz umgangen oder am Original extrahiert;
+- ein Ressourcenabbruch bleibt unkontrolliert oder hinterlässt Prozesse;
+- Profil, Sollmatrix oder Grenzwerte werden nach Sichtung eines Ergebnisses
+  stillschweigend geändert;
+- die getrennten Ergebniszustände werden zu einem booleschen
+  `safe`/`unsafe`-Wert oder Gesamtscore verdichtet.
+
+### Ausführungsvoraussetzungen
+
+Vor dem ersten empirischen Lauf müssen in einer getrennten Wave mindestens
+ein versionsfestes Ausführungsprofil, der wegwerfbare Runner, ein
+Ergebnisvertrag und ein CI-geeigneter Ergebnisvalidator unter
+`experiments/ebook/exp-0006/` eingecheckt sein. Exakte Befehle, Umgebung,
+Eingangs- und Ausgabepfade sowie Cleanup werden dort vor dem Lauf gebunden.
+
+Diese Vertrags-Wave implementiert oder startet den Versuch nicht. Sie wählt
+weder Produktlaufzeit noch Produktparser und autorisiert keine spätere
+Wiederverwendung des Experimentcodes.
+
 ## Noch nicht registrierte Experimentäste
 
 Die folgenden Themen bleiben Möglichkeiten innerhalb von EXP-0001, sind aber
 noch keine ausführungsreifen Experimente:
 
-- allgemeine Format- und Sicherheitsklassifikation über EPUB hinaus;
+- tiefe Format- und Sicherheitsanalyse über den engen EXP-0006-Preflight
+  hinaus;
 - Extraktion und externe Metadatenprovider;
 - PDF- und OCR-Qualität;
 - Volltext- und semantische Suche;
@@ -338,8 +471,8 @@ noch keine ausführungsreifen Experimente:
 - Reparatur, Transformation und jeder schreibende Sandbox-Versuch.
 
 Für diese Äste fehlen mindestens ein passender TEST-0001-Ausbau, konkrete
-Nutzeraufgaben oder ein separates Writer-Gate. Es werden noch keine weiteren
-EXP-Referenzen reserviert.
+Nutzeraufgaben oder ein separates Writer-Gate. Über EXP-0006 hinaus werden
+noch keine weiteren EXP-Referenzen reserviert.
 
 ## Vorgesehene Erkenntnisreihenfolge
 
@@ -352,10 +485,15 @@ EXP-Referenzen reserviert.
 6. Ergebnisse ohne gemeinsame Spike-Implementierung vergleichen —
    abgeschlossen;
 7. Eingangstriage und Bestandsprüfung an GATE-0001 gegenüberstellen — mit
-   begründeter Vertagung abgeschlossen.
+   begründeter Vertagung abgeschlossen;
+8. EXP-0006 als genau eine nächste Evidenzwelle registrieren und spezifizieren
+   — abgeschlossen;
+9. EXP-0006 in einer getrennten, gebundenen Experiment-Wave ausführen —
+   offen;
+10. GATE-0001 anhand des versionierten EXP-0006-Ergebnisses erneut auswerten
+    — offen.
 
 Die Reihenfolge ist ein Lernplan und keine freigegebene Produktroadmap.
-Der Vergleich steht unter
+Der Vergleich und die genaue Begrenzung von EXP-0006 stehen unter
 [EBOOK_GATE_0001_COMPARISON.md](EBOOK_GATE_0001_COMPARISON.md). Vor einer
-erneuten Gate-Auswertung ist genau eine noch zu registrierende Evidenzwelle
-für den read-only Eingangstriage-Preflight vorgesehen.
+erneuten Gate-Auswertung wird nur dieses Experiment ausgeführt.

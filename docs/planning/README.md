@@ -24,9 +24,10 @@ abgeschlossen. TEST-0001 ist mit 26
 synthetischen Kernfällen in der aktiven Version `0.2.0` ausführbar und
 `ready`; `0.1.0` bleibt historisch erhalten. EXP-0002 bis EXP-0005 sind
 empirisch abgeschlossen. CAP-0002, REQ-0001, REQ-0002, EXP-0001 und
-GATE-0001 sind vorgeschlagen. GATE-0001 wurde mit dem Ergebnis `VERTAGT`
-ausgewertet und bleibt offen; weder Eingangstriage noch Bestandsprüfung ist
-angenommen.
+GATE-0001 sind vorgeschlagen. EXP-0006 ist als genau eine nächste
+Evidenzwelle registriert und spezifiziert, aber noch nicht ausgeführt.
+GATE-0001 wurde mit dem Ergebnis `VERTAGT` ausgewertet und bleibt offen;
+weder Eingangstriage noch Bestandsprüfung ist angenommen.
 RISK-0001 hält das bereits anerkannte Risiko einer frühen fachlichen oder
 technischen Kopplung fest. Keines dieser Artefakte wählt einen
 Technologie-Stack, bestimmt den ersten Vertikalablauf oder autorisiert
@@ -67,9 +68,10 @@ EXP-0005 hat die gemeinsame Sicherheitsqualifikation, EXP-0002 die lokale
 Calibre-Projektion über eine Copy-on-read-Grenze, EXP-0003 die verlustfreie
 EPUBCheck-/Ace-Evidenzprojektion und EXP-0004 die gestufte
 Identitätsbewertung bestanden. Ihr Vergleich hat keine ausreichende
-End-to-End-Evidenz für einen der beiden Kandidaten ergeben. Als genau eine
-nächste Evidenzwelle ist ein noch zu registrierender read-only
-Eingangstriage-Preflight für Format- und Fähigkeitsklassifikation abgegrenzt.
+End-to-End-Evidenz für einen der beiden Kandidaten ergeben. EXP-0006 ist als
+genau eine nächste Evidenzwelle für einen read-only Eingangstriage-Preflight
+registriert und vollständig als Experimentvertrag abgegrenzt. Der Lauf bleibt
+eine getrennte Wave; weitere Experimentäste werden davor nicht verfolgt.
 
 ## Nicht übernehmen
 

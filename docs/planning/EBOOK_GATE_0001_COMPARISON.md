@@ -103,7 +103,8 @@ Produktimplementierung.
 
 Vor einer erneuten Gate-Auswertung wird genau eine weitere Evidenzwelle
 verfolgt: **read-only Eingangstriage-Preflight für Format- und
-Fähigkeitsklassifikation**.
+Fähigkeitsklassifikation**. Sie ist als EXP-0006 registriert und unter
+[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md) spezifiziert.
 
 Die Wave soll ausschließlich mit synthetischen TEST-0001-Eingängen prüfen,
 ob vor jedem tiefen Werkzeuglauf reproduzierbar unterschieden werden kann:
@@ -130,11 +131,12 @@ ob vor jedem tiefen Werkzeuglauf reproduzierbar unterschieden werden kann:
 - Profil, Eingänge, erwartete Ergebnisse und Stopkriterien sind vor dem Lauf
   versioniert.
 
-Die Wave ist noch kein registriertes Experiment und durch dieses Gate nicht
-zur Ausführung autorisiert. Vor ihrer Umsetzung benötigt sie einen eigenen
-Registry-Eintrag und einen engen Experimentvertrag. Sie darf keinen
-Produktcode, keine UI, keine Persistenz, keinen Writer und keine reale oder
-private Datei einführen.
+EXP-0006 ist `proposed`. Registrierung und Experimentvertrag autorisieren
+noch keinen Lauf. Vor der Ausführung müssen das exakte Ausführungsprofil, der
+wegwerfbare Runner, der Ergebnisvertrag und der Ergebnisvalidator in einer
+getrennten Wave versioniert werden. EXP-0006 darf keinen Produktcode, keine
+UI, keine Persistenz, keinen Writer und keine reale oder private Datei
+einführen.
 
 ## Wiederöffnung und Ausgänge
 
