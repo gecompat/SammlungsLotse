@@ -31,6 +31,8 @@ jobs:
         run: python tools/fixtures/validate_ebook_reference_corpus.py
       - name: Validate EXP-0002 empirical result contract
         run: python tools/experiments/run_exp_0002.py --validate-result
+      - name: Validate EXP-0003 empirical result contract
+        run: python tools/experiments/run_exp_0003.py --validate-result
       - name: Validate EXP-0005 empirical result contract
         run: python tools/experiments/run_exp_0005.py --validate-result
       - name: Run governance tests
@@ -43,4 +45,5 @@ jobs:
           tools/fixtures
           tools/experiments
           experiments/ebook/exp-0002
+          experiments/ebook/exp-0003
           experiments/ebook/exp-0005

@@ -51,6 +51,7 @@ Für die Governance- und Fixture-Werkzeuge gelten:
       tools/fixtures \
       tools/experiments \
       experiments/ebook/exp-0002 \
+      experiments/ebook/exp-0003 \
       experiments/ebook/exp-0005
 
 Für die ausführbare synthetische TEST-0001-Kernfassung gilt zusätzlich:
@@ -60,7 +61,7 @@ Für die ausführbare synthetische TEST-0001-Kernfassung gilt zusätzlich:
 Die Prüfung validiert Manifest, Hashes, Herkunft, zentrale Fallorakel,
 Datenschutzgrenzen, einen kontrollierten Timeout, bytegenaue Regeneration und
 die Unverändertheit aller Fixture-Eingänge. Sie führt keine externen
-E-Book-Werkzeuge und keines der Experimente EXP-0003 oder EXP-0004 aus.
+E-Book-Werkzeuge und EXP-0004 nicht aus.
 
 Für den eingecheckten empirischen EXP-0002-Nachweis gilt:
 
@@ -71,6 +72,17 @@ Sie bindet das Ergebnis an Profil und TEST-0001-Version und prüft alle
 dreizehn Akzeptanzwerte, beide getrennten Zielbibliotheken sowie unveränderte
 Quell-Snapshots. Der explizite lokale Lauf ist unter
 `experiments/ebook/exp-0002/` dokumentiert.
+
+Für den eingecheckten empirischen EXP-0003-Nachweis gilt:
+
+    python tools/experiments/run_exp_0003.py --validate-result
+
+Die CI-geeignete Prüfung wiederholt weder externe Downloads, den
+netzwerkabhängigen `npm audit` noch Containerläufe. Sie prüft Profilbindung,
+alle vierzehn Akzeptanzwerte, sieben Fälle mit je zwei Wiederholungen,
+Rohbericht-Referenzen, Pfadgrenzen, Eingangs-Hashes und die sichtbare offene
+Ace-Risikoklassifikation. Der vollständige lokale Lauf ist unter
+`experiments/ebook/exp-0003/` dokumentiert.
 
 Für den eingecheckten empirischen EXP-0005-Nachweis gilt:
 

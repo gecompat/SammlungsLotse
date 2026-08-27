@@ -202,6 +202,7 @@ Fallzahl, Fallkeys oder Oracles zu verändern.
 EPUBCheck wurde im Rahmen von EXP-0005 gegen die aktuelle Fassung ausgeführt;
 der Sicherheits- und Reproduzierbarkeitsnachweis war erfolgreich. EXP-0002
 hat zwei daraus synthetisch materialisierte Calibre-Bibliotheken erfolgreich
-über eine Copy-on-read-Grenze projiziert. Ace sowie die fachlichen
-EPUB-/Accessibility-Befunde aus EXP-0003 bleiben offen. Die `Ausbau`-Fälle
-sind weiterhin nicht materialisiert.
+über eine Copy-on-read-Grenze projiziert. EXP-0003 hat EPUBCheck- und
+Ace-Rohberichte gegen sieben ausgewählte Fälle je zweimal erhoben und
+verlustfrei referenziert; der manuelle Accessibility-Fall bleibt ausdrücklich
+manuell. EXP-0004 und die `Ausbau`-Fälle bleiben offen.

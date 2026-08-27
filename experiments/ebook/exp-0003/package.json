@@ -1,0 +1,9 @@
+{
+  "name": "sammlungslotse-exp-0003-ace-image",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@daisy/ace": "1.4.6"
+  }
+}

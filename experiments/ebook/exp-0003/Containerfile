@@ -1,0 +1,27 @@
+FROM ghcr.io/puppeteer/puppeteer@sha256:75e3404b1df87e39eec2af9fa95e4e0fdbc5c73fc924aafa1429c89a2a3e8654
+
+LABEL org.opencontainers.image.title="SammlungsLotse EXP-0003 Ace probe"
+LABEL org.opencontainers.image.description="Disposable synthetic Ace evidence image; not a product runtime"
+LABEL org.opencontainers.image.source="https://github.com/gecompat/SammlungsLotse"
+LABEL org.opencontainers.image.version="exp-0003-ace-1.4.6-puppeteer-24.43.1/v2"
+LABEL org.opencontainers.image.licenses="MIT AND Apache-2.0"
+
+USER root
+WORKDIR /opt/ace
+COPY package.json package-lock.json ./
+RUN PUPPETEER_SKIP_DOWNLOAD=true \
+    ELECTRON_SKIP_BINARY_DOWNLOAD=1 \
+    npm ci --omit=dev --ignore-scripts --no-audit --no-fund \
+    && ./node_modules/.bin/ace-puppeteer --version \
+    && browser_home="$(getent passwd "$PPTRUSER_UID" | cut -d: -f6)" \
+    && browser_dir="$(find "$browser_home/.cache/puppeteer/chrome" -mindepth 2 -maxdepth 2 -type d -name chrome-linux64 -print -quit)" \
+    && test -n "$browser_dir" \
+    && cp -a "$browser_dir" /opt/chrome \
+    && chmod -R a=rX /opt/chrome \
+    && test -x /opt/chrome/chrome
+
+COPY probe.js /opt/experiment/probe.js
+RUN chown -R 10042:10042 /opt/ace /opt/experiment
+
+USER 10042:10042
+ENTRYPOINT ["/usr/bin/env", "-i", "ACE_TIMEOUT_EXTENSION=30000", "ACE_TIMEOUT_INITIAL=10000", "HOME=/tmp/home", "LANG=en_US.UTF-8", "PATH=/opt/ace/node_modules/.bin:/usr/local/bin:/usr/bin:/bin", "PUPPETEER_EXECUTABLE_PATH=/opt/chrome/chrome", "XDG_CONFIG_HOME=/tmp/config", "XDG_STATE_HOME=/tmp/state", "node", "/opt/experiment/probe.js"]
