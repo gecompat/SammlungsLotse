@@ -6,9 +6,9 @@ Stand: 2026-08-27
 
 ## Phase
 
-Erster eng begrenzter Produktprototyp implementiert und lokal vollständig
-abgenommen; eine weitere reversible Evidenz-Wave ist angenommen, aber noch
-nicht ausgeführt.
+Erster eng begrenzter Produktprototyp und die nachfolgende reversible
+Snapshot-Übergabewave vollständig ausgeführt; ein erster tiefer read-only
+Produktadapter ist nur vorgeschlagen und noch nicht angenommen.
 
 ## Vorhanden
 
@@ -73,15 +73,17 @@ nicht ausgeführt.
   injizierbaren Snapshot-Port deterministisch belegt;
 - abgeschlossenes GATE-0002 mit getrenntem Vergleich von Kern-/CLI-Härtung,
   tiefer read-only Adapterfortsetzung und Pausieren;
-- angenommenes, noch nicht ausgeführtes EXP-0007 für den providerneutralen
-  Vergleich von drei Snapshot-zu-Werkzeug-Übergaben;
-- vorgeschlagenes GATE-0003, das vor jedem Produktadapter-Arbeitsgegenstand
-  die EXP-0007-Evidenz getrennt auswerten muss.
+- abgeschlossenes EXP-0007 mit getrennten Windows- und Linux/Podman-Profilen,
+  16/16 erfüllten Kriterien, qualifiziertem Byte-Stream und task-privater
+  Materialisierung sowie abgelehntem Original-Locator;
+- abgeschlossenes GATE-0003 mit V2 als ausgewählter Standardnaht;
+- vorgeschlagenes WI-0005 für die getrennte Begrenzung eines ersten tiefen
+  read-only Werkzeugadapters; es ist nicht zur Implementierung angenommen.
 
 ## Nicht vorhanden
 
 - allgemeiner Technologie-Stack jenseits der reversiblen WI-0004-Auswahl;
-- qualifizierte Snapshot-zu-Werkzeug-Übergabe und tiefer Produktadapter;
+- tiefer Produktadapter und angenommener konkreter Werkzeugprovider;
 - Laufzeit- oder Deploymentkonzept;
 - Produktdatenbank oder Suchindex;
 - öffentliche REST-, Agent- oder Browser-Schnittstelle sowie eine
@@ -91,6 +93,32 @@ nicht ausgeführt.
 - Release.
 
 ## Validierung
+
+EXP-0007-Ausführungs- und GATE-0003-Wave: PROJECT_SEMANTIC und vollständige
+RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-27. Repository- und
+v2-Registry-Prüfung waren für 24 registrierte Artefakte erfolgreich.
+TEST-0001 bestätigte 26 Fälle und 44 Komponenten; EXP-0002 bis EXP-0007
+bestätigten 13/13, 14/14, 15/15, 11/11, 16/16 und 16/16 Kriterien. Alle 63
+synthetischen Repository-Tests, `compileall` und `git diff --check` waren
+erfolgreich. Der Produktcode blieb unverändert. Dies belegt Experiment-,
+Gate-, Registry-, Dokument-, Fixture- und Regressionsintegrität, nicht die
+Annahme oder Implementierung von WI-0005 und nicht Produktreife.
+
+EXP-0007 und GATE-0003: RUNTIME_EMPIRICAL am 2026-08-27 unter Python 3.12.10
+auf Windows und Podman 6.1.0 auf Linux/amd64 ausgeführt. Je Plattform
+bestanden zwölf positive Prozessläufe über zwei synthetische Snapshots, drei
+Varianten und zwei Wiederholungen; insgesamt waren alle 16 Akzeptanzkriterien
+erfüllt. V1 und V2 sind `QUALIFIED`, V3 ist `REJECTED`. Unfreigegebene,
+instabile, hashabweichende und übergroße Eingänge starteten keinen Prozess;
+Snapshot-, Original-, Output-, Timeout-, Kindprozess-, Temp-, Crashrest- und
+Containergrenzen waren wirksam. Die optionale V2-Kompatibilitätswiederholung
+gegen das bereits gebundene lokale EPUBCheck-5.3.0-Profil war für beide
+synthetischen Eingänge qualifiziert. Der Nachweis qualifiziert die
+Übergabenaht, nicht Produktadapter, Providerwahl, reale Medien oder
+Produktreife. Ein erster nicht gewerteter Lauf deckte eine Windows-Cleanup-
+Lücke im optionalen Kompatibilitätsschritt auf; nach Korrektur und neuem
+Preimage wurden beide Plattformen und die Kompatibilität vollständig neu
+ausgeführt.
 
 GATE-0002-/EXP-0007-Planungswave: PROJECT_SEMANTIC und
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-27 unter Python
@@ -315,12 +343,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-Nach Integration des kanonischen EXP-0007-Plans darf ausschließlich diese
-Evidenz-Wave ausgehend vom dann exakten `origin/main` ausgeführt werden. Sie
-verwendet nur synthetische Eingaben, Experimentcode und nicht versionierte
-aufgabenspezifische Temp- und Ergebnisverzeichnisse. Produktcode, konkrete
-Calibre- oder Werkzeugadapter, Dubletten, Metadaten, Routing, Persistenz,
-Browser, REST, Agents und Writes bleiben bis zu eigener Annahme außerhalb.
+WI-0005 bleibt `proposed`. Seine nächste getrennte Bewertungs-Wave prüft
+aktuelle Primärquellen, Lizenz, Wartungsstand, Offline- und Sicherheitsprofil,
+providerneutralen Evidenzvertrag, Taskbereich und Recovery sowie die kleinste
+lokale Nutzeroberfläche. Erst danach darf WI-0005 angenommen, enger gehärtet
+oder pausiert werden. Produktcode, konkrete Calibre- oder Werkzeugadapter,
+Dubletten, Metadaten, Routing, Persistenz, Browser, REST, Agents und Writes
+bleiben bis zur eigenen Annahme außerhalb.
 
 ## Offene Punkte
 
@@ -333,7 +362,7 @@ Browser, REST, Agents und Writes bleiben bis zu eigener Annahme außerhalb.
 
 ## Blocker
 
-Keine bekannten Blocker für EXP-0007. Ein Produktadapter ist durch das noch
-nicht ausgeführte EXP-0007 und die ausstehende GATE-0003-Auswertung blockiert.
+Keine bekannten Blocker für die Bewertung von WI-0005. Ein Produktadapter ist
+durch den nur vorgeschlagenen, nicht angenommenen Arbeitsgegenstand blockiert.
 Schreibende Fähigkeiten bleiben unabhängig davon hinter einem eigenen
 Writer-Gate.

@@ -259,7 +259,7 @@
       "created_on": "2026-08-27",
       "external_refs": [],
       "kind": "experiment",
-      "locator": "docs/planning/EBOOK_DEEP_READONLY_HANDOFF_EXPERIMENT.md",
+      "locator": "experiments/ebook/exp-0007/README.md",
       "registration_state": "REGISTERED",
       "relations": [
         {
@@ -295,7 +295,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Unveränderlichen Snapshot-zu-Werkzeug-Übergang qualifizieren"
     },
     "GATE-0001": {
@@ -389,7 +389,7 @@
       "created_on": "2026-08-27",
       "external_refs": [],
       "kind": "gate",
-      "locator": "docs/planning/EBOOK_DEEP_READONLY_HANDOFF_EXPERIMENT.md",
+      "locator": "docs/planning/EBOOK_GATE_0003_HANDOFF_DECISION.md",
       "registration_state": "REGISTERED",
       "relations": [
         {
@@ -413,7 +413,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "Tiefen read-only Werkzeugadapter zur Planung freigeben"
     },
     "REQ-0001": {
@@ -607,6 +607,52 @@
       ],
       "status": "done",
       "title": "Dünnen read-only E-Book-Eingangstriage-Prototyp umsetzen"
+    },
+    "WI-0005": {
+      "acceptance_criteria": "Ein eigener Produktarbeitsgegenstand beschreibt eine providerneutrale Adaptergrenze, die nur einen bereits freigegebenen unveränderlichen Snapshot entgegennimmt, ihn außerhalb des Kerns task-privat materialisiert, Hash, Ressourcen, Prozess, Output und Cleanup fail-closed bindet, einen Werkzeugbefund als Evidenz projiziert und weder Originalpfad noch Writer, Persistenz, Netzwerkdienst oder allgemeine Runtime einführt.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0441c-f12a-70cd-a6ed-b93e8e4a2e46",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0003",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "EXP-0007",
+          "type": "related_to"
+        },
+        {
+          "target": "EXP-0003",
+          "type": "related_to"
+        },
+        {
+          "target": "EXP-0005",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "Ersten tiefen read-only Werkzeugadapter begrenzen"
     }
   },
   "prefixes": {

@@ -53,11 +53,11 @@ Werkzeugwegs, drei positiv gegatete Kontrollen starten ihn und kritische
 Fehlfreigaben betragen null. Alle Verträge und Ergebnisgrenzen stehen unter
 docs/planning/EBOOK_EXPERIMENTS.md.
 
-GATE-0002 hat nach dem tatsächlichen WI-0004-Nutzwert Kern-/CLI-Härtung, eine
-tiefe read-only Adapterfortsetzung und das Pausieren verglichen. Angenommen
-ist nur EXP-0007 als reversible Evidenz-Wave für die Snapshot-zu-Werkzeug-
-Übergabe. GATE-0003 bleibt vorgeschlagen und blockiert jeden
-Produktadapter-Arbeitsgegenstand bis zur getrennten Auswertung.
+GATE-0002, EXP-0007 und GATE-0003 sind `done`. EXP-0007 hat V1 und V2 unter
+getrennten Windows- und Linux/Podman-Profilen qualifiziert und V3 wegen
+Originalpfadweitergabe und reproduzierter TOCTOU-Lücke abgelehnt. GATE-0003
+wählt V2, die task-private hashgebundene Materialisierung, als Standardnaht.
+WI-0005 ist nur vorgeschlagen und autorisiert noch keinen Produktcode.
 
 ## Fortsetzung
 
@@ -68,11 +68,11 @@ In-Memory-Snapshot, flachem Preflight und sichtbar begründeter CLI-Folgeaktion
 oder Enthaltung. Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing,
 Persistenz, Browser, REST, Agents und jeder Writer bleiben außerhalb.
 
-Als Nächstes darf ausschließlich EXP-0007 ausgeführt werden. Es vergleicht
-Byte-Stream, task-private Materialisierung und erneutes Öffnen des
-Original-Locators unter getrennten Windows- und Linux/Podman-Profilen. Die
-Ausführung bleibt mit synthetischen Medien außerhalb von `src/`; vor der
-getrennten GATE-0003-Auswertung wird kein Produktadapter begonnen.
+Als Nächstes wird WI-0005 getrennt bewertet. Vor einer Annahme sind ein
+aktueller Werkzeugkandidat, Lizenz und Wartungsstand, Offline- und
+Sicherheitsprofil, providerneutrale Evidenzprojektion, Taskbereich und
+Recovery sowie die kleinste lokale Nutzeroberfläche festzulegen. Ohne diese
+Bewertung beginnt kein Produktadapter.
 
 ## Harte Grenzen
 
@@ -86,8 +86,8 @@ getrennten GATE-0003-Auswertung wird kein Produktadapter begonnen.
 ## Noch nicht entschieden
 
 - erste vollständige Medienlinie jenseits des WI-0004-Prototyps;
-- eine qualifizierte Übergabeform zwischen WI-0004-Snapshot und tiefem
-  Werkzeugprozess; EXP-0007 soll diese Frage erst beantworten;
+- Annahme oder Ablehnung von WI-0005 und der erste konkrete
+  Werkzeugprovider; V2 ist nur die qualifizierte Übergabenaht;
 - Programmiersprache und Laufzeit jenseits der reversiblen WI-0004-Auswahl
   Python 3.12 mit Standardbibliothek;
 - Persistenz und Suche;
