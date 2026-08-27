@@ -24,11 +24,13 @@ Vor einer wesentlichen Änderung sind abhängig vom Umfang zu lesen:
 
 ## Projektphase
 
-Das Projekt befindet sich vor der Entwicklungsplanung. Es existiert noch keine
-freigegebene Produktarchitektur und keine Produktimplementierung.
+Das Projekt besitzt mit WI-0004 einen ersten eng begrenzten, reversiblen
+Produktprototyp. Es existiert weiterhin keine freigegebene allgemeine
+Produktarchitektur, technische Roadmap oder vollständige Medienlinie.
 
-Produktcode, Laufzeitabhängigkeiten und Infrastruktur werden erst nach einem
-registrierten und angenommenen Arbeitsgegenstand eingeführt.
+Weiterer Produktcode, Laufzeitabhängigkeiten und Infrastruktur werden erst
+nach einem registrierten und angenommenen Arbeitsgegenstand eingeführt. Ein
+Experimentnachweis autorisiert keine Produktübernahme.
 
 ## Produktgrenzen
 

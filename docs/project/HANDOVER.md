@@ -53,6 +53,12 @@ Werkzeugwegs, drei positiv gegatete Kontrollen starten ihn und kritische
 Fehlfreigaben betragen null. Alle Verträge und Ergebnisgrenzen stehen unter
 docs/planning/EBOOK_EXPERIMENTS.md.
 
+GATE-0002 hat nach dem tatsächlichen WI-0004-Nutzwert Kern-/CLI-Härtung, eine
+tiefe read-only Adapterfortsetzung und das Pausieren verglichen. Angenommen
+ist nur EXP-0007 als reversible Evidenz-Wave für die Snapshot-zu-Werkzeug-
+Übergabe. GATE-0003 bleibt vorgeschlagen und blockiert jeden
+Produktadapter-Arbeitsgegenstand bis zur getrennten Auswertung.
+
 ## Fortsetzung
 
 WI-0004 ist `done`. Der Produktcode liegt unter
@@ -62,10 +68,11 @@ In-Memory-Snapshot, flachem Preflight und sichtbar begründeter CLI-Folgeaktion
 oder Enthaltung. Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing,
 Persistenz, Browser, REST, Agents und jeder Writer bleiben außerhalb.
 
-Es beginnt kein automatischer Folgeast. Die nächste Entscheidung vergleicht
-Kern-/CLI-Härtung, die Planung eines austauschbaren tiefen read-only
-Werkzeugadapters und das Pausieren der E-Book-Linie zugunsten einer anderen
-Medienlinie.
+Als Nächstes darf ausschließlich EXP-0007 ausgeführt werden. Es vergleicht
+Byte-Stream, task-private Materialisierung und erneutes Öffnen des
+Original-Locators unter getrennten Windows- und Linux/Podman-Profilen. Die
+Ausführung bleibt mit synthetischen Medien außerhalb von `src/`; vor der
+getrennten GATE-0003-Auswertung wird kein Produktadapter begonnen.
 
 ## Harte Grenzen
 
@@ -79,6 +86,8 @@ Medienlinie.
 ## Noch nicht entschieden
 
 - erste vollständige Medienlinie jenseits des WI-0004-Prototyps;
+- eine qualifizierte Übergabeform zwischen WI-0004-Snapshot und tiefem
+  Werkzeugprozess; EXP-0007 soll diese Frage erst beantworten;
 - Programmiersprache und Laufzeit jenseits der reversiblen WI-0004-Auswahl
   Python 3.12 mit Standardbibliothek;
 - Persistenz und Suche;

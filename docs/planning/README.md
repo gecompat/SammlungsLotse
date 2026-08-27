@@ -17,6 +17,8 @@ Experimente und spätere Entscheidungen:
 - [E-Book-Erkundungs- und Erkenntnisplan](EBOOK_EXPLORATION_PLAN.md);
 - [GATE-0001-Vergleich der ersten Vertikalabläufe](EBOOK_GATE_0001_COMPARISON.md);
 - [WI-0004: dünner read-only Eingangstriage-Prototyp](EBOOK_INTAKE_PROTOTYPE.md);
+- [GATE-0002: Fortsetzung nach dem Prototyp](EBOOK_GATE_0002_AFTER_PROTOTYPE.md);
+- [EXP-0007 und GATE-0003: Snapshot-zu-Werkzeug-Übergang](EBOOK_DEEP_READONLY_HANDOFF_EXPERIMENT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -46,6 +48,12 @@ von Python 3.12 und Standardbibliothek gilt nur für diesen reversiblen
 Prototyp. Calibre, tiefe Werkzeuge, Persistenz, Browser, REST, Agents und
 Writes bleiben außerhalb.
 
+GATE-0002 ist `done`: Als nächste reversible Erkenntnis-Wave ist nur EXP-0007
+angenommen. Das Experiment vergleicht drei providerneutrale Übergaben eines
+unveränderlichen Snapshots an einen tiefen read-only Werkzeugprozess.
+GATE-0003 bleibt `proposed`; vor seiner getrennten Auswertung ist kein
+Produktadapter-Arbeitsgegenstand autorisiert.
+
 ## Verbindliche Ausgangsbasis
 
 Vor der ersten Planungs-Wave gelten:
@@ -72,7 +80,8 @@ Die erste Planungs-Wave soll:
    Arbeitsgegenstände über die Registry registrieren;
 8. erst danach eine ausführbare Reihenfolge bilden.
 
-WI-0004 ist als erste Implementierungs-Wave entschieden. Diese Auswahl gilt
+WI-0004 ist als erste Implementierungs-Wave entschieden und abgeschlossen.
+Diese Auswahl gilt
 nur für den dünnen Eingangstriage-Prototyp und nicht als Annahme der gesamten
 E-Book-Linie.
 
@@ -86,9 +95,12 @@ Kandidaten. Die daraufhin als genau eine Evidenzwelle ausgeführte
 EXP-0006-Qualifikation hat den engen read-only Eingangstriage-Preflight
 synthetisch bestanden. Die getrennte Neubewertung hat deshalb S2 innerhalb
 dieser Grenze angenommen. WI-0004 hat den dünnen Prototyp anschließend
-registriert, vollständig begrenzt, implementiert und lokal abgenommen. Die
-nächste Wave ist wieder eine ausdrückliche Auswahl und keine automatische
-Fortsetzung der E-Book-Linie.
+registriert, vollständig begrenzt, implementiert und lokal abgenommen.
+GATE-0002 hat daraufhin Kern-/CLI-Härtung, die Planung eines tiefen read-only
+Adapters und das Pausieren verglichen. Ausgewählt ist ausschließlich EXP-0007
+als Evidenz-Wave für die Snapshot-zu-Werkzeug-Übergabe. Erst GATE-0003 darf
+danach einen Produktadapter-Arbeitsgegenstand zulassen, zusätzliche Härtung
+oder Evidenz verlangen oder die E-Book-Linie pausieren.
 
 ## Nicht übernehmen
 
