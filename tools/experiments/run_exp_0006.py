@@ -264,16 +264,24 @@ def run_repetition(
     exit_code: int | None = None
     try:
         execute(create_arguments(profile, name))
-        execute(["podman", "start", name])
-        waited = execute(
-            ["podman", "wait", name],
+        completed = execute(
+            ["podman", "start", "--attach", name],
             timeout=float(profile["container_runtime"]["timeout_seconds"]),
+            check=False,
         )
-        exit_code = int(waited.stdout.strip().splitlines()[-1])
         inspection = load_json_from_command(["podman", "inspect", name])[0]
+        exit_code = int(inspection["State"]["ExitCode"])
         if exit_code != 0:
-            raise RuntimeError(f"EXP-0006 container exited with {exit_code}")
-        execute(["podman", "cp", f"{name}:/output/repetition.json", str(output_path)])
+            diagnostic = (completed.stderr or completed.stdout).strip()[-2000:]
+            raise RuntimeError(
+                f"EXP-0006 container exited with {exit_code}: {diagnostic}"
+            )
+        serialized = completed.stdout
+        if not serialized.strip():
+            raise RuntimeError("EXP-0006 container produced no bounded stdout result")
+        if len(serialized.encode("utf-8")) > profile["result_max_bytes"]:
+            raise RuntimeError("EXP-0006 repetition output exceeds the retained limit")
+        output_path.write_text(serialized, encoding="utf-8")
     except subprocess.TimeoutExpired as exc:
         execute(["podman", "kill", name], check=False)
         execute(["podman", "wait", name], check=False)

@@ -495,7 +495,7 @@ def main() -> int:
     parser.add_argument("--profile", type=Path)
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--corpus-root", type=Path)
-    parser.add_argument("--output", type=Path)
+    parser.add_argument("--output")
     parser.add_argument("--deep-tool", type=Path)
     args = parser.parse_args()
     if args.deep_tool is not None:
@@ -509,7 +509,9 @@ def main() -> int:
     serialized = json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
     if len(serialized.encode("utf-8")) > int(profile["result_max_bytes"]):
         raise RuntimeError("EXP-0006 repetition output exceeds the profile limit")
-    args.output.write_text(serialized, encoding="utf-8")
+    if args.output != "-":
+        raise RuntimeError("EXP-0006 output must use the bounded stdout channel")
+    sys.stdout.write(serialized)
     return 0
 
 

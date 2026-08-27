@@ -13,4 +13,4 @@ ENV HOME=/tmp/home \
     PATH=/usr/local/bin:/usr/bin:/bin
 
 USER 65532:65532
-ENTRYPOINT ["/usr/bin/env", "-i", "HOME=/tmp/home", "LANG=C.UTF-8", "PATH=/usr/local/bin:/usr/bin:/bin", "python", "/opt/experiment/probe.py", "--profile", "/opt/experiment/execution-profile.json", "--manifest", "/corpus/manifest.json", "--corpus-root", "/corpus", "--output", "/output/repetition.json"]
+ENTRYPOINT ["/usr/bin/env", "-i", "HOME=/tmp/home", "LANG=C.UTF-8", "PATH=/usr/local/bin:/usr/bin:/bin", "python", "/opt/experiment/probe.py", "--profile", "/opt/experiment/execution-profile.json", "--manifest", "/corpus/manifest.json", "--corpus-root", "/corpus", "--output", "-"]

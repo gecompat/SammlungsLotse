@@ -29,8 +29,9 @@ sie sind kein Entscheidungs-Oracle.
   read-only, extrahiert keine Originale und führt keine eingebetteten Inhalte
   aus.
 - `tools/experiments/run_exp_0006.py` baut die Einweg-Umgebung, führt zwei
-  Wiederholungen aus, prüft deren Laufzeit-Isolation und erzeugt erst danach
-  das versionierbare Ergebnis.
+  Wiederholungen aus, übernimmt deren jeweils größenbegrenztes Ergebnis direkt
+  über den angehängten Standardausgabekanal, prüft die Laufzeit-Isolation und
+  erzeugt erst danach das versionierbare Ergebnis.
 - `tests/experiments/test_exp_0006.py` prüft Profil, Entscheidungs-Matrix,
   Oracle-Unabhängigkeit, Deep-Tool-Gate und — sobald vorhanden — das
   eingefrorene Ergebnis.
@@ -38,7 +39,9 @@ sie sind kein Entscheidungs-Oracle.
 Jede Wiederholung läuft ohne Netzwerk, mit read-only Root-Dateisystem,
 read-only Fixture-Mount, leerer Capability-Menge, `no-new-privileges`, fester
 UID/GID sowie CPU-, RAM-, PID-, Zeit-, tmpfs- und Ergebnisgrenzen. Schreibbar
-sind nur die begrenzten Container-tmpfs-Mounts `/tmp` und `/output`.
+sind nur die begrenzten Container-tmpfs-Mounts `/tmp` und `/output`; das
+Ergebnis verlässt den Container über den größenbegrenzten Standardausgabekanal
+und wird erst vom Host-Runner im Artefaktpfad abgelegt.
 
 ## Ausführung und Validierung
 
