@@ -27,7 +27,14 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - registrierter E-Book-Möglichkeitenraum CAP-0002 und vorgeschlagene
   mehrdimensionale Qualitätsanforderung REQ-0001;
 - laufender Erkundungsgegenstand WI-0002 mit RISK-0001, TEST-0001, EXP-0001
-  und GATE-0001.
+  und GATE-0001;
+- auf Dokumentationsebene abgeschlossene B1-Wave WI-0003 mit sechs
+  Nutzerentscheidungen, Qualitäts- und Automatisierungsmatrix, Messverträgen
+  und asymmetrischen Fehlerkosten;
+- vorgeschlagene Anforderung REQ-0002 sowie getrennte Experimentverträge
+  EXP-0002 bis EXP-0005;
+- konkretisierter, noch nicht ausgeführter Testvertrag TEST-0001 mit Kern-
+  und Ausbau-Sollfällen.
 
 ## Nicht vorhanden
 
@@ -41,6 +48,14 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - Release.
 
 ## Validierung
+
+B1-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
+2026-08-27. `tools/governance/validate_repository.py` und die
+v2-Registry-Validierung waren für 18 registrierte Artefakte erfolgreich.
+Fünf synthetische Governance-Unit-Tests, `compileall` und `git diff --check`
+waren erfolgreich. Dies belegt Dokument-, Link- und Registry-Integrität,
+nicht die fachliche Güte noch nicht erzeugter TEST-0001-Fixtures oder die
+Ausführung von EXP-0002 bis EXP-0005.
 
 E-Book-Planungsstand: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
 2026-08-27. `tools/governance/validate_repository.py` und die
@@ -102,10 +117,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes werden
-Nutzerfragen und Messgrößen präzisiert, der synthetische Referenzkorpus
-TEST-0001 konkretisiert und EXP-0001 in kleine entscheidungsfähige
-Experimente zerlegt. GATE-0001 bleibt bis zu ausreichender Evidenz offen.
+WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes werden die
+`Kern`-Fälle von TEST-0001 reproduzierbar erzeugt, mit Herkunft, Hashes und
+maschinenlesbaren Oracles manifestiert und tatsächlich validiert. Erst danach
+werden EXP-0002 bis EXP-0005 gegen die passenden Fixtures ausgeführt.
+GATE-0001 bleibt bis zu diesen Ergebnissen offen.
 
 ## Offene Punkte
 
@@ -118,6 +134,7 @@ Experimente zerlegt. GATE-0001 bleibt bis zu ausreichender Evidenz offen.
 
 ## Blocker
 
-Keine bekannten Blocker für die weitere read-only Entwicklungsplanung. Die
+Keine bekannten Blocker für die synthetische TEST-0001-Fixture-Wave. Die
+fehlenden Fixtures blockieren die Ausführung von EXP-0002 bis EXP-0005. Die
 fehlende Auswahl des ersten Vertikalablaufs ist beabsichtigt und blockiert
 Produktimplementierung sowie schreibende Fähigkeiten.

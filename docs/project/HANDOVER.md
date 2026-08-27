@@ -25,11 +25,21 @@ docs/planning/EBOOK_LANDSCAPE.md. Die weitere Erkenntnisreihenfolge steht
 unter docs/planning/EBOOK_EXPLORATION_PLAN.md. WI-0002 ist `in_progress`;
 GATE-0001 bleibt offen.
 
+WI-0003 ist auf Dokumentationsebene abgeschlossen. Die sechs
+Nutzerentscheidungen und Messverträge stehen unter
+docs/planning/EBOOK_SCENARIOS_AND_METRICS.md. TEST-0001 ist unter
+docs/planning/EBOOK_REFERENCE_CORPUS.md bis auf Kern- und Ausbau-Sollfälle,
+Oracles und Datenregeln konkretisiert, aber noch nicht ausgeführt. Die
+getrennten, ebenfalls noch nicht ausgeführten Experimentverträge EXP-0002 bis
+EXP-0005 stehen unter docs/planning/EBOOK_EXPERIMENTS.md.
+
 ## Fortsetzung
 
-Die nächste Arbeit setzt WI-0002 fort. Sie präzisiert Nutzerfragen und
-Messgrößen, TEST-0001 und die einzelnen Fragen innerhalb von EXP-0001. Sie
-beginnt weder Produktcode noch einen Writer und trifft keine Technologie- oder
+Die nächste Arbeit setzt WI-0002 mit der TEST-0001-Fixture-Wave fort. Sie
+erzeugt ausschließlich die synthetischen `Kern`-Fälle, dokumentiert Herkunft,
+Hashes und maschinenlesbare Oracles und validiert ihre verbotenen Wirkungen.
+Erst danach werden EXP-0002 bis EXP-0005 einzeln ausgeführt. Die Arbeit beginnt
+weder Produktcode noch einen Writer und trifft keine Technologie- oder
 Vertikalablaufentscheidung vor GATE-0001.
 
 ## Harte Grenzen
@@ -53,6 +63,9 @@ Vertikalablaufentscheidung vor GATE-0001.
 - erster E-Book-Vertikalablauf;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - konkrete Calibre-, Werkzeug- und Metadatenprovider-Adapter;
+- Format des TEST-0001-Ausführungsmanifests und konkrete Fixture-Generatoren;
+- konkrete, empirisch qualifizierte Werkzeug- und Ausführungsprofile für
+  EXP-0002 bis EXP-0005;
 - ein optionales Repository-Continuity-Verfahren mit getrennten Rulesets,
   autorisierten Akteuren und Ausfallschwelle. Bis zu einer angenommenen
   Entscheidung existiert kein Break-Glass-Bypass.
