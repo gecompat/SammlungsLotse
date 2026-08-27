@@ -67,6 +67,13 @@ hashgebunden, und das frisch gebundene Linux/amd64-Podman-Profil mit Temurin
 `21.0.12.1+1` ist reproduzierbar gebaut und 12/12 synthetisch qualifiziert.
 Der tiefe Lauf bleibt expliziter CLI-Opt-in nach positivem Preflight.
 
+WI-0006 ist als nächste Produktwave angenommen und in
+`docs/planning/EBOOK_MULTI_FILE_INTAKE_REPORT.md` begrenzt. Sie soll mehrere
+ausdrücklich angegebene Dateien vollständig und sequenziell über die
+vorhandenen Einzelverträge prüfen. Die schnelle Prüfung bleibt Standard, der
+tiefe EPUBCheck-Weg bleibt Opt-in. Produktcode für WI-0006 beginnt erst nach
+dem Merge dieses Vertrags nach `origin/main`.
+
 ## Fortsetzung
 
 WI-0004 ist `done`. Der Produktcode liegt unter
@@ -79,10 +86,11 @@ Persistenz, Browser, REST, Agents und jeder Writer bleiben außerhalb.
 WI-0005 ist abgeschlossen. Der kanonische Vertrag und seine Abnahme stehen
 unter `docs/planning/EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md`; Bereitstellung
 und Bedienung des exakten Profils stehen unter
-`runtime/ebook-deep-readonly/README.md`. Als Nächstes ist ergebnisoffen zu
-bewerten, welche verbliebene Qualitäts- oder Nutzerfrage eine eigene Wave
-rechtfertigt. WI-0005 entscheidet insbesondere keinen zweiten Provider,
-keine allgemeine Containerstrategie und keine schreibende Fähigkeit.
+`runtime/ebook-deep-readonly/README.md`. Die anschließende Bewertung hat
+WI-0006 als kleinen read-only Mehrdatei-Bericht ausgewählt. Seine
+Implementierung ist der nächste Schritt. Sie entscheidet insbesondere keinen
+zweiten Provider, keine allgemeine Containerstrategie und keine schreibende
+Fähigkeit.
 
 ## Harte Grenzen
 

@@ -21,6 +21,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0007 und GATE-0003: Snapshot-zu-Werkzeug-Übergang](EBOOK_DEEP_READONLY_HANDOFF_EXPERIMENT.md);
 - [GATE-0003: V2 auswählen](EBOOK_GATE_0003_HANDOFF_DECISION.md);
 - [WI-0005: tiefen read-only Adapter begrenzen](EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md);
+- [WI-0006: read-only Mehrdatei-Eingangsbericht](EBOOK_MULTI_FILE_INTAKE_REPORT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -111,8 +112,11 @@ Vertragsbewertung nahm WI-0005 eng begrenzt an. Die eigene
 Implementierungs-Wave hat das aktuelle Temurin-Artefakt, sämtliche
 Build-Eingänge und die reproduzierbare Image-ID gebunden, den Adapter
 umgesetzt und das exakte Profil vollständig mit synthetischen Medien
-qualifiziert. Eine nächste Erkenntnis- oder Produktwave ist damit nicht
-automatisch entschieden.
+qualifiziert. Die anschließend ausgewählte nächste Produktwave ist WI-0006:
+Sie erweitert ausschließlich die lokale CLI um einen kleinen read-only
+Mehrdatei-Bericht für explizit angegebene Dateien. Schnelle Prüfung bleibt
+Standard, tiefe EPUBCheck-Prüfung bleibt Opt-in; Verzeichnissuche,
+Berichtsdatei, Persistenz, Fachsystemzugriff und Writes bleiben außerhalb.
 
 ## Nicht übernehmen
 

@@ -96,6 +96,10 @@ synthetisch qualifiziert.
   `moderate`, sämtlich im eingefrorenen Ace/npm-Experimentbaum von EXP-0003.
   Sie bestätigen dessen bestehende Nichtqualifikation, werden nicht
   verworfen und betreffen keinen implementierten Produktadapter.
+- angenommener Arbeitsgegenstand WI-0006 für einen kleinen read-only
+  Mehrdatei-Eingangsbericht über ausschließlich explizit angegebene Dateien;
+  schnelle Prüfung bleibt Standard, tiefe EPUBCheck-Prüfung bleibt Opt-in,
+  und Produktcode beginnt erst nach kanonischem Merge des Vertrags.
 
 ## Nicht vorhanden
 
@@ -420,11 +424,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0005 ist `done`. Vor einer weiteren Erkenntnis- oder Produktwave ist neu
-zu entscheiden, welche offene Qualitäts- oder Nutzerfrage als Nächstes den
-höchsten Erkenntniswert besitzt. Die Implementierung autorisiert weder einen
-zweiten Provider noch Ace, Calibre, Dubletten, Metadaten, Routing, dauerhafte
-Persistenz, Browser, REST, Agents, native Windows-Ausführung oder Writes.
+WI-0006 ist `accepted`. Nach dem kanonischen Merge seines Vertrags folgt eine
+getrennte Implementierungs-Wave für mehrere ausdrücklich angegebene Dateien,
+stabile deutsche und JSON-Ausgabe auf stdout und vollständige unabhängige
+Verarbeitung. Die Wave autorisiert weder Verzeichnissuche noch einen zweiten
+Provider, Ace, Calibre, Dubletten, Metadaten, Routing, dauerhafte Persistenz,
+Browser, REST, Agents, native Windows-Ausführung oder Writes.
 
 ## Offene Punkte
 
