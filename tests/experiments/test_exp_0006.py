@@ -61,6 +61,13 @@ class Exp0006ContractTests(unittest.TestCase):
                 for case in repetition["case_results"]
             )
         )
+        self.assertTrue(
+            all(
+                case["resources"]["input_bytes"]
+                <= case["resources"]["max_input_bytes"]
+                for case in repetition["case_results"]
+            )
+        )
         self.assertEqual(
             0,
             sum(
@@ -122,6 +129,12 @@ class Exp0006ContractTests(unittest.TestCase):
         result = self.runner.validate_result(RESULT)
         self.assertEqual("pass", result["status"])
         self.assertTrue(all(result["acceptance"].values()))
+        self.assertTrue(
+            all(
+                repetition["environment"] == self.profile["environment_allowlist"]
+                for repetition in result["repetitions"]
+            )
+        )
 
 
 if __name__ == "__main__":

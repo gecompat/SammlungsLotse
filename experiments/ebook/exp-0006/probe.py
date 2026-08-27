@@ -158,7 +158,8 @@ def inspect_file(
     suffix = path.suffix.casefold()
     if suffix == ".epub":
         observations.append(observation("filename.extension.epub"))
-    signature = path.read_bytes()[:8]
+    with path.open("rb") as stream:
+        signature = stream.read(8)
     if signature.startswith(b"%PDF-"):
         observations.append(observation("format.signature.pdf"))
         findings.append(finding("format.pdf_unsupported_for_deep_epub"))
@@ -353,6 +354,9 @@ def evaluate_row(
         "cleaned": True,
     }
     resource_profile = case["oracle"]["resource_profile"]
+    input_bytes = sum(item[1].stat().st_size for item in selected.values())
+    if input_bytes > int(resource_profile["max_input_bytes"]):
+        raise RuntimeError("EXP-0006 selected input exceeds its TEST-0001 limit")
 
     if row["mode"] == "stability_sequence":
         capability, action, allowed, expanded_bytes = evaluate_growing(
@@ -399,7 +403,7 @@ def evaluate_row(
         "effects_observed": [],
         "resources": {
             "duration_ns": time.perf_counter_ns() - started,
-            "input_bytes": sum(item[1].stat().st_size for item in selected.values()),
+            "input_bytes": input_bytes,
             "expanded_bytes": expanded_bytes,
             "max_input_bytes": int(resource_profile["max_input_bytes"]),
             "max_expanded_bytes": int(resource_profile["max_expanded_bytes"]),
@@ -476,7 +480,10 @@ def run_profile(profile: dict[str, Any], manifest: dict[str, Any], corpus_root: 
         "experiment": "EXP-0006",
         "profile_id": profile["profile_id"],
         "python_version": platform.python_version(),
-        "environment_names": sorted(os.environ),
+        "environment": {
+            name: os.environ[name]
+            for name in sorted(os.environ)
+        },
         "case_results": results,
         "semantic_sha256": canonical_digest(semantic),
         "matrix_matches": all(result["evaluation"]["matches_expected"] for result in results),

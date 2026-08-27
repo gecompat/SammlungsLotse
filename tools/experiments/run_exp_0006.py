@@ -382,7 +382,7 @@ def acceptance_contract(
         for case in repetition["case_results"]
         for effect in case["effects_observed"]
     }
-    expected_environment = set(profile["environment_allowlist"])
+    expected_environment = profile["environment_allowlist"]
     acceptance = {
         "profile_and_fixture_bound": profile["fixture_manifest_sha256"] == sha256_file(MANIFEST_PATH)
         and all(repetition["profile_id"] == profile["profile_id"] for repetition in repetitions),
@@ -421,9 +421,14 @@ def acceptance_contract(
             and repetition["security"]["pids_limit"] == profile["container_runtime"]["pids_limit"]
             and repetition["security"]["nano_cpus"] <= 1_000_000_000
             for repetition in repetitions
+        )
+        and all(
+            case["resources"]["input_bytes"] <= case["resources"]["max_input_bytes"]
+            for repetition in repetitions
+            for case in repetition["case_results"]
         ),
         "environment_minimized": all(
-            set(repetition["environment_names"]) == expected_environment
+            repetition["environment"] == expected_environment
             for repetition in repetitions
         ),
         "no_forbidden_effect": not (all_effects & forbidden)
@@ -527,20 +532,34 @@ def validate_result(path: Path) -> dict[str, Any]:
     for key, expected in expected_hashes.items():
         if result.get(key) != expected:
             raise RuntimeError(f"EXP-0006 result does not match current {key}")
-    acceptance = result.get("acceptance", {})
-    if len(acceptance) != 16 or not all(acceptance.values()):
-        raise RuntimeError("EXP-0006 acceptance set is incomplete")
     repetitions = result.get("repetitions", [])
-    if len(repetitions) != 2 or repetitions[0].get("semantic_sha256") != repetitions[1].get("semantic_sha256"):
+    if len(repetitions) != 2:
         raise RuntimeError("EXP-0006 repetition evidence is incomplete")
     if any(len(repetition.get("case_results", [])) != 11 for repetition in repetitions):
         raise RuntimeError("EXP-0006 matrix evidence is incomplete")
-    if result.get("input_integrity", {}).get("unchanged") is not True:
+    for repetition in repetitions:
+        semantic = PROBE.canonical_digest(
+            PROBE.semantic_projection(repetition["case_results"])
+        )
+        if repetition.get("semantic_sha256") != semantic:
+            raise RuntimeError("EXP-0006 frozen semantic digest is invalid")
+        matrix_matches = all(
+            case.get("evaluation", {}).get("matches_expected") is True
+            for case in repetition["case_results"]
+        )
+        if repetition.get("matrix_matches") is not matrix_matches:
+            raise RuntimeError("EXP-0006 frozen matrix summary is invalid")
+    integrity = result.get("input_integrity", {})
+    before = integrity.get("before_sha256", {})
+    after = integrity.get("after_sha256", {})
+    current = input_hashes(selected_input_paths(profile))
+    if integrity.get("unchanged") is not True or before != after or before != current:
         raise RuntimeError("EXP-0006 fixture integrity evidence is incomplete")
-    if result.get("metrics", {}).get("critical_false_release_count") != 0:
-        raise RuntimeError("EXP-0006 has a safety-critical false release")
-    if any(not security_matches(profile, repetition) for repetition in repetitions):
-        raise RuntimeError("EXP-0006 frozen security evidence differs from the profile")
+    acceptance, metrics = acceptance_contract(profile, repetitions, before, after)
+    if len(acceptance) != 16 or not all(acceptance.values()):
+        raise RuntimeError("EXP-0006 recomputed acceptance set is incomplete")
+    if result.get("acceptance") != acceptance or result.get("metrics") != metrics:
+        raise RuntimeError("EXP-0006 frozen summaries differ from their evidence")
     serialized = canonical_json(result)
     if PRIVATE_PATH_PATTERN.search(serialized):
         raise RuntimeError("EXP-0006 result contains an absolute private host path")
