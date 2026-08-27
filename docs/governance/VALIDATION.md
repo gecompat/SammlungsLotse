@@ -56,7 +56,8 @@ Für Produkt-, Governance- und Fixture-Code gelten:
       experiments/ebook/exp-0003 \
       experiments/ebook/exp-0004 \
       experiments/ebook/exp-0005 \
-      experiments/ebook/exp-0006
+      experiments/ebook/exp-0006 \
+      experiments/ebook/exp-0007
 
 Für die ausführbare synthetische TEST-0001-Kernfassung gilt zusätzlich:
 
@@ -120,6 +121,20 @@ Wiederholungen, null kritische Fehlfreigaben sowie die protokollierten
 Netzwerk-, Dateisystem-, Prozess-, Ressourcen- und Umgebungsgrenzen. Der
 vollständige lokale Podman-Lauf ist als eigener expliziter Befehl unter
 `experiments/ebook/exp-0006/` dokumentiert.
+
+Für den eingecheckten empirischen EXP-0007-Nachweis gilt:
+
+    python tools/experiments/run_exp_0007.py --validate-result
+
+Diese CI-geeignete Prüfung wiederholt weder Windows-Prozesse, Containerläufe
+noch die optionale EPUBCheck-Kompatibilitätsprüfung. Sie bindet das Ergebnis
+an Profil, Probe, Driver, Runner, Containerdefinition, TEST-0001-Manifest und
+den kanonischen Planungsstand. Sie berechnet alle sechzehn Akzeptanzwerte aus
+den getrennten Windows- und Linux-Evidenzen neu und prüft insbesondere
+Snapshot-Bindung, Negativkontrollen, Output- und Timeoutgrenzen, Kindprozess-
+und Temp-Cleanup, Originalunverändertheit, V3-Ablehnung sowie die
+zurückgelesene Podman-Isolation. Der vollständige lokale Lauf ist unter
+`experiments/ebook/exp-0007/` dokumentiert.
 
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 

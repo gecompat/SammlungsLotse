@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "experiment": "EXP-0007",
+  "profile_id": "exp-0007-snapshot-tool-handoff/v1",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "fixture_manifest_sha256": "324f9e55e230e60df8038e1a7504b8ff002c51f7d55b05e1990c0396ba801c02",
+  "implementation": {
+    "runtime": "Python 3.12 standard library on Windows and Podman/Linux",
+    "external_dependencies": [],
+    "network": "denied in Linux; absent from the synthetic probe on Windows",
+    "input_access": "immutable snapshot and synthetic read-only locator only",
+    "allowed_write": "task-private bounded temporary workspace and versioned result.json only",
+    "product_component": false
+  },
+  "base_image": {
+    "reference": "docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17",
+    "linux_amd64_manifest_sha256": "a249c9f47e05708dd367f3fe8ada03cf347390fad66fb8b0518c0ef55ae3cb84",
+    "license_spdx": "PSF-2.0",
+    "source_url": "https://github.com/docker-library/python/tree/f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3/3.12/slim-trixie",
+    "upstream_revision": "f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3",
+    "version": "3.12.14-slim-trixie"
+  },
+  "tool": {
+    "name": "SammlungsLotse EXP-0007 synthetic process-edge probe",
+    "version": "v1",
+    "license_spdx": "MIT",
+    "source_ref": "experiments/ebook/exp-0007/probe.py"
+  },
+  "image_tag": "localhost/sammlungslotse-exp-0007:handoff-v1",
+  "container_runtime": {
+    "provider": "podman",
+    "minimum_version": "6.1.0",
+    "platform": "linux/amd64",
+    "network": "none",
+    "read_only_root": true,
+    "user": "65532:65532",
+    "capabilities": [],
+    "no_new_privileges": true,
+    "pids_limit": 32,
+    "cpus": 1.0,
+    "memory_bytes": 268435456,
+    "memory_swap_bytes": 268435456,
+    "timeout_seconds": 20,
+    "tmpfs": {
+      "/work": 16777216,
+      "/tmp": 4194304
+    },
+    "log_driver": "none"
+  },
+  "environment_allowlist": {
+    "HOME": "/tmp/home",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin"
+  },
+  "limits": {
+    "input_bytes": 2097152,
+    "stdout_bytes": 4096,
+    "stderr_bytes": 4096,
+    "retained_result_bytes": 262144,
+    "normal_timeout_seconds": 5.0,
+    "control_timeout_seconds": 0.5,
+    "crash_residue_bytes": 4096
+  },
+  "rules": {
+    "repetitions": 2,
+    "variants": [
+      "stream",
+      "materialized",
+      "original_locator"
+    ],
+    "approved_action": "continue_deep_read_only",
+    "required_classifications": [
+      "QUALIFIED",
+      "REJECTED",
+      "INCONCLUSIVE",
+      "NOT_EXECUTED"
+    ]
+  },
+  "cases": [
+    {
+      "case_key": "ingress-stable-minimal",
+      "source_ref": "fixture://TEST-0001/0.2.0/ingress-stable-minimal/stable.epub",
+      "relative_path": "cases/ingress-stable-minimal/stable.epub",
+      "size_bytes": 1540,
+      "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+    },
+    {
+      "case_key": "epub33-valid-reflow",
+      "source_ref": "fixture://TEST-0001/0.2.0/epub33-valid-reflow/valid-reflow.epub",
+      "relative_path": "cases/epub33-valid-reflow/valid-reflow.epub",
+      "size_bytes": 1785,
+      "sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b"
+    }
+  ]
+}
