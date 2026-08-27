@@ -19,6 +19,8 @@ Experimente und spätere Entscheidungen:
 - [WI-0004: dünner read-only Eingangstriage-Prototyp](EBOOK_INTAKE_PROTOTYPE.md);
 - [GATE-0002: Fortsetzung nach dem Prototyp](EBOOK_GATE_0002_AFTER_PROTOTYPE.md);
 - [EXP-0007 und GATE-0003: Snapshot-zu-Werkzeug-Übergang](EBOOK_DEEP_READONLY_HANDOFF_EXPERIMENT.md);
+- [GATE-0003: V2 auswählen](EBOOK_GATE_0003_HANDOFF_DECISION.md);
+- [WI-0005: tiefen read-only Adapter begrenzen](EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -48,11 +50,11 @@ von Python 3.12 und Standardbibliothek gilt nur für diesen reversiblen
 Prototyp. Calibre, tiefe Werkzeuge, Persistenz, Browser, REST, Agents und
 Writes bleiben außerhalb.
 
-GATE-0002 ist `done`: Als nächste reversible Erkenntnis-Wave ist nur EXP-0007
-angenommen. Das Experiment vergleicht drei providerneutrale Übergaben eines
-unveränderlichen Snapshots an einen tiefen read-only Werkzeugprozess.
-GATE-0003 bleibt `proposed`; vor seiner getrennten Auswertung ist kein
-Produktadapter-Arbeitsgegenstand autorisiert.
+GATE-0002, EXP-0007 und GATE-0003 sind `done`. EXP-0007 hat drei
+providerneutrale Übergaben eines unveränderlichen Snapshots an einen tiefen
+read-only Werkzeugprozess verglichen: V1 und V2 sind qualifiziert, V3 ist
+abgelehnt. GATE-0003 wählt V2 als Standardnaht. WI-0005 ist nur `proposed`;
+ein Produktadapter ist noch nicht zur Implementierung angenommen.
 
 ## Verbindliche Ausgangsbasis
 
@@ -97,10 +99,12 @@ synthetisch bestanden. Die getrennte Neubewertung hat deshalb S2 innerhalb
 dieser Grenze angenommen. WI-0004 hat den dünnen Prototyp anschließend
 registriert, vollständig begrenzt, implementiert und lokal abgenommen.
 GATE-0002 hat daraufhin Kern-/CLI-Härtung, die Planung eines tiefen read-only
-Adapters und das Pausieren verglichen. Ausgewählt ist ausschließlich EXP-0007
-als Evidenz-Wave für die Snapshot-zu-Werkzeug-Übergabe. Erst GATE-0003 darf
-danach einen Produktadapter-Arbeitsgegenstand zulassen, zusätzliche Härtung
-oder Evidenz verlangen oder die E-Book-Linie pausieren.
+Adapters und das Pausieren verglichen und EXP-0007 ausgewählt. Das Experiment
+hat V1 und V2 qualifiziert und V3 wegen Originalpfad- und TOCTOU-Risiko
+abgelehnt. GATE-0003 wählt V2 als Standardnaht und schlägt WI-0005 vor. Als
+nächste getrennte Entscheidung ist zu prüfen, ob der vorgeschlagene
+Arbeitsgegenstand nach aktueller Werkzeug-, Lizenz-, Wartungs-, Betriebs- und
+Vertragsbewertung angenommen, weiter gehärtet oder pausiert wird.
 
 ## Nicht übernehmen
 

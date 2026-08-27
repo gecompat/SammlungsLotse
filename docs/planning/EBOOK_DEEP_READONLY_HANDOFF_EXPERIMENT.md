@@ -1,6 +1,6 @@
 # EXP-0007: Unveränderlicher Snapshot-zu-Werkzeug-Übergang
 
-Status: ACCEPTED — NUR EXPERIMENTAUSFÜHRUNG AUTORISIERT
+Status: DONE — V1 UND V2 QUALIFIZIERT, V3 ABGELEHNT
 
 Stand: 2026-08-27
 
@@ -227,11 +227,19 @@ Vollständige kurzlebige Laufdaten bleiben außerhalb von Git unter
 `C:\rep\artifacts\SammlungsLotse\exp-0007`. Nur minimierte synthetische
 Verträge, Hashes, Messwerte und Schlussfolgerungen werden versioniert.
 
-## GATE-0003
+## Ausführungsergebnis und GATE-0003
 
-GATE-0003 bleibt `proposed`, bis EXP-0007 vollständig ausgeführt und
-validiert ist. Die Gate-Auswertung darf einen Produktarbeitsgegenstand nur
-vorschlagen, wenn mindestens eine Übergabeform `QUALIFIED` ist und:
+EXP-0007 ist vollständig ausgeführt und hat alle 16 Akzeptanzkriterien
+bestanden. Der versionierte Nachweis steht unter
+`experiments/ebook/exp-0007/`; V1 und V2 sind `QUALIFIED`, V3 ist
+`REJECTED`.
+
+GATE-0003 ist getrennt ausgewertet. Die kanonische Entscheidung steht unter
+[EBOOK_GATE_0003_HANDOFF_DECISION.md](EBOOK_GATE_0003_HANDOFF_DECISION.md).
+Sie wählt V2 als Standardnaht und schlägt WI-0005 vor, ohne dessen Annahme
+oder Implementierung zu autorisieren. Die Gate-Auswertung durfte einen
+Produktarbeitsgegenstand nur vorschlagen, weil mindestens eine Übergabeform
+`QUALIFIED` ist und:
 
 - Providerkopplung außerhalb des Kerns bleibt;
 - Snapshot-Bindung und fail-closed Vorbedingungen vollständig belegt sind;
@@ -241,8 +249,9 @@ vorschlagen, wenn mindestens eine Übergabeform `QUALIFIED` ist und:
 - keine Aussage zur Gesamtqualität oder Accessibility aus einem einzelnen
   Werkzeug abgeleitet wird.
 
-Andernfalls verlangt GATE-0003 eine eng benannte Härtung, weitere Evidenz
-oder das Pausieren der E-Book-Linie.
+Bei einem späteren Widerspruch oder nicht erfüllten Produktvorbedingungen
+verlangt die Entscheidung weiterhin eine eng benannte Härtung, weitere
+Evidenz oder das Pausieren der E-Book-Linie.
 
 ## Nichtziele
 

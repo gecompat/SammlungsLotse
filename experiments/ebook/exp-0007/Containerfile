@@ -1,0 +1,17 @@
+FROM docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17
+
+LABEL org.opencontainers.image.title="SammlungsLotse EXP-0007 handoff probe"
+LABEL org.opencontainers.image.description="Disposable synthetic snapshot handoff experiment; not a product runtime"
+LABEL org.opencontainers.image.source="https://github.com/gecompat/SammlungsLotse"
+LABEL org.opencontainers.image.version="exp-0007-snapshot-tool-handoff/v1"
+
+COPY execution-profile.json /opt/experiment/execution-profile.json
+COPY probe.py /opt/experiment/probe.py
+COPY driver.py /opt/experiment/driver.py
+
+ENV HOME=/tmp/home \
+    LANG=C.UTF-8 \
+    PATH=/usr/local/bin:/usr/bin:/bin
+
+USER 65532:65532
+ENTRYPOINT ["/usr/bin/env", "-i", "HOME=/tmp/home", "LANG=C.UTF-8", "PATH=/usr/local/bin:/usr/bin:/bin", "python", "/opt/experiment/driver.py", "--profile", "/opt/experiment/execution-profile.json", "--probe", "/opt/experiment/probe.py", "--corpus-root", "/corpus", "--workspace", "/work", "--platform-profile", "linux"]

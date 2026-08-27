@@ -1,0 +1,1385 @@
+{
+  "acceptance": {
+    "canonical_plan_precedes_experiment": true,
+    "experiment_only_and_product_unchanged": true,
+    "input_and_output_limits_effective": true,
+    "linux_isolation_profile_effective": true,
+    "materialized_cleanup_and_recovery_effective": true,
+    "original_inputs_unchanged": true,
+    "original_locator_controls_fail_closed_and_rejected": true,
+    "prestart_guards_fail_closed": true,
+    "process_edge_matches_snapshot": true,
+    "repository_completion_gate": true,
+    "result_path_name_and_content_minimized": true,
+    "semantic_repetitions_identical": true,
+    "three_handoffs_share_frozen_snapshots": true,
+    "timeout_and_child_cleanup_effective": true,
+    "variant_comparison_complete": true,
+    "windows_and_linux_evidence_separate": true
+  },
+  "authority": {
+    "exp_0007_accepted_on_origin_main": true,
+    "gate_0002_on_origin_main": true,
+    "merge_base": "38a0ba220494133f249454503d37e5501ec62e81",
+    "origin_main": "38a0ba220494133f249454503d37e5501ec62e81",
+    "preimage_commit": "466fa62ca5d30e9f1b9701095fd16286dd780c18",
+    "product_code_unchanged": true
+  },
+  "base_image": {
+    "license_spdx": "PSF-2.0",
+    "linux_amd64_manifest_sha256": "a249c9f47e05708dd367f3fe8ada03cf347390fad66fb8b0518c0ef55ae3cb84",
+    "reference": "docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17",
+    "source_url": "https://github.com/docker-library/python/tree/f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3/3.12/slim-trixie",
+    "upstream_revision": "f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3",
+    "version": "3.12.14-slim-trixie"
+  },
+  "completion_gate": {
+    "checks": [
+      {
+        "check": "repository",
+        "passed": true
+      },
+      {
+        "check": "registry",
+        "passed": true
+      },
+      {
+        "check": "fixture",
+        "passed": true
+      },
+      {
+        "check": "exp-0002",
+        "passed": true
+      },
+      {
+        "check": "exp-0003",
+        "passed": true
+      },
+      {
+        "check": "exp-0004",
+        "passed": true
+      },
+      {
+        "check": "exp-0005",
+        "passed": true
+      },
+      {
+        "check": "exp-0006",
+        "passed": true
+      },
+      {
+        "check": "exp-0007-profile",
+        "passed": true
+      },
+      {
+        "check": "unit",
+        "passed": true
+      },
+      {
+        "check": "compileall",
+        "passed": true
+      },
+      {
+        "check": "diff-check",
+        "passed": true
+      }
+    ],
+    "executed": true,
+    "passed": true
+  },
+  "containerfile_sha256": "a5629d4579fc82605a807337b3b3b0cb005f599a43d1fffc2bf551f09e9208c2",
+  "driver_sha256": "b816c5a47d4030abb7797ec00818a20f65ee9f4045881619ec2071896f37dbc3",
+  "executed_on": "2026-08-27",
+  "experiment": "EXP-0007",
+  "fixture_manifest_sha256": "324f9e55e230e60df8038e1a7504b8ff002c51f7d55b05e1990c0396ba801c02",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "image": {
+    "architecture": "amd64",
+    "digest": "10a9c2bcee7e090e584b4d668060e9f0fe1d995db39aba34b683e21bb4a8d0d8",
+    "id": "9c4f5e7a981ee5905977da30c7f38dde949943b717a4d947b048b7e9b97795ee",
+    "os": "linux"
+  },
+  "limitations": [
+    "The evidence covers two small synthetic EPUB snapshots and does not forecast private, large or adversarial collections.",
+    "Windows proves local process semantics but not operating-system network isolation.",
+    "Linux isolation evidence applies only to the fixed Podman/Linux amd64 profile.",
+    "V1 is compatible only with stream-capable providers; V2 requires bounded temporary storage and recovery cleanup.",
+    "V3 is rejected because the provider receives the original locator and concurrent replacement remains a TOCTOU exposure.",
+    "Optional EPUBCheck evidence, when executed, proves only V2 handoff compatibility and not product quality or adapter readiness.",
+    "No product adapter, persistence, UI, domain-system access, import, transformation or writer was implemented."
+  ],
+  "optional_epubcheck_compatibility": {
+    "cases": [
+      {
+        "case_key": "ingress-stable-minimal",
+        "container_removed_after_run": true,
+        "exit_code": 0,
+        "input_unchanged": true,
+        "materialized_sha256_after": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+        "materialized_sha256_before": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+        "semantic_report_sha256": "71c5ffc9084db11425e641ad657150b17711d7136d47287295d8d8eadd38a748",
+        "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+        "started": true,
+        "temporary_cleanup": true,
+        "timed_out": false
+      },
+      {
+        "case_key": "epub33-valid-reflow",
+        "container_removed_after_run": true,
+        "exit_code": 0,
+        "input_unchanged": true,
+        "materialized_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "materialized_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "semantic_report_sha256": "46561fbc1403dc64981a232b7b2e97f8ab7ae48d556043c1ca654fbe9ebec93e",
+        "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "started": true,
+        "temporary_cleanup": true,
+        "timed_out": false
+      }
+    ],
+    "image_id": "4b4daf4acae0cc3637b32fe8ca84fbe7c8833773412463ad463b0fbfe2ca0601",
+    "limitation": "Compatibility evidence only; no product adapter or quality normalization is qualified.",
+    "network_during_measurement": "none",
+    "profile_id": "exp-0005-podman-epubcheck-5.3.0/v1",
+    "status": "QUALIFIED",
+    "tool": {
+      "name": "EPUBCheck",
+      "version": "5.3.0"
+    }
+  },
+  "probe_sha256": "bd15b6fe54709c7571e2899e9e3129f17bace6f37cfb641521699b3c5b4f5565",
+  "profile_id": "exp-0007-snapshot-tool-handoff/v1",
+  "profile_sha256": "47de5d76ecffcf53b4cf3d70de89df8af8032da6f4feeb4f1ef7f8e077970d7a",
+  "profiles": {
+    "linux": {
+      "container_removed_after_run": true,
+      "controls": {
+        "materialized": {
+          "crash_residue": {
+            "bounded": true,
+            "detected": true,
+            "recovery_cleanup": true,
+            "size_bytes": 1540
+          },
+          "error": {
+            "child_process_cleaned": true,
+            "cleanup": true,
+            "process": {
+              "exit_code": 17,
+              "process_cleaned": true,
+              "retained_stderr_bytes": 27,
+              "retained_stdout_bytes": 0,
+              "started": true,
+              "stderr_bytes": 27,
+              "stderr_overflow": false,
+              "stdout_bytes": 0,
+              "stdout_overflow": false,
+              "timed_out": false
+            }
+          },
+          "interruption": {
+            "cleanup": true,
+            "interrupted": true
+          },
+          "success": {
+            "child_process_cleaned": true,
+            "cleanup": true,
+            "process": {
+              "exit_code": 0,
+              "process_cleaned": true,
+              "retained_stderr_bytes": 0,
+              "retained_stdout_bytes": 133,
+              "started": true,
+              "stderr_bytes": 0,
+              "stderr_overflow": false,
+              "stdout_bytes": 133,
+              "stdout_overflow": false,
+              "timed_out": false
+            }
+          },
+          "timeout": {
+            "child_process_cleaned": true,
+            "cleanup": true,
+            "process": {
+              "exit_code": -9,
+              "process_cleaned": true,
+              "retained_stderr_bytes": 0,
+              "retained_stdout_bytes": 0,
+              "started": true,
+              "stderr_bytes": 0,
+              "stderr_overflow": false,
+              "stdout_bytes": 0,
+              "stdout_overflow": false,
+              "timed_out": true
+            }
+          }
+        },
+        "original_locator": {
+          "concurrent_change": {
+            "accepted": false,
+            "exit_code": 0,
+            "post_snapshot_unchanged": false,
+            "provider_received_original_locator": true,
+            "ready_seen": true,
+            "received_snapshot": false,
+            "started": true,
+            "stderr_bytes": 0,
+            "timed_out": false
+          },
+          "exchange": {
+            "allowed": false,
+            "reason": "snapshot_hash_mismatch",
+            "started": false
+          },
+          "rename": {
+            "allowed": false,
+            "reason": "locator_missing",
+            "started": false
+          }
+        },
+        "prestart": [
+          {
+            "allowed": false,
+            "control": "not_approved",
+            "reason": "not_approved",
+            "started": false
+          },
+          {
+            "allowed": false,
+            "control": "unstable",
+            "reason": "unstable",
+            "started": false
+          },
+          {
+            "allowed": false,
+            "control": "hash_mismatch",
+            "reason": "snapshot_hash_mismatch",
+            "started": false
+          },
+          {
+            "allowed": false,
+            "control": "input_limit",
+            "reason": "input_limit_exceeded",
+            "started": false
+          }
+        ],
+        "stream_and_output": {
+          "incomplete_stream": {
+            "accepted": false,
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "stderr_overflow": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 4096,
+            "retained_stdout_bytes": 0,
+            "started": true,
+            "stderr_bytes": 16384,
+            "stderr_overflow": true,
+            "stdout_bytes": 0,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "stdout_overflow": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 4096,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 16384,
+            "stdout_overflow": true,
+            "timed_out": false
+          },
+          "timeout_child": {
+            "child_pid_recorded": true,
+            "child_process_cleaned": true,
+            "exit_code": -9,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 0,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 0,
+            "stdout_overflow": false,
+            "timed_out": true
+          }
+        }
+      },
+      "environment_minimized": true,
+      "experiment": "EXP-0007",
+      "originals_after_sha256": {
+        "epub33-valid-reflow": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "ingress-stable-minimal": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+      },
+      "originals_before_sha256": {
+        "epub33-valid-reflow": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "ingress-stable-minimal": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+      },
+      "originals_unchanged": true,
+      "platform_profile": "linux",
+      "positive_runs": [
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 1,
+          "semantic_sha256": "00308fe6171faa111b64196009ea480853044f6dce70a722768e94034671ccea",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "stream"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 2,
+          "semantic_sha256": "00308fe6171faa111b64196009ea480853044f6dce70a722768e94034671ccea",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "stream"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": 256,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 1,
+          "semantic_sha256": "af3c1da6e1a172a5b63a9382e2b478fc1f62162a58346b488b3b3a7ad6990f13",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "materialized"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": 256,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 2,
+          "semantic_sha256": "af3c1da6e1a172a5b63a9382e2b478fc1f62162a58346b488b3b3a7ad6990f13",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "materialized"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": true,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 1,
+          "semantic_sha256": "d9272267ee73760680db33786539a0781327e641a45a68309ed3d1d0c499f617",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "original_locator"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": true,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 2,
+          "semantic_sha256": "d9272267ee73760680db33786539a0781327e641a45a68309ed3d1d0c499f617",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "original_locator"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 1,
+          "semantic_sha256": "dba9d2b69db8e3ace71e1041ecea58dd9eb3daf6baef36c8b3dc2738ad91726b",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "stream"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 2,
+          "semantic_sha256": "dba9d2b69db8e3ace71e1041ecea58dd9eb3daf6baef36c8b3dc2738ad91726b",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "stream"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": 256,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 1,
+          "semantic_sha256": "a99487bea125c246c7ccf6c4ab0f269b93f8d3d105d89952fde580a82310eb9c",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "materialized"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": 256,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 2,
+          "semantic_sha256": "a99487bea125c246c7ccf6c4ab0f269b93f8d3d105d89952fde580a82310eb9c",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "materialized"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": true,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 1,
+          "semantic_sha256": "962ec1229cd241c82714e4a75445c4ea18e59306357bc31b79553a3a2d772a68",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "original_locator"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 133,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 133,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": true,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 2,
+          "semantic_sha256": "962ec1229cd241c82714e4a75445c4ea18e59306357bc31b79553a3a2d772a68",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "original_locator"
+        }
+      ],
+      "profile_id": "exp-0007-snapshot-tool-handoff/v1",
+      "python_version": "3.12.14",
+      "schema_version": 1,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "log_driver": "none",
+        "memory": 268435456,
+        "memory_swap": 268435456,
+        "mounts": [
+          {
+            "destination": "/corpus",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "tmpfs": {
+          "/tmp": "rw,noexec,nosuid,nodev,size=4194304,rprivate,tmpcopyup",
+          "/work": "rw,noexec,nosuid,nodev,size=16777216,rprivate,tmpcopyup"
+        },
+        "user": "65532:65532"
+      },
+      "semantic_repetitions_identical": true,
+      "variant_classifications": [
+        {
+          "classification": "QUALIFIED",
+          "heaviest_residual_error": "A path-only provider cannot consume this handoff.",
+          "variant": "stream"
+        },
+        {
+          "classification": "QUALIFIED",
+          "heaviest_residual_error": "A host crash can leave a bounded residue that requires the task recovery sweep.",
+          "variant": "materialized"
+        },
+        {
+          "classification": "REJECTED",
+          "heaviest_residual_error": "The provider receives the original locator and a concurrent replacement remains a TOCTOU exposure.",
+          "variant": "original_locator"
+        }
+      ],
+      "workspace_empty_after_run": true
+    },
+    "windows": {
+      "controls": {
+        "materialized": {
+          "crash_residue": {
+            "bounded": true,
+            "detected": true,
+            "recovery_cleanup": true,
+            "size_bytes": 1540
+          },
+          "error": {
+            "child_process_cleaned": true,
+            "cleanup": true,
+            "process": {
+              "exit_code": 17,
+              "process_cleaned": true,
+              "retained_stderr_bytes": 28,
+              "retained_stdout_bytes": 0,
+              "started": true,
+              "stderr_bytes": 28,
+              "stderr_overflow": false,
+              "stdout_bytes": 0,
+              "stdout_overflow": false,
+              "timed_out": false
+            }
+          },
+          "interruption": {
+            "cleanup": true,
+            "interrupted": true
+          },
+          "success": {
+            "child_process_cleaned": true,
+            "cleanup": true,
+            "process": {
+              "exit_code": 0,
+              "process_cleaned": true,
+              "retained_stderr_bytes": 0,
+              "retained_stdout_bytes": 134,
+              "started": true,
+              "stderr_bytes": 0,
+              "stderr_overflow": false,
+              "stdout_bytes": 134,
+              "stdout_overflow": false,
+              "timed_out": false
+            }
+          },
+          "timeout": {
+            "child_process_cleaned": true,
+            "cleanup": true,
+            "process": {
+              "exit_code": 1,
+              "process_cleaned": true,
+              "retained_stderr_bytes": 0,
+              "retained_stdout_bytes": 0,
+              "started": true,
+              "stderr_bytes": 0,
+              "stderr_overflow": false,
+              "stdout_bytes": 0,
+              "stdout_overflow": false,
+              "timed_out": true
+            }
+          }
+        },
+        "original_locator": {
+          "concurrent_change": {
+            "accepted": false,
+            "exit_code": 0,
+            "post_snapshot_unchanged": false,
+            "provider_received_original_locator": true,
+            "ready_seen": true,
+            "received_snapshot": false,
+            "started": true,
+            "stderr_bytes": 0,
+            "timed_out": false
+          },
+          "exchange": {
+            "allowed": false,
+            "reason": "snapshot_hash_mismatch",
+            "started": false
+          },
+          "rename": {
+            "allowed": false,
+            "reason": "locator_missing",
+            "started": false
+          }
+        },
+        "prestart": [
+          {
+            "allowed": false,
+            "control": "not_approved",
+            "reason": "not_approved",
+            "started": false
+          },
+          {
+            "allowed": false,
+            "control": "unstable",
+            "reason": "unstable",
+            "started": false
+          },
+          {
+            "allowed": false,
+            "control": "hash_mismatch",
+            "reason": "snapshot_hash_mismatch",
+            "started": false
+          },
+          {
+            "allowed": false,
+            "control": "input_limit",
+            "reason": "input_limit_exceeded",
+            "started": false
+          }
+        ],
+        "stream_and_output": {
+          "incomplete_stream": {
+            "accepted": false,
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "stderr_overflow": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 4096,
+            "retained_stdout_bytes": 0,
+            "started": true,
+            "stderr_bytes": 16384,
+            "stderr_overflow": true,
+            "stdout_bytes": 0,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "stdout_overflow": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 4096,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 16384,
+            "stdout_overflow": true,
+            "timed_out": false
+          },
+          "timeout_child": {
+            "child_pid_recorded": true,
+            "child_process_cleaned": true,
+            "exit_code": 1,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 0,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 0,
+            "stdout_overflow": false,
+            "timed_out": true
+          }
+        }
+      },
+      "environment_minimized": null,
+      "experiment": "EXP-0007",
+      "originals_after_sha256": {
+        "epub33-valid-reflow": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "ingress-stable-minimal": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+      },
+      "originals_before_sha256": {
+        "epub33-valid-reflow": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "ingress-stable-minimal": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+      },
+      "originals_unchanged": true,
+      "platform_profile": "windows",
+      "positive_runs": [
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 1,
+          "semantic_sha256": "00308fe6171faa111b64196009ea480853044f6dce70a722768e94034671ccea",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "stream"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 2,
+          "semantic_sha256": "00308fe6171faa111b64196009ea480853044f6dce70a722768e94034671ccea",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "stream"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": 292,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 1,
+          "semantic_sha256": "af3c1da6e1a172a5b63a9382e2b478fc1f62162a58346b488b3b3a7ad6990f13",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "materialized"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": 292,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 2,
+          "semantic_sha256": "af3c1da6e1a172a5b63a9382e2b478fc1f62162a58346b488b3b3a7ad6990f13",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "materialized"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": true,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 1,
+          "semantic_sha256": "d9272267ee73760680db33786539a0781327e641a45a68309ed3d1d0c499f617",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "original_locator"
+        },
+        {
+          "accepted": true,
+          "case_key": "ingress-stable-minimal",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": true,
+          "received_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "received_size_bytes": 1540,
+          "repetition": 2,
+          "semantic_sha256": "d9272267ee73760680db33786539a0781327e641a45a68309ed3d1d0c499f617",
+          "snapshot_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "snapshot_size_bytes": 1540,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "original_locator"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 1,
+          "semantic_sha256": "dba9d2b69db8e3ace71e1041ecea58dd9eb3daf6baef36c8b3dc2738ad91726b",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "stream"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 2,
+          "semantic_sha256": "dba9d2b69db8e3ace71e1041ecea58dd9eb3daf6baef36c8b3dc2738ad91726b",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "stream"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": 292,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 1,
+          "semantic_sha256": "a99487bea125c246c7ccf6c4ab0f269b93f8d3d105d89952fde580a82310eb9c",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "materialized"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": 292,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": false,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 2,
+          "semantic_sha256": "a99487bea125c246c7ccf6c4ab0f269b93f8d3d105d89952fde580a82310eb9c",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "materialized"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": true,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 1,
+          "semantic_sha256": "962ec1229cd241c82714e4a75445c4ea18e59306357bc31b79553a3a2d772a68",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "original_locator"
+        },
+        {
+          "accepted": true,
+          "case_key": "epub33-valid-reflow",
+          "exit_code": 0,
+          "materialized_mode": null,
+          "original_unchanged": true,
+          "process": {
+            "exit_code": 0,
+            "process_cleaned": true,
+            "retained_stderr_bytes": 0,
+            "retained_stdout_bytes": 134,
+            "started": true,
+            "stderr_bytes": 0,
+            "stderr_overflow": false,
+            "stdout_bytes": 134,
+            "stdout_overflow": false,
+            "timed_out": false
+          },
+          "provider_received_original_locator": true,
+          "received_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "received_size_bytes": 1785,
+          "repetition": 2,
+          "semantic_sha256": "962ec1229cd241c82714e4a75445c4ea18e59306357bc31b79553a3a2d772a68",
+          "snapshot_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "snapshot_size_bytes": 1785,
+          "stderr_overflow": false,
+          "stdout_overflow": false,
+          "timed_out": false,
+          "variant": "original_locator"
+        }
+      ],
+      "profile_id": "exp-0007-snapshot-tool-handoff/v1",
+      "python_version": "3.12.10",
+      "schema_version": 1,
+      "semantic_repetitions_identical": true,
+      "variant_classifications": [
+        {
+          "classification": "QUALIFIED",
+          "heaviest_residual_error": "A path-only provider cannot consume this handoff.",
+          "variant": "stream"
+        },
+        {
+          "classification": "QUALIFIED",
+          "heaviest_residual_error": "A host crash can leave a bounded residue that requires the task recovery sweep.",
+          "variant": "materialized"
+        },
+        {
+          "classification": "REJECTED",
+          "heaviest_residual_error": "The provider receives the original locator and a concurrent replacement remains a TOCTOU exposure.",
+          "variant": "original_locator"
+        }
+      ],
+      "workspace_empty_after_run": true
+    }
+  },
+  "raw_evidence": {
+    "content_sha256": "953e9c1d3f15942ef2f11c0423b0a6ca19ab0206119e8686dcbfbe9a44285b27",
+    "files": [
+      {
+        "artifact_key": "epubcheck-compatibility/exp7-epub33-valid-reflow/control.json",
+        "sha256": "48b3845aed06b80059bca7f103b731622520250556936217abd2bd94a0d2183e",
+        "size_bytes": 47
+      },
+      {
+        "artifact_key": "epubcheck-compatibility/exp7-epub33-valid-reflow/probe-complete.json",
+        "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+        "size_bytes": 21
+      },
+      {
+        "artifact_key": "epubcheck-compatibility/exp7-epub33-valid-reflow/report.json",
+        "sha256": "59dbb466d4a65ea2ad44dafa1302061a7941686e25bc442c95810bc485fe6dfc",
+        "size_bytes": 4394
+      },
+      {
+        "artifact_key": "epubcheck-compatibility/exp7-ingress-stable-minimal/control.json",
+        "sha256": "48b3845aed06b80059bca7f103b731622520250556936217abd2bd94a0d2183e",
+        "size_bytes": 47
+      },
+      {
+        "artifact_key": "epubcheck-compatibility/exp7-ingress-stable-minimal/probe-complete.json",
+        "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+        "size_bytes": 21
+      },
+      {
+        "artifact_key": "epubcheck-compatibility/exp7-ingress-stable-minimal/report.json",
+        "sha256": "dfd0d9261c8022a8279916d0b105b80936c24fc1ca0e75a933ad06158438e463",
+        "size_bytes": 3859
+      },
+      {
+        "artifact_key": "linux.json",
+        "sha256": "165053bd4b59ba8d79cb61d3871733a243400edb994881bf94419f27ee9f8dd4",
+        "size_bytes": 19827
+      },
+      {
+        "artifact_key": "windows.json",
+        "sha256": "0b9ae5facadb43ea9180e19cb099f036b0c7a54d555895ff4bc47a39d971ba41",
+        "size_bytes": 18844
+      }
+    ],
+    "retention": "local synthetic artifact outside Git"
+  },
+  "runner_sha256": "d6ae352f437338f3b90ce83d4d1f686dbb338ba10d212a9befa21d5bb0f50dc5",
+  "runtime": {
+    "container_architecture": "amd64",
+    "container_client_version": "6.1.0",
+    "container_os": "linux",
+    "container_provider": "podman",
+    "container_server_version": "6.1.0",
+    "host_os": "Windows",
+    "host_python": "3.12.10"
+  },
+  "schema_version": 1,
+  "status": "pass",
+  "tool": {
+    "license_spdx": "MIT",
+    "name": "SammlungsLotse EXP-0007 synthetic process-edge probe",
+    "source_ref": "experiments/ebook/exp-0007/probe.py",
+    "version": "v1"
+  }
+}
