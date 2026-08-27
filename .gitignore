@@ -52,6 +52,10 @@ Desktop.ini
 /logs/
 /media/
 /runtime/
+!/runtime/
+/runtime/*
+!/runtime/ebook-deep-readonly/
+!/runtime/ebook-deep-readonly/**
 /tmp/
 *.db
 *.db-shm

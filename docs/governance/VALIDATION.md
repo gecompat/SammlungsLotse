@@ -143,7 +143,9 @@ Für den WI-0004-Produktvertrag gelten zusätzlich:
 Die Tests prüfen die Gate-Matrix, stabile und instabile Snapshots,
 Ressourcenobergrenzen, Pfadbereinigung, byteidentische JSON-Ausgabe,
 unveränderte Eingaben sowie die Abwesenheit von Netzwerk-, Persistenz-,
-Subprozess-, Extraktions- und Schreibfähigkeiten im Produktcode.
+Subprozess-, Extraktions- und Schreibfähigkeiten im WI-0004-Kern. Die
+ausdrücklich isolierten WI-0005-Adaptermodule besitzen nur die separat
+getesteten Prozess- und task-privaten Schreibwirkungen.
 
 Die sichtbare synthetische CLI-Abnahme verwendet mindestens:
 
@@ -159,6 +161,29 @@ Vor und nach der Matrix werden die SHA-256-Werte der Eingänge verglichen.
 Zwei JSON-Läufe über den stabilen Eingang müssen byteidentisch sein. Die
 Abnahme qualifiziert nur den lokalen synthetischen Prototyp; sie startet kein
 tiefes Werkzeug und verwendet keine realen oder privaten Medien.
+
+Für den eingecheckten WI-0005-Produktnachweis gilt zusätzlich:
+
+    python tools/qualify_ebook_deep_profile.py --validate-result
+
+Diese CI-geeignete Prüfung startet keinen Container und lädt keine
+Abhängigkeit. Sie bindet zwölf erfüllte Akzeptanzwerte an das aktive Profil,
+die exakte Image-ID, drei aktuelle TEST-0001-Hashes, die zurückgelesene
+Isolation, das Outputlimit sowie Timeout- und Cleanupbelege.
+
+Die bewusste lokale Provisionierung und tatsächliche Podman-Qualifikation
+verwenden ausschließlich Pfade unter `C:\rep`:
+
+    python tools/provision_ebook_deep_profile.py --cache-root C:\rep\cache\SammlungsLotse\ebook-deep-readonly
+
+    python tools/qualify_ebook_deep_profile.py --temp-root C:\rep\tmp\SammlungsLotse\wi-0005-qualification --result C:\rep\artifacts\SammlungsLotse\wi-0005-qualification.json
+
+Der tatsächliche Lauf muss den unveränderten Standardweg, Opt-in-Erfolg,
+einen Providerbefund, geschlossenes Gate, `not_assessed`, effektive
+Prestart-Isolation, Input- und Originalunverändertheit, Outputlimit, Timeout
+sowie vollständiges Container- und Task-Cleanup belegen. Unbekannte Codes,
+ungültige Berichte, Pre- und Post-Hashabweichung, Cleanupfehler und Recovery
+werden zusätzlich durch synthetische Produktverträge erzwungen.
 
 ## Pull-Request-Prüfungen
 

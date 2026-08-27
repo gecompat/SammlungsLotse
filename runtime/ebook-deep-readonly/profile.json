@@ -1,0 +1,101 @@
+{
+  "base_image": {
+    "config_id": "sha256:160466e67bb85a4099d9d9c2356b4a6a64747b281a22c142efbd4539db1b8525",
+    "created": "2026-08-24T00:00:00Z",
+    "linux_amd64_manifest_sha256": "5ae3c39ebd15e229dcedd5cee596b2497182493d41ff162e824ba13fc1b2b867",
+    "reference": "docker.io/library/debian@sha256:5ae3c39ebd15e229dcedd5cee596b2497182493d41ff162e824ba13fc1b2b867",
+    "source_revision": "bae6d64d90b4068b09ff9d8b564c2773ef5d8d83",
+    "version": "bookworm-20260824-slim"
+  },
+  "execution": {
+    "cap_drop": [
+      "all"
+    ],
+    "cli_json_max_bytes": 3145728,
+    "cpus": "1.0",
+    "environment": {
+      "HOME": "/tmp",
+      "JAVA_HOME": "/opt/java",
+      "LANG": "C.UTF-8",
+      "PATH": "/opt/java/bin:/usr/bin:/bin",
+      "container": "podman"
+    },
+    "http_proxy": false,
+    "input_max_bytes": 33554432,
+    "log_driver": "none",
+    "memory_bytes": 402653184,
+    "memory_swap_bytes": 402653184,
+    "network": "none",
+    "no_new_privileges": true,
+    "pids_limit": 32,
+    "podman_minimum_version": "6.1.0",
+    "provider_arguments": [
+      "/input/input.epub",
+      "--json",
+      "/output/report.json"
+    ],
+    "raw_report_max_bytes": 1048576,
+    "read_only_root": true,
+    "read_only_tmpfs": false,
+    "security_opt": [
+      "no-new-privileges"
+    ],
+    "stderr_max_bytes": 131072,
+    "stdout_max_bytes": 131072,
+    "timeout_seconds": 30,
+    "tmpfs": {
+      "/output": 2097152,
+      "/tmp": 16777216
+    },
+    "ulimit_core": "0:0",
+    "ulimit_nofile": "256:256",
+    "user": "65532:65532"
+  },
+  "build_runtime": {
+    "artifact_bytes": 207473347,
+    "artifact_sha256": "ce79869e1307ed8ee1e2baa86a412b1eb5b75d10a01006d788a6f968bcfaee94",
+    "artifact_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jdk_x64_linux_hotspot_21.0.12.1_1.tar.gz",
+    "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+    "name": "Eclipse Temurin JDK",
+    "release_url": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.12.1%2B1",
+    "version": "21.0.12.1+1"
+  },
+  "image": {
+    "entrypoint": [
+      "/opt/java/bin/java",
+      "-cp",
+      "/opt/adapter",
+      "EpubCheckWrapper"
+    ],
+    "id": "sha256:d8143e59b2c478e0056200a3529b9beb74737885863c22097b198a9c0c92974e",
+    "platform": "linux/amd64",
+    "tag": "localhost/sammlungslotse-ebook-deep:wi-0005"
+  },
+  "profile_id": "wi-0005-epubcheck-5.3.0-temurin-21.0.12.1+1-podman-linux-amd64/v1",
+  "provider": {
+    "artifact_bytes": 33071108,
+    "artifact_sha256": "6c07e68584b2e2ce2f89fe06e1246dfead3eb36b46b340e7d93524f29dcff6c5",
+    "artifact_url": "https://github.com/w3c/epubcheck/releases/download/v5.3.0/epubcheck-5.3.0.zip",
+    "id": "epubcheck",
+    "license_spdx": "BSD-3-Clause",
+    "release_url": "https://github.com/w3c/epubcheck/releases/tag/v5.3.0",
+    "version": "5.3.0"
+  },
+  "runtime": {
+    "artifact_bytes": 52059408,
+    "artifact_sha256": "2413149700df0f7d440500a84a8f764c535f21e5a5e87d38328b64eec2c5b500",
+    "artifact_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jre_x64_linux_hotspot_21.0.12.1_1.tar.gz",
+    "license": "GPL-2.0-only WITH Classpath-exception-2.0",
+    "name": "Eclipse Temurin JRE",
+    "release_url": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.12.1%2B1",
+    "version": "21.0.12.1+1"
+  },
+  "schema": "sammlungslotse/deep-read-only-runtime-profile/v1",
+  "sources_checked_on": "2026-08-27",
+  "workspace": {
+    "marker_schema": "sammlungslotse/deep-read-only-task/v1",
+    "max_children": 128,
+    "max_task_age_seconds": 86400,
+    "max_task_bytes": 37748736
+  }
+}

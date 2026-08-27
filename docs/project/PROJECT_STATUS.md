@@ -6,10 +6,10 @@ Stand: 2026-08-27
 
 ## Phase
 
-Erster eng begrenzter Produktprototyp und die nachfolgende reversible
-Snapshot-Übergabewave vollständig ausgeführt; WI-0005 ist als erster tiefer
-read-only Produktadapter eng begrenzt angenommen, aber noch nicht
-implementiert.
+Erster eng begrenzter Produktprototyp, reversible Snapshot-Übergabewave und
+WI-0005 vollständig ausgeführt. Der erste tiefe read-only Produktadapter ist
+eng begrenzt implementiert und mit einem exakten lokalen Podman-Profil
+synthetisch qualifiziert.
 
 ## Vorhanden
 
@@ -78,11 +78,15 @@ implementiert.
   16/16 erfüllten Kriterien, qualifiziertem Byte-Stream und task-privater
   Materialisierung sowie abgelehntem Original-Locator;
 - abgeschlossenes GATE-0003 mit V2 als ausgewählter Standardnaht;
-- angenommenes WI-0005 für einen ersten tiefen read-only Werkzeugadapter:
-  EPUBCheck 5.3.0 hinter providerneutralem Handoff- und Prozessport, V2 als
-  Standardnaht, expliziter lokaler CLI-Opt-in und ein in der
-  Implementierungs-Wave frisch zu qualifizierendes digest-gepinntes
-  Linux/amd64-Podman-Profil;
+- abgeschlossenes WI-0005 mit EPUBCheck 5.3.0 hinter providerneutralem
+  Handoff- und Prozessport, V2-Taskmaterialisierung und Recovery,
+  unverändertem vollständigem Rohbericht, explizitem CLI-Opt-in sowie frisch
+  gebundenem und 12/12 qualifiziertem Linux/amd64-Podman-Profil;
+- reproduzierbar gebaute Image-ID
+  `sha256:d8143e59b2c478e0056200a3529b9beb74737885863c22097b198a9c0c92974e`
+  mit Temurin-JRE und Build-JDK `21.0.12.1+1`, digestgebundenem Debian-Basisbild
+  und getrennten Grenzen für Prozess, Zeit, CPU, RAM, Swap, Input, Netzwerk,
+  Umgebung, stdout, stderr und Output;
 - aktuelle Primärquellenprüfung für Provider, BSD-3-Clause-Lizenz,
   Wartungsstand, offizielle Releaseprovenienz und Temurin-Laufzeitstand. Das
   EXP-0005-Profil mit Temurin 21.0.12+8 bleibt historische Evidenz und ist
@@ -95,8 +99,6 @@ implementiert.
 ## Nicht vorhanden
 
 - allgemeiner Technologie-Stack jenseits der reversiblen WI-0004-Auswahl;
-- implementierter tiefer Produktadapter oder produktqualifiziertes
-  EPUBCheck-Ausführungsprofil;
 - allgemeines Laufzeit- oder Deploymentkonzept jenseits des eng begrenzten
   WI-0005-Executors;
 - Produktdatenbank oder Suchindex;
@@ -107,6 +109,23 @@ implementiert.
 - Release.
 
 ## Validierung
+
+WI-0005-Implementierungswave: RUNTIME_EMPIRICAL lokal validiert am
+2026-08-27 unter Python 3.12.10 und Podman 6.1.0 für das exakte Profil
+`wi-0005-epubcheck-5.3.0-temurin-21.0.12.1+1-podman-linux-amd64/v1`.
+Zwei frische Builds aus den größen- und SHA-256-gebundenen EPUBCheck-,
+Temurin-JRE-, Temurin-JDK- und Debian-Eingängen erzeugten dieselbe erwartete
+Image-ID. Die tatsächliche Produktqualifikation bestand 12/12 Kriterien:
+unveränderter Standardweg, Opt-in-Erfolg, realer `RSC-001`-Befund,
+geschlossenes Gate, `not_assessed`, effektive Prestart-Isolation,
+Outputgrenze, Timeout, Originalunverändertheit sowie vollständiges
+Container- und Task-Cleanup. Ausschließlich drei TEST-0001-Medien wurden
+verwendet; ihre SHA-256-Werte blieben unverändert. PROJECT_SEMANTIC,
+Registry-, Fixture- und eingecheckte Ergebnisverträge, alle 82 synthetischen
+Repository-Tests, `compileall` und `git diff --check` wurden lokal
+erfolgreich ausgeführt. Dies belegt nur den eng gebundenen EPUBCheck-Adapter,
+nicht Gesamtqualität, Accessibility, allgemeine Container-, Deployment- oder
+Writer-Fähigkeit.
 
 WI-0005-Bewertungswave: aktuelle offizielle Primärquellen für EPUBCheck,
 Lizenz, Repositorypflege, veröffentlichte Repository-Advisories, Temurin-LTS
@@ -376,13 +395,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0005 ist `accepted`. Die nächste eigene Implementierungs-Wave bindet das
-dann aktuelle Temurin-LTS-Artefakt und alle Build-Eingänge, implementiert
-providerneutralen Port, V2-Taskmaterialisierung, begrenzten Podman-Executor,
-EPUBCheck-5.3.0-Adapter, Recovery und expliziten CLI-Opt-in und qualifiziert
-das exakte Profil vollständig mit synthetischen Medien. Ace, Calibre,
-Dubletten, Metadaten, Routing, dauerhafte Persistenz, Browser, REST, Agents,
-native Windows-Ausführung und Writes bleiben außerhalb.
+WI-0005 ist `done`. Vor einer weiteren Erkenntnis- oder Produktwave ist neu
+zu entscheiden, welche offene Qualitäts- oder Nutzerfrage als Nächstes den
+höchsten Erkenntniswert besitzt. Die Implementierung autorisiert weder einen
+zweiten Provider noch Ace, Calibre, Dubletten, Metadaten, Routing, dauerhafte
+Persistenz, Browser, REST, Agents, native Windows-Ausführung oder Writes.
 
 ## Offene Punkte
 
@@ -395,7 +412,7 @@ native Windows-Ausführung und Writes bleiben außerhalb.
 
 ## Blocker
 
-Keine bekannten Blocker für die eng begrenzte Implementierung von WI-0005.
-Der Implementierungsabschluss bleibt fail-closed von einem frisch gebundenen
-und empirisch qualifizierten Laufzeitprofil abhängig. Schreibende Fähigkeiten
-bleiben unabhängig davon hinter einem eigenen Writer-Gate.
+Keine bekannten Blocker im abgeschlossenen WI-0005-Vertrag. Jede Änderung an
+Provider, Version, Runtime, Image, Executor oder Nutzeroberfläche verlangt
+eine neue Bewertung und Qualifikation. Schreibende Fähigkeiten bleiben
+unabhängig davon hinter einem eigenen Writer-Gate.

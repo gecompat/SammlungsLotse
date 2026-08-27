@@ -36,6 +36,11 @@ BANNED_CALLS = {
     "write_text",
     "writelines",
 }
+ADAPTER_IMPORT_ALLOWLIST = {
+    "deep_workspace.py": {"shutil"},
+    "podman_executor.py": {"subprocess"},
+}
+ADAPTER_WRITE_ALLOWLIST = {"deep_workspace.py"}
 
 
 class ProductBoundaryTests(unittest.TestCase):
@@ -52,7 +57,9 @@ class ProductBoundaryTests(unittest.TestCase):
                     roots = {node.module.partition(".")[0]}
                 else:
                     continue
-                blocked = roots & BANNED_IMPORT_ROOTS
+                blocked = (roots & BANNED_IMPORT_ROOTS) - ADAPTER_IMPORT_ALLOWLIST.get(
+                    path.name, set()
+                )
                 if blocked:
                     violations.append(f"{path.name}:{node.lineno}:{sorted(blocked)}")
         self.assertEqual([], violations)
@@ -67,9 +74,14 @@ class ProductBoundaryTests(unittest.TestCase):
                 if (
                     isinstance(node.func, ast.Attribute)
                     and node.func.attr in BANNED_CALLS
+                    and path.name not in ADAPTER_WRITE_ALLOWLIST
                 ):
                     violations.append(f"{path.name}:{node.lineno}:{node.func.attr}")
-                if isinstance(node.func, ast.Name) and node.func.id == "open":
+                if (
+                    isinstance(node.func, ast.Name)
+                    and node.func.id == "open"
+                    and path.name not in ADAPTER_WRITE_ALLOWLIST
+                ):
                     mode = node.args[1] if len(node.args) > 1 else None
                     if isinstance(mode, ast.Constant) and any(
                         marker in mode.value for marker in "wax+"
@@ -77,7 +89,11 @@ class ProductBoundaryTests(unittest.TestCase):
                         violations.append(
                             f"{path.name}:{node.lineno}:open({mode.value})"
                         )
-                if isinstance(node.func, ast.Attribute) and node.func.attr == "open":
+                if (
+                    isinstance(node.func, ast.Attribute)
+                    and node.func.attr == "open"
+                    and path.name not in ADAPTER_WRITE_ALLOWLIST
+                ):
                     mode_nodes = list(node.args[1:2])
                     mode_nodes.extend(
                         keyword.value

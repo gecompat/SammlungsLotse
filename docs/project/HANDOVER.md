@@ -59,12 +59,12 @@ GATE-0002, EXP-0007 und GATE-0003 sind `done`. EXP-0007 hat V1 und V2 unter
 getrennten Windows- und Linux/Podman-Profilen qualifiziert und V3 wegen
 Originalpfadweitergabe und reproduzierter TOCTOU-Lücke abgelehnt. GATE-0003
 wählt V2, die task-private hashgebundene Materialisierung, als Standardnaht.
-Die getrennte aktuelle Werkzeug- und Vertragsbewertung nimmt WI-0005 an:
-EPUBCheck 5.3.0 wird als erster Provider hinter providerneutralem Handoff- und
-Prozessport vorgesehen; ein frisch zu bindendes und zu qualifizierendes
-digest-gepinntes Linux/amd64-Podman-Profil ist der erste unterstützte
-Executor nach seiner Implementierung und frischen Qualifikation. Produktcode
-ist in der Bewertungs-Wave nicht entstanden.
+Die getrennte aktuelle Werkzeug- und Vertragsbewertung nahm WI-0005 an. Die
+anschließende Implementierungs-Wave ist `done`: EPUBCheck 5.3.0 läuft hinter
+providerneutralem Handoff- und Prozessport, V2 materialisiert task-privat und
+hashgebunden, und das frisch gebundene Linux/amd64-Podman-Profil mit Temurin
+`21.0.12.1+1` ist reproduzierbar gebaut und 12/12 synthetisch qualifiziert.
+Der tiefe Lauf bleibt expliziter CLI-Opt-in nach positivem Preflight.
 
 ## Fortsetzung
 
@@ -75,15 +75,13 @@ In-Memory-Snapshot, flachem Preflight und sichtbar begründeter CLI-Folgeaktion
 oder Enthaltung. Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing,
 Persistenz, Browser, REST, Agents und jeder Writer bleiben außerhalb.
 
-Als Nächstes darf WI-0005 in einer eigenen Wave implementiert werden. Der
-angenommene Vertrag steht vollständig unter
-`docs/planning/EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md`. Vor dem ersten
-Providerlauf muss die Wave das aktuelle Temurin-LTS-Artefakt und alle
-Build-Eingänge aus Primärquellen binden. Danach implementiert und prüft sie
-providerneutralen Port, V2-Taskbereich, Recovery, begrenzten Podman-Executor,
-EPUBCheck-5.3.0-Projektion und expliziten CLI-Opt-in mit ausschließlich
-synthetischen Medien. Das frühere EXP-0005-Image ist Evidenz, kein
-Produktprofil.
+WI-0005 ist abgeschlossen. Der kanonische Vertrag und seine Abnahme stehen
+unter `docs/planning/EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md`; Bereitstellung
+und Bedienung des exakten Profils stehen unter
+`runtime/ebook-deep-readonly/README.md`. Als Nächstes ist ergebnisoffen zu
+bewerten, welche verbliebene Qualitäts- oder Nutzerfrage eine eigene Wave
+rechtfertigt. WI-0005 entscheidet insbesondere keinen zweiten Provider,
+keine allgemeine Containerstrategie und keine schreibende Fähigkeit.
 
 ## Harte Grenzen
 
@@ -107,12 +105,12 @@ Produktprofil.
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - konkrete Calibre-, Accessibility- und Metadatenprovider-Adapter sowie
   weitere tiefe Werkzeugprovider jenseits EPUBCheck 5.3.0;
-- konkrete, empirisch qualifizierte Produktprofile; EXP-0002 qualifiziert nur
-  den Copy-on-read-Calibre-Zugriff, EXP-0003 nur eine Evidenzprojektion mit
-  nicht produktqualifiziertem Ace-Profil, EXP-0004 nur eine kleine
-  synthetische Identitätsheuristik, EXP-0005 nur einen wegwerfbaren
-  Sicherheitsweg und EXP-0006 nur einen kleinen synthetischen Preflight;
-  keiner dieser Versuche wählt eine Produktlaufzeit;
+- weitere empirisch qualifizierte Produktprofile jenseits des engen
+  WI-0005-EPUBCheck-Profils; EXP-0002 qualifiziert nur den
+  Copy-on-read-Calibre-Zugriff, EXP-0003 nur eine Evidenzprojektion mit nicht
+  produktqualifiziertem Ace-Profil, EXP-0004 nur eine kleine synthetische
+  Identitätsheuristik, EXP-0005 nur einen wegwerfbaren Sicherheitsweg und
+  EXP-0006 nur einen kleinen synthetischen Preflight;
 - ein optionales Repository-Continuity-Verfahren mit getrennten Rulesets,
   autorisierten Akteuren und Ausfallschwelle. Bis zu einer angenommenen
   Entscheidung existiert kein Break-Glass-Bypass.
