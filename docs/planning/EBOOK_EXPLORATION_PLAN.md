@@ -4,7 +4,8 @@ Status: BRAINSTORMING — KEINE AUSFÜHRBARE PRODUKTROADMAP
 
 Stand: 2026-08-27
 
-Artifacts: WI-0002, RISK-0001, TEST-0001, EXP-0001, GATE-0001
+Artifacts: WI-0002, WI-0003, REQ-0002, RISK-0001, TEST-0001, EXP-0001 bis
+EXP-0005, GATE-0001
 
 ## Ziel
 
@@ -17,6 +18,12 @@ Der vollständige fachliche Möglichkeitenraum steht in
 [EBOOK_LANDSCAPE.md](EBOOK_LANDSCAPE.md). Der Plan führt noch keine
 Experimente aus und autorisiert keinen Produktcode oder schreibenden
 Operationstyp.
+
+Die konkretisierten Nutzerentscheidungen und Messverträge stehen in
+[EBOOK_SCENARIOS_AND_METRICS.md](EBOOK_SCENARIOS_AND_METRICS.md). TEST-0001
+ist in [EBOOK_REFERENCE_CORPUS.md](EBOOK_REFERENCE_CORPUS.md) spezifiziert;
+die einzelnen Experimentverträge stehen in
+[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md).
 
 ## Hauptrisiko RISK-0001
 
@@ -91,7 +98,14 @@ Ergebnis:
 
 ### B1 — Nutzerfragen, Szenarien und Messgrößen
 
-Zu beschreiben sind mindestens:
+WI-0003 hat die sechs read-only Nutzerentscheidungen, Qualitäts- und
+Automatisierungsmatrix, Messgrößen und asymmetrischen Fehlerkosten auf
+Dokumentationsebene konkretisiert. Die kanonischen Detailverträge stehen in
+[EBOOK_SCENARIOS_AND_METRICS.md](EBOOK_SCENARIOS_AND_METRICS.md). Planung und
+Nachverifikation einer später autorisierten Änderung bleiben hinter dem
+getrennten Writer-Gate B7.
+
+Der vollständige spätere Szenarienraum umfasst mindestens:
 
 1. vorhandenen Calibre-Bestand prüfen;
 2. neue Eingänge triagieren;
@@ -127,6 +141,12 @@ Mögliche Messgrößen sind:
 
 ### B2 — TEST-0001: synthetischer Referenzkorpus
 
+Die konkreten Kern- und Ausbau-Sollfälle, Oracles, Datenregeln und
+Passkriterien der nächsten Fixture-Wave stehen in
+[EBOOK_REFERENCE_CORPUS.md](EBOOK_REFERENCE_CORPUS.md). TEST-0001 bleibt
+`proposed`, weil noch keine Fixtures erzeugt oder ausgeführt wurden. Die
+folgende Liste bleibt die kategorische Übersicht.
+
 Der Referenzkorpus soll kleine, nachvollziehbare Sollfälle statt reale private
 Sammlungsdaten enthalten. Vorgesehene Fallgruppen sind:
 
@@ -154,11 +174,14 @@ werden.
 
 ### B3 — EXP-0001: wegwerfbare Experimente
 
-EXP-0001 ist ein Sammelrahmen. Einzelne Experimente werden erst nach weiterer
-Analyse als eigene Artefakte registriert, wenn ihre Frage, Eingänge und
-Passkriterien entscheidungsreif sind.
+EXP-0001 bleibt der Sammelrahmen. Die nun entscheidungsreifen Fragen für
+read-only Calibre-Projektion, EPUB-Evidenz, gestufte Identität und isolierte
+Werkzeugausführung sind als EXP-0002 bis EXP-0005 registriert. Ihre
+kanonischen Eingänge, Pass-, Fail- und Stoppkriterien stehen in
+[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md). Keines der Experimente wurde
+ausgeführt.
 
-#### Calibre-Lesezugang
+#### Calibre-Lesezugang (EXP-0002)
 
 Fragen:
 
@@ -179,7 +202,7 @@ Fragen:
   potenziell aktive Inhalte dargestellt?
 - Wie bleibt eine nicht tief unterstützte Datei trotzdem inventarisiert?
 
-#### EPUB-Konformität und Accessibility
+#### EPUB-Konformität und Accessibility (EXP-0003)
 
 Fragen:
 
@@ -200,7 +223,7 @@ Fragen:
 - Welche Extraktionswerkzeuge sind lizenzierbar, wartbar und ausreichend
   reproduzierbar?
 
-#### Identität und Dublettenkandidaten
+#### Identität und Dublettenkandidaten (EXP-0004)
 
 Fragen:
 
@@ -231,7 +254,7 @@ Fragen:
 - Wie werden widersprüchliche Antworten und Provider-Ausfall behandelt?
 - Bleibt der lokale Ablauf ohne Provider sinnvoll?
 
-#### Isolierte Werkzeugausführung
+#### Isolierte Werkzeugausführung (EXP-0005)
 
 Fragen:
 
@@ -353,13 +376,15 @@ Dokument enthält bewusst keine gewichtete Nutzwertanalyse.
 
 ## Nächste Analyse
 
-WI-0002 bleibt `in_progress`. Die nächste Analyse vertieft B1 bis B3, ohne
-Produktcode zu beginnen:
+WI-0003 hat B1 auf Dokumentationsebene abgeschlossen. WI-0002 bleibt
+`in_progress`. Die nächste Wave beginnt weiterhin keinen Produktcode:
 
-1. Nutzerfragen und Entscheidungen je Produktzuschnitt präzisieren;
-2. Qualitätsdimensionen in beobachtbare und manuelle Befunde zerlegen;
-3. TEST-0001 bis auf konkrete Sollfälle und Herkunftsbedingungen ausarbeiten;
-4. EXP-0001 in kleine, einzeln entscheidungsfähige Experimente zerlegen;
-5. Optionen für Kernverträge, Runtime, Persistenz und Oberflächen anhand
-   derselben Kriterien vergleichen;
-6. erst danach GATE-0001 zur Entscheidung vorbereiten.
+1. TEST-0001-Kernfixtures reproduzierbar erzeugen und ihr Oracle validieren;
+2. Herkunft, Lizenz, Hashes und verbotene Wirkungen maschinenlesbar
+   manifestieren;
+3. EXP-0005 als Sicherheitsqualifikation vorbereiten;
+4. EXP-0002 und EXP-0003 unabhängig mit den passenden Fixtures ausführen;
+5. EXP-0004 erst nach vollständigen positiven und negativen Identitätspaaren
+   ausführen;
+6. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
+   vergleichen.

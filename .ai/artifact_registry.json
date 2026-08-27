@@ -103,7 +103,7 @@
       "created_on": "2026-08-27",
       "external_refs": [],
       "kind": "experiment",
-      "locator": "docs/planning/EBOOK_EXPLORATION_PLAN.md",
+      "locator": "docs/planning/EBOOK_EXPERIMENTS.md",
       "registration_state": "REGISTERED",
       "relations": [
         {
@@ -117,6 +117,110 @@
       ],
       "status": "proposed",
       "title": "Reversible E-Book-Adapter- und Qualitätswerkzeug-Spikes"
+    },
+    "EXP-0002": {
+      "acceptance_criteria": "Eine synthetische Calibre-Bibliothek wird ausschließlich über fest erlaubte Leseoperationen in eine pfadbereinigte, versionierte Projektion überführt; Schreibwirkung und nicht erlaubte Felder bleiben null.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a041b2-c62f-7ef9-ad65-47c5a7cbc16a",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_EXPERIMENTS.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0003",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "Read-only Calibre-Bestandsprojektion qualifizieren"
+    },
+    "EXP-0003": {
+      "acceptance_criteria": "Versionierte Rohberichte bleiben vollständig erhalten und werden ohne Verlust von Werkzeugcodes, Fundstellen, Profil, Unsicherheit oder manuellem Prüfbedarf in gemeinsame Befunde projiziert.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a041b2-c6aa-7935-9104-05407dbeefde",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_EXPERIMENTS.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0003",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "EPUB-Konformitäts- und Accessibility-Evidenz normalisieren"
+    },
+    "EXP-0004": {
+      "acceptance_criteria": "Byte-, Paket-, Ausgaben- und Werkebene werden anhand positiver und negativer Sollpaare getrennt bewertet; kein Kandidat löst Zusammenführung, Entfernung oder Schreiben aus.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a041b2-c724-7bb8-bced-1f71eeaa95e7",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_EXPERIMENTS.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0003",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "Gestufte E-Book-Identitätskandidaten bewerten"
+    },
+    "EXP-0005": {
+      "acceptance_criteria": "Ein synthetischer Lauf belegt reproduzierbare Werkzeugprofile sowie Netzwerk-, Dateisystem-, Prozess-, Zeit-, Speicher- und Ausgabegrenzen ohne Änderung von Original oder Fachsystembestand.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a041b2-c7ab-73ad-a3d6-3ceb0d7ecbb4",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_EXPERIMENTS.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0003",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "Isolierte E-Book-Werkzeugausführung qualifizieren"
     },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
@@ -162,6 +266,24 @@
       "status": "proposed",
       "title": "Mehrdimensionale und evidenzgebundene E-Book-Qualität"
     },
+    "REQ-0002": {
+      "acceptance_criteria": "Jeder Kandidat oder Vorschlag weist Evidenz, Unsicherheit, erlaubte Ergebnisse einschließlich Enthaltung, Fehlerfolgen und Wirkungsgrenze aus; höhere Wirkungsstufen verlangen strengere Evidenz.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a041b2-c5b1-7129-9fec-4814c91b1ce5",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "requirement",
+      "locator": "docs/planning/EBOOK_SCENARIOS_AND_METRICS.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        }
+      ],
+      "status": "proposed",
+      "title": "Erklärbare Entscheidung, Enthaltung und asymmetrische Fehlerkosten"
+    },
     "RISK-0001": {
       "acceptance_criteria": "Format-, Fachsystem-, Stack-, Such-, UI- und Writer-Kopplung werden durch getrennte Verträge, austauschbare Adapter und empirische Gates begrenzt.",
       "aliases": [],
@@ -191,12 +313,16 @@
       "created_on": "2026-08-27",
       "external_refs": [],
       "kind": "test_contract",
-      "locator": "docs/planning/EBOOK_EXPLORATION_PLAN.md",
+      "locator": "docs/planning/EBOOK_REFERENCE_CORPUS.md",
       "registration_state": "REGISTERED",
       "relations": [
         {
           "target": "CAP-0002",
           "type": "parent"
+        },
+        {
+          "target": "WI-0003",
+          "type": "related_to"
         }
       ],
       "status": "proposed",
@@ -241,6 +367,32 @@
       ],
       "status": "in_progress",
       "title": "E-Book-Optionsraum und Erkundungsplan ausarbeiten"
+    },
+    "WI-0003": {
+      "acceptance_criteria": "Sechs repräsentative Nutzerentscheidungen, ihre Evidenz, Enthaltung, Wirkungsgrenze, asymmetrischen Fehlerkosten und messbaren Akzeptanzkriterien sind technologieunabhängig beschrieben.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a041b2-c537-7f4a-a3c4-054120ea457e",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_SCENARIOS_AND_METRICS.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "WI-0002",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "E-Book-Nutzerszenarien und Messverträge konkretisieren"
     }
   },
   "prefixes": {

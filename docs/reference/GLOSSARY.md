@@ -27,6 +27,13 @@ werden muss. Ein Kandidat ist noch keine bestätigte Dublette.
 Konfigurierter Ordner oder anderer Eingang, aus dem neue Objekte entdeckt und
 vor einer Zielintegration geprüft werden.
 
+## Enthaltung
+
+Begründetes Ergebnis, bei dem eine Analyse ausreichend ausgeführt wurde, die
+Evidenz aber keine verlässliche eindeutige Empfehlung trägt. Enthaltung ist
+weder ein technischer Fehler noch automatisch ein unbekannter oder nicht
+anwendbarer Fall.
+
 ## Evidenz
 
 Nachvollziehbarer Befund, der eine Ableitung oder Entscheidung unterstützt.
@@ -89,3 +96,9 @@ getrennte Operationstypen.
 
 Eigenständiger Zielbestand innerhalb einer Domäne. Mehrere
 Calibre-Bibliotheken für unterschiedliche Inhaltsgruppen sind Beispiele.
+
+## Testorakel
+
+Für einen Testfall vorab festgelegte erwartete Beobachtungen, Befunde,
+erlaubte Unsicherheit und verbotene Wirkungen. Ein Werkzeugergebnis ersetzt
+das Testorakel nicht.

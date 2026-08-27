@@ -12,13 +12,18 @@ noch nicht ausgewählt. Der aktuelle Stand trennt bewusst Möglichkeiten,
 Untersuchungshypothesen, Experimente und spätere Entscheidungen:
 
 - [E-Book-Möglichkeitenraum](EBOOK_LANDSCAPE.md);
-- [E-Book-Erkundungs- und Erkenntnisplan](EBOOK_EXPLORATION_PLAN.md).
+- [E-Book-Erkundungs- und Erkenntnisplan](EBOOK_EXPLORATION_PLAN.md);
+- [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
+- [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
+- [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
 
-WI-0002 ist `in_progress`. CAP-0002, REQ-0001, TEST-0001, EXP-0001 und
-GATE-0001 sind vorgeschlagen. RISK-0001 hält das bereits anerkannte Risiko
-einer frühen fachlichen oder technischen Kopplung fest. Keines dieser
-Artefakte wählt einen Technologie-Stack oder autorisiert Produktcode oder
-schreibende Operationen.
+WI-0002 ist `in_progress`. WI-0003 hat sechs read-only Nutzerentscheidungen
+und Messverträge auf Dokumentationsebene abgeschlossen. CAP-0002, REQ-0001,
+REQ-0002, TEST-0001, EXP-0001 bis EXP-0005 und GATE-0001 sind vorgeschlagen.
+RISK-0001 hält das bereits anerkannte Risiko einer frühen fachlichen oder
+technischen Kopplung fest. Keines dieser Artefakte wählt einen
+Technologie-Stack, bestimmt den ersten Vertikalablauf oder autorisiert
+Produktcode oder schreibende Operationen.
 
 ## Verbindliche Ausgangsbasis
 
@@ -48,6 +53,13 @@ Die erste Planungs-Wave soll:
 
 Eine E-Book-Linie ist ein naheliegender Kandidat, aber weiterhin nicht als
 erste Implementierungs-Wave entschieden.
+
+## Nächste Erkenntnis-Wave
+
+Als Nächstes werden die `Kern`-Fälle von TEST-0001 reproduzierbar erzeugt und
+ihre Oracles validiert. Erst danach werden EXP-0002 bis EXP-0005 in der im
+Erkundungsplan beschriebenen Reihenfolge ausgeführt. GATE-0001 bleibt bis zu
+den tatsächlichen Experimentergebnissen offen.
 
 ## Nicht übernehmen
 
