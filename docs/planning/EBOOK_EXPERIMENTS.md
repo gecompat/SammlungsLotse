@@ -1,6 +1,6 @@
 # E-Book-Experimentverträge
 
-Status: IN EXECUTION — EXP-0002 AND EXP-0005 PASSED; EXP-0003 AND EXP-0004 NOT EXECUTED
+Status: IN EXECUTION — EXP-0002, EXP-0003 AND EXP-0005 PASSED; EXP-0004 NOT EXECUTED
 
 Stand: 2026-08-27
 
@@ -162,6 +162,23 @@ Werkzeugcodes, Profile oder manuellen Prüfbedarf zu verdecken?
 - absolute Hostpfade oder private Inhalte gelangen in Standardberichte;
 - das Werkzeug verändert oder repariert den Eingang während der Prüfung.
 
+### Ausführungsergebnis
+
+EXP-0003 wurde am 2026-08-27 mit EPUBCheck `5.3.0`, Ace `1.4.6` und dem
+Profil `exp-0003-epubcheck-5.3.0-ace-1.4.6/v2` ausgeführt. Sieben
+synthetische TEST-0001-Fälle liefen je zweimal; alle vierzehn
+Akzeptanzprüfungen waren erfolgreich. Rohberichte, Codes,
+Originalschweregrade, Fundstellen, Profile, unbekannte Meldungen und
+Reviewbedarf bleiben über Hash und `raw_ref` rekonstruierbar. Der Nachweis
+steht unter
+[experiments/ebook/exp-0003](../../experiments/ebook/exp-0003/README.md).
+
+Der erfolgreiche Evidenzvertrag ist keine Produktfreigabe für Ace. Sein
+Puppeteer-Runner deaktiviert die Chromium-Sandbox, und der bei der
+Provisionierung ausgeführte npm-Audit meldete 22 offene Befunde. Die äußere
+Podman-Grenze war im synthetischen Versuch wirksam; eine spätere produktive
+Werkzeugwahl muss die Abhängigkeits- und Sandboxlage neu bewerten.
+
 ## EXP-0004 — Gestufte E-Book-Identitätskandidaten
 
 ### Entscheidungsfrage
@@ -307,7 +324,7 @@ EXP-Referenzen reserviert.
 1. TEST-0001-Kernfixtures und Oracles erzeugen — abgeschlossen;
 2. EXP-0005 als gemeinsame Sicherheitsqualifikation ausführen — abgeschlossen;
 3. EXP-0002 als getrennte Calibre-Projektion ausführen — abgeschlossen;
-4. EXP-0003 unabhängig mit EPUBCheck- und Ace-Evidenz ausführen;
+4. EXP-0003 unabhängig mit EPUBCheck- und Ace-Evidenz ausführen — abgeschlossen;
 5. EXP-0004 erst mit vollständigen positiven und negativen Sollpaaren
    bewerten;
 6. Ergebnisse ohne gemeinsame Spike-Implementierung vergleichen;

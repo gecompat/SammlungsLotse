@@ -17,9 +17,8 @@ eine Suchtechnik, eine Benutzeroberfläche oder einen Writer zu koppeln.
 Der vollständige fachliche Möglichkeitenraum steht in
 [EBOOK_LANDSCAPE.md](EBOOK_LANDSCAPE.md). Der Plan autorisiert keinen
 Produktcode oder schreibenden Operationstyp. Die TEST-0001-Fixture-
-Validierung wurde ausgeführt; EXP-0002 und EXP-0005 sind empirisch
-abgeschlossen. Die Experimente EXP-0003 und EXP-0004 wurden noch nicht
-ausgeführt.
+Validierung wurde ausgeführt; EXP-0002, EXP-0003 und EXP-0005 sind empirisch
+abgeschlossen. EXP-0004 wurde noch nicht ausgeführt.
 
 Die konkretisierten Nutzerentscheidungen und Messverträge stehen in
 [EBOOK_SCENARIOS_AND_METRICS.md](EBOOK_SCENARIOS_AND_METRICS.md). TEST-0001
@@ -182,8 +181,8 @@ EXP-0001 bleibt der Sammelrahmen. Die nun entscheidungsreifen Fragen für
 read-only Calibre-Projektion, EPUB-Evidenz, gestufte Identität und isolierte
 Werkzeugausführung sind als EXP-0002 bis EXP-0005 registriert. Ihre
 kanonischen Eingänge, Pass-, Fail- und Stoppkriterien stehen in
-[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md). EXP-0002 und EXP-0005 sind
-ausgeführt; EXP-0003 und EXP-0004 bleiben offen.
+[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md). EXP-0002, EXP-0003 und EXP-0005
+sind ausgeführt; EXP-0004 bleibt offen.
 
 #### Calibre-Lesezugang (EXP-0002)
 
@@ -386,12 +385,13 @@ aktiven Version `0.2.0` reproduzierbar manifestiert und validiert. EXP-0005
 hat ein enges Podman-Ausführungsprofil netzwerklos qualifiziert. EXP-0002 hat
 zwei synthetische Calibre-Ziele reproduzierbar und pfadbereinigt über eine
 Copy-on-read-Grenze projiziert; der direkte read-only Mount ist als nicht
-unterstützt belegt. WI-0002
+unterstützt belegt. EXP-0003 hat EPUBCheck- und Ace-Rohbefunde verlustfrei
+referenziert, Ace aber wegen offener Sandbox- und Abhängigkeitsrisiken nicht
+produktqualifiziert. WI-0002
 bleibt `in_progress`. Die nächsten Waves beginnen weiterhin keinen
 Produktcode:
 
-1. EXP-0003 unabhängig mit EPUBCheck- und Ace-Rohberichten ausführen;
-2. EXP-0004 erst nach vollständigen positiven und negativen Identitätspaaren
+1. EXP-0004 mit den vollständigen positiven und negativen Identitätspaaren
    ausführen;
-4. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
+2. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
    vergleichen.

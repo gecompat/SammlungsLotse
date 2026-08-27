@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "experiment": "EXP-0003",
+  "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "tools": {
+    "epubcheck": {
+      "name": "EPUBCheck",
+      "version": "5.3.0",
+      "license_spdx": "BSD-3-Clause",
+      "execution_profile_ref": "exp-0005-podman-epubcheck-5.3.0/v1",
+      "release_url": "https://github.com/w3c/epubcheck/releases/tag/v5.3.0",
+      "report_format": "EPUBCheck JSON"
+    },
+    "ace": {
+      "name": "Ace by DAISY",
+      "version": "1.4.6",
+      "license_spdx": "MIT",
+      "release_commit": "e442938",
+      "release_url": "https://github.com/daisy/ace/releases/tag/v1.4.6",
+      "package_url": "https://registry.npmjs.org/@daisy/ace/-/ace-1.4.6.tgz",
+      "package_integrity": "sha512-OrhSMV+cUPJTMb3L+lc8CmUqfVzKkIQWI0wezr7D5qC0IhogWglG+/XrajS2P0UXsMlc/XVEaJmWWczApDc8lA==",
+      "package_lock_sha256": "f1b20f79e0c1c5b7cb5aae2f3890bafe5f455a352a311476d2f6f8578f1f3074",
+      "report_format": "Ace JSON-LD report 1.0"
+    }
+  },
+  "ace_runtime": {
+    "base_image": "ghcr.io/puppeteer/puppeteer@sha256:75e3404b1df87e39eec2af9fa95e4e0fdbc5c73fc924aafa1429c89a2a3e8654",
+    "base_image_tag_source": "24.43.1",
+    "image_tag": "localhost/sammlungslotse-exp-0003:ace-1.4.6-v2",
+    "node_version": "24.15.0",
+    "puppeteer_version": "24.43.1",
+    "chrome_version": "148.0.7778.97",
+    "browser_internal_sandbox": false,
+    "browser_sandbox_reason": "Ace 1.4.6 Puppeteer runner hard-codes --no-sandbox and --disable-setuid-sandbox",
+    "user": "10042:10042",
+    "environment_allowlist": {
+      "ACE_TIMEOUT_EXTENSION": "30000",
+      "ACE_TIMEOUT_INITIAL": "10000",
+      "HOME": "/tmp/home",
+      "LANG": "en_US.UTF-8",
+      "PATH": "/opt/ace/node_modules/.bin:/usr/local/bin:/usr/bin:/bin",
+      "PUPPETEER_EXECUTABLE_PATH": "/opt/chrome/chrome",
+      "XDG_CONFIG_HOME": "/tmp/config",
+      "XDG_STATE_HOME": "/tmp/state"
+    }
+  },
+  "container_runtime": {
+    "provider": "podman",
+    "minimum_version": "6.1.0",
+    "platform": "linux/amd64",
+    "network": "none",
+    "read_only_root": true,
+    "capabilities": [],
+    "no_new_privileges": true,
+    "pids_limit": 256,
+    "cpus": 4.0,
+    "memory_bytes": 2147483648,
+    "memory_swap_bytes": 2147483648,
+    "timeout_seconds": 60,
+    "max_output_file_bytes": 8388608,
+    "tmpfs_bytes": 536870912,
+    "shm_bytes": 268435456
+  },
+  "cases": {
+    "epubcheck": [
+      "epub33-valid-reflow",
+      "epub-missing-resource",
+      "epub-navigation-defect",
+      "epub-active-or-remote"
+    ],
+    "ace": [
+      "epub33-valid-reflow",
+      "epub-a11y-auto-finding",
+      "epub-a11y-manual-required"
+    ]
+  },
+  "normalization": {
+    "schema_id": "exp-0003-ebook-tool-finding/v1",
+    "raw_reports_retained": true,
+    "absolute_paths_allowed": false,
+    "localized_message_text_as_key": false,
+    "unknown_codes": "visible_unclassified_review",
+    "clean_automation_means_accessibility_conformant": false
+  }
+}

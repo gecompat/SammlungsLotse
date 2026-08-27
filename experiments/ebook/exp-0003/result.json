@@ -1,0 +1,2390 @@
+{
+  "acceptance": {
+    "accessibility_states_distinct": true,
+    "all_findings_reference_raw": true,
+    "codes_severities_locations_and_profile_preserved": true,
+    "expected_errors_reproduced": true,
+    "fixture_inputs_unchanged": true,
+    "network_read_only_and_privilege_boundary": true,
+    "no_automatic_accessibility_conformance": true,
+    "raw_reports_complete_and_hashed": true,
+    "semantic_repeats_identical": true,
+    "standard_projection_path_free": true,
+    "tool_evidence_not_collapsed": true,
+    "tool_risk_visible": true,
+    "tool_versions_exact": true,
+    "unknown_codes_visible": true
+  },
+  "cases": [
+    {
+      "case_key": "epub33-valid-reflow",
+      "fixture_oracle": {
+        "expected_findings": [],
+        "forbidden_results": [
+          "finding.synthetic_error",
+          "accessibility.conformant"
+        ]
+      },
+      "fixture_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "repeats": [
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "overall_conclusion": "not_established",
+              "status": "not_applicable_to_epubcheck_profile"
+            },
+            "case_key": "epub33-valid-reflow",
+            "findings": [],
+            "raw_finding_count": 0,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "bbe7a3c70a995bc9a165a84e463615a90b9e29023ab510f0a1ef2b5e8f63202d",
+              "tool": "EPUBCheck",
+              "tool_version": "5.3.0"
+            }
+          },
+          "raw_report_sha256": "bbe7a3c70a995bc9a165a84e463615a90b9e29023ab510f0a1ef2b5e8f63202d",
+          "raw_report_size_bytes": 4393,
+          "run": 1,
+          "runtime": {
+            "duration_seconds": 9.766,
+            "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "output": {
+              "content_sha256": "fa7d5c4e2ba8bcbc6cc8e3b3e0fdf9d9d24052c38b6575d87f182eace8ba0136",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "48b3845aed06b80059bca7f103b731622520250556936217abd2bd94a0d2183e",
+                  "size_bytes": 47
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "bbe7a3c70a995bc9a165a84e463615a90b9e29023ab510f0a1ef2b5e8f63202d",
+                  "size_bytes": 4393
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "65532:65532"
+            }
+          },
+          "semantic_projection_sha256": "420ef8c6babc77d19485b5346c81fec1bac283371019bd55fe13770b7a034b0f",
+          "tool_exit_code": 0
+        },
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "overall_conclusion": "not_established",
+              "status": "not_applicable_to_epubcheck_profile"
+            },
+            "case_key": "epub33-valid-reflow",
+            "findings": [],
+            "raw_finding_count": 0,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "254c82600c13a659184dc00bd7c4b589f841b34eb5e89b847fd92b438d10c7af",
+              "tool": "EPUBCheck",
+              "tool_version": "5.3.0"
+            }
+          },
+          "raw_report_sha256": "254c82600c13a659184dc00bd7c4b589f841b34eb5e89b847fd92b438d10c7af",
+          "raw_report_size_bytes": 4393,
+          "run": 2,
+          "runtime": {
+            "duration_seconds": 9.687,
+            "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "output": {
+              "content_sha256": "dc4c9727e80baacaac656255a9c152b88fdeefa3dd0609a1066bf2bfe34afb24",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "48b3845aed06b80059bca7f103b731622520250556936217abd2bd94a0d2183e",
+                  "size_bytes": 47
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "254c82600c13a659184dc00bd7c4b589f841b34eb5e89b847fd92b438d10c7af",
+                  "size_bytes": 4393
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "65532:65532"
+            }
+          },
+          "semantic_projection_sha256": "420ef8c6babc77d19485b5346c81fec1bac283371019bd55fe13770b7a034b0f",
+          "tool_exit_code": 0
+        }
+      ],
+      "tool": "epubcheck"
+    },
+    {
+      "case_key": "epub-missing-resource",
+      "fixture_oracle": {
+        "expected_findings": [
+          "epub.resource_missing"
+        ],
+        "forbidden_results": [
+          "format.valid"
+        ]
+      },
+      "fixture_sha256": "877c63ac37c85ebba74d462b04d41d28e49a7cd20c7e90c29b44c492b864d8f4",
+      "input_unchanged": true,
+      "repeats": [
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "overall_conclusion": "not_established",
+              "status": "not_applicable_to_epubcheck_profile"
+            },
+            "case_key": "epub-missing-resource",
+            "findings": [
+              {
+                "internal_locations": [
+                  {
+                    "column": -1,
+                    "context": null,
+                    "line": -1,
+                    "path": "EPUB/chapter.xhtml"
+                  }
+                ],
+                "message": "File \"EPUB/chapter.xhtml\" could not be found.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "integrity",
+                "raw_ref": "raw://epubcheck/epub-missing-resource/messages/0",
+                "review_required": false,
+                "tool_code": "RSC-001"
+              }
+            ],
+            "raw_finding_count": 1,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "4391c17e34f94969b337f533b532baaf5904f86b7bde0646377cc373f66077b3",
+              "tool": "EPUBCheck",
+              "tool_version": "5.3.0"
+            }
+          },
+          "raw_report_sha256": "4391c17e34f94969b337f533b532baaf5904f86b7bde0646377cc373f66077b3",
+          "raw_report_size_bytes": 4178,
+          "run": 1,
+          "runtime": {
+            "duration_seconds": 9.828,
+            "input_sha256_after": "877c63ac37c85ebba74d462b04d41d28e49a7cd20c7e90c29b44c492b864d8f4",
+            "input_sha256_before": "877c63ac37c85ebba74d462b04d41d28e49a7cd20c7e90c29b44c492b864d8f4",
+            "output": {
+              "content_sha256": "5b649a95976738538c731bc2b9414dd703569fa12991ee592b149792d576acae",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "ffbd2cd805226ebf932ce8e42bf5691b1243ca9e81f94a01b362e0f510d25164",
+                  "size_bytes": 47
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "56296949d3a02e635b050fd6b4762f0f0b52c23d05b925203095f7daf8e19027",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "4391c17e34f94969b337f533b532baaf5904f86b7bde0646377cc373f66077b3",
+                  "size_bytes": 4178
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "65532:65532"
+            }
+          },
+          "semantic_projection_sha256": "a7100ef1f1c37e88d584f990c107f3076c1685154746636f1f460c28a9bcf6f6",
+          "tool_exit_code": 1
+        },
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "overall_conclusion": "not_established",
+              "status": "not_applicable_to_epubcheck_profile"
+            },
+            "case_key": "epub-missing-resource",
+            "findings": [
+              {
+                "internal_locations": [
+                  {
+                    "column": -1,
+                    "context": null,
+                    "line": -1,
+                    "path": "EPUB/chapter.xhtml"
+                  }
+                ],
+                "message": "File \"EPUB/chapter.xhtml\" could not be found.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "integrity",
+                "raw_ref": "raw://epubcheck/epub-missing-resource/messages/0",
+                "review_required": false,
+                "tool_code": "RSC-001"
+              }
+            ],
+            "raw_finding_count": 1,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "a45eba1e6c2d202298af18da4be333391e739fd8b4a8a2ab54e94ae0553172a7",
+              "tool": "EPUBCheck",
+              "tool_version": "5.3.0"
+            }
+          },
+          "raw_report_sha256": "a45eba1e6c2d202298af18da4be333391e739fd8b4a8a2ab54e94ae0553172a7",
+          "raw_report_size_bytes": 4178,
+          "run": 2,
+          "runtime": {
+            "duration_seconds": 9.765,
+            "input_sha256_after": "877c63ac37c85ebba74d462b04d41d28e49a7cd20c7e90c29b44c492b864d8f4",
+            "input_sha256_before": "877c63ac37c85ebba74d462b04d41d28e49a7cd20c7e90c29b44c492b864d8f4",
+            "output": {
+              "content_sha256": "84f6383cfae53b873f900c6c3a9e29f55c1b7bc5598074a1ca6006d2dbbe07f7",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "ffbd2cd805226ebf932ce8e42bf5691b1243ca9e81f94a01b362e0f510d25164",
+                  "size_bytes": 47
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "56296949d3a02e635b050fd6b4762f0f0b52c23d05b925203095f7daf8e19027",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "a45eba1e6c2d202298af18da4be333391e739fd8b4a8a2ab54e94ae0553172a7",
+                  "size_bytes": 4178
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "65532:65532"
+            }
+          },
+          "semantic_projection_sha256": "a7100ef1f1c37e88d584f990c107f3076c1685154746636f1f460c28a9bcf6f6",
+          "tool_exit_code": 1
+        }
+      ],
+      "tool": "epubcheck"
+    },
+    {
+      "case_key": "epub-navigation-defect",
+      "fixture_oracle": {
+        "expected_findings": [
+          "epub.navigation_defect"
+        ],
+        "forbidden_results": [
+          "epub.navigation_valid"
+        ]
+      },
+      "fixture_sha256": "0dbab8e6b7bfcfcb79ca343a136bef60aac8e40d794e2af39ea052daee2cf30a",
+      "input_unchanged": true,
+      "repeats": [
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "overall_conclusion": "not_established",
+              "status": "not_applicable_to_epubcheck_profile"
+            },
+            "case_key": "epub-navigation-defect",
+            "findings": [
+              {
+                "internal_locations": [
+                  {
+                    "column": 73,
+                    "context": null,
+                    "line": 5,
+                    "path": "EPUB/nav.xhtml"
+                  }
+                ],
+                "message": "Referenced resource \"EPUB/missing-nav-target.xhtml\" could not be found in the EPUB.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "format",
+                "raw_ref": "raw://epubcheck/epub-navigation-defect/messages/0",
+                "review_required": false,
+                "tool_code": "RSC-007"
+              }
+            ],
+            "raw_finding_count": 1,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "5a40ceeadbc8461dc4c8459194e2e9c4201c030e8e2e6ad82a3ee3a3ce6ad9a6",
+              "tool": "EPUBCheck",
+              "tool_version": "5.3.0"
+            }
+          },
+          "raw_report_sha256": "5a40ceeadbc8461dc4c8459194e2e9c4201c030e8e2e6ad82a3ee3a3ce6ad9a6",
+          "raw_report_size_bytes": 4296,
+          "run": 1,
+          "runtime": {
+            "duration_seconds": 9.219,
+            "input_sha256_after": "0dbab8e6b7bfcfcb79ca343a136bef60aac8e40d794e2af39ea052daee2cf30a",
+            "input_sha256_before": "0dbab8e6b7bfcfcb79ca343a136bef60aac8e40d794e2af39ea052daee2cf30a",
+            "output": {
+              "content_sha256": "d89f2ff017b3654431bc1e691fe17cd9acb96094b485abf92bd90302d8be618c",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "ffbd2cd805226ebf932ce8e42bf5691b1243ca9e81f94a01b362e0f510d25164",
+                  "size_bytes": 47
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "56296949d3a02e635b050fd6b4762f0f0b52c23d05b925203095f7daf8e19027",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "5a40ceeadbc8461dc4c8459194e2e9c4201c030e8e2e6ad82a3ee3a3ce6ad9a6",
+                  "size_bytes": 4296
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "65532:65532"
+            }
+          },
+          "semantic_projection_sha256": "db5ba36a13fbf4ee3630a0c8b960e9a95c158d15497e79d3f1274b1257c196c0",
+          "tool_exit_code": 1
+        },
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "overall_conclusion": "not_established",
+              "status": "not_applicable_to_epubcheck_profile"
+            },
+            "case_key": "epub-navigation-defect",
+            "findings": [
+              {
+                "internal_locations": [
+                  {
+                    "column": 73,
+                    "context": null,
+                    "line": 5,
+                    "path": "EPUB/nav.xhtml"
+                  }
+                ],
+                "message": "Referenced resource \"EPUB/missing-nav-target.xhtml\" could not be found in the EPUB.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "format",
+                "raw_ref": "raw://epubcheck/epub-navigation-defect/messages/0",
+                "review_required": false,
+                "tool_code": "RSC-007"
+              }
+            ],
+            "raw_finding_count": 1,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "7e650087b540307ac188dbfff893fa873e27e8ef5260e2025db5c1aa0791acc0",
+              "tool": "EPUBCheck",
+              "tool_version": "5.3.0"
+            }
+          },
+          "raw_report_sha256": "7e650087b540307ac188dbfff893fa873e27e8ef5260e2025db5c1aa0791acc0",
+          "raw_report_size_bytes": 4296,
+          "run": 2,
+          "runtime": {
+            "duration_seconds": 9.484,
+            "input_sha256_after": "0dbab8e6b7bfcfcb79ca343a136bef60aac8e40d794e2af39ea052daee2cf30a",
+            "input_sha256_before": "0dbab8e6b7bfcfcb79ca343a136bef60aac8e40d794e2af39ea052daee2cf30a",
+            "output": {
+              "content_sha256": "05e53ceed8553ad4077cc947a5c4c13dde9f4da0fb6ddc9604759d6d6084c26e",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "ffbd2cd805226ebf932ce8e42bf5691b1243ca9e81f94a01b362e0f510d25164",
+                  "size_bytes": 47
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "56296949d3a02e635b050fd6b4762f0f0b52c23d05b925203095f7daf8e19027",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "7e650087b540307ac188dbfff893fa873e27e8ef5260e2025db5c1aa0791acc0",
+                  "size_bytes": 4296
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "65532:65532"
+            }
+          },
+          "semantic_projection_sha256": "db5ba36a13fbf4ee3630a0c8b960e9a95c158d15497e79d3f1274b1257c196c0",
+          "tool_exit_code": 1
+        }
+      ],
+      "tool": "epubcheck"
+    },
+    {
+      "case_key": "epub-active-or-remote",
+      "fixture_oracle": {
+        "expected_findings": [
+          "security.active_content",
+          "security.remote_resource"
+        ],
+        "forbidden_results": [
+          "remote_resource.fetched"
+        ]
+      },
+      "fixture_sha256": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+      "input_unchanged": true,
+      "repeats": [
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "overall_conclusion": "not_established",
+              "status": "not_applicable_to_epubcheck_profile"
+            },
+            "case_key": "epub-active-or-remote",
+            "findings": [
+              {
+                "internal_locations": [
+                  {
+                    "column": -1,
+                    "context": null,
+                    "line": -1,
+                    "path": "EPUB/chapter.xhtml"
+                  }
+                ],
+                "message": "The property \"remote-resources\" should be declared in the OPF file.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "security",
+                "raw_ref": "raw://epubcheck/epub-active-or-remote/messages/0",
+                "review_required": false,
+                "tool_code": "OPF-014"
+              },
+              {
+                "internal_locations": [
+                  {
+                    "column": -1,
+                    "context": null,
+                    "line": -1,
+                    "path": "EPUB/chapter.xhtml"
+                  }
+                ],
+                "message": "The property \"scripted\" should be declared in the OPF file.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "security",
+                "raw_ref": "raw://epubcheck/epub-active-or-remote/messages/1",
+                "review_required": false,
+                "tool_code": "OPF-014"
+              },
+              {
+                "internal_locations": [
+                  {
+                    "column": 259,
+                    "context": null,
+                    "line": 5,
+                    "path": "EPUB/chapter.xhtml"
+                  }
+                ],
+                "message": "Remote resource reference is not allowed in this context; resource \"https://example.invalid/test-0001/remote.svg\" must be located in the EPUB container.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "unclassified",
+                "raw_ref": "raw://epubcheck/epub-active-or-remote/messages/2",
+                "review_required": true,
+                "tool_code": "RSC-006"
+              }
+            ],
+            "raw_finding_count": 3,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "2100c34e175c28d2cb154248c3882e82a717a3b8daaf75f5785a024ad027d19c",
+              "tool": "EPUBCheck",
+              "tool_version": "5.3.0"
+            }
+          },
+          "raw_report_sha256": "2100c34e175c28d2cb154248c3882e82a717a3b8daaf75f5785a024ad027d19c",
+          "raw_report_size_bytes": 5208,
+          "run": 1,
+          "runtime": {
+            "duration_seconds": 9.328,
+            "input_sha256_after": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+            "input_sha256_before": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+            "output": {
+              "content_sha256": "cf09e338cffa7a581e4510de8710afe27eac3b2ce5fb8a7fd2aa883299f3e0a0",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "ffbd2cd805226ebf932ce8e42bf5691b1243ca9e81f94a01b362e0f510d25164",
+                  "size_bytes": 47
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "56296949d3a02e635b050fd6b4762f0f0b52c23d05b925203095f7daf8e19027",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "2100c34e175c28d2cb154248c3882e82a717a3b8daaf75f5785a024ad027d19c",
+                  "size_bytes": 5208
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "65532:65532"
+            }
+          },
+          "semantic_projection_sha256": "768945e478e40eb6efd6f816b280238b718e2ca7eaed85df582798d68e4f73a0",
+          "tool_exit_code": 1
+        },
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "overall_conclusion": "not_established",
+              "status": "not_applicable_to_epubcheck_profile"
+            },
+            "case_key": "epub-active-or-remote",
+            "findings": [
+              {
+                "internal_locations": [
+                  {
+                    "column": -1,
+                    "context": null,
+                    "line": -1,
+                    "path": "EPUB/chapter.xhtml"
+                  }
+                ],
+                "message": "The property \"remote-resources\" should be declared in the OPF file.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "security",
+                "raw_ref": "raw://epubcheck/epub-active-or-remote/messages/0",
+                "review_required": false,
+                "tool_code": "OPF-014"
+              },
+              {
+                "internal_locations": [
+                  {
+                    "column": -1,
+                    "context": null,
+                    "line": -1,
+                    "path": "EPUB/chapter.xhtml"
+                  }
+                ],
+                "message": "The property \"scripted\" should be declared in the OPF file.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "security",
+                "raw_ref": "raw://epubcheck/epub-active-or-remote/messages/1",
+                "review_required": false,
+                "tool_code": "OPF-014"
+              },
+              {
+                "internal_locations": [
+                  {
+                    "column": 259,
+                    "context": null,
+                    "line": 5,
+                    "path": "EPUB/chapter.xhtml"
+                  }
+                ],
+                "message": "Remote resource reference is not allowed in this context; resource \"https://example.invalid/test-0001/remote.svg\" must be located in the EPUB container.",
+                "original_outcome": "finding",
+                "original_severity": "ERROR",
+                "quality_dimension": "unclassified",
+                "raw_ref": "raw://epubcheck/epub-active-or-remote/messages/2",
+                "review_required": true,
+                "tool_code": "RSC-006"
+              }
+            ],
+            "raw_finding_count": 3,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "d6fbc98551263e4794d7c62cf8da9b206f03561e9dd40a2b28f9330bc75b7d3a",
+              "tool": "EPUBCheck",
+              "tool_version": "5.3.0"
+            }
+          },
+          "raw_report_sha256": "d6fbc98551263e4794d7c62cf8da9b206f03561e9dd40a2b28f9330bc75b7d3a",
+          "raw_report_size_bytes": 5208,
+          "run": 2,
+          "runtime": {
+            "duration_seconds": 9.891,
+            "input_sha256_after": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+            "input_sha256_before": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+            "output": {
+              "content_sha256": "d9c125df1d52c223c365a3762bd70e92a728f92c7ec2fb996ca3a4940880fce4",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "ffbd2cd805226ebf932ce8e42bf5691b1243ca9e81f94a01b362e0f510d25164",
+                  "size_bytes": 47
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "56296949d3a02e635b050fd6b4762f0f0b52c23d05b925203095f7daf8e19027",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "d6fbc98551263e4794d7c62cf8da9b206f03561e9dd40a2b28f9330bc75b7d3a",
+                  "size_bytes": 5208
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "65532:65532"
+            }
+          },
+          "semantic_projection_sha256": "768945e478e40eb6efd6f816b280238b718e2ca7eaed85df582798d68e4f73a0",
+          "tool_exit_code": 1
+        }
+      ],
+      "tool": "epubcheck"
+    },
+    {
+      "case_key": "epub33-valid-reflow",
+      "fixture_oracle": {
+        "expected_findings": [],
+        "forbidden_results": [
+          "finding.synthetic_error",
+          "accessibility.conformant"
+        ]
+      },
+      "fixture_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "repeats": [
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "manual_basis": null,
+              "overall_conclusion": "not_established",
+              "status": "automation_only_no_conformance_conclusion"
+            },
+            "case_key": "epub33-valid-reflow",
+            "findings": [
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityFeature' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/0",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityfeature"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityHazard' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/1",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityhazard"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessibilitySummary' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/2",
+                "review_required": true,
+                "tool_code": "metadata-accessibilitysummary"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessMode' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/3",
+                "review_required": true,
+                "tool_code": "metadata-accessmode"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessModeSufficient' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/4",
+                "review_required": true,
+                "tool_code": "metadata-accessmodesufficient"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": "/4/2",
+                    "css": "nav",
+                    "path": "nav.xhtml"
+                  }
+                ],
+                "message": "Element has no ARIA role matching its epub:type",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/3/0",
+                "review_required": true,
+                "tool_code": "epub-type-has-matching-role"
+              }
+            ],
+            "raw_finding_count": 6,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "e62aa0ff85b7b62c2e829d3929d1295122e8ae6916012b8339e467f083ebd9a8",
+              "tool": "Ace by DAISY",
+              "tool_version": "1.4.6"
+            }
+          },
+          "raw_report_sha256": "e62aa0ff85b7b62c2e829d3929d1295122e8ae6916012b8339e467f083ebd9a8",
+          "raw_report_size_bytes": 8356,
+          "run": 1,
+          "runtime": {
+            "duration_seconds": 6.844,
+            "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "output": {
+              "content_sha256": "03dadcdc4fd288e9e75fc73c7bfb73c74dabd7263e9379f72fe0dc4e639f18e5",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "2862ef25c3c00870c7f42393acfb97c0a8d8e6757ce91bd25dac628ec09e6273",
+                  "size_bytes": 172
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "e62aa0ff85b7b62c2e829d3929d1295122e8ae6916012b8339e467f083ebd9a8",
+                  "size_bytes": 8356
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "10042:10042"
+            }
+          },
+          "semantic_projection_sha256": "b77651079c82bb6964b99e414a5b9ed96c7395c6e042eb18a28befa5b34ecc13",
+          "tool_exit_code": 2
+        },
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "manual_basis": null,
+              "overall_conclusion": "not_established",
+              "status": "automation_only_no_conformance_conclusion"
+            },
+            "case_key": "epub33-valid-reflow",
+            "findings": [
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityFeature' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/0",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityfeature"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityHazard' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/1",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityhazard"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessibilitySummary' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/2",
+                "review_required": true,
+                "tool_code": "metadata-accessibilitysummary"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessMode' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/3",
+                "review_required": true,
+                "tool_code": "metadata-accessmode"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessModeSufficient' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/1/4",
+                "review_required": true,
+                "tool_code": "metadata-accessmodesufficient"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": "/4/2",
+                    "css": "nav",
+                    "path": "nav.xhtml"
+                  }
+                ],
+                "message": "Element has no ARIA role matching its epub:type",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub33-valid-reflow/assertions/3/0",
+                "review_required": true,
+                "tool_code": "epub-type-has-matching-role"
+              }
+            ],
+            "raw_finding_count": 6,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "01e9131cc732b42ed28610ec23b21cb320f4888f87f508d75cb16934570d8b1c",
+              "tool": "Ace by DAISY",
+              "tool_version": "1.4.6"
+            }
+          },
+          "raw_report_sha256": "01e9131cc732b42ed28610ec23b21cb320f4888f87f508d75cb16934570d8b1c",
+          "raw_report_size_bytes": 8356,
+          "run": 2,
+          "runtime": {
+            "duration_seconds": 7.203,
+            "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "output": {
+              "content_sha256": "aab7dd20dffe54095dfd63e893be10bf08ce73ca235ce717a7e51dbf09bce88e",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "2862ef25c3c00870c7f42393acfb97c0a8d8e6757ce91bd25dac628ec09e6273",
+                  "size_bytes": 172
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "01e9131cc732b42ed28610ec23b21cb320f4888f87f508d75cb16934570d8b1c",
+                  "size_bytes": 8356
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "10042:10042"
+            }
+          },
+          "semantic_projection_sha256": "b77651079c82bb6964b99e414a5b9ed96c7395c6e042eb18a28befa5b34ecc13",
+          "tool_exit_code": 2
+        }
+      ],
+      "tool": "ace"
+    },
+    {
+      "case_key": "epub-a11y-auto-finding",
+      "fixture_oracle": {
+        "expected_findings": [
+          "accessibility.text_alternative_missing"
+        ],
+        "forbidden_results": [
+          "accessibility.conformant"
+        ]
+      },
+      "fixture_sha256": "de5efcba6da407595054f60bbfdb985c0dc7d1247a7e6f0a812c18525d761c15",
+      "input_unchanged": true,
+      "repeats": [
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "manual_basis": null,
+              "overall_conclusion": "not_established",
+              "status": "automatic_findings"
+            },
+            "case_key": "epub-a11y-auto-finding",
+            "findings": [
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityFeature' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/0",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityfeature"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityHazard' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/1",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityhazard"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessibilitySummary' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/2",
+                "review_required": true,
+                "tool_code": "metadata-accessibilitysummary"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessMode' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/3",
+                "review_required": true,
+                "tool_code": "metadata-accessmode"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessModeSufficient' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/4",
+                "review_required": true,
+                "tool_code": "metadata-accessmodesufficient"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": "/4/6",
+                    "css": "img",
+                    "path": "chapter.xhtml"
+                  }
+                ],
+                "message": "Element does not have an alt attribute\naria-label attribute does not exist or is empty\naria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\nElement has no title attribute\nElement's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+                "original_outcome": "fail",
+                "original_severity": "critical",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/2/0",
+                "review_required": true,
+                "tool_code": "image-alt"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": "/4/2",
+                    "css": "nav",
+                    "path": "nav.xhtml"
+                  }
+                ],
+                "message": "Element has no ARIA role matching its epub:type",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/3/0",
+                "review_required": true,
+                "tool_code": "epub-type-has-matching-role"
+              }
+            ],
+            "raw_finding_count": 7,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "136809e87335af54fa91ffe2b29d2ba72eabd89ff92c79895c7d03653399d73c",
+              "tool": "Ace by DAISY",
+              "tool_version": "1.4.6"
+            }
+          },
+          "raw_report_sha256": "136809e87335af54fa91ffe2b29d2ba72eabd89ff92c79895c7d03653399d73c",
+          "raw_report_size_bytes": 10014,
+          "run": 1,
+          "runtime": {
+            "duration_seconds": 8.031,
+            "input_sha256_after": "de5efcba6da407595054f60bbfdb985c0dc7d1247a7e6f0a812c18525d761c15",
+            "input_sha256_before": "de5efcba6da407595054f60bbfdb985c0dc7d1247a7e6f0a812c18525d761c15",
+            "output": {
+              "content_sha256": "40552f85c9fe091bf7cc74ec7d76a45a4a433080a52ed6725e6b0c78448d473b",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "2862ef25c3c00870c7f42393acfb97c0a8d8e6757ce91bd25dac628ec09e6273",
+                  "size_bytes": 172
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "136809e87335af54fa91ffe2b29d2ba72eabd89ff92c79895c7d03653399d73c",
+                  "size_bytes": 10014
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "10042:10042"
+            }
+          },
+          "semantic_projection_sha256": "f3e0d557d20835d017403e532023810a8a6ff8a095ea7ac1a93bc06aa9c9093f",
+          "tool_exit_code": 2
+        },
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "manual_basis": null,
+              "overall_conclusion": "not_established",
+              "status": "automatic_findings"
+            },
+            "case_key": "epub-a11y-auto-finding",
+            "findings": [
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityFeature' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/0",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityfeature"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityHazard' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/1",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityhazard"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessibilitySummary' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/2",
+                "review_required": true,
+                "tool_code": "metadata-accessibilitysummary"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessMode' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/3",
+                "review_required": true,
+                "tool_code": "metadata-accessmode"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessModeSufficient' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/1/4",
+                "review_required": true,
+                "tool_code": "metadata-accessmodesufficient"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": "/4/6",
+                    "css": "img",
+                    "path": "chapter.xhtml"
+                  }
+                ],
+                "message": "Element does not have an alt attribute\naria-label attribute does not exist or is empty\naria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\nElement has no title attribute\nElement's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+                "original_outcome": "fail",
+                "original_severity": "critical",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/2/0",
+                "review_required": true,
+                "tool_code": "image-alt"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": "/4/2",
+                    "css": "nav",
+                    "path": "nav.xhtml"
+                  }
+                ],
+                "message": "Element has no ARIA role matching its epub:type",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-auto-finding/assertions/3/0",
+                "review_required": true,
+                "tool_code": "epub-type-has-matching-role"
+              }
+            ],
+            "raw_finding_count": 7,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "b076a96d47cb281a5f0ab6eb8ca7af7c7e3b0a74da64845975b8fd004706396d",
+              "tool": "Ace by DAISY",
+              "tool_version": "1.4.6"
+            }
+          },
+          "raw_report_sha256": "b076a96d47cb281a5f0ab6eb8ca7af7c7e3b0a74da64845975b8fd004706396d",
+          "raw_report_size_bytes": 10014,
+          "run": 2,
+          "runtime": {
+            "duration_seconds": 7.484,
+            "input_sha256_after": "de5efcba6da407595054f60bbfdb985c0dc7d1247a7e6f0a812c18525d761c15",
+            "input_sha256_before": "de5efcba6da407595054f60bbfdb985c0dc7d1247a7e6f0a812c18525d761c15",
+            "output": {
+              "content_sha256": "acc6379d14824d40cb0f3c4836131727e429a78c4577901848bb97fc5070a05a",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "2862ef25c3c00870c7f42393acfb97c0a8d8e6757ce91bd25dac628ec09e6273",
+                  "size_bytes": 172
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "b076a96d47cb281a5f0ab6eb8ca7af7c7e3b0a74da64845975b8fd004706396d",
+                  "size_bytes": 10014
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "10042:10042"
+            }
+          },
+          "semantic_projection_sha256": "f3e0d557d20835d017403e532023810a8a6ff8a095ea7ac1a93bc06aa9c9093f",
+          "tool_exit_code": 2
+        }
+      ],
+      "tool": "ace"
+    },
+    {
+      "case_key": "epub-a11y-manual-required",
+      "fixture_oracle": {
+        "expected_findings": [
+          "accessibility.manual_review_required"
+        ],
+        "forbidden_results": [
+          "accessibility.conformant",
+          "accessibility.text_alternative_adequate"
+        ]
+      },
+      "fixture_sha256": "4adecde4b17147e8fb63442f1a90d0bc6fd4c0038f92c20521856df69a02c930",
+      "input_unchanged": true,
+      "repeats": [
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "manual_basis": "TEST-0001 oracle",
+              "overall_conclusion": "not_established",
+              "status": "manual_review_required"
+            },
+            "case_key": "epub-a11y-manual-required",
+            "findings": [
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityFeature' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/0",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityfeature"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityHazard' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/1",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityhazard"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessibilitySummary' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/2",
+                "review_required": true,
+                "tool_code": "metadata-accessibilitysummary"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessMode' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/3",
+                "review_required": true,
+                "tool_code": "metadata-accessmode"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessModeSufficient' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/4",
+                "review_required": true,
+                "tool_code": "metadata-accessmodesufficient"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": "/4/2",
+                    "css": "nav",
+                    "path": "nav.xhtml"
+                  }
+                ],
+                "message": "Element has no ARIA role matching its epub:type",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/3/0",
+                "review_required": true,
+                "tool_code": "epub-type-has-matching-role"
+              }
+            ],
+            "raw_finding_count": 6,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "50d96220c86863b19c5b32b51ae7a1f77f087d2e48b7b0b97ec93d3d7fc60c26",
+              "tool": "Ace by DAISY",
+              "tool_version": "1.4.6"
+            }
+          },
+          "raw_report_sha256": "50d96220c86863b19c5b32b51ae7a1f77f087d2e48b7b0b97ec93d3d7fc60c26",
+          "raw_report_size_bytes": 8340,
+          "run": 1,
+          "runtime": {
+            "duration_seconds": 7.547,
+            "input_sha256_after": "4adecde4b17147e8fb63442f1a90d0bc6fd4c0038f92c20521856df69a02c930",
+            "input_sha256_before": "4adecde4b17147e8fb63442f1a90d0bc6fd4c0038f92c20521856df69a02c930",
+            "output": {
+              "content_sha256": "5eae70bcee49364b877e71b46f58d486b5fe99234598bdee8aefb061c30ff11f",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "2862ef25c3c00870c7f42393acfb97c0a8d8e6757ce91bd25dac628ec09e6273",
+                  "size_bytes": 172
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "50d96220c86863b19c5b32b51ae7a1f77f087d2e48b7b0b97ec93d3d7fc60c26",
+                  "size_bytes": 8340
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "10042:10042"
+            }
+          },
+          "semantic_projection_sha256": "10edc1c114664a42830217ffcbdae074fcdc9eadf2e16b5500f122490e008d0a",
+          "tool_exit_code": 2
+        },
+        {
+          "projection": {
+            "accessibility_assessment": {
+              "manual_basis": "TEST-0001 oracle",
+              "overall_conclusion": "not_established",
+              "status": "manual_review_required"
+            },
+            "case_key": "epub-a11y-manual-required",
+            "findings": [
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityFeature' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/0",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityfeature"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessibilityHazard' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/1",
+                "review_required": true,
+                "tool_code": "metadata-accessibilityhazard"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessibilitySummary' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/2",
+                "review_required": true,
+                "tool_code": "metadata-accessibilitysummary"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications must declare the 'schema:accessMode' metadata",
+                "original_outcome": "fail",
+                "original_severity": "serious",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/3",
+                "review_required": true,
+                "tool_code": "metadata-accessmode"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": null,
+                    "css": null,
+                    "path": "EPUB/package.opf"
+                  }
+                ],
+                "message": "Publications should declare the 'schema:accessModeSufficient' metadata",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/1/4",
+                "review_required": true,
+                "tool_code": "metadata-accessmodesufficient"
+              },
+              {
+                "automation_mode": "automatic",
+                "internal_locations": [
+                  {
+                    "cfi": "/4/2",
+                    "css": "nav",
+                    "path": "nav.xhtml"
+                  }
+                ],
+                "message": "Element has no ARIA role matching its epub:type",
+                "original_outcome": "fail",
+                "original_severity": "moderate",
+                "quality_dimension": "accessibility",
+                "raw_ref": "raw://ace/epub-a11y-manual-required/assertions/3/0",
+                "review_required": true,
+                "tool_code": "epub-type-has-matching-role"
+              }
+            ],
+            "raw_finding_count": 6,
+            "schema_id": "exp-0003-ebook-tool-finding/v1",
+            "source": {
+              "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+              "raw_report_sha256": "425bf805332cbfbb6806612855215ae246408e65ecadf3587a7064b826a9b225",
+              "tool": "Ace by DAISY",
+              "tool_version": "1.4.6"
+            }
+          },
+          "raw_report_sha256": "425bf805332cbfbb6806612855215ae246408e65ecadf3587a7064b826a9b225",
+          "raw_report_size_bytes": 8340,
+          "run": 2,
+          "runtime": {
+            "duration_seconds": 6.328,
+            "input_sha256_after": "4adecde4b17147e8fb63442f1a90d0bc6fd4c0038f92c20521856df69a02c930",
+            "input_sha256_before": "4adecde4b17147e8fb63442f1a90d0bc6fd4c0038f92c20521856df69a02c930",
+            "output": {
+              "content_sha256": "80e2d1ccdf295add2622c36adfe8add6953fdfb9d98067bd805389f1d3c1d1a4",
+              "files": [
+                {
+                  "name": "control.json",
+                  "sha256": "2862ef25c3c00870c7f42393acfb97c0a8d8e6757ce91bd25dac628ec09e6273",
+                  "size_bytes": 172
+                },
+                {
+                  "name": "probe-complete.json",
+                  "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+                  "size_bytes": 21
+                },
+                {
+                  "name": "report.json",
+                  "sha256": "425bf805332cbfbb6806612855215ae246408e65ecadf3587a7064b826a9b225",
+                  "size_bytes": 8340
+                }
+              ]
+            },
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 400000,
+              "memory": 2147483648,
+              "memory_swap": 2147483648,
+              "mounts": [
+                {
+                  "destination": "/input/input.epub",
+                  "rw": false,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 256,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "shm_size": 268435456,
+              "tmpfs": {
+                "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+                "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+              },
+              "user": "10042:10042"
+            }
+          },
+          "semantic_projection_sha256": "10edc1c114664a42830217ffcbdae074fcdc9eadf2e16b5500f122490e008d0a",
+          "tool_exit_code": 2
+        }
+      ],
+      "tool": "ace"
+    }
+  ],
+  "dependency_audit": {
+    "advisory_ids": [
+      "GHSA-2g4f-4pwh-qvx6",
+      "GHSA-44fp-w29j-9vj5",
+      "GHSA-4pg4-qvpc-4q3h",
+      "GHSA-5528-5vmv-3xc2",
+      "GHSA-72gw-mp4g-v24j",
+      "GHSA-fjgf-rc76-4x9p",
+      "GHSA-g5hg-p3ph-g8qg",
+      "GHSA-jmr9-qjv8-65gv",
+      "GHSA-v52c-386h-88mc",
+      "GHSA-wm7h-9275-46v2",
+      "GHSA-xf7r-hgr6-v32p"
+    ],
+    "classification": "open-tool-risk-not-product-qualified",
+    "command": "npm audit --omit=dev --json",
+    "exit_code": 1,
+    "networked_provisioning_check": true,
+    "summary": {
+      "critical": 0,
+      "high": 14,
+      "info": 0,
+      "low": 0,
+      "moderate": 8,
+      "total": 22
+    }
+  },
+  "executed_on": "2026-08-27",
+  "experiment": "EXP-0003",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "images": {
+    "ace": {
+      "architecture": "amd64",
+      "digest": "7ec0d48fada7ecf9492cbbe8509b2f8cbaaf2d699a3517e2350e2528ef740f5a",
+      "id": "a99da492cfad4edabecc2e88659c8cca6a148ca2301bbeba3565b4e5d78de51e",
+      "os": "linux",
+      "tag": "localhost/sammlungslotse-exp-0003:ace-1.4.6-v2"
+    },
+    "epubcheck": {
+      "architecture": "amd64",
+      "digest": "ec420d7b5264502f7eda9081e550ee9e3b8ca2a28c486714676bc8e43ff7733f",
+      "id": "4b4daf4acae0cc3637b32fe8ca84fbe7c8833773412463ad463b0fbfe2ca0601",
+      "os": "linux",
+      "tag": "localhost/sammlungslotse-exp-0005:epubcheck-5.3.0"
+    }
+  },
+  "limitations": [
+    "Only small synthetic TEST-0001 EPUBs were used; no private or real collection content was processed.",
+    "Ace 1.4.6 disables Chromium's internal sandbox in its Puppeteer runner; containment relies on the outer unprivileged, capability-free, read-only, networkless Podman boundary.",
+    "The pinned Ace dependency graph had open npm advisories at execution time and is not product-qualified.",
+    "Ace required four CPUs and a 256-process ceiling for reproducible Chromium document checks on this host; lower preliminary profiles timed out.",
+    "Automated Ace results never establish overall accessibility conformance; the manual-review case is classified from the TEST-0001 oracle, not invented as an Ace finding.",
+    "Raw machine reports remain complete in local artifacts but are not version-controlled; result.json retains their hashes and lossless finding references."
+  ],
+  "profile_id": "exp-0003-epubcheck-5.3.0-ace-1.4.6/v2",
+  "profile_sha256": "1ffd11b22ec48bbb17e94ab291b7853d20d7b7fd4552ec64d7d50afc564f1cd2",
+  "raw_evidence": {
+    "content_sha256": "d2597b2ed7d06caf5ba4338b81e9a1958ecbaca57259b6c3af5198e7e7caab1a",
+    "retention": "complete local artifacts outside Git; hashes and projections retained in result.json"
+  },
+  "runtime": {
+    "client_version": "6.1.0",
+    "host_os": "Windows",
+    "platform": "linux/amd64",
+    "provider": "podman",
+    "server_version": "6.1.0"
+  },
+  "schema_version": 1,
+  "status": "pass",
+  "tool_versions": {
+    "ace": {
+      "reported": {
+        "ace": "1.4.6",
+        "ace_exit_code": 0,
+        "chrome": "Google Chrome for Testing 148.0.7778.97",
+        "chrome_exit_code": 0,
+        "node": "v24.15.0",
+        "node_exit_code": 0
+      },
+      "runtime": {
+        "duration_seconds": 5.328,
+        "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "output": {
+          "content_sha256": "b134b66019707094b0568b9139005c481098e1924736d150b99cf07f4659a50d",
+          "files": [
+            {
+              "name": "probe-complete.json",
+              "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+              "size_bytes": 21
+            },
+            {
+              "name": "tool-version.json",
+              "sha256": "581843f537a8cfedb67b74dcee7d3c29829c7cf51733a74955ffaf6416180030",
+              "size_bytes": 168
+            }
+          ]
+        },
+        "security": {
+          "cap_add": [],
+          "cap_drop": [
+            "CAP_CHOWN",
+            "CAP_DAC_OVERRIDE",
+            "CAP_FOWNER",
+            "CAP_FSETID",
+            "CAP_KILL",
+            "CAP_NET_BIND_SERVICE",
+            "CAP_SETFCAP",
+            "CAP_SETGID",
+            "CAP_SETPCAP",
+            "CAP_SETUID",
+            "CAP_SYS_CHROOT"
+          ],
+          "cpu_period": 100000,
+          "cpu_quota": 400000,
+          "memory": 2147483648,
+          "memory_swap": 2147483648,
+          "mounts": [
+            {
+              "destination": "/input/input.epub",
+              "rw": false,
+              "type": "bind"
+            }
+          ],
+          "network_mode": "none",
+          "pids_limit": 256,
+          "read_only_root": true,
+          "security_opt": [
+            "no-new-privileges"
+          ],
+          "shm_size": 268435456,
+          "tmpfs": {
+            "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+            "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+          },
+          "user": "10042:10042"
+        }
+      }
+    },
+    "epubcheck": {
+      "reported": {
+        "exit_code": 0,
+        "output": "EPUBCheck v5.3.0"
+      },
+      "runtime": {
+        "duration_seconds": 4.969,
+        "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+        "output": {
+          "content_sha256": "340c4f7471c7f7e6786c6bcc9fcbf959a78138d908f0c0969a4fae5df9520112",
+          "files": [
+            {
+              "name": "probe-complete.json",
+              "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+              "size_bytes": 21
+            },
+            {
+              "name": "tool-version.json",
+              "sha256": "0741490a7e8a1bac737e5d848ac09318af6ace9c8df0a9ba5aa8c4af76a7c689",
+              "size_bytes": 53
+            }
+          ]
+        },
+        "security": {
+          "cap_add": [],
+          "cap_drop": [
+            "CAP_CHOWN",
+            "CAP_DAC_OVERRIDE",
+            "CAP_FOWNER",
+            "CAP_FSETID",
+            "CAP_KILL",
+            "CAP_NET_BIND_SERVICE",
+            "CAP_SETFCAP",
+            "CAP_SETGID",
+            "CAP_SETPCAP",
+            "CAP_SETUID",
+            "CAP_SYS_CHROOT"
+          ],
+          "cpu_period": 100000,
+          "cpu_quota": 400000,
+          "memory": 2147483648,
+          "memory_swap": 2147483648,
+          "mounts": [
+            {
+              "destination": "/input/input.epub",
+              "rw": false,
+              "type": "bind"
+            }
+          ],
+          "network_mode": "none",
+          "pids_limit": 256,
+          "read_only_root": true,
+          "security_opt": [
+            "no-new-privileges"
+          ],
+          "shm_size": 268435456,
+          "tmpfs": {
+            "/output": "rw,nosuid,nodev,noexec,size=33554432,mode=1777,rprivate,tmpcopyup",
+            "/tmp": "rw,nosuid,nodev,noexec,size=536870912,mode=1777,rprivate,tmpcopyup"
+          },
+          "user": "65532:65532"
+        }
+      }
+    }
+  }
+}

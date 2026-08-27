@@ -20,8 +20,8 @@ Untersuchungshypothesen, Experimente und spätere Entscheidungen:
 WI-0002 ist `in_progress`. WI-0003 hat sechs read-only Nutzerentscheidungen
 und Messverträge auf Dokumentationsebene abgeschlossen. TEST-0001 ist mit 26
 synthetischen Kernfällen in der aktiven Version `0.2.0` ausführbar und
-`ready`; `0.1.0` bleibt historisch erhalten. EXP-0002 und EXP-0005 sind
-empirisch abgeschlossen. CAP-0002, REQ-0001, REQ-0002, EXP-0001, EXP-0003,
+`ready`; `0.1.0` bleibt historisch erhalten. EXP-0002, EXP-0003 und EXP-0005
+sind empirisch abgeschlossen. CAP-0002, REQ-0001, REQ-0002, EXP-0001,
 EXP-0004 und GATE-0001 sind vorgeschlagen.
 RISK-0001 hält das bereits anerkannte Risiko einer frühen fachlichen oder
 technischen Kopplung fest. Keines dieser Artefakte wählt einen
@@ -59,11 +59,11 @@ erste Implementierungs-Wave entschieden.
 
 ## Nächste Erkenntnis-Wave
 
-EXP-0005 hat die gemeinsame Sicherheitsqualifikation und EXP-0002 die lokale
-Calibre-Projektion über eine Copy-on-read-Grenze bestanden. Als Nächstes folgt
-EXP-0003 getrennt mit EPUBCheck- und Ace-Rohberichten. EXP-0004 folgt erst mit
-vollständigen positiven und negativen Sollpaaren. GATE-0001 bleibt bis zu
-diesen Ergebnissen offen.
+EXP-0005 hat die gemeinsame Sicherheitsqualifikation, EXP-0002 die lokale
+Calibre-Projektion über eine Copy-on-read-Grenze und EXP-0003 die
+verlustfreie EPUBCheck-/Ace-Evidenzprojektion bestanden. Als Nächstes folgt
+EXP-0004 mit vollständigen positiven und negativen Sollpaaren. GATE-0001
+bleibt bis zu diesem Ergebnis offen.
 
 ## Nicht übernehmen
 

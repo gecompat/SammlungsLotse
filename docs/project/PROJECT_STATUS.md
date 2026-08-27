@@ -31,8 +31,8 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - auf Dokumentationsebene abgeschlossene B1-Wave WI-0003 mit sechs
   Nutzerentscheidungen, Qualitäts- und Automatisierungsmatrix, Messverträgen
   und asymmetrischen Fehlerkosten;
-- vorgeschlagene Anforderung REQ-0002 sowie getrennte Experimentverträge
-  EXP-0003 und EXP-0004 und die abgeschlossenen Versuche EXP-0002 und
+- vorgeschlagene Anforderung REQ-0002, der weiterhin offene Experimentvertrag
+  EXP-0004 sowie die abgeschlossenen Versuche EXP-0002, EXP-0003 und
   EXP-0005;
 - ausführbarer Testvertrag TEST-0001 mit 26 validierten synthetischen
   `Kern`-Fällen, 44 manifestierten Komponenten und vier weiterhin offenen
@@ -42,10 +42,14 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
   `0.2.0`; der unveränderte historische Snapshot `0.1.0` bleibt erhalten;
 - empirisch bestandenes EXP-0005-Profil für eine isolierte, unprivilegierte,
   netzwerklose EPUBCheck-Ausführung unter Podman mit wirksamen Datei-,
-  Prozess-, Zeit-, Speicher-, CPU-, Output- und Umgebungsgrenzen.
+  Prozess-, Zeit-, Speicher-, CPU-, Output- und Umgebungsgrenzen;
 - empirisch bestandenes EXP-0002-Profil für zwei getrennte synthetische
   Calibre-Bibliotheken, minimale pfadbereinigte Feldprojektionen und eine
-  Copy-on-read-Grenze bei bytegleichen Quell-Snapshots.
+  Copy-on-read-Grenze bei bytegleichen Quell-Snapshots;
+- empirisch bestandenes EXP-0003-Evidenzprofil mit getrennten EPUBCheck- und
+  Ace-Rohberichten, verlustfreier Werkzeugprojektion und explizitem manuellem
+  Prüfbedarf; das erprobte Ace-Ausführungsprofil ist nicht
+  produktqualifiziert.
 
 ## Nicht vorhanden
 
@@ -56,10 +60,25 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - öffentliche REST-, Agent-, CLI- oder Browser-Schnittstelle;
 - angenommener Entwicklungsbacklog oder freigegebene technische Roadmap;
 - übernommener FolioTone-Code;
-- ausgeführte Ergebnisse aus EXP-0003 und EXP-0004;
+- ausgeführte Ergebnisse aus EXP-0004;
 - Release.
 
 ## Validierung
+
+EXP-0003: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Podman 6.1.0.
+Vierzehn Akzeptanzprüfungen waren über sieben synthetische TEST-0001-Fälle
+und jeweils zwei Wiederholungen erfolgreich. EPUBCheck 5.3.0 lieferte für
+die Fehlerfälle die Originalcodes `RSC-001`, `RSC-007`, `OPF-014` und
+`RSC-006`; der unbekannte Code `RSC-006` blieb unverändert, unklassifiziert
+und prüfpflichtig. Ace 1.4.6 lieferte seine Rohbefunde getrennt; der manuelle
+Prüfbedarf stammt ausschließlich aus dem TEST-0001-Oracle. Semantische
+Wiederholungsdigests waren identisch, Eingabehashes blieben unverändert und
+vollständige Maschinenberichte liegen nur im nicht versionierten
+Artefaktbereich, während `result.json` deren Hashes festhält. Das strikt
+begrenzte, netzwerklose Podman-Profil ist lediglich Experimentnachweis:
+Ace startet Chromium mit deaktivierter Sandbox, und der eingefrorene
+Abhängigkeitsbaum weist 22 bekannte npm-Befunde aus. Damit ist dieses
+Ace-Profil ausdrücklich nicht produktqualifiziert und keine Stackentscheidung.
 
 EXP-0002: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Podman 6.1.0
 mit Linux/amd64. Calibre 9.13.0 wurde aus dem SHA-512-geprüften offiziellen
@@ -92,10 +111,10 @@ zentrale Fallorakel, bytegenaue Regeneration und unveränderte Eingänge. Der
 kontrollierte 100-ms-Timeout, Pfad-Traversal-Erkennung,
 Expansion-Limit-Erkennung, positive und negative Identitätspaare sowie beide
 Routingresultate waren erfolgreich. Zehn synthetische Unit-Tests,
-`compileall` und `git diff --check` waren erfolgreich. EXP-0002 und EXP-0005
-wurden getrennt ausgeführt; Ace und die fachlichen Experimente EXP-0003 und
-EXP-0004 bleiben offen. Version `0.1.0` bleibt unverändert und ist wegen des dortigen
-OPF-Literals `version="3.3"` nicht mehr die aktive Experimentbasis.
+`compileall` und `git diff --check` waren erfolgreich. EXP-0002, EXP-0003 und
+EXP-0005 wurden getrennt ausgeführt; EXP-0004 bleibt offen. Version `0.1.0`
+bleibt unverändert und ist wegen des dortigen OPF-Literals `version="3.3"`
+nicht mehr die aktive Experimentbasis.
 
 B1-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
 2026-08-27. `tools/governance/validate_repository.py` und die
@@ -165,10 +184,9 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes wird EXP-0003
-getrennt mit EPUBCheck- und Ace-Rohberichten ausgeführt; EXP-0004 folgt danach mit den
-vollständigen positiven und negativen Sollpaaren. GATE-0001 bleibt bis zu
-diesen Ergebnissen offen.
+WI-0002 setzt die E-Book-Analyse ergebnisoffen mit EXP-0004 fort. Die
+Identitätsheuristik wird gegen die vollständigen positiven und negativen
+TEST-0001-Sollpaare geprüft. GATE-0001 bleibt bis zu diesem Ergebnis offen.
 
 ## Offene Punkte
 
@@ -181,8 +199,6 @@ diesen Ergebnissen offen.
 
 ## Blocker
 
-Keine bekannten Blocker für EXP-0003. Die EPUB-/Accessibility-
-Prüfmaterialisierung und die konkrete Ace-Werkzeugqualifikation bleiben
-Bestandteil dieser nächsten Welle. Die fehlende Auswahl des ersten
+Keine bekannten Blocker für EXP-0004. Die fehlende Auswahl des ersten
 Vertikalablaufs ist beabsichtigt und blockiert Produktimplementierung sowie
 schreibende Fähigkeiten.
