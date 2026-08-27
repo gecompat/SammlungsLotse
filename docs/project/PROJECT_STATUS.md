@@ -86,7 +86,11 @@ implementiert.
 - aktuelle Primärquellenprüfung für Provider, BSD-3-Clause-Lizenz,
   Wartungsstand, offizielle Releaseprovenienz und Temurin-Laufzeitstand. Das
   EXP-0005-Profil mit Temurin 21.0.12+8 bleibt historische Evidenz und ist
-  ausdrücklich kein übernommenes Produktprofil.
+  ausdrücklich kein übernommenes Produktprofil;
+- elf aktuelle offene GitHub-Dependabot-Befunde, zehn `high` und einen
+  `moderate`, sämtlich im eingefrorenen Ace/npm-Experimentbaum von EXP-0003.
+  Sie bestätigen dessen bestehende Nichtqualifikation, werden nicht
+  verworfen und betreffen keinen implementierten Produktadapter.
 
 ## Nicht vorhanden
 
@@ -118,9 +122,10 @@ TEST-0001 bestätigte 26 Fälle und 44 Komponenten, EXP-0002 bis EXP-0007
 bestätigten 13/13, 14/14, 15/15, 11/11, 16/16 und 16/16 Kriterien. Alle 63
 synthetischen Repository-Tests, `compileall` und `git diff --check` waren
 erfolgreich. Der Produktcode blieb unverändert. Dies belegt aktuelle
-Quellenauswertung, Entscheidungs-, Registry-, Dokument-, Fixture- und
-Regressionsintegrität, nicht einen implementierten oder
-produktqualifizierten Adapter.
+Quellenauswertung einschließlich der Zuordnung aller elf beim PR-Push
+gemeldeten Dependabot-Befunde zum eingefrorenen EXP-0003-Ace-Baum,
+Entscheidungs-, Registry-, Dokument-, Fixture- und Regressionsintegrität,
+nicht einen implementierten oder produktqualifizierten Adapter.
 
 EXP-0007-Ausführungs- und GATE-0003-Wave: PROJECT_SEMANTIC und vollständige
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-27. Repository- und

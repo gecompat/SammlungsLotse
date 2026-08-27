@@ -62,6 +62,12 @@ aktuellen Primärquellen neu erhoben:
   prüfbar ist. Zusammen mit der negativen EXP-0003-Laufzeitevidenz spricht
   das gegen die Aufnahme in diese erste Wave, nicht gegen eine spätere
   getrennte Bewertung: <https://github.com/daisy/ace>.
+- GitHub Dependabot meldete beim PR-Push 11 offene Befunde, zehn `high` und
+  einen `moderate`. Alle verweisen ausschließlich auf den eingefrorenen
+  Ace/npm-Baum unter `experiments/ebook/exp-0003/package-lock.json`, keiner
+  auf einen Produktadapter. Sie werden weder als behoben dargestellt noch
+  aus dem historischen Experiment entfernt oder stillschweigend verworfen:
+  <https://github.com/gecompat/SammlungsLotse/security/dependabot>.
 
 Damit bleibt die EPUBCheck-Identität und der bereits beobachtete
 Maschinenbericht verwendbar. Das frühere EXP-0005-Containerimage ist jedoch
@@ -73,7 +79,7 @@ nur historische Evidenz und kein übernehmbares Produktlaufzeitprofil.
 |---|---|---|---|
 | EPUBCheck 5.3.0 als externer CLI-Prozess | etablierte EPUB-3.3-Konformitätsbefunde, maschinenlesbarer Rohbericht, bereits synthetisch erprobt | Java-Laufzeit und gepflegtes Isolationsprofil erforderlich; Befund ist keine Gesamtqualitätsaussage | angenommen |
 | EPUBCheck als eingebettete Java-Bibliothek | direkter Bibliotheksaufruf | koppelt den Python-Prototyp früh an JVM-Integration und Bibliothekslebenszyklus | für die erste Wave verworfen |
-| Ace 1.4.6 | zusätzliche automatisierte Accessibility-Befunde | unvollständige Automatisierung; das erprobte Profil deaktiviert die Chromium-Sandbox und hatte bekannte npm-Befunde | nicht Teil von WI-0005; neuer Vertrag und neue Qualifikation erforderlich |
+| Ace 1.4.6 | zusätzliche automatisierte Accessibility-Befunde | unvollständige Automatisierung; das erprobte Profil deaktiviert die Chromium-Sandbox, hatte bekannte npm-Befunde und besitzt aktuell 11 offene Dependabot-Meldungen im eingefrorenen Experimentbaum | nicht Teil von WI-0005; neuer Vertrag und neue Qualifikation erforderlich |
 | Calibre-Werkzeuge | Metadaten- und Bibliotheksnutzen | beantwortet nicht die erste tiefe EPUB-Konformitätsfrage; zusätzliche große Oberfläche | nicht Teil von WI-0005 |
 | nativer Windows-Prozess | geringe lokale Bedienhürde | die geforderte netzwerklose und ressourcenbegrenzte Grenze ist noch nicht empirisch qualifiziert | später austauschbar, zunächst nicht unterstützt |
 | digest-gepinntes Podman-Profil | bereits erprobte Netzwerk-, Mount-, UID-, Capability-, Prozess- und Ressourcenbegrenzung | lokale Podman-Voraussetzung und explizite Bereitstellung nötig | zuerst zu implementierender und zu qualifizierender Executor, ohne Kernkopplung |
