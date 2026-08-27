@@ -31,8 +31,9 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - auf Dokumentationsebene abgeschlossene B1-Wave WI-0003 mit sechs
   Nutzerentscheidungen, Qualitäts- und Automatisierungsmatrix, Messverträgen
   und asymmetrischen Fehlerkosten;
-- vorgeschlagene Anforderung REQ-0002 sowie die abgeschlossenen Versuche
-  EXP-0002 bis EXP-0005;
+- vorgeschlagene Anforderung REQ-0002, die abgeschlossenen Versuche EXP-0002
+  bis EXP-0005 sowie der registrierte, noch nicht ausgeführte
+  Eingangstriage-Preflight EXP-0006;
 - ausführbarer Testvertrag TEST-0001 mit 26 validierten synthetischen
   `Kern`-Fällen, 44 manifestierten Komponenten und vier weiterhin offenen
   `Ausbau`-Fällen;
@@ -66,9 +67,19 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - öffentliche REST-, Agent-, CLI- oder Browser-Schnittstelle;
 - angenommener Entwicklungsbacklog oder freigegebene technische Roadmap;
 - übernommener FolioTone-Code;
+- empirisches EXP-0006-Ergebnis;
 - Release.
 
 ## Validierung
+
+EXP-0006-Vertragswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL-Regression lokal
+validiert am 2026-08-27. Repository- und v2-Registry-Prüfung waren für 19
+registrierte Artefakte erfolgreich. TEST-0001 bestätigte unverändert 26 Fälle
+und 44 Komponenten; die eingecheckten Ergebnisverträge von EXP-0002 bis
+EXP-0005 bestätigten 13/13, 14/14, 15/15 und 11/11 Kriterien. 24 synthetische
+Unit-Tests, `compileall` und `git diff --check` waren erfolgreich. Dies belegt
+Registrierung, Dokument-, Link-, Registry- und Regressionsintegrität, nicht
+die noch ausstehende Implementierung oder Ausführung von EXP-0006.
 
 GATE-0001-Vergleich: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
 am 2026-08-27. Repository- und v2-Registry-Prüfung waren für 18 registrierte
@@ -210,11 +221,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-Vor einer erneuten GATE-0001-Auswertung wird genau eine neue Evidenzwelle als
-eigener Registry-Gegenstand und Experimentvertrag vorbereitet: ein read-only
-Eingangstriage-Preflight für Format- und Fähigkeitsklassifikation. Er darf
-nur synthetische TEST-0001-Eingänge verwenden und beginnt weder Produktcode
-noch einen Writer.
+EXP-0006 wird in einer getrennten Experiment-Wave implementiert und
+ausgeführt. Vor dem ersten Lauf werden Ausführungsprofil, wegwerfbarer Runner,
+Ergebnisvertrag und Ergebnisvalidator versioniert. Der Versuch verwendet nur
+die festgelegten synthetischen TEST-0001-Eingänge, startet tiefe Werkzeuge nur
+nach positiver Fähigkeit und beginnt weder Produktcode noch einen Writer.
 
 ## Offene Punkte
 
@@ -227,6 +238,6 @@ noch einen Writer.
 
 ## Blocker
 
-Keine bekannten Blocker für die Vorbereitung der eingegrenzten nächsten
-Evidenzwelle. GATE-0001 bleibt nach begründeter Vertagung offen und blockiert
-weiterhin Produktimplementierung sowie schreibende Fähigkeiten.
+Keine bekannten Blocker für die gebundene EXP-0006-Ausführungswave.
+GATE-0001 bleibt nach begründeter Vertagung offen und blockiert weiterhin
+Produktimplementierung sowie schreibende Fähigkeiten.

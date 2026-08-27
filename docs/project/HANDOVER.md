@@ -46,16 +46,20 @@ abgeschlossen: Sechs Sollpaare bleiben auf fünf Identitätsebenen getrennt,
 Kandidaten zeigen positive und negative Evidenz, fehlende Evidenz bleibt
 separat und Leseprobe/Vollausgabe führt auf Ausgabenebene zur Enthaltung. Die
 perfekten Werte des kleinen synthetischen Goldstandards sind keine
-Produktprognose. Alle Verträge stehen unter docs/planning/EBOOK_EXPERIMENTS.md.
+Produktprognose. EXP-0006 ist als genau eine nächste Evidenzwelle registriert
+und mit fester Sollmatrix, sicherer Reihenfolge, Pass-, Fail- und
+Stoppkriterien spezifiziert, aber noch nicht ausgeführt. Alle Verträge stehen
+unter docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-Die nächste Arbeit registriert und spezifiziert genau eine neue
-Evidenzwelle: einen read-only Eingangstriage-Preflight für Format- und
-Fähigkeitsklassifikation. Der Mindestnachweis und die Stopkriterien stehen in
-docs/planning/EBOOK_GATE_0001_COMPARISON.md. Die Wave verwendet nur
-synthetische TEST-0001-Eingänge und beginnt weder Produktcode noch einen
-Writer. Erst nach ihrem Ergebnis wird GATE-0001 erneut ausgewertet.
+Die nächste Arbeit implementiert und führt ausschließlich EXP-0006 als
+gebundene Experiment-Wave aus. Vor dem ersten Lauf müssen Ausführungsprofil,
+wegwerfbarer Runner, Ergebnisvertrag und Ergebnisvalidator unter
+experiments/ebook/exp-0006/ versioniert sein. Die Wave verwendet nur die
+festgelegten synthetischen TEST-0001-Eingänge und beginnt weder Produktcode
+noch einen Writer. Erst nach ihrem versionierten Ergebnis wird GATE-0001
+erneut ausgewertet.
 
 ## Harte Grenzen
 
@@ -82,7 +86,8 @@ Writer. Erst nach ihrem Ergebnis wird GATE-0001 erneut ausgewertet.
   den Copy-on-read-Calibre-Zugriff, EXP-0003 nur eine Evidenzprojektion mit
   nicht produktqualifiziertem Ace-Profil, EXP-0004 nur eine kleine
   synthetische Identitätsheuristik und EXP-0005 nur einen wegwerfbaren
-  Sicherheitsweg; keiner dieser Versuche wählt eine Produktlaufzeit;
+  Sicherheitsweg; EXP-0006 ist noch nicht ausgeführt; keiner dieser Versuche
+  wählt eine Produktlaufzeit;
 - ein optionales Repository-Continuity-Verfahren mit getrennten Rulesets,
   autorisierten Akteuren und Ausfallschwelle. Bis zu einer angenommenen
   Entscheidung existiert kein Break-Glass-Bypass.

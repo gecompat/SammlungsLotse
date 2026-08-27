@@ -222,6 +222,36 @@
       "status": "done",
       "title": "Isolierte E-Book-Werkzeugausführung qualifizieren"
     },
+    "EXP-0006": {
+      "acceptance_criteria": "Ein flacher Preflight klassifiziert die einschlägigen synthetischen TEST-0001-Kernfälle vor jedem tiefen Werkzeuglauf reproduzierbar; sicherheitskritische Fehlfreigaben, Netzwerk-, Original- und Fachsystemschreibwirkungen bleiben null, und unsupported, unknown, Reviewbedarf sowie Enthaltung bleiben getrennt.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a042dc-660f-7750-8f1e-1340a3589377",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_EXPERIMENTS.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0003",
+          "type": "related_to"
+        },
+        {
+          "target": "GATE-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "Read-only Eingangstriage-Preflight qualifizieren"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -258,6 +288,10 @@
         },
         {
           "target": "EXP-0005",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0006",
           "type": "depends_on"
         }
       ],
