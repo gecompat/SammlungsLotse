@@ -77,7 +77,8 @@ Eingangstriage. Sie würde einen synthetischen Eingangsordner und mehrere
 synthetische Calibre-Zielbibliotheken erfassen, Formate inventarisieren, EPUB
 tief prüfen, Dubletten- und Metadatenkandidaten erklären und ein Routing
 vorschlagen oder sich enthalten. Sie würde nichts verschieben, transformieren
-oder in Calibre schreiben. GATE-0001 trifft dazu noch keine Auswahl.
+oder in Calibre schreiben. GATE-0001 hat diese Hypothese im ersten Vergleich
+noch nicht angenommen.
 
 ## Erkenntnisstufen
 
@@ -277,6 +278,10 @@ vermischt werden.
 
 ### B4 — GATE-0001: ersten vertikalen Ablauf auswählen
 
+Der getrennte [GATE-0001-Vergleich](EBOOK_GATE_0001_COMPARISON.md) hat
+Eingangstriage und Bestandsprüfung gegen dieselben Voraussetzungen bewertet.
+Ergebnis ist eine begründete Vertagung; GATE-0001 bleibt offen.
+
 GATE-0001 kann erst angenommen werden, wenn mindestens vorliegen:
 
 - beschriebene Nutzerfragen und ein vollständiger Ablauf;
@@ -390,8 +395,10 @@ referenziert, Ace aber wegen offener Sandbox- und Abhängigkeitsrisiken nicht
 produktqualifiziert. EXP-0004 hat alle sechs Identitäts-Sollpaare zweifach
 auf fünf getrennten Ebenen ausgewertet; die perfekte synthetische Precision
 und der perfekte synthetische Recall sind wegen der kleinen gezielten Menge
-keine Produktprognose. WI-0002 bleibt `in_progress`. Die nächste Analyse
-beginnt weiterhin keinen Produktcode: Eingangstriage und Bestandsprüfung
-werden anhand der nun vorliegenden Experimentergebnisse an GATE-0001
-verglichen. Das Gate bleibt bis zu einer begründeten Auswahl oder Vertagung
-offen.
+keine Produktprognose. WI-0002 und der Vergleich der beiden
+Produktzuschnitte sind abgeschlossen. GATE-0001 bleibt nach der begründeten
+Vertagung `proposed`: Beide Kandidaten besitzen noch keine ausreichende
+End-to-End-Evidenz. Vor der erneuten Gate-Auswertung ist genau eine weitere
+Evidenzwelle vorgesehen: ein read-only Eingangstriage-Preflight für Format-
+und Fähigkeitsklassifikation. Diese Wave ist noch nicht registriert oder zur
+Ausführung autorisiert und beginnt weiterhin keinen Produktcode.

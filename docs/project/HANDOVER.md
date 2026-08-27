@@ -22,8 +22,10 @@ docs/decisions/.
 
 Der aktuelle E-Book-Brainstorming-Stand steht unter
 docs/planning/EBOOK_LANDSCAPE.md. Die weitere Erkenntnisreihenfolge steht
-unter docs/planning/EBOOK_EXPLORATION_PLAN.md. WI-0002 ist `in_progress`;
-GATE-0001 bleibt offen.
+unter docs/planning/EBOOK_EXPLORATION_PLAN.md. WI-0002 ist `done`. Der
+Vergleich unter docs/planning/EBOOK_GATE_0001_COMPARISON.md hat weder
+Eingangstriage noch Bestandsprüfung angenommen: GATE-0001 ist begründet
+vertagt und bleibt offen.
 
 WI-0003 ist auf Dokumentationsebene abgeschlossen. Die sechs
 Nutzerentscheidungen und Messverträge stehen unter
@@ -48,12 +50,12 @@ Produktprognose. Alle Verträge stehen unter docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-Die nächste Arbeit setzt WI-0002 mit dem getrennten Vergleich der Ergebnisse
-aus EXP-0002 bis EXP-0005 fort. Eingangstriage und Bestandsprüfung werden an
-den Voraussetzungen von GATE-0001 gegenübergestellt, ohne die wegwerfbaren
-Experimente zu einer Produktimplementierung zusammenzubauen. Die Arbeit
-beginnt weder Produktcode noch einen Writer; das Gate muss eine Auswahl oder
-Vertagung erst begründen.
+Die nächste Arbeit registriert und spezifiziert genau eine neue
+Evidenzwelle: einen read-only Eingangstriage-Preflight für Format- und
+Fähigkeitsklassifikation. Der Mindestnachweis und die Stopkriterien stehen in
+docs/planning/EBOOK_GATE_0001_COMPARISON.md. Die Wave verwendet nur
+synthetische TEST-0001-Eingänge und beginnt weder Produktcode noch einen
+Writer. Erst nach ihrem Ergebnis wird GATE-0001 erneut ausgewertet.
 
 ## Harte Grenzen
 

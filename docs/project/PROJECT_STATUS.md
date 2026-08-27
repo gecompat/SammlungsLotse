@@ -26,8 +26,8 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
   Checks repository-quality und registry-integrity;
 - registrierter E-Book-Möglichkeitenraum CAP-0002 und vorgeschlagene
   mehrdimensionale Qualitätsanforderung REQ-0001;
-- laufender Erkundungsgegenstand WI-0002 mit RISK-0001, TEST-0001, EXP-0001
-  und GATE-0001;
+- abgeschlossener Erkundungsgegenstand WI-0002 mit RISK-0001, TEST-0001,
+  EXP-0001 und GATE-0001;
 - auf Dokumentationsebene abgeschlossene B1-Wave WI-0003 mit sechs
   Nutzerentscheidungen, Qualitäts- und Automatisierungsmatrix, Messverträgen
   und asymmetrischen Fehlerkosten;
@@ -51,7 +51,11 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
   produktqualifiziert;
 - empirisch bestandenes EXP-0004-Profil mit fünf getrennten Identitätsebenen,
   positiven, negativen und fehlenden Evidenzkanälen sowie begründeter
-  Enthaltung ohne Bestandswirkung.
+  Enthaltung ohne Bestandswirkung;
+- abgeschlossener GATE-0001-Vergleich von Eingangstriage und
+  Bestandsprüfung mit begründeter Vertagung: Beide Kandidaten bleiben offen,
+  genau eine weitere Evidenzwelle ist abgegrenzt und Produktcode bleibt nicht
+  autorisiert.
 
 ## Nicht vorhanden
 
@@ -65,6 +69,15 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - Release.
 
 ## Validierung
+
+GATE-0001-Vergleich: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
+am 2026-08-27. Repository- und v2-Registry-Prüfung waren für 18 registrierte
+Artefakte erfolgreich. TEST-0001 bestätigte 26 Fälle und 44 Komponenten; die
+eingecheckten Ergebnisverträge von EXP-0002 bis EXP-0005 bestätigten 13/13,
+14/14, 15/15 und 11/11 Kriterien. 24 synthetische Unit-Tests, `compileall`
+und `git diff --check` waren erfolgreich. Diese Prüfungen belegen
+Dokument-, Link-, Registry- und vorhandene Ergebnisintegrität, nicht die
+fachliche Güte eines noch nicht ausgeführten vollständigen Vertikalablaufs.
 
 EXP-0004: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Python
 3.12.10. Fünfzehn Akzeptanzprüfungen waren erfolgreich. Sechs synthetische
@@ -197,10 +210,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0002 setzt die E-Book-Analyse ergebnisoffen mit dem getrennten Vergleich
-der Ergebnisse aus EXP-0002 bis EXP-0005 fort. Eingangstriage und
-Bestandsprüfung werden an den Voraussetzungen von GATE-0001 gegenübergestellt.
-Das Gate bleibt bis zu einer begründeten Auswahl oder Vertagung offen.
+Vor einer erneuten GATE-0001-Auswertung wird genau eine neue Evidenzwelle als
+eigener Registry-Gegenstand und Experimentvertrag vorbereitet: ein read-only
+Eingangstriage-Preflight für Format- und Fähigkeitsklassifikation. Er darf
+nur synthetische TEST-0001-Eingänge verwenden und beginnt weder Produktcode
+noch einen Writer.
 
 ## Offene Punkte
 
@@ -213,6 +227,6 @@ Das Gate bleibt bis zu einer begründeten Auswahl oder Vertagung offen.
 
 ## Blocker
 
-Keine bekannten Blocker für den ergebnisoffenen Experimentvergleich. Die
-fehlende Auswahl des ersten Vertikalablaufs ist beabsichtigt und blockiert
-Produktimplementierung sowie schreibende Fähigkeiten.
+Keine bekannten Blocker für die Vorbereitung der eingegrenzten nächsten
+Evidenzwelle. GATE-0001 bleibt nach begründeter Vertagung offen und blockiert
+weiterhin Produktimplementierung sowie schreibende Fähigkeiten.
