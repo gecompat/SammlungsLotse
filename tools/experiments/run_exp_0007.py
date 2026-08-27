@@ -435,7 +435,7 @@ def optional_epubcheck_compatibility(
                 float(exp5_profile["container_runtime"]["timeout_seconds"]),
             )
             after = sha256_file(materialized)
-            shutil.rmtree(task)
+            DRIVER.cleanup_directory(task)
             cases.append(
                 {
                     "case_key": case["case_key"],
@@ -453,7 +453,7 @@ def optional_epubcheck_compatibility(
             )
     finally:
         if temp_root.exists():
-            shutil.rmtree(temp_root)
+            DRIVER.cleanup_directory(temp_root)
     qualified = all(
         case["started"]
         and not case["timed_out"]
