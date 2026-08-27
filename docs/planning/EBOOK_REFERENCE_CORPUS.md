@@ -15,7 +15,7 @@ reproduzierbar bewertet werden. Dieses Dokument ist der Testvertrag. Die 26
 
 Generator, Manifest und Fixture-Einstieg stehen unter
 [tests/fixtures/ebook/test-0001](../../tests/fixtures/ebook/test-0001/README.md).
-Die Fixture-Validierung ist noch kein Lauf von EXP-0002 bis EXP-0005 und kein
+Die Fixture-Validierung ist noch kein Lauf von EXP-0002 bis EXP-0006 und kein
 fachlicher Produktbeleg.
 
 Der Korpus verwendet keine realen privaten Medien oder Sammlungsinventare. Er
@@ -206,4 +206,8 @@ hat zwei daraus synthetisch materialisierte Calibre-Bibliotheken erfolgreich
 Ace-Rohberichte gegen sieben ausgewählte Fälle je zweimal erhoben und
 verlustfrei referenziert; der manuelle Accessibility-Fall bleibt ausdrücklich
 manuell. EXP-0004 hat alle sechs Identitäts-Sollpaare auf fünf getrennten
-Ebenen je zweimal bewertet. Die vier `Ausbau`-Fälle bleiben offen.
+Ebenen je zweimal bewertet.
+EXP-0006 hat elf gebundene Kernfall-Zeilen in zwei semantisch identischen,
+netzwerklosen Preflight-Wiederholungen bewertet; Eingabehashes blieben
+unverändert und kritische Fehlfreigaben betrugen null. Die vier `Ausbau`-
+Fälle bleiben davon unberührt offen.

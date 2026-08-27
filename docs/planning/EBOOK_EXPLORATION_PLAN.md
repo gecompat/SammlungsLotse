@@ -17,7 +17,7 @@ eine Suchtechnik, eine Benutzeroberfläche oder einen Writer zu koppeln.
 Der vollständige fachliche Möglichkeitenraum steht in
 [EBOOK_LANDSCAPE.md](EBOOK_LANDSCAPE.md). Der Plan autorisiert keinen
 Produktcode oder schreibenden Operationstyp. Die TEST-0001-Fixture-
-Validierung wurde ausgeführt; EXP-0002 bis EXP-0005 sind empirisch
+Validierung wurde ausgeführt; EXP-0002 bis EXP-0006 sind empirisch
 abgeschlossen.
 
 Die konkretisierten Nutzerentscheidungen und Messverträge stehen in
@@ -183,7 +183,7 @@ read-only Calibre-Projektion, EPUB-Evidenz, gestufte Identität, isolierte
 Werkzeugausführung und Eingangstriage-Preflight sind als EXP-0002 bis
 EXP-0006 registriert. Ihre kanonischen Eingänge, Pass-, Fail- und
 Stoppkriterien stehen in [EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md).
-EXP-0002 bis EXP-0005 sind ausgeführt; EXP-0006 ist `proposed`.
+EXP-0002 bis EXP-0006 sind ausgeführt und `done`.
 
 #### Calibre-Lesezugang (EXP-0002)
 
@@ -410,8 +410,9 @@ und der perfekte synthetische Recall sind wegen der kleinen gezielten Menge
 keine Produktprognose. WI-0002 und der Vergleich der beiden
 Produktzuschnitte sind abgeschlossen. GATE-0001 bleibt nach der begründeten
 Vertagung `proposed`: Beide Kandidaten besitzen noch keine ausreichende
-End-to-End-Evidenz. Vor der erneuten Gate-Auswertung ist genau eine weitere
-Evidenzwelle vorgesehen: der als EXP-0006 registrierte read-only
-Eingangstriage-Preflight für Format- und Fähigkeitsklassifikation. Sein
-Experimentvertrag ist spezifiziert, die Ausführung aber noch nicht begonnen
-oder autorisiert. Auch EXP-0006 beginnt keinen Produktcode.
+End-to-End-Evidenz. Die danach genau einmal ausgeführte EXP-0006-Evidenzwelle
+hat den kleinen read-only Eingangstriage-Preflight mit 16/16 Kriterien,
+11/11 Matrixzeilen, null kritischen Fehlfreigaben und zwei semantisch
+identischen Wiederholungen bestanden. Als nächste getrennte Analyse wird
+GATE-0001 anhand dieses versionierten Ergebnisses erneut ausgewertet. Der
+Versuch selbst beginnt keinen Produktcode und nimmt noch keinen Kandidaten an.

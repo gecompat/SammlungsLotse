@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "experiment": "EXP-0006",
+  "profile_id": "exp-0006-podman-ingress-preflight/v1",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "fixture_manifest_sha256": "324f9e55e230e60df8038e1a7504b8ff002c51f7d55b05e1990c0396ba801c02",
+  "implementation": {
+    "runtime": "Python 3.12 standard library in Podman",
+    "external_dependencies": [],
+    "network": "denied",
+    "input_access": "read_only",
+    "allowed_write": "bounded container tmpfs and versioned result.json only",
+    "product_component": false
+  },
+  "base_image": {
+    "reference": "docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17",
+    "linux_amd64_manifest_sha256": "a249c9f47e05708dd367f3fe8ada03cf347390fad66fb8b0518c0ef55ae3cb84",
+    "license_spdx": "PSF-2.0",
+    "source_url": "https://github.com/docker-library/python/tree/f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3/3.12/slim-trixie",
+    "upstream_revision": "f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3",
+    "version": "3.12.14-slim-trixie"
+  },
+  "tool": {
+    "name": "SammlungsLotse EXP-0006 synthetic preflight probe",
+    "version": "v1",
+    "license_spdx": "MIT",
+    "source_ref": "experiments/ebook/exp-0006/probe.py"
+  },
+  "image_tag": "localhost/sammlungslotse-exp-0006:preflight-v1",
+  "container_runtime": {
+    "provider": "podman",
+    "minimum_version": "6.1.0",
+    "platform": "linux/amd64",
+    "network": "none",
+    "read_only_root": true,
+    "user": "65532:65532",
+    "capabilities": [],
+    "no_new_privileges": true,
+    "pids_limit": 16,
+    "cpus": 1.0,
+    "memory_bytes": 268435456,
+    "memory_swap_bytes": 268435456,
+    "timeout_seconds": 10,
+    "tmpfs": {
+      "/tmp": 16777216,
+      "/output": 262144
+    },
+    "log_driver": "none"
+  },
+  "environment_allowlist": {
+    "HOME": "/tmp/home",
+    "LANG": "C.UTF-8",
+    "PATH": "/usr/local/bin:/usr/bin:/bin"
+  },
+  "mounts": {
+    "corpus": "/corpus:ro",
+    "output": "/output:tmpfs"
+  },
+  "result_max_bytes": 262144,
+  "rules": {
+    "repetitions": 2,
+    "deep_format": "EPUB",
+    "format_capabilities": [
+      "supported",
+      "unsupported",
+      "unknown"
+    ],
+    "next_actions": [
+      "continue_deep_read_only",
+      "defer",
+      "stop",
+      "review",
+      "abstain"
+    ],
+    "safe_sequence": [
+      "snapshot",
+      "signature",
+      "container_metadata",
+      "protection_and_active_content",
+      "decision",
+      "deep_tool_gate"
+    ],
+    "forbidden_effects": [
+      "modify_original",
+      "network_access",
+      "write_domain_system",
+      "extract_original",
+      "execute_embedded_content",
+      "bypass_protection"
+    ]
+  },
+  "cases": [
+    {
+      "row_key": "ingress-stable-minimal",
+      "source_case_key": "ingress-stable-minimal",
+      "mode": "preflight",
+      "components": [
+        "stable.epub"
+      ],
+      "expected": {
+        "format_capability": "supported",
+        "next_action": "continue_deep_read_only",
+        "deep_tool_allowed": true,
+        "required_observations": [
+          "snapshot.stable",
+          "format.signature.zip",
+          "container.mimetype.epub"
+        ],
+        "required_findings": [
+          "format.epub"
+        ]
+      }
+    },
+    {
+      "row_key": "epub33-valid-reflow",
+      "source_case_key": "epub33-valid-reflow",
+      "mode": "preflight",
+      "components": [
+        "valid-reflow.epub"
+      ],
+      "expected": {
+        "format_capability": "supported",
+        "next_action": "continue_deep_read_only",
+        "deep_tool_allowed": true,
+        "required_observations": [
+          "snapshot.stable",
+          "format.signature.zip",
+          "container.mimetype.epub"
+        ],
+        "required_findings": [
+          "format.epub"
+        ]
+      }
+    },
+    {
+      "row_key": "ingress-growing-file",
+      "source_case_key": "ingress-growing-file",
+      "mode": "stability_sequence",
+      "components": [
+        "revision-1.part",
+        "revision-2.part",
+        "observations.json"
+      ],
+      "expected": {
+        "format_capability": "unknown",
+        "next_action": "defer",
+        "deep_tool_allowed": false,
+        "required_observations": [
+          "snapshot.size_changed",
+          "snapshot.sha256_changed"
+        ],
+        "required_findings": [
+          "ingress.unstable"
+        ]
+      }
+    },
+    {
+      "row_key": "container-corrupt",
+      "source_case_key": "container-corrupt",
+      "mode": "preflight",
+      "components": [
+        "corrupt.epub"
+      ],
+      "expected": {
+        "format_capability": "unsupported",
+        "next_action": "stop",
+        "deep_tool_allowed": false,
+        "required_observations": [
+          "format.signature.zip",
+          "container.open_error"
+        ],
+        "required_findings": [
+          "container.corrupt"
+        ]
+      }
+    },
+    {
+      "row_key": "container-path-traversal",
+      "source_case_key": "container-path-traversal",
+      "mode": "preflight",
+      "components": [
+        "traversal.epub"
+      ],
+      "expected": {
+        "format_capability": "supported",
+        "next_action": "stop",
+        "deep_tool_allowed": false,
+        "required_observations": [
+          "format.signature.zip",
+          "container.mimetype.epub",
+          "container.entry_parent_escape"
+        ],
+        "required_findings": [
+          "format.epub",
+          "security.path_traversal"
+        ]
+      }
+    },
+    {
+      "row_key": "container-expansion-limit",
+      "source_case_key": "container-expansion-limit",
+      "mode": "preflight",
+      "components": [
+        "expansion.epub"
+      ],
+      "expected": {
+        "format_capability": "supported",
+        "next_action": "stop",
+        "deep_tool_allowed": false,
+        "required_observations": [
+          "format.signature.zip",
+          "container.mimetype.epub",
+          "container.compressed_size",
+          "container.expanded_size"
+        ],
+        "required_findings": [
+          "format.epub",
+          "resource.expansion_limit_exceeded"
+        ]
+      }
+    },
+    {
+      "row_key": "protected-or-encrypted",
+      "source_case_key": "protected-or-encrypted",
+      "mode": "preflight",
+      "components": [
+        "protected.epub"
+      ],
+      "expected": {
+        "format_capability": "unsupported",
+        "next_action": "stop",
+        "deep_tool_allowed": false,
+        "required_observations": [
+          "format.signature.zip",
+          "container.mimetype.epub",
+          "container.encryption_xml"
+        ],
+        "required_findings": [
+          "format.epub",
+          "protection.present"
+        ]
+      }
+    },
+    {
+      "row_key": "format-unknown",
+      "source_case_key": "format-unknown",
+      "mode": "preflight",
+      "components": [
+        "unknown.epub"
+      ],
+      "expected": {
+        "format_capability": "unknown",
+        "next_action": "abstain",
+        "deep_tool_allowed": false,
+        "required_observations": [
+          "filename.extension.epub",
+          "format.signature_unknown"
+        ],
+        "required_findings": [
+          "format.extension_mismatch"
+        ]
+      }
+    },
+    {
+      "row_key": "epub-active-or-remote",
+      "source_case_key": "epub-active-or-remote",
+      "mode": "preflight",
+      "components": [
+        "active-remote.epub"
+      ],
+      "expected": {
+        "format_capability": "supported",
+        "next_action": "review",
+        "deep_tool_allowed": false,
+        "required_observations": [
+          "format.signature.zip",
+          "container.mimetype.epub",
+          "epub.script.present",
+          "epub.remote_reference.present"
+        ],
+        "required_findings": [
+          "format.epub",
+          "security.active_content",
+          "security.remote_resource"
+        ]
+      }
+    },
+    {
+      "row_key": "identity-multiformat-edition-pdf",
+      "source_case_key": "identity-multiformat-edition",
+      "mode": "preflight",
+      "components": [
+        "edition.pdf"
+      ],
+      "expected": {
+        "format_capability": "unsupported",
+        "next_action": "stop",
+        "deep_tool_allowed": false,
+        "required_observations": [
+          "snapshot.stable",
+          "format.signature.pdf"
+        ],
+        "required_findings": [
+          "format.pdf_unsupported_for_deep_epub"
+        ]
+      }
+    },
+    {
+      "row_key": "run-tool-timeout",
+      "source_case_key": "run-tool-timeout",
+      "mode": "timeout_control",
+      "components": [
+        "input.epub",
+        "slow_tool.py",
+        "tool-profile.json"
+      ],
+      "expected": {
+        "format_capability": "supported",
+        "next_action": "stop",
+        "deep_tool_allowed": true,
+        "required_observations": [
+          "snapshot.stable",
+          "format.signature.zip",
+          "container.mimetype.epub",
+          "tool.timeout",
+          "tool.exit_bounded"
+        ],
+        "required_findings": [
+          "format.epub",
+          "runtime.timeout_enforced"
+        ]
+      }
+    }
+  ]
+}

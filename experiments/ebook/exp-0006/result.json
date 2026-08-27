@@ -1,0 +1,2547 @@
+{
+  "acceptance": {
+    "critical_false_release_zero": true,
+    "decision_states_separate": true,
+    "deep_tool_gate_effective": true,
+    "eleven_matrix_rows_match": true,
+    "environment_minimized": true,
+    "filesystem_and_output_confined": true,
+    "fixture_inputs_unchanged": true,
+    "network_denied": true,
+    "no_forbidden_effect": true,
+    "profile_and_fixture_bound": true,
+    "resource_profile_effective": true,
+    "risk_findings_separate": true,
+    "safe_sequence_fixed": true,
+    "semantic_repetitions_identical": true,
+    "signature_overrides_extension": true,
+    "timeout_and_process_cleanup": true
+  },
+  "base_image": {
+    "license_spdx": "PSF-2.0",
+    "linux_amd64_manifest_sha256": "a249c9f47e05708dd367f3fe8ada03cf347390fad66fb8b0518c0ef55ae3cb84",
+    "reference": "docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17",
+    "source_url": "https://github.com/docker-library/python/tree/f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3/3.12/slim-trixie",
+    "upstream_revision": "f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3",
+    "version": "3.12.14-slim-trixie"
+  },
+  "containerfile_sha256": "88c76fac3b701c4f0ae1ffa01d766f18aa05acb4a8bbfe7774e63f1c16dca1f7",
+  "executed_on": "2026-08-27",
+  "experiment": "EXP-0006",
+  "fixture_manifest_sha256": "324f9e55e230e60df8038e1a7504b8ff002c51f7d55b05e1990c0396ba801c02",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "image": {
+    "architecture": "amd64",
+    "digest": "8157ef8a543b41f9773f76d7e25add7f80f1c6f929dd500578746a345f6a06fd",
+    "id": "63368252b0dfa30202d33f990635619265774ddd4dda904663417a1a3495da57",
+    "os": "linux"
+  },
+  "input_integrity": {
+    "after_sha256": {
+      "cases/container-corrupt/corrupt.epub": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5",
+      "cases/container-expansion-limit/expansion.epub": "c8fe323ddd342139227702b9a18550d2584464460e322360b3516c35246ac6d0",
+      "cases/container-path-traversal/traversal.epub": "41ec6edcef8ea29608385f34ccac6c38058ec6493e5b1e999d77faeb945d8856",
+      "cases/epub-active-or-remote/active-remote.epub": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+      "cases/epub33-valid-reflow/valid-reflow.epub": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "cases/format-unknown/unknown.epub": "32666b5952ee086b06aa474b091f385acd5d320c975f87f753d6efdcca7d1234",
+      "cases/identity-multiformat-edition/edition.pdf": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+      "cases/ingress-growing-file/observations.json": "69fdeb1e745e954b345be115b7114e6cd8f0bf70bc661d5a5c27c270eb7fdbf4",
+      "cases/ingress-growing-file/revision-1.part": "c17ae31e15aee28e2dda4d1b0eff1c6b86722f222a81ea09af20c15ef4c9215b",
+      "cases/ingress-growing-file/revision-2.part": "9f0b74de284ad914f303d494550ccabf0e65bd412a8fa2f97f9613b668416555",
+      "cases/ingress-stable-minimal/stable.epub": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+      "cases/protected-or-encrypted/protected.epub": "c690cfa831faf781ae998b84d231dde3429baf9a6d026e14f0bddb6276c3ed79",
+      "cases/run-tool-timeout/input.epub": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+      "cases/run-tool-timeout/slow_tool.py": "7469e55cc1ef677d595a056c28cf4bf551c25a3b363f4c72739702b37887df46",
+      "cases/run-tool-timeout/tool-profile.json": "2afb2cb56ef43f2bc3dc3c21fdc12f2b2417bceba8306e5c61c3c022e2a06acc",
+      "manifest.json": "324f9e55e230e60df8038e1a7504b8ff002c51f7d55b05e1990c0396ba801c02"
+    },
+    "before_sha256": {
+      "cases/container-corrupt/corrupt.epub": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5",
+      "cases/container-expansion-limit/expansion.epub": "c8fe323ddd342139227702b9a18550d2584464460e322360b3516c35246ac6d0",
+      "cases/container-path-traversal/traversal.epub": "41ec6edcef8ea29608385f34ccac6c38058ec6493e5b1e999d77faeb945d8856",
+      "cases/epub-active-or-remote/active-remote.epub": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+      "cases/epub33-valid-reflow/valid-reflow.epub": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "cases/format-unknown/unknown.epub": "32666b5952ee086b06aa474b091f385acd5d320c975f87f753d6efdcca7d1234",
+      "cases/identity-multiformat-edition/edition.pdf": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+      "cases/ingress-growing-file/observations.json": "69fdeb1e745e954b345be115b7114e6cd8f0bf70bc661d5a5c27c270eb7fdbf4",
+      "cases/ingress-growing-file/revision-1.part": "c17ae31e15aee28e2dda4d1b0eff1c6b86722f222a81ea09af20c15ef4c9215b",
+      "cases/ingress-growing-file/revision-2.part": "9f0b74de284ad914f303d494550ccabf0e65bd412a8fa2f97f9613b668416555",
+      "cases/ingress-stable-minimal/stable.epub": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+      "cases/protected-or-encrypted/protected.epub": "c690cfa831faf781ae998b84d231dde3429baf9a6d026e14f0bddb6276c3ed79",
+      "cases/run-tool-timeout/input.epub": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+      "cases/run-tool-timeout/slow_tool.py": "7469e55cc1ef677d595a056c28cf4bf551c25a3b363f4c72739702b37887df46",
+      "cases/run-tool-timeout/tool-profile.json": "2afb2cb56ef43f2bc3dc3c21fdc12f2b2417bceba8306e5c61c3c022e2a06acc",
+      "manifest.json": "324f9e55e230e60df8038e1a7504b8ff002c51f7d55b05e1990c0396ba801c02"
+    },
+    "unchanged": true
+  },
+  "limitations": [
+    "The result covers eleven small synthetic rows and does not forecast private or large-collection behavior.",
+    "PDF is unsupported only for this profile's deep EPUB path; the result is not a general PDF product decision.",
+    "The bounded ZIP and XML inspection is an experiment probe, not a product parser or public contract.",
+    "The result qualifies one Linux/amd64 Podman profile and does not select a product runtime.",
+    "Network denial and filesystem/resource limits apply to the container run; the image build used pull=never and network=none.",
+    "No product adapter, persistence, UI, domain-system access, import, quarantine action or writer was implemented."
+  ],
+  "metrics": {
+    "blocked_count": 8,
+    "critical_false_release_count": 0,
+    "deep_tool_allowed_count": 3,
+    "deep_tool_started_count": 3,
+    "format_capabilities_observed": [
+      "supported",
+      "unknown",
+      "unsupported"
+    ],
+    "matrix_matches": 11,
+    "matrix_rows": 11,
+    "next_actions_observed": [
+      "abstain",
+      "continue_deep_read_only",
+      "defer",
+      "review",
+      "stop"
+    ]
+  },
+  "probe_sha256": "7ed060466c16316184c031565705c30c4d05efa233c56400f6fab28dc6a324fe",
+  "profile_id": "exp-0006-podman-ingress-preflight/v1",
+  "profile_sha256": "67234437ed943c0950cb6f8436e0911fdd8fa5cf313ff07242f2411dca098e86",
+  "raw_evidence": {
+    "content_sha256": "8351c68779c6a4bf5a1bac715d886ea89f861706add0c5b862d5d8a54acf3f63",
+    "files": [
+      {
+        "name": "repetition-1.json",
+        "sha256": "5afc206129a866e578eef615343646d22ec88d9b3a5163f91a02a650385870d9",
+        "size_bytes": 30422
+      },
+      {
+        "name": "repetition-2.json",
+        "sha256": "36306841a38d852e759df978e0f8126f8a60b3703e452af7ea7937edf72f6f17",
+        "size_bytes": 30422
+      }
+    ],
+    "retention": "local artifact outside Git"
+  },
+  "repetitions": [
+    {
+      "case_results": [
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": true,
+            "input_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+            "kind": "synthetic_read_only_probe",
+            "started": true,
+            "timed_out": false
+          },
+          "deep_tool_allowed": true,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": true,
+            "format_capability": "supported",
+            "next_action": "continue_deep_read_only",
+            "required_findings": [
+              "format.epub"
+            ],
+            "required_observations": [
+              "snapshot.stable",
+              "format.signature.zip",
+              "container.mimetype.epub"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "continue_deep_read_only",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 1540
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 982
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 1533
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 278132707,
+            "expanded_bytes": 1533,
+            "input_bytes": 1540,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "ingress-stable-minimal",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "ingress-stable-minimal",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/ingress-stable-minimal/stable.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": true,
+            "input_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "kind": "synthetic_read_only_probe",
+            "started": true,
+            "timed_out": false
+          },
+          "deep_tool_allowed": true,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": true,
+            "format_capability": "supported",
+            "next_action": "continue_deep_read_only",
+            "required_findings": [
+              "format.epub"
+            ],
+            "required_observations": [
+              "snapshot.stable",
+              "format.signature.zip",
+              "container.mimetype.epub"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "continue_deep_read_only",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 1785
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 1123
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 1769
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 273465715,
+            "expanded_bytes": 1769,
+            "input_bytes": 1785,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "epub33-valid-reflow",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "epub33-valid-reflow",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/epub33-valid-reflow/valid-reflow.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unknown",
+            "next_action": "defer",
+            "required_findings": [
+              "ingress.unstable"
+            ],
+            "required_observations": [
+              "snapshot.size_changed",
+              "snapshot.sha256_changed"
+            ]
+          },
+          "findings": [
+            {
+              "code": "ingress.unstable",
+              "values": {}
+            }
+          ],
+          "format_capability": "unknown",
+          "next_action": "defer",
+          "observations": [
+            {
+              "code": "snapshot.size_changed",
+              "values": {
+                "first": 17,
+                "second": 34
+              }
+            },
+            {
+              "code": "snapshot.sha256_changed",
+              "values": {
+                "first": "c17ae31e15aee28e2dda4d1b0eff1c6b86722f222a81ea09af20c15ef4c9215b",
+                "second": "9f0b74de284ad914f303d494550ccabf0e65bd412a8fa2f97f9613b668416555"
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 32405342,
+            "expanded_bytes": 51,
+            "input_bytes": 163,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "ingress-growing-file",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "ingress-growing-file",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/ingress-growing-file/revision-1.part",
+            "fixture://TEST-0001/0.2.0/ingress-growing-file/revision-2.part",
+            "fixture://TEST-0001/0.2.0/ingress-growing-file/observations.json"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unsupported",
+            "next_action": "stop",
+            "required_findings": [
+              "container.corrupt"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.open_error"
+            ]
+          },
+          "findings": [
+            {
+              "code": "container.corrupt",
+              "values": {}
+            }
+          ],
+          "format_capability": "unsupported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 513
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.open_error",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 19378866,
+            "expanded_bytes": 0,
+            "input_bytes": 513,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "container-corrupt",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "container-corrupt",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/container-corrupt/corrupt.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "supported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.epub",
+              "security.path_traversal"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "container.entry_parent_escape"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "security.path_traversal",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 556
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "41ec6edcef8ea29608385f34ccac6c38058ec6493e5b1e999d77faeb945d8856"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.entry_parent_escape",
+              "values": {
+                "entry": "../escape.txt"
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 17817568,
+            "expanded_bytes": 298,
+            "input_bytes": 556,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "container-path-traversal",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "container-path-traversal",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/container-path-traversal/traversal.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "supported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.epub",
+              "resource.expansion_limit_exceeded"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "container.compressed_size",
+              "container.expanded_size"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "resource.expansion_limit_exceeded",
+              "values": {
+                "expanded_bytes": 65556,
+                "limit_bytes": 1024
+              }
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 323
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "c8fe323ddd342139227702b9a18550d2584464460e322360b3516c35246ac6d0"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 99
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 65556
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 17503669,
+            "expanded_bytes": 65556,
+            "input_bytes": 323,
+            "max_expanded_bytes": 1024,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "container-expansion-limit",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "container-expansion-limit",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/container-expansion-limit/expansion.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unsupported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.epub",
+              "protection.present"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "container.encryption_xml"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "protection.present",
+              "values": {}
+            }
+          ],
+          "format_capability": "unsupported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 2070
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "c690cfa831faf781ae998b84d231dde3429baf9a6d026e14f0bddb6276c3ed79"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 1278
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 2000
+              }
+            },
+            {
+              "code": "container.encryption_xml",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 17607869,
+            "expanded_bytes": 2000,
+            "input_bytes": 2070,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "protected-or-encrypted",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "protected-or-encrypted",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/protected-or-encrypted/protected.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unknown",
+            "next_action": "abstain",
+            "required_findings": [
+              "format.extension_mismatch"
+            ],
+            "required_observations": [
+              "filename.extension.epub",
+              "format.signature_unknown"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.extension_mismatch",
+              "values": {}
+            }
+          ],
+          "format_capability": "unknown",
+          "next_action": "abstain",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 20
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "32666b5952ee086b06aa474b091f385acd5d320c975f87f753d6efdcca7d1234"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature_unknown",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 15180373,
+            "expanded_bytes": 20,
+            "input_bytes": 20,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "format-unknown",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "format-unknown",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/format-unknown/unknown.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "supported",
+            "next_action": "review",
+            "required_findings": [
+              "format.epub",
+              "security.active_content",
+              "security.remote_resource"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "epub.script.present",
+              "epub.remote_reference.present"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "security.active_content",
+              "values": {}
+            },
+            {
+              "code": "security.remote_resource",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "review",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 1641
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 1083
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 1709
+              }
+            },
+            {
+              "code": "epub.script.present",
+              "values": {}
+            },
+            {
+              "code": "epub.remote_reference.present",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 16874470,
+            "expanded_bytes": 1709,
+            "input_bytes": 1641,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "epub-active-or-remote",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "epub-active-or-remote",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/epub-active-or-remote/active-remote.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unsupported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.pdf_unsupported_for_deep_epub"
+            ],
+            "required_observations": [
+              "snapshot.stable",
+              "format.signature.pdf"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.pdf_unsupported_for_deep_epub",
+              "values": {}
+            }
+          ],
+          "format_capability": "unsupported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 722
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "format.signature.pdf",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 15122473,
+            "expanded_bytes": 722,
+            "input_bytes": 722,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "identity-multiformat-edition-pdf",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "identity-multiformat-edition",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.pdf"
+          ]
+        },
+        {
+          "deep_tool": {
+            "child_processes_observed": 0,
+            "cleaned": true,
+            "completed": false,
+            "kind": "TEST-0001 synthetic timeout helper",
+            "return_code": -9,
+            "started": true,
+            "timed_out": true,
+            "timeout_ms": 100
+          },
+          "deep_tool_allowed": true,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": true,
+            "format_capability": "supported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.epub",
+              "runtime.timeout_enforced"
+            ],
+            "required_observations": [
+              "snapshot.stable",
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "tool.timeout",
+              "tool.exit_bounded"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "runtime.timeout_enforced",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 1540
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 982
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 1533
+              }
+            },
+            {
+              "code": "tool.timeout",
+              "values": {
+                "timeout_ms": 100
+              }
+            },
+            {
+              "code": "tool.exit_bounded",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 128498172,
+            "expanded_bytes": 1533,
+            "input_bytes": 1693,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 100
+          },
+          "row_key": "run-tool-timeout",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "run-tool-timeout",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/run-tool-timeout/input.epub",
+            "fixture://TEST-0001/0.2.0/run-tool-timeout/slow_tool.py",
+            "fixture://TEST-0001/0.2.0/run-tool-timeout/tool-profile.json"
+          ]
+        }
+      ],
+      "container_removed_after_run": true,
+      "duration_seconds": 7.688,
+      "environment": {
+        "HOME": "/tmp/home",
+        "LANG": "C.UTF-8",
+        "PATH": "/usr/local/bin:/usr/bin:/bin"
+      },
+      "exit_code": 0,
+      "experiment": "EXP-0006",
+      "matrix_matches": true,
+      "profile_id": "exp-0006-podman-ingress-preflight/v1",
+      "python_version": "3.12.14",
+      "repetition": 1,
+      "schema_version": 1,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 268435456,
+        "memory_swap": 268435456,
+        "mounts": [
+          {
+            "destination": "/corpus",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 16,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "tmpfs": {
+          "/output": "rw,nosuid,nodev,noexec,size=262144,mode=1777,rprivate,tmpcopyup",
+          "/tmp": "rw,nosuid,nodev,noexec,size=16777216,mode=1777,rprivate,tmpcopyup"
+        },
+        "user": "65532:65532"
+      },
+      "semantic_sha256": "e14077d5cb783052cd79b309c60d3ae709f363523597e735be087a79a66b4ba4"
+    },
+    {
+      "case_results": [
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": true,
+            "input_sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+            "kind": "synthetic_read_only_probe",
+            "started": true,
+            "timed_out": false
+          },
+          "deep_tool_allowed": true,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": true,
+            "format_capability": "supported",
+            "next_action": "continue_deep_read_only",
+            "required_findings": [
+              "format.epub"
+            ],
+            "required_observations": [
+              "snapshot.stable",
+              "format.signature.zip",
+              "container.mimetype.epub"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "continue_deep_read_only",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 1540
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 982
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 1533
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 270390697,
+            "expanded_bytes": 1533,
+            "input_bytes": 1540,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "ingress-stable-minimal",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "ingress-stable-minimal",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/ingress-stable-minimal/stable.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": true,
+            "input_sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+            "kind": "synthetic_read_only_probe",
+            "started": true,
+            "timed_out": false
+          },
+          "deep_tool_allowed": true,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": true,
+            "format_capability": "supported",
+            "next_action": "continue_deep_read_only",
+            "required_findings": [
+              "format.epub"
+            ],
+            "required_observations": [
+              "snapshot.stable",
+              "format.signature.zip",
+              "container.mimetype.epub"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "continue_deep_read_only",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 1785
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 1123
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 1769
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 269706598,
+            "expanded_bytes": 1769,
+            "input_bytes": 1785,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "epub33-valid-reflow",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "epub33-valid-reflow",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/epub33-valid-reflow/valid-reflow.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unknown",
+            "next_action": "defer",
+            "required_findings": [
+              "ingress.unstable"
+            ],
+            "required_observations": [
+              "snapshot.size_changed",
+              "snapshot.sha256_changed"
+            ]
+          },
+          "findings": [
+            {
+              "code": "ingress.unstable",
+              "values": {}
+            }
+          ],
+          "format_capability": "unknown",
+          "next_action": "defer",
+          "observations": [
+            {
+              "code": "snapshot.size_changed",
+              "values": {
+                "first": 17,
+                "second": 34
+              }
+            },
+            {
+              "code": "snapshot.sha256_changed",
+              "values": {
+                "first": "c17ae31e15aee28e2dda4d1b0eff1c6b86722f222a81ea09af20c15ef4c9215b",
+                "second": "9f0b74de284ad914f303d494550ccabf0e65bd412a8fa2f97f9613b668416555"
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 26402000,
+            "expanded_bytes": 51,
+            "input_bytes": 163,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "ingress-growing-file",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "ingress-growing-file",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/ingress-growing-file/revision-1.part",
+            "fixture://TEST-0001/0.2.0/ingress-growing-file/revision-2.part",
+            "fixture://TEST-0001/0.2.0/ingress-growing-file/observations.json"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unsupported",
+            "next_action": "stop",
+            "required_findings": [
+              "container.corrupt"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.open_error"
+            ]
+          },
+          "findings": [
+            {
+              "code": "container.corrupt",
+              "values": {}
+            }
+          ],
+          "format_capability": "unsupported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 513
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.open_error",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 14809900,
+            "expanded_bytes": 0,
+            "input_bytes": 513,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "container-corrupt",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "container-corrupt",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/container-corrupt/corrupt.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "supported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.epub",
+              "security.path_traversal"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "container.entry_parent_escape"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "security.path_traversal",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 556
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "41ec6edcef8ea29608385f34ccac6c38058ec6493e5b1e999d77faeb945d8856"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.entry_parent_escape",
+              "values": {
+                "entry": "../escape.txt"
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 15293300,
+            "expanded_bytes": 298,
+            "input_bytes": 556,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "container-path-traversal",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "container-path-traversal",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/container-path-traversal/traversal.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "supported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.epub",
+              "resource.expansion_limit_exceeded"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "container.compressed_size",
+              "container.expanded_size"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "resource.expansion_limit_exceeded",
+              "values": {
+                "expanded_bytes": 65556,
+                "limit_bytes": 1024
+              }
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 323
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "c8fe323ddd342139227702b9a18550d2584464460e322360b3516c35246ac6d0"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 99
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 65556
+              }
+            }
+          ],
+          "resources": {
+            "duration_ns": 16420199,
+            "expanded_bytes": 65556,
+            "input_bytes": 323,
+            "max_expanded_bytes": 1024,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "container-expansion-limit",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "container-expansion-limit",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/container-expansion-limit/expansion.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unsupported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.epub",
+              "protection.present"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "container.encryption_xml"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "protection.present",
+              "values": {}
+            }
+          ],
+          "format_capability": "unsupported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 2070
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "c690cfa831faf781ae998b84d231dde3429baf9a6d026e14f0bddb6276c3ed79"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 1278
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 2000
+              }
+            },
+            {
+              "code": "container.encryption_xml",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 16303800,
+            "expanded_bytes": 2000,
+            "input_bytes": 2070,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "protected-or-encrypted",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "protected-or-encrypted",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/protected-or-encrypted/protected.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unknown",
+            "next_action": "abstain",
+            "required_findings": [
+              "format.extension_mismatch"
+            ],
+            "required_observations": [
+              "filename.extension.epub",
+              "format.signature_unknown"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.extension_mismatch",
+              "values": {}
+            }
+          ],
+          "format_capability": "unknown",
+          "next_action": "abstain",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 20
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "32666b5952ee086b06aa474b091f385acd5d320c975f87f753d6efdcca7d1234"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature_unknown",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 14866300,
+            "expanded_bytes": 20,
+            "input_bytes": 20,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "format-unknown",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "format-unknown",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/format-unknown/unknown.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "supported",
+            "next_action": "review",
+            "required_findings": [
+              "format.epub",
+              "security.active_content",
+              "security.remote_resource"
+            ],
+            "required_observations": [
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "epub.script.present",
+              "epub.remote_reference.present"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "security.active_content",
+              "values": {}
+            },
+            {
+              "code": "security.remote_resource",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "review",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 1641
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 1083
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 1709
+              }
+            },
+            {
+              "code": "epub.script.present",
+              "values": {}
+            },
+            {
+              "code": "epub.remote_reference.present",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 16377400,
+            "expanded_bytes": 1709,
+            "input_bytes": 1641,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "epub-active-or-remote",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "epub-active-or-remote",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/epub-active-or-remote/active-remote.epub"
+          ]
+        },
+        {
+          "deep_tool": {
+            "cleaned": true,
+            "completed": false,
+            "kind": null,
+            "started": false,
+            "timed_out": false
+          },
+          "deep_tool_allowed": false,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": false,
+            "format_capability": "unsupported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.pdf_unsupported_for_deep_epub"
+            ],
+            "required_observations": [
+              "snapshot.stable",
+              "format.signature.pdf"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.pdf_unsupported_for_deep_epub",
+              "values": {}
+            }
+          ],
+          "format_capability": "unsupported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 722
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "format.signature.pdf",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 15388500,
+            "expanded_bytes": 722,
+            "input_bytes": 722,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 2000
+          },
+          "row_key": "identity-multiformat-edition-pdf",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "identity-multiformat-edition",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.pdf"
+          ]
+        },
+        {
+          "deep_tool": {
+            "child_processes_observed": 0,
+            "cleaned": true,
+            "completed": false,
+            "kind": "TEST-0001 synthetic timeout helper",
+            "return_code": -9,
+            "started": true,
+            "timed_out": true,
+            "timeout_ms": 100
+          },
+          "deep_tool_allowed": true,
+          "effects_observed": [],
+          "evaluation": {
+            "checks": {
+              "deep_tool_allowed": true,
+              "format_capability": true,
+              "next_action": true,
+              "required_findings": true,
+              "required_observations": true
+            },
+            "matches_expected": true
+          },
+          "expected": {
+            "deep_tool_allowed": true,
+            "format_capability": "supported",
+            "next_action": "stop",
+            "required_findings": [
+              "format.epub",
+              "runtime.timeout_enforced"
+            ],
+            "required_observations": [
+              "snapshot.stable",
+              "format.signature.zip",
+              "container.mimetype.epub",
+              "tool.timeout",
+              "tool.exit_bounded"
+            ]
+          },
+          "findings": [
+            {
+              "code": "format.epub",
+              "values": {}
+            },
+            {
+              "code": "runtime.timeout_enforced",
+              "values": {}
+            }
+          ],
+          "format_capability": "supported",
+          "next_action": "stop",
+          "observations": [
+            {
+              "code": "input.size",
+              "values": {
+                "size_bytes": 1540
+              }
+            },
+            {
+              "code": "input.sha256",
+              "values": {
+                "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+              }
+            },
+            {
+              "code": "snapshot.stable",
+              "values": {}
+            },
+            {
+              "code": "filename.extension.epub",
+              "values": {}
+            },
+            {
+              "code": "format.signature.zip",
+              "values": {}
+            },
+            {
+              "code": "container.mimetype.epub",
+              "values": {}
+            },
+            {
+              "code": "container.compressed_size",
+              "values": {
+                "size_bytes": 982
+              }
+            },
+            {
+              "code": "container.expanded_size",
+              "values": {
+                "size_bytes": 1533
+              }
+            },
+            {
+              "code": "tool.timeout",
+              "values": {
+                "timeout_ms": 100
+              }
+            },
+            {
+              "code": "tool.exit_bounded",
+              "values": {}
+            }
+          ],
+          "resources": {
+            "duration_ns": 135223799,
+            "expanded_bytes": 1533,
+            "input_bytes": 1693,
+            "max_expanded_bytes": 1048576,
+            "max_input_bytes": 262144,
+            "timeout_ms": 100
+          },
+          "row_key": "run-tool-timeout",
+          "safe_sequence": [
+            "snapshot",
+            "signature",
+            "container_metadata",
+            "protection_and_active_content",
+            "decision",
+            "deep_tool_gate"
+          ],
+          "source_case_key": "run-tool-timeout",
+          "sources": [
+            "fixture://TEST-0001/0.2.0/run-tool-timeout/input.epub",
+            "fixture://TEST-0001/0.2.0/run-tool-timeout/slow_tool.py",
+            "fixture://TEST-0001/0.2.0/run-tool-timeout/tool-profile.json"
+          ]
+        }
+      ],
+      "container_removed_after_run": true,
+      "duration_seconds": 7.172,
+      "environment": {
+        "HOME": "/tmp/home",
+        "LANG": "C.UTF-8",
+        "PATH": "/usr/local/bin:/usr/bin:/bin"
+      },
+      "exit_code": 0,
+      "experiment": "EXP-0006",
+      "matrix_matches": true,
+      "profile_id": "exp-0006-podman-ingress-preflight/v1",
+      "python_version": "3.12.14",
+      "repetition": 2,
+      "schema_version": 1,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 268435456,
+        "memory_swap": 268435456,
+        "mounts": [
+          {
+            "destination": "/corpus",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 16,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "tmpfs": {
+          "/output": "rw,nosuid,nodev,noexec,size=262144,mode=1777,rprivate,tmpcopyup",
+          "/tmp": "rw,nosuid,nodev,noexec,size=16777216,mode=1777,rprivate,tmpcopyup"
+        },
+        "user": "65532:65532"
+      },
+      "semantic_sha256": "e14077d5cb783052cd79b309c60d3ae709f363523597e735be087a79a66b4ba4"
+    }
+  ],
+  "runner_sha256": "c27a67b696abab405706d262f8befa9f19729e3d6a46c773abd81d61633a805a",
+  "runtime": {
+    "architecture": "amd64",
+    "client_version": "6.1.0",
+    "container_os": "linux",
+    "external_dependencies": [],
+    "host_os": "Windows",
+    "provider": "podman",
+    "python_version": "3.12.14",
+    "server_version": "6.1.0"
+  },
+  "schema_version": 1,
+  "status": "pass",
+  "tool": {
+    "license_spdx": "MIT",
+    "name": "SammlungsLotse EXP-0006 synthetic preflight probe",
+    "source_ref": "experiments/ebook/exp-0006/probe.py",
+    "version": "v1"
+  }
+}

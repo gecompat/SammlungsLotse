@@ -46,20 +46,21 @@ abgeschlossen: Sechs Sollpaare bleiben auf fünf Identitätsebenen getrennt,
 Kandidaten zeigen positive und negative Evidenz, fehlende Evidenz bleibt
 separat und Leseprobe/Vollausgabe führt auf Ausgabenebene zur Enthaltung. Die
 perfekten Werte des kleinen synthetischen Goldstandards sind keine
-Produktprognose. EXP-0006 ist als genau eine nächste Evidenzwelle registriert
-und mit fester Sollmatrix, sicherer Reihenfolge, Pass-, Fail- und
-Stoppkriterien spezifiziert, aber noch nicht ausgeführt. Alle Verträge stehen
-unter docs/planning/EBOOK_EXPERIMENTS.md.
+Produktprognose. EXP-0006 ist mit 16 erfolgreichen Kriterien abgeschlossen:
+Alle elf vorab gebundenen Preflight-Zeilen stimmen in zwei semantisch
+identischen Wiederholungen überein, acht Fälle bleiben außerhalb des tiefen
+Werkzeugwegs, drei positiv gegatete Kontrollen starten ihn und kritische
+Fehlfreigaben betragen null. Alle Verträge und Ergebnisgrenzen stehen unter
+docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-Die nächste Arbeit implementiert und führt ausschließlich EXP-0006 als
-gebundene Experiment-Wave aus. Vor dem ersten Lauf müssen Ausführungsprofil,
-wegwerfbarer Runner, Ergebnisvertrag und Ergebnisvalidator unter
-experiments/ebook/exp-0006/ versioniert sein. Die Wave verwendet nur die
-festgelegten synthetischen TEST-0001-Eingänge und beginnt weder Produktcode
-noch einen Writer. Erst nach ihrem versionierten Ergebnis wird GATE-0001
-erneut ausgewertet.
+Die nächste Arbeit wertet GATE-0001 in einer getrennten Planungs-Wave anhand
+des versionierten EXP-0006-Ergebnisses erneut aus. Sie vergleicht
+Eingangstriage und Bestandsprüfung gegen dieselben Gate-Voraussetzungen und
+benennt Annahme, begründete Vertagung oder Verwerfung. Sie beginnt weder
+Produktcode noch einen Writer; selbst eine Gate-Annahme müsste anschließend
+in einem eigenen registrierten Arbeitsgegenstand konkretisiert werden.
 
 ## Harte Grenzen
 
@@ -85,9 +86,9 @@ erneut ausgewertet.
 - konkrete, empirisch qualifizierte Produktprofile; EXP-0002 qualifiziert nur
   den Copy-on-read-Calibre-Zugriff, EXP-0003 nur eine Evidenzprojektion mit
   nicht produktqualifiziertem Ace-Profil, EXP-0004 nur eine kleine
-  synthetische Identitätsheuristik und EXP-0005 nur einen wegwerfbaren
-  Sicherheitsweg; EXP-0006 ist noch nicht ausgeführt; keiner dieser Versuche
-  wählt eine Produktlaufzeit;
+  synthetische Identitätsheuristik, EXP-0005 nur einen wegwerfbaren
+  Sicherheitsweg und EXP-0006 nur einen kleinen synthetischen Preflight;
+  keiner dieser Versuche wählt eine Produktlaufzeit;
 - ein optionales Repository-Continuity-Verfahren mit getrennten Rulesets,
   autorisierten Akteuren und Ausfallschwelle. Bis zu einer angenommenen
   Entscheidung existiert kein Break-Glass-Bypass.

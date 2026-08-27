@@ -1,0 +1,16 @@
+FROM docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17
+
+LABEL org.opencontainers.image.title="SammlungsLotse EXP-0006 ingress preflight"
+LABEL org.opencontainers.image.description="Disposable synthetic preflight experiment; not a product runtime"
+LABEL org.opencontainers.image.source="https://github.com/gecompat/SammlungsLotse"
+LABEL org.opencontainers.image.version="exp-0006-podman-ingress-preflight/v1"
+
+COPY execution-profile.json /opt/experiment/execution-profile.json
+COPY probe.py /opt/experiment/probe.py
+
+ENV HOME=/tmp/home \
+    LANG=C.UTF-8 \
+    PATH=/usr/local/bin:/usr/bin:/bin
+
+USER 65532:65532
+ENTRYPOINT ["/usr/bin/env", "-i", "HOME=/tmp/home", "LANG=C.UTF-8", "PATH=/usr/local/bin:/usr/bin:/bin", "python", "/opt/experiment/probe.py", "--profile", "/opt/experiment/execution-profile.json", "--manifest", "/corpus/manifest.json", "--corpus-root", "/corpus", "--output", "-"]

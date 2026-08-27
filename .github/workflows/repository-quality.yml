@@ -37,6 +37,8 @@ jobs:
         run: python tools/experiments/run_exp_0004.py --validate-result
       - name: Validate EXP-0005 empirical result contract
         run: python tools/experiments/run_exp_0005.py --validate-result
+      - name: Validate EXP-0006 empirical result contract
+        run: python tools/experiments/run_exp_0006.py --validate-result
       - name: Run governance tests
         run: python -m unittest discover -s tests -p "test_*.py"
       - name: Compile governance tools
@@ -50,3 +52,4 @@ jobs:
           experiments/ebook/exp-0003
           experiments/ebook/exp-0004
           experiments/ebook/exp-0005
+          experiments/ebook/exp-0006

@@ -53,7 +53,8 @@ Für die Governance- und Fixture-Werkzeuge gelten:
       experiments/ebook/exp-0002 \
       experiments/ebook/exp-0003 \
       experiments/ebook/exp-0004 \
-      experiments/ebook/exp-0005
+      experiments/ebook/exp-0005 \
+      experiments/ebook/exp-0006
 
 Für die ausführbare synthetische TEST-0001-Kernfassung gilt zusätzlich:
 
@@ -105,6 +106,18 @@ Download. Sie prüft das enge Profil, den vollständigen `pass`-Ergebnisvertrag,
 alle elf Akzeptanzwerte und unveränderte Eingangs-Hashes. Der tatsächliche
 Podman-Lauf ist ein separater expliziter lokaler Provisionierungs- und
 Experimentbefehl, dokumentiert unter `experiments/ebook/exp-0005/`.
+
+Für den eingecheckten empirischen EXP-0006-Nachweis gilt:
+
+    python tools/experiments/run_exp_0006.py --validate-result
+
+Diese CI-geeignete Prüfung baut oder startet keinen Container. Sie bindet das
+Ergebnis an Profil, Probe, Runner und TEST-0001-Manifest und prüft alle
+sechzehn Akzeptanzwerte, elf Matrixzeilen, zwei semantisch identische
+Wiederholungen, null kritische Fehlfreigaben sowie die protokollierten
+Netzwerk-, Dateisystem-, Prozess-, Ressourcen- und Umgebungsgrenzen. Der
+vollständige lokale Podman-Lauf ist als eigener expliziter Befehl unter
+`experiments/ebook/exp-0006/` dokumentiert.
 
 Produktbezogene Runtime-Prüfungen werden erst mit dem Technologie-Stack und
 den ersten Arbeitsgegenständen definiert.
