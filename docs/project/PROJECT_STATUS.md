@@ -6,8 +6,9 @@ Stand: 2026-08-27
 
 ## Phase
 
-Erster eng begrenzter Produktprototyp nach ergebnisoffener
-E-Book-Erkundung implementiert und lokal vollständig abgenommen.
+Erster eng begrenzter Produktprototyp implementiert und lokal vollständig
+abgenommen; eine weitere reversible Evidenz-Wave ist angenommen, aber noch
+nicht ausgeführt.
 
 ## Vorhanden
 
@@ -69,11 +70,18 @@ E-Book-Erkundung implementiert und lokal vollständig abgenommen.
   und `tools/run_ebook_intake.py`;
 - automatisierte Produktverträge und tatsächliche CLI-End-to-End-Abnahme für
   `continue_deep_read_only`, `review`, `stop` und `abstain`; `defer` ist am
-  injizierbaren Snapshot-Port deterministisch belegt.
+  injizierbaren Snapshot-Port deterministisch belegt;
+- abgeschlossenes GATE-0002 mit getrenntem Vergleich von Kern-/CLI-Härtung,
+  tiefer read-only Adapterfortsetzung und Pausieren;
+- angenommenes, noch nicht ausgeführtes EXP-0007 für den providerneutralen
+  Vergleich von drei Snapshot-zu-Werkzeug-Übergaben;
+- vorgeschlagenes GATE-0003, das vor jedem Produktadapter-Arbeitsgegenstand
+  die EXP-0007-Evidenz getrennt auswerten muss.
 
 ## Nicht vorhanden
 
 - allgemeiner Technologie-Stack jenseits der reversiblen WI-0004-Auswahl;
+- qualifizierte Snapshot-zu-Werkzeug-Übergabe und tiefer Produktadapter;
 - Laufzeit- oder Deploymentkonzept;
 - Produktdatenbank oder Suchindex;
 - öffentliche REST-, Agent- oder Browser-Schnittstelle sowie eine
@@ -83,6 +91,17 @@ E-Book-Erkundung implementiert und lokal vollständig abgenommen.
 - Release.
 
 ## Validierung
+
+GATE-0002-/EXP-0007-Planungswave: PROJECT_SEMANTIC und
+RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-27 unter Python
+3.12.10. Repository- und v2-Registry-Prüfung waren für 23 registrierte
+Artefakte erfolgreich. TEST-0001 bestätigte 26 Fälle und 44 Komponenten;
+EXP-0002 bis EXP-0006 bestätigten 13/13, 14/14, 15/15, 11/11 und 16/16
+Kriterien. Alle 57 synthetischen Repository-Tests, `compileall` und
+`git diff --check` waren erfolgreich. Der Produktcode blieb unverändert.
+Dies belegt Entscheidungs-, Registry-, Dokument-, Fixture- und vorhandene
+Ergebnisintegrität, nicht die noch ausstehende Ausführung von EXP-0007, eine
+qualifizierte Übergabeform oder Produktreife.
 
 WI-0004-Implementierungswave: PROJECT_SEMANTIC, RUNTIME_EMPIRICAL und die
 sichtbare CLI-Abnahme lokal validiert am 2026-08-27 unter Python 3.12.10.
@@ -296,13 +315,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-Nach WI-0004 beginnt kein automatischer Erweiterungsast. Eine getrennte
-Entscheidung vergleicht anhand des nun sichtbaren Nutzwerts mindestens:
-Kern-/CLI-Härtung, die Planung eines austauschbaren tiefen read-only
-Werkzeugadapters oder das Pausieren der E-Book-Linie zugunsten einer anderen
-Medienlinie. Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing,
-Persistenz, Browser, REST, Agents und Writes bleiben bis zu eigener Annahme
-außerhalb.
+Nach Integration des kanonischen EXP-0007-Plans darf ausschließlich diese
+Evidenz-Wave ausgehend vom dann exakten `origin/main` ausgeführt werden. Sie
+verwendet nur synthetische Eingaben, Experimentcode und nicht versionierte
+aufgabenspezifische Temp- und Ergebnisverzeichnisse. Produktcode, konkrete
+Calibre- oder Werkzeugadapter, Dubletten, Metadaten, Routing, Persistenz,
+Browser, REST, Agents und Writes bleiben bis zu eigener Annahme außerhalb.
 
 ## Offene Punkte
 
@@ -315,5 +333,7 @@ außerhalb.
 
 ## Blocker
 
-Keine bekannten Blocker für den Abschluss von WI-0004. Schreibende
-Fähigkeiten bleiben unabhängig davon hinter einem eigenen Writer-Gate.
+Keine bekannten Blocker für EXP-0007. Ein Produktadapter ist durch das noch
+nicht ausgeführte EXP-0007 und die ausstehende GATE-0003-Auswertung blockiert.
+Schreibende Fähigkeiten bleiben unabhängig davon hinter einem eigenen
+Writer-Gate.
