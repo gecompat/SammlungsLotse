@@ -653,6 +653,48 @@
       ],
       "status": "done",
       "title": "Ersten tiefen read-only Werkzeugadapter begrenzen"
+    },
+    "WI-0006": {
+      "acceptance_criteria": "Ausschließlich ausdrücklich übergebene Dateien werden unabhängig, vollständig und read-only über den bestehenden Eingangstriagevertrag geprüft; die stabile pfadbereinigte Gesamtausgabe erscheint deutsch oder als deterministisches JSON auf stdout, und tiefe EPUBCheck-Prüfung bleibt ein explizites Opt-in ohne Berichtsdatei, Verzeichnissuche, Netzwerk-, Persistenz-, Fachsystem- oder Schreibwirkung.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a044d0-70eb-7bde-8293-a56416d8e3ec",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_MULTI_FILE_INTAKE_REPORT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0005",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Read-only Mehrdatei-Eingangsbericht umsetzen"
     }
   },
   "prefixes": {
