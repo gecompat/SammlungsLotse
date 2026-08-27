@@ -295,7 +295,7 @@
           "type": "depends_on"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "Auswahl des ersten E-Book-Vertikalablaufs"
     },
     "REQ-0001": {

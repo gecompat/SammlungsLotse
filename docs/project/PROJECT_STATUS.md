@@ -56,10 +56,10 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
   Preflight-Zeilen, getrennten Fähigkeits- und Folgeentscheidungen, null
   kritischen Fehlfreigaben und zwei semantisch identischen Wiederholungen
   unter begrenzter netzwerkloser Podman-Ausführung;
-- abgeschlossener GATE-0001-Vergleich von Eingangstriage und
-  Bestandsprüfung mit begründeter Vertagung: Beide Kandidaten bleiben offen,
-  die genau einmal abgegrenzte EXP-0006-Evidenzwelle ist ausgeführt und
-  Produktcode bleibt bis zur getrennten Gate-Neubewertung nicht autorisiert.
+- abgeschlossenes GATE-0001 mit angenommener Eingangstriage als eng
+  begrenztem ersten read-only E-Book-Vertikalablauf; Bestandsprüfung bleibt
+  ein möglicher späterer Ast. Die Auswahl autorisiert für sich weder
+  Produktcode noch einen Writer.
 
 ## Nicht vorhanden
 
@@ -74,6 +74,18 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 
 ## Validierung
 
+GATE-0001-Neubewertung: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL-Regression
+lokal validiert am 2026-08-27 unter Python 3.12.10. Repository- und
+v2-Registry-Prüfung waren für 19 registrierte Artefakte erfolgreich.
+TEST-0001 bestätigte 26 Fälle und 44 Komponenten; die eingecheckten
+Ergebnisverträge von EXP-0002 bis EXP-0006 bestätigten 13/13, 14/14, 15/15,
+11/11 und 16/16 Kriterien. 29 synthetische Unit-Tests, `compileall` und
+`git diff --check` waren erfolgreich. Die LF-Bindung für `Containerfile`
+hält den in EXP-0006 versionierten Containerdefinitionshash auch im
+Windows-Worktree bytegleich. Diese Prüfungen belegen Dokument-, Link-,
+Registry-, Fixture- und vorhandene Ergebnisintegrität, nicht Produktreife;
+kein Containerexperiment wurde in dieser Planungs-Wave erneut ausgeführt.
+
 EXP-0006-Ausführungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL-Regression
 lokal validiert am 2026-08-27. Repository- und v2-Registry-Prüfung waren für
 19 registrierte Artefakte erfolgreich. TEST-0001 bestätigte unverändert 26
@@ -81,7 +93,9 @@ Fälle und 44 Komponenten; die eingecheckten Ergebnisverträge von EXP-0002
 bis EXP-0006 bestätigten 13/13, 14/14, 15/15, 11/11 und 16/16 Kriterien. 29
 synthetische Unit-Tests, `compileall` und `git diff --check` waren
 erfolgreich. Dies belegt Registry-, Dokument-, Link-, Fixture-, Ergebnis- und
-Regressionsintegrität, nicht Produktreife oder eine Gate-Entscheidung.
+Regressionsintegrität, nicht Produktreife. Die Gate-Entscheidung selbst folgt
+aus der getrennten fachlichen Neubewertung, nicht aus der Anzahl erfolgreicher
+Prüfungen.
 
 EXP-0006: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Podman 6.1.0
 mit Linux/amd64. Sechzehn Akzeptanzprüfungen und alle elf vorab gebundenen
@@ -95,7 +109,8 @@ Fachsystemschreibwirkungen waren null. Read-only Root und Fixture,
 unprivilegierte UID, Capability-Entzug, `no-new-privileges`, PID-, CPU-, RAM-,
 Zeit-, tmpfs-, Umgebungs- und Ausgabegrenzen wurden protokolliert und erfüllt.
 Das Ergebnis qualifiziert nur den kleinen synthetischen Preflight, nicht
-Produktparser, Produktlaufzeit oder GATE-0001.
+Produktparser oder Produktlaufzeit. EXP-0006 entscheidet GATE-0001 nicht
+selbst, sondern liefert Evidenz für dessen getrennte Neubewertung.
 
 EXP-0006-Vertragswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL-Regression lokal
 validiert am 2026-08-27. Repository- und v2-Registry-Prüfung waren für 19
@@ -246,11 +261,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-GATE-0001 wird in einer getrennten Planungs-Wave anhand des versionierten
-EXP-0006-Ergebnisses erneut ausgewertet. Eingangstriage und Bestandsprüfung
-werden gegen dieselben Gate-Voraussetzungen verglichen; zulässig bleiben
-Annahme, begründete Vertagung oder Verwerfung. Die Auswertung beginnt weder
-Produktcode noch einen Writer.
+In einer getrennten Planungs-Wave wird ein eigener Arbeitsgegenstand für den
+angenommenen dünnen read-only Eingangstriage-Prototyp registriert. Er muss
+Akzeptanz, Vertragsgrenzen und Abnahme festlegen und darf Calibre, tiefe
+Formatprüfung, Dubletten, Metadaten, Routing, Persistenz, UI oder Writes nicht
+stillschweigend einschließen. Erst seine ausdrückliche Annahme kann
+Produktcode autorisieren.
 
 ## Offene Punkte
 
@@ -263,6 +279,7 @@ Produktcode noch einen Writer.
 
 ## Blocker
 
-Keine bekannten Blocker für die erneute GATE-0001-Auswertung. GATE-0001 bleibt
-bis dahin nach begründeter Vertagung offen und blockiert weiterhin
-Produktimplementierung sowie schreibende Fähigkeiten.
+Keine bekannten Blocker für die nächste Planungs-Wave. Produktimplementierung
+bleibt bis zu einem angenommenen registrierten Arbeitsgegenstand nicht
+autorisiert. Schreibende Fähigkeiten bleiben unabhängig davon hinter einem
+eigenen Writer-Gate.

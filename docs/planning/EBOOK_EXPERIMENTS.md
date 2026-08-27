@@ -490,7 +490,8 @@ Ergebnisvalidator stehen unter
 eingefrorene Nachweis steht in
 [`result.json`](../../experiments/ebook/exp-0006/result.json). Das Ergebnis
 qualifiziert nur diesen kleinen synthetischen Preflight. Es wählt weder einen
-Produktparser noch eine Produktlaufzeit und entscheidet GATE-0001 nicht.
+Produktparser noch eine Produktlaufzeit und entscheidet GATE-0001 nicht für
+sich; die Annahme von S2 folgt aus der getrennten Gate-Neubewertung.
 
 ## Noch nicht registrierte Experimentäste
 
@@ -526,10 +527,10 @@ noch keine weiteren EXP-Referenzen reserviert.
 9. EXP-0006 in einer getrennten, gebundenen Experiment-Wave ausführen —
    abgeschlossen;
 10. GATE-0001 anhand des versionierten EXP-0006-Ergebnisses erneut auswerten
-    — offen.
+    — mit Annahme der eng begrenzten Eingangstriage abgeschlossen.
 
-Die Reihenfolge ist ein Lernplan und keine freigegebene Produktroadmap.
-Der Vergleich und die genaue Begrenzung von EXP-0006 stehen unter
-[EBOOK_GATE_0001_COMPARISON.md](EBOOK_GATE_0001_COMPARISON.md). Als nächster
-getrennter Schritt wird GATE-0001 anhand dieses versionierten Ergebnisses
-erneut ausgewertet.
+Die Reihenfolge ist ein Lernplan und keine freigegebene Produktroadmap. Der
+Vergleich, die genaue Begrenzung von EXP-0006 und die Gate-Neubewertung stehen
+unter [EBOOK_GATE_0001_COMPARISON.md](EBOOK_GATE_0001_COMPARISON.md). Als
+nächster getrennter Schritt wird ein eigener Arbeitsgegenstand für den dünnen
+read-only Prototyp registriert und geplant.

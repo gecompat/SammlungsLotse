@@ -72,13 +72,12 @@ Die Einordnung ist eine Untersuchungshypothese und keine Priorisierung.
 | Reparaturwerkbank | Befunde prüfen und reproduzierbare Derivate erzeugen | direkte Qualitätsverbesserung | Transformation und Schreiben beginnen zu früh |
 | Calibre-Orchestrierung | freigegebene Änderungen planen, ausführen und nachprüfen | vollständiger Integrationsnutzen | Sicherheitskette und Recovery werden unterschätzt |
 
-Als derzeit erkenntnisreichste Versuchshypothese gilt eine read-only
-Eingangstriage. Sie würde einen synthetischen Eingangsordner und mehrere
-synthetische Calibre-Zielbibliotheken erfassen, Formate inventarisieren, EPUB
-tief prüfen, Dubletten- und Metadatenkandidaten erklären und ein Routing
-vorschlagen oder sich enthalten. Sie würde nichts verschieben, transformieren
-oder in Calibre schreiben. GATE-0001 hat diese Hypothese im ersten Vergleich
-noch nicht angenommen.
+Die read-only Eingangstriage war die erkenntnisreichste Versuchshypothese.
+GATE-0001 hat nach der ersten Vertagung nur ihren kleinsten Kern angenommen:
+einen expliziten Eingang stabil erfassen, flach vorprüfen und eine begründete
+nächste Aktion oder Enthaltung sichtbar machen. Synthetische Calibre-Ziele,
+tiefe EPUB-Prüfung, Dubletten, Metadaten und Routing bleiben optionale spätere
+Äste. Die Annahme verschiebt, transformiert oder schreibt nichts.
 
 ## Erkenntnisstufen
 
@@ -292,9 +291,11 @@ vermischt werden.
 
 Der getrennte [GATE-0001-Vergleich](EBOOK_GATE_0001_COMPARISON.md) hat
 Eingangstriage und Bestandsprüfung gegen dieselben Voraussetzungen bewertet.
-Ergebnis ist eine begründete Vertagung; GATE-0001 bleibt offen.
+Nach einer ersten begründeten Vertagung und genau einer EXP-0006-Evidenzwelle
+ist die Eingangstriage innerhalb einer engen Annahmegrenze ausgewählt;
+GATE-0001 ist `done`.
 
-GATE-0001 kann erst angenommen werden, wenn mindestens vorliegen:
+Die Annahme von GATE-0001 war an mindestens folgende Nachweise gebunden:
 
 - beschriebene Nutzerfragen und ein vollständiger Ablauf;
 - messbare Akzeptanzkriterien;
@@ -306,12 +307,14 @@ GATE-0001 kann erst angenommen werden, wenn mindestens vorliegen:
 - Vergleich mehrerer Produktzuschnitte;
 - begründete Auswahl oder begründete Vertagung.
 
-Das Gate entscheidet zunächst nur über den ersten read-only Vertikalablauf.
-Es autorisiert keinen produktiven Writer.
+Das Gate entscheidet nur über den ersten read-only E-Book-Vertikalablauf. Es
+wählt weder die erste Medien- oder Implementierungslinie noch einen
+Technologie-Stack und autorisiert weder Produktcode noch einen Writer.
 
 ### B5 — möglicher read-only Produktprototyp
 
-Erst nach GATE-0001 wäre ein dünner vollständiger Prototyp denkbar. Er sollte:
+Nach GATE-0001 ist als nächster getrennter Planungsgegenstand ein dünner
+vollständiger Prototyp denkbar. Er sollte:
 
 - einen gemeinsamen Anwendungsvertrag verwenden;
 - Fachsystem-, Format-, Werkzeug- und Provideradapter trennen;
@@ -408,11 +411,12 @@ produktqualifiziert. EXP-0004 hat alle sechs Identitäts-Sollpaare zweifach
 auf fünf getrennten Ebenen ausgewertet; die perfekte synthetische Precision
 und der perfekte synthetische Recall sind wegen der kleinen gezielten Menge
 keine Produktprognose. WI-0002 und der Vergleich der beiden
-Produktzuschnitte sind abgeschlossen. GATE-0001 bleibt nach der begründeten
-Vertagung `proposed`: Beide Kandidaten besitzen noch keine ausreichende
-End-to-End-Evidenz. Die danach genau einmal ausgeführte EXP-0006-Evidenzwelle
-hat den kleinen read-only Eingangstriage-Preflight mit 16/16 Kriterien,
-11/11 Matrixzeilen, null kritischen Fehlfreigaben und zwei semantisch
-identischen Wiederholungen bestanden. Als nächste getrennte Analyse wird
-GATE-0001 anhand dieses versionierten Ergebnisses erneut ausgewertet. Der
-Versuch selbst beginnt keinen Produktcode und nimmt noch keinen Kandidaten an.
+Produktzuschnitte sind abgeschlossen. Nach der ersten begründeten Vertagung
+hat die genau einmal ausgeführte EXP-0006-Evidenzwelle den kleinen read-only
+Eingangstriage-Preflight mit 16/16 Kriterien, 11/11 Matrixzeilen, null
+kritischen Fehlfreigaben und zwei semantisch identischen Wiederholungen
+bestanden. Die getrennte Neubewertung hat daraufhin S2 innerhalb der
+dokumentierten engen Grenze angenommen und GATE-0001 auf `done` gesetzt. Als
+nächste Analyse wird ein eigener Arbeitsgegenstand für den dünnen Prototyp
+registriert und geplant. Weder das Experiment noch die Gate-Annahme beginnen
+für sich Produktcode.

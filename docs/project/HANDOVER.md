@@ -22,10 +22,11 @@ docs/decisions/.
 
 Der aktuelle E-Book-Brainstorming-Stand steht unter
 docs/planning/EBOOK_LANDSCAPE.md. Die weitere Erkenntnisreihenfolge steht
-unter docs/planning/EBOOK_EXPLORATION_PLAN.md. WI-0002 ist `done`. Der
-Vergleich unter docs/planning/EBOOK_GATE_0001_COMPARISON.md hat weder
-Eingangstriage noch Bestandsprüfung angenommen: GATE-0001 ist begründet
-vertagt und bleibt offen.
+unter docs/planning/EBOOK_EXPLORATION_PLAN.md. WI-0002 ist `done`. Die
+Neubewertung unter docs/planning/EBOOK_GATE_0001_COMPARISON.md hat die
+Eingangstriage als eng begrenzten ersten read-only E-Book-Vertikalablauf
+angenommen; GATE-0001 ist `done`. Bestandsprüfung bleibt ein möglicher
+späterer Ast.
 
 WI-0003 ist auf Dokumentationsebene abgeschlossen. Die sechs
 Nutzerentscheidungen und Messverträge stehen unter
@@ -55,12 +56,12 @@ docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-Die nächste Arbeit wertet GATE-0001 in einer getrennten Planungs-Wave anhand
-des versionierten EXP-0006-Ergebnisses erneut aus. Sie vergleicht
-Eingangstriage und Bestandsprüfung gegen dieselben Gate-Voraussetzungen und
-benennt Annahme, begründete Vertagung oder Verwerfung. Sie beginnt weder
-Produktcode noch einen Writer; selbst eine Gate-Annahme müsste anschließend
-in einem eigenen registrierten Arbeitsgegenstand konkretisiert werden.
+Die nächste Arbeit registriert und plant in einer getrennten Wave einen
+eigenen Arbeitsgegenstand für den dünnen read-only Eingangstriage-Prototyp.
+Seine Annahmegrenze endet nach stabilem Snapshot, flachem Preflight und
+sichtbar begründeter Folgeaktion oder Enthaltung. Calibre, tiefe
+Formatprüfung, Dubletten, Metadaten, Routing, Persistenz, UI und jeder Writer
+bleiben außerhalb. GATE-0001 allein autorisiert keinen Produktcode.
 
 ## Harte Grenzen
 
@@ -74,13 +75,12 @@ in einem eigenen registrierten Arbeitsgegenstand konkretisiert werden.
 ## Noch nicht entschieden
 
 - erste Medienlinie;
-- erster vollständiger Nutzerablauf;
+- konkrete Produktabnahme des Gate-begrenzten Eingangstriage-Ablaufs;
 - Programmiersprache und Laufzeit;
 - Persistenz und Suche;
 - Deployment und UI;
 - konkrete REST- und Agent-Verträge;
 - konkrete FolioTone-Wiederverwendung;
-- erster E-Book-Vertikalablauf;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - konkrete Calibre-, Werkzeug- und Metadatenprovider-Adapter;
 - konkrete, empirisch qualifizierte Produktprofile; EXP-0002 qualifiziert nur
