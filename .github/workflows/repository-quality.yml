@@ -39,11 +39,13 @@ jobs:
         run: python tools/experiments/run_exp_0005.py --validate-result
       - name: Validate EXP-0006 empirical result contract
         run: python tools/experiments/run_exp_0006.py --validate-result
-      - name: Run governance tests
+      - name: Run repository tests
         run: python -m unittest discover -s tests -p "test_*.py"
-      - name: Compile governance tools
+      - name: Compile Python sources and tools
         run: >-
           python -m compileall -q
+          src/sammlungslotse
+          tools/run_ebook_intake.py
           .ai/foundation/artifact_registry_github
           tools/governance
           tools/fixtures

@@ -36,11 +36,10 @@ begründeter Folgeaktion oder Enthaltung als erster read-only
 E-Book-Vertikalablauf angenommen. Bestandsprüfung bleibt ein möglicher
 späterer Ast.
 RISK-0001 hält das bereits anerkannte Risiko einer frühen fachlichen oder
-technischen Kopplung fest. Die Gate-Auswahl wählt keinen Technologie-Stack,
-keine erste Medien- oder Implementierungslinie und autorisiert weder
-Produktcode noch schreibende Operationen.
+technischen Kopplung fest. Die Gate-Auswahl wählt keinen allgemeinen
+Technologie-Stack und autorisiert keine schreibenden Operationen.
 
-WI-0004 ist als erster eng begrenzter Produktprototyp `accepted`. Sein
+WI-0004 ist als erster eng begrenzter Produktprototyp `done`. Sein
 kanonischer Vertrag endet nach einem unveränderten In-Memory-Snapshot,
 flachem Preflight und sichtbarer CLI-Folgeaktion oder Enthaltung. Die Auswahl
 von Python 3.12 und Standardbibliothek gilt nur für diesen reversiblen
@@ -87,8 +86,9 @@ Kandidaten. Die daraufhin als genau eine Evidenzwelle ausgeführte
 EXP-0006-Qualifikation hat den engen read-only Eingangstriage-Preflight
 synthetisch bestanden. Die getrennte Neubewertung hat deshalb S2 innerhalb
 dieser Grenze angenommen. WI-0004 hat den dünnen Prototyp anschließend
-registriert, vollständig begrenzt und angenommen. Nach dem kanonischen Merge
-dieser Planungs-Wave darf die Implementierung in einer neuen Wave beginnen.
+registriert, vollständig begrenzt, implementiert und lokal abgenommen. Die
+nächste Wave ist wieder eine ausdrückliche Auswahl und keine automatische
+Fortsetzung der E-Book-Linie.
 
 ## Nicht übernehmen
 

@@ -6,12 +6,11 @@ Stand: 2026-08-27
 
 ## Aktueller Stand
 
-SammlungsLotse ist als eigenständiges Projekt initialisiert. Die
-Produktimplementierung hat noch nicht begonnen. Nach ergebnisoffener
-E-Book-Erkundung ist WI-0004 als erster eng begrenzter, reversibler
-Produktprototyp angenommen. AI Repository Foundation 1.7.0 ist semantisch
-integriert. Die Bewertung steht unter
-docs/governance/FOUNDATION_UPGRADE_1_7.md.
+SammlungsLotse ist als eigenständiges Projekt initialisiert. Nach
+ergebnisoffener E-Book-Erkundung ist WI-0004 als erster eng begrenzter,
+reversibler Produktprototyp implementiert und lokal vollständig abgenommen.
+AI Repository Foundation 1.7.0 ist semantisch integriert. Die Bewertung steht
+unter docs/governance/FOUNDATION_UPGRADE_1_7.md.
 
 main ist geschützt. Änderungen benötigen die erfolgreichen Checks
 repository-quality und registry-integrity.
@@ -56,12 +55,17 @@ docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-WI-0004 ist registriert und angenommen. Nach seinem kanonischen Plan-Merge
-beginnt die Implementierung in einer neuen Wave vom exakten `origin/main`.
-Die Annahmegrenze endet nach stabilem In-Memory-Snapshot, flachem Preflight
-und sichtbar begründeter CLI-Folgeaktion oder Enthaltung. Calibre, tiefe
-Formatprüfung, Dubletten, Metadaten, Routing, Persistenz, Browser, REST,
-Agents und jeder Writer bleiben außerhalb.
+WI-0004 ist `done`. Der Produktcode liegt unter
+`src/sammlungslotse/ebook_intake/`, die sichtbare lokale Oberfläche unter
+`tools/run_ebook_intake.py`. Die Grenze endet nach stabilem
+In-Memory-Snapshot, flachem Preflight und sichtbar begründeter CLI-Folgeaktion
+oder Enthaltung. Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing,
+Persistenz, Browser, REST, Agents und jeder Writer bleiben außerhalb.
+
+Es beginnt kein automatischer Folgeast. Die nächste Entscheidung vergleicht
+Kern-/CLI-Härtung, die Planung eines austauschbaren tiefen read-only
+Werkzeugadapters und das Pausieren der E-Book-Linie zugunsten einer anderen
+Medienlinie.
 
 ## Harte Grenzen
 
@@ -75,7 +79,6 @@ Agents und jeder Writer bleiben außerhalb.
 ## Noch nicht entschieden
 
 - erste vollständige Medienlinie jenseits des WI-0004-Prototyps;
-- konkrete Produktabnahme des Gate-begrenzten Eingangstriage-Ablaufs;
 - Programmiersprache und Laufzeit jenseits der reversiblen WI-0004-Auswahl
   Python 3.12 mit Standardbibliothek;
 - Persistenz und Suche;

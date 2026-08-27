@@ -7,9 +7,10 @@ manuellen Aufwand verursachen.
 
 ## Projektstatus
 
-Das Repository befindet sich in der Projektinitialisierung. Es gibt noch keine
-Produktimplementierung, kein festgelegtes Laufzeitmodell und keinen
-Entwicklungsbacklog. Die Entwicklungsplanung beginnt erst auf Grundlage der
+Das Repository besitzt mit WI-0004 einen ersten vollständig begrenzten,
+read-only E-Book-Eingangstriage-Prototyp. Er ist keine vollständige
+Medienlinie und legt weder das allgemeine Laufzeitmodell noch eine technische
+Roadmap fest. Weitere Entwicklung beginnt weiterhin nur auf Grundlage der
 hier dokumentierten Produkt- und Governance-Verträge.
 
 ## Produktauftrag
@@ -74,9 +75,21 @@ Rechtenachweis, Herkunftsdokumentation und eigene Tests im neuen Projekt.
 
 ## Entwicklung
 
-Die Technologie- und Entwicklungsplanung ist noch nicht freigegeben. Beiträge
-mit Produktcode setzen einen registrierten und angenommenen Arbeitsgegenstand
-voraus. Weitere Regeln stehen in [CONTRIBUTING.md](CONTRIBUTING.md).
+Beiträge mit Produktcode setzen einen registrierten und angenommenen
+Arbeitsgegenstand voraus. Die Python-3.12-Standardbibliothekswahl gilt nur für
+WI-0004 und ist keine allgemeine Stackentscheidung. Weitere Regeln stehen in
+[CONTRIBUTING.md](CONTRIBUTING.md).
+
+Der lokale Prototyp kann ausschließlich gegen synthetische Testeingänge
+sichtbar ausgeführt werden:
+
+    python tools/run_ebook_intake.py tests/fixtures/ebook/test-0001/v0.2/cases/ingress-stable-minimal/stable.epub
+
+    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.2/cases/ingress-stable-minimal/stable.epub
+
+Der Lauf schreibt keinen Bericht und führt die angezeigte Folgeaktion nicht
+aus. Reale oder private Sammlungsmedien sind keine qualifizierte Eingabe des
+Prototyps.
 
 ## Lizenz
 
