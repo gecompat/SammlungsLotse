@@ -47,6 +47,12 @@ versionierter Task-Root erlauben nach positivem Preflight den Adapter:
 
     python tools/run_ebook_intake.py --deep-read-only --deep-temp-root C:\rep\tmp\SammlungsLotse\ebook-deep-readonly --json <synthetische-oder-eigene-datei>
 
+WI-0006 erlaubt mehrere ausdrücklich angegebene Dateien. Jeder positiv
+freigegebene Snapshot erhält einen getrennten task-privaten Lauf; ein
+geschlossenes Gate oder `not_assessed` überspringt keinen späteren Eingang:
+
+    python tools/run_ebook_intake.py --deep-read-only --deep-temp-root C:\rep\tmp\SammlungsLotse\ebook-deep-readonly --json DATEI_A DATEI_B
+
 Exitcode `0` bezeichnet eine abgeschlossene Werkzeugausführung, auch wenn
 EPUBCheck einzelne Konformitätsbefunde liefert. Exitcode `4` bezeichnet
 `not_assessed`, beispielsweise bei geschlossenem Gate, fehlender Laufzeit,
@@ -68,3 +74,8 @@ Die netzwerklose CI-Prüfung wiederholt weder Downloads noch Containerläufe:
 Sie bindet den eingecheckten Nachweis an das aktive Profil, die Image-ID, die
 aktuellen Fixture-Hashes, zwölf Akzeptanzwerte sowie die zurückgelesenen
 Isolations-, Output- und Timeoutbelege.
+
+Nach der WI-0006-Mehrdatei-Erweiterung wurde die vollständige Qualifikation
+erneut ausgeführt, weil `cli.py` Teil des gebundenen WI-0005-Preimages ist.
+Der eingecheckte Nachweis bindet deshalb auch die unveränderte Ein-Datei-
+Kompatibilität des erweiterten CLI-Stands.

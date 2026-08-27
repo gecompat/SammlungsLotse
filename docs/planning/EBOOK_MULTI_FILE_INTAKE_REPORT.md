@@ -1,6 +1,6 @@
 # WI-0006: Read-only Mehrdatei-Eingangsbericht umsetzen
 
-Status: ACCEPTED — IMPLEMENTIERUNG AUSSTEHEND
+Status: DONE — IMPLEMENTIERT UND SYNTHETISCH ABGENOMMEN
 
 Stand: 2026-08-27
 
@@ -168,3 +168,46 @@ Nicht Bestandteil von WI-0006 sind:
 Die Benutzerfreigabe vom 2026-08-27 umfasst diese Planung, Implementierung,
 synthetische Abnahme, Pull Requests, exakte CI-Prüfung und den Merge nach
 `origin/main`.
+
+## Implementierung und Abnahme
+
+Die getrennte Implementierungs-Wave hat den angenommenen Vertrag umgesetzt:
+
+- `BatchIntakeService` verarbeitet ausschließlich explizit erzeugte
+  `SnapshotReader` sequenziell und kennt keine Eingabepfade;
+- `BatchReport` und `BatchItemReport` binden Schema, Position, Status,
+  Zusammenfassung und die festen Anzahl-, Summen- und Ausgabegrenzen;
+- genau ein CLI-Eingang verwendet unverändert den bisherigen Einzelweg, ab
+  zwei Eingängen wird der neue Batch-Vertrag ausgegeben;
+- erwartbare Snapshot- und Formatfehler bleiben normale Einzelberichte,
+  unerwartete Fehler werden pfadfrei als `processing.internal_error`
+  isoliert und spätere Eingänge weiterverarbeitet;
+- ein Überschreiten der summierten Snapshotgrenze verhindert jeden tiefen
+  Lauf und markiert nicht mehr verarbeitete Positionen fail-closed;
+- der tiefe Opt-in verwendet unverändert den WI-0005-Adapter und erzeugt für
+  jeden positiv freigegebenen Snapshot einen getrennten Task.
+
+Siebzehn neue fokussierte Verträge prüfen alle fünf Folgeaktionen,
+Reihenfolge, Determinismus, fehlende Eingänge, interne Fehler,
+Weiterverarbeitung, Anzahl-, Summen- und Ausgabegrenzen, Tiefen-Opt-in,
+Prozesscodes, Pfadbereinigung und Originalunverändertheit. Die vollständige
+Repository-Regression umfasst 99 erfolgreiche Tests.
+
+Eine tatsächliche lokale CLI-Abnahme verarbeitete EPUB 2 und ein
+mehrsprachiges RTL-EPUB gemeinsam über das gebundene WI-0005-Profil. Beide
+separaten EPUBCheck-5.3.0-Läufe endeten mit
+`no_epubcheck_conformance_errors_reported`, vollständig bereinigten Tasks und
+null verbleibenden Profilcontainern. Ihre Rohberichte blieben getrennt und
+besitzen die SHA-256-Werte
+`d2410027c3fede6e6e804d5f7028ae32e184bfdbaa233ccf26925a86c26fcf65` und
+`35c1d551a773f0b9392279b42398db2b12268ebb76d7dc7d24a8ed32cdd64ec6`.
+Der TEST-0001-Validator bestätigte danach erneut alle 30 Fälle, 49
+Komponenten, reproduzierbare Erzeugung und unveränderte Eingänge.
+
+Da WI-0005 die sichtbare CLI als Preimage bindet, wurde dessen vollständige
+Produktqualifikation nach der Erweiterung erneut ausgeführt. Das neue exakte
+CLI-Preimage
+`493840b8f5ad2f2f97c0e7e605de25386ef3602936c5719b826cbc91e6e73b7a`
+bestand alle 12 Kriterien einschließlich unverändertem Einzelweg, Erfolg,
+Befund, geschlossenem Gate, `not_assessed`, effektiver Isolation,
+Outputgrenze, Timeout sowie Task- und Container-Cleanup.

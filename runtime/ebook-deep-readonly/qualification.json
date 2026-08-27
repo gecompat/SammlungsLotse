@@ -34,7 +34,7 @@
     "success": {
       "assessment": "no_epubcheck_conformance_errors_reported",
       "exit_code": 0,
-      "raw_report_sha256": "f46bd1bb7bab01d94692496b6a8b8ab49bd0a99cca04c4ff9aee9bb7e3d5c049",
+      "raw_report_sha256": "0a03425d3165b984018820c80980e9ed39966ee0137a44c7690e26a706b8f63b",
       "raw_report_size_bytes": 3859
     },
     "timeout": {
@@ -115,8 +115,13 @@
     "bounded_bytes": 2097152,
     "write_rejected": true
   },
+  "podman": {
+    "client_version": "6.1.0",
+    "server_os_arch": "linux/amd64",
+    "server_version": "6.1.0"
+  },
   "preimage_sha256": {
-    "cli": "f0263a7564e85ffa3fd8853447216be152e8fa9d23367e185396421f1cf69b69",
+    "cli": "493840b8f5ad2f2f97c0e7e605de25386ef3602936c5719b826cbc91e6e73b7a",
     "containerfile": "5c496f29b5e72e87f9b1effc5575510e6148100370a9aa148f2f9272f19871a7",
     "deep_application": "7ed28fbd14a12e12a890f4de6b05cfdff5a6fc279090c08150a9cbadb92031f4",
     "deep_model": "dd1d9b19acafca49e7ccf5b7477caca979c1a86206f0543a0bbb63da2838598f",
@@ -131,12 +136,7 @@
     "wrapper_source": "d5a095e87f0461f296432ed88b017bfc7600e2f288d3f1ce35e99095e6cb8464"
   },
   "profile_id": "wi-0005-epubcheck-5.3.0-temurin-21.0.12.1+1-podman-linux-amd64/v1",
-  "podman": {
-    "client_version": "6.1.0",
-    "server_os_arch": "linux/amd64",
-    "server_version": "6.1.0"
-  },
-  "qualified_at": "2026-08-27T18:37:34.633741+00:00",
+  "qualified_at": "2026-08-27T20:16:28.097599+00:00",
   "schema": "sammlungslotse/deep-read-only-qualification/v1",
   "status": "PASS"
 }

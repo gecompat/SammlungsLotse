@@ -117,6 +117,8 @@ Sie erweitert ausschließlich die lokale CLI um einen kleinen read-only
 Mehrdatei-Bericht für explizit angegebene Dateien. Schnelle Prüfung bleibt
 Standard, tiefe EPUBCheck-Prüfung bleibt Opt-in; Verzeichnissuche,
 Berichtsdatei, Persistenz, Fachsystemzugriff und Writes bleiben außerhalb.
+Die getrennte Implementierungs-Wave ist abgeschlossen und synthetisch über
+automatisierte sowie tatsächliche CLI- und Podman-Läufe abgenommen.
 
 ## Nicht übernehmen
 
