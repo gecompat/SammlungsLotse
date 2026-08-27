@@ -7,11 +7,12 @@ manuellen Aufwand verursachen.
 
 ## Projektstatus
 
-Das Repository besitzt mit WI-0004 einen ersten vollständig begrenzten,
-read-only E-Book-Eingangstriage-Prototyp. Er ist keine vollständige
-Medienlinie und legt weder das allgemeine Laufzeitmodell noch eine technische
-Roadmap fest. Weitere Entwicklung beginnt weiterhin nur auf Grundlage der
-hier dokumentierten Produkt- und Governance-Verträge.
+Das Repository besitzt mit WI-0004 einen vollständig begrenzten read-only
+E-Book-Eingangstriage-Prototyp, mit WI-0005 einen optionalen tiefen
+EPUBCheck-Adapter und mit WI-0006 einen kleinen Mehrdatei-Bericht. Dies ist
+keine vollständige Medienlinie und legt weder das allgemeine Laufzeitmodell
+noch eine technische Roadmap fest. Weitere Entwicklung beginnt weiterhin nur
+auf Grundlage der hier dokumentierten Produkt- und Governance-Verträge.
 
 ## Produktauftrag
 
@@ -87,9 +88,18 @@ sichtbar ausgeführt werden:
 
     python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.3/cases/ingress-stable-minimal/stable.epub
 
-Der Lauf schreibt keinen Bericht und führt die angezeigte Folgeaktion nicht
-aus. Reale oder private Sammlungsmedien sind keine qualifizierte Eingabe des
-Prototyps.
+Mehrere ausdrücklich ausgewählte Dateien erzeugen einen gemeinsamen,
+positionsgebundenen und pfadfreien Bericht:
+
+    python tools/run_ebook_intake.py --json DATEI_A DATEI_B
+
+Es werden keine Verzeichnisse durchsucht. Die schnelle Prüfung bleibt
+Standard; `--deep-read-only` bleibt ein ausdrückliches Opt-in und benötigt
+weiterhin den konfigurierten WI-0005-Task-Root.
+
+Der Lauf schreibt keine Berichtsdatei und führt die angezeigte Folgeaktion
+nicht aus. Reale oder private Sammlungsmedien sind keine qualifizierte
+Eingabe des Prototyps.
 
 ## Lizenz
 

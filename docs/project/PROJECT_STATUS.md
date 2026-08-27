@@ -6,10 +6,11 @@ Stand: 2026-08-27
 
 ## Phase
 
-Erster eng begrenzter Produktprototyp, reversible Snapshot-Übergabewave und
-WI-0005 vollständig ausgeführt. Der erste tiefe read-only Produktadapter ist
-eng begrenzt implementiert und mit einem exakten lokalen Podman-Profil
-synthetisch qualifiziert.
+Erster eng begrenzter Produktprototyp, reversible Snapshot-Übergabewave,
+WI-0005 und WI-0006 vollständig ausgeführt. Der erste tiefe read-only
+Produktadapter ist eng begrenzt implementiert und mit einem exakten lokalen
+Podman-Profil synthetisch qualifiziert; mehrere ausdrücklich angegebene
+Dateien können sequenziell in einem pfadfreien Bericht zusammengefasst werden.
 
 ## Vorhanden
 
@@ -96,10 +97,15 @@ synthetisch qualifiziert.
   `moderate`, sämtlich im eingefrorenen Ace/npm-Experimentbaum von EXP-0003.
   Sie bestätigen dessen bestehende Nichtqualifikation, werden nicht
   verworfen und betreffen keinen implementierten Produktadapter.
-- angenommener Arbeitsgegenstand WI-0006 für einen kleinen read-only
+- abgeschlossener Arbeitsgegenstand WI-0006 für einen kleinen read-only
   Mehrdatei-Eingangsbericht über ausschließlich explizit angegebene Dateien;
   schnelle Prüfung bleibt Standard, tiefe EPUBCheck-Prüfung bleibt Opt-in,
-  und Produktcode beginnt erst nach kanonischem Merge des Vertrags.
+  Ein-Datei-Ausgaben bleiben unverändert und Verzeichnissuche, Berichtsdatei,
+  Persistenz, Fachsystemzugriff sowie Writes bleiben außerhalb;
+- positionsgebundener Batch-Vertrag mit höchstens 32 Eingängen, 256 MiB
+  summierten Snapshot-Bytes und 48 MiB UTF-8-Ausgabe, vollständiger
+  sequenzieller Verarbeitung innerhalb der Grenzen sowie isolierten
+  `internal_error`- und `not_assessed`-Ergebnissen.
 
 ## Nicht vorhanden
 
@@ -114,6 +120,26 @@ synthetisch qualifiziert.
 - Release.
 
 ## Validierung
+
+WI-0006-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
+validiert am 2026-08-27 unter Python 3.12.10, Podman 6.1.0 und EPUBCheck
+5.3.0. Siebzehn neue fokussierte Batch-Verträge und alle 99 Repository-Tests
+waren erfolgreich. Tatsächliche deutsche und JSON-CLI-Prozesse belegten
+vollständige Verarbeitung, alle fünf Folgeaktionen, Pfadbereinigung,
+Determinismus, Grenzen und unveränderte Eingänge. Eine tatsächliche tiefe
+Zwei-Dateien-Abnahme prüfte ein valides EPUB 2 und ein mehrsprachiges
+RTL-EPUB: Beide getrennten Providerläufe endeten ohne EPUBCheck-
+Konformitätsbefund, mit vollständigem Task- und Container-Cleanup. TEST-0001
+bestätigte danach erneut 30 Fälle, 49 Komponenten und unveränderte Eingänge.
+Die wegen der CLI-Preimage-Änderung erforderliche vollständige WI-0005-
+Neuqualifikation bestand erneut 12/12 Kriterien mit dem exakten CLI-Hash
+`493840b8f5ad2f2f97c0e7e605de25386ef3602936c5719b826cbc91e6e73b7a`.
+Repository-, Registry-, EXP-0002- bis EXP-0007- und WI-0005-Verträge,
+`compileall` und `git diff --check` waren auf dem vollständigen Wave-Stand
+erfolgreich. FOUNDATION_INTEGRITY meldete 0 Warnungen, 0 Fehler und 0
+Blocker. Dies qualifiziert den kleinen lokalen Mehrdatei-Bericht, nicht
+Verzeichnissuche, reale private Medien, allgemeine Batch-Infrastruktur,
+Persistenz, Fachsysteme oder Writes.
 
 TEST-0001-Ausbau-Wave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
 am 2026-08-27 unter Python 3.12.10, Podman 6.1.0 und EPUBCheck 5.3.0. Der
@@ -424,10 +450,9 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0006 ist `accepted`. Nach dem kanonischen Merge seines Vertrags folgt eine
-getrennte Implementierungs-Wave für mehrere ausdrücklich angegebene Dateien,
-stabile deutsche und JSON-Ausgabe auf stdout und vollständige unabhängige
-Verarbeitung. Die Wave autorisiert weder Verzeichnissuche noch einen zweiten
+WI-0006 ist `done`. Vor einer weiteren Produktwave ist neu zu entscheiden,
+welche offene Qualitäts- oder Nutzerfrage den höchsten Wert besitzt. Die
+abgeschlossene Wave autorisiert weder Verzeichnissuche noch einen zweiten
 Provider, Ace, Calibre, Dubletten, Metadaten, Routing, dauerhafte Persistenz,
 Browser, REST, Agents, native Windows-Ausführung oder Writes.
 
