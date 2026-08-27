@@ -7,8 +7,9 @@ Stand: 2026-08-27
 ## Phase
 
 Erster eng begrenzter Produktprototyp und die nachfolgende reversible
-Snapshot-Übergabewave vollständig ausgeführt; ein erster tiefer read-only
-Produktadapter ist nur vorgeschlagen und noch nicht angenommen.
+Snapshot-Übergabewave vollständig ausgeführt; WI-0005 ist als erster tiefer
+read-only Produktadapter eng begrenzt angenommen, aber noch nicht
+implementiert.
 
 ## Vorhanden
 
@@ -77,14 +78,23 @@ Produktadapter ist nur vorgeschlagen und noch nicht angenommen.
   16/16 erfüllten Kriterien, qualifiziertem Byte-Stream und task-privater
   Materialisierung sowie abgelehntem Original-Locator;
 - abgeschlossenes GATE-0003 mit V2 als ausgewählter Standardnaht;
-- vorgeschlagenes WI-0005 für die getrennte Begrenzung eines ersten tiefen
-  read-only Werkzeugadapters; es ist nicht zur Implementierung angenommen.
+- angenommenes WI-0005 für einen ersten tiefen read-only Werkzeugadapter:
+  EPUBCheck 5.3.0 hinter providerneutralem Handoff- und Prozessport, V2 als
+  Standardnaht, expliziter lokaler CLI-Opt-in und ein in der
+  Implementierungs-Wave frisch zu qualifizierendes digest-gepinntes
+  Linux/amd64-Podman-Profil;
+- aktuelle Primärquellenprüfung für Provider, BSD-3-Clause-Lizenz,
+  Wartungsstand, offizielle Releaseprovenienz und Temurin-Laufzeitstand. Das
+  EXP-0005-Profil mit Temurin 21.0.12+8 bleibt historische Evidenz und ist
+  ausdrücklich kein übernommenes Produktprofil.
 
 ## Nicht vorhanden
 
 - allgemeiner Technologie-Stack jenseits der reversiblen WI-0004-Auswahl;
-- tiefer Produktadapter und angenommener konkreter Werkzeugprovider;
-- Laufzeit- oder Deploymentkonzept;
+- implementierter tiefer Produktadapter oder produktqualifiziertes
+  EPUBCheck-Ausführungsprofil;
+- allgemeines Laufzeit- oder Deploymentkonzept jenseits des eng begrenzten
+  WI-0005-Executors;
 - Produktdatenbank oder Suchindex;
 - öffentliche REST-, Agent- oder Browser-Schnittstelle sowie eine
   produktqualifizierte allgemeine CLI;
@@ -93,6 +103,24 @@ Produktadapter ist nur vorgeschlagen und noch nicht angenommen.
 - Release.
 
 ## Validierung
+
+WI-0005-Bewertungswave: aktuelle offizielle Primärquellen für EPUBCheck,
+Lizenz, Repositorypflege, veröffentlichte Repository-Advisories, Temurin-LTS
+und Podman-Laufzeitgrenzen am 2026-08-27 geprüft. EPUBCheck 5.3.0 ist
+weiterhin das aktuelle produktionsreife Release; dessen offizieller
+Artefakt-SHA-256 stimmt mit der vorhandenen EXP-0005-Provenienz überein. Die
+offizielle Adoptium-Releasequelle führt inzwischen Temurin
+`jdk-21.0.12.1+1`; das EXP-0005-Preimage `21.0.12+8` wurde daher nicht als
+Produktlaufzeit übernommen. PROJECT_SEMANTIC und vollständige
+RUNTIME_EMPIRICAL-Regression wurden lokal validiert: Repository- und
+v2-Registry-Prüfung waren für 24 registrierte Artefakte erfolgreich,
+TEST-0001 bestätigte 26 Fälle und 44 Komponenten, EXP-0002 bis EXP-0007
+bestätigten 13/13, 14/14, 15/15, 11/11, 16/16 und 16/16 Kriterien. Alle 63
+synthetischen Repository-Tests, `compileall` und `git diff --check` waren
+erfolgreich. Der Produktcode blieb unverändert. Dies belegt aktuelle
+Quellenauswertung, Entscheidungs-, Registry-, Dokument-, Fixture- und
+Regressionsintegrität, nicht einen implementierten oder
+produktqualifizierten Adapter.
 
 EXP-0007-Ausführungs- und GATE-0003-Wave: PROJECT_SEMANTIC und vollständige
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-27. Repository- und
@@ -343,13 +371,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0005 bleibt `proposed`. Seine nächste getrennte Bewertungs-Wave prüft
-aktuelle Primärquellen, Lizenz, Wartungsstand, Offline- und Sicherheitsprofil,
-providerneutralen Evidenzvertrag, Taskbereich und Recovery sowie die kleinste
-lokale Nutzeroberfläche. Erst danach darf WI-0005 angenommen, enger gehärtet
-oder pausiert werden. Produktcode, konkrete Calibre- oder Werkzeugadapter,
-Dubletten, Metadaten, Routing, Persistenz, Browser, REST, Agents und Writes
-bleiben bis zur eigenen Annahme außerhalb.
+WI-0005 ist `accepted`. Die nächste eigene Implementierungs-Wave bindet das
+dann aktuelle Temurin-LTS-Artefakt und alle Build-Eingänge, implementiert
+providerneutralen Port, V2-Taskmaterialisierung, begrenzten Podman-Executor,
+EPUBCheck-5.3.0-Adapter, Recovery und expliziten CLI-Opt-in und qualifiziert
+das exakte Profil vollständig mit synthetischen Medien. Ace, Calibre,
+Dubletten, Metadaten, Routing, dauerhafte Persistenz, Browser, REST, Agents,
+native Windows-Ausführung und Writes bleiben außerhalb.
 
 ## Offene Punkte
 
@@ -362,7 +390,7 @@ bleiben bis zur eigenen Annahme außerhalb.
 
 ## Blocker
 
-Keine bekannten Blocker für die Bewertung von WI-0005. Ein Produktadapter ist
-durch den nur vorgeschlagenen, nicht angenommenen Arbeitsgegenstand blockiert.
-Schreibende Fähigkeiten bleiben unabhängig davon hinter einem eigenen
-Writer-Gate.
+Keine bekannten Blocker für die eng begrenzte Implementierung von WI-0005.
+Der Implementierungsabschluss bleibt fail-closed von einem frisch gebundenen
+und empirisch qualifizierten Laufzeitprofil abhängig. Schreibende Fähigkeiten
+bleiben unabhängig davon hinter einem eigenen Writer-Gate.

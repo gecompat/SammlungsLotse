@@ -57,7 +57,12 @@ GATE-0002, EXP-0007 und GATE-0003 sind `done`. EXP-0007 hat V1 und V2 unter
 getrennten Windows- und Linux/Podman-Profilen qualifiziert und V3 wegen
 Originalpfadweitergabe und reproduzierter TOCTOU-Lücke abgelehnt. GATE-0003
 wählt V2, die task-private hashgebundene Materialisierung, als Standardnaht.
-WI-0005 ist nur vorgeschlagen und autorisiert noch keinen Produktcode.
+Die getrennte aktuelle Werkzeug- und Vertragsbewertung nimmt WI-0005 an:
+EPUBCheck 5.3.0 wird als erster Provider hinter providerneutralem Handoff- und
+Prozessport vorgesehen; ein frisch zu bindendes und zu qualifizierendes
+digest-gepinntes Linux/amd64-Podman-Profil ist der erste unterstützte
+Executor nach seiner Implementierung und frischen Qualifikation. Produktcode
+ist in der Bewertungs-Wave nicht entstanden.
 
 ## Fortsetzung
 
@@ -68,11 +73,15 @@ In-Memory-Snapshot, flachem Preflight und sichtbar begründeter CLI-Folgeaktion
 oder Enthaltung. Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing,
 Persistenz, Browser, REST, Agents und jeder Writer bleiben außerhalb.
 
-Als Nächstes wird WI-0005 getrennt bewertet. Vor einer Annahme sind ein
-aktueller Werkzeugkandidat, Lizenz und Wartungsstand, Offline- und
-Sicherheitsprofil, providerneutrale Evidenzprojektion, Taskbereich und
-Recovery sowie die kleinste lokale Nutzeroberfläche festzulegen. Ohne diese
-Bewertung beginnt kein Produktadapter.
+Als Nächstes darf WI-0005 in einer eigenen Wave implementiert werden. Der
+angenommene Vertrag steht vollständig unter
+`docs/planning/EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md`. Vor dem ersten
+Providerlauf muss die Wave das aktuelle Temurin-LTS-Artefakt und alle
+Build-Eingänge aus Primärquellen binden. Danach implementiert und prüft sie
+providerneutralen Port, V2-Taskbereich, Recovery, begrenzten Podman-Executor,
+EPUBCheck-5.3.0-Projektion und expliziten CLI-Opt-in mit ausschließlich
+synthetischen Medien. Das frühere EXP-0005-Image ist Evidenz, kein
+Produktprofil.
 
 ## Harte Grenzen
 
@@ -86,16 +95,16 @@ Bewertung beginnt kein Produktadapter.
 ## Noch nicht entschieden
 
 - erste vollständige Medienlinie jenseits des WI-0004-Prototyps;
-- Annahme oder Ablehnung von WI-0005 und der erste konkrete
-  Werkzeugprovider; V2 ist nur die qualifizierte Übergabenaht;
 - Programmiersprache und Laufzeit jenseits der reversiblen WI-0004-Auswahl
-  Python 3.12 mit Standardbibliothek;
+  Python 3.12 mit Standardbibliothek und des eng begrenzten, austauschbaren
+  WI-0005-Prozessadapters;
 - Persistenz und Suche;
 - Deployment und UI;
 - konkrete REST- und Agent-Verträge;
 - konkrete FolioTone-Wiederverwendung;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
-- konkrete Calibre-, Werkzeug- und Metadatenprovider-Adapter;
+- konkrete Calibre-, Accessibility- und Metadatenprovider-Adapter sowie
+  weitere tiefe Werkzeugprovider jenseits EPUBCheck 5.3.0;
 - konkrete, empirisch qualifizierte Produktprofile; EXP-0002 qualifiziert nur
   den Copy-on-read-Calibre-Zugriff, EXP-0003 nur eine Evidenzprojektion mit
   nicht produktqualifiziertem Ace-Profil, EXP-0004 nur eine kleine
