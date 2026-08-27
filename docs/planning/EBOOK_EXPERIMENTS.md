@@ -1,6 +1,6 @@
 # E-Book-Experimentverträge
 
-Status: IN EXECUTION — EXP-0005 PASSED; EXP-0002 TO EXP-0004 NOT EXECUTED
+Status: IN EXECUTION — EXP-0002 AND EXP-0005 PASSED; EXP-0003 AND EXP-0004 NOT EXECUTED
 
 Stand: 2026-08-27
 
@@ -100,6 +100,21 @@ Die Varianten sind Untersuchungsgegenstände, keine Adapterentscheidung.
   allgemeinen Schreibzugang erfordern;
 - der Adaptervertrag wäre nur für eine undokumentierte Toolversion
   formulierbar.
+
+### Ausführungsergebnis
+
+EXP-0002 wurde am 2026-08-27 mit Calibre `9.13.0` und dem Profil
+`exp-0002-podman-calibre-9.13.0/v1` gegen zwei synthetische Bibliotheken aus
+TEST-0001 `0.2.0` ausgeführt. Alle dreizehn Akzeptanzprüfungen sind
+erfolgreich; Quell-Snapshots, Arbeitskopien, Projektionen, unbekannte Felder
+und Pfadgrenzen sind versioniert belegt. Der vollständige Nachweis steht unter
+[experiments/ebook/exp-0002](../../experiments/ebook/exp-0002/README.md).
+
+Ein direkter read-only Mount ist ausdrücklich **nicht** qualifiziert:
+Calibre benötigt beim lokalen Bibliotheksöffnen einen temporären
+Dateisystemtest. Der erfolgreiche lokale Weg isoliert deshalb jeden Lauf über
+eine neue wegwerfbare Arbeitskopie; der Quell-Snapshot wird nicht für Calibre
+gemountet und bleibt bytegleich. Die Content-Server-Variante bleibt offen.
 
 ## EXP-0003 — EPUB-Konformitäts- und Accessibility-Evidenz
 
@@ -289,12 +304,13 @@ EXP-Referenzen reserviert.
 
 ## Vorgesehene Erkenntnisreihenfolge
 
-1. TEST-0001-Kernfixtures und Oracles erzeugen;
-2. EXP-0005 als gemeinsame Sicherheitsqualifikation beginnen;
-3. EXP-0002 und EXP-0003 unabhängig gegen ihre jeweiligen Fixtures ausführen;
-4. EXP-0004 erst mit vollständigen positiven und negativen Sollpaaren
+1. TEST-0001-Kernfixtures und Oracles erzeugen — abgeschlossen;
+2. EXP-0005 als gemeinsame Sicherheitsqualifikation ausführen — abgeschlossen;
+3. EXP-0002 als getrennte Calibre-Projektion ausführen — abgeschlossen;
+4. EXP-0003 unabhängig mit EPUBCheck- und Ace-Evidenz ausführen;
+5. EXP-0004 erst mit vollständigen positiven und negativen Sollpaaren
    bewerten;
-5. Ergebnisse ohne gemeinsame Spike-Implementierung vergleichen;
-6. Eingangstriage und Bestandsprüfung an GATE-0001 gegenüberstellen.
+6. Ergebnisse ohne gemeinsame Spike-Implementierung vergleichen;
+7. Eingangstriage und Bestandsprüfung an GATE-0001 gegenüberstellen.
 
 Die Reihenfolge ist ein Lernplan und keine freigegebene Produktroadmap.

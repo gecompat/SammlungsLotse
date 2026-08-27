@@ -32,7 +32,8 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
   Nutzerentscheidungen, Qualitäts- und Automatisierungsmatrix, Messverträgen
   und asymmetrischen Fehlerkosten;
 - vorgeschlagene Anforderung REQ-0002 sowie getrennte Experimentverträge
-  EXP-0002 bis EXP-0004 und der abgeschlossene Sicherheitsversuch EXP-0005;
+  EXP-0003 und EXP-0004 und die abgeschlossenen Versuche EXP-0002 und
+  EXP-0005;
 - ausführbarer Testvertrag TEST-0001 mit 26 validierten synthetischen
   `Kern`-Fällen, 44 manifestierten Komponenten und vier weiterhin offenen
   `Ausbau`-Fällen;
@@ -42,6 +43,9 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - empirisch bestandenes EXP-0005-Profil für eine isolierte, unprivilegierte,
   netzwerklose EPUBCheck-Ausführung unter Podman mit wirksamen Datei-,
   Prozess-, Zeit-, Speicher-, CPU-, Output- und Umgebungsgrenzen.
+- empirisch bestandenes EXP-0002-Profil für zwei getrennte synthetische
+  Calibre-Bibliotheken, minimale pfadbereinigte Feldprojektionen und eine
+  Copy-on-read-Grenze bei bytegleichen Quell-Snapshots.
 
 ## Nicht vorhanden
 
@@ -52,10 +56,22 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - öffentliche REST-, Agent-, CLI- oder Browser-Schnittstelle;
 - angenommener Entwicklungsbacklog oder freigegebene technische Roadmap;
 - übernommener FolioTone-Code;
-- ausgeführte Ergebnisse aus EXP-0002 bis EXP-0004;
+- ausgeführte Ergebnisse aus EXP-0003 und EXP-0004;
 - Release.
 
 ## Validierung
+
+EXP-0002: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Podman 6.1.0
+mit Linux/amd64. Calibre 9.13.0 wurde aus dem SHA-512-geprüften offiziellen
+Release-Artefakt in ein digest-gepinntes Experimentimage gebaut. Dreizehn
+Akzeptanzprüfungen waren erfolgreich: zwei getrennte Zielbibliotheken,
+minimale Feld- und Custom-Column-Projektion, Pagination, sichtbares
+`unsupported` für unbekannte Felder, Pfadbereinigung, identische
+Wiederholungen, unveränderte Quell-Snapshots, netzwerklose unprivilegierte
+Ausführung und keine direkte Datenbankkopplung. Ein direkter read-only Mount
+scheitert wegen Calibres Dateisystemtest kontrolliert; nur die wegwerfbare
+Copy-on-read-Variante ist qualifiziert. Der Content-Server-Zugang bleibt
+offen. Dies ist kein Produktadapter und keine Stackentscheidung.
 
 EXP-0005: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Podman 6.1.0
 mit Linux/amd64 und cgroup v2. EPUBCheck 5.3.0 und Temurin 21.0.12+8 wurden
@@ -76,9 +92,9 @@ zentrale Fallorakel, bytegenaue Regeneration und unveränderte Eingänge. Der
 kontrollierte 100-ms-Timeout, Pfad-Traversal-Erkennung,
 Expansion-Limit-Erkennung, positive und negative Identitätspaare sowie beide
 Routingresultate waren erfolgreich. Zehn synthetische Unit-Tests,
-`compileall` und `git diff --check` waren erfolgreich. EXP-0005 wurde getrennt
-ausgeführt; Calibre, Ace und die fachlichen Experimente EXP-0002 bis EXP-0004
-bleiben offen. Version `0.1.0` bleibt unverändert und ist wegen des dortigen
+`compileall` und `git diff --check` waren erfolgreich. EXP-0002 und EXP-0005
+wurden getrennt ausgeführt; Ace und die fachlichen Experimente EXP-0003 und
+EXP-0004 bleiben offen. Version `0.1.0` bleibt unverändert und ist wegen des dortigen
 OPF-Literals `version="3.3"` nicht mehr die aktive Experimentbasis.
 
 B1-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
@@ -149,10 +165,8 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes wird EXP-0002
-mit genau zwei synthetischen Calibre-Bibliotheken und einer dokumentierten
-minimalen read-only `calibredb`-Feldprojektion ausgeführt. EXP-0003 folgt
-getrennt mit EPUBCheck- und Ace-Rohberichten; EXP-0004 folgt danach mit den
+WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes wird EXP-0003
+getrennt mit EPUBCheck- und Ace-Rohberichten ausgeführt; EXP-0004 folgt danach mit den
 vollständigen positiven und negativen Sollpaaren. GATE-0001 bleibt bis zu
 diesen Ergebnissen offen.
 
@@ -167,10 +181,8 @@ diesen Ergebnissen offen.
 
 ## Blocker
 
-Keine bekannten Blocker für die Vorbereitung von EXP-0002. Vor seiner
-Ausführung fehlen bewusst noch das versionsfeste Calibre-Werkzeugprofil und
-die zwei über unterstützte Calibre-Befehle materialisierten synthetischen
-Bibliotheken. Die EPUB-/Accessibility-Prüfmaterialisierung bleibt Bestandteil
-von EXP-0003. Die fehlende Auswahl des ersten
+Keine bekannten Blocker für EXP-0003. Die EPUB-/Accessibility-
+Prüfmaterialisierung und die konkrete Ace-Werkzeugqualifikation bleiben
+Bestandteil dieser nächsten Welle. Die fehlende Auswahl des ersten
 Vertikalablaufs ist beabsichtigt und blockiert Produktimplementierung sowie
 schreibende Fähigkeiten.

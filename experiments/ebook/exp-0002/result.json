@@ -1,0 +1,1020 @@
+{
+  "acceptance": {
+    "custom_and_missing_values_preserved": true,
+    "direct_read_only_probe_fail_closed": true,
+    "libraries_unchanged": true,
+    "minimal_field_whitelist": true,
+    "network_and_privilege_boundary": true,
+    "no_direct_database_contract": true,
+    "pagination_bounded": true,
+    "repeatable_projection": true,
+    "source_isolated_by_disposable_copy": true,
+    "standard_projection_path_free": true,
+    "tool_version_supported": true,
+    "two_targets_separate": true,
+    "unknown_field_visible": true
+  },
+  "executed_on": "2026-08-27",
+  "experiment": "EXP-0002",
+  "fixture_input_sha256": {
+    "contributor-roles.epub": "fea88ce582b886bd689dd6b33d1284e98eca06bdc7b4184812d618f4f6dd11ca",
+    "edition.epub": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+    "edition.pdf": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+    "full.epub": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+    "sample.epub": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4"
+  },
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "image": {
+    "architecture": "amd64",
+    "digest": "0fbdf93a90b45ab8f4d20df3cf733cbb34b7fad563d1dfc9d209c9c0a6c6a81c",
+    "id": "17b53846d6ca606f455e1671d9aeec65e2b6ac106978158186cec664a45d779c",
+    "os": "linux"
+  },
+  "limitations": [
+    "The two calibre libraries are synthetic materialized experiment inputs, not product fixtures or private collections.",
+    "The content-server variant was not run; only the documented local calibredb interface was qualified.",
+    "Calibre 9.13.0 probes library filesystem case sensitivity during local open, so a direct read-only mount fails closed; successful local projections used independent disposable copies while the source snapshots remained unmounted and byte-identical.",
+    "The result qualifies calibre 9.13.0 exactly and classifies other versions as unsupported pending a new profile.",
+    "Absolute /library paths occur in retained raw format fields and are removed from the standard projection."
+  ],
+  "profile_id": "exp-0002-podman-calibre-9.13.0/v1",
+  "profile_sha256": "d9bdf4fcc2bb27a77856ee6f4ccb180c34d29d4425d66340190728e6f3e1e4c7",
+  "raw_evidence": {
+    "content_sha256": "120e0831a02438457adf33d86dd2318d0cd8c430dca6877e2e02863e9e671494",
+    "retention": "local artifact outside Git"
+  },
+  "runtime": {
+    "architecture": "amd64",
+    "client_version": "6.1.0",
+    "container_os": "linux",
+    "host_os": "Windows",
+    "provider": "podman",
+    "server_version": "6.1.0"
+  },
+  "schema_version": 1,
+  "status": "pass",
+  "targets": [
+    {
+      "custom_field": "review_state",
+      "direct_read_only_probe": {
+        "classification": "expected-unsupported",
+        "diagnostic_class": "calibre-library-open-requires-write-probe",
+        "duration_seconds": 5.047,
+        "exit_code": 1,
+        "security": {
+          "cap_add": [],
+          "cap_drop": [
+            "CAP_CHOWN",
+            "CAP_DAC_OVERRIDE",
+            "CAP_FOWNER",
+            "CAP_FSETID",
+            "CAP_KILL",
+            "CAP_NET_BIND_SERVICE",
+            "CAP_SETFCAP",
+            "CAP_SETGID",
+            "CAP_SETPCAP",
+            "CAP_SETUID",
+            "CAP_SYS_CHROOT"
+          ],
+          "cpu_period": 100000,
+          "cpu_quota": 100000,
+          "memory": 1073741824,
+          "memory_swap": 1073741824,
+          "mounts": [
+            {
+              "destination": "/library",
+              "rw": false,
+              "type": "bind"
+            },
+            {
+              "destination": "/output",
+              "rw": true,
+              "type": "bind"
+            }
+          ],
+          "network_mode": "none",
+          "pids_limit": 64,
+          "read_only_root": true,
+          "security_opt": [
+            "no-new-privileges"
+          ],
+          "user": "65532:65532"
+        },
+        "source_library_unchanged": true
+      },
+      "library_unchanged_during_read_phase": true,
+      "provision": {
+        "commands": [
+          [
+            "add",
+            "edition.epub"
+          ],
+          [
+            "add_format",
+            "1",
+            "edition.pdf"
+          ],
+          [
+            "add_custom_column",
+            "review_state",
+            "text"
+          ],
+          [
+            "set_custom",
+            "review_state",
+            "1",
+            "offen"
+          ],
+          [
+            "add",
+            "contributor-roles.epub"
+          ]
+        ],
+        "record_ids": [
+          1,
+          2
+        ],
+        "source": "supported calibredb write commands used only for synthetic experiment materialization",
+        "target_key": "technical-library"
+      },
+      "provision_runtime": {
+        "diagnostic_class": null,
+        "duration_seconds": 20.281,
+        "exit_code": 0,
+        "security": {
+          "cap_add": [],
+          "cap_drop": [
+            "CAP_CHOWN",
+            "CAP_DAC_OVERRIDE",
+            "CAP_FOWNER",
+            "CAP_FSETID",
+            "CAP_KILL",
+            "CAP_NET_BIND_SERVICE",
+            "CAP_SETFCAP",
+            "CAP_SETGID",
+            "CAP_SETPCAP",
+            "CAP_SETUID",
+            "CAP_SYS_CHROOT"
+          ],
+          "cpu_period": 100000,
+          "cpu_quota": 100000,
+          "memory": 1073741824,
+          "memory_swap": 1073741824,
+          "mounts": [
+            {
+              "destination": "/library",
+              "rw": true,
+              "type": "bind"
+            },
+            {
+              "destination": "/output",
+              "rw": true,
+              "type": "bind"
+            },
+            {
+              "destination": "/fixtures",
+              "rw": false,
+              "type": "bind"
+            }
+          ],
+          "network_mode": "none",
+          "pids_limit": 64,
+          "read_only_root": true,
+          "security_opt": [
+            "no-new-privileges"
+          ],
+          "user": "65532:65532"
+        }
+      },
+      "repeats": [
+        {
+          "limited_source_record_ids": [
+            1
+          ],
+          "projection": {
+            "books": [
+              {
+                "authors": [
+                  "Ada Beispiel"
+                ],
+                "custom": {
+                  "review_state": "offen"
+                },
+                "formats": [
+                  "epub",
+                  "pdf"
+                ],
+                "identifiers": {
+                  "sltest": "edition-001",
+                  "test": "edition:multi-format"
+                },
+                "languages": [
+                  "deu"
+                ],
+                "source_record_id": 1,
+                "tags": [
+                  "Technik",
+                  "Review"
+                ],
+                "title": "Synthetische Systemanalyse"
+              },
+              {
+                "authors": [
+                  "Bea Beispiel"
+                ],
+                "custom": {
+                  "review_state": null
+                },
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "test": "contributor-roles"
+                },
+                "languages": [
+                  "deu"
+                ],
+                "source_record_id": 2,
+                "tags": [
+                  "Technik"
+                ],
+                "title": "Rollen und Beitr\u00e4ge"
+              }
+            ],
+            "schema_id": "exp-0002-calibre-projection/v1",
+            "source": {
+              "command_profile": "calibredb-list-minimal/v1",
+              "raw_sha256": "185506fe342362e4a7d469fee2332d4be30b300ebb4692205f5cf1a5cf27a41e",
+              "tool": "calibre",
+              "tool_version": "9.13.0"
+            },
+            "target_key": "technical-library"
+          },
+          "projection_sha256": "86e14c7c64e6771ca67fa0fdde418af6dc86391f35bd3436180acfacfc7e7625",
+          "raw_broad_has_internal_library_path": true,
+          "raw_broad_sha256": "9e44f5d8cce2d6c23cc8bb952b4ae25f6298effc927ac4b58a8d1335a596fec5",
+          "raw_minimal_sha256": "185506fe342362e4a7d469fee2332d4be30b300ebb4692205f5cf1a5cf27a41e",
+          "run": 1,
+          "runtime": {
+            "diagnostic_class": null,
+            "duration_seconds": 7.203,
+            "exit_code": 0,
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 100000,
+              "memory": 1073741824,
+              "memory_swap": 1073741824,
+              "mounts": [
+                {
+                  "destination": "/library",
+                  "rw": true,
+                  "type": "bind"
+                },
+                {
+                  "destination": "/output",
+                  "rw": true,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 64,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "user": "65532:65532"
+            }
+          },
+          "source_library_unchanged": true,
+          "unknown_field": {
+            "classification": "unsupported",
+            "exit_code": 1,
+            "field": "not_registered"
+          },
+          "working_copy_unchanged_after_projection": true
+        },
+        {
+          "limited_source_record_ids": [
+            1
+          ],
+          "projection": {
+            "books": [
+              {
+                "authors": [
+                  "Ada Beispiel"
+                ],
+                "custom": {
+                  "review_state": "offen"
+                },
+                "formats": [
+                  "epub",
+                  "pdf"
+                ],
+                "identifiers": {
+                  "sltest": "edition-001",
+                  "test": "edition:multi-format"
+                },
+                "languages": [
+                  "deu"
+                ],
+                "source_record_id": 1,
+                "tags": [
+                  "Technik",
+                  "Review"
+                ],
+                "title": "Synthetische Systemanalyse"
+              },
+              {
+                "authors": [
+                  "Bea Beispiel"
+                ],
+                "custom": {
+                  "review_state": null
+                },
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "test": "contributor-roles"
+                },
+                "languages": [
+                  "deu"
+                ],
+                "source_record_id": 2,
+                "tags": [
+                  "Technik"
+                ],
+                "title": "Rollen und Beitr\u00e4ge"
+              }
+            ],
+            "schema_id": "exp-0002-calibre-projection/v1",
+            "source": {
+              "command_profile": "calibredb-list-minimal/v1",
+              "raw_sha256": "185506fe342362e4a7d469fee2332d4be30b300ebb4692205f5cf1a5cf27a41e",
+              "tool": "calibre",
+              "tool_version": "9.13.0"
+            },
+            "target_key": "technical-library"
+          },
+          "projection_sha256": "86e14c7c64e6771ca67fa0fdde418af6dc86391f35bd3436180acfacfc7e7625",
+          "raw_broad_has_internal_library_path": true,
+          "raw_broad_sha256": "9e44f5d8cce2d6c23cc8bb952b4ae25f6298effc927ac4b58a8d1335a596fec5",
+          "raw_minimal_sha256": "185506fe342362e4a7d469fee2332d4be30b300ebb4692205f5cf1a5cf27a41e",
+          "run": 2,
+          "runtime": {
+            "diagnostic_class": null,
+            "duration_seconds": 7.109,
+            "exit_code": 0,
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 100000,
+              "memory": 1073741824,
+              "memory_swap": 1073741824,
+              "mounts": [
+                {
+                  "destination": "/library",
+                  "rw": true,
+                  "type": "bind"
+                },
+                {
+                  "destination": "/output",
+                  "rw": true,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 64,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "user": "65532:65532"
+            }
+          },
+          "source_library_unchanged": true,
+          "unknown_field": {
+            "classification": "unsupported",
+            "exit_code": 1,
+            "field": "not_registered"
+          },
+          "working_copy_unchanged_after_projection": true
+        }
+      ],
+      "snapshot_after": {
+        "digest": "204013758956b5afeef70b47f2ce87bd7cbdae0bbaf0d796d89aea03af27d3f0",
+        "file_count": 7,
+        "files": [
+          {
+            "path": ".calnotes/notes.db",
+            "sha256": "5ca4550a94f0a6c8f7ec5c9f60b7ce01c6d0df6f9f5e60fffe251d0bb5a9d34c",
+            "size_bytes": 77824
+          },
+          {
+            "path": "Ada Beispiel/Synthetische Systemanalyse (1)/metadata.opf",
+            "sha256": "717636b9752784e76f5e6dec78e189112d8d54828b40dbd9a628d5416e56f1fc",
+            "size_bytes": 1283
+          },
+          {
+            "path": "Ada Beispiel/Synthetische Systemanalyse (1)/Synthetische Systemanalyse - Ada Beispiel.epub",
+            "sha256": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+            "size_bytes": 1521
+          },
+          {
+            "path": "Ada Beispiel/Synthetische Systemanalyse (1)/Synthetische Systemanalyse - Ada Beispiel.pdf",
+            "sha256": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+            "size_bytes": 722
+          },
+          {
+            "path": "Bea Beispiel/Rollen und Beitrage (2)/metadata.opf",
+            "sha256": "199dec1778bd516d163863d7cd8017ac125dd93bc8e6506322a40143f727cd1b",
+            "size_bytes": 1933
+          },
+          {
+            "path": "Bea Beispiel/Rollen und Beitrage (2)/Rollen und Beitrage - Bea Beispiel.epub",
+            "sha256": "fea88ce582b886bd689dd6b33d1284e98eca06bdc7b4184812d618f4f6dd11ca",
+            "size_bytes": 1631
+          },
+          {
+            "path": "metadata.db",
+            "sha256": "d1682d2155a5ab08cc94433290e71be01a207e9fd91727fa98aaf2ec92083c71",
+            "size_bytes": 450560
+          }
+        ]
+      },
+      "snapshot_before": {
+        "digest": "204013758956b5afeef70b47f2ce87bd7cbdae0bbaf0d796d89aea03af27d3f0",
+        "file_count": 7,
+        "files": [
+          {
+            "path": ".calnotes/notes.db",
+            "sha256": "5ca4550a94f0a6c8f7ec5c9f60b7ce01c6d0df6f9f5e60fffe251d0bb5a9d34c",
+            "size_bytes": 77824
+          },
+          {
+            "path": "Ada Beispiel/Synthetische Systemanalyse (1)/metadata.opf",
+            "sha256": "717636b9752784e76f5e6dec78e189112d8d54828b40dbd9a628d5416e56f1fc",
+            "size_bytes": 1283
+          },
+          {
+            "path": "Ada Beispiel/Synthetische Systemanalyse (1)/Synthetische Systemanalyse - Ada Beispiel.epub",
+            "sha256": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+            "size_bytes": 1521
+          },
+          {
+            "path": "Ada Beispiel/Synthetische Systemanalyse (1)/Synthetische Systemanalyse - Ada Beispiel.pdf",
+            "sha256": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+            "size_bytes": 722
+          },
+          {
+            "path": "Bea Beispiel/Rollen und Beitrage (2)/metadata.opf",
+            "sha256": "199dec1778bd516d163863d7cd8017ac125dd93bc8e6506322a40143f727cd1b",
+            "size_bytes": 1933
+          },
+          {
+            "path": "Bea Beispiel/Rollen und Beitrage (2)/Rollen und Beitrage - Bea Beispiel.epub",
+            "sha256": "fea88ce582b886bd689dd6b33d1284e98eca06bdc7b4184812d618f4f6dd11ca",
+            "size_bytes": 1631
+          },
+          {
+            "path": "metadata.db",
+            "sha256": "d1682d2155a5ab08cc94433290e71be01a207e9fd91727fa98aaf2ec92083c71",
+            "size_bytes": 450560
+          }
+        ]
+      },
+      "target_key": "technical-library"
+    },
+    {
+      "custom_field": "audience",
+      "direct_read_only_probe": {
+        "classification": "expected-unsupported",
+        "diagnostic_class": "calibre-library-open-requires-write-probe",
+        "duration_seconds": 5.219,
+        "exit_code": 1,
+        "security": {
+          "cap_add": [],
+          "cap_drop": [
+            "CAP_CHOWN",
+            "CAP_DAC_OVERRIDE",
+            "CAP_FOWNER",
+            "CAP_FSETID",
+            "CAP_KILL",
+            "CAP_NET_BIND_SERVICE",
+            "CAP_SETFCAP",
+            "CAP_SETGID",
+            "CAP_SETPCAP",
+            "CAP_SETUID",
+            "CAP_SYS_CHROOT"
+          ],
+          "cpu_period": 100000,
+          "cpu_quota": 100000,
+          "memory": 1073741824,
+          "memory_swap": 1073741824,
+          "mounts": [
+            {
+              "destination": "/library",
+              "rw": false,
+              "type": "bind"
+            },
+            {
+              "destination": "/output",
+              "rw": true,
+              "type": "bind"
+            }
+          ],
+          "network_mode": "none",
+          "pids_limit": 64,
+          "read_only_root": true,
+          "security_opt": [
+            "no-new-privileges"
+          ],
+          "user": "65532:65532"
+        },
+        "source_library_unchanged": true
+      },
+      "library_unchanged_during_read_phase": true,
+      "provision": {
+        "commands": [
+          [
+            "add_custom_column",
+            "audience",
+            "text"
+          ],
+          [
+            "add",
+            "sample.epub"
+          ],
+          [
+            "set_custom",
+            "audience",
+            "1",
+            "jugend"
+          ],
+          [
+            "add",
+            "full.epub"
+          ]
+        ],
+        "record_ids": [
+          1,
+          2
+        ],
+        "source": "supported calibredb write commands used only for synthetic experiment materialization",
+        "target_key": "young-readers-library"
+      },
+      "provision_runtime": {
+        "diagnostic_class": null,
+        "duration_seconds": 18.609,
+        "exit_code": 0,
+        "security": {
+          "cap_add": [],
+          "cap_drop": [
+            "CAP_CHOWN",
+            "CAP_DAC_OVERRIDE",
+            "CAP_FOWNER",
+            "CAP_FSETID",
+            "CAP_KILL",
+            "CAP_NET_BIND_SERVICE",
+            "CAP_SETFCAP",
+            "CAP_SETGID",
+            "CAP_SETPCAP",
+            "CAP_SETUID",
+            "CAP_SYS_CHROOT"
+          ],
+          "cpu_period": 100000,
+          "cpu_quota": 100000,
+          "memory": 1073741824,
+          "memory_swap": 1073741824,
+          "mounts": [
+            {
+              "destination": "/library",
+              "rw": true,
+              "type": "bind"
+            },
+            {
+              "destination": "/output",
+              "rw": true,
+              "type": "bind"
+            },
+            {
+              "destination": "/fixtures",
+              "rw": false,
+              "type": "bind"
+            }
+          ],
+          "network_mode": "none",
+          "pids_limit": 64,
+          "read_only_root": true,
+          "security_opt": [
+            "no-new-privileges"
+          ],
+          "user": "65532:65532"
+        }
+      },
+      "repeats": [
+        {
+          "limited_source_record_ids": [
+            1
+          ],
+          "projection": {
+            "books": [
+              {
+                "authors": [
+                  "Chris Beispiel"
+                ],
+                "custom": {
+                  "audience": "jugend"
+                },
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "test": "edition:long-journey:sample"
+                },
+                "languages": [
+                  "deu"
+                ],
+                "source_record_id": 1,
+                "tags": [
+                  "Jugend",
+                  "Leseprobe"
+                ],
+                "title": "Synthetisches Abenteuer (Leseprobe)"
+              },
+              {
+                "authors": [
+                  "Chris Beispiel"
+                ],
+                "custom": {
+                  "audience": null
+                },
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "sltest": "edition-002",
+                  "test": "edition:long-journey:full"
+                },
+                "languages": [
+                  "deu"
+                ],
+                "source_record_id": 2,
+                "tags": [
+                  "Jugend",
+                  "Vollausgabe"
+                ],
+                "title": "Synthetisches Abenteuer (Vollausgabe)"
+              }
+            ],
+            "schema_id": "exp-0002-calibre-projection/v1",
+            "source": {
+              "command_profile": "calibredb-list-minimal/v1",
+              "raw_sha256": "f576f3384859d0ec66fde039e2dedc7ec7c883d928ab70d6f05f4e867f577901",
+              "tool": "calibre",
+              "tool_version": "9.13.0"
+            },
+            "target_key": "young-readers-library"
+          },
+          "projection_sha256": "5b5a4d408fd55a38ee3f98309eb12b18fdc666c885543ba040fa77022a7f19b2",
+          "raw_broad_has_internal_library_path": true,
+          "raw_broad_sha256": "a6d57e416cfeb233672353e24cba8fb01795d2b4627d8eb52e836fd452da253b",
+          "raw_minimal_sha256": "f576f3384859d0ec66fde039e2dedc7ec7c883d928ab70d6f05f4e867f577901",
+          "run": 1,
+          "runtime": {
+            "diagnostic_class": null,
+            "duration_seconds": 7.235,
+            "exit_code": 0,
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 100000,
+              "memory": 1073741824,
+              "memory_swap": 1073741824,
+              "mounts": [
+                {
+                  "destination": "/library",
+                  "rw": true,
+                  "type": "bind"
+                },
+                {
+                  "destination": "/output",
+                  "rw": true,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 64,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "user": "65532:65532"
+            }
+          },
+          "source_library_unchanged": true,
+          "unknown_field": {
+            "classification": "unsupported",
+            "exit_code": 1,
+            "field": "not_registered"
+          },
+          "working_copy_unchanged_after_projection": true
+        },
+        {
+          "limited_source_record_ids": [
+            1
+          ],
+          "projection": {
+            "books": [
+              {
+                "authors": [
+                  "Chris Beispiel"
+                ],
+                "custom": {
+                  "audience": "jugend"
+                },
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "test": "edition:long-journey:sample"
+                },
+                "languages": [
+                  "deu"
+                ],
+                "source_record_id": 1,
+                "tags": [
+                  "Jugend",
+                  "Leseprobe"
+                ],
+                "title": "Synthetisches Abenteuer (Leseprobe)"
+              },
+              {
+                "authors": [
+                  "Chris Beispiel"
+                ],
+                "custom": {
+                  "audience": null
+                },
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "sltest": "edition-002",
+                  "test": "edition:long-journey:full"
+                },
+                "languages": [
+                  "deu"
+                ],
+                "source_record_id": 2,
+                "tags": [
+                  "Jugend",
+                  "Vollausgabe"
+                ],
+                "title": "Synthetisches Abenteuer (Vollausgabe)"
+              }
+            ],
+            "schema_id": "exp-0002-calibre-projection/v1",
+            "source": {
+              "command_profile": "calibredb-list-minimal/v1",
+              "raw_sha256": "f576f3384859d0ec66fde039e2dedc7ec7c883d928ab70d6f05f4e867f577901",
+              "tool": "calibre",
+              "tool_version": "9.13.0"
+            },
+            "target_key": "young-readers-library"
+          },
+          "projection_sha256": "5b5a4d408fd55a38ee3f98309eb12b18fdc666c885543ba040fa77022a7f19b2",
+          "raw_broad_has_internal_library_path": true,
+          "raw_broad_sha256": "a6d57e416cfeb233672353e24cba8fb01795d2b4627d8eb52e836fd452da253b",
+          "raw_minimal_sha256": "f576f3384859d0ec66fde039e2dedc7ec7c883d928ab70d6f05f4e867f577901",
+          "run": 2,
+          "runtime": {
+            "diagnostic_class": null,
+            "duration_seconds": 7.562,
+            "exit_code": 0,
+            "security": {
+              "cap_add": [],
+              "cap_drop": [
+                "CAP_CHOWN",
+                "CAP_DAC_OVERRIDE",
+                "CAP_FOWNER",
+                "CAP_FSETID",
+                "CAP_KILL",
+                "CAP_NET_BIND_SERVICE",
+                "CAP_SETFCAP",
+                "CAP_SETGID",
+                "CAP_SETPCAP",
+                "CAP_SETUID",
+                "CAP_SYS_CHROOT"
+              ],
+              "cpu_period": 100000,
+              "cpu_quota": 100000,
+              "memory": 1073741824,
+              "memory_swap": 1073741824,
+              "mounts": [
+                {
+                  "destination": "/library",
+                  "rw": true,
+                  "type": "bind"
+                },
+                {
+                  "destination": "/output",
+                  "rw": true,
+                  "type": "bind"
+                }
+              ],
+              "network_mode": "none",
+              "pids_limit": 64,
+              "read_only_root": true,
+              "security_opt": [
+                "no-new-privileges"
+              ],
+              "user": "65532:65532"
+            }
+          },
+          "source_library_unchanged": true,
+          "unknown_field": {
+            "classification": "unsupported",
+            "exit_code": 1,
+            "field": "not_registered"
+          },
+          "working_copy_unchanged_after_projection": true
+        }
+      ],
+      "snapshot_after": {
+        "digest": "a41110e949afbc3b1cd7383fe9331bd2d8d8803dcc1b5c9839de294e768a1015",
+        "file_count": 6,
+        "files": [
+          {
+            "path": ".calnotes/notes.db",
+            "sha256": "5ca4550a94f0a6c8f7ec5c9f60b7ce01c6d0df6f9f5e60fffe251d0bb5a9d34c",
+            "size_bytes": 77824
+          },
+          {
+            "path": "Chris Beispiel/Synthetisches Abenteuer (Leseprobe) (1)/metadata.opf",
+            "sha256": "9d2d3114ea02df223a5da419691f32664619932678f4d9afdb6c245f9139af87",
+            "size_bytes": 2005
+          },
+          {
+            "path": "Chris Beispiel/Synthetisches Abenteuer (Leseprobe) (1)/Synthetisches Abenteuer (Leseprobe) - Chris Beispiel.epub",
+            "sha256": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+            "size_bytes": 1546
+          },
+          {
+            "path": "Chris Beispiel/Synthetisches Abenteuer (Vollausgabe) (2)/metadata.opf",
+            "sha256": "1f595fb315d9118b4195073f068f41d54b566590d112bb5f3c354a0c7e16ddbc",
+            "size_bytes": 2080
+          },
+          {
+            "path": "Chris Beispiel/Synthetisches Abenteuer (Vollausgabe) (2)/Synthetisches Abenteuer (Vollausgabe) - Chris Beispiel.epub",
+            "sha256": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+            "size_bytes": 1792
+          },
+          {
+            "path": "metadata.db",
+            "sha256": "d96e4872338b4ce19e8f675b113ebe48cad9c3c343ac691f82320925cbd40407",
+            "size_bytes": 450560
+          }
+        ]
+      },
+      "snapshot_before": {
+        "digest": "a41110e949afbc3b1cd7383fe9331bd2d8d8803dcc1b5c9839de294e768a1015",
+        "file_count": 6,
+        "files": [
+          {
+            "path": ".calnotes/notes.db",
+            "sha256": "5ca4550a94f0a6c8f7ec5c9f60b7ce01c6d0df6f9f5e60fffe251d0bb5a9d34c",
+            "size_bytes": 77824
+          },
+          {
+            "path": "Chris Beispiel/Synthetisches Abenteuer (Leseprobe) (1)/metadata.opf",
+            "sha256": "9d2d3114ea02df223a5da419691f32664619932678f4d9afdb6c245f9139af87",
+            "size_bytes": 2005
+          },
+          {
+            "path": "Chris Beispiel/Synthetisches Abenteuer (Leseprobe) (1)/Synthetisches Abenteuer (Leseprobe) - Chris Beispiel.epub",
+            "sha256": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+            "size_bytes": 1546
+          },
+          {
+            "path": "Chris Beispiel/Synthetisches Abenteuer (Vollausgabe) (2)/metadata.opf",
+            "sha256": "1f595fb315d9118b4195073f068f41d54b566590d112bb5f3c354a0c7e16ddbc",
+            "size_bytes": 2080
+          },
+          {
+            "path": "Chris Beispiel/Synthetisches Abenteuer (Vollausgabe) (2)/Synthetisches Abenteuer (Vollausgabe) - Chris Beispiel.epub",
+            "sha256": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+            "size_bytes": 1792
+          },
+          {
+            "path": "metadata.db",
+            "sha256": "d96e4872338b4ce19e8f675b113ebe48cad9c3c343ac691f82320925cbd40407",
+            "size_bytes": 450560
+          }
+        ]
+      },
+      "target_key": "young-readers-library"
+    }
+  ],
+  "tool": {
+    "artifact_sha512": "c018cb47805040a9a83dc16986db618c539a7dc62f85da2760b7e22e0e8ada7533a01be797cdbd04a5d5f66c8efa2b0ac2db4819700e561351267cb4842a3fc6",
+    "artifact_size_bytes": 192554776,
+    "artifact_url": "https://download.calibre-ebook.com/9.13.0/calibre-9.13.0-x86_64.txz",
+    "license_source": "https://manual.calibre-ebook.com/develop.html",
+    "license_spdx": "GPL-3.0-only",
+    "name": "calibre",
+    "release_url": "https://download.calibre-ebook.com/9.13.0/",
+    "signature_index": "https://calibre-ebook.com/signatures/",
+    "version": "9.13.0"
+  },
+  "tool_version": {
+    "classification": "supported",
+    "normalized": "9.13.0",
+    "reported": "9.13",
+    "runtime": {
+      "diagnostic_class": null,
+      "duration_seconds": 4.922,
+      "exit_code": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "memory": 1073741824,
+        "memory_swap": 1073741824,
+        "mounts": [
+          {
+            "destination": "/library",
+            "rw": false,
+            "type": "bind"
+          },
+          {
+            "destination": "/output",
+            "rw": true,
+            "type": "bind"
+          }
+        ],
+        "network_mode": "none",
+        "pids_limit": 64,
+        "read_only_root": true,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      }
+    }
+  }
+}

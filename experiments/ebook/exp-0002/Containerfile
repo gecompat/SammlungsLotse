@@ -1,0 +1,22 @@
+FROM docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17
+
+ARG CALIBRE_URL="https://download.calibre-ebook.com/9.13.0/calibre-9.13.0-x86_64.txz"
+ARG CALIBRE_SHA512="c018cb47805040a9a83dc16986db618c539a7dc62f85da2760b7e22e0e8ada7533a01be797cdbd04a5d5f66c8efa2b0ac2db4819700e561351267cb4842a3fc6"
+
+LABEL org.opencontainers.image.title="SammlungsLotse EXP-0002 calibre probe"
+LABEL org.opencontainers.image.description="Disposable synthetic calibre projection image; not a product runtime"
+LABEL org.opencontainers.image.source="https://github.com/gecompat/SammlungsLotse"
+LABEL org.opencontainers.image.version="exp-0002-podman-calibre-9.13.0/v1"
+LABEL org.opencontainers.image.licenses="GPL-3.0-only"
+
+COPY bootstrap_calibre.py /tmp/bootstrap_calibre.py
+RUN python /tmp/bootstrap_calibre.py \
+      --url "${CALIBRE_URL}" \
+      --sha512 "${CALIBRE_SHA512}" \
+      --destination /opt/calibre \
+    && rm /tmp/bootstrap_calibre.py
+
+COPY probe.py /opt/experiment/probe.py
+
+USER 65532:65532
+ENTRYPOINT ["/usr/bin/env", "-i", "CALIBRE_CONFIG_DIRECTORY=/config", "HOME=/tmp/home", "LANG=C.UTF-8", "PATH=/opt/calibre:/usr/local/bin:/usr/bin:/bin", "QT_QPA_PLATFORM=offscreen", "python", "/opt/experiment/probe.py"]

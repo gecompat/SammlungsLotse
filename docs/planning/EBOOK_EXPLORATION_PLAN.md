@@ -17,8 +17,9 @@ eine Suchtechnik, eine Benutzeroberfläche oder einen Writer zu koppeln.
 Der vollständige fachliche Möglichkeitenraum steht in
 [EBOOK_LANDSCAPE.md](EBOOK_LANDSCAPE.md). Der Plan autorisiert keinen
 Produktcode oder schreibenden Operationstyp. Die TEST-0001-Fixture-
-Validierung wurde ausgeführt; EXP-0005 ist empirisch abgeschlossen. Die
-Experimente EXP-0002 bis EXP-0004 wurden noch nicht ausgeführt.
+Validierung wurde ausgeführt; EXP-0002 und EXP-0005 sind empirisch
+abgeschlossen. Die Experimente EXP-0003 und EXP-0004 wurden noch nicht
+ausgeführt.
 
 Die konkretisierten Nutzerentscheidungen und Messverträge stehen in
 [EBOOK_SCENARIOS_AND_METRICS.md](EBOOK_SCENARIOS_AND_METRICS.md). TEST-0001
@@ -181,8 +182,8 @@ EXP-0001 bleibt der Sammelrahmen. Die nun entscheidungsreifen Fragen für
 read-only Calibre-Projektion, EPUB-Evidenz, gestufte Identität und isolierte
 Werkzeugausführung sind als EXP-0002 bis EXP-0005 registriert. Ihre
 kanonischen Eingänge, Pass-, Fail- und Stoppkriterien stehen in
-[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md). Keines der Experimente wurde
-ausgeführt.
+[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md). EXP-0002 und EXP-0005 sind
+ausgeführt; EXP-0003 und EXP-0004 bleiben offen.
 
 #### Calibre-Lesezugang (EXP-0002)
 
@@ -382,14 +383,15 @@ Dokument enthält bewusst keine gewichtete Nutzwertanalyse.
 WI-0003 hat B1 auf Dokumentationsebene abgeschlossen. Die TEST-0001-
 Kernfixtures, Oracles, Hashes, Herkunft und verbotenen Wirkungen sind in der
 aktiven Version `0.2.0` reproduzierbar manifestiert und validiert. EXP-0005
-hat ein enges Podman-Ausführungsprofil netzwerklos qualifiziert. WI-0002
+hat ein enges Podman-Ausführungsprofil netzwerklos qualifiziert. EXP-0002 hat
+zwei synthetische Calibre-Ziele reproduzierbar und pfadbereinigt über eine
+Copy-on-read-Grenze projiziert; der direkte read-only Mount ist als nicht
+unterstützt belegt. WI-0002
 bleibt `in_progress`. Die nächsten Waves beginnen weiterhin keinen
 Produktcode:
 
-1. EXP-0002 mit zwei synthetischen Calibre-Bibliotheken und einer minimalen
-   read-only Feldprojektion ausführen;
-2. EXP-0003 unabhängig mit EPUBCheck- und Ace-Rohberichten ausführen;
-3. EXP-0004 erst nach vollständigen positiven und negativen Identitätspaaren
+1. EXP-0003 unabhängig mit EPUBCheck- und Ace-Rohberichten ausführen;
+2. EXP-0004 erst nach vollständigen positiven und negativen Identitätspaaren
    ausführen;
 4. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
    vergleichen.
