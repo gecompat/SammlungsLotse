@@ -160,11 +160,11 @@ Lücke schließt und der kleinste vollständige read-only Ablauf begrenzbar ist.
 
 ## Nächster getrennter Schritt
 
-In einer eigenen Planungs-Wave wird ein neuer Arbeitsgegenstand registriert.
-Er konkretisiert Akzeptanz, Vertragsgrenzen und Abnahme für einen dünnen
-read-only Prototyp des angenommenen Ablaufs. Erst dessen ausdrückliche
-Annahme darf Produktcode autorisieren.
+WI-0004 hat in einer eigenen Planungs-Wave Akzeptanz, Vertragsgrenzen und
+Abnahme für einen dünnen read-only Prototyp des angenommenen Ablaufs
+konkretisiert und ist `accepted`. Produktcode darf erst in einer neuen Wave
+vom kanonischen Plan-Merge beginnen.
 
-Der nächste Gegenstand darf GATE-0001 nicht stillschweigend um tiefe
+WI-0004 darf GATE-0001 nicht stillschweigend um tiefe
 Formatprüfung, Calibre, Dubletten, Metadaten, Routing, Persistenz, UI oder
 Writes erweitern. Solche Äste bleiben getrennte, reversible Entscheidungen.

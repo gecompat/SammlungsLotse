@@ -6,7 +6,8 @@ Stand: 2026-08-27
 
 ## Phase
 
-Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
+Angenommene Planung des ersten eng begrenzten Produktprototyps nach
+ergebnisoffener E-Book-Erkundung.
 
 ## Vorhanden
 
@@ -59,7 +60,11 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - abgeschlossenes GATE-0001 mit angenommener Eingangstriage als eng
   begrenztem ersten read-only E-Book-Vertikalablauf; Bestandsprüfung bleibt
   ein möglicher späterer Ast. Die Auswahl autorisiert für sich weder
-  Produktcode noch einen Writer.
+  Produktcode noch einen Writer;
+- als WI-0004 angenommener Vertrag für einen lokalen read-only
+  Eingangstriage-Prototyp mit In-Memory-Snapshot, flachem Preflight,
+  getrennter Evidenz und sichtbarer CLI-Folgeaktion; Implementierung beginnt
+  erst nach dem kanonischen Plan-Merge.
 
 ## Nicht vorhanden
 
@@ -73,6 +78,16 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - Release.
 
 ## Validierung
+
+WI-0004-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL-Regression lokal
+validiert am 2026-08-27 unter Python 3.12.10. Repository- und
+v2-Registry-Prüfung waren für 20 registrierte Artefakte erfolgreich.
+TEST-0001 bestätigte 26 Fälle und 44 Komponenten; die eingecheckten
+Ergebnisverträge von EXP-0002 bis EXP-0006 bestätigten 13/13, 14/14, 15/15,
+11/11 und 16/16 Kriterien. 29 synthetische Unit-Tests, `compileall` und
+`git diff --check` waren erfolgreich. Dies belegt Plan-, Registry-, Dokument-,
+Fixture- und vorhandene Ergebnisintegrität, nicht die noch ausstehende
+WI-0004-Implementierung oder Produktreife.
 
 GATE-0001-Neubewertung: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL-Regression
 lokal validiert am 2026-08-27 unter Python 3.12.10. Repository- und
@@ -261,12 +276,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-In einer getrennten Planungs-Wave wird ein eigener Arbeitsgegenstand für den
-angenommenen dünnen read-only Eingangstriage-Prototyp registriert. Er muss
-Akzeptanz, Vertragsgrenzen und Abnahme festlegen und darf Calibre, tiefe
-Formatprüfung, Dubletten, Metadaten, Routing, Persistenz, UI oder Writes nicht
-stillschweigend einschließen. Erst seine ausdrückliche Annahme kann
-Produktcode autorisieren.
+Nach dem kanonischen Merge der angenommenen WI-0004-Planung beginnt eine neue
+Implementierungs-Wave vom exakten `origin/main`. Sie implementiert und prüft
+nur Snapshot, flachen Preflight, gemeinsamen Ergebnisvertrag und lokale CLI.
+Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing, Persistenz,
+Browser, REST, Agents und Writes bleiben außerhalb.
 
 ## Offene Punkte
 
@@ -279,7 +293,7 @@ Produktcode autorisieren.
 
 ## Blocker
 
-Keine bekannten Blocker für die nächste Planungs-Wave. Produktimplementierung
-bleibt bis zu einem angenommenen registrierten Arbeitsgegenstand nicht
-autorisiert. Schreibende Fähigkeiten bleiben unabhängig davon hinter einem
-eigenen Writer-Gate.
+Keine bekannten Blocker für WI-0004. Produktimplementierung bleibt bis zum
+kanonischen Merge des angenommenen Arbeitsgegenstands nicht autorisiert.
+Schreibende Fähigkeiten bleiben unabhängig davon hinter einem eigenen
+Writer-Gate.

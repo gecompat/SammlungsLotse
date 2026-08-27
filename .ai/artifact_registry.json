@@ -447,6 +447,48 @@
       ],
       "status": "done",
       "title": "E-Book-Nutzerszenarien und Messverträge konkretisieren"
+    },
+    "WI-0004": {
+      "acceptance_criteria": "Ein ausdrücklich gewählter lokaler synthetischer Eingang wird als unveränderter begrenzter Snapshot ohne Netzwerk oder Schreibwirkung flach geprüft; getrennte Beobachtungen, Befunde und eine sichtbare Folgeaktion oder Enthaltung sind reproduzierbar, pfadbereinigt und durch automatisierte sowie tatsächliche CLI-End-to-End-Abnahme belegt.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0439d-05b7-7e77-b500-a67f2f171b7e",
+      "created_on": "2026-08-27",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_INTAKE_PROTOTYPE.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Dünnen read-only E-Book-Eingangstriage-Prototyp umsetzen"
     }
   },
   "prefixes": {

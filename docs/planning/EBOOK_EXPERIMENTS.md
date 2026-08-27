@@ -532,5 +532,6 @@ noch keine weiteren EXP-Referenzen reserviert.
 Die Reihenfolge ist ein Lernplan und keine freigegebene Produktroadmap. Der
 Vergleich, die genaue Begrenzung von EXP-0006 und die Gate-Neubewertung stehen
 unter [EBOOK_GATE_0001_COMPARISON.md](EBOOK_GATE_0001_COMPARISON.md). Als
-nächster getrennter Schritt wird ein eigener Arbeitsgegenstand für den dünnen
-read-only Prototyp registriert und geplant.
+nächster getrennter Schritt hat WI-0004 den dünnen read-only Prototyp unter
+[EBOOK_INTAKE_PROTOTYPE.md](EBOOK_INTAKE_PROTOTYPE.md) registriert, begrenzt
+und angenommen. Seine Implementierung beginnt erst vom kanonischen Plan-Merge.

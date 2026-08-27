@@ -2,18 +2,21 @@
 
 Status: AUTHORITATIVE
 
-Die ergebnisoffene Entwicklungsplanung hat begonnen. Es gibt weiterhin keinen
-angenommenen Produktbacklog und keine freigegebene technische Roadmap.
+Die ergebnisoffene Entwicklungsplanung hat den ersten begrenzten
+Arbeitsgegenstand angenommen. Es gibt weiterhin keinen allgemeinen
+Produktbacklog und keine freigegebene technische Roadmap.
 
 ## Aktueller Brainstorming-Stand
 
-Die E-Book-Linie wird als möglicher erster Schwerpunkt untersucht, ist aber
-noch nicht ausgewählt. Der aktuelle Stand trennt bewusst Möglichkeiten,
-Untersuchungshypothesen, Experimente und spätere Entscheidungen:
+Die E-Book-Linie stellt mit WI-0004 den ersten begrenzten Produktprototyp,
+ohne damit eine vollständige Medienlinie oder Roadmap festzulegen. Der
+aktuelle Stand trennt bewusst Möglichkeiten, Untersuchungshypothesen,
+Experimente und spätere Entscheidungen:
 
 - [E-Book-Möglichkeitenraum](EBOOK_LANDSCAPE.md);
 - [E-Book-Erkundungs- und Erkenntnisplan](EBOOK_EXPLORATION_PLAN.md);
 - [GATE-0001-Vergleich der ersten Vertikalabläufe](EBOOK_GATE_0001_COMPARISON.md);
+- [WI-0004: dünner read-only Eingangstriage-Prototyp](EBOOK_INTAKE_PROTOTYPE.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -36,6 +39,13 @@ RISK-0001 hält das bereits anerkannte Risiko einer frühen fachlichen oder
 technischen Kopplung fest. Die Gate-Auswahl wählt keinen Technologie-Stack,
 keine erste Medien- oder Implementierungslinie und autorisiert weder
 Produktcode noch schreibende Operationen.
+
+WI-0004 ist als erster eng begrenzter Produktprototyp `accepted`. Sein
+kanonischer Vertrag endet nach einem unveränderten In-Memory-Snapshot,
+flachem Preflight und sichtbarer CLI-Folgeaktion oder Enthaltung. Die Auswahl
+von Python 3.12 und Standardbibliothek gilt nur für diesen reversiblen
+Prototyp. Calibre, tiefe Werkzeuge, Persistenz, Browser, REST, Agents und
+Writes bleiben außerhalb.
 
 ## Verbindliche Ausgangsbasis
 
@@ -63,8 +73,9 @@ Die erste Planungs-Wave soll:
    Arbeitsgegenstände über die Registry registrieren;
 8. erst danach eine ausführbare Reihenfolge bilden.
 
-Eine E-Book-Linie ist ein naheliegender Kandidat, aber weiterhin nicht als
-erste Implementierungs-Wave entschieden.
+WI-0004 ist als erste Implementierungs-Wave entschieden. Diese Auswahl gilt
+nur für den dünnen Eingangstriage-Prototyp und nicht als Annahme der gesamten
+E-Book-Linie.
 
 ## Nächste Erkenntnis-Wave
 
@@ -75,9 +86,9 @@ Identitätsbewertung bestanden. Ihr erster Vergleich vertagte beide
 Kandidaten. Die daraufhin als genau eine Evidenzwelle ausgeführte
 EXP-0006-Qualifikation hat den engen read-only Eingangstriage-Preflight
 synthetisch bestanden. Die getrennte Neubewertung hat deshalb S2 innerhalb
-dieser Grenze angenommen. Als nächster Schritt wird ein eigener
-Arbeitsgegenstand für den dünnen Prototyp registriert und geplant; bis zu
-dessen Annahme bleibt Produktcode nicht autorisiert.
+dieser Grenze angenommen. WI-0004 hat den dünnen Prototyp anschließend
+registriert, vollständig begrenzt und angenommen. Nach dem kanonischen Merge
+dieser Planungs-Wave darf die Implementierung in einer neuen Wave beginnen.
 
 ## Nicht übernehmen
 
