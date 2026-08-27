@@ -87,4 +87,3 @@ Ist kein aktueller Werkzeugkandidat unter diesen Grenzen wartbar,
 reproduzierbar und lokal sinnvoll betreibbar, wird WI-0005 nicht angenommen.
 EXP-0007 und WI-0004 bleiben dann ohne Produktadapter gültig; die E-Book-Linie
 kann pausiert oder mit einer engeren Härtungsfrage fortgesetzt werden.
-

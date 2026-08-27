@@ -98,4 +98,3 @@ GATE-0003 autorisiert nicht:
 - Netzwerkzugriff im Analysepfad;
 - Persistenz, Cache, Queue, Browser, REST oder Agent;
 - Import, Transformation oder einen anderen Writer.
-
