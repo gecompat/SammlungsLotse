@@ -1,0 +1,29 @@
+FROM docker.io/library/debian@sha256:5ae3c39ebd15e229dcedd5cee596b2497182493d41ff162e824ba13fc1b2b867 AS adapter-build
+
+COPY build-java /opt/build-java
+COPY EpubCheckWrapper.java /src/EpubCheckWrapper.java
+RUN /opt/build-java/bin/javac --release 21 -d /adapter /src/EpubCheckWrapper.java
+
+FROM docker.io/library/debian@sha256:5ae3c39ebd15e229dcedd5cee596b2497182493d41ff162e824ba13fc1b2b867
+
+LABEL org.opencontainers.image.title="SammlungsLotse bounded EPUBCheck adapter"
+LABEL org.opencontainers.image.description="Local read-only WI-0005 runtime; no automatic distribution"
+LABEL org.opencontainers.image.source="https://github.com/gecompat/SammlungsLotse"
+LABEL org.opencontainers.image.version="wi-0005-epubcheck-5.3.0-temurin-21.0.12.1+1/v1"
+
+COPY --chown=65532:65532 java /opt/java
+COPY --chown=65532:65532 epubcheck /opt/epubcheck
+COPY --from=adapter-build --chown=65532:65532 /adapter /opt/adapter
+
+RUN mkdir -p /input /output /tmp \
+    && chown 65532:65532 /input /output /tmp \
+    && chmod 0755 /input /output \
+    && chmod 1777 /tmp
+
+ENV JAVA_HOME=/opt/java \
+    LANG=C.UTF-8 \
+    HOME=/tmp \
+    PATH=/opt/java/bin:/usr/bin:/bin
+
+USER 65532:65532
+ENTRYPOINT ["/opt/java/bin/java", "-cp", "/opt/adapter", "EpubCheckWrapper"]

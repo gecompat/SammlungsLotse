@@ -1,0 +1,142 @@
+{
+  "acceptance": {
+    "actual_cli_default_unchanged_schema": true,
+    "actual_cli_finding_path": true,
+    "actual_cli_gate_blocks_provider": true,
+    "actual_cli_not_assessed_path": true,
+    "actual_cli_success_path": true,
+    "effective_isolation_matches_profile": true,
+    "image_preimage_exact": true,
+    "input_and_original_unchanged": true,
+    "output_limit_rejects_excess": true,
+    "success_cleanup_complete": true,
+    "timeout_fails_closed_and_cleans": true,
+    "unknown_provider_codes_preserved_by_contract_tests": true
+  },
+  "cases": {
+    "default": {
+      "exit_code": 0,
+      "schema": "sammlungslotse/ebook-intake-report/v1"
+    },
+    "finding": {
+      "assessment": "epubcheck_conformance_findings",
+      "codes": [
+        "RSC-001"
+      ],
+      "exit_code": 0
+    },
+    "gated": {
+      "exit_code": 4,
+      "reason_codes": [
+        "gate.not_open"
+      ]
+    },
+    "success": {
+      "assessment": "no_epubcheck_conformance_errors_reported",
+      "exit_code": 0,
+      "raw_report_sha256": "f46bd1bb7bab01d94692496b6a8b8ab49bd0a99cca04c4ff9aee9bb7e3d5c049",
+      "raw_report_size_bytes": 3859
+    },
+    "timeout": {
+      "assessment": "not_assessed",
+      "container_removed": true,
+      "state": "timeout",
+      "task_root_empty": true
+    },
+    "unavailable": {
+      "exit_code": 4,
+      "reason_codes": [
+        "executor.unavailable"
+      ]
+    }
+  },
+  "image": {
+    "architecture": "amd64",
+    "entrypoint_exact": true,
+    "id": "sha256:d8143e59b2c478e0056200a3529b9beb74737885863c22097b198a9c0c92974e",
+    "id_exact": true,
+    "os": "linux",
+    "user_exact": true
+  },
+  "isolation": {
+    "cap_drop": [
+      "CAP_CHOWN",
+      "CAP_DAC_OVERRIDE",
+      "CAP_FOWNER",
+      "CAP_FSETID",
+      "CAP_KILL",
+      "CAP_NET_BIND_SERVICE",
+      "CAP_SETFCAP",
+      "CAP_SETGID",
+      "CAP_SETPCAP",
+      "CAP_SETUID",
+      "CAP_SYS_CHROOT"
+    ],
+    "command_exact": true,
+    "cpu_nanos": 1000000000,
+    "environment_exact": true,
+    "input_read_only": true,
+    "memory_bytes": 402653184,
+    "memory_swap_bytes": 402653184,
+    "network": "none",
+    "no_new_privileges": true,
+    "pids_limit": 32,
+    "privileged": false,
+    "read_only_root": true,
+    "tmpfs_paths": [
+      "/output",
+      "/tmp"
+    ],
+    "tmpfs_values": {
+      "/output": "rw,nosuid,nodev,noexec,size=2097152,mode=1777,rprivate,tmpcopyup",
+      "/tmp": "rw,nosuid,nodev,noexec,size=16777216,mode=1777,rprivate,tmpcopyup"
+    },
+    "ulimits": [
+      {
+        "Hard": 0,
+        "Name": "RLIMIT_CORE",
+        "Soft": 0
+      },
+      {
+        "Hard": 256,
+        "Name": "RLIMIT_NOFILE",
+        "Soft": 256
+      }
+    ],
+    "verified_by_executor": true
+  },
+  "original_sha256": {
+    "active-remote.epub": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+    "missing-resource.epub": "877c63ac37c85ebba74d462b04d41d28e49a7cd20c7e90c29b44c492b864d8f4",
+    "stable.epub": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+  },
+  "output_probe": {
+    "attempted_bytes": 4194304,
+    "bounded_bytes": 2097152,
+    "write_rejected": true
+  },
+  "preimage_sha256": {
+    "cli": "f0263a7564e85ffa3fd8853447216be152e8fa9d23367e185396421f1cf69b69",
+    "containerfile": "5c496f29b5e72e87f9b1effc5575510e6148100370a9aa148f2f9272f19871a7",
+    "deep_application": "7ed28fbd14a12e12a890f4de6b05cfdff5a6fc279090c08150a9cbadb92031f4",
+    "deep_model": "dd1d9b19acafca49e7ccf5b7477caca979c1a86206f0543a0bbb63da2838598f",
+    "deep_ports": "d85f7ee24d8e83b4a3babd24341239e7f9bf6ab2dcd17c30ecaecb7c55791b4b",
+    "deep_profile": "8382e235e9296be20fe0ddf54a837dc5da59f624c69543999d369c0bdc3ab562",
+    "deep_workspace": "c73161dfd2643b612c345f20b5a5d1fe315638e036791fb4ffc766b55365deb4",
+    "epubcheck_provider": "f606b5fc3e1184455456e9991b20e7df176b390d2188aa3bed451e0838860432",
+    "podman_executor": "a10458ae6d5cfa8b404df2f91c1fd8fb90efdd696f68f292c87587b2558e2319",
+    "profile": "e38925c2819d7666ad40ea6a30a643988e6fb3a894d9a18bdb2571e873457076",
+    "provisioner": "5d5fa3091e1277d0d03fabe996d00ef4e445a744d76d77d2038473eab504e8bf",
+    "qualifier": "61c2d5a11d37d2db018cf6efedb6eda016e4f8db323d57b8dfd74671592440c6",
+    "wrapper_source": "d5a095e87f0461f296432ed88b017bfc7600e2f288d3f1ce35e99095e6cb8464"
+  },
+  "profile_id": "wi-0005-epubcheck-5.3.0-temurin-21.0.12.1+1-podman-linux-amd64/v1",
+  "podman": {
+    "client_version": "6.1.0",
+    "server_os_arch": "linux/amd64",
+    "server_version": "6.1.0"
+  },
+  "qualified_at": "2026-08-27T18:37:34.633741+00:00",
+  "schema": "sammlungslotse/deep-read-only-qualification/v1",
+  "status": "PASS"
+}

@@ -54,9 +54,11 @@ GATE-0002, EXP-0007 und GATE-0003 sind `done`. EXP-0007 hat drei
 providerneutrale Übergaben eines unveränderlichen Snapshots an einen tiefen
 read-only Werkzeugprozess verglichen: V1 und V2 sind qualifiziert, V3 ist
 abgelehnt. GATE-0003 wählt V2 als Standardnaht. Die getrennte aktuelle
-Werkzeug- und Vertragsbewertung nimmt WI-0005 mit EPUBCheck 5.3.0 als erstem
-Provider, einem austauschbaren Prozessport und einem frisch zu
-qualifizierenden Podman-Profil an. Der Adapter ist noch nicht implementiert.
+Werkzeug- und Vertragsbewertung nahm WI-0005 mit EPUBCheck 5.3.0 als erstem
+Provider und einem austauschbaren Prozessport an. Die getrennte
+Implementierungs-Wave ist `done`: Das aktuelle digestgebundene Podman-Profil
+ist reproduzierbar gebaut, 12/12 synthetisch qualifiziert und ausschließlich
+über den expliziten CLI-Opt-in erreichbar.
 
 ## Verbindliche Ausgangsbasis
 
@@ -105,10 +107,12 @@ Adapters und das Pausieren verglichen und EXP-0007 ausgewählt. Das Experiment
 hat V1 und V2 qualifiziert und V3 wegen Originalpfad- und TOCTOU-Risiko
 abgelehnt. GATE-0003 wählt V2 als Standardnaht und schlägt WI-0005 vor. Die
 anschließende aktuelle Werkzeug-, Lizenz-, Wartungs-, Betriebs- und
-Vertragsbewertung nimmt WI-0005 eng begrenzt an. Als nächste eigene Wave darf
-der EPUBCheck-Adapter nach dem angenommenen Vertrag implementiert werden;
-insbesondere muss sie das aktuelle Temurin-Artefakt neu binden und das exakte
-Produktprofil vollständig synthetisch qualifizieren.
+Vertragsbewertung nahm WI-0005 eng begrenzt an. Die eigene
+Implementierungs-Wave hat das aktuelle Temurin-Artefakt, sämtliche
+Build-Eingänge und die reproduzierbare Image-ID gebunden, den Adapter
+umgesetzt und das exakte Profil vollständig mit synthetischen Medien
+qualifiziert. Eine nächste Erkenntnis- oder Produktwave ist damit nicht
+automatisch entschieden.
 
 ## Nicht übernehmen
 

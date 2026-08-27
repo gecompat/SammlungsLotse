@@ -1,6 +1,6 @@
 # WI-0005: Ersten tiefen read-only Werkzeugadapter begrenzen
 
-Status: ACCEPTED — VERTRAG FESTGELEGT, NOCH NICHT IMPLEMENTIERT
+Status: DONE — IMPLEMENTIERT UND SYNTHETISCH PRODUKTQUALIFIZIERT
 
 Stand: 2026-08-27
 
@@ -22,9 +22,9 @@ Dateipfade. Ein späterer nativer oder anderer isolierter Executor darf hinter
 derselben Adaptergrenze ergänzt werden, muss aber zuvor eigenständig
 qualifiziert werden.
 
-Produktcode ist in dieser Bewertungs-Wave nicht entstanden. Die
-Implementierung darf in einer eigenen Wave auf Basis dieses angenommenen
-Vertrags beginnen.
+Die getrennte Implementierungs-Wave hat diesen Vertrag anschließend ohne
+Erweiterung um weitere Provider oder Nutzeroberflächen umgesetzt. Die
+konkrete Umsetzung und Abnahme ist unten dokumentiert.
 
 ## Aktueller Quellenbefund
 
@@ -229,6 +229,43 @@ WI-0005 ist erst `done`, wenn:
     Fachsystemzugriff entsteht;
 17. V1 oder ein anderer Executor später innerhalb der Adaptergrenze ergänzt
     werden kann, ohne den Kernvertrag oder den V2-Standard zu ändern.
+
+## Implementierung und Abnahme
+
+Der angenommene Vertrag ist am 2026-08-27 als kleinster vollständiger
+Produktadapter umgesetzt worden:
+
+- `DeepReadOnlyToolPort` und `ProcessExecutor` halten Produktkern, EPUBCheck
+  und Podman getrennt;
+- V2 materialisiert ausschließlich freigegebene Snapshot-Bytes in zufällige,
+  private Taskbereiche, hasht vor und nach dem Prozess und besitzt einen
+  fail-closed Recovery-Sweep;
+- der Podman-Executor prüft das effektive Containerprofil vor dem Start,
+  begrenzt Prozess, Zeit, CPU, RAM, Swap, Netzwerk, Mounts, Umgebung,
+  stdout, stderr und Output und entfernt den Container in jedem Ausgang;
+- der EPUBCheck-Adapter bewahrt den vollständigen JSON-Rohbericht samt
+  SHA-256, übernimmt unbekannte Codes unverändert und gibt ausschließlich
+  publikationsrelative Fundstellen in die kleine Projektion;
+- `tools/run_ebook_intake.py` startet den Adapter nur mit
+  `--deep-read-only` und positivem `continue_deep_read_only`; ohne Opt-in
+  bleibt der WI-0004-Vertrag byte- und bedeutungsgleich.
+
+Das aktuelle Preimage bindet EPUBCheck `5.3.0`, Temurin-JRE und Build-JDK
+`21.0.12.1+1`, Debian `bookworm-20260824-slim`, Podman ab `6.1.0` und die
+Linux/amd64-Image-ID
+`sha256:d8143e59b2c478e0056200a3529b9beb74737885863c22097b198a9c0c92974e`.
+Zwei frische, cachegebundene Builds erzeugten dieselbe Image-ID.
+
+Die tatsächliche lokale Podman-Qualifikation unter
+`runtime/ebook-deep-readonly/qualification.json` bestand 12/12 Kriterien.
+Sie belegt den unveränderten Standardweg, Opt-in-Erfolg, einen realen
+`RSC-001`-Befund, geschlossenes Gate, `not_assessed` bei abweichender
+Image-ID, zurückgelesene Isolation, ein wirksames Outputlimit, Timeout sowie
+vollständiges Container- und Task-Cleanup. Alle verwendeten TEST-0001-Medien
+blieben hashgleich. Automatisierte Verträge decken zusätzlich ungültige
+Berichte, Pre- und Post-Hashabweichung, unbekannte Codes, Cleanupfehler und
+Recovery ab. Es wurden keine privaten Medien, Writer, Persistenz,
+Fachsystemzugriffe oder weiteren Provider eingeführt.
 
 ## Ausstieg und Neubewertung
 
