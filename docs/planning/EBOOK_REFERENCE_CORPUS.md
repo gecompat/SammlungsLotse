@@ -205,4 +205,5 @@ hat zwei daraus synthetisch materialisierte Calibre-Bibliotheken erfolgreich
 über eine Copy-on-read-Grenze projiziert. EXP-0003 hat EPUBCheck- und
 Ace-Rohberichte gegen sieben ausgewählte Fälle je zweimal erhoben und
 verlustfrei referenziert; der manuelle Accessibility-Fall bleibt ausdrücklich
-manuell. EXP-0004 und die `Ausbau`-Fälle bleiben offen.
+manuell. EXP-0004 hat alle sechs Identitäts-Sollpaare auf fünf getrennten
+Ebenen je zweimal bewertet. Die vier `Ausbau`-Fälle bleiben offen.

@@ -1,0 +1,3250 @@
+{
+  "acceptance": {
+    "byte_equality_preserves_locators": true,
+    "candidate_evidence_has_both_polarities": true,
+    "five_identity_stages_separate": true,
+    "fixture_and_oracles_bound": true,
+    "fixture_inputs_unchanged": true,
+    "metrics_complete_without_false_positives": true,
+    "missing_evidence_not_negative": true,
+    "multiformat_edition_stays_layered": true,
+    "no_action_or_writer_effect": true,
+    "repackaging_not_byte_equality": true,
+    "resource_and_provenance_evidence_complete": true,
+    "sample_full_conflict_abstains_at_edition": true,
+    "semantic_repetitions_identical": true,
+    "title_collision_not_work_candidate": true,
+    "translation_not_interchangeable_edition": true
+  },
+  "executed_on": "2026-08-27",
+  "experiment": "EXP-0004",
+  "fixture_manifest_sha256": "324f9e55e230e60df8038e1a7504b8ff002c51f7d55b05e1990c0396ba801c02",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "input_integrity": {
+    "after_sha256": {
+      "cases/edition-sample-vs-full/full.epub": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+      "cases/edition-sample-vs-full/sample.epub": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+      "cases/identity-byte-equal/source-a/same.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "cases/identity-byte-equal/source-b/renamed.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "cases/identity-edition-vs-translation/source-en.epub": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+      "cases/identity-edition-vs-translation/translation-de.epub": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+      "cases/identity-multiformat-edition/bibliographic-key.json": "b4d7dac6c0b69c59428ee1378afc5eedec7d9a1110283a8f1307765c1debd929",
+      "cases/identity-multiformat-edition/edition.epub": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+      "cases/identity-multiformat-edition/edition.pdf": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+      "cases/identity-repackaged/package-a.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "cases/identity-repackaged/package-b.epub": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+      "cases/identity-title-collision/work-a.epub": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+      "cases/identity-title-collision/work-b.epub": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327"
+    },
+    "before_sha256": {
+      "cases/edition-sample-vs-full/full.epub": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+      "cases/edition-sample-vs-full/sample.epub": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+      "cases/identity-byte-equal/source-a/same.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "cases/identity-byte-equal/source-b/renamed.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "cases/identity-edition-vs-translation/source-en.epub": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+      "cases/identity-edition-vs-translation/translation-de.epub": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+      "cases/identity-multiformat-edition/bibliographic-key.json": "b4d7dac6c0b69c59428ee1378afc5eedec7d9a1110283a8f1307765c1debd929",
+      "cases/identity-multiformat-edition/edition.epub": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+      "cases/identity-multiformat-edition/edition.pdf": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+      "cases/identity-repackaged/package-a.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "cases/identity-repackaged/package-b.epub": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+      "cases/identity-title-collision/work-a.epub": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+      "cases/identity-title-collision/work-b.epub": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327"
+    },
+    "unchanged": true
+  },
+  "limitations": [
+    "The gold standard contains only six small synthetic pairs; perfect metrics do not establish real-collection quality.",
+    "The package-stage oracle is fixed in the execution profile because TEST-0001 records file and representation relations but no separate package relation.",
+    "Representation equality compares format-scoped logical entry bytes; semantically equivalent XML or content rewrites are not normalized by this profile.",
+    "The tested title qualifier vocabulary contains only the synthetic German term 'Leseprobe' and is not a product vocabulary.",
+    "The multiformat candidate relies on a case-scoped synthetic bibliographic snapshot; trust and conflict resolution for real providers remain untested.",
+    "No statistical similarity, external metadata provider, product persistence, merge, removal, move or writer was implemented."
+  ],
+  "metrics": {
+    "byte": {
+      "correct_abstention": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "coverage": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "eligible_cases": 6,
+      "false_positive_count": 0,
+      "precision": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "selective_accuracy": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      }
+    },
+    "edition": {
+      "correct_abstention": {
+        "denominator": 1,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "coverage": {
+        "denominator": 6,
+        "numerator": 5,
+        "value": 0.8333333333333334
+      },
+      "eligible_cases": 6,
+      "false_positive_count": 0,
+      "precision": {
+        "denominator": 3,
+        "numerator": 3,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 3,
+        "numerator": 3,
+        "value": 1.0
+      },
+      "selective_accuracy": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      }
+    },
+    "package": {
+      "correct_abstention": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "coverage": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      },
+      "eligible_cases": 5,
+      "false_positive_count": 0,
+      "precision": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "selective_accuracy": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      }
+    },
+    "representation": {
+      "correct_abstention": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "coverage": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "eligible_cases": 6,
+      "false_positive_count": 0,
+      "precision": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 2,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "selective_accuracy": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      }
+    },
+    "work": {
+      "correct_abstention": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "coverage": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      },
+      "eligible_cases": 6,
+      "false_positive_count": 0,
+      "precision": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 5,
+        "numerator": 5,
+        "value": 1.0
+      },
+      "selective_accuracy": {
+        "denominator": 6,
+        "numerator": 6,
+        "value": 1.0
+      }
+    }
+  },
+  "profile_id": "exp-0004-identity-heuristic/v1",
+  "profile_sha256": "b9590b9b2a12c7b5126b20e03ff8b6b4bb4c23c264e6d4f0b3b7b15776b1b156",
+  "repetitions": [
+    {
+      "cases": [
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "edition-sample-vs-full",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "7abb0812f2f14f3f8e01e60d734bed53fa8d5d0045fc8c489ff4bca4b51a7098",
+              "content_extent": 45,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:long-journey:sample"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die lange Reise — Leseprobe"
+                ],
+                "work_references": []
+              },
+              "package_digest": "815cc9d1af2086019e7d129b919b429603adaad6db87965e3fdf7ffca4977376",
+              "representation_digest": "815cc9d1af2086019e7d129b919b429603adaad6db87965e3fdf7ffca4977376",
+              "sha256": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+              "size_bytes": 1546,
+              "source_ref": "fixture://TEST-0001/0.2.0/edition-sample-vs-full/sample.epub"
+            },
+            {
+              "content_digest": "3d677b90d3b46d320f40211b5fe02ab6c3c8494ae3983922b77fd293baf78d60",
+              "content_extent": 2250,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:long-journey:full"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die lange Reise"
+                ],
+                "work_references": []
+              },
+              "package_digest": "612e2cd8fe31a0a6be16b1666db359dbe99385e8de91f8872f27b8c046b8c394",
+              "representation_digest": "612e2cd8fe31a0a6be16b1666db359dbe99385e8de91f8872f27b8c046b8c394",
+              "sha256": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+              "size_bytes": 1792,
+              "source_ref": "fixture://TEST-0001/0.2.0/edition-sample-vs-full/full.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/edition-sample-vs-full/sample.epub",
+            "fixture://TEST-0001/0.2.0/edition-sample-vs-full/full.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+                    "right": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 10100,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "package.entries_different",
+                  "values": {
+                    "left": "815cc9d1af2086019e7d129b919b429603adaad6db87965e3fdf7ffca4977376",
+                    "right": "612e2cd8fe31a0a6be16b1666db359dbe99385e8de91f8872f27b8c046b8c394"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 4000,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "representation.logical_digest_different",
+                  "values": {
+                    "left": "815cc9d1af2086019e7d129b919b429603adaad6db87965e3fdf7ffca4977376",
+                    "right": "612e2cd8fe31a0a6be16b1666db359dbe99385e8de91f8872f27b8c046b8c394"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2800,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": "Similar work-level metadata conflicts with distinct edition identifiers or content extent.",
+              "decision": "abstain",
+              "expected_decision": "abstain",
+              "matches_oracle": true,
+              "method": "Retain metadata similarity and extent/identifier conflicts without declaring editions interchangeable.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "edition.identifier_different",
+                  "values": {}
+                },
+                {
+                  "code": "content.different",
+                  "values": {
+                    "left": "7abb0812f2f14f3f8e01e60d734bed53fa8d5d0045fc8c489ff4bca4b51a7098",
+                    "right": "3d677b90d3b46d320f40211b5fe02ab6c3c8494ae3983922b77fd293baf78d60"
+                  }
+                },
+                {
+                  "code": "content.extent_differs",
+                  "values": {
+                    "left": 45,
+                    "right": 2250
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "title.normalized_equal",
+                  "values": {
+                    "key": "die lange reise"
+                  }
+                },
+                {
+                  "code": "creator.equal",
+                  "values": {
+                    "creators": [
+                      "Alex Beispiel"
+                    ]
+                  }
+                },
+                {
+                  "code": "language.equal",
+                  "values": {
+                    "languages": [
+                      "de"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 352800,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Generate a work candidate from convergent title, creator and language evidence while retaining edition and extent differences.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "edition.identifier_different",
+                  "values": {}
+                },
+                {
+                  "code": "content.extent_differs",
+                  "values": {
+                    "left": 45,
+                    "right": 2250
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "title.normalized_equal",
+                  "values": {
+                    "key": "die lange reise"
+                  }
+                },
+                {
+                  "code": "creator.equal",
+                  "values": {
+                    "creators": [
+                      "Alex Beispiel"
+                    ]
+                  }
+                },
+                {
+                  "code": "language.equal",
+                  "values": {
+                    "languages": [
+                      "de"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 18800,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-byte-equal",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "244cf7384eb01f1531d7e1a7585c1d5f417c0e6e269f20f7c7d34e7221dac9eb",
+              "content_extent": 67,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:representation:quiet-map"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die stille Karte"
+                ],
+                "work_references": []
+              },
+              "package_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "representation_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+              "size_bytes": 1546,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub"
+            },
+            {
+              "content_digest": "244cf7384eb01f1531d7e1a7585c1d5f417c0e6e269f20f7c7d34e7221dac9eb",
+              "content_extent": 67,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:representation:quiet-map"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die stille Karte"
+                ],
+                "work_references": []
+              },
+              "package_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "representation_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+              "size_bytes": 1546,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+            "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "file.sha256_equal",
+                  "values": {
+                    "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 6600,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "package.entries_equal",
+                  "values": {
+                    "digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 4400,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                },
+                {
+                  "code": "representation.logical_digest_equal",
+                  "values": {
+                    "digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 3300,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Promote exact representation evidence only to an edition candidate, never to a merged identity.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "representation.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 3600,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Carry a same-edition candidate upward only as a same-work candidate.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "edition.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 4700,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-repackaged",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "244cf7384eb01f1531d7e1a7585c1d5f417c0e6e269f20f7c7d34e7221dac9eb",
+              "content_extent": 67,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:representation:quiet-map"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die stille Karte"
+                ],
+                "work_references": []
+              },
+              "package_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "representation_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+              "size_bytes": 1546,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-repackaged/package-a.epub"
+            },
+            {
+              "content_digest": "244cf7384eb01f1531d7e1a7585c1d5f417c0e6e269f20f7c7d34e7221dac9eb",
+              "content_extent": 67,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:representation:quiet-map"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die stille Karte"
+                ],
+                "work_references": []
+              },
+              "package_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "representation_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "sha256": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+              "size_bytes": 1567,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-repackaged/package-b.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-repackaged/package-a.epub",
+            "fixture://TEST-0001/0.2.0/identity-repackaged/package-b.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 8000,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "package.entries_equal",
+                  "values": {
+                    "digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 4100,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                },
+                {
+                  "code": "representation.logical_digest_equal",
+                  "values": {
+                    "digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2700,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Promote exact representation evidence only to an edition candidate, never to a merged identity.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "representation.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 3100,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Carry a same-edition candidate upward only as a same-work candidate.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "edition.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 4800,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-multiformat-edition",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "d97fd3129fea0d9c5c73d44f80973fc73eb5f0da95079846879cdc9f6101eab6",
+              "content_extent": 40,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:multi-format"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Mehrformat-Ausgabe"
+                ],
+                "work_references": []
+              },
+              "package_digest": "1b5478aa04c34886cbc0ff7aabe4da0f62e254573d9da618e15877193b0e1aa8",
+              "representation_digest": "1b5478aa04c34886cbc0ff7aabe4da0f62e254573d9da618e15877193b0e1aa8",
+              "sha256": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+              "size_bytes": 1521,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.epub"
+            },
+            {
+              "content_digest": "f3cb5db5f27847593d732408982d68e8dc791202786bdf2cf73977b19f586809",
+              "content_extent": 23,
+              "format": "PDF",
+              "metadata": {
+                "creators": [],
+                "identifiers": [],
+                "languages": [],
+                "titles": [
+                  "Mehrformat-Ausgabe"
+                ],
+                "work_references": []
+              },
+              "package_digest": null,
+              "representation_digest": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+              "sha256": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+              "size_bytes": 722,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.pdf"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.epub",
+            "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.pdf"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+                    "right": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 6000,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "not_applicable",
+              "expected_decision": "not_applicable",
+              "matches_oracle": true,
+              "method": "Compare normalized logical package entries only for package-compatible formats.",
+              "missing_evidence": [],
+              "negative_evidence": [],
+              "not_applicable_reason": "At least one input has no comparable package-entry model.",
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 2000,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "representation.logical_digest_different",
+                  "values": {
+                    "left": "1b5478aa04c34886cbc0ff7aabe4da0f62e254573d9da618e15877193b0e1aa8",
+                    "right": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+                  }
+                },
+                {
+                  "code": "format.different",
+                  "values": {
+                    "left": "EPUB",
+                    "right": "PDF"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 3800,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Use the case-scoped bibliographic snapshot as edition evidence while preserving format and representation differences.",
+              "missing_evidence": [
+                "right.metadata.identifiers"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "format.different",
+                  "values": {
+                    "left": "EPUB",
+                    "right": "PDF"
+                  }
+                },
+                {
+                  "code": "representation.different",
+                  "values": {}
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "edition.snapshot_key_applies",
+                  "values": {
+                    "edition_key": "urn:test:edition:multi-format"
+                  }
+                },
+                {
+                  "code": "edition.snapshot_formats_cover_inputs",
+                  "values": {
+                    "formats": [
+                      "EPUB",
+                      "PDF"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 11600,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Carry a same-edition candidate upward only as a same-work candidate.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+                    "right": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+                  }
+                },
+                {
+                  "code": "format.different",
+                  "values": {
+                    "left": "EPUB",
+                    "right": "PDF"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "edition.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 4700,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-edition-vs-translation",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "b2fa5723811d9607544f9488ce23f7b6c652fbeeccec572bee622e24cbb9c2ba",
+              "content_extent": 52,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:glass-garden:en"
+                ],
+                "languages": [
+                  "en"
+                ],
+                "titles": [
+                  "The Glass Garden"
+                ],
+                "work_references": [
+                  "urn:test:work:glass-garden"
+                ]
+              },
+              "package_digest": "c3c959a801d61bc62134513661ed242faa4fec648853750789c1bb8f97ce08ab",
+              "representation_digest": "c3c959a801d61bc62134513661ed242faa4fec648853750789c1bb8f97ce08ab",
+              "sha256": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+              "size_bytes": 1552,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-edition-vs-translation/source-en.epub"
+            },
+            {
+              "content_digest": "4ff841d6146ecfbb25e51532fb91b178e6a988ff8e857e244036505e6c5ef784",
+              "content_extent": 55,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:glass-garden:de"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Der gläserne Garten"
+                ],
+                "work_references": [
+                  "urn:test:work:glass-garden"
+                ]
+              },
+              "package_digest": "5d1a504c542fa32149fe86f200ae56be0647b0c1616269514a628e113eddc3be",
+              "representation_digest": "5d1a504c542fa32149fe86f200ae56be0647b0c1616269514a628e113eddc3be",
+              "sha256": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+              "size_bytes": 1567,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-edition-vs-translation/translation-de.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-edition-vs-translation/source-en.epub",
+            "fixture://TEST-0001/0.2.0/identity-edition-vs-translation/translation-de.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+                    "right": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 5700,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "package.entries_different",
+                  "values": {
+                    "left": "c3c959a801d61bc62134513661ed242faa4fec648853750789c1bb8f97ce08ab",
+                    "right": "5d1a504c542fa32149fe86f200ae56be0647b0c1616269514a628e113eddc3be"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 3300,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "representation.logical_digest_different",
+                  "values": {
+                    "left": "c3c959a801d61bc62134513661ed242faa4fec648853750789c1bb8f97ce08ab",
+                    "right": "5d1a504c542fa32149fe86f200ae56be0647b0c1616269514a628e113eddc3be"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2400,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Treat conflicting language or creator evidence as edition-level distinction.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "edition.identifier_different",
+                  "values": {}
+                },
+                {
+                  "code": "language.different",
+                  "values": {
+                    "left": [
+                      "en"
+                    ],
+                    "right": [
+                      "de"
+                    ]
+                  }
+                },
+                {
+                  "code": "content.different",
+                  "values": {
+                    "left": "b2fa5723811d9607544f9488ce23f7b6c652fbeeccec572bee622e24cbb9c2ba",
+                    "right": "4ff841d6146ecfbb25e51532fb91b178e6a988ff8e857e244036505e6c5ef784"
+                  }
+                },
+                {
+                  "code": "content.extent_differs",
+                  "values": {
+                    "left": 52,
+                    "right": 55
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "creator.equal",
+                  "values": {
+                    "creators": [
+                      "Alex Beispiel"
+                    ]
+                  }
+                },
+                {
+                  "code": "work.reference_equal",
+                  "values": {
+                    "references": [
+                      "urn:test:work:glass-garden"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 38500,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_related",
+              "expected_decision": "candidate_related",
+              "matches_oracle": true,
+              "method": "Use an explicit shared work reference as relation evidence while retaining edition and language differences.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "edition.different",
+                  "values": {}
+                },
+                {
+                  "code": "language.different",
+                  "values": {
+                    "left": [
+                      "en"
+                    ],
+                    "right": [
+                      "de"
+                    ]
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "work.reference_equal",
+                  "values": {
+                    "references": [
+                      "urn:test:work:glass-garden"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 5400,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-title-collision",
+          "effects_observed": [],
+          "fixture_nature": "negative_relationship_pair",
+          "observations": [
+            {
+              "content_digest": "c8e5913aeb5ea0e429c6b763f5729549d0e04a24f1da43e61c7d004c291a7474",
+              "content_extent": 57,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Mara Nord"
+                ],
+                "identifiers": [
+                  "urn:test:work:last-key:a"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Der letzte Schlüssel"
+                ],
+                "work_references": []
+              },
+              "package_digest": "6bcb77a7b632ea116724cefaaa917f47f55713a03e818c404a7caf6f323a90bf",
+              "representation_digest": "6bcb77a7b632ea116724cefaaa917f47f55713a03e818c404a7caf6f323a90bf",
+              "sha256": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+              "size_bytes": 1543,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-title-collision/work-a.epub"
+            },
+            {
+              "content_digest": "447bf112decf4350414b2979af42eb0ec1e3e2fcddb7cc810b0ead209cf76a7c",
+              "content_extent": 58,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Jonas Süd"
+                ],
+                "identifiers": [
+                  "urn:test:work:last-key:b"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Der letzte Schlüssel"
+                ],
+                "work_references": []
+              },
+              "package_digest": "d043671f338306f6a09a61bcc8bc80829c6610391dcdb60ca13321aee7505145",
+              "representation_digest": "d043671f338306f6a09a61bcc8bc80829c6610391dcdb60ca13321aee7505145",
+              "sha256": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327",
+              "size_bytes": 1543,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-title-collision/work-b.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-title-collision/work-a.epub",
+            "fixture://TEST-0001/0.2.0/identity-title-collision/work-b.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+                    "right": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 5700,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "package.entries_different",
+                  "values": {
+                    "left": "6bcb77a7b632ea116724cefaaa917f47f55713a03e818c404a7caf6f323a90bf",
+                    "right": "d043671f338306f6a09a61bcc8bc80829c6610391dcdb60ca13321aee7505145"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2600,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "representation.logical_digest_different",
+                  "values": {
+                    "left": "6bcb77a7b632ea116724cefaaa917f47f55713a03e818c404a7caf6f323a90bf",
+                    "right": "d043671f338306f6a09a61bcc8bc80829c6610391dcdb60ca13321aee7505145"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2200,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Treat conflicting language or creator evidence as edition-level distinction.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "edition.identifier_different",
+                  "values": {}
+                },
+                {
+                  "code": "creator.different",
+                  "values": {
+                    "left": [
+                      "Mara Nord"
+                    ],
+                    "right": [
+                      "Jonas Süd"
+                    ]
+                  }
+                },
+                {
+                  "code": "content.different",
+                  "values": {
+                    "left": "c8e5913aeb5ea0e429c6b763f5729549d0e04a24f1da43e61c7d004c291a7474",
+                    "right": "447bf112decf4350414b2979af42eb0ec1e3e2fcddb7cc810b0ead209cf76a7c"
+                  }
+                },
+                {
+                  "code": "content.extent_differs",
+                  "values": {
+                    "left": 57,
+                    "right": 58
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "title.normalized_equal",
+                  "values": {
+                    "key": "der letzte schlüssel"
+                  }
+                },
+                {
+                  "code": "language.equal",
+                  "values": {
+                    "languages": [
+                      "de"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 47500,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Reject title-only identity when creators, identifiers or content conflict.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "creator.different",
+                  "values": {
+                    "left": [
+                      "Mara Nord"
+                    ],
+                    "right": [
+                      "Jonas Süd"
+                    ]
+                  }
+                },
+                {
+                  "code": "work.identifier_different",
+                  "values": {
+                    "left": [
+                      "urn:test:work:last-key:a"
+                    ],
+                    "right": [
+                      "urn:test:work:last-key:b"
+                    ]
+                  }
+                },
+                {
+                  "code": "content.different",
+                  "values": {
+                    "left": "c8e5913aeb5ea0e429c6b763f5729549d0e04a24f1da43e61c7d004c291a7474",
+                    "right": "447bf112decf4350414b2979af42eb0ec1e3e2fcddb7cc810b0ead209cf76a7c"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "title.equal",
+                  "values": {
+                    "title": "Der letzte Schlüssel"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 19300,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "work"
+            }
+          ]
+        }
+      ],
+      "duration_ns": 24917400,
+      "repetition": 1,
+      "semantic_sha256": "c03ff07012d8c39db9ca7cc1fb528a5391936b7a3c32206eff7babe484efa74b"
+    },
+    {
+      "cases": [
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "edition-sample-vs-full",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "7abb0812f2f14f3f8e01e60d734bed53fa8d5d0045fc8c489ff4bca4b51a7098",
+              "content_extent": 45,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:long-journey:sample"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die lange Reise — Leseprobe"
+                ],
+                "work_references": []
+              },
+              "package_digest": "815cc9d1af2086019e7d129b919b429603adaad6db87965e3fdf7ffca4977376",
+              "representation_digest": "815cc9d1af2086019e7d129b919b429603adaad6db87965e3fdf7ffca4977376",
+              "sha256": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+              "size_bytes": 1546,
+              "source_ref": "fixture://TEST-0001/0.2.0/edition-sample-vs-full/sample.epub"
+            },
+            {
+              "content_digest": "3d677b90d3b46d320f40211b5fe02ab6c3c8494ae3983922b77fd293baf78d60",
+              "content_extent": 2250,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:long-journey:full"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die lange Reise"
+                ],
+                "work_references": []
+              },
+              "package_digest": "612e2cd8fe31a0a6be16b1666db359dbe99385e8de91f8872f27b8c046b8c394",
+              "representation_digest": "612e2cd8fe31a0a6be16b1666db359dbe99385e8de91f8872f27b8c046b8c394",
+              "sha256": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+              "size_bytes": 1792,
+              "source_ref": "fixture://TEST-0001/0.2.0/edition-sample-vs-full/full.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/edition-sample-vs-full/sample.epub",
+            "fixture://TEST-0001/0.2.0/edition-sample-vs-full/full.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+                    "right": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 5700,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "package.entries_different",
+                  "values": {
+                    "left": "815cc9d1af2086019e7d129b919b429603adaad6db87965e3fdf7ffca4977376",
+                    "right": "612e2cd8fe31a0a6be16b1666db359dbe99385e8de91f8872f27b8c046b8c394"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2600,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "representation.logical_digest_different",
+                  "values": {
+                    "left": "815cc9d1af2086019e7d129b919b429603adaad6db87965e3fdf7ffca4977376",
+                    "right": "612e2cd8fe31a0a6be16b1666db359dbe99385e8de91f8872f27b8c046b8c394"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2200,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": "Similar work-level metadata conflicts with distinct edition identifiers or content extent.",
+              "decision": "abstain",
+              "expected_decision": "abstain",
+              "matches_oracle": true,
+              "method": "Retain metadata similarity and extent/identifier conflicts without declaring editions interchangeable.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "edition.identifier_different",
+                  "values": {}
+                },
+                {
+                  "code": "content.different",
+                  "values": {
+                    "left": "7abb0812f2f14f3f8e01e60d734bed53fa8d5d0045fc8c489ff4bca4b51a7098",
+                    "right": "3d677b90d3b46d320f40211b5fe02ab6c3c8494ae3983922b77fd293baf78d60"
+                  }
+                },
+                {
+                  "code": "content.extent_differs",
+                  "values": {
+                    "left": 45,
+                    "right": 2250
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "title.normalized_equal",
+                  "values": {
+                    "key": "die lange reise"
+                  }
+                },
+                {
+                  "code": "creator.equal",
+                  "values": {
+                    "creators": [
+                      "Alex Beispiel"
+                    ]
+                  }
+                },
+                {
+                  "code": "language.equal",
+                  "values": {
+                    "languages": [
+                      "de"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 53700,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Generate a work candidate from convergent title, creator and language evidence while retaining edition and extent differences.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "edition.identifier_different",
+                  "values": {}
+                },
+                {
+                  "code": "content.extent_differs",
+                  "values": {
+                    "left": 45,
+                    "right": 2250
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "title.normalized_equal",
+                  "values": {
+                    "key": "die lange reise"
+                  }
+                },
+                {
+                  "code": "creator.equal",
+                  "values": {
+                    "creators": [
+                      "Alex Beispiel"
+                    ]
+                  }
+                },
+                {
+                  "code": "language.equal",
+                  "values": {
+                    "languages": [
+                      "de"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 27700,
+                "expanded_bytes": 5267,
+                "input_bytes": 3338
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-byte-equal",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "244cf7384eb01f1531d7e1a7585c1d5f417c0e6e269f20f7c7d34e7221dac9eb",
+              "content_extent": 67,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:representation:quiet-map"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die stille Karte"
+                ],
+                "work_references": []
+              },
+              "package_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "representation_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+              "size_bytes": 1546,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub"
+            },
+            {
+              "content_digest": "244cf7384eb01f1531d7e1a7585c1d5f417c0e6e269f20f7c7d34e7221dac9eb",
+              "content_extent": 67,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:representation:quiet-map"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die stille Karte"
+                ],
+                "work_references": []
+              },
+              "package_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "representation_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+              "size_bytes": 1546,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+            "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "file.sha256_equal",
+                  "values": {
+                    "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 5600,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "package.entries_equal",
+                  "values": {
+                    "digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2800,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                },
+                {
+                  "code": "representation.logical_digest_equal",
+                  "values": {
+                    "digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2800,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Promote exact representation evidence only to an edition candidate, never to a merged identity.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "representation.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 3100,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Carry a same-edition candidate upward only as a same-work candidate.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "locator.distinct",
+                  "values": {
+                    "left": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-a/same.epub",
+                    "right": "fixture://TEST-0001/0.2.0/identity-byte-equal/source-b/renamed.epub"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "edition.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 3600,
+                "expanded_bytes": 3094,
+                "input_bytes": 3092
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-repackaged",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "244cf7384eb01f1531d7e1a7585c1d5f417c0e6e269f20f7c7d34e7221dac9eb",
+              "content_extent": 67,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:representation:quiet-map"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die stille Karte"
+                ],
+                "work_references": []
+              },
+              "package_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "representation_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+              "size_bytes": 1546,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-repackaged/package-a.epub"
+            },
+            {
+              "content_digest": "244cf7384eb01f1531d7e1a7585c1d5f417c0e6e269f20f7c7d34e7221dac9eb",
+              "content_extent": 67,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:representation:quiet-map"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Die stille Karte"
+                ],
+                "work_references": []
+              },
+              "package_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "representation_digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d",
+              "sha256": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+              "size_bytes": 1567,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-repackaged/package-b.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-repackaged/package-a.epub",
+            "fixture://TEST-0001/0.2.0/identity-repackaged/package-b.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 5700,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "package.entries_equal",
+                  "values": {
+                    "digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2900,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                },
+                {
+                  "code": "representation.logical_digest_equal",
+                  "values": {
+                    "digest": "ce9d311071a044d16a48ba922316d79da0e777b9e0db8f63c3c6e5179b0c6f1d"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2700,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Promote exact representation evidence only to an edition candidate, never to a merged identity.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "representation.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 3000,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Carry a same-edition candidate upward only as a same-work candidate.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+                    "right": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "edition.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 4100,
+                "expanded_bytes": 3094,
+                "input_bytes": 3113
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-multiformat-edition",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "d97fd3129fea0d9c5c73d44f80973fc73eb5f0da95079846879cdc9f6101eab6",
+              "content_extent": 40,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:multi-format"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Mehrformat-Ausgabe"
+                ],
+                "work_references": []
+              },
+              "package_digest": "1b5478aa04c34886cbc0ff7aabe4da0f62e254573d9da618e15877193b0e1aa8",
+              "representation_digest": "1b5478aa04c34886cbc0ff7aabe4da0f62e254573d9da618e15877193b0e1aa8",
+              "sha256": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+              "size_bytes": 1521,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.epub"
+            },
+            {
+              "content_digest": "f3cb5db5f27847593d732408982d68e8dc791202786bdf2cf73977b19f586809",
+              "content_extent": 23,
+              "format": "PDF",
+              "metadata": {
+                "creators": [],
+                "identifiers": [],
+                "languages": [],
+                "titles": [
+                  "Mehrformat-Ausgabe"
+                ],
+                "work_references": []
+              },
+              "package_digest": null,
+              "representation_digest": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+              "sha256": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+              "size_bytes": 722,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.pdf"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.epub",
+            "fixture://TEST-0001/0.2.0/identity-multiformat-edition/edition.pdf"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+                    "right": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 6600,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "not_applicable",
+              "expected_decision": "not_applicable",
+              "matches_oracle": true,
+              "method": "Compare normalized logical package entries only for package-compatible formats.",
+              "missing_evidence": [],
+              "negative_evidence": [],
+              "not_applicable_reason": "At least one input has no comparable package-entry model.",
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 2100,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "representation.logical_digest_different",
+                  "values": {
+                    "left": "1b5478aa04c34886cbc0ff7aabe4da0f62e254573d9da618e15877193b0e1aa8",
+                    "right": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+                  }
+                },
+                {
+                  "code": "format.different",
+                  "values": {
+                    "left": "EPUB",
+                    "right": "PDF"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 3300,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Use the case-scoped bibliographic snapshot as edition evidence while preserving format and representation differences.",
+              "missing_evidence": [
+                "right.metadata.identifiers"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "format.different",
+                  "values": {
+                    "left": "EPUB",
+                    "right": "PDF"
+                  }
+                },
+                {
+                  "code": "representation.different",
+                  "values": {}
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "edition.snapshot_key_applies",
+                  "values": {
+                    "edition_key": "urn:test:edition:multi-format"
+                  }
+                },
+                {
+                  "code": "edition.snapshot_formats_cover_inputs",
+                  "values": {
+                    "formats": [
+                      "EPUB",
+                      "PDF"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 10100,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_same",
+              "expected_decision": "candidate_same",
+              "matches_oracle": true,
+              "method": "Carry a same-edition candidate upward only as a same-work candidate.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+                    "right": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+                  }
+                },
+                {
+                  "code": "format.different",
+                  "values": {
+                    "left": "EPUB",
+                    "right": "PDF"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "edition.candidate_same",
+                  "values": {}
+                }
+              ],
+              "resources": {
+                "duration_ns": 4700,
+                "expanded_bytes": 2238,
+                "input_bytes": 2243
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-edition-vs-translation",
+          "effects_observed": [],
+          "fixture_nature": "relationship_pair",
+          "observations": [
+            {
+              "content_digest": "b2fa5723811d9607544f9488ce23f7b6c652fbeeccec572bee622e24cbb9c2ba",
+              "content_extent": 52,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:glass-garden:en"
+                ],
+                "languages": [
+                  "en"
+                ],
+                "titles": [
+                  "The Glass Garden"
+                ],
+                "work_references": [
+                  "urn:test:work:glass-garden"
+                ]
+              },
+              "package_digest": "c3c959a801d61bc62134513661ed242faa4fec648853750789c1bb8f97ce08ab",
+              "representation_digest": "c3c959a801d61bc62134513661ed242faa4fec648853750789c1bb8f97ce08ab",
+              "sha256": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+              "size_bytes": 1552,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-edition-vs-translation/source-en.epub"
+            },
+            {
+              "content_digest": "4ff841d6146ecfbb25e51532fb91b178e6a988ff8e857e244036505e6c5ef784",
+              "content_extent": 55,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Alex Beispiel"
+                ],
+                "identifiers": [
+                  "urn:test:edition:glass-garden:de"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Der gläserne Garten"
+                ],
+                "work_references": [
+                  "urn:test:work:glass-garden"
+                ]
+              },
+              "package_digest": "5d1a504c542fa32149fe86f200ae56be0647b0c1616269514a628e113eddc3be",
+              "representation_digest": "5d1a504c542fa32149fe86f200ae56be0647b0c1616269514a628e113eddc3be",
+              "sha256": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+              "size_bytes": 1567,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-edition-vs-translation/translation-de.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-edition-vs-translation/source-en.epub",
+            "fixture://TEST-0001/0.2.0/identity-edition-vs-translation/translation-de.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+                    "right": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 5900,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "package.entries_different",
+                  "values": {
+                    "left": "c3c959a801d61bc62134513661ed242faa4fec648853750789c1bb8f97ce08ab",
+                    "right": "5d1a504c542fa32149fe86f200ae56be0647b0c1616269514a628e113eddc3be"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 3000,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "representation.logical_digest_different",
+                  "values": {
+                    "left": "c3c959a801d61bc62134513661ed242faa4fec648853750789c1bb8f97ce08ab",
+                    "right": "5d1a504c542fa32149fe86f200ae56be0647b0c1616269514a628e113eddc3be"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2200,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Treat conflicting language or creator evidence as edition-level distinction.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "edition.identifier_different",
+                  "values": {}
+                },
+                {
+                  "code": "language.different",
+                  "values": {
+                    "left": [
+                      "en"
+                    ],
+                    "right": [
+                      "de"
+                    ]
+                  }
+                },
+                {
+                  "code": "content.different",
+                  "values": {
+                    "left": "b2fa5723811d9607544f9488ce23f7b6c652fbeeccec572bee622e24cbb9c2ba",
+                    "right": "4ff841d6146ecfbb25e51532fb91b178e6a988ff8e857e244036505e6c5ef784"
+                  }
+                },
+                {
+                  "code": "content.extent_differs",
+                  "values": {
+                    "left": 52,
+                    "right": 55
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "creator.equal",
+                  "values": {
+                    "creators": [
+                      "Alex Beispiel"
+                    ]
+                  }
+                },
+                {
+                  "code": "work.reference_equal",
+                  "values": {
+                    "references": [
+                      "urn:test:work:glass-garden"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 37400,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "candidate_related",
+              "expected_decision": "candidate_related",
+              "matches_oracle": true,
+              "method": "Use an explicit shared work reference as relation evidence while retaining edition and language differences.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "edition.different",
+                  "values": {}
+                },
+                {
+                  "code": "language.different",
+                  "values": {
+                    "left": [
+                      "en"
+                    ],
+                    "right": [
+                      "de"
+                    ]
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "work.reference_equal",
+                  "values": {
+                    "references": [
+                      "urn:test:work:glass-garden"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 5100,
+                "expanded_bytes": 3220,
+                "input_bytes": 3119
+              },
+              "stage": "work"
+            }
+          ]
+        },
+        {
+          "candidate_generation": [
+            "byte prefilter",
+            "package comparison when applicable",
+            "format-scoped representation comparison",
+            "edition evidence resolution",
+            "work evidence resolution"
+          ],
+          "case_key": "identity-title-collision",
+          "effects_observed": [],
+          "fixture_nature": "negative_relationship_pair",
+          "observations": [
+            {
+              "content_digest": "c8e5913aeb5ea0e429c6b763f5729549d0e04a24f1da43e61c7d004c291a7474",
+              "content_extent": 57,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Mara Nord"
+                ],
+                "identifiers": [
+                  "urn:test:work:last-key:a"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Der letzte Schlüssel"
+                ],
+                "work_references": []
+              },
+              "package_digest": "6bcb77a7b632ea116724cefaaa917f47f55713a03e818c404a7caf6f323a90bf",
+              "representation_digest": "6bcb77a7b632ea116724cefaaa917f47f55713a03e818c404a7caf6f323a90bf",
+              "sha256": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+              "size_bytes": 1543,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-title-collision/work-a.epub"
+            },
+            {
+              "content_digest": "447bf112decf4350414b2979af42eb0ec1e3e2fcddb7cc810b0ead209cf76a7c",
+              "content_extent": 58,
+              "format": "EPUB",
+              "metadata": {
+                "creators": [
+                  "Jonas Süd"
+                ],
+                "identifiers": [
+                  "urn:test:work:last-key:b"
+                ],
+                "languages": [
+                  "de"
+                ],
+                "titles": [
+                  "Der letzte Schlüssel"
+                ],
+                "work_references": []
+              },
+              "package_digest": "d043671f338306f6a09a61bcc8bc80829c6610391dcdb60ca13321aee7505145",
+              "representation_digest": "d043671f338306f6a09a61bcc8bc80829c6610391dcdb60ca13321aee7505145",
+              "sha256": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327",
+              "size_bytes": 1543,
+              "source_ref": "fixture://TEST-0001/0.2.0/identity-title-collision/work-b.epub"
+            }
+          ],
+          "sources": [
+            "fixture://TEST-0001/0.2.0/identity-title-collision/work-a.epub",
+            "fixture://TEST-0001/0.2.0/identity-title-collision/work-b.epub"
+          ],
+          "stages": [
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare SHA-256 while retaining both source locators.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "file.sha256_different",
+                  "values": {
+                    "left": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+                    "right": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [],
+              "resources": {
+                "duration_ns": 4900,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "byte"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Hash sorted logical entry names, contents and sizes; ignore ZIP order, compression and comment.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "package.entries_different",
+                  "values": {
+                    "left": "6bcb77a7b632ea116724cefaaa917f47f55713a03e818c404a7caf6f323a90bf",
+                    "right": "d043671f338306f6a09a61bcc8bc80829c6610391dcdb60ca13321aee7505145"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2600,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "package"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Compare format-scoped logical representation digests without crossing format boundaries.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "representation.logical_digest_different",
+                  "values": {
+                    "left": "6bcb77a7b632ea116724cefaaa917f47f55713a03e818c404a7caf6f323a90bf",
+                    "right": "d043671f338306f6a09a61bcc8bc80829c6610391dcdb60ca13321aee7505145"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "format.equal",
+                  "values": {
+                    "format": "EPUB"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 2400,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "representation"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Treat conflicting language or creator evidence as edition-level distinction.",
+              "missing_evidence": [],
+              "negative_evidence": [
+                {
+                  "code": "edition.identifier_different",
+                  "values": {}
+                },
+                {
+                  "code": "creator.different",
+                  "values": {
+                    "left": [
+                      "Mara Nord"
+                    ],
+                    "right": [
+                      "Jonas Süd"
+                    ]
+                  }
+                },
+                {
+                  "code": "content.different",
+                  "values": {
+                    "left": "c8e5913aeb5ea0e429c6b763f5729549d0e04a24f1da43e61c7d004c291a7474",
+                    "right": "447bf112decf4350414b2979af42eb0ec1e3e2fcddb7cc810b0ead209cf76a7c"
+                  }
+                },
+                {
+                  "code": "content.extent_differs",
+                  "values": {
+                    "left": 57,
+                    "right": 58
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "title.normalized_equal",
+                  "values": {
+                    "key": "der letzte schlüssel"
+                  }
+                },
+                {
+                  "code": "language.equal",
+                  "values": {
+                    "languages": [
+                      "de"
+                    ]
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 45900,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "edition"
+            },
+            {
+              "abstention_reason": null,
+              "decision": "different",
+              "expected_decision": "different",
+              "matches_oracle": true,
+              "method": "Reject title-only identity when creators, identifiers or content conflict.",
+              "missing_evidence": [
+                "work.reference"
+              ],
+              "negative_evidence": [
+                {
+                  "code": "creator.different",
+                  "values": {
+                    "left": [
+                      "Mara Nord"
+                    ],
+                    "right": [
+                      "Jonas Süd"
+                    ]
+                  }
+                },
+                {
+                  "code": "work.identifier_different",
+                  "values": {
+                    "left": [
+                      "urn:test:work:last-key:a"
+                    ],
+                    "right": [
+                      "urn:test:work:last-key:b"
+                    ]
+                  }
+                },
+                {
+                  "code": "content.different",
+                  "values": {
+                    "left": "c8e5913aeb5ea0e429c6b763f5729549d0e04a24f1da43e61c7d004c291a7474",
+                    "right": "447bf112decf4350414b2979af42eb0ec1e3e2fcddb7cc810b0ead209cf76a7c"
+                  }
+                }
+              ],
+              "not_applicable_reason": null,
+              "positive_evidence": [
+                {
+                  "code": "title.equal",
+                  "values": {
+                    "title": "Der letzte Schlüssel"
+                  }
+                }
+              ],
+              "resources": {
+                "duration_ns": 18600,
+                "expanded_bytes": 3059,
+                "input_bytes": 3086
+              },
+              "stage": "work"
+            }
+          ]
+        }
+      ],
+      "duration_ns": 22445500,
+      "repetition": 2,
+      "semantic_sha256": "c03ff07012d8c39db9ca7cc1fb528a5391936b7a3c32206eff7babe484efa74b"
+    }
+  ],
+  "runner_sha256": "dacafc9a3a5dfa525c87d233c781a3ac66993eec18f5c8e00354cc54e11d245f",
+  "runtime": {
+    "external_dependencies": [],
+    "implementation": "Python 3.12 standard library",
+    "input_access": "read_only",
+    "network": "not_used",
+    "python_version": "3.12.10"
+  },
+  "schema_version": 1,
+  "status": "pass"
+}
