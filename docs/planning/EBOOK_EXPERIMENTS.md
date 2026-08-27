@@ -349,8 +349,13 @@ EXP-Referenzen reserviert.
 4. EXP-0003 unabhängig mit EPUBCheck- und Ace-Evidenz ausführen — abgeschlossen;
 5. EXP-0004 mit vollständigen positiven und negativen Sollpaaren bewerten —
    abgeschlossen;
-6. Ergebnisse ohne gemeinsame Spike-Implementierung vergleichen — als
-   nächste Analyse offen;
-7. Eingangstriage und Bestandsprüfung an GATE-0001 gegenüberstellen.
+6. Ergebnisse ohne gemeinsame Spike-Implementierung vergleichen —
+   abgeschlossen;
+7. Eingangstriage und Bestandsprüfung an GATE-0001 gegenüberstellen — mit
+   begründeter Vertagung abgeschlossen.
 
 Die Reihenfolge ist ein Lernplan und keine freigegebene Produktroadmap.
+Der Vergleich steht unter
+[EBOOK_GATE_0001_COMPARISON.md](EBOOK_GATE_0001_COMPARISON.md). Vor einer
+erneuten Gate-Auswertung ist genau eine noch zu registrierende Evidenzwelle
+für den read-only Eingangstriage-Preflight vorgesehen.
