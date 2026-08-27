@@ -18,7 +18,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[2]
-CORPUS_ROOT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.2"
+CORPUS_ROOT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.3"
 GENERATOR_PATH = ROOT / "tools" / "fixtures" / "generate_ebook_reference_corpus.py"
 TEXT_SUFFIXES = {".json", ".opf", ".py", ".svg", ".txt", ".xhtml", ".xml"}
 BINARY_FIXTURE_SUFFIXES = {".epub", ".part", ".pdf"}
@@ -36,6 +36,7 @@ ALLOWED_NAMESPACE_URLS = {
     "http://www.w3.org/1999/xhtml",
     "http://www.w3.org/2000/svg",
     "http://www.w3.org/2001/04/xmlenc#",
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd",
 }
 
 REQUIRED_ORACLE_FIELDS = {
@@ -137,8 +138,8 @@ def validate_manifest(corpus_root: Path, manifest: dict[str, Any]) -> list[str]:
         problems.append("manifest corpus_ref must be TEST-0001")
     if manifest.get("fixture_version") != generator.FIXTURE_VERSION:
         problems.append("manifest fixture_version differs from generator")
-    if manifest.get("scope") != "core":
-        problems.append("manifest scope must be core")
+    if manifest.get("scope") != "core_and_expansion":
+        problems.append("manifest scope must be core_and_expansion")
     if manifest.get("data_class") != "SYNTHETIC_OR_REDISTRIBUTABLE":
         problems.append("manifest data_class is not synthetic/redistributable")
     if manifest.get("license", {}).get("spdx") != "MIT":
@@ -161,8 +162,10 @@ def validate_manifest(corpus_root: Path, manifest: dict[str, Any]) -> list[str]:
     if not isinstance(cases, list):
         return [*problems, "manifest cases must be a list"]
     keys = [case.get("case_key") for case in cases if isinstance(case, dict)]
-    if tuple(keys) != tuple(generator.CORE_CASE_KEYS):
-        problems.append("manifest cases do not exactly match ordered core contract")
+    if tuple(keys) != tuple(generator.MATERIALIZED_CASE_KEYS):
+        problems.append("manifest cases do not exactly match ordered TEST-0001 contract")
+    if manifest.get("expansion_case_keys") != list(generator.EXPANSION_CASE_KEYS):
+        problems.append("manifest expansion cases differ from generator contract")
     if manifest.get("deferred_expansion_case_keys") != list(
         generator.DEFERRED_EXPANSION_CASE_KEYS
     ):
@@ -176,8 +179,11 @@ def validate_manifest(corpus_root: Path, manifest: dict[str, Any]) -> list[str]:
             problems.append("case entry must be an object")
             continue
         key = case.get("case_key", "<missing>")
-        if case.get("stage") != "core":
-            problems.append(f"{key}: stage must be core")
+        expected_stage = (
+            "expansion" if key in generator.EXPANSION_CASE_KEYS else "core"
+        )
+        if case.get("stage") != expected_stage:
+            problems.append(f"{key}: stage must be {expected_stage}")
         scenarios = case.get("scenarios")
         if not isinstance(scenarios, list) or not scenarios:
             problems.append(f"{key}: scenarios must be a non-empty list")
@@ -218,7 +224,7 @@ def validate_manifest(corpus_root: Path, manifest: dict[str, Any]) -> list[str]:
         if not isinstance(validation, dict) or not validation.get("method"):
             problems.append(f"{key}: validation method is missing")
         if validation.get("manual_steps") != []:
-            problems.append(f"{key}: core corpus must not claim pending manual steps")
+            problems.append(f"{key}: executable corpus must not claim pending manual steps")
 
         components = case.get("components")
         if not isinstance(components, list) or not components:
@@ -387,6 +393,16 @@ def validate_case_semantics(
         if unknown.startswith(b"PK"):
             problems.append("format-unknown unexpectedly has a ZIP signature")
 
+        epub2 = zip_entries(
+            component_path(corpus_root, cases["epub2-valid-minimal"], "valid-epub2.epub")
+        )
+        epub2_package = epub2.get("EPUB/package.opf", b"")
+        epub2_ncx = epub2.get("EPUB/toc.ncx", b"")
+        if b'version="2.0"' not in epub2_package or b'toc="ncx"' not in epub2_package:
+            problems.append("epub2-valid-minimal lacks expected OPF 2.0 markers")
+        if b'<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/"' not in epub2_ncx:
+            problems.append("epub2-valid-minimal lacks its NCX navigation")
+
         valid = component_path(corpus_root, cases["epub33-valid-reflow"], "valid-reflow.epub")
         with zipfile.ZipFile(valid) as archive:
             infos = archive.infolist()
@@ -399,6 +415,14 @@ def validate_case_semantics(
             problems.append("epub33-valid-reflow lacks expected EPUB 3.3 markers")
         if b'properties="cover-image"' not in package or "EPUB/image.svg" not in entries:
             problems.append("epub33-valid-reflow lacks its declared synthetic cover")
+
+        fixed = zip_entries(
+            component_path(corpus_root, cases["epub33-valid-fixed"], "valid-fixed.epub")
+        )
+        if b"rendition:layout" not in fixed.get("EPUB/package.opf", b"") or b"pre-paginated" not in fixed.get("EPUB/package.opf", b""):
+            problems.append("epub33-valid-fixed lacks pre-paginated package metadata")
+        if b'name="viewport"' not in fixed.get("EPUB/chapter.xhtml", b""):
+            problems.append("epub33-valid-fixed lacks its XHTML viewport")
 
         stable = component_path(corpus_root, cases["ingress-stable-minimal"], "stable.epub")
         if not zipfile.is_zipfile(stable) or zip_entries(stable).get("mimetype") != b"application/epub+zip":
@@ -436,6 +460,24 @@ def validate_case_semantics(
         for role in (b">aut<", b">trl<", b">edt<"):
             if role not in roles:
                 problems.append(f"metadata-contributor-roles lacks role marker {role!r}")
+
+        multilingual = zip_entries(
+            component_path(
+                corpus_root,
+                cases["metadata-multilingual-rtl"],
+                "multilingual-rtl.epub",
+            )
+        )
+        multilingual_package = multilingual.get("EPUB/package.opf", b"")
+        multilingual_chapter = multilingual.get("EPUB/chapter.xhtml", b"").decode(
+            "utf-8"
+        )
+        if b"<dc:language>ar</dc:language>" not in multilingual_package or b"<dc:language>de</dc:language>" not in multilingual_package:
+            problems.append("metadata-multilingual-rtl lacks both declared languages")
+        if 'xml:lang="ar"' not in multilingual_chapter or 'dir="rtl"' not in multilingual_chapter:
+            problems.append("metadata-multilingual-rtl lacks RTL language attributes")
+        if not any("\u0600" <= char <= "\u06ff" for char in multilingual_chapter):
+            problems.append("metadata-multilingual-rtl lacks Arabic script content")
 
         sample_path = component_path(corpus_root, cases["edition-sample-vs-full"], "sample.epub")
         full_path = component_path(corpus_root, cases["edition-sample-vs-full"], "full.epub")
@@ -513,6 +555,22 @@ def validate_case_semantics(
             problems.append("routing-unique oracle does not expect one candidate")
         if cases["routing-ambiguous"]["oracle"].get("expected_routing", {}).get("result") != "abstain":
             problems.append("routing-ambiguous oracle does not require abstention")
+        unknown_routing = read_json(
+            component_path(corpus_root, cases["routing-unknown"], "item.json")
+        )
+        if unknown_routing.get("observations", {}).get("subjects") != [
+            "unclassified-synthetic"
+        ]:
+            problems.append("routing-unknown input unexpectedly matches a known subject")
+        unknown_expected = cases["routing-unknown"]["oracle"].get(
+            "expected_routing", {}
+        )
+        if unknown_expected != {
+            "result": "abstain",
+            "candidate_targets": [],
+            "reason": "no_matching_rule",
+        }:
+            problems.append("routing-unknown oracle does not require explicit abstention")
 
         run_one = component_path(corpus_root, cases["run-unchanged-skip"], "run-1.json")
         run_two = component_path(corpus_root, cases["run-unchanged-skip"], "run-2.json")
@@ -558,7 +616,7 @@ def validate_reproducibility(corpus_root: Path) -> list[str]:
     tmp_root = ROOT / "tmp"
     tmp_root.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="test-0001-reproduce-", dir=tmp_root) as raw_tmp:
-        regenerated = Path(raw_tmp) / "v0.2"
+        regenerated = Path(raw_tmp) / "v0.3"
         generator.generate(regenerated)
         expected = tree_state(corpus_root)
         actual = tree_state(regenerated)

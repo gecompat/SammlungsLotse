@@ -13,7 +13,7 @@ VALIDATOR_PATH = (
     ROOT / "tools" / "fixtures" / "validate_ebook_reference_corpus.py"
 )
 CORPUS_ROOT = (
-    ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.2"
+    ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.3"
 )
 
 
@@ -37,7 +37,7 @@ class EbookReferenceCorpusTests(unittest.TestCase):
             (CORPUS_ROOT / "manifest.json").read_text(encoding="utf-8")
         )
 
-    def test_core_contract_is_complete_and_semantically_valid(self) -> None:
+    def test_contract_is_complete_and_semantically_valid(self) -> None:
         self.assertEqual(
             [],
             self.validator.validate(CORPUS_ROOT, reproduce=False),
@@ -60,17 +60,24 @@ class EbookReferenceCorpusTests(unittest.TestCase):
         self.assertEqual([], problems)
         self.assertEqual(before, after)
 
-    def test_only_contractual_core_cases_are_materialized(self) -> None:
+    def test_core_and_expansion_cases_are_materialized(self) -> None:
         generator = self.validator.load_generator()
         actual = tuple(case["case_key"] for case in self.manifest["cases"])
-        self.assertEqual(tuple(generator.CORE_CASE_KEYS), actual)
+        self.assertEqual(tuple(generator.MATERIALIZED_CASE_KEYS), actual)
+        self.assertEqual(
+            list(generator.EXPANSION_CASE_KEYS),
+            self.manifest["expansion_case_keys"],
+        )
         self.assertEqual(
             list(generator.DEFERRED_EXPANSION_CASE_KEYS),
             self.manifest["deferred_expansion_case_keys"],
         )
-        self.assertTrue(
-            set(actual).isdisjoint(self.manifest["deferred_expansion_case_keys"])
-        )
+        self.assertEqual([], self.manifest["deferred_expansion_case_keys"])
+        stages = {case["case_key"]: case["stage"] for case in self.manifest["cases"]}
+        for case_key in generator.CORE_CASE_KEYS:
+            self.assertEqual("core", stages[case_key])
+        for case_key in generator.EXPANSION_CASE_KEYS:
+            self.assertEqual("expansion", stages[case_key])
 
     def test_generator_digest_is_portable_across_lf_and_crlf(self) -> None:
         generator = self.validator.load_generator()

@@ -1,0 +1,2054 @@
+{
+  "cases": [
+    {
+      "case_key": "ingress-stable-minimal",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/ingress-stable-minimal/stable.epub",
+          "role": "input",
+          "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "size_bytes": 1540
+        }
+      ],
+      "construction": "Deterministisches minimales EPUB mit abgeschlossenem Snapshot.",
+      "fixture_nature": "valid_reference",
+      "oracle": {
+        "allowed_results": [
+          "observation",
+          "finding"
+        ],
+        "expected_findings": [
+          "format.epub"
+        ],
+        "expected_observations": [
+          "input.size",
+          "input.sha256",
+          "format.signature",
+          "snapshot.stable"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "proposal.import"
+        ],
+        "quality_dimensions": [
+          "ingress",
+          "provenance"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Hash, Größe, ZIP-Signatur und zweifache unveränderte Lesung prüfen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "ingress-growing-file",
+      "components": [
+        {
+          "media_type": "application/octet-stream",
+          "path": "cases/ingress-growing-file/revision-1.part",
+          "role": "input_revision",
+          "sha256": "c17ae31e15aee28e2dda4d1b0eff1c6b86722f222a81ea09af20c15ef4c9215b",
+          "size_bytes": 17
+        },
+        {
+          "media_type": "application/octet-stream",
+          "path": "cases/ingress-growing-file/revision-2.part",
+          "role": "input_revision",
+          "sha256": "9f0b74de284ad914f303d494550ccabf0e65bd412a8fa2f97f9613b668416555",
+          "size_bytes": 34
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/ingress-growing-file/observations.json",
+          "role": "snapshot",
+          "sha256": "69fdeb1e745e954b345be115b7114e6cd8f0bf70bc661d5a5c27c270eb7fdbf4",
+          "size_bytes": 112
+        }
+      ],
+      "construction": "Zwei deterministische Revisionen desselben noch wachsenden Eingangs.",
+      "fixture_nature": "behavioral_simulation",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "abstain"
+        ],
+        "expected_findings": [
+          "ingress.unstable"
+        ],
+        "expected_observations": [
+          "snapshot.size_changed",
+          "snapshot.sha256_changed"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "analysis.deep_completed"
+        ],
+        "quality_dimensions": [
+          "ingress",
+          "continuous_quality"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Revisionen in deklarierter Reihenfolge lesen und unterschiedliche Größe sowie Hash belegen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "container-corrupt",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/container-corrupt/corrupt.epub",
+          "role": "input",
+          "sha256": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5",
+          "size_bytes": 513
+        }
+      ],
+      "construction": "Abgeschnittene Kopie des synthetischen Minimal-EPUB.",
+      "fixture_nature": "intentionally_invalid",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "unsupported"
+        ],
+        "expected_findings": [
+          "container.corrupt"
+        ],
+        "expected_observations": [
+          "format.zip_signature",
+          "container.open_error"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "format.valid"
+        ],
+        "quality_dimensions": [
+          "integrity",
+          "security"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Archivöffnung muss begrenzt fehlschlagen; Eingang bleibt bytegleich."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "container-path-traversal",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/container-path-traversal/traversal.epub",
+          "role": "input",
+          "sha256": "41ec6edcef8ea29608385f34ccac6c38058ec6493e5b1e999d77faeb945d8856",
+          "size_bytes": 556
+        }
+      ],
+      "construction": "ZIP enthält absichtlich den synthetischen Eintrag ../escape.txt.",
+      "fixture_nature": "intentionally_invalid",
+      "oracle": {
+        "allowed_results": [
+          "finding"
+        ],
+        "expected_findings": [
+          "security.path_traversal"
+        ],
+        "expected_observations": [
+          "container.entry_parent_escape"
+        ],
+        "forbidden_effects": [
+          "extract_outside_workspace",
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "container.safe_to_extract"
+        ],
+        "quality_dimensions": [
+          "integrity",
+          "security"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Nur Eintragsnamen inspizieren; keine Archivextraktion ausführen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "container-expansion-limit",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/container-expansion-limit/expansion.epub",
+          "role": "input",
+          "sha256": "c8fe323ddd342139227702b9a18550d2584464460e322360b3516c35246ac6d0",
+          "size_bytes": 323
+        }
+      ],
+      "construction": "Kleines ZIP mit 65536 stark komprimierbaren synthetischen Bytes.",
+      "fixture_nature": "resource_limit",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "abstain"
+        ],
+        "expected_findings": [
+          "resource.expansion_limit_exceeded"
+        ],
+        "expected_observations": [
+          "container.compressed_size",
+          "container.expanded_size"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "analysis.unbounded"
+        ],
+        "quality_dimensions": [
+          "integrity",
+          "security",
+          "runtime"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared expanded size exceeds 1024 bytes",
+          "max_expanded_bytes": 1024,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Deklarierte ZIP-Größen gegen das kleine Testlimit prüfen, ohne zu extrahieren."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "protected-or-encrypted",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/protected-or-encrypted/protected.epub",
+          "role": "input",
+          "sha256": "c690cfa831faf781ae998b84d231dde3429baf9a6d026e14f0bddb6276c3ed79",
+          "size_bytes": 2070
+        }
+      ],
+      "construction": "EPUB mit ungefährlichem synthetischem Schutzmarker und encryption.xml.",
+      "fixture_nature": "synthetic_protection_marker",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "unsupported"
+        ],
+        "expected_findings": [
+          "protection.present"
+        ],
+        "expected_observations": [
+          "container.encryption_xml",
+          "resource.synthetic_protection_marker"
+        ],
+        "forbidden_effects": [
+          "bypass_protection",
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "protection.decrypted"
+        ],
+        "quality_dimensions": [
+          "security",
+          "format"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "encryption.xml und Marker erkennen; keine Entschlüsselung versuchen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "format-unknown",
+      "components": [
+        {
+          "media_type": "application/octet-stream",
+          "path": "cases/format-unknown/unknown.epub",
+          "role": "input",
+          "sha256": "32666b5952ee086b06aa474b091f385acd5d320c975f87f753d6efdcca7d1234",
+          "size_bytes": 20
+        }
+      ],
+      "construction": "Unbekannte synthetische Signatur trotz Dateiendung .epub.",
+      "fixture_nature": "unsupported_format",
+      "oracle": {
+        "allowed_results": [
+          "unknown",
+          "unsupported",
+          "finding"
+        ],
+        "expected_findings": [
+          "format.extension_mismatch"
+        ],
+        "expected_observations": [
+          "filename.extension.epub",
+          "format.signature_unknown"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "format.epub"
+        ],
+        "quality_dimensions": [
+          "ingress",
+          "format"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Signatur vor Endung auswerten und tiefe Analyse unterlassen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "epub2-valid-minimal",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/epub2-valid-minimal/valid-epub2.epub",
+          "role": "input",
+          "sha256": "2b4cf278dbd797bb2e2cd67fea0e6b0722c0a039b3d13c6301e3fb826daec658",
+          "size_bytes": 1591
+        }
+      ],
+      "construction": "Minimales deterministisches EPUB-2-Paket mit NCX-Navigation.",
+      "fixture_nature": "valid_reference",
+      "oracle": {
+        "allowed_results": [
+          "observation",
+          "not_applicable"
+        ],
+        "expected_findings": [],
+        "expected_observations": [
+          "epub.version.2.0",
+          "epub.ncx.present",
+          "epub.spine.complete"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "epub.version.3.3",
+          "finding.synthetic_error"
+        ],
+        "quality_dimensions": [
+          "format",
+          "compatibility"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "OCF-, OPF-2.0-, Manifest-, Spine- und NCX-Struktur prüfen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "expansion"
+    },
+    {
+      "case_key": "epub33-valid-reflow",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/epub33-valid-reflow/valid-reflow.epub",
+          "role": "input",
+          "sha256": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+          "size_bytes": 1785
+        }
+      ],
+      "construction": "Minimales deterministisches EPUB 3.3 mit Navigation.",
+      "fixture_nature": "valid_reference",
+      "oracle": {
+        "allowed_results": [
+          "observation",
+          "not_applicable"
+        ],
+        "expected_findings": [],
+        "expected_observations": [
+          "epub.version.3.3",
+          "epub.navigation.present",
+          "epub.cover.present",
+          "epub.spine.complete"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "finding.synthetic_error",
+          "accessibility.conformant"
+        ],
+        "quality_dimensions": [
+          "format",
+          "accessibility"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "OCF-, Package-, Manifest-, Spine- und Navigationsstruktur prüfen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "epub33-valid-fixed",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/epub33-valid-fixed/valid-fixed.epub",
+          "role": "input",
+          "sha256": "be08fe8f4ff6b5abef484bfb73a1864009bb8af2c8cf6ff4dd7cb5f1f235874b",
+          "size_bytes": 1608
+        }
+      ],
+      "construction": "Minimales deterministisches EPUB 3.3 mit Fixed-Layout-Metadaten.",
+      "fixture_nature": "valid_reference",
+      "oracle": {
+        "allowed_results": [
+          "observation",
+          "not_applicable"
+        ],
+        "expected_findings": [],
+        "expected_observations": [
+          "epub.version.3.3",
+          "epub.layout.pre_paginated",
+          "epub.viewport.present"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "epub.layout.reflowable",
+          "finding.synthetic_error"
+        ],
+        "quality_dimensions": [
+          "format",
+          "presentation"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Package-Layoutmetadaten und XHTML-Viewport getrennt prüfen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "expansion"
+    },
+    {
+      "case_key": "epub-missing-resource",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/epub-missing-resource/missing-resource.epub",
+          "role": "input",
+          "sha256": "877c63ac37c85ebba74d462b04d41d28e49a7cd20c7e90c29b44c492b864d8f4",
+          "size_bytes": 1232
+        }
+      ],
+      "construction": "OPF referenziert chapter.xhtml, der Archiveintrag fehlt absichtlich.",
+      "fixture_nature": "intentionally_invalid",
+      "oracle": {
+        "allowed_results": [
+          "finding"
+        ],
+        "expected_findings": [
+          "epub.resource_missing"
+        ],
+        "expected_observations": [
+          "epub.manifest.chapter_declared",
+          "container.entry.chapter_missing"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "format.valid"
+        ],
+        "quality_dimensions": [
+          "format",
+          "integrity"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Manifestreferenz gegen Archiveinträge prüfen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "epub-navigation-defect",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/epub-navigation-defect/navigation-defect.epub",
+          "role": "input",
+          "sha256": "0dbab8e6b7bfcfcb79ca343a136bef60aac8e40d794e2af39ea052daee2cf30a",
+          "size_bytes": 1543
+        }
+      ],
+      "construction": "Navigation verweist absichtlich auf eine nicht vorhandene Ressource.",
+      "fixture_nature": "intentionally_invalid",
+      "oracle": {
+        "allowed_results": [
+          "finding"
+        ],
+        "expected_findings": [
+          "epub.navigation_defect"
+        ],
+        "expected_observations": [
+          "epub.navigation.present",
+          "epub.navigation.target_missing"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "epub.navigation_valid"
+        ],
+        "quality_dimensions": [
+          "format",
+          "usability"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Navigationsziele getrennt von Package-Öffnbarkeit prüfen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "epub-active-or-remote",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/epub-active-or-remote/active-remote.epub",
+          "role": "input",
+          "sha256": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+          "size_bytes": 1641
+        }
+      ],
+      "construction": "EPUB enthält Skript und eine example.invalid-Remote-Referenz.",
+      "fixture_nature": "intentionally_risky",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "abstain"
+        ],
+        "expected_findings": [
+          "security.active_content",
+          "security.remote_resource"
+        ],
+        "expected_observations": [
+          "epub.script.present",
+          "epub.remote_reference.present"
+        ],
+        "forbidden_effects": [
+          "execute_embedded_script",
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "remote_resource.fetched"
+        ],
+        "quality_dimensions": [
+          "security",
+          "format"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Markup als Daten inspizieren; Skript und URL niemals ausführen oder abrufen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "epub-a11y-auto-finding",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/epub-a11y-auto-finding/a11y-auto.epub",
+          "role": "input",
+          "sha256": "de5efcba6da407595054f60bbfdb985c0dc7d1247a7e6f0a812c18525d761c15",
+          "size_bytes": 1779
+        }
+      ],
+      "construction": "EPUB-Bild ohne alt-Attribut für einen automatisierbaren Sollbefund.",
+      "fixture_nature": "intentionally_invalid",
+      "oracle": {
+        "allowed_results": [
+          "finding"
+        ],
+        "expected_findings": [
+          "accessibility.text_alternative_missing"
+        ],
+        "expected_observations": [
+          "epub.image.present",
+          "epub.image.alt_missing"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "accessibility.conformant"
+        ],
+        "quality_dimensions": [
+          "accessibility"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "img-Element und fehlendes alt-Attribut strukturell prüfen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "epub-a11y-manual-required",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/epub-a11y-manual-required/a11y-manual.epub",
+          "role": "input",
+          "sha256": "4adecde4b17147e8fb63442f1a90d0bc6fd4c0038f92c20521856df69a02c930",
+          "size_bytes": 1782
+        }
+      ],
+      "construction": "EPUB-Bild mit syntaktisch vorhandenem, aber inhaltlich schwachem alt-Text.",
+      "fixture_nature": "manual_review_required",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "abstain"
+        ],
+        "expected_findings": [
+          "accessibility.manual_review_required"
+        ],
+        "expected_observations": [
+          "epub.image.present",
+          "epub.image.alt_present"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "accessibility.conformant",
+          "accessibility.text_alternative_adequate"
+        ],
+        "quality_dimensions": [
+          "accessibility"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Vorhandensein automatisch prüfen; inhaltliche Eignung ausdrücklich offenlassen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "metadata-conflict-title",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/metadata-conflict-title/dateiname-titel.epub",
+          "role": "input",
+          "sha256": "6c493fb28429e94faa08ea0d2ed5269d76738e3b06c0d88683d90c02564b91ff",
+          "size_bytes": 1535
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/metadata-conflict-title/calibre-snapshot.json",
+          "role": "snapshot",
+          "sha256": "205dcf57257ead41e1c27113510eed133fadbba411098e334f9c8674cb61a983",
+          "size_bytes": 97
+        }
+      ],
+      "construction": "EPUB-Titel, synthetischer Locator und Calibre-Snapshot widersprechen sich.",
+      "fixture_nature": "metadata_conflict",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "candidate",
+          "abstain"
+        ],
+        "expected_findings": [
+          "metadata.title_conflict"
+        ],
+        "expected_observations": [
+          "title.package",
+          "title.locator",
+          "title.calibre_snapshot"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "metadata.title_overwritten"
+        ],
+        "quality_dimensions": [
+          "metadata",
+          "provenance"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Drei Titelbeobachtungen mit getrennter Provenienz erfassen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S4"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "metadata-contributor-roles",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/metadata-contributor-roles/contributor-roles.epub",
+          "role": "input",
+          "sha256": "fea88ce582b886bd689dd6b33d1284e98eca06bdc7b4184812d618f4f6dd11ca",
+          "size_bytes": 1631
+        }
+      ],
+      "construction": "Ähnliche synthetische Namen mit Autor-, Übersetzer- und Herausgeberrolle.",
+      "fixture_nature": "valid_reference",
+      "oracle": {
+        "allowed_results": [
+          "observation",
+          "candidate"
+        ],
+        "expected_findings": [],
+        "expected_observations": [
+          "contributor.author",
+          "contributor.translator",
+          "contributor.editor"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "contributor.roles_collapsed",
+          "person.identities_merged"
+        ],
+        "quality_dimensions": [
+          "metadata",
+          "identity",
+          "provenance"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Personenbeiträge und MARC-Rollencodes getrennt auslesen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S4"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "metadata-multilingual-rtl",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/metadata-multilingual-rtl/multilingual-rtl.epub",
+          "role": "input",
+          "sha256": "47db9023a483de9d6b23b9b0fce2440ce879d5953ccc8d9fd35f3a79735b6c5d",
+          "size_bytes": 1602
+        }
+      ],
+      "construction": "Arabischer RTL-Inhalt mit arabischen und deutschen Metadaten.",
+      "fixture_nature": "valid_reference",
+      "oracle": {
+        "allowed_results": [
+          "observation",
+          "not_applicable"
+        ],
+        "expected_findings": [],
+        "expected_observations": [
+          "metadata.language.ar",
+          "metadata.language.de",
+          "content.direction.rtl",
+          "content.script.arabic"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "metadata.language.overwritten",
+          "content.direction.ltr"
+        ],
+        "quality_dimensions": [
+          "metadata",
+          "language",
+          "presentation"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Sprachen, xml:lang, dir und arabische Schriftzeichen verlustfrei prüfen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S4"
+      ],
+      "stage": "expansion"
+    },
+    {
+      "case_key": "edition-sample-vs-full",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/edition-sample-vs-full/sample.epub",
+          "role": "input",
+          "sha256": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+          "size_bytes": 1546
+        },
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/edition-sample-vs-full/full.epub",
+          "role": "input",
+          "sha256": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+          "size_bytes": 1792
+        }
+      ],
+      "construction": "Ähnliche Metadaten, aber getrennte synthetische Leseprobe und Vollausgabe.",
+      "fixture_nature": "relationship_pair",
+      "oracle": {
+        "allowed_results": [
+          "candidate",
+          "finding",
+          "abstain"
+        ],
+        "expected_findings": [
+          "edition.sample_vs_full"
+        ],
+        "expected_observations": [
+          "edition.metadata_similar",
+          "content.extent_differs"
+        ],
+        "expected_relationship": {
+          "edition": "different_or_related",
+          "file": "different",
+          "representation": "different",
+          "work": "candidate_same"
+        },
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "representation.interchangeable"
+        ],
+        "quality_dimensions": [
+          "identity",
+          "completeness"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Metadatenähnlichkeit und Inhaltsumfang getrennt vergleichen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S3"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "identity-byte-equal",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-byte-equal/source-a/same.epub",
+          "role": "input",
+          "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+          "size_bytes": 1546
+        },
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-byte-equal/source-b/renamed.epub",
+          "role": "input",
+          "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+          "size_bytes": 1546
+        }
+      ],
+      "construction": "Exakt dieselben EPUB-Bytes unter zwei synthetischen Locators.",
+      "fixture_nature": "relationship_pair",
+      "oracle": {
+        "allowed_results": [
+          "candidate",
+          "finding"
+        ],
+        "expected_findings": [
+          "identity.byte_equal"
+        ],
+        "expected_observations": [
+          "file.sha256_equal",
+          "locator.distinct"
+        ],
+        "expected_relationship": {
+          "edition": "candidate_same",
+          "file": "same",
+          "representation": "candidate_same",
+          "work": "candidate_same"
+        },
+        "forbidden_effects": [
+          "merge_identity",
+          "modify_original",
+          "network_access",
+          "remove_file",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "locator.merged"
+        ],
+        "quality_dimensions": [
+          "identity",
+          "provenance"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Bytehashes vergleichen und beide Locators erhalten."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S3"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "identity-repackaged",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-repackaged/package-a.epub",
+          "role": "input",
+          "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+          "size_bytes": 1546
+        },
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-repackaged/package-b.epub",
+          "role": "input",
+          "sha256": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+          "size_bytes": 1567
+        }
+      ],
+      "construction": "Gleiche logische EPUB-Einträge mit anderer ZIP-Reihenfolge und Kommentar.",
+      "fixture_nature": "relationship_pair",
+      "oracle": {
+        "allowed_results": [
+          "candidate",
+          "abstain"
+        ],
+        "expected_findings": [
+          "identity.representation_candidate"
+        ],
+        "expected_observations": [
+          "file.sha256_different",
+          "package.entries_equal"
+        ],
+        "expected_relationship": {
+          "edition": "candidate_same",
+          "file": "different",
+          "representation": "candidate_same",
+          "work": "candidate_same"
+        },
+        "forbidden_effects": [
+          "merge_identity",
+          "modify_original",
+          "network_access",
+          "remove_file",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "identity.byte_equal"
+        ],
+        "quality_dimensions": [
+          "identity"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Bytehash und normalisierte Eintragsinhalte getrennt vergleichen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S3"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "identity-multiformat-edition",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-multiformat-edition/edition.epub",
+          "role": "input",
+          "sha256": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+          "size_bytes": 1521
+        },
+        {
+          "media_type": "application/pdf",
+          "path": "cases/identity-multiformat-edition/edition.pdf",
+          "role": "input",
+          "sha256": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d",
+          "size_bytes": 722
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/identity-multiformat-edition/bibliographic-key.json",
+          "role": "snapshot",
+          "sha256": "b4d7dac6c0b69c59428ee1378afc5eedec7d9a1110283a8f1307765c1debd929",
+          "size_bytes": 95
+        }
+      ],
+      "construction": "Synthetische EPUB- und PDF-Repräsentation derselben Ausgabe.",
+      "fixture_nature": "relationship_pair",
+      "oracle": {
+        "allowed_results": [
+          "candidate",
+          "abstain"
+        ],
+        "expected_findings": [
+          "identity.edition_candidate"
+        ],
+        "expected_observations": [
+          "format.epub",
+          "format.pdf",
+          "edition.identifier_equal"
+        ],
+        "expected_relationship": {
+          "edition": "candidate_same",
+          "file": "different",
+          "representation": "different",
+          "work": "candidate_same"
+        },
+        "forbidden_effects": [
+          "merge_identity",
+          "modify_original",
+          "network_access",
+          "remove_file",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "identity.file_equal",
+          "identity.representation_equal"
+        ],
+        "quality_dimensions": [
+          "identity",
+          "metadata"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Format- und Dateiebene getrennt vom gemeinsamen Ausgabenschlüssel bewerten."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S3"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "identity-edition-vs-translation",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-edition-vs-translation/source-en.epub",
+          "role": "input",
+          "sha256": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+          "size_bytes": 1552
+        },
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-edition-vs-translation/translation-de.epub",
+          "role": "input",
+          "sha256": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+          "size_bytes": 1567
+        }
+      ],
+      "construction": "Synthetische Ausgangsausgabe und Übersetzung desselben Werkbezugs.",
+      "fixture_nature": "relationship_pair",
+      "oracle": {
+        "allowed_results": [
+          "candidate",
+          "abstain"
+        ],
+        "expected_findings": [
+          "identity.work_candidate",
+          "identity.translation"
+        ],
+        "expected_observations": [
+          "language.different",
+          "edition.identifier_different",
+          "work.reference_equal"
+        ],
+        "expected_relationship": {
+          "edition": "different",
+          "file": "different",
+          "representation": "different",
+          "work": "candidate_related"
+        },
+        "forbidden_effects": [
+          "merge_identity",
+          "modify_original",
+          "network_access",
+          "remove_file",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "identity.edition_equal",
+          "representation.interchangeable"
+        ],
+        "quality_dimensions": [
+          "identity",
+          "metadata"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Sprachen und Ausgabenidentifikatoren als negative Evidenz erhalten."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S3"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "identity-title-collision",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-title-collision/work-a.epub",
+          "role": "input",
+          "sha256": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+          "size_bytes": 1543
+        },
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/identity-title-collision/work-b.epub",
+          "role": "input",
+          "sha256": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327",
+          "size_bytes": 1543
+        }
+      ],
+      "construction": "Zwei verschiedene synthetische Werke mit identischem Titel.",
+      "fixture_nature": "negative_relationship_pair",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "abstain"
+        ],
+        "expected_findings": [
+          "identity.title_collision"
+        ],
+        "expected_observations": [
+          "title.equal",
+          "creator.different",
+          "content.different",
+          "work.identifier_different"
+        ],
+        "expected_relationship": {
+          "edition": "different",
+          "file": "different",
+          "representation": "different",
+          "work": "different"
+        },
+        "forbidden_effects": [
+          "merge_identity",
+          "modify_original",
+          "network_access",
+          "remove_file",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "identity.work_equal"
+        ],
+        "quality_dimensions": [
+          "identity",
+          "metadata"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Gleichen Titel als positives, übrige Merkmale als negative Evidenz ausweisen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S3"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "routing-unique",
+      "components": [
+        {
+          "media_type": "application/json",
+          "path": "cases/routing-unique/targets.json",
+          "role": "snapshot",
+          "sha256": "ec47af117e32fdd77c5b228e3de1e7975250d297bf8a6260b5cdb5e0b390c594",
+          "size_bytes": 2192
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/routing-unique/item.json",
+          "role": "input",
+          "sha256": "2a3316043763ae994cc7a4715071e74d9bf9de2a16f142dffb5a5fb054ccab5e",
+          "size_bytes": 127
+        }
+      ],
+      "construction": "Zwei synthetische Zielregeln und ein eindeutig passender Technik-Eingang.",
+      "fixture_nature": "routing_scenario",
+      "oracle": {
+        "allowed_results": [
+          "candidate"
+        ],
+        "expected_findings": [
+          "routing.single_candidate"
+        ],
+        "expected_observations": [
+          "routing.target_rules",
+          "item.subject.technik",
+          "item.language.de"
+        ],
+        "expected_routing": {
+          "executed": false,
+          "result": "candidate",
+          "target_key": "technical-library"
+        },
+        "forbidden_effects": [
+          "choose_target_as_write",
+          "execute_writer",
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "proposal.import"
+        ],
+        "quality_dimensions": [
+          "routing",
+          "provenance"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Regeln als reine Daten auswerten; genau einen Kandidaten erwarten."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S6"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "routing-ambiguous",
+      "components": [
+        {
+          "media_type": "application/json",
+          "path": "cases/routing-ambiguous/targets.json",
+          "role": "snapshot",
+          "sha256": "ec47af117e32fdd77c5b228e3de1e7975250d297bf8a6260b5cdb5e0b390c594",
+          "size_bytes": 2192
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/routing-ambiguous/item.json",
+          "role": "input",
+          "sha256": "b6a09ec45a27239dd56d29b167301adcbacb41470fb3912ab447e31074fc3b66",
+          "size_bytes": 146
+        }
+      ],
+      "construction": "Zwei synthetische Zielregeln passen gleichzeitig zum Eingang.",
+      "fixture_nature": "routing_scenario",
+      "oracle": {
+        "allowed_results": [
+          "abstain"
+        ],
+        "expected_findings": [
+          "routing.conflict"
+        ],
+        "expected_observations": [
+          "routing.target_rules",
+          "item.subject.technik",
+          "item.subject.jugend"
+        ],
+        "expected_routing": {
+          "candidate_target_keys": [
+            "technical-library",
+            "young-readers-library"
+          ],
+          "executed": false,
+          "result": "abstain"
+        },
+        "forbidden_effects": [
+          "choose_default_target",
+          "execute_writer",
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "routing.single_candidate",
+          "proposal.import"
+        ],
+        "quality_dimensions": [
+          "routing",
+          "provenance"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Alle passenden Ziele ermitteln und bei Mehrdeutigkeit Enthaltung erwarten."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S6"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "routing-unknown",
+      "components": [
+        {
+          "media_type": "application/json",
+          "path": "cases/routing-unknown/item.json",
+          "role": "input_snapshot",
+          "sha256": "a4cba5d6538cf961fd31348fd47557499666df24242bbea1eac1104ad436e70c",
+          "size_bytes": 144
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/routing-unknown/targets.json",
+          "role": "target_snapshot",
+          "sha256": "ec47af117e32fdd77c5b228e3de1e7975250d297bf8a6260b5cdb5e0b390c594",
+          "size_bytes": 2192
+        }
+      ],
+      "construction": "Kein synthetischer Zielbestand besitzt eine passende Regel.",
+      "fixture_nature": "routing_scenario",
+      "oracle": {
+        "allowed_results": [
+          "unknown",
+          "abstain"
+        ],
+        "expected_findings": [
+          "routing.unknown"
+        ],
+        "expected_observations": [
+          "routing.no_rule_match"
+        ],
+        "expected_routing": {
+          "candidate_targets": [],
+          "reason": "no_matching_rule",
+          "result": "abstain"
+        },
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "routing.default_target",
+          "proposal.route"
+        ],
+        "quality_dimensions": [
+          "routing",
+          "explainability",
+          "safety"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Beobachtungen gegen beide Zielregeln prüfen und fehlende Übereinstimmung belegen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S6"
+      ],
+      "stage": "expansion"
+    },
+    {
+      "case_key": "run-unchanged-skip",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/run-unchanged-skip/input.epub",
+          "role": "input",
+          "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "size_bytes": 1540
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/run-unchanged-skip/run-1.json",
+          "role": "snapshot",
+          "sha256": "b94662e6d28498e4ad5f7f20fae53928f05f4f6d7af2f0caded3ac82ad8bc8b4",
+          "size_bytes": 87
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/run-unchanged-skip/run-2.json",
+          "role": "snapshot",
+          "sha256": "b94662e6d28498e4ad5f7f20fae53928f05f4f6d7af2f0caded3ac82ad8bc8b4",
+          "size_bytes": 87
+        }
+      ],
+      "construction": "Zwei semantisch identische Lauf-Snapshots desselben Eingangs und Profils.",
+      "fixture_nature": "behavioral_simulation",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "not_applicable"
+        ],
+        "expected_findings": [
+          "analysis.reusable"
+        ],
+        "expected_observations": [
+          "snapshot.input_equal",
+          "snapshot.profile_equal"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "analysis.recomputed_without_reason"
+        ],
+        "quality_dimensions": [
+          "continuous_quality",
+          "runtime"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Lauf-Snapshots und Eingangs-Hash vergleichen; keine Analyse ausführen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S1",
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "run-resume",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/run-resume/input.epub",
+          "role": "input",
+          "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "size_bytes": 1540
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/run-resume/checkpoint.json",
+          "role": "snapshot",
+          "sha256": "6c65f4163469bf912d3fa7c0655dd1cf8c69ac10728a5511000b74c35c2dfe1e",
+          "size_bytes": 144
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/run-resume/expected-resume.json",
+          "role": "control",
+          "sha256": "b0e96c29974ca52ad92ed52418944138a8f750478911eff525591d6c2fbe9e89",
+          "size_bytes": 122
+        }
+      ],
+      "construction": "Kontrollierter synthetischer Checkpoint nach einem bekannten Schritt.",
+      "fixture_nature": "behavioral_simulation",
+      "oracle": {
+        "allowed_results": [
+          "finding"
+        ],
+        "expected_findings": [
+          "run.resumable"
+        ],
+        "expected_observations": [
+          "checkpoint.valid",
+          "checkpoint.input_hash_equal"
+        ],
+        "forbidden_effects": [
+          "modify_original",
+          "network_access",
+          "write_domain_system"
+        ],
+        "forbidden_results": [
+          "result.duplicated",
+          "result.lost"
+        ],
+        "quality_dimensions": [
+          "continuous_quality",
+          "runtime"
+        ],
+        "resource_profile": {
+          "abort_condition": "declared limit reached or input snapshot changed",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 2000
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Checkpoint und erwarteten Fortsetzungsschritt strukturell vergleichen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S1",
+        "S2"
+      ],
+      "stage": "core"
+    },
+    {
+      "case_key": "run-tool-timeout",
+      "components": [
+        {
+          "media_type": "application/epub+zip",
+          "path": "cases/run-tool-timeout/input.epub",
+          "role": "input",
+          "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+          "size_bytes": 1540
+        },
+        {
+          "media_type": "text/x-python",
+          "path": "cases/run-tool-timeout/slow_tool.py",
+          "role": "synthetic_tool",
+          "sha256": "7469e55cc1ef677d595a056c28cf4bf551c25a3b363f4c72739702b37887df46",
+          "size_bytes": 26
+        },
+        {
+          "media_type": "application/json",
+          "path": "cases/run-tool-timeout/tool-profile.json",
+          "role": "control",
+          "sha256": "2afb2cb56ef43f2bc3dc3c21fdc12f2b2417bceba8306e5c61c3c022e2a06acc",
+          "size_bytes": 127
+        }
+      ],
+      "construction": "Synthetischer Python-Helfer überschreitet absichtlich ein kleines Zeitlimit.",
+      "fixture_nature": "resource_limit",
+      "oracle": {
+        "allowed_results": [
+          "finding",
+          "abstain"
+        ],
+        "expected_findings": [
+          "runtime.timeout_enforced"
+        ],
+        "expected_observations": [
+          "tool.timeout",
+          "tool.exit_bounded"
+        ],
+        "forbidden_effects": [
+          "leave_child_process",
+          "modify_original",
+          "network_access",
+          "write_domain_system",
+          "write_outside_temporary_area"
+        ],
+        "forbidden_results": [
+          "tool.completed"
+        ],
+        "quality_dimensions": [
+          "runtime",
+          "security",
+          "integrity"
+        ],
+        "resource_profile": {
+          "abort_condition": "synthetic helper exceeds 100 ms",
+          "max_expanded_bytes": 1048576,
+          "max_input_bytes": 262144,
+          "network": "denied",
+          "timeout_ms": 100
+        },
+        "validation": {
+          "manual_steps": [],
+          "method": "Helfer in isoliertem temporärem Arbeitsordner mit 100-ms-Timeout ausführen."
+        }
+      },
+      "provenance": {
+        "generator": "sammlungslotse-test-0001-generator",
+        "license_spdx": "MIT",
+        "source": "independently generated from repository-owned literal synthetic content",
+        "third_party_material": false
+      },
+      "scenarios": [
+        "S2"
+      ],
+      "stage": "core"
+    }
+  ],
+  "corpus_ref": "TEST-0001",
+  "created_on": "2026-08-27",
+  "data_class": "SYNTHETIC_OR_REDISTRIBUTABLE",
+  "deferred_expansion_case_keys": [],
+  "expansion_case_keys": [
+    "epub2-valid-minimal",
+    "epub33-valid-fixed",
+    "metadata-multilingual-rtl",
+    "routing-unknown"
+  ],
+  "fixture_version": "0.3.0",
+  "generator_profile": {
+    "external_dependencies": [],
+    "id": "sammlungslotse-test-0001-generator",
+    "implementation": "tools/fixtures/generate_ebook_reference_corpus.py",
+    "implementation_digest_algorithm": "sha256-utf8-lf",
+    "implementation_sha256": "06f30417f0766a45043f2540b1a2755b92dd571a0860e272a596b14e414b703a",
+    "network": "not_used",
+    "runtime_contract": "Python 3.12+ standard library",
+    "version": "0.3.0"
+  },
+  "license": {
+    "locator": "LICENSE",
+    "spdx": "MIT"
+  },
+  "schema_version": 1,
+  "scope": "core_and_expansion"
+}

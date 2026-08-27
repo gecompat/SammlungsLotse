@@ -1,15 +1,15 @@
 # TEST-0001-Fixtures
 
-Status: EXECUTABLE SYNTHETIC CORE CORPUS
+Status: EXECUTABLE SYNTHETIC COMPLETE CORPUS
 
-Diese Fixtures sind die erste ausführbare Fassung des registrierten
+Diese Fixtures sind die vollständig materialisierte Fassung des registrierten
 Testvertrags TEST-0001. Sie enthalten ausschließlich unabhängig erzeugte,
 minimale synthetische Daten unter der Projektlizenz MIT.
 
 Der Generator ist
 `tools/fixtures/generate_ebook_reference_corpus.py`. Die aktuelle versionierte
-Fassung `0.2.0` liegt unter `v0.2/`; ihr `manifest.json` enthält für alle 26
-`Kern`-Fälle:
+Fassung `0.3.0` liegt unter `v0.3/`; ihr `manifest.json` enthält alle 26
+`Kern`- und vier `Ausbau`-Fälle:
 
 - Eingänge und Ablauf-Snapshots;
 - SHA-256 und Größe jeder Komponente;
@@ -18,12 +18,13 @@ Fassung `0.2.0` liegt unter `v0.2/`; ihr `manifest.json` enthält für alle 26
 - verbotene Ergebnisse und Wirkungen;
 - Qualitätsdimension, Ressourcenprofil und Prüfmethode.
 
-`v0.1/` bleibt als unveränderter historischer Snapshot `0.1.0` erhalten. Er
-verwendet im OPF ein durch EXP-0005 als nicht konform erkanntes
-`version="3.3"` und ist nicht mehr die aktive Experimentbasis.
+`v0.1/` und `v0.2/` bleiben als unveränderbare historische Snapshots
+erhalten. `v0.1/` verwendet im OPF ein durch EXP-0005 als nicht konform
+erkanntes `version="3.3"` und ist nicht mehr die aktive Experimentbasis.
 
-Die vier `Ausbau`-Fälle aus dem Testvertrag sind nicht Bestandteil dieser
-Fassung. Absichtlich ungültige oder riskante Dateien sind im Manifest als
+Die vier `Ausbau`-Fälle materialisieren minimales EPUB 2, EPUB 3 Fixed
+Layout, mehrsprachigen RTL-Inhalt und Routing ohne passende Regel.
+Absichtlich ungültige oder riskante Dateien sind im Manifest als
 solche gekennzeichnet und dürfen nicht als allgemeine Referenzqualität
 verwendet werden.
 

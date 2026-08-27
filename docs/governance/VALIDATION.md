@@ -149,13 +149,13 @@ getesteten Prozess- und task-privaten Schreibwirkungen.
 
 Die sichtbare synthetische CLI-Abnahme verwendet mindestens:
 
-    python tools/run_ebook_intake.py tests/fixtures/ebook/test-0001/v0.2/cases/ingress-stable-minimal/stable.epub
+    python tools/run_ebook_intake.py tests/fixtures/ebook/test-0001/v0.3/cases/ingress-stable-minimal/stable.epub
 
-    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.2/cases/epub-active-or-remote/active-remote.epub
+    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.3/cases/epub-active-or-remote/active-remote.epub
 
-    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.2/cases/container-corrupt/corrupt.epub
+    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.3/cases/container-corrupt/corrupt.epub
 
-    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.2/cases/format-unknown/unknown.epub
+    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.3/cases/format-unknown/unknown.epub
 
 Vor und nach der Matrix werden die SHA-256-Werte der Eingänge verglichen.
 Zwei JSON-Läufe über den stabilen Eingang müssen byteidentisch sein. Die

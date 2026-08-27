@@ -83,9 +83,9 @@ WI-0004 und ist keine allgemeine Stackentscheidung. Weitere Regeln stehen in
 Der lokale Prototyp kann ausschließlich gegen synthetische Testeingänge
 sichtbar ausgeführt werden:
 
-    python tools/run_ebook_intake.py tests/fixtures/ebook/test-0001/v0.2/cases/ingress-stable-minimal/stable.epub
+    python tools/run_ebook_intake.py tests/fixtures/ebook/test-0001/v0.3/cases/ingress-stable-minimal/stable.epub
 
-    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.2/cases/ingress-stable-minimal/stable.epub
+    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.3/cases/ingress-stable-minimal/stable.epub
 
 Der Lauf schreibt keinen Bericht und führt die angezeigte Folgeaktion nicht
 aus. Reale oder private Sammlungsmedien sind keine qualifizierte Eingabe des

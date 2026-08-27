@@ -105,6 +105,11 @@ verwenden kleine synthetische Eingänge. Keines qualifiziert einen
 Produktadapter, einen vollständigen Produktablauf oder einen
 Technologie-Stack.
 
+Diese Aussage beschreibt die Evidenzbasis zum Zeitpunkt von GATE-0001.
+TEST-0001 `0.3.0` hat die vier Ausbau-Fälle später materialisiert; die
+historische Gate-Entscheidung und alle an `0.2.0` gebundenen Nachweise bleiben
+unverändert.
+
 ## Neubewertung
 
 | Kriterium | Bestandsprüfung (S1) | Eingangstriage (S2) |

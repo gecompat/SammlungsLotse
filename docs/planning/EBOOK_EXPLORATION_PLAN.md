@@ -145,10 +145,11 @@ Mögliche Messgrößen sind:
 Die konkreten Kern- und Ausbau-Sollfälle, Oracles, Datenregeln und
 Passkriterien stehen in
 [EBOOK_REFERENCE_CORPUS.md](EBOOK_REFERENCE_CORPUS.md). TEST-0001 ist nach
-Erzeugung und Validierung aller 26 `Kern`-Fälle in der aktiven Fixture-Version
-`0.2.0` `ready`. Version `0.1.0` bleibt als historischer Snapshot erhalten.
-Die vier `Ausbau`-Fälle und weitere werkzeugspezifische Experimentmaterialien
-bleiben offen. Die folgende Liste bleibt die kategorische Übersicht.
+Erzeugung und Validierung aller 26 `Kern`- und vier `Ausbau`-Fälle in der
+aktiven Fixture-Version `0.3.0` `ready`. Versionen `0.1.0` und `0.2.0`
+bleiben als historische Snapshots erhalten. Weitere werkzeugspezifische
+Experimentmaterialien bleiben an ihre jeweiligen Profile gebunden. Die
+folgende Liste bleibt die kategorische Übersicht.
 
 Der Referenzkorpus soll kleine, nachvollziehbare Sollfälle statt reale private
 Sammlungsdaten enthalten. Vorgesehene Fallgruppen sind:
@@ -402,8 +403,10 @@ Dokument enthält bewusst keine gewichtete Nutzwertanalyse.
 
 WI-0003 hat B1 auf Dokumentationsebene abgeschlossen. Die TEST-0001-
 Kernfixtures, Oracles, Hashes, Herkunft und verbotenen Wirkungen sind in der
-aktiven Version `0.2.0` reproduzierbar manifestiert und validiert. EXP-0005
-hat ein enges Podman-Ausführungsprofil netzwerklos qualifiziert. EXP-0002 hat
+aktiven Version `0.3.0` reproduzierbar manifestiert und validiert. Die
+abgeschlossenen Experimentnachweise bleiben an Version `0.2.0` gebunden.
+EXP-0005 hat ein enges Podman-Ausführungsprofil netzwerklos qualifiziert.
+EXP-0002 hat
 zwei synthetische Calibre-Ziele reproduzierbar und pfadbereinigt über eine
 Copy-on-read-Grenze projiziert; der direkte read-only Mount ist als nicht
 unterstützt belegt. EXP-0003 hat EPUBCheck- und Ace-Rohbefunde verlustfrei

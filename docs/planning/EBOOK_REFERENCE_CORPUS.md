@@ -9,9 +9,10 @@ Artifacts: TEST-0001, WI-0002, WI-0003
 ## Zweck
 
 TEST-0001 definiert die Sollfälle, gegen die spätere E-Book-Verfahren
-reproduzierbar bewertet werden. Dieses Dokument ist der Testvertrag. Die 26
-`Kern`-Fälle sind als Fixture-Version `0.2.0` erzeugt und validiert. Die vier
-`Ausbau`-Fälle bleiben Vertragsbestandteil, sind aber noch nicht materialisiert.
+reproduzierbar bewertet werden. Dieses Dokument ist der Testvertrag. Alle 26
+`Kern`- und vier `Ausbau`-Fälle sind als Fixture-Version `0.3.0` erzeugt und
+validiert. Die früheren Fassungen `0.1.0` und `0.2.0` bleiben historische
+Snapshots für bereits gebundene Experimente und Produktnachweise.
 
 Generator, Manifest und Fixture-Einstieg stehen unter
 [tests/fixtures/ebook/test-0001](../../tests/fixtures/ebook/test-0001/README.md).
@@ -67,12 +68,13 @@ werden weiterhin über die Registration Authority registriert.
   Ausgabeverzeichnis. Er enthält keine Produkt-, Adapter- oder
   Analyseimplementierung.
 
-## Kernkorpus v0.2
+## Vollständiger Korpus v0.3
 
-`Kern` bezeichnet die ausführbare Fassung `0.2.0`. `Ausbau` bleibt im Vertrag,
-wird aber nicht benötigt, um die ersten vier Experimente zu beginnen, sofern
-deren eigene werkzeugspezifische Eingänge im jeweiligen Experimentprofil
-vollständig materialisiert werden.
+Version `0.3.0` materialisiert zusätzlich zu allen `Kern`-Fällen die vier
+bereits vertraglich definierten `Ausbau`-Fälle. Die abgeschlossenen
+Experimente EXP-0002 bis EXP-0007 und der WI-0005-Qualifikationsnachweis
+bleiben unverändert an Version `0.2.0` gebunden; der neue Korpus deutet ihre
+historische Evidenz nicht um.
 
 | case_key | Stufe | Konstruktion | Wesentliches Oracle |
 |---|---|---|---|
@@ -139,10 +141,10 @@ qualifizierte, unterstützte Toolprofil erzeugt. Das Oracle beschreibt:
 - welche Fälle kein geeignetes Ziel besitzen;
 - dass keine interne Calibre-Tabelle direkt geändert wird.
 
-## Ausführungsmanifest v0.2.0
+## Ausführungsmanifest v0.3.0
 
 Das maschinenlesbare JSON-Manifest liegt unter
-`tests/fixtures/ebook/test-0001/v0.2/manifest.json`. `schema_version` 1 bleibt
+`tests/fixtures/ebook/test-0001/v0.3/manifest.json`. `schema_version` 1 bleibt
 ein Fixture-Vertrag und wählt weder Produktpersistenz noch öffentliche API.
 Das Manifest enthält:
 
@@ -155,19 +157,20 @@ Das Manifest enthält:
 - verbotene Wirkungen;
 - Lizenz- und Herkunftsnachweis;
 - Generator- und Toolprofil, falls ein Werkzeug beteiligt war;
-- die vier ausdrücklich noch nicht materialisierten `Ausbau`-Fallkeys.
+- die vier materialisierten `Ausbau`-Fallkeys und ihre getrennte Stufe.
 
-Das Manifest enthält 26 Kernfälle und 44 Komponenten. Jede Komponente besitzt
-einen relativen Locator, Rolle, Medientyp, Größe und SHA-256. Jedes Oracle
-enthält zusätzlich Qualitätsdimension, Ressourcenprofil, Prüfmethode und
-verbotene Wirkungen.
+Das Manifest enthält 26 Kernfälle, vier Ausbau-Fälle und insgesamt 49
+Komponenten. Jede Komponente besitzt einen relativen Locator, Rolle,
+Medientyp, Größe und SHA-256. Jedes Oracle enthält zusätzlich
+Qualitätsdimension, Ressourcenprofil, Prüfmethode und verbotene Wirkungen.
 
 ## Ergebnis der Fixture-Wave
 
-TEST-0001 ist nach tatsächlicher Erzeugung und Prüfung der ersten ausführbaren
-Fassung `ready`. Die Passkriterien sind für Version `0.2.0` erfüllt:
+TEST-0001 ist nach tatsächlicher Erzeugung und Prüfung der vollständig
+materialisierten Fassung `ready`. Die Passkriterien sind für Version `0.3.0`
+erfüllt:
 
-- alle 26 `Kern`-Fälle wurden reproduzierbar erzeugt;
+- alle 26 `Kern`- und vier `Ausbau`-Fälle wurden reproduzierbar erzeugt;
 - jeder Fall besitzt ein maschinenlesbares Oracle und die Tabelle oben bleibt
   der menschlich prüfbare Vertrag;
 - Hashes, Größen, Erzeugungsverfahren, Herkunft und MIT-Lizenz sind
@@ -188,26 +191,39 @@ Lokal validiert am 2026-08-27 unter Python 3.12.10:
 
     python tools/fixtures/validate_ebook_reference_corpus.py
 
-Ergebnis: 26 Fälle, 44 Komponenten, bytegenau reproduzierbar und während der
+Ergebnis: 30 Fälle, 49 Komponenten, bytegenau reproduzierbar und während der
 Prüfung unverändert. Der Validator prüft außerdem zentrale positive und
-negative Sollbeziehungen, beide Routingresultate, Pfad- und
-Expansionserkennung sowie einen synthetischen 100-ms-Timeout.
+negative Sollbeziehungen, drei Routingresultate, EPUB-2-, Fixed-Layout- und
+RTL-Marker, Pfad- und Expansionserkennung sowie einen synthetischen
+100-ms-Timeout.
 
 Version `0.1.0` bleibt unter `v0.1/` als historischer Snapshot erhalten. Der
 erste reale EPUBCheck-Lauf in EXP-0005 erkannte sein OPF-Literal
 `version="3.3"` als nicht unterstützt. Version `0.2.0` korrigiert dieses
 Literal auf die für EPUB 3 weiterhin geltende Paketversion `3.0`, ohne die
-Fallzahl, Fallkeys oder Oracles zu verändern.
+Fallzahl, Fallkeys oder Oracles zu verändern. Version `0.3.0` übernimmt den
+Kern bytegenau neu aus dem deterministischen Generator und ergänzt die vier
+vorher nur vertraglich beschriebenen Ausbau-Fälle.
 
-EPUBCheck wurde im Rahmen von EXP-0005 gegen die aktuelle Fassung ausgeführt;
-der Sicherheits- und Reproduzierbarkeitsnachweis war erfolgreich. EXP-0002
+EPUBCheck 5.3.0 wurde tatsächlich gegen `epub2-valid-minimal`,
+`epub33-valid-fixed` und `metadata-multilingual-rtl` ausgeführt. Nach der
+Korrektur des EPUB-2-XHTML-1.1-Doctypes meldeten alle drei Fälle keine
+Konformitätsfehler. Ein erster Fixed-Layout-Lauf erreichte kontrolliert das
+Executor-Timeout und räumte vollständig auf; die unmittelbare Wiederholung
+bestand. Dieser Nachweis qualifiziert nur die drei synthetischen Validfälle,
+nicht weitere Formate, Accessibility oder Produktreife.
+
+EPUBCheck wurde im Rahmen von EXP-0005 gegen die damals aktive Fassung
+`0.2.0` ausgeführt; der Sicherheits- und Reproduzierbarkeitsnachweis war
+erfolgreich. EXP-0002
 hat zwei daraus synthetisch materialisierte Calibre-Bibliotheken erfolgreich
 über eine Copy-on-read-Grenze projiziert. EXP-0003 hat EPUBCheck- und
 Ace-Rohberichte gegen sieben ausgewählte Fälle je zweimal erhoben und
 verlustfrei referenziert; der manuelle Accessibility-Fall bleibt ausdrücklich
 manuell. EXP-0004 hat alle sechs Identitäts-Sollpaare auf fünf getrennten
 Ebenen je zweimal bewertet.
-EXP-0006 hat elf gebundene Kernfall-Zeilen in zwei semantisch identischen,
-netzwerklosen Preflight-Wiederholungen bewertet; Eingabehashes blieben
-unverändert und kritische Fehlfreigaben betrugen null. Die vier `Ausbau`-
-Fälle bleiben davon unberührt offen.
+EXP-0006 hat elf an Version `0.2.0` gebundene Kernfall-Zeilen in zwei
+semantisch identischen, netzwerklosen Preflight-Wiederholungen bewertet;
+Eingabehashes blieben unverändert und kritische Fehlfreigaben betrugen null.
+Die Materialisierung der vier `Ausbau`-Fälle verändert diese historische
+Evidenz nicht.

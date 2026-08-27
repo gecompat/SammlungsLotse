@@ -1,0 +1,8 @@
+{
+  "preserve_result_keys": [
+    "input.size",
+    "input.sha256"
+  ],
+  "repeat_steps": [],
+  "resume_from": "format"
+}
