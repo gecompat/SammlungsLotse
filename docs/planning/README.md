@@ -23,16 +23,19 @@ sechs read-only Nutzerentscheidungen und Messverträge auf Dokumentationsebene
 abgeschlossen. TEST-0001 ist mit 26
 synthetischen Kernfällen in der aktiven Version `0.2.0` ausführbar und
 `ready`; `0.1.0` bleibt historisch erhalten. EXP-0002 bis EXP-0006 sind
-empirisch abgeschlossen. CAP-0002, REQ-0001, REQ-0002, EXP-0001 und
-GATE-0001 sind vorgeschlagen. EXP-0006 hat alle 16 Akzeptanzkriterien und die
+empirisch abgeschlossen. CAP-0002, REQ-0001, REQ-0002 und EXP-0001 sind
+vorgeschlagen. EXP-0006 hat alle 16 Akzeptanzkriterien und die
 elf vorab gebundenen Preflight-Zeilen in zwei semantisch identischen
 Wiederholungen erfüllt.
-GATE-0001 wurde mit dem Ergebnis `VERTAGT` ausgewertet und bleibt offen;
-weder Eingangstriage noch Bestandsprüfung ist angenommen.
+GATE-0001 ist nach getrennter Neubewertung `done`: Die Eingangstriage ist
+innerhalb der engen Grenze aus stabilem Snapshot, flachem Preflight und
+begründeter Folgeaktion oder Enthaltung als erster read-only
+E-Book-Vertikalablauf angenommen. Bestandsprüfung bleibt ein möglicher
+späterer Ast.
 RISK-0001 hält das bereits anerkannte Risiko einer frühen fachlichen oder
-technischen Kopplung fest. Keines dieser Artefakte wählt einen
-Technologie-Stack, bestimmt den ersten Vertikalablauf oder autorisiert
-Produktcode oder schreibende Operationen.
+technischen Kopplung fest. Die Gate-Auswahl wählt keinen Technologie-Stack,
+keine erste Medien- oder Implementierungslinie und autorisiert weder
+Produktcode noch schreibende Operationen.
 
 ## Verbindliche Ausgangsbasis
 
@@ -68,12 +71,13 @@ erste Implementierungs-Wave entschieden.
 EXP-0005 hat die gemeinsame Sicherheitsqualifikation, EXP-0002 die lokale
 Calibre-Projektion über eine Copy-on-read-Grenze, EXP-0003 die verlustfreie
 EPUBCheck-/Ace-Evidenzprojektion und EXP-0004 die gestufte
-Identitätsbewertung bestanden. Ihr Vergleich hat keine ausreichende
-End-to-End-Evidenz für einen der beiden Kandidaten ergeben. Die daraufhin als
-genau eine Evidenzwelle ausgeführte EXP-0006-Qualifikation hat den engen
-read-only Eingangstriage-Preflight synthetisch bestanden. Als nächster
-getrennter Schritt wird GATE-0001 mit diesem neuen Ergebnis erneut
-ausgewertet; bis dahin bleiben beide Kandidaten und Produktcode offen.
+Identitätsbewertung bestanden. Ihr erster Vergleich vertagte beide
+Kandidaten. Die daraufhin als genau eine Evidenzwelle ausgeführte
+EXP-0006-Qualifikation hat den engen read-only Eingangstriage-Preflight
+synthetisch bestanden. Die getrennte Neubewertung hat deshalb S2 innerhalb
+dieser Grenze angenommen. Als nächster Schritt wird ein eigener
+Arbeitsgegenstand für den dünnen Prototyp registriert und geplant; bis zu
+dessen Annahme bleibt Produktcode nicht autorisiert.
 
 ## Nicht übernehmen
 

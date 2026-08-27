@@ -13,9 +13,11 @@ E-Book-Erkundung. Es beschreibt, woran spätere Verfahren gemessen werden,
 bevor Runtime, Persistenz, Oberfläche, Suchtechnik, Calibre-Adapter oder
 Writer ausgewählt werden.
 
-Die sechs Szenarien sind vergleichbare Testfragen und noch kein ausgewählter
-Vertikalablauf. Sie autorisieren weder Produktcode noch Zugriff auf reale
-Sammlungsdaten oder eine schreibende Operation. GATE-0001 bleibt offen.
+Die sechs Szenarien sind vergleichbare Testfragen und nicht als Ganzes der
+ausgewählte Vertikalablauf. Sie autorisieren weder Produktcode noch Zugriff
+auf reale Sammlungsdaten oder eine schreibende Operation. GATE-0001 hat
+später ausschließlich den eng begrenzten S2-Kern angenommen; die übrigen
+Szenarioanteile bleiben mögliche getrennte Äste.
 
 Der geplante synthetische Testbestand steht in
 [EBOOK_REFERENCE_CORPUS.md](EBOOK_REFERENCE_CORPUS.md). Die dazugehörigen
@@ -408,6 +410,8 @@ WI-0003 ist auf Dokumentationsebene erfüllt, wenn:
 - asymmetrische Fehlerfolgen und Messgrößen benannt sind;
 - TEST-0001 konkrete Sollfälle und Datenregeln besitzt;
 - EXP-0002 bis EXP-0006 Frage, Eingänge, Pass- und Stoppkriterien besitzen;
-- GATE-0001, Stack, Oberfläche, erster Vertikalablauf und Writer offen bleiben;
+- GATE-0001 und der erste E-Book-Vertikalablauf bei Abschluss von WI-0003 noch
+  offen dokumentiert waren; ihre spätere Neubewertung bleibt ein getrenntes
+  Artefakt, während Stack, Oberfläche und Writer weiterhin offen sind;
 - Registry, Dokumentlinks, Datenschutz und Repository-Validierung erfolgreich
   geprüft sind.

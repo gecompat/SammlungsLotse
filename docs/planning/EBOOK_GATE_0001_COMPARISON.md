@@ -1,71 +1,92 @@
 # GATE-0001: Vergleich des ersten E-Book-Vertikalablaufs
 
-Status: AUSGEWERTET — VERTAGT; GATE OFFEN
+Status: AUSGEWERTET — EINGANGSTRIAGE ANGENOMMEN; GATE GESCHLOSSEN
 
 Stand: 2026-08-27
 
 Artifact: GATE-0001
 
-## Ergebnis
+## Ergebnis der Neubewertung
 
-GATE-0001 nimmt derzeit weder die Eingangstriage noch die Bestandsprüfung als
-ersten Vertikalablauf an. Die Auswahl wird begründet vertagt.
+GATE-0001 nimmt die **Eingangstriage (S2)** als ersten begrenzten read-only
+E-Book-Vertikalablauf an. Die Bestandsprüfung (S1) bleibt eine mögliche
+spätere Produktrolle, wird aber nicht als erster E-Book-Ablauf ausgewählt.
 
-Die Bestandsprüfung besitzt die breitere Kette bereits ausgeführter
-Experimente. Diese Kette ist jedoch noch kein vollständiger Nutzerablauf und
-stützt sich auf eine Calibre-Copy-on-read-Grenze sowie ein nicht
-produktqualifiziertes Ace-Profil. Die Eingangstriage ist weniger an ein
-Fachsystem gekoppelt und besitzt den kleineren Ausstiegsaufwand. Ihr
-sicherheitskritischer erster Entscheid — welche Eingänge stabil, unterstützt,
-geschützt, riskant oder nicht tief prüfbar sind — ist aber noch nicht als
-zusammenhängendes Profil empirisch belegt.
+Die Annahme gilt ausschließlich für den kleinsten vollständigen Nutzwert:
 
-Eine Auswahl allein nach der Zahl bestandener Experimente würde diese
-unterschiedlichen Evidenzlücken verdecken. Die Vertagung hält beide
-Ausstiegswege offen und autorisiert weder Produktcode noch einen Writer.
+1. genau einen ausdrücklich gewählten lokalen Eingang als stabilen,
+   unveränderten Snapshot erfassen;
+2. einen flachen, begrenzten Preflight ausführen;
+3. Formatfähigkeit, Schutz-, Risiko- und Reviewzustand mit Evidenz sichtbar
+   machen;
+4. genau eine begründete nächste Aktion ausgeben: tiefe read-only Prüfung
+   fortsetzen, vertagen, stoppen, manuell prüfen oder sich enthalten.
 
-## Fortschreibung nach EXP-0006
+EXP-0006 schließt die in der ersten Auswertung benannte kritische S2-Lücke
+für genau diesen Preflight: 11/11 vorab gebundene Matrixzeilen und 16/16
+Akzeptanzkriterien bestanden, kritische Fehlfreigaben waren null, beide
+Wiederholungen semantisch identisch und die Netzwerk-, Dateisystem-, Prozess-
+und Ressourcengrenzen wirksam. Das genügt, um den kleinsten Ablauf begrenzt
+zu planen; es belegt noch keinen Produktablauf.
 
-EXP-0006 wurde nach dieser ersten Vergleichsauswertung als getrennte
-Evidenzwelle ausgeführt und hat 16/16 Akzeptanzkriterien sowie 11/11 vorab
-gebundene Preflight-Zeilen bestanden. Kritische Fehlfreigaben waren null, die
-beiden Wiederholungen semantisch identisch und die protokollierten Netzwerk-,
-Dateisystem-, Prozess- und Ressourcengrenzen wirksam.
+S2 wird S1 vorgezogen, weil es vor Fachsystem-, Format- und Werkzeugadaptern
+stoppen kann und damit den geringeren Kopplungs- und Ausstiegsaufwand besitzt.
+Die asymmetrischen Fehlerkosten sind im angenommenen Ausschnitt beherrschbar:
+Unsicherheit führt zu Review, Vertagung, Stopp oder Enthaltung, nicht zur
+Freigabe. S1 besitzt zwar eine breitere Kette einzelner Experimente, setzt
+aber bereits eine Calibre-spezifische Copy-on-read-Grenze voraus und enthält
+mit dem nicht produktqualifizierten Ace-Profil einen zusätzlichen offenen
+Werkzeugpfad.
 
-Die nachfolgende Vergleichstabelle hält weiterhin den Befund der ersten
-Gate-Auswertung fest. Diese Experiment-Wave nimmt keinen Kandidaten an und
-schreibt das Gate nicht stillschweigend um. GATE-0001 bleibt `proposed` und
-wird als nächster getrennter Planungsschritt mit dem versionierten Ergebnis
-neu ausgewertet.
+Die Auswahl legt weder die erste Medien- oder Implementierungslinie des
+Gesamtprodukts noch Stack, UI oder Produktarchitektur fest. Der nächste
+Schritt ist ein **eigener registrierter Planungsgegenstand** für den dünnen
+read-only Prototyp. GATE-0001 allein autorisiert keinen Produktcode.
 
-## Entscheidungsgrenze
+## Annahmegrenze
 
-Verglichen werden ausschließlich zwei read-only Produktzuschnitte:
+Angenommen sind nur:
 
-- **Bestandsprüfung (S1):** eine explizit ausgewählte Calibre-Bibliothek als
-  begrenzten Snapshot erfassen, Qualitäts- und Identitätsbefunde ableiten und
-  Review-Kandidaten begründen;
-- **Eingangstriage (S2):** einen stabilen neuen Datei-Snapshot erfassen,
-  Format-, Schutz-, Sicherheits- und Qualitätsfähigkeit bestimmen und
-  begründete nächste Entscheidungen oder Enthaltung ausgeben.
+- explizite Auswahl genau eines lokalen Eingangs; Entwicklung und Abnahme
+  verwenden ausschließlich synthetische Fixtures;
+- stabiler, unveränderter Snapshot mit nachprüfbarer Eingangsidentität;
+- flacher Format-, Schutz-, Sicherheits- und Fähigkeits-Preflight;
+- getrennte Rohbeobachtung, abgeleitete Klassifikation und Begründung;
+- fail-closed Entscheidung zwischen Fortsetzen, Vertagen, Stoppen, Review
+  und Enthaltung;
+- lokale, netzwerklose, begrenzte und unterbrechbare Ausführung;
+- sichtbarer Abschluss ohne Änderung am Original oder an einem Fachsystem.
 
-Nicht entschieden werden Stack, Programmiersprache, Persistenz, Suche,
-Oberfläche, öffentlicher Vertrag, konkreter Produktadapter, Produktwerkzeug,
-Deployment, FolioTone-Übernahme oder schreibende Fähigkeit.
+Nicht angenommen oder entschieden sind:
+
+- Calibre-Zielbestand, Bestandsprüfung oder Fachsystemintegration;
+- tiefe EPUB-, Accessibility-, Rendering- oder Reader-Prüfung;
+- Dubletten-, Werk-, Ausgaben-, Metadaten- oder Routingentscheidung;
+- produktiver Parser, konkretes Werkzeug oder Produktcontainer;
+- Programmiersprache, Laufzeit, Persistenz, Suche oder öffentlicher Vertrag;
+- Oberfläche, Deployment, KI-, Modell- oder Metadatenprovider;
+- FolioTone-Übernahme, Transformation, Import oder andere Schreibfähigkeit;
+- erste Medienlinie, erste Implementierungs-Wave oder Produktroadmap.
+
+Jeder ausgeschlossene Ast benötigt eine eigene Planung und darf den
+angenommenen Preflight nur über einen austauschbaren, ausdrücklich
+autorisierten Vertrag erweitern. Er kann angenommen, vertagt oder verworfen
+werden, ohne die Gate-Entscheidung umzudeuten.
 
 ## Bewertungsverfahren
 
 Jedes Kriterium verwendet dasselbe Vokabular:
 
-- `BELEGT`: durch den versionierten Vertrag und ausgeführte Evidenz gedeckt;
-- `TEILWEISE`: relevante Evidenz liegt vor, aber nicht für den vollständigen
-  Kandidatenablauf;
-- `OFFEN`: die für eine Gate-Annahme notwendige Evidenz fehlt;
+- `BELEGT`: durch den versionierten Vertrag und ausgeführte Evidenz für die
+  Gate-Entscheidung gedeckt;
+- `TEILWEISE`: relevante Evidenz liegt vor, aber nicht für den gesamten
+  möglichen späteren Kandidatenumfang;
+- `OFFEN`: notwendige Evidenz fehlt;
 - `NICHT_ANWENDBAR`: das Kriterium gehört nicht zum Kandidaten.
 
-Die Einstufungen werden nicht zu einer Punktzahl verdichtet. Ein einzelner
-sicherheits- oder wirkungsrelevanter offener Punkt kann eine Gate-Annahme
-verhindern.
+Die Einstufungen werden nicht zu einer Punktzahl verdichtet. Der schwerste
+Restfehler, seine Wirkung, die fail-closed Reaktion sowie Kopplungs- und
+Ausstiegsaufwand entscheiden stärker als die Anzahl bestandener Versuche.
 
 ## Gemeinsame Evidenzbasis
 
@@ -74,98 +95,76 @@ verhindern.
   synthetische Zielbibliotheken über Copy-on-read;
 - EXP-0003: verlustfreie EPUBCheck- und Ace-Rohbefunde für sieben Fälle;
 - EXP-0004: sechs Sollpaare auf fünf getrennten Identitätsebenen;
-- EXP-0005: begrenzte netzwerklose EPUBCheck-Ausführung unter Podman.
+- EXP-0005: begrenzte netzwerklose EPUBCheck-Ausführung unter Podman;
+- EXP-0006: begrenzter Eingangstriage-Preflight mit 11/11 Matrixzeilen,
+  16/16 Akzeptanzkriterien, null kritischen Fehlfreigaben und zwei
+  semantisch identischen Wiederholungen.
 
 Die vier TEST-0001-`Ausbau`-Fälle sind nicht materialisiert. Alle Experimente
 verwenden kleine synthetische Eingänge. Keines qualifiziert einen
-Produktadapter, einen vollständigen Ablauf oder einen Technologie-Stack.
+Produktadapter, einen vollständigen Produktablauf oder einen
+Technologie-Stack.
 
-## Vergleich
+## Neubewertung
 
-| Kriterium | Bestandsprüfung | Eingangstriage |
+| Kriterium | Bestandsprüfung (S1) | Eingangstriage (S2) |
 |---|---|---|
-| Nutzerfrage und erlaubte Wirkung | `BELEGT`: S1 begrenzt den Ablauf auf begründete Befunde und Review-Kandidaten | `BELEGT`: S2 begrenzt den Ablauf auf Klassifikation, Kandidaten und Enthaltung |
-| Vollständiger ausführbarer Ablauf | `OFFEN`: Projektion, Werkzeugbefund und Identitätsbewertung wurden getrennt, nicht als Nutzerablauf, ausgeführt | `OFFEN`: Einzelbefunde bestehen, aber der vorgelagerte Fähigkeitsentscheid wurde nicht zusammenhängend ausgeführt |
-| Eingang und Snapshot | `TEILWEISE`: zwei synthetische Bibliotheken sind reproduzierbar; direkter read-only Mount ist widerlegt, Content Server offen | `TEILWEISE`: stabile, wachsende, unbekannte, defekte, geschützte und riskante Kernfälle existieren; ein gemeinsames Preflight-Profil fehlt |
-| Format- und Sicherheitsabdeckung | `TEILWEISE`: EPUBCheck und Containergrenzen sind belegt; Ace ist nicht produktqualifiziert und andere Bestandsformate sind nicht breit geprüft | `TEILWEISE`: relevante TEST-0001-Oracles existieren; ihre sichere Reihenfolge und Klassifikationsgüte sind nicht empirisch belegt |
-| Identitäts- und Dublettenevidenz | `TEILWEISE`: fünf Ebenen sind an sechs gezielten Paaren belegt, jedoch nicht an einem vollständigen Bestand | `TEILWEISE`: dieselbe kleine Evidenz unterstützt Kandidaten gegen Zielbestände, aber keine Eingangsentscheidung im Ganzen |
-| Messbarkeit und Enthaltung | `TEILWEISE`: getrennte Metriken und Enthaltung sind definiert; Nutzerreview und End-to-End-Abdeckung fehlen | `TEILWEISE`: Fehlerkosten und Metriken sind definiert; besonders Schutzklassifikation und Enthaltungsqualität wurden nicht als Ablauf gemessen |
-| Datenschutz, Netzwerk und Ressourcen | `TEILWEISE`: enge Experimentprofile sind belegt; das Profil des zusammengesetzten Ablaufs fehlt | `TEILWEISE`: unveränderte Eingänge und Werkzeugisolation sind belegt; das Preflight- und Ablaufprofil fehlt |
-| Fachsystemkopplung und Ausstieg | `TEILWEISE`: unterstützter CLI-Weg und pfadbereinigte Projektion sind eng begrenzt; Copy-on-read bleibt Calibre-spezifisch | `BELEGT`: der Zuschnitt setzt kein führendes Fachsystem voraus und kann vor jedem tieferen Adapter stoppen |
-| Austauschbarkeit der Werkzeuge | `TEILWEISE`: Rohberichte bleiben getrennt; die konkrete Produktalternative zu Ace ist offen | `TEILWEISE`: tiefe Werkzeuge können hinter dem Fähigkeitsentscheid austauschbar bleiben; dieser Vertrag ist noch nicht ausgeführt |
-| Schwerster Restfehler | übersehener schwerer Bestandsbefund bei nur teilweise erfasstem Bestand | gefährlicher oder unvollständiger Eingang wird zu früh als tief prüfbar eingestuft |
-| Gate-Reife | `NICHT ANNEHMBAR` | `NICHT ANNEHMBAR` |
+| Nutzerfrage und erlaubte Wirkung | `BELEGT`: S1 begrenzt den Ablauf auf begründete Befunde und Review-Kandidaten | `BELEGT`: S2 begrenzt den Ablauf auf Klassifikation, nächste read-only Aktion und Enthaltung |
+| Kleinster vollständig begrenzbarer Ablauf | `TEILWEISE`: Projektion, Werkzeugbefund und Identitätsbewertung wurden getrennt ausgeführt; ein kleiner gemeinsamer Abschluss ist nicht belegt | `BELEGT`: expliziter Eingang, stabiler Snapshot, flacher Preflight und sichtbare nächste Aktion bilden einen vollständigen planbaren Ausschnitt |
+| Eingang und Snapshot | `TEILWEISE`: zwei synthetische Bibliotheken sind reproduzierbar; direkter read-only Mount ist widerlegt, Content Server offen | `BELEGT`: EXP-0006 trennt stabile, wachsende, unbekannte, defekte, geschützte und riskante Kernfälle reproduzierbar |
+| Format- und Sicherheitsabdeckung | `TEILWEISE`: EPUBCheck und Containergrenzen sind belegt; Ace ist nicht produktqualifiziert und andere Bestandsformate sind nicht breit geprüft | `BELEGT` für den flachen Preflight; `TEILWEISE` für spätere tiefe Formatwerkzeuge, die nicht Teil der Annahme sind |
+| Identitäts- und Dublettenevidenz | `TEILWEISE`: fünf Ebenen sind an sechs gezielten Paaren belegt, jedoch nicht an einem vollständigen Bestand | `TEILWEISE`: Eingangsidentität und Unverändertheit sind belegt; Dubletten- und Werkbeziehungen bleiben außerhalb der Annahme |
+| Messbarkeit und Enthaltung | `TEILWEISE`: getrennte Metriken und Enthaltung sind definiert; Nutzerreview und End-to-End-Abdeckung fehlen | `BELEGT` für Preflight-Fehlerkosten, kritische Fehlfreigabe, Folgeaktion und Reproduzierbarkeit; Nutzeroberfläche bleibt offen |
+| Datenschutz, Netzwerk und Ressourcen | `TEILWEISE`: enge Experimentprofile sind belegt; das Profil des zusammengesetzten Ablaufs fehlt | `BELEGT` für den angenommenen Preflight: Eingänge unverändert, Netzwerk und Schreibwirkung null, Ressourcen und Abbruch begrenzt |
+| Fachsystemkopplung und Ausstieg | `TEILWEISE`: unterstützter CLI-Weg und pfadbereinigte Projektion sind eng begrenzt; Copy-on-read bleibt Calibre-spezifisch | `BELEGT`: kein führendes Fachsystem erforderlich; der Ablauf kann vor jedem tieferen Adapter stoppen |
+| Austauschbarkeit der Werkzeuge | `TEILWEISE`: Rohberichte bleiben getrennt; eine Produktalternative zum erprobten Ace-Profil ist offen | `BELEGT` an der Annahmegrenze, weil kein tiefes Werkzeug erforderlich ist; konkrete spätere Werkzeugadapter bleiben offen |
+| Schwerster Restfehler | übersehener schwerer Bestandsbefund bei nur teilweise erfasstem Bestand | gefährlicher oder unvollständiger Eingang wird zu früh freigegeben; EXP-0006 belegt für den engen Preflight die fail-closed Reaktion ohne kritische Fehlfreigabe |
+| Gate-Reife | `NICHT ALS ERSTER ABLAUF ANGENOMMEN` | `ANNEHMBAR ALS BEGRENZTER ERSTER READ-ONLY E-BOOK-ABLAUF` |
 
 ## Prüfung der Gate-Voraussetzungen
 
 | Voraussetzung aus dem Erkundungsplan | Befund |
 |---|---|
-| Nutzerfragen und vollständiger Ablauf | Nutzerfragen sind beschrieben; ein vollständiger ausführbarer Ablauf fehlt für beide Kandidaten |
-| Messbare Akzeptanzkriterien | für S1 und S2 beschrieben, noch nicht End-to-End erhoben |
-| ausreichende TEST-0001-Fassung | gemeinsame Kernfälle sind `ready`; die kandidatspezifische Ablaufabdeckung ist nur teilweise belegt |
-| relevante Experimentergebnisse | EXP-0002 bis EXP-0005 liegen vor und zeigen auch Negativbefunde |
-| Objekt- und Adaptergrenzen | als Produktgrenzen beschrieben, nicht als angenommener Anwendungsvertrag konkretisiert |
-| Datenschutz-, Netzwerk- und Ressourcenprofil | für einzelne Experimente belegt, nicht für einen vollständigen Kandidatenablauf |
-| Ausstiegswege wesentlicher Abhängigkeiten | Eingangstriage ist fachsystemneutral; Calibre- und Ace-Ausstieg sind nur teilweise geklärt |
-| Vergleich mehrerer Produktzuschnitte | mit diesem Dokument erfüllt |
-| Auswahl oder Vertagung | begründete Vertagung; GATE-0001 bleibt offen |
+| Nutzerfrage und vollständiger Ablauf | S2 ist vom expliziten Eingang bis zur sichtbaren nächsten Aktion vollständig beschrieben und begrenzt; die Produktimplementierung folgt erst in einem eigenen Arbeitsgegenstand |
+| Messbare Akzeptanzkriterien | S2-Preflight, Fehlerkosten, Enthaltung, Reproduzierbarkeit und Unverändertheit sind beschrieben und in EXP-0006 gemessen |
+| ausreichende TEST-0001-Fassung | 26 `Kern`-Fälle und die 11 gebundenen Preflight-Zeilen reichen für den angenommenen dünnen Ausschnitt; `Ausbau` bleibt späteren Ästen vorbehalten |
+| relevante Experimentergebnisse | EXP-0002 bis EXP-0006 liegen einschließlich Negativbefunden versioniert vor |
+| Objekt- und Adaptergrenzen | Snapshot, Rohbeobachtung, Klassifikation, Folgeaktion und spätere Adapter sind für die Planung trennbar; konkrete Produktverträge bleiben Aufgabe des nächsten Arbeitsgegenstands |
+| Datenschutz-, Netzwerk- und Ressourcenprofil | für den angenommenen Preflight durch EXP-0005 und EXP-0006 belegt; ein späteres Produktprofil muss erneut qualifiziert werden |
+| Ausstiegswege wesentlicher Abhängigkeiten | S2 ist an der Annahmegrenze fachsystem- und tiefwerkzeugneutral und kann fail-closed stoppen |
+| Vergleich mehrerer Produktzuschnitte | S1 und S2 wurden gegen dieselben Voraussetzungen, Fehlerfolgen und Kopplungskosten verglichen |
+| Auswahl oder Vertagung | S2 ist innerhalb der dokumentierten Annahmegrenze ausgewählt; GATE-0001 ist `done` |
 
-Damit ist die Vergleichsarbeit abgeschlossen, nicht aber das Gate zur
-Produktimplementierung.
+Damit ist das Auswahl-Gate abgeschlossen. Die Implementierung und ihre
+Abnahme sind ausdrücklich noch offen.
 
-## Genau eine ausgeführte Evidenzwelle
+## Historie: erste Auswertung und genau eine Evidenzwelle
 
-Vor der erneuten Gate-Auswertung wurde genau eine weitere Evidenzwelle
-verfolgt: **read-only Eingangstriage-Preflight für Format- und
-Fähigkeitsklassifikation**. Sie ist als EXP-0006 registriert, unter
-[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md) spezifiziert und empirisch
-abgeschlossen.
+Die erste Auswertung vertagte beide Kandidaten. S1 besaß die breitere Kette
+aus EXP-0002 bis EXP-0005, aber keinen vollständigen Nutzerablauf und bereits
+Calibre- sowie Ace-Kopplung. S2 hatte den geringeren Kopplungs- und
+Ausstiegsaufwand, aber noch keinen empirisch zusammenhängenden
+sicherheitskritischen Fähigkeitsentscheid.
 
-Die Wave soll ausschließlich mit synthetischen TEST-0001-Eingängen prüfen,
-ob vor jedem tiefen Werkzeuglauf reproduzierbar unterschieden werden kann:
+Daraufhin wurde genau eine weitere Evidenzwelle verfolgt: EXP-0006,
+**read-only Eingangstriage-Preflight für Format- und
+Fähigkeitsklassifikation**. Profil, Eingänge, erwartete Ergebnisse und
+Stopkriterien wurden vor den gewerteten Wiederholungen versioniert. Der
+Versuch hat keinen Produktcode, keine UI, keine Persistenz, keinen Writer und
+keine reale oder private Datei eingeführt.
 
-- stabil und für eine explizit unterstützte tiefe Prüfung geeignet;
-- noch instabil und deshalb zu vertagen;
-- unbekanntes oder nicht unterstütztes Format;
-- geschützt oder verschlüsselt, ohne Schutzumgehung;
-- strukturell defekt oder mit aktivem beziehungsweise entferntem Inhalt;
-- durch Pfad-, Expansion-, Zeit- oder andere Ressourcengrenzen zu stoppen;
-- nicht sicher entscheidbar und deshalb manuell zu prüfen oder zu enthalten.
+Die Neubewertung ersetzt nicht diesen historischen Befund. Sie verwendet das
+danach versionierte Ergebnis, um den bereits vorab festgelegten ersten
+zulässigen Ausgang anzuwenden: S2 annehmen, wenn der Preflight die kritische
+Lücke schließt und der kleinste vollständige read-only Ablauf begrenzbar ist.
 
-### Mindestnachweis
+## Nächster getrennter Schritt
 
-- alle einschlägigen vorhandenen TEST-0001-`Kern`-Oracles werden abgedeckt;
-- die Inhaltsbeobachtung schlägt Dateiendung und ungeprüfte Metadaten;
-- tiefe Parser und Werkzeuge starten nur nach einer positiven Fähigkeit;
-- `unsupported`, `unknown`, Reviewbedarf und Enthaltung bleiben getrennt;
-- Originalhashes bleiben unverändert, Netzwerk- und Schreibwirkungen sind
-  null und Ressourcenabbrüche sind begrenzt;
-- zwei unabhängige Wiederholungen erzeugen dieselben semantischen Ergebnisse;
-- Fehlklassifikationen werden nach den asymmetrischen S2-Fehlerkosten
-  ausgewiesen, nicht durch einen Gesamtscore verdeckt;
-- Profil, Eingänge, erwartete Ergebnisse und Stopkriterien sind vor dem Lauf
-  versioniert.
+In einer eigenen Planungs-Wave wird ein neuer Arbeitsgegenstand registriert.
+Er konkretisiert Akzeptanz, Vertragsgrenzen und Abnahme für einen dünnen
+read-only Prototyp des angenommenen Ablaufs. Erst dessen ausdrückliche
+Annahme darf Produktcode autorisieren.
 
-EXP-0006 ist `done`. Exaktes Ausführungsprofil, wegwerfbarer Runner,
-Ergebnisvertrag und Ergebnisvalidator wurden vor den gewerteten
-Wiederholungen versioniert. Der Versuch hat keinen Produktcode, keine UI,
-keine Persistenz, keinen Writer und keine reale oder private Datei
-eingeführt.
-
-## Wiederöffnung und Ausgänge
-
-Nach genau dieser Evidenzwelle wird GATE-0001 getrennt erneut ausgewertet.
-Zulässig bleiben drei Ausgänge:
-
-1. Eingangstriage annehmen, wenn der Preflight die kritische S2-Lücke
-   schließt und der kleinste vollständige read-only Ablauf begrenzbar ist;
-2. Bestandsprüfung annehmen, wenn die Eingangstriage-Lücke nicht mit einem
-   vertretbar engen Profil geschlossen werden kann und S1 als kleinerer,
-   klarer begrenzter Ablauf begründet wird;
-3. beide verwerfen oder erneut vertagen, aber nur mit einem neu benannten
-   entscheidenden Blocker; daraus folgt nicht automatisch eine weitere
-   Experimentserie.
-
-Keine dieser Optionen autorisiert einen Writer. Ein angenommener
-Vertikalablauf müsste anschließend als eigener registrierter Arbeitsgegenstand
-geplant werden.
+Der nächste Gegenstand darf GATE-0001 nicht stillschweigend um tiefe
+Formatprüfung, Calibre, Dubletten, Metadaten, Routing, Persistenz, UI oder
+Writes erweitern. Solche Äste bleiben getrennte, reversible Entscheidungen.
