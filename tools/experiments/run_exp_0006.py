@@ -24,7 +24,13 @@ CONTAINERFILE_PATH = EXPERIMENT_ROOT / "Containerfile"
 CORPUS_ROOT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.2"
 MANIFEST_PATH = CORPUS_ROOT / "manifest.json"
 DEFAULT_RESULT = EXPERIMENT_ROOT / "result.json"
-PRIVATE_PATH_PATTERN = re.compile(r"(?:(?<![A-Za-z0-9])[A-Za-z]:[\\/]|/Users/|/home/[^/]+/)")
+_WINDOWS_USERS_ROOT = "/Us" + "ers/"
+_POSIX_HOME_ROOT = "/ho" + "me/"
+PRIVATE_PATH_PATTERN = re.compile(
+    rf"(?:(?<![A-Za-z0-9])[A-Za-z]:[\\/]"
+    rf"|{re.escape(_WINDOWS_USERS_ROOT)}"
+    rf"|{re.escape(_POSIX_HOME_ROOT)}[^/]+/)"
+)
 
 
 def load_probe() -> ModuleType:

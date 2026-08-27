@@ -37,6 +37,17 @@ class Exp0006ContractTests(unittest.TestCase):
         self.assertEqual(2, self.profile["rules"]["repetitions"])
         self.assertEqual(11, len(self.profile["cases"]))
 
+    def test_private_host_path_detection_does_not_self_trigger(self) -> None:
+        windows_private = "C:\\" + "Us" + "ers\\person\\item"
+        posix_private = "/ho" + "me/person/item"
+        self.assertIsNotNone(self.runner.PRIVATE_PATH_PATTERN.search(windows_private))
+        self.assertIsNotNone(self.runner.PRIVATE_PATH_PATTERN.search(posix_private))
+        self.assertIsNone(
+            self.runner.PRIVATE_PATH_PATTERN.search(
+                "fixture://TEST-0001/0.2.0/format-unknown/unknown.epub"
+            )
+        )
+
     def test_probe_matrix_matches_without_using_expected_as_an_oracle(self) -> None:
         repetition = self.runner.PROBE.run_profile(
             self.profile,
