@@ -14,8 +14,10 @@ dauerhaft; ihre Implementierungen dürfen wegwerfbar bleiben.
 
 Kein Experiment wählt den Produkt-Stack, baut eine gemeinsame
 Produktarchitektur oder autorisiert einen Writer. Alle Eingänge stammen aus
-TEST-0001. Reale Calibre-Bibliotheken und private Medien bleiben außerhalb
-des Umfangs.
+TEST-0001. Dessen synthetischer Kern liegt validiert in Fixture-Version
+`0.1.0` vor; werkzeugspezifische Materialisierung bleibt Teil des jeweiligen
+Experimentprofils. Reale Calibre-Bibliotheken und private Medien bleiben
+außerhalb des Umfangs.
 
 ## Gemeinsamer Experimentvertrag
 

@@ -27,6 +27,8 @@ jobs:
           python .ai/foundation/artifact_registry_github/registry_semantic.py
           validate
           --registry .ai/artifact_registry.json
+      - name: Validate TEST-0001 E-book fixture corpus
+        run: python tools/fixtures/validate_ebook_reference_corpus.py
       - name: Run governance tests
         run: python -m unittest discover -s tests -p "test_*.py"
       - name: Compile governance tools
@@ -34,3 +36,4 @@ jobs:
           python -m compileall -q
           .ai/foundation/artifact_registry_github
           tools/governance
+          tools/fixtures

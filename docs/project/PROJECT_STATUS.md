@@ -33,8 +33,11 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
   und asymmetrischen Fehlerkosten;
 - vorgeschlagene Anforderung REQ-0002 sowie getrennte Experimentverträge
   EXP-0002 bis EXP-0005;
-- konkretisierter, noch nicht ausgeführter Testvertrag TEST-0001 mit Kern-
-  und Ausbau-Sollfällen.
+- ausführbarer Testvertrag TEST-0001 mit 26 validierten synthetischen
+  `Kern`-Fällen, 44 manifestierten Komponenten und vier weiterhin offenen
+  `Ausbau`-Fällen;
+- netzwerkloser, ausschließlich auf der Python-Standardbibliothek beruhender
+  Generator und read-only Validator für TEST-0001-Fixture-Version `0.1.0`.
 
 ## Nicht vorhanden
 
@@ -45,9 +48,20 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - öffentliche REST-, Agent-, CLI- oder Browser-Schnittstelle;
 - angenommener Entwicklungsbacklog oder freigegebene technische Roadmap;
 - übernommener FolioTone-Code;
+- ausgeführte Ergebnisse aus EXP-0002 bis EXP-0005;
 - Release.
 
 ## Validierung
+
+TEST-0001-Fixture-Wave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
+am 2026-08-27 unter Python 3.12.10. Der Fixture-Validator bestätigte 26
+`Kern`-Fälle und 44 Komponenten, vollständige Hash- und Herkunftsangaben,
+zentrale Fallorakel, bytegenaue Regeneration und unveränderte Eingänge. Der
+kontrollierte 100-ms-Timeout, Pfad-Traversal-Erkennung,
+Expansion-Limit-Erkennung, positive und negative Identitätspaare sowie beide
+Routingresultate waren erfolgreich. Zehn synthetische Unit-Tests,
+`compileall` und `git diff --check` waren erfolgreich. Externe E-Book-Werkzeuge
+und EXP-0002 bis EXP-0005 wurden nicht ausgeführt.
 
 B1-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
 2026-08-27. `tools/governance/validate_repository.py` und die
@@ -117,11 +131,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes werden die
-`Kern`-Fälle von TEST-0001 reproduzierbar erzeugt, mit Herkunft, Hashes und
-maschinenlesbaren Oracles manifestiert und tatsächlich validiert. Erst danach
-werden EXP-0002 bis EXP-0005 gegen die passenden Fixtures ausgeführt.
-GATE-0001 bleibt bis zu diesen Ergebnissen offen.
+WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes wird für
+EXP-0005 ein genau begrenztes Werkzeug- und Ausführungsprofil einschließlich
+Lizenz, Herkunft, Netzwerk-, Dateisystem-, Prozess- und Ressourcenvertrag
+ausgewählt und anschließend gegen die passenden TEST-0001-Fixtures
+qualifiziert. EXP-0002 und EXP-0003 folgen unabhängig davon; EXP-0004 folgt
+erst mit vollständigen positiven und negativen Sollpaaren. GATE-0001 bleibt
+bis zu diesen Ergebnissen offen.
 
 ## Offene Punkte
 
@@ -134,7 +150,9 @@ GATE-0001 bleibt bis zu diesen Ergebnissen offen.
 
 ## Blocker
 
-Keine bekannten Blocker für die synthetische TEST-0001-Fixture-Wave. Die
-fehlenden Fixtures blockieren die Ausführung von EXP-0002 bis EXP-0005. Die
-fehlende Auswahl des ersten Vertikalablaufs ist beabsichtigt und blockiert
-Produktimplementierung sowie schreibende Fähigkeiten.
+Keine bekannten Blocker für die Vorbereitung von EXP-0005. Vor seiner
+Ausführung fehlt bewusst noch das geprüfte Werkzeug- und Ausführungsprofil.
+Werkzeugspezifische Calibre- und EPUB-Prüfmaterialisierung bleibt Bestandteil
+von EXP-0002 beziehungsweise EXP-0003. Die fehlende Auswahl des ersten
+Vertikalablaufs ist beabsichtigt und blockiert Produktimplementierung sowie
+schreibende Fähigkeiten.

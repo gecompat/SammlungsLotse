@@ -1,0 +1,1 @@
+"""Synthetic fixture contract tests."""
