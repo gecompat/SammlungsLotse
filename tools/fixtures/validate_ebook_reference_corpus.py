@@ -18,7 +18,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[2]
-CORPUS_ROOT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.1"
+CORPUS_ROOT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.2"
 GENERATOR_PATH = ROOT / "tools" / "fixtures" / "generate_ebook_reference_corpus.py"
 TEXT_SUFFIXES = {".json", ".opf", ".py", ".svg", ".txt", ".xhtml", ".xml"}
 BINARY_FIXTURE_SUFFIXES = {".epub", ".part", ".pdf"}
@@ -394,7 +394,8 @@ def validate_case_semantics(
         if not infos or infos[0].filename != "mimetype" or infos[0].compress_type != zipfile.ZIP_STORED:
             problems.append("epub33-valid-reflow violates deterministic mimetype placement")
         package = entries.get("EPUB/package.opf", b"")
-        if entries.get("mimetype") != b"application/epub+zip" or b'version="3.3"' not in package:
+        # EPUB 3.3 publications continue to use OPF package version="3.0".
+        if entries.get("mimetype") != b"application/epub+zip" or b'version="3.0"' not in package:
             problems.append("epub33-valid-reflow lacks expected EPUB 3.3 markers")
         if b'properties="cover-image"' not in package or "EPUB/image.svg" not in entries:
             problems.append("epub33-valid-reflow lacks its declared synthetic cover")
@@ -557,7 +558,7 @@ def validate_reproducibility(corpus_root: Path) -> list[str]:
     tmp_root = ROOT / "tmp"
     tmp_root.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="test-0001-reproduce-", dir=tmp_root) as raw_tmp:
-        regenerated = Path(raw_tmp) / "v0.1"
+        regenerated = Path(raw_tmp) / "v0.2"
         generator.generate(regenerated)
         expected = tree_state(corpus_root)
         actual = tree_state(regenerated)

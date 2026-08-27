@@ -17,8 +17,8 @@ eine Suchtechnik, eine Benutzeroberfläche oder einen Writer zu koppeln.
 Der vollständige fachliche Möglichkeitenraum steht in
 [EBOOK_LANDSCAPE.md](EBOOK_LANDSCAPE.md). Der Plan autorisiert keinen
 Produktcode oder schreibenden Operationstyp. Die TEST-0001-Fixture-
-Validierung wurde ausgeführt; die Experimente EXP-0002 bis EXP-0005 wurden
-noch nicht ausgeführt.
+Validierung wurde ausgeführt; EXP-0005 ist empirisch abgeschlossen. Die
+Experimente EXP-0002 bis EXP-0004 wurden noch nicht ausgeführt.
 
 Die konkretisierten Nutzerentscheidungen und Messverträge stehen in
 [EBOOK_SCENARIOS_AND_METRICS.md](EBOOK_SCENARIOS_AND_METRICS.md). TEST-0001
@@ -145,8 +145,9 @@ Mögliche Messgrößen sind:
 Die konkreten Kern- und Ausbau-Sollfälle, Oracles, Datenregeln und
 Passkriterien stehen in
 [EBOOK_REFERENCE_CORPUS.md](EBOOK_REFERENCE_CORPUS.md). TEST-0001 ist nach
-Erzeugung und Validierung aller 26 `Kern`-Fälle in Fixture-Version `0.1.0`
-`ready`. Die vier `Ausbau`-Fälle und werkzeugspezifische Experimentmaterialien
+Erzeugung und Validierung aller 26 `Kern`-Fälle in der aktiven Fixture-Version
+`0.2.0` `ready`. Version `0.1.0` bleibt als historischer Snapshot erhalten.
+Die vier `Ausbau`-Fälle und weitere werkzeugspezifische Experimentmaterialien
 bleiben offen. Die folgende Liste bleibt die kategorische Übersicht.
 
 Der Referenzkorpus soll kleine, nachvollziehbare Sollfälle statt reale private
@@ -379,17 +380,16 @@ Dokument enthält bewusst keine gewichtete Nutzwertanalyse.
 ## Nächste Analyse
 
 WI-0003 hat B1 auf Dokumentationsebene abgeschlossen. Die TEST-0001-
-Kernfixtures, Oracles, Hashes, Herkunft und verbotenen Wirkungen sind in
-Version `0.1.0` reproduzierbar manifestiert und validiert. WI-0002 bleibt
-`in_progress`. Die nächste Wave beginnt weiterhin keinen Produktcode:
+Kernfixtures, Oracles, Hashes, Herkunft und verbotenen Wirkungen sind in der
+aktiven Version `0.2.0` reproduzierbar manifestiert und validiert. EXP-0005
+hat ein enges Podman-Ausführungsprofil netzwerklos qualifiziert. WI-0002
+bleibt `in_progress`. Die nächsten Waves beginnen weiterhin keinen
+Produktcode:
 
-1. für EXP-0005 genau ein Werkzeug- und Ausführungsprofil auswählen und vor
-   der Ausführung Lizenz, Herkunft und Sicherheitsgrenzen dokumentieren;
-2. EXP-0005 netzwerklos gegen valide, ungültige und ressourcenbegrenzende
-   TEST-0001-Fixtures ausführen;
-3. EXP-0002 und EXP-0003 danach unabhängig mit den passenden Fixtures
+1. EXP-0002 mit zwei synthetischen Calibre-Bibliotheken und einer minimalen
+   read-only Feldprojektion ausführen;
+2. EXP-0003 unabhängig mit EPUBCheck- und Ace-Rohberichten ausführen;
+3. EXP-0004 erst nach vollständigen positiven und negativen Identitätspaaren
    ausführen;
-4. EXP-0004 erst nach vollständigen positiven und negativen Identitätspaaren
-   ausführen;
-5. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
+4. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
    vergleichen.

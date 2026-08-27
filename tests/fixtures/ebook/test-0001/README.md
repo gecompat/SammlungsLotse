@@ -7,8 +7,9 @@ Testvertrags TEST-0001. Sie enthalten ausschließlich unabhängig erzeugte,
 minimale synthetische Daten unter der Projektlizenz MIT.
 
 Der Generator ist
-`tools/fixtures/generate_ebook_reference_corpus.py`. Die versionierte Fassung
-liegt unter `v0.1/`; ihr `manifest.json` enthält für alle 26 `Kern`-Fälle:
+`tools/fixtures/generate_ebook_reference_corpus.py`. Die aktuelle versionierte
+Fassung `0.2.0` liegt unter `v0.2/`; ihr `manifest.json` enthält für alle 26
+`Kern`-Fälle:
 
 - Eingänge und Ablauf-Snapshots;
 - SHA-256 und Größe jeder Komponente;
@@ -16,6 +17,10 @@ liegt unter `v0.1/`; ihr `manifest.json` enthält für alle 26 `Kern`-Fälle:
 - erlaubte Ergebnisse und erwartete Beobachtungs- und Befundschlüssel;
 - verbotene Ergebnisse und Wirkungen;
 - Qualitätsdimension, Ressourcenprofil und Prüfmethode.
+
+`v0.1/` bleibt als unveränderter historischer Snapshot `0.1.0` erhalten. Er
+verwendet im OPF ein durch EXP-0005 als nicht konform erkanntes
+`version="3.3"` und ist nicht mehr die aktive Experimentbasis.
 
 Die vier `Ausbau`-Fälle aus dem Testvertrag sind nicht Bestandteil dieser
 Fassung. Absichtlich ungültige oder riskante Dateien sind im Manifest als

@@ -17,8 +17,8 @@ from typing import Any, Iterable
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_OUTPUT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.1"
-FIXTURE_VERSION = "0.1.0"
+DEFAULT_OUTPUT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.2"
+FIXTURE_VERSION = "0.2.0"
 CREATED_ON = "2026-08-27"
 ZIP_TIMESTAMP = (2020, 1, 1, 0, 0, 0)
 
@@ -186,7 +186,7 @@ def package_opf(
         else ""
     )
     return f"""<?xml version="1.0" encoding="UTF-8"?>
-<package xmlns="http://www.idpf.org/2007/opf" version="3.3" unique-identifier="book-id" xml:lang="{escape(language)}">
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="book-id" xml:lang="{escape(language)}">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
     <dc:identifier id="book-id">{escape(identifier)}</dc:identifier>
     <dc:title>{escape(title)}</dc:title>
