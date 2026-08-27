@@ -43,11 +43,11 @@ class EbookNextDecisionTests(unittest.TestCase):
             if relation["type"] == relation_type
         }
 
-    def test_registry_keeps_experiment_and_release_gate_separate(self) -> None:
+    def test_registry_keeps_evidence_gate_and_accepted_work_item_separate(self) -> None:
         self.assertEqual(self.artifacts["GATE-0002"]["status"], "done")
         self.assertEqual(self.artifacts["EXP-0007"]["status"], "done")
         self.assertEqual(self.artifacts["GATE-0003"]["status"], "done")
-        self.assertEqual(self.artifacts["WI-0005"]["status"], "proposed")
+        self.assertEqual(self.artifacts["WI-0005"]["status"], "accepted")
         self.assertIn(
             "GATE-0002", self.relation_targets("EXP-0007", "depends_on")
         )
@@ -74,13 +74,17 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("GATE-0003 ist getrennt ausgewertet", self.experiment_plan)
         self.assertIn("Produktcode bleibt", self.experiment_plan)
 
-    def test_gate_selects_v2_but_keeps_work_item_unaccepted(self) -> None:
+    def test_gate_history_and_later_work_item_acceptance_remain_separate(self) -> None:
         self.assertIn("ausschließlich V2", self.gate_decision)
         self.assertIn("V3, das erneute Öffnen", self.gate_decision)
         self.assertIn("ist abgelehnt", self.gate_decision)
-        self.assertIn("WI-0005", self.gate_decision)
-        self.assertIn("NICHT ZUR IMPLEMENTIERUNG ANGENOMMEN", self.work_item_plan)
-        self.assertIn("Der Kern kennt nur Snapshot-Bytes", self.work_item_plan)
+        self.assertIn("WI-0005 NUR VORGESCHLAGEN", self.gate_decision)
+        self.assertIn(
+            "ACCEPTED — VERTRAG FESTGELEGT, NOCH NICHT IMPLEMENTIERT",
+            self.work_item_plan,
+        )
+        self.assertIn("Der Kern übergibt nur Snapshot-Bytes", self.work_item_plan)
+        self.assertIn("providerneutralen Ergebnisumschlag", self.work_item_plan)
 
 
 if __name__ == "__main__":
