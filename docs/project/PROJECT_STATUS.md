@@ -31,9 +31,8 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - auf Dokumentationsebene abgeschlossene B1-Wave WI-0003 mit sechs
   Nutzerentscheidungen, Qualitäts- und Automatisierungsmatrix, Messverträgen
   und asymmetrischen Fehlerkosten;
-- vorgeschlagene Anforderung REQ-0002, der weiterhin offene Experimentvertrag
-  EXP-0004 sowie die abgeschlossenen Versuche EXP-0002, EXP-0003 und
-  EXP-0005;
+- vorgeschlagene Anforderung REQ-0002 sowie die abgeschlossenen Versuche
+  EXP-0002 bis EXP-0005;
 - ausführbarer Testvertrag TEST-0001 mit 26 validierten synthetischen
   `Kern`-Fällen, 44 manifestierten Komponenten und vier weiterhin offenen
   `Ausbau`-Fällen;
@@ -49,7 +48,10 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - empirisch bestandenes EXP-0003-Evidenzprofil mit getrennten EPUBCheck- und
   Ace-Rohberichten, verlustfreier Werkzeugprojektion und explizitem manuellem
   Prüfbedarf; das erprobte Ace-Ausführungsprofil ist nicht
-  produktqualifiziert.
+  produktqualifiziert;
+- empirisch bestandenes EXP-0004-Profil mit fünf getrennten Identitätsebenen,
+  positiven, negativen und fehlenden Evidenzkanälen sowie begründeter
+  Enthaltung ohne Bestandswirkung.
 
 ## Nicht vorhanden
 
@@ -60,10 +62,21 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - öffentliche REST-, Agent-, CLI- oder Browser-Schnittstelle;
 - angenommener Entwicklungsbacklog oder freigegebene technische Roadmap;
 - übernommener FolioTone-Code;
-- ausgeführte Ergebnisse aus EXP-0004;
 - Release.
 
 ## Validierung
+
+EXP-0004: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Python
+3.12.10. Fünfzehn Akzeptanzprüfungen waren erfolgreich. Sechs synthetische
+TEST-0001-Sollpaare wurden in zwei semantisch identischen Wiederholungen auf
+Byte-, Paket-, Repräsentations-, Ausgaben- und Werkebene bewertet. Precision,
+Recall und selektive Genauigkeit betrugen auf diesem kleinen gezielten
+Goldstandard je Ebene 1,0, ohne False Positives. Die Ausgabenabdeckung blieb
+bewusst bei 5/6: Leseprobe und Vollausgabe führten auf Ausgabenebene zur
+korrekten Enthaltung. Alle Kandidaten zeigen positive und negative Evidenz;
+fehlende Evidenz blieb separat, Eingaben blieben unverändert und beobachtete
+Schreibwirkungen waren null. Die perfekten synthetischen Werte sind keine
+Produktprognose und qualifizieren weder Produktmodell noch Stack oder Writer.
 
 EXP-0003: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Podman 6.1.0.
 Vierzehn Akzeptanzprüfungen waren über sieben synthetische TEST-0001-Fälle
@@ -111,10 +124,10 @@ zentrale Fallorakel, bytegenaue Regeneration und unveränderte Eingänge. Der
 kontrollierte 100-ms-Timeout, Pfad-Traversal-Erkennung,
 Expansion-Limit-Erkennung, positive und negative Identitätspaare sowie beide
 Routingresultate waren erfolgreich. Zehn synthetische Unit-Tests,
-`compileall` und `git diff --check` waren erfolgreich. EXP-0002, EXP-0003 und
-EXP-0005 wurden getrennt ausgeführt; EXP-0004 bleibt offen. Version `0.1.0`
-bleibt unverändert und ist wegen des dortigen OPF-Literals `version="3.3"`
-nicht mehr die aktive Experimentbasis.
+`compileall` und `git diff --check` waren erfolgreich. EXP-0002 bis EXP-0005
+wurden getrennt ausgeführt. Version `0.1.0` bleibt unverändert und ist wegen
+des dortigen OPF-Literals `version="3.3"` nicht mehr die aktive
+Experimentbasis.
 
 B1-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
 2026-08-27. `tools/governance/validate_repository.py` und die
@@ -184,9 +197,10 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0002 setzt die E-Book-Analyse ergebnisoffen mit EXP-0004 fort. Die
-Identitätsheuristik wird gegen die vollständigen positiven und negativen
-TEST-0001-Sollpaare geprüft. GATE-0001 bleibt bis zu diesem Ergebnis offen.
+WI-0002 setzt die E-Book-Analyse ergebnisoffen mit dem getrennten Vergleich
+der Ergebnisse aus EXP-0002 bis EXP-0005 fort. Eingangstriage und
+Bestandsprüfung werden an den Voraussetzungen von GATE-0001 gegenübergestellt.
+Das Gate bleibt bis zu einer begründeten Auswahl oder Vertagung offen.
 
 ## Offene Punkte
 
@@ -199,6 +213,6 @@ TEST-0001-Sollpaare geprüft. GATE-0001 bleibt bis zu diesem Ergebnis offen.
 
 ## Blocker
 
-Keine bekannten Blocker für EXP-0004. Die fehlende Auswahl des ersten
-Vertikalablaufs ist beabsichtigt und blockiert Produktimplementierung sowie
-schreibende Fähigkeiten.
+Keine bekannten Blocker für den ergebnisoffenen Experimentvergleich. Die
+fehlende Auswahl des ersten Vertikalablaufs ist beabsichtigt und blockiert
+Produktimplementierung sowie schreibende Fähigkeiten.

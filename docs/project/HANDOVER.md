@@ -39,17 +39,21 @@ EXP-0003 ist mit vierzehn erfolgreichen Evidenzkriterien abgeschlossen:
 EPUBCheck- und Ace-Rohberichte bleiben getrennt und verlustfrei, unbekannte
 Codes sowie manueller Prüfbedarf bleiben sichtbar. Das erprobte Ace-Profil
 ist wegen deaktivierter Chromium-Sandbox und offener npm-Advisories nicht
-produktqualifiziert. Der noch nicht ausgeführte Vertrag EXP-0004 steht unter
-docs/planning/EBOOK_EXPERIMENTS.md.
+produktqualifiziert. EXP-0004 ist mit fünfzehn erfolgreichen Kriterien
+abgeschlossen: Sechs Sollpaare bleiben auf fünf Identitätsebenen getrennt,
+Kandidaten zeigen positive und negative Evidenz, fehlende Evidenz bleibt
+separat und Leseprobe/Vollausgabe führt auf Ausgabenebene zur Enthaltung. Die
+perfekten Werte des kleinen synthetischen Goldstandards sind keine
+Produktprognose. Alle Verträge stehen unter docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-Die nächste Arbeit setzt WI-0002 mit EXP-0004 fort. Eine mehrstufige
-Identitätsheuristik wird gegen alle positiven und negativen synthetischen
-TEST-0001-Sollpaare gemessen. Gleichheit, Unterschied und Enthaltung müssen
-je Stufe erklärbar bleiben; fehlende Evidenz darf nicht als negative Evidenz
-gelten. Die Arbeit beginnt weder Produktcode noch einen Writer und trifft
-keine Technologie- oder Vertikalablaufentscheidung vor GATE-0001.
+Die nächste Arbeit setzt WI-0002 mit dem getrennten Vergleich der Ergebnisse
+aus EXP-0002 bis EXP-0005 fort. Eingangstriage und Bestandsprüfung werden an
+den Voraussetzungen von GATE-0001 gegenübergestellt, ohne die wegwerfbaren
+Experimente zu einer Produktimplementierung zusammenzubauen. Die Arbeit
+beginnt weder Produktcode noch einen Writer; das Gate muss eine Auswahl oder
+Vertagung erst begründen.
 
 ## Harte Grenzen
 
@@ -72,11 +76,11 @@ keine Technologie- oder Vertikalablaufentscheidung vor GATE-0001.
 - erster E-Book-Vertikalablauf;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - konkrete Calibre-, Werkzeug- und Metadatenprovider-Adapter;
-- konkrete, empirisch qualifizierte Produktprofile für EXP-0003 und EXP-0004;
-  EXP-0002 qualifiziert nur den Copy-on-read-Calibre-Zugriff, EXP-0003 nur
-  eine Evidenzprojektion mit nicht produktqualifiziertem Ace-Profil und
-  EXP-0005 nur einen wegwerfbaren Sicherheitsweg; keiner dieser Versuche
-  wählt eine Produktlaufzeit;
+- konkrete, empirisch qualifizierte Produktprofile; EXP-0002 qualifiziert nur
+  den Copy-on-read-Calibre-Zugriff, EXP-0003 nur eine Evidenzprojektion mit
+  nicht produktqualifiziertem Ace-Profil, EXP-0004 nur eine kleine
+  synthetische Identitätsheuristik und EXP-0005 nur einen wegwerfbaren
+  Sicherheitsweg; keiner dieser Versuche wählt eine Produktlaufzeit;
 - ein optionales Repository-Continuity-Verfahren mit getrennten Rulesets,
   autorisierten Akteuren und Ausfallschwelle. Bis zu einer angenommenen
   Entscheidung existiert kein Break-Glass-Bypass.

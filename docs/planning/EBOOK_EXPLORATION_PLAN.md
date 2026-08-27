@@ -17,8 +17,8 @@ eine Suchtechnik, eine Benutzeroberfläche oder einen Writer zu koppeln.
 Der vollständige fachliche Möglichkeitenraum steht in
 [EBOOK_LANDSCAPE.md](EBOOK_LANDSCAPE.md). Der Plan autorisiert keinen
 Produktcode oder schreibenden Operationstyp. Die TEST-0001-Fixture-
-Validierung wurde ausgeführt; EXP-0002, EXP-0003 und EXP-0005 sind empirisch
-abgeschlossen. EXP-0004 wurde noch nicht ausgeführt.
+Validierung wurde ausgeführt; EXP-0002 bis EXP-0005 sind empirisch
+abgeschlossen.
 
 Die konkretisierten Nutzerentscheidungen und Messverträge stehen in
 [EBOOK_SCENARIOS_AND_METRICS.md](EBOOK_SCENARIOS_AND_METRICS.md). TEST-0001
@@ -181,8 +181,8 @@ EXP-0001 bleibt der Sammelrahmen. Die nun entscheidungsreifen Fragen für
 read-only Calibre-Projektion, EPUB-Evidenz, gestufte Identität und isolierte
 Werkzeugausführung sind als EXP-0002 bis EXP-0005 registriert. Ihre
 kanonischen Eingänge, Pass-, Fail- und Stoppkriterien stehen in
-[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md). EXP-0002, EXP-0003 und EXP-0005
-sind ausgeführt; EXP-0004 bleibt offen.
+[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md). EXP-0002 bis EXP-0005 sind
+ausgeführt.
 
 #### Calibre-Lesezugang (EXP-0002)
 
@@ -387,11 +387,11 @@ zwei synthetische Calibre-Ziele reproduzierbar und pfadbereinigt über eine
 Copy-on-read-Grenze projiziert; der direkte read-only Mount ist als nicht
 unterstützt belegt. EXP-0003 hat EPUBCheck- und Ace-Rohbefunde verlustfrei
 referenziert, Ace aber wegen offener Sandbox- und Abhängigkeitsrisiken nicht
-produktqualifiziert. WI-0002
-bleibt `in_progress`. Die nächsten Waves beginnen weiterhin keinen
-Produktcode:
-
-1. EXP-0004 mit den vollständigen positiven und negativen Identitätspaaren
-   ausführen;
-2. erst mit den Ergebnissen Eingangstriage und Bestandsprüfung an GATE-0001
-   vergleichen.
+produktqualifiziert. EXP-0004 hat alle sechs Identitäts-Sollpaare zweifach
+auf fünf getrennten Ebenen ausgewertet; die perfekte synthetische Precision
+und der perfekte synthetische Recall sind wegen der kleinen gezielten Menge
+keine Produktprognose. WI-0002 bleibt `in_progress`. Die nächste Analyse
+beginnt weiterhin keinen Produktcode: Eingangstriage und Bestandsprüfung
+werden anhand der nun vorliegenden Experimentergebnisse an GATE-0001
+verglichen. Das Gate bleibt bis zu einer begründeten Auswahl oder Vertagung
+offen.

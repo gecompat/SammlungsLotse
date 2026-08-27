@@ -1,6 +1,6 @@
 # E-Book-Experimentverträge
 
-Status: IN EXECUTION — EXP-0002, EXP-0003 AND EXP-0005 PASSED; EXP-0004 NOT EXECUTED
+Status: RUNTIME_EMPIRICAL COMPLETE — EXP-0002 TO EXP-0005 PASSED
 
 Stand: 2026-08-27
 
@@ -239,6 +239,28 @@ Kernschema.
 - die Methode benötigt reale private Vergleichsdaten, bevor sie am
   synthetischen Goldstandard messbar ist.
 
+### Ausführungsergebnis
+
+EXP-0004 wurde am 2026-08-27 mit dem Profil
+`exp-0004-identity-heuristic/v1` gegen TEST-0001 `0.2.0` ausgeführt und hat
+alle fünfzehn Akzeptanzprüfungen erfüllt. Der versionierte Ergebnis- und
+Profilnachweis steht unter
+[experiments/ebook/exp-0004](../../experiments/ebook/exp-0004/README.md).
+
+Sechs synthetische Sollpaare wurden je zweimal auf Byte-, Paket-,
+Repräsentations-, Ausgaben- und Werkebene bewertet. Precision, Recall und
+selektive Genauigkeit betrugen im kleinen Goldstandard je Ebene 1,0; es gab
+keine False Positives. Die Ausgabenabdeckung blieb bewusst bei 5/6, weil
+Leseprobe und Vollausgabe wegen widersprüchlicher Ausgabenevidenz zur
+korrekten Enthaltung führten. Alle Kandidaten bewahrten positive und negative
+Evidenz, fehlende Evidenz blieb separat und alle Eingänge unverändert.
+
+Der Nachweis qualifiziert kein Produktmodell. Insbesondere sind die sechs
+gezielten Paare, ein einzelner synthetischer Titelqualifikator und ein
+fallgebundener Ausgabenschlüssel keine Evidenz für Robustheit in realen
+Sammlungen. Writer, Zusammenführung und Entfernung blieben vollständig
+außerhalb des Versuchs.
+
 ## EXP-0005 — Isolierte E-Book-Werkzeugausführung
 
 ### Entscheidungsfrage
@@ -325,9 +347,10 @@ EXP-Referenzen reserviert.
 2. EXP-0005 als gemeinsame Sicherheitsqualifikation ausführen — abgeschlossen;
 3. EXP-0002 als getrennte Calibre-Projektion ausführen — abgeschlossen;
 4. EXP-0003 unabhängig mit EPUBCheck- und Ace-Evidenz ausführen — abgeschlossen;
-5. EXP-0004 erst mit vollständigen positiven und negativen Sollpaaren
-   bewerten;
-6. Ergebnisse ohne gemeinsame Spike-Implementierung vergleichen;
+5. EXP-0004 mit vollständigen positiven und negativen Sollpaaren bewerten —
+   abgeschlossen;
+6. Ergebnisse ohne gemeinsame Spike-Implementierung vergleichen — als
+   nächste Analyse offen;
 7. Eingangstriage und Bestandsprüfung an GATE-0001 gegenüberstellen.
 
 Die Reihenfolge ist ein Lernplan und keine freigegebene Produktroadmap.

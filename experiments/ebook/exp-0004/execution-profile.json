@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "experiment": "EXP-0004",
+  "profile_id": "exp-0004-identity-heuristic/v1",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "fixture_manifest_sha256": "324f9e55e230e60df8038e1a7504b8ff002c51f7d55b05e1990c0396ba801c02",
+  "implementation": {
+    "runtime": "Python 3.12 standard library",
+    "external_dependencies": [],
+    "network": "not_used",
+    "input_access": "read_only",
+    "allowed_write": "versioned result.json only",
+    "product_component": false
+  },
+  "stages": [
+    "byte",
+    "package",
+    "representation",
+    "edition",
+    "work"
+  ],
+  "decisions": [
+    "candidate_same",
+    "candidate_related",
+    "different",
+    "abstain",
+    "not_applicable"
+  ],
+  "cases": [
+    "edition-sample-vs-full",
+    "identity-byte-equal",
+    "identity-repackaged",
+    "identity-multiformat-edition",
+    "identity-edition-vs-translation",
+    "identity-title-collision"
+  ],
+  "package_oracle": {
+    "edition-sample-vs-full": "different",
+    "identity-byte-equal": "candidate_same",
+    "identity-repackaged": "candidate_same",
+    "identity-multiformat-edition": "not_applicable",
+    "identity-edition-vs-translation": "different",
+    "identity-title-collision": "different"
+  },
+  "rules": {
+    "title_qualifier_terms": [
+      "leseprobe"
+    ],
+    "max_input_bytes": 262144,
+    "max_expanded_bytes": 1048576,
+    "repetitions": 2,
+    "missing_evidence_is_negative": false,
+    "candidate_triggers_action": false
+  },
+  "measurement": {
+    "positive_labels": {
+      "byte": [
+        "candidate_same"
+      ],
+      "package": [
+        "candidate_same"
+      ],
+      "representation": [
+        "candidate_same"
+      ],
+      "edition": [
+        "candidate_same"
+      ],
+      "work": [
+        "candidate_same",
+        "candidate_related"
+      ]
+    },
+    "metrics": [
+      "precision",
+      "recall",
+      "selective_accuracy",
+      "coverage",
+      "correct_abstention"
+    ]
+  }
+}
