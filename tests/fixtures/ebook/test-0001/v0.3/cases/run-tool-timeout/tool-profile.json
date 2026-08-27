@@ -1,0 +1,9 @@
+{
+  "allowed_outputs": [],
+  "command": [
+    "python",
+    "slow_tool.py"
+  ],
+  "network": "not_used",
+  "timeout_ms": 100
+}

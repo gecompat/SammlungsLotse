@@ -30,10 +30,11 @@ späterer Ast.
 WI-0003 ist auf Dokumentationsebene abgeschlossen. Die sechs
 Nutzerentscheidungen und Messverträge stehen unter
 docs/planning/EBOOK_SCENARIOS_AND_METRICS.md. TEST-0001 ist unter
-docs/planning/EBOOK_REFERENCE_CORPUS.md als aktive Fixture-Version `0.2.0` mit allen
-26 `Kern`-Fällen, 44 Komponenten, Hashes, Herkunft und Oracles ausführbar und
-validiert; `0.1.0` bleibt als historischer Snapshot erhalten. Die vier
-`Ausbau`-Fälle bleiben offen. EXP-0005 ist mit elf erfolgreichen
+docs/planning/EBOOK_REFERENCE_CORPUS.md als aktive Fixture-Version `0.3.0`
+mit allen 26 `Kern`- und vier `Ausbau`-Fällen, 49 Komponenten, Hashes,
+Herkunft und Oracles ausführbar und validiert; `0.1.0` und `0.2.0` bleiben
+historische Snapshots. EXP-0002 bis EXP-0007 und WI-0005 bleiben an den
+historischen Snapshot `0.2.0` gebunden. EXP-0005 ist mit elf erfolgreichen
 Isolationskriterien abgeschlossen. EXP-0002 ist mit dreizehn erfolgreichen
 Calibre-Projektionskriterien abgeschlossen; der direkte read-only Mount ist
 als nicht unterstützt und die Copy-on-read-Grenze als erfolgreich belegt.

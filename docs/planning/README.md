@@ -27,9 +27,9 @@ Experimente und spätere Entscheidungen:
 
 WI-0002 ist nach dem ergebnisoffenen GATE-0001-Vergleich `done`. WI-0003 hat
 sechs read-only Nutzerentscheidungen und Messverträge auf Dokumentationsebene
-abgeschlossen. TEST-0001 ist mit 26
-synthetischen Kernfällen in der aktiven Version `0.2.0` ausführbar und
-`ready`; `0.1.0` bleibt historisch erhalten. EXP-0002 bis EXP-0006 sind
+abgeschlossen. TEST-0001 ist mit 26 `Kern`- und vier `Ausbau`-Fällen in der
+aktiven Version `0.3.0` vollständig ausführbar und `ready`; `0.1.0` und
+`0.2.0` bleiben historisch erhalten. EXP-0002 bis EXP-0006 sind
 empirisch abgeschlossen. CAP-0002, REQ-0001, REQ-0002 und EXP-0001 sind
 vorgeschlagen. EXP-0006 hat alle 16 Akzeptanzkriterien und die
 elf vorab gebundenen Preflight-Zeilen in zwei semantisch identischen

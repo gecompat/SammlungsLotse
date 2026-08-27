@@ -37,11 +37,12 @@ synthetisch qualifiziert.
 - vorgeschlagene Anforderung REQ-0002 sowie die abgeschlossenen Versuche
   EXP-0002 bis EXP-0006;
 - ausführbarer Testvertrag TEST-0001 mit 26 validierten synthetischen
-  `Kern`-Fällen, 44 manifestierten Komponenten und vier weiterhin offenen
-  `Ausbau`-Fällen;
+  `Kern`-Fällen, vier materialisierten `Ausbau`-Fällen und 49 manifestierten
+  Komponenten;
 - netzwerkloser, ausschließlich auf der Python-Standardbibliothek beruhender
   Generator und read-only Validator für die aktive TEST-0001-Fixture-Version
-  `0.2.0`; der unveränderte historische Snapshot `0.1.0` bleibt erhalten;
+  `0.3.0`; die unveränderten historischen Snapshots `0.1.0` und `0.2.0`
+  bleiben für gebundene Evidenz erhalten;
 - empirisch bestandenes EXP-0005-Profil für eine isolierte, unprivilegierte,
   netzwerklose EPUBCheck-Ausführung unter Podman mit wirksamen Datei-,
   Prozess-, Zeit-, Speicher-, CPU-, Output- und Umgebungsgrenzen;
@@ -109,6 +110,30 @@ synthetisch qualifiziert.
 - Release.
 
 ## Validierung
+
+TEST-0001-Ausbau-Wave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
+am 2026-08-27 unter Python 3.12.10, Podman 6.1.0 und EPUBCheck 5.3.0. Der
+Fixture-Validator bestätigte Version `0.3.0` mit 30 Fällen und 49
+Komponenten, vollständigen Hash- und Herkunftsangaben, bytegenauer
+Regeneration, unveränderten Eingängen und null aufgeschobenen Ausbau-Fällen.
+Die neuen Oracles prüfen EPUB 2 mit NCX, EPUB 3 Fixed Layout, mehrsprachigen
+RTL-Inhalt und Routing ohne passende Regel. Tatsächliche tiefe Läufe über die
+drei validen EPUBs endeten ohne EPUBCheck-Konformitätsbefund und mit
+vollständigem Cleanup. Ein erster Fixed-Layout-Lauf erreichte fail-closed das
+Executor-Timeout und räumte vollständig auf; die unmittelbare Wiederholung
+bestand. Alle bestehenden EXP- und WI-0005-Ergebnisverträge bleiben
+unverändert an Version `0.2.0` gebunden. Der netzwerkabhängige aktuelle
+`npm audit` reproduzierte für den eingefrorenen EXP-0003-Ace-Baum 22
+Befundpakete, 14 `high` und acht `moderate`; der von npm vorgeschlagene
+Downgrade von Ace 1.4.6 auf 1.2.5 ist kein sicherer Aktualisierungspfad.
+Repository- und v2-Registry-Prüfung, alle eingecheckten EXP-0002- bis
+EXP-0007- sowie WI-0005-Ergebnisverträge, alle 82 Repository-Tests,
+`compileall`, `git diff --check` und FOUNDATION_INTEGRITY mit 0 Warnungen,
+0 Fehlern und 0 Blockern waren erfolgreich. Eine frische tatsächliche
+WI-0005-Podman-Qualifikation bestand erneut 12/12 Kriterien mit der exakt
+gebundenen Image-ID und null verbleibenden Containern. Die offiziellen
+Projektquellen führen weiterhin EPUBCheck 5.3.0, Ace 1.4.6, Temurin
+21.0.12.1+1 und Podman 6.1.0 als aktuelle Releases.
 
 WI-0005-Implementierungswave: RUNTIME_EMPIRICAL lokal validiert am
 2026-08-27 unter Python 3.12.10 und Podman 6.1.0 für das exakte Profil

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the deterministic synthetic TEST-0001 core fixture corpus."""
+"""Generate the deterministic synthetic TEST-0001 fixture corpus."""
 
 from __future__ import annotations
 
@@ -17,8 +17,8 @@ from typing import Any, Iterable
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_OUTPUT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.2"
-FIXTURE_VERSION = "0.2.0"
+DEFAULT_OUTPUT = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.3"
+FIXTURE_VERSION = "0.3.0"
 CREATED_ON = "2026-08-27"
 ZIP_TIMESTAMP = (2020, 1, 1, 0, 0, 0)
 
@@ -51,12 +51,47 @@ CORE_CASE_KEYS = (
     "run-tool-timeout",
 )
 
-DEFERRED_EXPANSION_CASE_KEYS = (
+EXPANSION_CASE_KEYS = (
     "epub2-valid-minimal",
     "epub33-valid-fixed",
     "metadata-multilingual-rtl",
     "routing-unknown",
 )
+
+MATERIALIZED_CASE_KEYS = (
+    "ingress-stable-minimal",
+    "ingress-growing-file",
+    "container-corrupt",
+    "container-path-traversal",
+    "container-expansion-limit",
+    "protected-or-encrypted",
+    "format-unknown",
+    "epub2-valid-minimal",
+    "epub33-valid-reflow",
+    "epub33-valid-fixed",
+    "epub-missing-resource",
+    "epub-navigation-defect",
+    "epub-active-or-remote",
+    "epub-a11y-auto-finding",
+    "epub-a11y-manual-required",
+    "metadata-conflict-title",
+    "metadata-contributor-roles",
+    "metadata-multilingual-rtl",
+    "edition-sample-vs-full",
+    "identity-byte-equal",
+    "identity-repackaged",
+    "identity-multiformat-edition",
+    "identity-edition-vs-translation",
+    "identity-title-collision",
+    "routing-unique",
+    "routing-ambiguous",
+    "routing-unknown",
+    "run-unchanged-skip",
+    "run-resume",
+    "run-tool-timeout",
+)
+
+DEFERRED_EXPANSION_CASE_KEYS: tuple[str, ...] = ()
 
 COMMON_FORBIDDEN_EFFECTS = (
     "modify_original",
@@ -143,11 +178,18 @@ def chapter_xhtml(
     *,
     body_extra: str = "",
     language: str = "de",
+    direction: str = "",
+    head_extra: str = "",
 ) -> bytes:
+    direction_attributes = (
+        f' xml:lang="{escape(language)}" dir="{escape(direction)}"'
+        if direction
+        else ""
+    )
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="{escape(language)}">
-  <head><title>Kapitel</title></head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{escape(language)}"{direction_attributes}>
+  <head><title>Kapitel</title>{head_extra}</head>
   <body><h1>Kapitel</h1><p>{escape(text)}</p>{body_extra}</body>
 </html>
 """.encode("utf-8")
@@ -218,6 +260,8 @@ def epub_bytes(
     extra_entries: tuple[tuple[str, bytes, int], ...] = (),
     extra_manifest: str = "",
     extra_metadata: str = "",
+    direction: str = "",
+    chapter_head_extra: str = "",
     reverse_payload_order: bool = False,
     comment: bytes = b"",
 ) -> bytes:
@@ -245,7 +289,13 @@ def epub_bytes(
         entries.append(
             (
                 "EPUB/chapter.xhtml",
-                chapter_xhtml(text, body_extra=body_extra, language=language),
+                chapter_xhtml(
+                    text,
+                    body_extra=body_extra,
+                    language=language,
+                    direction=direction,
+                    head_extra=chapter_head_extra,
+                ),
                 zipfile.ZIP_DEFLATED,
             )
         )
@@ -255,6 +305,52 @@ def epub_bytes(
     if reverse_payload_order:
         entries = [entries[0], *reversed(entries[1:])]
     return zip_bytes(entries, comment=comment)
+
+
+def epub2_bytes(*, title: str, identifier: str, language: str = "de") -> bytes:
+    package = f"""<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="book-id">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="book-id">{escape(identifier)}</dc:identifier>
+    <dc:title>{escape(title)}</dc:title>
+    <dc:language>{escape(language)}</dc:language>
+    <dc:creator>Alex Beispiel</dc:creator>
+  </metadata>
+  <manifest>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="chapter" href="chapter.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine toc="ncx"><itemref idref="chapter"/></spine>
+</package>
+""".encode("utf-8")
+    ncx = f"""<?xml version="1.0" encoding="UTF-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+  <head><meta name="dtb:uid" content="{escape(identifier)}"/></head>
+  <docTitle><text>{escape(title)}</text></docTitle>
+  <navMap><navPoint id="chapter" playOrder="1"><navLabel><text>Kapitel</text></navLabel><content src="chapter.xhtml"/></navPoint></navMap>
+</ncx>
+""".encode("utf-8")
+    chapter = f"""<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{escape(language)}">
+  <head><title>Kapitel</title></head>
+  <body><h1>Kapitel</h1><p>Dies ist ein vollständig synthetischer EPUB-2-Testtext.</p></body>
+</html>
+""".encode("utf-8")
+    return zip_bytes(
+        (
+            ("mimetype", b"application/epub+zip", zipfile.ZIP_STORED),
+            ("META-INF/container.xml", container_xml(), zipfile.ZIP_DEFLATED),
+            ("EPUB/package.opf", package, zipfile.ZIP_DEFLATED),
+            ("EPUB/toc.ncx", ncx, zipfile.ZIP_DEFLATED),
+            (
+                "EPUB/chapter.xhtml",
+                chapter,
+                zipfile.ZIP_DEFLATED,
+            ),
+        )
+    )
 
 
 def minimal_pdf(title: str, text: str) -> bytes:
@@ -350,6 +446,28 @@ def build_cases() -> tuple[Case, ...]:
         identifier="urn:test:epub33-valid-reflow",
         include_image=True,
         image_properties="cover-image",
+    )
+    valid_epub2 = epub2_bytes(
+        title="Valides EPUB 2",
+        identifier="urn:test:epub2-valid-minimal",
+    )
+    valid_fixed = epub_bytes(
+        title="Valides Fixed Layout",
+        identifier="urn:test:epub33-valid-fixed",
+        text="Eine synthetische Seite mit fester Darstellungsfläche.",
+        extra_metadata='\n    <meta property="rendition:layout">pre-paginated</meta>',
+        chapter_head_extra='<meta name="viewport" content="width=800,height=1200"/>',
+    )
+    multilingual_rtl = epub_bytes(
+        title="Mehrsprachige Metadaten",
+        identifier="urn:test:metadata-multilingual-rtl",
+        language="ar",
+        text="نص اصطناعي قصير للاختبار فقط.",
+        direction="rtl",
+        extra_metadata=(
+            '\n    <dc:title xml:lang="de">Mehrsprachiger synthetischer Titel</dc:title>'
+            '\n    <dc:language>de</dc:language>'
+        ),
     )
     base_identity = epub_bytes(
         title="Die stille Karte",
@@ -499,6 +617,13 @@ def build_cases() -> tuple[Case, ...]:
         "item_key": "routing-ambiguous-item",
         "observations": {"subjects": ["technik", "jugend"], "language": "de"},
     }
+    unknown_item = {
+        "item_key": "routing-unknown-item",
+        "observations": {
+            "subjects": ["unclassified-synthetic"],
+            "language": "zxx",
+        },
+    }
 
     cases = (
         Case(
@@ -631,6 +756,32 @@ def build_cases() -> tuple[Case, ...]:
             ),
         ),
         Case(
+            "epub2-valid-minimal",
+            ("S2",),
+            "Minimales deterministisches EPUB-2-Paket mit NCX-Navigation.",
+            "valid_reference",
+            (
+                component(
+                    "valid-epub2.epub",
+                    "input",
+                    valid_epub2,
+                    "application/epub+zip",
+                ),
+            ),
+            oracle(
+                observations=(
+                    "epub.version.2.0",
+                    "epub.ncx.present",
+                    "epub.spine.complete",
+                ),
+                findings=(),
+                allowed_results=("observation", "not_applicable"),
+                forbidden_results=("epub.version.3.3", "finding.synthetic_error"),
+                quality_dimensions=("format", "compatibility"),
+                method="OCF-, OPF-2.0-, Manifest-, Spine- und NCX-Struktur prüfen.",
+            ),
+        ),
+        Case(
             "epub33-valid-reflow",
             ("S2",),
             "Minimales deterministisches EPUB 3.3 mit Navigation.",
@@ -643,6 +794,32 @@ def build_cases() -> tuple[Case, ...]:
                 forbidden_results=("finding.synthetic_error", "accessibility.conformant"),
                 quality_dimensions=("format", "accessibility"),
                 method="OCF-, Package-, Manifest-, Spine- und Navigationsstruktur prüfen.",
+            ),
+        ),
+        Case(
+            "epub33-valid-fixed",
+            ("S2",),
+            "Minimales deterministisches EPUB 3.3 mit Fixed-Layout-Metadaten.",
+            "valid_reference",
+            (
+                component(
+                    "valid-fixed.epub",
+                    "input",
+                    valid_fixed,
+                    "application/epub+zip",
+                ),
+            ),
+            oracle(
+                observations=(
+                    "epub.version.3.3",
+                    "epub.layout.pre_paginated",
+                    "epub.viewport.present",
+                ),
+                findings=(),
+                allowed_results=("observation", "not_applicable"),
+                forbidden_results=("epub.layout.reflowable", "finding.synthetic_error"),
+                quality_dimensions=("format", "presentation"),
+                method="Package-Layoutmetadaten und XHTML-Viewport getrennt prüfen.",
             ),
         ),
         Case(
@@ -804,6 +981,33 @@ def build_cases() -> tuple[Case, ...]:
                 forbidden_results=("contributor.roles_collapsed", "person.identities_merged"),
                 quality_dimensions=("metadata", "identity", "provenance"),
                 method="Personenbeiträge und MARC-Rollencodes getrennt auslesen.",
+            ),
+        ),
+        Case(
+            "metadata-multilingual-rtl",
+            ("S4",),
+            "Arabischer RTL-Inhalt mit arabischen und deutschen Metadaten.",
+            "valid_reference",
+            (
+                component(
+                    "multilingual-rtl.epub",
+                    "input",
+                    multilingual_rtl,
+                    "application/epub+zip",
+                ),
+            ),
+            oracle(
+                observations=(
+                    "metadata.language.ar",
+                    "metadata.language.de",
+                    "content.direction.rtl",
+                    "content.script.arabic",
+                ),
+                findings=(),
+                allowed_results=("observation", "not_applicable"),
+                forbidden_results=("metadata.language.overwritten", "content.direction.ltr"),
+                quality_dimensions=("metadata", "language", "presentation"),
+                method="Sprachen, xml:lang, dir und arabische Schriftzeichen verlustfrei prüfen.",
             ),
         ),
         Case(
@@ -988,6 +1192,39 @@ def build_cases() -> tuple[Case, ...]:
             ),
         ),
         Case(
+            "routing-unknown",
+            ("S6",),
+            "Kein synthetischer Zielbestand besitzt eine passende Regel.",
+            "routing_scenario",
+            (
+                component(
+                    "item.json",
+                    "input_snapshot",
+                    canonical_json(unknown_item),
+                    "application/json",
+                ),
+                component(
+                    "targets.json",
+                    "target_snapshot",
+                    canonical_json(routing_targets),
+                    "application/json",
+                ),
+            ),
+            oracle(
+                observations=("routing.no_rule_match",),
+                findings=("routing.unknown",),
+                allowed_results=("unknown", "abstain"),
+                forbidden_results=("routing.default_target", "proposal.route"),
+                quality_dimensions=("routing", "explainability", "safety"),
+                method="Beobachtungen gegen beide Zielregeln prüfen und fehlende Übereinstimmung belegen.",
+                expected_routing={
+                    "result": "abstain",
+                    "candidate_targets": [],
+                    "reason": "no_matching_rule",
+                },
+            ),
+        ),
+        Case(
             "run-unchanged-skip",
             ("S1", "S2"),
             "Zwei semantisch identische Lauf-Snapshots desselben Eingangs und Profils.",
@@ -1047,8 +1284,8 @@ def build_cases() -> tuple[Case, ...]:
             ),
         ),
     )
-    if tuple(case.case_key for case in cases) != CORE_CASE_KEYS:
-        raise RuntimeError("generator case order does not match CORE_CASE_KEYS")
+    if tuple(case.case_key for case in cases) != MATERIALIZED_CASE_KEYS:
+        raise RuntimeError("generator case order does not match MATERIALIZED_CASE_KEYS")
     return cases
 
 
@@ -1073,7 +1310,7 @@ def generate(output: Path) -> dict[str, Any]:
         "corpus_ref": "TEST-0001",
         "fixture_version": FIXTURE_VERSION,
         "created_on": CREATED_ON,
-        "scope": "core",
+        "scope": "core_and_expansion",
         "data_class": "SYNTHETIC_OR_REDISTRIBUTABLE",
         "license": {
             "spdx": "MIT",
@@ -1089,6 +1326,7 @@ def generate(output: Path) -> dict[str, Any]:
             "network": "not_used",
             "external_dependencies": [],
         },
+        "expansion_case_keys": list(EXPANSION_CASE_KEYS),
         "deferred_expansion_case_keys": list(DEFERRED_EXPANSION_CASE_KEYS),
         "cases": [],
     }
@@ -1112,7 +1350,11 @@ def generate(output: Path) -> dict[str, Any]:
         manifest["cases"].append(
             {
                 "case_key": case.case_key,
-                "stage": "core",
+                "stage": (
+                    "expansion"
+                    if case.case_key in EXPANSION_CASE_KEYS
+                    else "core"
+                ),
                 "scenarios": list(case.scenarios),
                 "construction": case.construction,
                 "fixture_nature": case.fixture_nature,

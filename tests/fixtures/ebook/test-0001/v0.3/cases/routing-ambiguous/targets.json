@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "targets": [
+    {
+      "label": "Technikbestand",
+      "read_only_snapshot": {
+        "books": [
+          {
+            "book_key": "technical-book-1",
+            "contributors": [
+              {
+                "name": "Alex Beispiel",
+                "role": "author"
+              }
+            ],
+            "custom_columns": {
+              "topic": "technik"
+            },
+            "formats": [
+              "EPUB",
+              "PDF"
+            ],
+            "languages": [
+              "de"
+            ],
+            "title": "Synthetische Technikfibel"
+          }
+        ],
+        "fields": [
+          "book_key",
+          "title",
+          "contributors",
+          "languages",
+          "formats",
+          "custom_columns"
+        ],
+        "interface": "synthetic-contract-snapshot/v1",
+        "public_locator": "target:technical-library"
+      },
+      "rules": {
+        "include_subjects": [
+          "technik"
+        ],
+        "languages": [
+          "de",
+          "en"
+        ]
+      },
+      "target_key": "technical-library"
+    },
+    {
+      "label": "Junge Lesende",
+      "read_only_snapshot": {
+        "books": [
+          {
+            "book_key": "young-readers-book-1",
+            "contributors": [
+              {
+                "name": "Robin Muster",
+                "role": "author"
+              }
+            ],
+            "custom_columns": {
+              "topic": "jugend"
+            },
+            "formats": [
+              "EPUB"
+            ],
+            "languages": [
+              "de"
+            ],
+            "title": "Synthetische Abenteuerkarte"
+          }
+        ],
+        "fields": [
+          "book_key",
+          "title",
+          "contributors",
+          "languages",
+          "formats",
+          "custom_columns"
+        ],
+        "interface": "synthetic-contract-snapshot/v1",
+        "public_locator": "target:young-readers-library"
+      },
+      "rules": {
+        "include_subjects": [
+          "jugend"
+        ],
+        "languages": [
+          "de"
+        ]
+      },
+      "target_key": "young-readers-library"
+    }
+  ],
+  "write_operations": []
+}
