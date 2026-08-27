@@ -106,8 +106,9 @@ Das Projekt ist erfolgreich, wenn es bei wachsenden Sammlungen nachweisbar:
 
 Die Entwicklungsplanung muss mindestens festlegen:
 
-- erste vollständige Medienlinie und erster vertikaler Ablauf;
-- Laufzeit, Programmiersprache und Paketstruktur;
+- erste vollständige Medienlinie jenseits des WI-0004-Prototyps;
+- Laufzeit, Programmiersprache und Paketstruktur jenseits der reversiblen
+  WI-0004-Auswahl Python 3.12 mit Standardbibliothek;
 - Persistenz-, Index- und Suchtechnologie;
 - lokales Betriebs- und Deploymentmodell;
 - Benutzeroberfläche und öffentliche API-Versionierung;

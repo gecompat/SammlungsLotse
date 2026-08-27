@@ -7,10 +7,10 @@ Stand: 2026-08-27
 ## Aktueller Stand
 
 SammlungsLotse ist als eigenständiges Projekt initialisiert. Die
-Produktimplementierung hat noch nicht begonnen. Die ergebnisoffene
-Entwicklungsplanung untersucht die E-Book-Linie, ohne sie als erste
-Implementierungslinie auszuwählen. AI Repository Foundation 1.7.0 ist
-semantisch integriert. Die Bewertung steht unter
+Produktimplementierung hat noch nicht begonnen. Nach ergebnisoffener
+E-Book-Erkundung ist WI-0004 als erster eng begrenzter, reversibler
+Produktprototyp angenommen. AI Repository Foundation 1.7.0 ist semantisch
+integriert. Die Bewertung steht unter
 docs/governance/FOUNDATION_UPGRADE_1_7.md.
 
 main ist geschützt. Änderungen benötigen die erfolgreichen Checks
@@ -56,12 +56,12 @@ docs/planning/EBOOK_EXPERIMENTS.md.
 
 ## Fortsetzung
 
-Die nächste Arbeit registriert und plant in einer getrennten Wave einen
-eigenen Arbeitsgegenstand für den dünnen read-only Eingangstriage-Prototyp.
-Seine Annahmegrenze endet nach stabilem Snapshot, flachem Preflight und
-sichtbar begründeter Folgeaktion oder Enthaltung. Calibre, tiefe
-Formatprüfung, Dubletten, Metadaten, Routing, Persistenz, UI und jeder Writer
-bleiben außerhalb. GATE-0001 allein autorisiert keinen Produktcode.
+WI-0004 ist registriert und angenommen. Nach seinem kanonischen Plan-Merge
+beginnt die Implementierung in einer neuen Wave vom exakten `origin/main`.
+Die Annahmegrenze endet nach stabilem In-Memory-Snapshot, flachem Preflight
+und sichtbar begründeter CLI-Folgeaktion oder Enthaltung. Calibre, tiefe
+Formatprüfung, Dubletten, Metadaten, Routing, Persistenz, Browser, REST,
+Agents und jeder Writer bleiben außerhalb.
 
 ## Harte Grenzen
 
@@ -74,9 +74,10 @@ bleiben außerhalb. GATE-0001 allein autorisiert keinen Produktcode.
 
 ## Noch nicht entschieden
 
-- erste Medienlinie;
+- erste vollständige Medienlinie jenseits des WI-0004-Prototyps;
 - konkrete Produktabnahme des Gate-begrenzten Eingangstriage-Ablaufs;
-- Programmiersprache und Laufzeit;
+- Programmiersprache und Laufzeit jenseits der reversiblen WI-0004-Auswahl
+  Python 3.12 mit Standardbibliothek;
 - Persistenz und Suche;
 - Deployment und UI;
 - konkrete REST- und Agent-Verträge;

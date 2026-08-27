@@ -311,10 +311,11 @@ Das Gate entscheidet nur über den ersten read-only E-Book-Vertikalablauf. Es
 wählt weder die erste Medien- oder Implementierungslinie noch einen
 Technologie-Stack und autorisiert weder Produktcode noch einen Writer.
 
-### B5 — möglicher read-only Produktprototyp
+### B5 — angenommener read-only Produktprototyp
 
-Nach GATE-0001 ist als nächster getrennter Planungsgegenstand ein dünner
-vollständiger Prototyp denkbar. Er sollte:
+WI-0004 hat nach GATE-0001 einen dünnen vollständigen Prototyp als getrennten
+Planungsgegenstand angenommen. Sein kanonischer Vertrag steht unter
+[EBOOK_INTAKE_PROTOTYPE.md](EBOOK_INTAKE_PROTOTYPE.md). Er soll:
 
 - einen gemeinsamen Anwendungsvertrag verwenden;
 - Fachsystem-, Format-, Werkzeug- und Provideradapter trennen;
@@ -416,7 +417,7 @@ hat die genau einmal ausgeführte EXP-0006-Evidenzwelle den kleinen read-only
 Eingangstriage-Preflight mit 16/16 Kriterien, 11/11 Matrixzeilen, null
 kritischen Fehlfreigaben und zwei semantisch identischen Wiederholungen
 bestanden. Die getrennte Neubewertung hat daraufhin S2 innerhalb der
-dokumentierten engen Grenze angenommen und GATE-0001 auf `done` gesetzt. Als
-nächste Analyse wird ein eigener Arbeitsgegenstand für den dünnen Prototyp
-registriert und geplant. Weder das Experiment noch die Gate-Annahme beginnen
-für sich Produktcode.
+dokumentierten engen Grenze angenommen und GATE-0001 auf `done` gesetzt.
+WI-0004 hat den dünnen Prototyp anschließend registriert, begrenzt und
+angenommen. Produktcode beginnt erst in einer neuen Wave vom kanonischen
+Plan-Merge; weder das Experiment noch GATE-0001 beginnen für sich Produktcode.
