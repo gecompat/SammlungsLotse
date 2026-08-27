@@ -19,8 +19,10 @@ Untersuchungshypothesen, Experimente und spätere Entscheidungen:
 
 WI-0002 ist `in_progress`. WI-0003 hat sechs read-only Nutzerentscheidungen
 und Messverträge auf Dokumentationsebene abgeschlossen. TEST-0001 ist mit 26
-synthetischen Kernfällen in Version `0.1.0` ausführbar und `ready`. CAP-0002,
-REQ-0001, REQ-0002, EXP-0001 bis EXP-0005 und GATE-0001 sind vorgeschlagen.
+synthetischen Kernfällen in der aktiven Version `0.2.0` ausführbar und
+`ready`; `0.1.0` bleibt historisch erhalten. EXP-0005 ist empirisch
+abgeschlossen. CAP-0002, REQ-0001, REQ-0002, EXP-0001 bis EXP-0004 und
+GATE-0001 sind vorgeschlagen.
 RISK-0001 hält das bereits anerkannte Risiko einer frühen fachlichen oder
 technischen Kopplung fest. Keines dieser Artefakte wählt einen
 Technologie-Stack, bestimmt den ersten Vertikalablauf oder autorisiert
@@ -57,11 +59,11 @@ erste Implementierungs-Wave entschieden.
 
 ## Nächste Erkenntnis-Wave
 
-Als Nächstes wird EXP-0005 als gemeinsame Sicherheitsqualifikation vorbereitet
-und gegen die passenden TEST-0001-Fixtures ausgeführt. Danach folgen EXP-0002
-und EXP-0003 unabhängig voneinander; EXP-0004 folgt erst mit vollständigen
-positiven und negativen Sollpaaren. GATE-0001 bleibt bis zu den tatsächlichen
-Experimentergebnissen offen.
+EXP-0005 hat die gemeinsame Sicherheitsqualifikation für genau ein
+wegwerfbares Podman-Profil bestanden. Als Nächstes folgt EXP-0002 mit zwei
+synthetischen Calibre-Bibliotheken und einer minimalen read-only Projektion.
+EXP-0003 folgt getrennt; EXP-0004 folgt erst mit vollständigen positiven und
+negativen Sollpaaren. GATE-0001 bleibt bis zu diesen Ergebnissen offen.
 
 ## Nicht übernehmen
 

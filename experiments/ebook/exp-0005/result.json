@@ -1,0 +1,955 @@
+{
+  "acceptance": {
+    "all_inputs_unchanged": true,
+    "cpu_limit_effective": true,
+    "environment_minimized": true,
+    "input_read_only": true,
+    "memory_limit_effective": true,
+    "network_denied": true,
+    "output_confined_and_limited": true,
+    "repeatable_findings": true,
+    "security_profile_effective": true,
+    "timeout_and_child_cleanup": true,
+    "tool_provenance_pinned": true
+  },
+  "cases": [
+    {
+      "case_key": "tool-version",
+      "command": "tool-version",
+      "container_removed_after_run": true,
+      "control": {
+        "probe-complete.json": {
+          "exit_code": 0
+        },
+        "tool-version.json": {
+          "exit_code": 0,
+          "output": "EPUBCheck v5.3.0"
+        }
+      },
+      "duration_seconds": 9.219,
+      "exit_code": 0,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "probe-complete.json",
+            "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+            "size_bytes": 21
+          },
+          {
+            "name": "tool-version.json",
+            "sha256": "0741490a7e8a1bac737e5d848ac09318af6ace9c8df0a9ba5aa8c4af76a7c689",
+            "size_bytes": 53
+          }
+        ],
+        "size_bytes": 74
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "timed_out": false
+    },
+    {
+      "case_key": "epubcheck-valid-run-1",
+      "command": "epubcheck",
+      "container_removed_after_run": true,
+      "control": {
+        "control.json": {
+          "command": "epubcheck",
+          "exit_code": 0
+        },
+        "probe-complete.json": {
+          "exit_code": 0
+        }
+      },
+      "duration_seconds": 20.937,
+      "exit_code": 0,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "control.json",
+            "sha256": "48b3845aed06b80059bca7f103b731622520250556936217abd2bd94a0d2183e",
+            "size_bytes": 47
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+            "size_bytes": 21
+          },
+          {
+            "name": "report.json",
+            "sha256": "d5c0f6b25fa7e6b5f190cf517182c4c72aaf717e482ad3ebd4fdeb8e6021b8e7",
+            "size_bytes": 4394
+          }
+        ],
+        "size_bytes": 4462
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "semantic_report_sha256": "46561fbc1403dc64981a232b7b2e97f8ab7ae48d556043c1ca654fbe9ebec93e",
+      "timed_out": false
+    },
+    {
+      "case_key": "epubcheck-valid-run-2",
+      "command": "epubcheck",
+      "container_removed_after_run": true,
+      "control": {
+        "control.json": {
+          "command": "epubcheck",
+          "exit_code": 0
+        },
+        "probe-complete.json": {
+          "exit_code": 0
+        }
+      },
+      "duration_seconds": 22.922,
+      "exit_code": 0,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "control.json",
+            "sha256": "48b3845aed06b80059bca7f103b731622520250556936217abd2bd94a0d2183e",
+            "size_bytes": 47
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+            "size_bytes": 21
+          },
+          {
+            "name": "report.json",
+            "sha256": "73c7f4ccf1764271132b46a34e2672fbdfef01dd5dcaa034537850c96703c4d9",
+            "size_bytes": 4394
+          }
+        ],
+        "size_bytes": 4462
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "semantic_report_sha256": "46561fbc1403dc64981a232b7b2e97f8ab7ae48d556043c1ca654fbe9ebec93e",
+      "timed_out": false
+    },
+    {
+      "case_key": "epubcheck-invalid-run-1",
+      "command": "epubcheck",
+      "container_removed_after_run": true,
+      "control": {
+        "control.json": {
+          "command": "epubcheck",
+          "exit_code": 1
+        },
+        "probe-complete.json": {
+          "exit_code": 1
+        }
+      },
+      "duration_seconds": 9.187,
+      "exit_code": 1,
+      "input_sha256_after": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5",
+      "input_sha256_before": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "control.json",
+            "sha256": "ffbd2cd805226ebf932ce8e42bf5691b1243ca9e81f94a01b362e0f510d25164",
+            "size_bytes": 47
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "56296949d3a02e635b050fd6b4762f0f0b52c23d05b925203095f7daf8e19027",
+            "size_bytes": 21
+          },
+          {
+            "name": "report.json",
+            "sha256": "611091b5392c56290c13e51d4c77fcae87edfead737f0a4eef94e18b07e85584",
+            "size_bytes": 1409
+          }
+        ],
+        "size_bytes": 1477
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "semantic_report_sha256": "e9a8bdafa945d525929477074c88cd09d9a3e5c4fa04d51cfffc7fcc4409d1a1",
+      "timed_out": false
+    },
+    {
+      "case_key": "epubcheck-invalid-run-2",
+      "command": "epubcheck",
+      "container_removed_after_run": true,
+      "control": {
+        "control.json": {
+          "command": "epubcheck",
+          "exit_code": 1
+        },
+        "probe-complete.json": {
+          "exit_code": 1
+        }
+      },
+      "duration_seconds": 9.61,
+      "exit_code": 1,
+      "input_sha256_after": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5",
+      "input_sha256_before": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "control.json",
+            "sha256": "ffbd2cd805226ebf932ce8e42bf5691b1243ca9e81f94a01b362e0f510d25164",
+            "size_bytes": 47
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "56296949d3a02e635b050fd6b4762f0f0b52c23d05b925203095f7daf8e19027",
+            "size_bytes": 21
+          },
+          {
+            "name": "report.json",
+            "sha256": "b90ede344ab0595e4553722aa31ce93601d26f758f99c17541ae4afadde5ebd5",
+            "size_bytes": 1409
+          }
+        ],
+        "size_bytes": 1477
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "semantic_report_sha256": "e9a8bdafa945d525929477074c88cd09d9a3e5c4fa04d51cfffc7fcc4409d1a1",
+      "timed_out": false
+    },
+    {
+      "case_key": "probe-input-read-only",
+      "command": "input-write",
+      "container_removed_after_run": true,
+      "control": {
+        "input-write.json": {
+          "errno": 30,
+          "write_succeeded": false
+        },
+        "probe-complete.json": {
+          "exit_code": 0
+        }
+      },
+      "duration_seconds": 9.0,
+      "exit_code": 0,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "input-write.json",
+            "sha256": "e6b8bdc7614b43f42d31f9a9fb64da03d4f4927618eac6f06762257229a398c9",
+            "size_bytes": 46
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+            "size_bytes": 21
+          }
+        ],
+        "size_bytes": 67
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "timed_out": false
+    },
+    {
+      "case_key": "probe-network-denied",
+      "command": "network",
+      "container_removed_after_run": true,
+      "control": {
+        "network.json": {
+          "connection_succeeded": false,
+          "error_type": "OSError"
+        },
+        "probe-complete.json": {
+          "exit_code": 0
+        }
+      },
+      "duration_seconds": 9.625,
+      "exit_code": 0,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "network.json",
+            "sha256": "d8f02e117fa12cd06be2d9b989a02b9ef77ed2375f2f5f397168e1735bcab5cd",
+            "size_bytes": 63
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+            "size_bytes": 21
+          }
+        ],
+        "size_bytes": 84
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "timed_out": false
+    },
+    {
+      "case_key": "probe-output-limit",
+      "command": "output-limit",
+      "container_removed_after_run": true,
+      "control": {
+        "output-limit.json": {
+          "attempted_bytes": 4194304,
+          "errno": 28,
+          "written_before_limit": 1048576
+        },
+        "probe-complete.json": {
+          "exit_code": 0
+        }
+      },
+      "duration_seconds": 9.406,
+      "exit_code": 0,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "output-limit.json",
+            "sha256": "461336f1157398291b721ab3d0ea62e97e01020381bb16d0ef5c87c8f9f9934c",
+            "size_bytes": 83
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+            "size_bytes": 21
+          }
+        ],
+        "size_bytes": 104
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "timed_out": false
+    },
+    {
+      "case_key": "probe-memory-limit",
+      "command": "memory-limit",
+      "container_removed_after_run": true,
+      "duration_seconds": 6.047,
+      "exit_code": 137,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [],
+        "size_bytes": 0
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": true,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "timed_out": false
+    },
+    {
+      "case_key": "probe-cpu-limit",
+      "command": "cpu-limit",
+      "container_removed_after_run": true,
+      "control": {
+        "cpu-limit.json": {
+          "total_cpu_seconds": 2.016053,
+          "wall_seconds": 2.041722,
+          "workers": 4
+        },
+        "probe-complete.json": {
+          "exit_code": 0
+        }
+      },
+      "duration_seconds": 11.844,
+      "exit_code": 0,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "cpu-limit.json",
+            "sha256": "12c9c5767bdb09ac48bdd0afb039ec3b797f89145aff961435218ed96a40e11e",
+            "size_bytes": 80
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+            "size_bytes": 21
+          }
+        ],
+        "size_bytes": 101
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "timed_out": false
+    },
+    {
+      "case_key": "probe-environment-minimized",
+      "command": "environment",
+      "container_removed_after_run": true,
+      "control": {
+        "environment.json": {
+          "denied_present": [],
+          "names": [
+            "HOME",
+            "JAVA_HOME",
+            "LANG",
+            "PATH"
+          ],
+          "unexpected_names": []
+        },
+        "probe-complete.json": {
+          "exit_code": 0
+        }
+      },
+      "duration_seconds": 9.469,
+      "exit_code": 0,
+      "input_sha256_after": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_sha256_before": "b89cebf30de5cd7a5578e698a3816d87370c9dc790a3790bef7b7e76e51ad33b",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "environment.json",
+            "sha256": "55e77c9974eefba022449da9cd8bf9eba45a4ab029f49639e1bd0fbfc05e0bb4",
+            "size_bytes": 123
+          },
+          {
+            "name": "probe-complete.json",
+            "sha256": "81868a6e94ffc0178bf833deb1c9013d9fab4ee95ddb876a5e8ec4f1d26376d2",
+            "size_bytes": 21
+          }
+        ],
+        "size_bytes": 144
+      },
+      "process_tree_entries_before_kill": 0,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "timed_out": false
+    },
+    {
+      "case_key": "run-tool-timeout",
+      "command": "timeout-child",
+      "container_removed_after_run": true,
+      "control": {
+        "timeout-child.json": {
+          "child_pid": 2,
+          "child_started": true
+        }
+      },
+      "duration_seconds": 10.156,
+      "exit_code": 137,
+      "input_sha256_after": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+      "input_sha256_before": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9",
+      "input_unchanged": true,
+      "output": {
+        "files": [
+          {
+            "name": "timeout-child.json",
+            "sha256": "b5c534d8493eb40ae5505401a937e3c98d99e510e54b3b91694f58cb5c87caab",
+            "size_bytes": 46
+          }
+        ],
+        "size_bytes": 46
+      },
+      "process_tree_entries_before_kill": 3,
+      "security": {
+        "cap_add": [],
+        "cap_drop": [
+          "CAP_CHOWN",
+          "CAP_DAC_OVERRIDE",
+          "CAP_FOWNER",
+          "CAP_FSETID",
+          "CAP_KILL",
+          "CAP_NET_BIND_SERVICE",
+          "CAP_SETFCAP",
+          "CAP_SETGID",
+          "CAP_SETPCAP",
+          "CAP_SETUID",
+          "CAP_SYS_CHROOT"
+        ],
+        "cpu_period": 100000,
+        "cpu_quota": 100000,
+        "log_driver": "none",
+        "memory": 402653184,
+        "memory_swap": 402653184,
+        "mounts": [
+          {
+            "destination": "/input/input.epub",
+            "rw": false,
+            "type": "bind"
+          }
+        ],
+        "nano_cpus": 1000000000,
+        "network_mode": "none",
+        "oom_killed": false,
+        "pids_limit": 32,
+        "read_only_root": true,
+        "running": false,
+        "security_opt": [
+          "no-new-privileges"
+        ],
+        "user": "65532:65532"
+      },
+      "timed_out": true
+    }
+  ],
+  "executed_on": "2026-08-27",
+  "experiment": "EXP-0005",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "image": {
+    "architecture": "amd64",
+    "digest": "ec420d7b5264502f7eda9081e550ee9e3b8ca2a28c486714676bc8e43ff7733f",
+    "id": "4b4daf4acae0cc3637b32fe8ca84fbe7c8833773412463ad463b0fbfe2ca0601",
+    "os": "linux"
+  },
+  "java_runtime": {
+    "artifact_sha256": "8a379a67c91a3ae61ffb33d46e0a40c7ba35e70713c4db31cfca30492f792eff",
+    "artifact_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12%2B8/OpenJDK21U-jre_x64_linux_hotspot_21.0.12_8.tar.gz",
+    "name": "Eclipse Temurin JRE",
+    "release_url": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.12%2B8",
+    "version": "21.0.12+8"
+  },
+  "limitations": [
+    "The result qualifies one Linux/amd64 Podman profile and does not select a product runtime.",
+    "Network denial is demonstrated for the container namespace; image provisioning used explicit network access.",
+    "The synthetic fixtures do not establish behavior for private or large real collections."
+  ],
+  "profile_id": "exp-0005-podman-epubcheck-5.3.0/v1",
+  "profile_sha256": "5a4d00929bb469d81b238684dd9695b8617ed8beca53e06a8c6e23a3cdaf7d76",
+  "raw_evidence": {
+    "content_sha256": "e15a8c8275e7f2c14effdc77e1225dd456bb0e044aa7083a154337b12088bd66",
+    "retention": "local artifact outside Git"
+  },
+  "runtime": {
+    "architecture": "amd64",
+    "client_version": "6.1.0",
+    "container_os": "linux",
+    "host_os": "Windows",
+    "provider": "podman",
+    "server_version": "6.1.0"
+  },
+  "schema_version": 1,
+  "status": "pass",
+  "tool": {
+    "artifact_sha256": "6c07e68584b2e2ce2f89fe06e1246dfead3eb36b46b340e7d93524f29dcff6c5",
+    "artifact_url": "https://github.com/w3c/epubcheck/releases/download/v5.3.0/epubcheck-5.3.0.zip",
+    "license_spdx": "BSD-3-Clause",
+    "name": "EPUBCheck",
+    "release_url": "https://github.com/w3c/epubcheck/releases/tag/v5.3.0",
+    "version": "5.3.0"
+  }
+}

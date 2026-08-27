@@ -1,6 +1,6 @@
 # E-Book-Experimentverträge
 
-Status: PROPOSED — NOT EXECUTED
+Status: IN EXECUTION — EXP-0005 PASSED; EXP-0002 TO EXP-0004 NOT EXECUTED
 
 Stand: 2026-08-27
 
@@ -15,7 +15,8 @@ dauerhaft; ihre Implementierungen dürfen wegwerfbar bleiben.
 Kein Experiment wählt den Produkt-Stack, baut eine gemeinsame
 Produktarchitektur oder autorisiert einen Writer. Alle Eingänge stammen aus
 TEST-0001. Dessen synthetischer Kern liegt validiert in Fixture-Version
-`0.1.0` vor; werkzeugspezifische Materialisierung bleibt Teil des jeweiligen
+`0.2.0` vor. `0.1.0` bleibt als historischer Snapshot erhalten;
+werkzeugspezifische Materialisierung bleibt Teil des jeweiligen
 Experimentprofils. Reale Calibre-Bibliotheken und private Medien bleiben
 außerhalb des Umfangs.
 
@@ -254,6 +255,21 @@ abgebrochen werden?
 - Ressourcenlimits sind nur dokumentiert, aber nicht empirisch wirksam;
 - Abbruch oder Fehler beschädigt Eingang, Zielbibliothek oder Hostzustand;
 - Toolversion, Lizenz oder Herkunft ist nicht reproduzierbar belegbar.
+
+### Ausführungsergebnis
+
+EXP-0005 wurde am 2026-08-27 mit dem Profil
+`exp-0005-podman-epubcheck-5.3.0/v1` gegen TEST-0001 `0.2.0` ausgeführt und
+hat alle elf Akzeptanzprüfungen erfüllt. Der versionierte Ergebnis- und
+Profilnachweis steht unter
+[experiments/ebook/exp-0005](../../experiments/ebook/exp-0005/README.md).
+EPUBCheck-Ausgaben waren in je zwei validen und ungültigen Läufen semantisch
+gleich. Read-only-, Netzwerk-, Zeit-, Prozess-, Speicher-, CPU-, Output- und
+Umgebungsgrenzen waren empirisch wirksam; alle Originalhashes blieben gleich.
+
+Das Ergebnis qualifiziert ausschließlich diesen wegwerfbaren Podman-
+Linux/amd64-Weg. Es wählt keinen Produktcontainer und ersetzt nicht die
+fachliche Werkzeugbewertung in EXP-0003.
 
 ## Noch nicht registrierte Experimentäste
 

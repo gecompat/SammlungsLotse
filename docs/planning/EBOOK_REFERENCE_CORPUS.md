@@ -10,7 +10,7 @@ Artifacts: TEST-0001, WI-0002, WI-0003
 
 TEST-0001 definiert die Sollfälle, gegen die spätere E-Book-Verfahren
 reproduzierbar bewertet werden. Dieses Dokument ist der Testvertrag. Die 26
-`Kern`-Fälle sind als Fixture-Version `0.1.0` erzeugt und validiert. Die vier
+`Kern`-Fälle sind als Fixture-Version `0.2.0` erzeugt und validiert. Die vier
 `Ausbau`-Fälle bleiben Vertragsbestandteil, sind aber noch nicht materialisiert.
 
 Generator, Manifest und Fixture-Einstieg stehen unter
@@ -67,9 +67,9 @@ werden weiterhin über die Registration Authority registriert.
   Ausgabeverzeichnis. Er enthält keine Produkt-, Adapter- oder
   Analyseimplementierung.
 
-## Kernkorpus v0.1
+## Kernkorpus v0.2
 
-`Kern` bezeichnet die ausführbare Fassung `0.1.0`. `Ausbau` bleibt im Vertrag,
+`Kern` bezeichnet die ausführbare Fassung `0.2.0`. `Ausbau` bleibt im Vertrag,
 wird aber nicht benötigt, um die ersten vier Experimente zu beginnen, sofern
 deren eigene werkzeugspezifische Eingänge im jeweiligen Experimentprofil
 vollständig materialisiert werden.
@@ -139,10 +139,10 @@ qualifizierte, unterstützte Toolprofil erzeugt. Das Oracle beschreibt:
 - welche Fälle kein geeignetes Ziel besitzen;
 - dass keine interne Calibre-Tabelle direkt geändert wird.
 
-## Ausführungsmanifest v0.1.0
+## Ausführungsmanifest v0.2.0
 
 Das maschinenlesbare JSON-Manifest liegt unter
-`tests/fixtures/ebook/test-0001/v0.1/manifest.json`. `schema_version` 1 bleibt
+`tests/fixtures/ebook/test-0001/v0.2/manifest.json`. `schema_version` 1 bleibt
 ein Fixture-Vertrag und wählt weder Produktpersistenz noch öffentliche API.
 Das Manifest enthält:
 
@@ -165,7 +165,7 @@ verbotene Wirkungen.
 ## Ergebnis der Fixture-Wave
 
 TEST-0001 ist nach tatsächlicher Erzeugung und Prüfung der ersten ausführbaren
-Fassung `ready`. Die Passkriterien sind für Version `0.1.0` erfüllt:
+Fassung `ready`. Die Passkriterien sind für Version `0.2.0` erfüllt:
 
 - alle 26 `Kern`-Fälle wurden reproduzierbar erzeugt;
 - jeder Fall besitzt ein maschinenlesbares Oracle und die Tabelle oben bleibt
@@ -193,6 +193,13 @@ Prüfung unverändert. Der Validator prüft außerdem zentrale positive und
 negative Sollbeziehungen, beide Routingresultate, Pfad- und
 Expansionserkennung sowie einen synthetischen 100-ms-Timeout.
 
-Nicht ausgeführt wurden Calibre, EPUBCheck, Ace oder ein anderes externes
-E-Book-Werkzeug. Die `Ausbau`-Fälle, tatsächliche Werkzeugbefunde und alle
-EXP-0002- bis EXP-0005-Ergebnisse bleiben offen.
+Version `0.1.0` bleibt unter `v0.1/` als historischer Snapshot erhalten. Der
+erste reale EPUBCheck-Lauf in EXP-0005 erkannte sein OPF-Literal
+`version="3.3"` als nicht unterstützt. Version `0.2.0` korrigiert dieses
+Literal auf die für EPUB 3 weiterhin geltende Paketversion `3.0`, ohne die
+Fallzahl, Fallkeys oder Oracles zu verändern.
+
+EPUBCheck wurde im Rahmen von EXP-0005 gegen die aktuelle Fassung ausgeführt;
+der Sicherheits- und Reproduzierbarkeitsnachweis war erfolgreich. Calibre und
+Ace sowie die fachlichen Werkzeugbefunde aus EXP-0002 und EXP-0003 bleiben
+offen. Die `Ausbau`-Fälle sind weiterhin nicht materialisiert.

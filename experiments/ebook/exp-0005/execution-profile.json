@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "experiment": "EXP-0005",
+  "profile_id": "exp-0005-podman-epubcheck-5.3.0/v1",
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.2.0",
+  "container_runtime": {
+    "provider": "podman",
+    "minimum_version": "6.1.0",
+    "platform": "linux/amd64",
+    "network": "none",
+    "read_only_root": true,
+    "user": "65532:65532",
+    "capabilities": [],
+    "no_new_privileges": true,
+    "pids_limit": 32,
+    "cpus": 1.0,
+    "memory_bytes": 402653184,
+    "memory_swap_bytes": 402653184,
+    "timeout_seconds": 15,
+    "timeout_probe_seconds": 0.5,
+    "tmpfs": {
+      "/tmp": 16777216,
+      "/output": 1048576
+    },
+    "log_driver": "none"
+  },
+  "environment_allowlist": {
+    "JAVA_HOME": "/opt/java",
+    "LANG": "C.UTF-8",
+    "HOME": "/tmp/home",
+    "PATH": "/opt/java/bin:/usr/local/bin:/usr/bin:/bin"
+  },
+  "tool": {
+    "name": "EPUBCheck",
+    "version": "5.3.0",
+    "license_spdx": "BSD-3-Clause",
+    "release_url": "https://github.com/w3c/epubcheck/releases/tag/v5.3.0",
+    "artifact_url": "https://github.com/w3c/epubcheck/releases/download/v5.3.0/epubcheck-5.3.0.zip",
+    "artifact_sha256": "6c07e68584b2e2ce2f89fe06e1246dfead3eb36b46b340e7d93524f29dcff6c5"
+  },
+  "java_runtime": {
+    "name": "Eclipse Temurin JRE",
+    "version": "21.0.12+8",
+    "release_url": "https://github.com/adoptium/temurin21-binaries/releases/tag/jdk-21.0.12%2B8",
+    "artifact_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12%2B8/OpenJDK21U-jre_x64_linux_hotspot_21.0.12_8.tar.gz",
+    "artifact_sha256": "8a379a67c91a3ae61ffb33d46e0a40c7ba35e70713c4db31cfca30492f792eff"
+  },
+  "base_image": {
+    "reference": "docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17",
+    "linux_amd64_manifest_sha256": "a249c9f47e05708dd367f3fe8ada03cf347390fad66fb8b0518c0ef55ae3cb84",
+    "upstream_revision": "f2c5d1b8a6adecb5b00b3c9331d4f863beade6b3",
+    "version": "3.12.14-slim-trixie"
+  },
+  "image_tag": "localhost/sammlungslotse-exp-0005:epubcheck-5.3.0",
+  "input_mount": "/input:ro",
+  "output_mount": "/output:tmpfs",
+  "retained_output_max_bytes": 1048576,
+  "cases": [
+    "epub33-valid-reflow",
+    "container-corrupt",
+    "run-tool-timeout",
+    "probe-input-read-only",
+    "probe-network-denied",
+    "probe-memory-limit",
+    "probe-cpu-limit",
+    "probe-output-limit",
+    "probe-environment-minimized"
+  ]
+}

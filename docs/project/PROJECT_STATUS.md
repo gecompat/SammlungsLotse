@@ -32,12 +32,16 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
   Nutzerentscheidungen, Qualitäts- und Automatisierungsmatrix, Messverträgen
   und asymmetrischen Fehlerkosten;
 - vorgeschlagene Anforderung REQ-0002 sowie getrennte Experimentverträge
-  EXP-0002 bis EXP-0005;
+  EXP-0002 bis EXP-0004 und der abgeschlossene Sicherheitsversuch EXP-0005;
 - ausführbarer Testvertrag TEST-0001 mit 26 validierten synthetischen
   `Kern`-Fällen, 44 manifestierten Komponenten und vier weiterhin offenen
   `Ausbau`-Fällen;
 - netzwerkloser, ausschließlich auf der Python-Standardbibliothek beruhender
-  Generator und read-only Validator für TEST-0001-Fixture-Version `0.1.0`.
+  Generator und read-only Validator für die aktive TEST-0001-Fixture-Version
+  `0.2.0`; der unveränderte historische Snapshot `0.1.0` bleibt erhalten;
+- empirisch bestandenes EXP-0005-Profil für eine isolierte, unprivilegierte,
+  netzwerklose EPUBCheck-Ausführung unter Podman mit wirksamen Datei-,
+  Prozess-, Zeit-, Speicher-, CPU-, Output- und Umgebungsgrenzen.
 
 ## Nicht vorhanden
 
@@ -48,20 +52,34 @@ Ergebnisoffene Entwicklungsplanung nach abgeschlossener Projektinitialisierung.
 - öffentliche REST-, Agent-, CLI- oder Browser-Schnittstelle;
 - angenommener Entwicklungsbacklog oder freigegebene technische Roadmap;
 - übernommener FolioTone-Code;
-- ausgeführte Ergebnisse aus EXP-0002 bis EXP-0005;
+- ausgeführte Ergebnisse aus EXP-0002 bis EXP-0004;
 - Release.
 
 ## Validierung
 
+EXP-0005: RUNTIME_EMPIRICAL lokal validiert am 2026-08-27 unter Podman 6.1.0
+mit Linux/amd64 und cgroup v2. EPUBCheck 5.3.0 und Temurin 21.0.12+8 wurden
+aus SHA-256-geprüften offiziellen Release-Artefakten in ein lokales,
+digest-gepinntes Experimentimage gebaut. Elf Akzeptanzprüfungen waren
+erfolgreich: valide und ungültige Wiederholungsläufe, read-only Eingang,
+unveränderte Originalhashes, `network=none`, leere Hostumgebung,
+Capability-Entzug, Zeit- und Kindprozess-Cleanup, 384-MiB-Speichergrenze,
+Ein-CPU-Quote und 1-MiB-Outputgrenze. Das Ergebnis qualifiziert nur dieses
+wegwerfbare Profil, nicht einen Produkt-Stack oder die fachliche
+EPUBCheck-/Accessibility-Normalisierung aus EXP-0003.
+
 TEST-0001-Fixture-Wave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
-am 2026-08-27 unter Python 3.12.10. Der Fixture-Validator bestätigte 26
+am 2026-08-27 unter Python 3.12.10. Der Fixture-Validator bestätigte in der
+aktiven Version `0.2.0` 26
 `Kern`-Fälle und 44 Komponenten, vollständige Hash- und Herkunftsangaben,
 zentrale Fallorakel, bytegenaue Regeneration und unveränderte Eingänge. Der
 kontrollierte 100-ms-Timeout, Pfad-Traversal-Erkennung,
 Expansion-Limit-Erkennung, positive und negative Identitätspaare sowie beide
 Routingresultate waren erfolgreich. Zehn synthetische Unit-Tests,
-`compileall` und `git diff --check` waren erfolgreich. Externe E-Book-Werkzeuge
-und EXP-0002 bis EXP-0005 wurden nicht ausgeführt.
+`compileall` und `git diff --check` waren erfolgreich. EXP-0005 wurde getrennt
+ausgeführt; Calibre, Ace und die fachlichen Experimente EXP-0002 bis EXP-0004
+bleiben offen. Version `0.1.0` bleibt unverändert und ist wegen des dortigen
+OPF-Literals `version="3.3"` nicht mehr die aktive Experimentbasis.
 
 B1-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
 2026-08-27. `tools/governance/validate_repository.py` und die
@@ -131,13 +149,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes wird für
-EXP-0005 ein genau begrenztes Werkzeug- und Ausführungsprofil einschließlich
-Lizenz, Herkunft, Netzwerk-, Dateisystem-, Prozess- und Ressourcenvertrag
-ausgewählt und anschließend gegen die passenden TEST-0001-Fixtures
-qualifiziert. EXP-0002 und EXP-0003 folgen unabhängig davon; EXP-0004 folgt
-erst mit vollständigen positiven und negativen Sollpaaren. GATE-0001 bleibt
-bis zu diesen Ergebnissen offen.
+WI-0002 setzt die E-Book-Analyse ergebnisoffen fort. Als Nächstes wird EXP-0002
+mit genau zwei synthetischen Calibre-Bibliotheken und einer dokumentierten
+minimalen read-only `calibredb`-Feldprojektion ausgeführt. EXP-0003 folgt
+getrennt mit EPUBCheck- und Ace-Rohberichten; EXP-0004 folgt danach mit den
+vollständigen positiven und negativen Sollpaaren. GATE-0001 bleibt bis zu
+diesen Ergebnissen offen.
 
 ## Offene Punkte
 
@@ -150,9 +167,10 @@ bis zu diesen Ergebnissen offen.
 
 ## Blocker
 
-Keine bekannten Blocker für die Vorbereitung von EXP-0005. Vor seiner
-Ausführung fehlt bewusst noch das geprüfte Werkzeug- und Ausführungsprofil.
-Werkzeugspezifische Calibre- und EPUB-Prüfmaterialisierung bleibt Bestandteil
-von EXP-0002 beziehungsweise EXP-0003. Die fehlende Auswahl des ersten
+Keine bekannten Blocker für die Vorbereitung von EXP-0002. Vor seiner
+Ausführung fehlen bewusst noch das versionsfeste Calibre-Werkzeugprofil und
+die zwei über unterstützte Calibre-Befehle materialisierten synthetischen
+Bibliotheken. Die EPUB-/Accessibility-Prüfmaterialisierung bleibt Bestandteil
+von EXP-0003. Die fehlende Auswahl des ersten
 Vertikalablaufs ist beabsichtigt und blockiert Produktimplementierung sowie
 schreibende Fähigkeiten.

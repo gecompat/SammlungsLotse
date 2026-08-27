@@ -48,7 +48,9 @@ Für die Governance- und Fixture-Werkzeuge gelten:
     python -m compileall -q \
       .ai/foundation/artifact_registry_github \
       tools/governance \
-      tools/fixtures
+      tools/fixtures \
+      tools/experiments \
+      experiments/ebook/exp-0005
 
 Für die ausführbare synthetische TEST-0001-Kernfassung gilt zusätzlich:
 
@@ -57,7 +59,17 @@ Für die ausführbare synthetische TEST-0001-Kernfassung gilt zusätzlich:
 Die Prüfung validiert Manifest, Hashes, Herkunft, zentrale Fallorakel,
 Datenschutzgrenzen, einen kontrollierten Timeout, bytegenaue Regeneration und
 die Unverändertheit aller Fixture-Eingänge. Sie führt keine externen
-E-Book-Werkzeuge und keines der Experimente EXP-0002 bis EXP-0005 aus.
+E-Book-Werkzeuge und keines der Experimente EXP-0002 bis EXP-0004 aus.
+
+Für den eingecheckten empirischen EXP-0005-Nachweis gilt:
+
+    python tools/experiments/run_exp_0005.py --validate-result
+
+Diese CI-geeignete Prüfung wiederholt keinen Containerlauf und keinen
+Download. Sie prüft das enge Profil, den vollständigen `pass`-Ergebnisvertrag,
+alle elf Akzeptanzwerte und unveränderte Eingangs-Hashes. Der tatsächliche
+Podman-Lauf ist ein separater expliziter lokaler Provisionierungs- und
+Experimentbefehl, dokumentiert unter `experiments/ebook/exp-0005/`.
 
 Produktbezogene Runtime-Prüfungen werden erst mit dem Technologie-Stack und
 den ersten Arbeitsgegenständen definiert.

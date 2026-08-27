@@ -219,7 +219,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "Isolierte E-Book-Werkzeugausführung qualifizieren"
     },
     "GATE-0001": {
@@ -307,7 +307,7 @@
       "title": "Frühe Kopplung der E-Book-Schiene"
     },
     "TEST-0001": {
-      "acceptance_criteria": "Fixture-Version 0.1.0 erzeugt alle 26 Kernfälle reproduzierbar mit maschinenlesbaren Oracles, Hashes, Herkunft, verbotenen Wirkungen, mehreren synthetischen Zielbibliothek-Snapshots und positiven sowie negativen Sollbeziehungen; vier Ausbau-Fälle bleiben explizit offen.",
+      "acceptance_criteria": "Die aktive Fixture-Version 0.2.0 erzeugt alle 26 Kernfälle reproduzierbar mit maschinenlesbaren Oracles, Hashes, Herkunft, verbotenen Wirkungen, mehreren synthetischen Zielbibliothek-Snapshots und positiven sowie negativen Sollbeziehungen; Version 0.1.0 bleibt historisch unverändert und vier Ausbau-Fälle bleiben explizit offen.",
       "aliases": [],
       "artifact_uid": "urn:uuid:01a04058-c78e-7a28-b3bc-1ff00bd76bba",
       "created_on": "2026-08-27",

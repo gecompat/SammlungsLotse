@@ -13,7 +13,7 @@ VALIDATOR_PATH = (
     ROOT / "tools" / "fixtures" / "validate_ebook_reference_corpus.py"
 )
 CORPUS_ROOT = (
-    ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.1"
+    ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.2"
 )
 
 
