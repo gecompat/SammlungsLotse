@@ -1,6 +1,6 @@
 # EXP-0006 — Read-only Eingangstriage-Preflight
 
-Status: PROFIL VERSIONIERT — NOCH NICHT AUSGEFÜHRT
+Status: PASSED
 
 ## Zweck und Grenze
 
@@ -67,6 +67,37 @@ pfadbereinigte Ergebnis wird bei bestandenem Akzeptanzvertrag als
 python tools/experiments/run_exp_0006.py --validate-result
 ```
 
-Ein bestandenes Ergebnis wäre Evidenz für diesen fixierten synthetischen
+Das bestandene Ergebnis ist Evidenz für diesen fixierten synthetischen
 Preflight, nicht für Produktreife, Produktionssicherheit oder die Wahl einer
 E-Book-Schiene an GATE-0001.
+
+## Ausführungsergebnis
+
+Der vollständige Lauf am 2026-08-27 unter Podman 6.1.0 auf Linux/amd64 hat
+alle 16 Akzeptanzkriterien erfüllt. Alle elf vorab gebundenen Matrixzeilen
+entsprachen dem Soll; acht Fälle blieben außerhalb des tiefen Werkzeugwegs,
+drei positiv gegatete Kontrollen starteten ihn, und die Zahl kritischer
+Fehlfreigaben war null. Beide Wiederholungen erzeugten den identischen
+semantischen Digest
+`e14077d5cb783052cd79b309c60d3ae709f363523597e735be087a79a66b4ba4`.
+
+Ein erster Infrastrukturversuch wurde nicht gewertet: Das zunächst im
+Container-tmpfs abgelegte Ergebnis war nach Prozessende für `podman cp` nicht
+mehr verfügbar. Der Ergebnistransport wurde daraufhin als eigener
+Preimage-Commit auf den bereits größenbegrenzten, angehängten
+Standardausgabekanal umgestellt. Ein späterer Repository-Selbstscan fand im
+Runner ein Klartext-Pfadmuster, das den Privacy-Guard selbst auslöste. Auch
+diese rein konstruktive Erkennungskorrektur wurde vor dem endgültigen Lauf
+committed. Weil sich der gebundene Runner-Hash änderte, wurden vorhandene
+Laufergebnisse verworfen und beide gewerteten Wiederholungen vollständig neu
+gestartet. Dasselbe Vorgehen galt für die abschließende Härtung der
+Input-Grenze, Umgebungsbelege und vollständigen CI-Neuberechnung: Erst nach
+ihrem Preimage-Commit entstanden die hier festgehaltenen Wiederholungen.
+Sollmatrix, Probeentscheidungen, Fixture und Sicherheitsgrenzen wurden dabei
+nicht nach einem fachlichen Ergebnis verändert.
+
+Der pfadbereinigte Nachweis steht in [result.json](result.json). Vollständige
+Rohberichte bleiben außerhalb von Git; `result.json` hält Dateinamen, Größen
+und SHA-256-Hashes fest. Die Evidenz gilt nur für die elf kleinen
+synthetischen Zeilen und dieses wegwerfbare Containerprofil. Sie qualifiziert
+keinen Produktparser, keinen allgemeinen PDF-Weg und keine Produktlaufzeit.

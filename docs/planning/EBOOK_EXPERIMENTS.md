@@ -1,6 +1,6 @@
 # E-Book-Experimentverträge
 
-Status: EXP-0002 TO EXP-0005 PASSED — EXP-0006 PROPOSED
+Status: EXP-0002 TO EXP-0006 PASSED
 
 Stand: 2026-08-27
 
@@ -9,8 +9,7 @@ Artifacts: EXP-0001, EXP-0002, EXP-0003, EXP-0004, EXP-0005, EXP-0006
 ## Zweck und Grenze
 
 Dieses Dokument zerlegt den Sammelrahmen EXP-0001 in kleine,
-entscheidungsfähige Experimente. EXP-0002 bis EXP-0005 sind ausgeführt;
-EXP-0006 ist registriert und spezifiziert, aber noch nicht ausgeführt. Die
+entscheidungsfähige Experimente. EXP-0002 bis EXP-0006 sind ausgeführt. Die
 Experimentfragen und Passkriterien sind dauerhaft; ihre Implementierungen
 dürfen wegwerfbar bleiben.
 
@@ -329,7 +328,7 @@ fachliche Werkzeugbewertung in EXP-0003.
 
 ## EXP-0006 — Read-only Eingangstriage-Preflight
 
-Status: REGISTRIERT — NICHT AUSGEFÜHRT
+Status: PASSED
 
 ### Entscheidungsfrage
 
@@ -453,9 +452,45 @@ Ergebnisvertrag und ein CI-geeigneter Ergebnisvalidator unter
 `experiments/ebook/exp-0006/` eingecheckt sein. Exakte Befehle, Umgebung,
 Eingangs- und Ausgabepfade sowie Cleanup werden dort vor dem Lauf gebunden.
 
-Diese Vertrags-Wave implementiert oder startet den Versuch nicht. Sie wählt
-weder Produktlaufzeit noch Produktparser und autorisiert keine spätere
-Wiederverwendung des Experimentcodes.
+### Ausführungsergebnis
+
+EXP-0006 wurde am 2026-08-27 mit dem Profil
+`exp-0006-podman-ingress-preflight/v1` gegen TEST-0001 `0.2.0` unter Podman
+6.1.0 auf Linux/amd64 ausgeführt. Alle 16 Akzeptanzkriterien und alle elf
+vorab festgelegten Matrixzeilen waren erfolgreich. Acht Fälle blieben
+außerhalb des tiefen Werkzeugwegs, drei positiv gegatete Kontrollen starteten
+ihn, und kritische Fehlfreigaben betrugen null. `supported`, `unsupported`,
+`unknown` sowie `continue_deep_read_only`, `defer`, `stop`, `review` und
+`abstain` blieben getrennt sichtbar.
+
+Beide vollständigen Wiederholungen erzeugten den identischen semantischen
+Digest
+`e14077d5cb783052cd79b309c60d3ae709f363523597e735be087a79a66b4ba4`.
+Eingabehashes blieben unverändert. Netzwerkzugriff und verbotene Wirkungen
+waren null; read-only Root und Fixture, unprivilegierte UID, Capability-
+Entzug, `no-new-privileges`, PID-, CPU-, RAM-, Zeit-, tmpfs- und
+Ausgabegrenzen wurden protokolliert und erfüllt.
+
+Ein erster, nicht gewerteter Infrastrukturversuch erzeugte keinen
+übernehmbaren Ergebnisdatensatz, weil das Ergebnis nach Prozessende aus dem
+Container-tmpfs nicht mehr per `podman cp` verfügbar war. Nach der
+versionierten Umstellung des begrenzten Ergebnistransports fand der
+Repository-Selbstscan außerdem ein Klartext-Pfadmuster, das den Privacy-Guard
+selbst auslöste. Auch diese rein konstruktive Erkennungskorrektur wurde vor
+dem endgültigen Lauf committed. Weil sich der gebundene Runner-Hash änderte,
+wurden vorhandene Laufergebnisse verworfen und beide gewerteten
+Wiederholungen vollständig neu gestartet. Dasselbe galt für die abschließende
+Härtung der Input-Grenze, Umgebungsbelege und CI-Neuberechnung: Erst nach
+ihrem Preimage-Commit entstanden die eingefrorenen Wiederholungen. Matrix,
+Fixture, Entscheidungslogik und Sicherheitsgrenzen blieben unverändert.
+
+Profil, Probe, Runner, Containerdefinition und der CI-geeignete
+Ergebnisvalidator stehen unter
+[`experiments/ebook/exp-0006/`](../../experiments/ebook/exp-0006/); der
+eingefrorene Nachweis steht in
+[`result.json`](../../experiments/ebook/exp-0006/result.json). Das Ergebnis
+qualifiziert nur diesen kleinen synthetischen Preflight. Es wählt weder einen
+Produktparser noch eine Produktlaufzeit und entscheidet GATE-0001 nicht.
 
 ## Noch nicht registrierte Experimentäste
 
@@ -489,11 +524,12 @@ noch keine weiteren EXP-Referenzen reserviert.
 8. EXP-0006 als genau eine nächste Evidenzwelle registrieren und spezifizieren
    — abgeschlossen;
 9. EXP-0006 in einer getrennten, gebundenen Experiment-Wave ausführen —
-   offen;
+   abgeschlossen;
 10. GATE-0001 anhand des versionierten EXP-0006-Ergebnisses erneut auswerten
     — offen.
 
 Die Reihenfolge ist ein Lernplan und keine freigegebene Produktroadmap.
 Der Vergleich und die genaue Begrenzung von EXP-0006 stehen unter
-[EBOOK_GATE_0001_COMPARISON.md](EBOOK_GATE_0001_COMPARISON.md). Vor einer
-erneuten Gate-Auswertung wird nur dieses Experiment ausgeführt.
+[EBOOK_GATE_0001_COMPARISON.md](EBOOK_GATE_0001_COMPARISON.md). Als nächster
+getrennter Schritt wird GATE-0001 anhand dieses versionierten Ergebnisses
+erneut ausgewertet.

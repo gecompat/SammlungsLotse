@@ -407,7 +407,7 @@ WI-0003 ist auf Dokumentationsebene erfüllt, wenn:
 - Qualitätsaktivitäten nach Prüfklasse und Voraussetzung eingeordnet sind;
 - asymmetrische Fehlerfolgen und Messgrößen benannt sind;
 - TEST-0001 konkrete Sollfälle und Datenregeln besitzt;
-- EXP-0002 bis EXP-0005 Frage, Eingänge, Pass- und Stoppkriterien besitzen;
+- EXP-0002 bis EXP-0006 Frage, Eingänge, Pass- und Stoppkriterien besitzen;
 - GATE-0001, Stack, Oberfläche, erster Vertikalablauf und Writer offen bleiben;
 - Registry, Dokumentlinks, Datenschutz und Repository-Validierung erfolgreich
   geprüft sind.

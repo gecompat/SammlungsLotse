@@ -24,6 +24,20 @@ Eine Auswahl allein nach der Zahl bestandener Experimente würde diese
 unterschiedlichen Evidenzlücken verdecken. Die Vertagung hält beide
 Ausstiegswege offen und autorisiert weder Produktcode noch einen Writer.
 
+## Fortschreibung nach EXP-0006
+
+EXP-0006 wurde nach dieser ersten Vergleichsauswertung als getrennte
+Evidenzwelle ausgeführt und hat 16/16 Akzeptanzkriterien sowie 11/11 vorab
+gebundene Preflight-Zeilen bestanden. Kritische Fehlfreigaben waren null, die
+beiden Wiederholungen semantisch identisch und die protokollierten Netzwerk-,
+Dateisystem-, Prozess- und Ressourcengrenzen wirksam.
+
+Die nachfolgende Vergleichstabelle hält weiterhin den Befund der ersten
+Gate-Auswertung fest. Diese Experiment-Wave nimmt keinen Kandidaten an und
+schreibt das Gate nicht stillschweigend um. GATE-0001 bleibt `proposed` und
+wird als nächster getrennter Planungsschritt mit dem versionierten Ergebnis
+neu ausgewertet.
+
 ## Entscheidungsgrenze
 
 Verglichen werden ausschließlich zwei read-only Produktzuschnitte:
@@ -99,12 +113,13 @@ Produktadapter, einen vollständigen Ablauf oder einen Technologie-Stack.
 Damit ist die Vergleichsarbeit abgeschlossen, nicht aber das Gate zur
 Produktimplementierung.
 
-## Genau eine nächste Evidenzwelle
+## Genau eine ausgeführte Evidenzwelle
 
-Vor einer erneuten Gate-Auswertung wird genau eine weitere Evidenzwelle
+Vor der erneuten Gate-Auswertung wurde genau eine weitere Evidenzwelle
 verfolgt: **read-only Eingangstriage-Preflight für Format- und
-Fähigkeitsklassifikation**. Sie ist als EXP-0006 registriert und unter
-[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md) spezifiziert.
+Fähigkeitsklassifikation**. Sie ist als EXP-0006 registriert, unter
+[EBOOK_EXPERIMENTS.md](EBOOK_EXPERIMENTS.md) spezifiziert und empirisch
+abgeschlossen.
 
 Die Wave soll ausschließlich mit synthetischen TEST-0001-Eingängen prüfen,
 ob vor jedem tiefen Werkzeuglauf reproduzierbar unterschieden werden kann:
@@ -131,17 +146,16 @@ ob vor jedem tiefen Werkzeuglauf reproduzierbar unterschieden werden kann:
 - Profil, Eingänge, erwartete Ergebnisse und Stopkriterien sind vor dem Lauf
   versioniert.
 
-EXP-0006 ist `proposed`. Registrierung und Experimentvertrag autorisieren
-noch keinen Lauf. Vor der Ausführung müssen das exakte Ausführungsprofil, der
-wegwerfbare Runner, der Ergebnisvertrag und der Ergebnisvalidator in einer
-getrennten Wave versioniert werden. EXP-0006 darf keinen Produktcode, keine
-UI, keine Persistenz, keinen Writer und keine reale oder private Datei
-einführen.
+EXP-0006 ist `done`. Exaktes Ausführungsprofil, wegwerfbarer Runner,
+Ergebnisvertrag und Ergebnisvalidator wurden vor den gewerteten
+Wiederholungen versioniert. Der Versuch hat keinen Produktcode, keine UI,
+keine Persistenz, keinen Writer und keine reale oder private Datei
+eingeführt.
 
 ## Wiederöffnung und Ausgänge
 
-Nach genau dieser Evidenzwelle wird GATE-0001 erneut ausgewertet. Zulässig
-bleiben drei Ausgänge:
+Nach genau dieser Evidenzwelle wird GATE-0001 getrennt erneut ausgewertet.
+Zulässig bleiben drei Ausgänge:
 
 1. Eingangstriage annehmen, wenn der Preflight die kritische S2-Lücke
    schließt und der kleinste vollständige read-only Ablauf begrenzbar ist;
