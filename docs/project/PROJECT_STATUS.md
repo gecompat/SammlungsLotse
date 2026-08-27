@@ -6,8 +6,8 @@ Stand: 2026-08-27
 
 ## Phase
 
-Angenommene Planung des ersten eng begrenzten Produktprototyps nach
-ergebnisoffener E-Book-Erkundung.
+Erster eng begrenzter Produktprototyp nach ergebnisoffener
+E-Book-Erkundung implementiert und lokal vollständig abgenommen.
 
 ## Vorhanden
 
@@ -61,23 +61,42 @@ ergebnisoffener E-Book-Erkundung.
   begrenztem ersten read-only E-Book-Vertikalablauf; Bestandsprüfung bleibt
   ein möglicher späterer Ast. Die Auswahl autorisiert für sich weder
   Produktcode noch einen Writer;
-- als WI-0004 angenommener Vertrag für einen lokalen read-only
-  Eingangstriage-Prototyp mit In-Memory-Snapshot, flachem Preflight,
-  getrennter Evidenz und sichtbarer CLI-Folgeaktion; Implementierung beginnt
-  erst nach dem kanonischen Plan-Merge.
+- als WI-0004 abgeschlossener lokaler read-only Eingangstriage-Prototyp mit
+  In-Memory-Snapshot, flachem Preflight, getrennter Evidenz und sichtbarer
+  deutscher oder JSON-CLI-Folgeaktion;
+- ausschließlich auf Python 3.12 und Standardbibliothek beruhender,
+  paketlos startbarer Produktcode unter `src/sammlungslotse/ebook_intake/`
+  und `tools/run_ebook_intake.py`;
+- automatisierte Produktverträge und tatsächliche CLI-End-to-End-Abnahme für
+  `continue_deep_read_only`, `review`, `stop` und `abstain`; `defer` ist am
+  injizierbaren Snapshot-Port deterministisch belegt.
 
 ## Nicht vorhanden
 
-- Produktcode;
-- ausgewählter Technologie-Stack;
+- allgemeiner Technologie-Stack jenseits der reversiblen WI-0004-Auswahl;
 - Laufzeit- oder Deploymentkonzept;
 - Produktdatenbank oder Suchindex;
-- öffentliche REST-, Agent-, CLI- oder Browser-Schnittstelle;
+- öffentliche REST-, Agent- oder Browser-Schnittstelle sowie eine
+  produktqualifizierte allgemeine CLI;
 - angenommener Entwicklungsbacklog oder freigegebene technische Roadmap;
 - übernommener FolioTone-Code;
 - Release.
 
 ## Validierung
+
+WI-0004-Implementierungswave: PROJECT_SEMANTIC, RUNTIME_EMPIRICAL und die
+sichtbare CLI-Abnahme lokal validiert am 2026-08-27 unter Python 3.12.10.
+Repository- und v2-Registry-Prüfung waren für 20 registrierte Artefakte
+erfolgreich. TEST-0001 bestätigte 26 Fälle und 44 Komponenten; EXP-0002 bis
+EXP-0006 bestätigten 13/13, 14/14, 15/15, 11/11 und 16/16 Kriterien. Alle 54
+synthetischen Repository-Tests, davon 25 fokussierte Produkttests,
+`compileall` und `git diff --check` waren erfolgreich. Getrennte tatsächliche
+CLI-Prozesse zeigten `continue_deep_read_only`, `review`, `stop` und
+`abstain`; zwei stabile JSON-Läufe waren byteidentisch. Die vier
+Eingabehashes und das vollständige Arbeitsbaum-Dateiinventar blieben vor und
+nach der Abnahme unverändert. Dies qualifiziert nur den lokalen
+synthetischen WI-0004-Prototyp, nicht reale Medien, tiefe Formatqualität,
+Produktreife oder einen allgemeinen Stack.
 
 WI-0004-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL-Regression lokal
 validiert am 2026-08-27 unter Python 3.12.10. Repository- und
@@ -221,7 +240,8 @@ E-Book-Planungsstand: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert am
 v2-Registry-Validierung waren für zwölf registrierte Artefakte erfolgreich.
 Fünf synthetische Governance-Unit-Tests, `compileall` und `git diff --check`
 waren erfolgreich. Dies belegt Dokument- und Governance-Integrität, nicht
-Produktlaufzeit oder fachliche E-Book-Akzeptanz; Produktcode existiert nicht.
+Produktlaufzeit oder fachliche E-Book-Akzeptanz; Produktcode existierte in
+dieser Planungswave noch nicht.
 
 FOUNDATION_INTEGRITY: validated am 2026-08-26 für Foundation 1.7.0 und
 artifact-registry-github. Der Foundation-Validator aus Quellcommit
@@ -276,11 +296,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-Nach dem kanonischen Merge der angenommenen WI-0004-Planung beginnt eine neue
-Implementierungs-Wave vom exakten `origin/main`. Sie implementiert und prüft
-nur Snapshot, flachen Preflight, gemeinsamen Ergebnisvertrag und lokale CLI.
-Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing, Persistenz,
-Browser, REST, Agents und Writes bleiben außerhalb.
+Nach WI-0004 beginnt kein automatischer Erweiterungsast. Eine getrennte
+Entscheidung vergleicht anhand des nun sichtbaren Nutzwerts mindestens:
+Kern-/CLI-Härtung, die Planung eines austauschbaren tiefen read-only
+Werkzeugadapters oder das Pausieren der E-Book-Linie zugunsten einer anderen
+Medienlinie. Calibre, tiefe Formatprüfung, Dubletten, Metadaten, Routing,
+Persistenz, Browser, REST, Agents und Writes bleiben bis zu eigener Annahme
+außerhalb.
 
 ## Offene Punkte
 
@@ -293,7 +315,5 @@ Browser, REST, Agents und Writes bleiben außerhalb.
 
 ## Blocker
 
-Keine bekannten Blocker für WI-0004. Produktimplementierung bleibt bis zum
-kanonischen Merge des angenommenen Arbeitsgegenstands nicht autorisiert.
-Schreibende Fähigkeiten bleiben unabhängig davon hinter einem eigenen
-Writer-Gate.
+Keine bekannten Blocker für den Abschluss von WI-0004. Schreibende
+Fähigkeiten bleiben unabhängig davon hinter einem eigenen Writer-Gate.

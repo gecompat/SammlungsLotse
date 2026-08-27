@@ -1,6 +1,6 @@
 # WI-0004: Dünner read-only E-Book-Eingangstriage-Prototyp
 
-Status: ACCEPTED — IMPLEMENTIERUNG INNERHALB DER GRENZE AUTORISIERT
+Status: DONE — LOKAL IMPLEMENTIERT UND VOLLSTÄNDIG ABGENOMMEN
 
 Stand: 2026-08-27
 
@@ -159,6 +159,37 @@ WI-0004 ist erst `done`, wenn alle folgenden Punkte tatsächlich belegt sind:
     Produkttests sind erfolgreich; `compileall` und `git diff --check` sind
     sauber.
 
+## Erfüllungsnachweis
+
+Die Implementierung liegt unter `src/sammlungslotse/ebook_intake/`; der
+Starter liegt unter `tools/run_ebook_intake.py`. Der Anwendungskern,
+Snapshot-Port, lokale Snapshot-Adapter, flache EPUB-Prüfung sowie deutsche und
+JSON-Projektion sind getrennt. Der Produktcode importiert ausschließlich
+Python-Standardbibliothek und besitzt keine Netzwerk-, Persistenz-,
+Subprozess-, Extraktions- oder Schreiboperation.
+
+Die lokale Abnahme am 2026-08-27 unter Python 3.12.10 belegt:
+
+- 25 fokussierte Produkttests für alle fünf Gate-Zustände, beide
+  Verschlüsselungsmarker, Signatur- und Containerfehler, Traversal,
+  Ressourcen- und Berichtsgrenzen, Determinismus und Pfadbereinigung;
+- tatsächliche getrennte CLI-Prozesse mit
+  `continue_deep_read_only`, `review`, `stop` und `abstain`;
+- `defer` deterministisch über einen injizierten instabilen Snapshot;
+- byteidentische JSON-Ausgabe bei zwei Läufen über denselben Eingang;
+- unveränderte SHA-256-Werte aller vier E2E-Eingänge und ein unverändertes
+  vollständiges Arbeitsbaum-Dateiinventar vor und nach der sichtbaren
+  Abnahme;
+- 54 erfolgreiche Repository-Tests insgesamt, 20 semantisch gültige
+  Registry-Artefakte, TEST-0001 mit 26 Fällen und 44 Komponenten sowie die
+  weiterhin gültigen Ergebnisverträge EXP-0002 bis EXP-0006;
+- erfolgreiche Kompilierung aller Python-Quellen und ein sauberes
+  `git diff --check`.
+
+Die Evidenz qualifiziert nur den synthetischen lokalen WI-0004-Prototyp. Sie
+ist kein Nachweis für reale oder private Medien, tiefe Formatqualität,
+Produktreife oder eine spätere Integration.
+
 ## Verbotene Wirkungen und Nichtziele
 
 Nicht Bestandteil und nicht autorisiert sind:
@@ -188,9 +219,9 @@ Annahme und die Registrierung von WI-0004 in `origin/main` kanonisch sind.
 
 ## Abschluss und Fortsetzung
 
-Nach Implementierung und vollständiger Abnahme wird WI-0004 in einer
-getrennten Wave auf `done` gesetzt. Danach wird nicht automatisch ein
-Erweiterungsast begonnen. Die nächste Entscheidung vergleicht auf Basis des
-tatsächlichen Nutzwerts mindestens: Stabilität und UX des Kerns vertiefen,
-einen austauschbaren tiefen read-only Werkzeugadapter planen oder die
-E-Book-Schiene zugunsten einer anderen Medienlinie pausieren.
+WI-0004 ist nach Implementierung und vollständiger lokaler Abnahme `done`.
+Damit wird kein Erweiterungsast automatisch begonnen. Die nächste
+Entscheidung vergleicht auf Basis des tatsächlichen Nutzwerts mindestens:
+Stabilität und UX des Kerns vertiefen, einen austauschbaren tiefen read-only
+Werkzeugadapter planen oder die E-Book-Schiene zugunsten einer anderen
+Medienlinie pausieren.

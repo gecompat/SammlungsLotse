@@ -41,12 +41,14 @@ zweite Prüfung kontrolliert die v2-Registry-Semantik.
 
 ## RUNTIME_EMPIRICAL
 
-Für die Governance- und Fixture-Werkzeuge gelten:
+Für Produkt-, Governance- und Fixture-Code gelten:
 
     python -m unittest discover -s tests -p "test_*.py"
 
     python -m compileall -q \
+      src/sammlungslotse \
       .ai/foundation/artifact_registry_github \
+      tools/run_ebook_intake.py \
       tools/governance \
       tools/fixtures \
       tools/experiments \
@@ -119,8 +121,29 @@ Netzwerk-, Dateisystem-, Prozess-, Ressourcen- und Umgebungsgrenzen. Der
 vollständige lokale Podman-Lauf ist als eigener expliziter Befehl unter
 `experiments/ebook/exp-0006/` dokumentiert.
 
-Produktbezogene Runtime-Prüfungen werden erst mit dem Technologie-Stack und
-den ersten Arbeitsgegenständen definiert.
+Für den WI-0004-Produktvertrag gelten zusätzlich:
+
+    python -m unittest discover -s tests/product -p "test_*.py"
+
+Die Tests prüfen die Gate-Matrix, stabile und instabile Snapshots,
+Ressourcenobergrenzen, Pfadbereinigung, byteidentische JSON-Ausgabe,
+unveränderte Eingaben sowie die Abwesenheit von Netzwerk-, Persistenz-,
+Subprozess-, Extraktions- und Schreibfähigkeiten im Produktcode.
+
+Die sichtbare synthetische CLI-Abnahme verwendet mindestens:
+
+    python tools/run_ebook_intake.py tests/fixtures/ebook/test-0001/v0.2/cases/ingress-stable-minimal/stable.epub
+
+    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.2/cases/epub-active-or-remote/active-remote.epub
+
+    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.2/cases/container-corrupt/corrupt.epub
+
+    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.2/cases/format-unknown/unknown.epub
+
+Vor und nach der Matrix werden die SHA-256-Werte der Eingänge verglichen.
+Zwei JSON-Läufe über den stabilen Eingang müssen byteidentisch sein. Die
+Abnahme qualifiziert nur den lokalen synthetischen Prototyp; sie startet kein
+tiefes Werkzeug und verwendet keine realen oder privaten Medien.
 
 ## Pull-Request-Prüfungen
 

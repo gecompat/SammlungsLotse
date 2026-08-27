@@ -1,0 +1,1 @@
+"""SammlungsLotse product prototypes."""
