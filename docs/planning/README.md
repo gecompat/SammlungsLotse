@@ -126,8 +126,10 @@ EXP-0002 belegten lokalen Calibre-Zugriff als enges Produktprofil: genau eine
 ausdrücklich angegebene Bibliothek, eine unveränderte begrenzte Copy-on-read-
 Arbeitskopie, die dokumentierte `calibredb`-CLI und eine pfadfreie Projektion
 auf Calibre-ID, Titel, Autoren, Sprachen und Formate. Planung und Registrierung
-sind angenommen; Produktimplementierung und synthetische Qualifikation folgen
-erst nach dem Plan-Merge in einer getrennten Wave.
+sind angenommen. Die getrennte Implementierungs-Wave ist abgeschlossen: Das
+exakte Calibre-9.13.0-Image wurde reproduzierbar gebaut, der Adapter umgesetzt
+und die deutsche sowie stabile JSON-CLI ausschließlich synthetisch mit 17/17
+Produktkriterien qualifiziert.
 
 ## Nicht übernehmen
 

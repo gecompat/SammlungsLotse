@@ -9,10 +9,11 @@ manuellen Aufwand verursachen.
 
 Das Repository besitzt mit WI-0004 einen vollständig begrenzten read-only
 E-Book-Eingangstriage-Prototyp, mit WI-0005 einen optionalen tiefen
-EPUBCheck-Adapter und mit WI-0006 einen kleinen Mehrdatei-Bericht. Dies ist
-keine vollständige Medienlinie und legt weder das allgemeine Laufzeitmodell
-noch eine technische Roadmap fest. Weitere Entwicklung beginnt weiterhin nur
-auf Grundlage der hier dokumentierten Produkt- und Governance-Verträge.
+EPUBCheck-Adapter, mit WI-0006 einen kleinen Mehrdatei-Bericht und mit WI-0007
+eine eng begrenzte read-only Calibre-Bestandsprojektion. Dies ist keine
+vollständige Medienlinie und legt weder das allgemeine Laufzeitmodell noch
+eine technische Roadmap fest. Weitere Entwicklung beginnt weiterhin nur auf
+Grundlage der hier dokumentierten Produkt- und Governance-Verträge.
 
 ## Produktauftrag
 
@@ -100,6 +101,19 @@ weiterhin den konfigurierten WI-0005-Task-Root.
 Der Lauf schreibt keine Berichtsdatei und führt die angezeigte Folgeaktion
 nicht aus. Reale oder private Sammlungsmedien sind keine qualifizierte
 Eingabe des Prototyps.
+
+Die getrennte Calibre-Bestandsprojektion benötigt ein vorab bereitgestelltes,
+exakt gebundenes lokales Profil. Sie verarbeitet genau eine ausdrücklich
+angegebene Bibliothek über eine wegwerfbare Copy-on-read-Arbeitskopie:
+
+    python tools/provision_calibre_readonly_profile.py --cache-root C:\rep\cache\SammlungsLotse\calibre-readonly
+
+    python tools/run_calibre_inventory.py --json --temp-root C:\rep\tmp\SammlungsLotse\calibre-readonly CALIBRE_BIBLIOTHEK
+
+Die stdout-Ausgabe enthält nur Calibre-ID, Titel, Autoren, Sprachen und
+Formate. Sie kann private Sammlungsmetadaten enthalten und wird nicht
+persistiert. Mehrere Bibliotheken, automatische Erkennung, Content Server und
+jede schreibende Calibre-Operation bleiben außerhalb.
 
 ## Lizenz
 

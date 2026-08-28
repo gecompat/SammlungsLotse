@@ -1,0 +1,70 @@
+{
+  "base_image": {
+    "config_id": "sha256:72a58063c7563c5c64052da2becebce3f25b60055cb351b668c4e2df9153702c",
+    "reference": "docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17",
+    "version": "3.12.14-slim-trixie"
+  },
+  "execution": {
+    "cap_drop": ["all"],
+    "cpus": "1.0",
+    "environment": {
+      "CALIBRE_CONFIG_DIRECTORY": "/config",
+      "HOME": "/tmp/home",
+      "LANG": "C.UTF-8",
+      "PATH": "/opt/calibre:/usr/local/bin:/usr/bin:/bin",
+      "QT_QPA_PLATFORM": "offscreen"
+    },
+    "memory_bytes": 1073741824,
+    "memory_swap_bytes": 1073741824,
+    "network": "none",
+    "no_new_privileges": true,
+    "pids_limit": 64,
+    "podman_minimum_version": "6.1.0",
+    "provider_arguments": [],
+    "raw_report_max_bytes": 4194304,
+    "read_only_root": true,
+    "stderr_max_bytes": 131072,
+    "stdout_max_bytes": 4194304,
+    "timeout_seconds": 30,
+    "user": "65532:65532"
+  },
+  "image": {
+    "entrypoint": [
+      "/usr/bin/env",
+      "-i",
+      "CALIBRE_CONFIG_DIRECTORY=/config",
+      "HOME=/tmp/home",
+      "LANG=C.UTF-8",
+      "PATH=/opt/calibre:/usr/local/bin:/usr/bin:/bin",
+      "QT_QPA_PLATFORM=offscreen",
+      "python",
+      "/opt/adapter/calibre_inventory_wrapper.py"
+    ],
+    "id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5",
+    "platform": "linux/amd64",
+    "tag": "localhost/sammlungslotse-calibre-readonly:wi-0007"
+  },
+  "profile_id": "wi-0007-calibre-9.13.0-podman-linux-amd64/v1",
+  "provider": {
+    "artifact_bytes": 192554776,
+    "artifact_sha512": "c018cb47805040a9a83dc16986db618c539a7dc62f85da2760b7e22e0e8ada7533a01be797cdbd04a5d5f66c8efa2b0ac2db4819700e561351267cb4842a3fc6",
+    "artifact_url": "https://download.calibre-ebook.com/9.13.0/calibre-9.13.0-x86_64.txz",
+    "id": "calibre",
+    "license_spdx": "GPL-3.0-only",
+    "release_url": "https://download.calibre-ebook.com/9.13.0/",
+    "signature_index": "https://calibre-ebook.com/signatures/",
+    "version": "9.13.0"
+  },
+  "schema": "sammlungslotse/calibre-read-only-runtime-profile/v1",
+  "sources_checked_on": "2026-08-28",
+  "workspace": {
+    "marker_schema": "sammlungslotse/calibre-read-only-task/v1",
+    "max_children": 64,
+    "max_depth": 16,
+    "max_file_bytes": 536870912,
+    "max_files": 5000,
+    "max_relative_path_bytes": 1024,
+    "max_task_age_seconds": 86400,
+    "max_total_bytes": 2147483648
+  }
+}

@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-08-27
+Stand: 2026-08-28
 
 ## Aktueller Stand
 
@@ -78,8 +78,11 @@ WI-0007 ist als nächste getrennte Produktwave angenommen und unter
 `docs/planning/CALIBRE_READ_ONLY_PROJECTION_WORK_ITEM.md` vollständig
 begrenzt. Genau eine explizite lokale Calibre-Bibliothek soll über eine
 task-private Copy-on-read-Arbeitskopie und Calibre 9.13.0 pfadfrei auf ID,
-Titel, Autoren, Sprachen und Formate projiziert werden. Diese Planungs-Wave
-enthält noch keinen Produktcode und keine Produktqualifikation.
+Titel, Autoren, Sprachen und Formate projiziert werden. Die getrennte
+Implementierungs-Wave ist abgeschlossen: Das Image wurde zweimal
+reproduzierbar gebaut, der Adapter implementiert und die tatsächliche
+synthetische Produktqualifikation bestand 17/17 Kriterien einschließlich
+tatsächlichem Timeout und tatsächlicher Rohoutput-Grenze.
 
 ## Fortsetzung
 
@@ -99,11 +102,12 @@ Implementierung ist abgeschlossen. Eine weitere Produktwave ist nicht
 automatisch freigegeben. WI-0006 entscheidet insbesondere keinen zweiten
 Provider, keine allgemeine Containerstrategie und keine schreibende Fähigkeit.
 
-Die Benutzerentscheidung vom 2026-08-28 hat WI-0007 nun ausdrücklich
-freigegeben. Nach dem Plan-Merge folgt eine getrennte Implementierungs-Wave
-mit Produktport, Copy-on-read-Grenze, exaktem Calibre-Profil, deutscher und
-stabiler JSON-CLI sowie ausschließlich synthetischer vollständiger
-Qualifikation. Erst deren geprüfter Merge darf WI-0007 auf `done` setzen.
+WI-0007 ist `done`. Produktport, Copy-on-read-Grenze, exaktes
+Calibre-9.13.0-Profil sowie deutsche und stabile JSON-CLI liegen unter
+`src/sammlungslotse/calibre_inventory/`, `runtime/calibre-readonly/` und
+`tools/run_calibre_inventory.py`. Die nächste Produktwave ist nicht
+automatisch freigegeben. Insbesondere sind mehrere Bibliotheken, automatische
+Erkennung, Content Server, Persistenz und Writer weiterhin außerhalb.
 
 ## Harte Grenzen
 
@@ -125,9 +129,10 @@ Qualifikation. Erst deren geprüfter Merge darf WI-0007 auf `done` setzen.
 - konkrete REST- und Agent-Verträge;
 - konkrete FolioTone-Wiederverwendung;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
-- Accessibility- und Metadatenprovider-Adapter sowie weitere tiefe
-  Werkzeugprovider jenseits EPUBCheck 5.3.0; der konkrete enge Calibre-
-  Bestandsprovider ist mit WI-0007 angenommen, aber noch nicht implementiert;
+- Accessibility- und externe Metadatenprovider-Adapter sowie weitere tiefe
+  Werkzeugprovider jenseits EPUBCheck 5.3.0; der enge Calibre-
+  Bestandsprovider ist mit WI-0007 implementiert, nicht aber weitere
+  Calibre-Felder oder -Operationen;
 - weitere empirisch qualifizierte Produktprofile jenseits des engen
   WI-0005-EPUBCheck-Profils; EXP-0002 qualifiziert nur den
   Copy-on-read-Calibre-Zugriff, EXP-0003 nur eine Evidenzprojektion mit nicht

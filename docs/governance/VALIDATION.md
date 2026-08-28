@@ -49,6 +49,9 @@ Für Produkt-, Governance- und Fixture-Code gelten:
       src/sammlungslotse \
       .ai/foundation/artifact_registry_github \
       tools/run_ebook_intake.py \
+      tools/run_calibre_inventory.py \
+      tools/provision_calibre_readonly_profile.py \
+      tools/qualify_calibre_readonly_profile.py \
       tools/governance \
       tools/fixtures \
       tools/experiments \
@@ -184,6 +187,30 @@ Prestart-Isolation, Input- und Originalunverändertheit, Outputlimit, Timeout
 sowie vollständiges Container- und Task-Cleanup belegen. Unbekannte Codes,
 ungültige Berichte, Pre- und Post-Hashabweichung, Cleanupfehler und Recovery
 werden zusätzlich durch synthetische Produktverträge erzwungen.
+
+Für den eingecheckten WI-0007-Produktnachweis gilt zusätzlich:
+
+    python tools/qualify_calibre_readonly_profile.py --validate-result
+
+Diese CI-geeignete Prüfung startet keinen Container und lädt kein Artefakt.
+Sie bindet 17 erfüllte Kriterien an das exakte Profil, die reproduzierbare
+Image-ID und das vollständige Produktpreimage.
+
+Die bewusste lokale Bereitstellung und tatsächliche synthetische
+Produktqualifikation verwenden ausschließlich Pfade unter `C:\rep`:
+
+    python tools/provision_calibre_readonly_profile.py --cache-root C:\rep\cache\SammlungsLotse\calibre-readonly
+
+    python tools/qualify_calibre_readonly_profile.py --library C:\rep\tmp\SammlungsLotse\wi-0007-qualification\library --temp-root C:\rep\tmp\SammlungsLotse\wi-0007-qualification\tasks --result C:\rep\artifacts\SammlungsLotse\wi-0007-qualification.json
+
+Die Bibliothek wird vor der Qualifikation ausschließlich mit TEST-0001-
+Material und unterstützten Calibre-Befehlen erzeugt. Der Lauf prüft
+Imagebindung, echte deutsche und wiederholte JSON-Ausgabe, tatsächlichen
+Timeout und tatsächliche Rohoutput-Grenze, minimale
+Projektion, Pfadfreiheit, unveränderten Quellsnapshot sowie vollständiges
+Task- und Container-Cleanup. Fehler-, Grenz-, Instabilitäts- und
+Recoveryverträge werden zusätzlich durch fokussierte synthetische
+Produkttests erzwungen.
 
 ## Pull-Request-Prüfungen
 
