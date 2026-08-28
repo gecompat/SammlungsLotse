@@ -1,6 +1,6 @@
 # WI-0008: Synthetischen Calibre-Projektionsvertrag reproduzierbar härten
 
-Status: ACCEPTED — IMPLEMENTIERUNG AUSSTEHEND
+Status: DONE — IMPLEMENTIERT UND SYNTHETISCH QUALIFIZIERT
 
 Stand: 2026-08-28
 
@@ -120,3 +120,31 @@ Die Benutzeranweisung vom 2026-08-28 autorisiert die autonome Fortsetzung
 über Planung, Registrierung, ausschließlich synthetische Implementierung und
 Qualifikation, Pull Requests, exakte CI-Prüfung und Merge nach
 `origin/main`.
+
+## Implementierung und Abnahme
+
+Die getrennte Implementierungs-Wave hat einen manifestgebundenen
+Materialisierer ergänzt. Er akzeptiert nur ein neues Ziel unter
+`C:\rep\tmp\SammlungsLotse`, prüft drei TEST-0001-Fixture-Hashes, das exakte
+Profil und die Image-ID und führt ausschließlich dokumentierte
+`calibredb add`, `add_format` und `list`-Aufrufe aus. Jede Fixture wird
+einzeln read-only, die neue synthetische Bibliothek schreibbar und weder
+Netzwerk noch Hostkonfiguration eingebunden. Container und Fehlerreste werden
+begrenzt bereinigt.
+
+Die erste tatsächliche mehrgliedrige Materialisierung reproduzierte einen
+Produktvertragsfehler: `calibredb --for-machine` serialisiert mehrere Autoren
+als eine mit ` & ` getrennte Zeichenfolge. Der Adapter behandelte diese
+bislang als einen Autor. Der Parser trennt jetzt genau diese dokumentierte
+Maschinenform; ein fokussierter Regressionstest bindet das Verhalten. Calibre
+normalisiert die synthetischen Sprachangaben tatsächlich auf ISO-639-3
+`deu` und `ara`; das Oracle bindet diese beobachtete Form.
+
+Der endgültige v2-Nachweis bestand 29/29 Kriterien. Zwei frisch
+materialisierte Bibliotheken ergaben dieselbe fachliche Drei-Datensatz-
+Projektion. Reale deutsche und JSON-Produktläufe belegten Mehrfachautoren,
+Mehrsprachigkeit, Mehrformat, fehlende Werte, Unicode, minimale Felder,
+Pfadfreiheit und byteidentische Wiederholung. Quell-Fixtures und beide
+Bibliotheken blieben unverändert. Timeout, Outputgrenze und simulierter
+Abbruch räumten Taskbereiche auf; nach der Gesamtqualifikation blieben weder
+Qualifikationsroot noch Profil- oder Materialisierungscontainer zurück.

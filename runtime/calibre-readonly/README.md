@@ -1,4 +1,4 @@
-# WI-0007-Laufzeitprofil
+# WI-0007-Laufzeitprofil und WI-0008-Qualifikation
 
 Status: PRODUCT PROFILE — LOCAL, EXPLICIT, DIGEST-BOUND
 
@@ -32,12 +32,21 @@ ungeprüft protokolliert oder versioniert werden.
 
 ## Qualifikation und CI-Prüfung
 
-Der tatsächliche Lauf verwendet nur eine unter `C:\rep\tmp` aus TEST-0001
-erzeugte synthetische Calibre-Bibliothek:
+Der tatsächliche WI-0008-Lauf erzeugt ausschließlich unter
+`C:\rep\tmp\SammlungsLotse` zwei frische synthetische Bibliotheken aus dem
+eingecheckten Manifest und den hashgebundenen TEST-0001-Fixtures. Vorhandene
+Ziele und Pfade außerhalb dieses Temp-Unterbaums werden abgelehnt:
 
-    python tools/qualify_calibre_readonly_profile.py --library C:\rep\tmp\SammlungsLotse\wi-0007-qualification\library --temp-root C:\rep\tmp\SammlungsLotse\wi-0007-qualification\tasks --result C:\rep\artifacts\SammlungsLotse\wi-0007-qualification.json
+    python tools/qualify_calibre_readonly_profile.py --qualification-root C:\rep\tmp\SammlungsLotse\wi-0008-qualification --result C:\rep\artifacts\SammlungsLotse\wi-0008-qualification.json
+
+Der Lauf prüft die reale Drei-Datensatz-Projektion, zwei semantisch gleiche
+Materialisierungen, deutsche und stabile JSON-Ausgabe sowie Cleanup bei
+Erfolg, Timeout, Outputgrenze und Abbruch. Der Qualifikationsroot wird danach
+vollständig entfernt. Das schreibende Materialisierungswerkzeug gehört nur
+zum synthetischen Testweg und ist nicht aus der Produkt-CLI erreichbar.
 
 Die netzwerklose CI-Prüfung validiert nur den eingecheckten, an Profil,
-Image-ID und Produktpreimage gebundenen Nachweis:
+Image-ID, Manifest-, Materialisierungs- und Produktpreimage gebundenen
+v2-Nachweis:
 
     python tools/qualify_calibre_readonly_profile.py --validate-result
