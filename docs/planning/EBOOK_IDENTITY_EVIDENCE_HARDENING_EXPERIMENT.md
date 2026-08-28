@@ -1,6 +1,6 @@
 # EXP-0009: Identitäts- und Enthaltungsevidenz verbreitern
 
-Status: ACCEPTED — AUSFÜHRUNG GETRENNT AUSSTEHEND
+Status: DONE — METHODE 12/12, PRODUKTQUALITÄT NOT_QUALIFIED
 
 Stand: 2026-08-28
 
@@ -143,7 +143,30 @@ Nach der Ergebnisintegration endet die autonome Arbeit an einem neuen Gate.
 EXP-0009 autorisiert keine Korrektur der gefundenen Produktlücken und keine
 weitere Produktwave.
 
-## Geplante Nachweise
+## Ausführungsergebnis
+
+Der getrennte synthetische Lauf auf Preimage
+`2ef2de0395e485283f3be4ca339ab5fed8657fee` hat alle 12 methodischen
+Kriterien erfüllt. Genau 15 Paare wurden vollständig und drei erwartbar
+`not_assessed` bewertet. Zwei unabhängige Materialisierungen lieferten
+denselben semantischen Digest; Eingänge, Pfadfreiheit, Wirkungsfreiheit und
+Cleanup blieben vollständig gebunden.
+
+Die breitere Produktqualität ist `not_qualified`. Im adversariellen Fall
+`metadata-collision-work-conflict` überwogen gleicher Titel, Creator,
+Identifier und Sprache die gleichzeitig sichtbare negative Evidenz
+`metadata.work_references_conflict`. Der Dienst lieferte deshalb
+`candidate_same` zunächst auf Ausgaben- und anschließend auf Werkebene,
+obwohl das vorab gebundene Oracle nur `different` oder `abstain` erlaubt.
+Dies sind zwei einzeln sichtbare kritische False-Same-Befunde. Byte-, Paket-
+und Repräsentationsebene hatten keine False Positives oder False Negatives.
+
+Der vollständige Ergebnis-, Profil-, Manifest- und Methodennachweis steht
+unter [experiments/ebook/exp-0009](../../experiments/ebook/exp-0009/README.md).
+Er ist keine Aussage über reale Häufigkeiten und autorisiert keine
+Produktkorrektur.
+
+## Nachweise
 
 Vollständiger lokaler Lauf der getrennten Ausführungswave:
 
@@ -158,5 +181,6 @@ Fokussierte Tests:
 
     python -m unittest tests.experiments.test_exp_0009
 
-Diese Befehle sind im Planungsstand noch nicht vorhanden oder ausgeführt.
-Ihre Ergebnisse werden erst in der getrennten Ausführungswave dokumentiert.
+Die Befehle sind im gebundenen Ausführungsstand vorhanden. Der vollständige
+Lauf und die anschließende Ergebnisvalidierung wurden am 2026-08-28
+ausschließlich mit synthetischen Daten ausgeführt.

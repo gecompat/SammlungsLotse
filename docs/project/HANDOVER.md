@@ -173,13 +173,15 @@ Cleanup. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken,
 Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben
 außerhalb. Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
 
-GATE-0008 ist ausgewertet. Der Nutzer hat am 2026-08-28 ausdrücklich Option A
-gewählt. EXP-0009 ist als genau ein getrenntes synthetisches
-Evidenzexperiment angenommen und registriert. Es bindet 18 adversarielle
-Paare, misst den unveränderten WI-0009-Identitätsdienst zweimal und trennt
-Messvertragsstatus von beobachteter Produktqualität. Die Ausführung steht
-noch aus. Kandidatensuche, Produktcode, Architektur, Provider, Persistenz,
-UI, API, Agents und Writers bleiben unentschieden.
+GATE-0008 ist ausgewertet und EXP-0009 abgeschlossen. Zwei unabhängige Läufe
+über 18 vorab gebundene synthetische Paare erfüllten 12/12 methodische
+Kriterien. Die Produktqualität ist `not_qualified`: Der Fall
+`metadata-collision-work-conflict` erzeugte trotz verschiedener Inhalte und
+widersprüchlicher Werkreferenzen `candidate_same` auf Ausgaben- und
+Werkebene. Beide kritischen False-Same-Befunde bleiben offen; Produktcode
+wurde nicht verändert. Vor einer Korrektur oder anderen Folge ist ein neues
+Ergebnisgate erforderlich. Kandidatensuche, Architektur, Provider,
+Persistenz, UI, API, Agents und Writers bleiben unentschieden.
 
 ## Harte Grenzen
 

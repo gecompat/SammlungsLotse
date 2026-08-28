@@ -156,6 +156,18 @@ Copy-on-read, Containerisolation, Negativfälle, Ressourcenlimits,
 Wiederholbarkeit sowie vollständiges Cleanup neu. Der tatsächliche lokale
 Lauf ist unter `experiments/ebook/exp-0008/` dokumentiert.
 
+Für den eingecheckten empirischen EXP-0009-Nachweis gilt:
+
+    python tools/experiments/run_exp_0009.py --validate-result
+
+Diese CI-geeignete Prüfung materialisiert keine EPUBs neu. Sie bindet Profil,
+Manifest, Runner und den vollständigen unveränderten Identitäts-
+Produktpreimage, berechnet alle Metriken und 12 methodischen
+Akzeptanzkriterien aus den zwei gespeicherten Wiederholungen neu und erzwingt
+die sichtbare Trennung zwischen methodisch bestandenem Experiment und
+`not_qualified`-Produktqualität. Der vollständige synthetische Lauf ist unter
+`experiments/ebook/exp-0009/` dokumentiert.
+
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
     python -m unittest discover -s tests/product -p "test_*.py"

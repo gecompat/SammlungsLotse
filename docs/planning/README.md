@@ -187,13 +187,14 @@ mehrere Dateien, IDs oder Bibliotheken, Persistenz und jede Bestandswirkung
 bleiben außerhalb. Vor einer weiteren Produktwave ist ein neues getrenntes
 Ergebnisgate erforderlich.
 
-GATE-0008 ist ausgewertet. Der Nutzer hat Option A ausdrücklich gewählt;
-EXP-0009 ist als getrenntes synthetisches Evidenzexperiment angenommen. Es
-misst den unveränderten WI-0009-Identitätsdienst auf einer breiteren
-adversariellen Paarmatrix und darf qualifizierte Produktlücken sichtbar
-machen. Die Ausführung steht noch aus. Kandidatensuche, Produktänderung,
-Architektur-, Provider-, Persistenz-, UI- und Writerentscheidungen bleiben
-offen.
+GATE-0008 ist ausgewertet und EXP-0009 abgeschlossen. Der methodische
+Doppellauf bestand 12/12 Kriterien, qualifizierte den unveränderten
+WI-0009-Identitätsdienst auf der breiteren adversariellen Paarmatrix aber
+nicht: Ein Metadatenkollisionsfall erzeugte trotz widersprüchlicher
+Werkreferenzen je einen kritischen False-Same-Befund auf Ausgaben- und
+Werkebene. Der Befund bleibt offen; eine Produktkorrektur benötigt ein neues
+Ergebnisgate. Kandidatensuche, Architektur-, Provider-, Persistenz-, UI- und
+Writerentscheidungen bleiben offen.
 
 ## Nicht übernehmen
 
