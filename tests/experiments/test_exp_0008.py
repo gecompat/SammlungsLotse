@@ -99,6 +99,15 @@ class Exp0008ContractTests(unittest.TestCase):
         self.assertEqual(set(self.runner.PREIMAGE_FILES), set(preimage))
         self.assertEqual(64, len(next(iter(preimage.values()))))
 
+    def test_raw_evidence_hashes_are_label_independent(self) -> None:
+        security = {"network": "none", "read_only_root": True}
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            root = Path(directory)
+            first = self.runner.write_raw_evidence(root, "positive-1", b"out", b"", security)
+            second = self.runner.write_raw_evidence(root, "positive-2", b"out", b"", security)
+            self.assertEqual(first, second)
+            self.assertEqual({"security", "stderr", "stdout"}, set(first))
+
     def test_runner_does_not_import_database_or_network_clients(self) -> None:
         source = RUNNER_PATH.read_text(encoding="utf-8")
         for forbidden in (

@@ -543,17 +543,18 @@ def write_raw_evidence(
     security: dict[str, Any] | None,
 ) -> dict[str, str]:
     payloads = {
-        f"{label}.stdout.bin": stdout,
-        f"{label}.stderr.bin": stderr,
-        f"{label}.security.json": (
-            json.dumps(security or {}, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
-        ).encode("utf-8"),
+        "stdout": (f"{label}.stdout.bin", stdout),
+        "stderr": (f"{label}.stderr.bin", stderr),
+        "security": (
+            f"{label}.security.json",
+            (json.dumps(security or {}, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode("utf-8"),
+        ),
     }
     result: dict[str, str] = {}
-    for name, payload in payloads.items():
+    for kind, (name, payload) in payloads.items():
         path = evidence_root / name
         path.write_bytes(payload)
-        result[name] = sha256_bytes(payload)
+        result[kind] = sha256_bytes(payload)
     return result
 
 
