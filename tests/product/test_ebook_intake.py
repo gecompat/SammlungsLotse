@@ -67,6 +67,15 @@ class SymlinkLikePath:
         return type("Stat", (), {"st_mode": stat.S_IFLNK})()
 
 
+class ReparseLikePath:
+    def lstat(self):
+        return type(
+            "Stat",
+            (),
+            {"st_mode": stat.S_IFREG, "st_file_attributes": 0x400},
+        )()
+
+
 class EbookIntakeDecisionTests(unittest.TestCase):
     def test_stable_epub_opens_only_the_deep_read_only_gate(self) -> None:
         report = triage("ingress-stable-minimal/stable.epub")
@@ -151,6 +160,12 @@ class EbookIntakeDecisionTests(unittest.TestCase):
 
         self.assertEqual("stop", report.next_action)
         self.assertIn("input.symlink_not_allowed", codes(report.findings))
+
+    def test_windows_reparse_point_is_rejected_before_open(self) -> None:
+        report = TriageService().triage(LocalFileSnapshotReader(ReparseLikePath()))
+
+        self.assertEqual("stop", report.next_action)
+        self.assertIn("input.reparse_not_allowed", codes(report.findings))
 
     def test_input_limit_stops_before_full_read(self) -> None:
         limits = replace(TriageLimits(), max_input_bytes=8)

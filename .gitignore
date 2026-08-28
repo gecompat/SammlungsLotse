@@ -58,6 +58,8 @@ Desktop.ini
 !/runtime/ebook-deep-readonly/**
 !/runtime/calibre-readonly/
 !/runtime/calibre-readonly/**
+!/runtime/ebook-identity/
+!/runtime/ebook-identity/**
 /tmp/
 *.db
 *.db-shm

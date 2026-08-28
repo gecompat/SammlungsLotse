@@ -95,11 +95,11 @@ Einzelbibliotheks- und Read-only-Grenzen bleiben unverändert.
 
 GATE-0005 ist `done`. Es hat einen expliziten Zwei-EPUB-Paarvergleich, einen
 Vergleich gegen Calibre sowie neue Provider- oder Mehrbibliotheksflächen
-getrennt bewertet und WI-0009 ausgewählt. WI-0009 ist `accepted`, aber noch
-nicht implementiert. Die nächste getrennte Wave darf ausschließlich genau
-zwei ausdrückliche unveränderliche EPUB-Snapshots über einen pfadfreien,
-erklärbaren Identitätskandidatenbericht vergleichen. Kandidaten, negative
-Evidenz, fehlende Evidenz und Enthaltung bleiben getrennt; es gibt keine
+getrennt bewertet und WI-0009 ausgewählt. WI-0009 ist `done`: Genau zwei
+ausdrückliche unveränderliche EPUB-Snapshots werden über einen pfadfreien,
+erklärbaren Identitätskandidatenbericht verglichen. Kandidaten, negative und
+fehlende Evidenz sowie Enthaltung bleiben getrennt. Der eingecheckte
+Produktnachweis bestand 16/16 synthetische Kriterien; es gibt keine
 Bestandsaktion.
 
 ## Fortsetzung
@@ -128,10 +128,12 @@ Härtungswave abgeschlossen. Eine weitere Produktwave ist nicht automatisch
 freigegeben. Insbesondere sind mehrere Bibliotheken, automatische Erkennung,
 Content Server, Persistenz und Writer weiterhin außerhalb.
 
-WI-0009 ist als nächster eng begrenzter read-only Arbeitsgegenstand
-angenommen. Produktcode darf erst nach Merge seines Plans beginnen. Ein
-Vergleich gegen Calibre, Verzeichnissuche, mehr als zwei Eingänge,
-Persistenz, Routing und Writes bleiben außerhalb.
+WI-0009 ist abgeschlossen. Produktcode und CLI liegen unter
+`src/sammlungslotse/ebook_identity/` und `tools/run_ebook_identity.py`, der
+reproduzierbare Nachweis unter `runtime/ebook-identity/`. Ein Vergleich gegen
+Calibre, Verzeichnissuche, mehr als zwei Eingänge, Persistenz, Routing und
+Writes bleiben außerhalb. Eine weitere Produktwave ist nicht automatisch
+freigegeben.
 
 ## Harte Grenzen
 

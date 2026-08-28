@@ -11,6 +11,9 @@ from .model import Snapshot, TriageLimits
 from .ports import SnapshotIssue
 
 
+FILE_ATTRIBUTE_REPARSE_POINT = 0x400
+
+
 def _identity(value: object) -> tuple[int, int, int, int]:
     return (
         int(getattr(value, "st_dev")),
@@ -40,6 +43,15 @@ class LocalFileSnapshotReader:
             raise SnapshotIssue(
                 observation_code="input.symlink",
                 finding_code="input.symlink_not_allowed",
+                next_action="stop",
+            )
+        if (
+            int(getattr(initial, "st_file_attributes", 0))
+            & FILE_ATTRIBUTE_REPARSE_POINT
+        ):
+            raise SnapshotIssue(
+                observation_code="input.reparse_point",
+                finding_code="input.reparse_not_allowed",
                 next_action="stop",
             )
         if not stat.S_ISREG(initial.st_mode):

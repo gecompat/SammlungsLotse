@@ -1,0 +1,74 @@
+{
+  "acceptance": {
+    "actual_cli_completed": true,
+    "byte_equality_detected": true,
+    "deterministic_json": true,
+    "explicit_two_input_boundary": true,
+    "fixture_inputs_unchanged": true,
+    "german_view": true,
+    "identity_levels_separate": true,
+    "network_effect_false": true,
+    "no_false_same_candidate": true,
+    "original_effect_false": true,
+    "path_free_output": true,
+    "positive_negative_missing_separate": true,
+    "repackaging_detected": true,
+    "sample_full_separated": true,
+    "translation_related_not_same_edition": true,
+    "write_effect_false": true
+  },
+  "case_results": {
+    "byte_equal": {
+      "edition": "candidate_same",
+      "overall": "exact_byte_match",
+      "work": "candidate_same"
+    },
+    "repackaged": {
+      "edition": "candidate_same",
+      "overall": "representation_candidate",
+      "work": "candidate_same"
+    },
+    "sample_full": {
+      "edition": "different",
+      "overall": "abstain",
+      "work": "abstain"
+    },
+    "title_collision": {
+      "edition": "abstain",
+      "overall": "abstain",
+      "work": "different"
+    },
+    "translation": {
+      "edition": "different",
+      "overall": "related_work_candidate",
+      "work": "candidate_related"
+    }
+  },
+  "fixture_hashes": {
+    "edition-sample-vs-full/full.epub": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+    "edition-sample-vs-full/sample.epub": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+    "identity-byte-equal/source-a/same.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+    "identity-byte-equal/source-b/renamed.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+    "identity-edition-vs-translation/source-en.epub": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+    "identity-edition-vs-translation/translation-de.epub": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+    "identity-repackaged/package-a.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+    "identity-repackaged/package-b.epub": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+    "identity-title-collision/work-a.epub": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+    "identity-title-collision/work-b.epub": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327"
+  },
+  "preimage": {
+    "src/sammlungslotse/ebook_identity/__init__.py": "c2186b7e86c72d8df9b7da53f522a1ce95b8e604c2d75f15e437668ca65eb818",
+    "src/sammlungslotse/ebook_identity/analyzer.py": "7d3e8cc7f018c19eee94f39bfcf53c3a64c86b194c594b1bb2dbe1bff0111fd0",
+    "src/sammlungslotse/ebook_identity/application.py": "f896e98be092611caaa40b86c621b215b375ef8234c3821214b8059cbfc5ff60",
+    "src/sammlungslotse/ebook_identity/cli.py": "204dc4bb8c8c0d53848b6cb553abe5ddb14108f8a5a7d00e64ab889b9b098eae",
+    "src/sammlungslotse/ebook_identity/model.py": "446385e4f731f79a4c9c12df5b00c4385d5055aa21bed840296a9fd4bb3e36ba",
+    "src/sammlungslotse/ebook_intake/snapshot.py": "a4b1d722f4433c62da96f5d02dba3cb11547ec5c626e2231fde112a192d99ede",
+    "tests/fixtures/ebook/test-0001/v0.3/manifest.json": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2",
+    "tools/qualify_ebook_identity.py": "75180b0d132abdb0179e745445fc90082cee899cbbf0a957395b24a19a29241d",
+    "tools/run_ebook_identity.py": "9816bd47c79445dfe27427450624a6a841cd864637acd1f2fc42686062ea89a5"
+  },
+  "profile": "wi-0009-two-explicit-epub-readonly/v1",
+  "repetitions_per_case": 2,
+  "schema": "sammlungslotse/ebook-identity-qualification/v1",
+  "status": "pass"
+}

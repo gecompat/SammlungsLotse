@@ -1,6 +1,6 @@
 # WI-0009: Read-only Identitätskandidatenbericht für zwei EPUB-Dateien
 
-Status: ACCEPTED — IMPLEMENTIERUNG AUSSTEHEND
+Status: DONE — SYNTHETISCH QUALIFIZIERT
 
 Stand: 2026-08-28
 
@@ -163,3 +163,24 @@ sonstige Writes.
 Die Benutzeranweisung vom 2026-08-28 autorisiert die autonome Fortsetzung
 über Planung, Registrierung, ausschließlich synthetische Implementierung und
 Abnahme, Pull Requests, exakte CI-Prüfung und Merge nach `origin/main`.
+
+## Umsetzung und Ergebnis
+
+Der Vertrag ist unter `src/sammlungslotse/ebook_identity/` umgesetzt. Die
+getrennte Oberfläche liegt unter `tools/run_ebook_identity.py`; sie verwendet
+den vorhandenen stabilen Snapshot- und Preflight-Vertrag, hält ZIP-/OPF-
+Parsing im lokalen Adapter und gibt ausschließlich den pfadfreien
+Anwendungsvertrag aus.
+
+Der eingecheckte Nachweis unter `runtime/ebook-identity/qualification.json`
+bindet das vollständige Produktpreimage und fünf TEST-0001-Paare. Je zwei
+tatsächliche JSON-CLI-Läufe sowie eine deutsche Ansicht bestanden 16/16
+Kriterien. Bytegleichheit, Neuverpackung, Titelkollision, Übersetzung und
+Leseprobe/Vollausgabe blieben auf den fünf Ebenen getrennt; die gebundenen
+Negativfälle erzeugten keinen falschen Gleichheitskandidaten. Fixture-Hashes
+blieben unverändert, sämtliche Produktwirkungen auf Netzwerk, Dateisystem,
+Fachsysteme und Originale waren `false`.
+
+Die Qualifikation gilt ausschließlich für die kleinen synthetischen Paare.
+Sie ist keine Aussage über Genauigkeit oder Recall in realen Beständen und
+autorisiert keine automatische Zusammenführung oder andere Bestandsaktion.

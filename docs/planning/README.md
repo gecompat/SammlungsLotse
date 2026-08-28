@@ -146,11 +146,11 @@ Read-only-, Datenschutz- oder Writer-Grenzen.
 
 GATE-0005 hat danach den expliziten Zwei-EPUB-Paarvergleich, einen Vergleich
 gegen Calibre und neue Provider-/Mehrbibliotheksflächen getrennt bewertet.
-Es wählt WI-0009 als kleinsten nächsten Nutzwert. WI-0009 ist angenommen,
-aber noch nicht implementiert: Genau zwei explizite unveränderliche EPUB-
-Snapshots sollen einen pfadfreien, erklärbaren Identitätskandidatenbericht
-liefern. Kandidaten, negative Evidenz und Enthaltung bleiben getrennt; es
-gibt keine Bestandsaktion.
+Es wählt WI-0009 als kleinsten nächsten Nutzwert. WI-0009 ist umgesetzt und
+synthetisch mit 16/16 Kriterien qualifiziert: Genau zwei explizite
+unveränderliche EPUB-Snapshots liefern einen pfadfreien, erklärbaren
+Identitätskandidatenbericht. Kandidaten, negative und fehlende Evidenz sowie
+Enthaltung bleiben getrennt; es gibt keine Bestandsaktion.
 
 ## Nicht übernehmen
 
