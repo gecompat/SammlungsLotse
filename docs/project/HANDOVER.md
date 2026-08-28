@@ -102,6 +102,13 @@ fehlende Evidenz sowie Enthaltung bleiben getrennt. Der eingecheckte
 Produktnachweis bestand 16/16 synthetische Kriterien; es gibt keine
 Bestandsaktion.
 
+WI-0010 ist `done`. Die reine Härtungswave bindet jetzt alle tatsächlich am
+WI-0005-CLI-Lauf beteiligten Intake-Pythonmodule und den Runner automatisch
+an den Produktnachweis. Das unveränderte EPUBCheck-Profil wurde erneut 12/12
+qualifiziert; aktive synthetische Grenzproben für Netzwerk, PID, RAM, CPU,
+Unterbrechung, Recovery und Eingangslimit wurden getrennt dokumentiert.
+Parallelbetrieb bleibt ausdrücklich nicht qualifiziert.
+
 ## Fortsetzung
 
 WI-0004 ist `done`. Der Produktcode liegt unter
@@ -114,7 +121,9 @@ Persistenz, Browser, REST, Agents und jeder Writer bleiben außerhalb.
 WI-0005 ist abgeschlossen. Der kanonische Vertrag und seine Abnahme stehen
 unter `docs/planning/EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md`; Bereitstellung
 und Bedienung des exakten Profils stehen unter
-`runtime/ebook-deep-readonly/README.md`. Die anschließende Bewertung hat
+`runtime/ebook-deep-readonly/README.md`. WI-0010 hat die vollständige
+Laufzeit-Preimage-Bindung und zusätzliche aktive Grenznachweise ergänzt,
+ohne den Produktvertrag zu erweitern. Die anschließende Bewertung hat
 WI-0006 als kleinen read-only Mehrdatei-Bericht ausgewählt; seine
 Implementierung ist abgeschlossen. Eine weitere Produktwave ist nicht
 automatisch freigegeben. WI-0006 entscheidet insbesondere keinen zweiten

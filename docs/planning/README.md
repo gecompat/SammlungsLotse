@@ -27,6 +27,7 @@ Experimente und spätere Entscheidungen:
 - [WI-0008: synthetischen Calibre-Vertrag härten](CALIBRE_SYNTHETIC_CONTRACT_HARDENING.md);
 - [GATE-0005: nächsten read-only Nutzwert auswählen](EBOOK_GATE_0005_AFTER_CALIBRE_HARDENING.md);
 - [WI-0009: Identitätskandidatenbericht für zwei EPUB-Dateien](EBOOK_IDENTITY_CANDIDATE_REPORT_WORK_ITEM.md);
+- [WI-0010: WI-0005-Laufzeitpreimage vollständig binden](EBOOK_WI0005_EVIDENCE_BINDING_HARDENING.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -151,6 +152,13 @@ synthetisch mit 16/16 Kriterien qualifiziert: Genau zwei explizite
 unveränderliche EPUB-Snapshots liefern einen pfadfreien, erklärbaren
 Identitätskandidatenbericht. Kandidaten, negative und fehlende Evidenz sowie
 Enthaltung bleiben getrennt; es gibt keine Bestandsaktion.
+
+WI-0010 ist als reine Härtungswave abgeschlossen. Der WI-0005-
+Produktnachweis bindet nun den Runner und alle Intake-Pythonmodule
+automatisch, besitzt einen Regressionstest gegen künftige Auslassungen und
+wurde mit dem unveränderten exakten Podman-Profil erneut 12/12 qualifiziert.
+Dies entscheidet keine weitere Produktfunktion und qualifiziert keinen
+Parallelbetrieb.
 
 ## Nicht übernehmen
 

@@ -223,6 +223,16 @@ class DeepReadOnlyContractTests(unittest.TestCase):
         self.assertEqual(self.profile.profile_id, qualification["profile_id"])
         self.assertEqual(self.profile.image["id"], qualification["image"]["id"])
 
+    def test_qualification_binds_the_complete_intake_runtime(self) -> None:
+        qualification = json.loads(QUALIFICATION_PATH.read_text(encoding="utf-8"))
+        bound = set(qualification["preimage_sha256"])
+        package_root = ROOT / "src" / "sammlungslotse" / "ebook_intake"
+        expected = {
+            f"ebook_intake/{path.name}" for path in package_root.glob("*.py")
+        }
+        expected.update({"runner", "sammlungslotse/__init__.py"})
+        self.assertTrue(expected.issubset(bound), sorted(expected - bound))
+
     def test_recovery_removes_only_owned_expired_tasks(self) -> None:
         manager = TaskWorkspaceManager(self.temp_root / "recovery", self.profile)
         workspace = manager.create(snapshot_for())

@@ -19,6 +19,9 @@ qualifiziert.
 GATE-0005 hat den nächsten read-only Nutzwert neu bewertet. WI-0009 ist als
 enger Zwei-EPUB-Identitätskandidatenbericht implementiert und mit 16/16
 synthetischen Kriterien qualifiziert.
+WI-0010 hat anschließend ausschließlich den WI-0005-Laufzeitnachweis
+gehärtet: Alle Intake-Module und der Runner sind vollständig gebunden, das
+unveränderte Produktprofil ist erneut 12/12 qualifiziert.
 
 ## Vorhanden
 
@@ -153,7 +156,11 @@ synthetischen Kriterien qualifiziert.
 - eingecheckter WI-0009-Produktnachweis mit fünf gebundenen TEST-0001-Paaren,
   je zwei tatsächlichen CLI-Wiederholungen, unveränderten Fixture-Hashes,
   null falschen Gleichheitskandidaten in den Negativfällen und 16/16
-  erfüllten Kriterien.
+  erfüllten Kriterien;
+- abgeschlossener WI-0010-Härtungsvertrag mit automatischer Bindung aller
+  Intake-Pythonmodule und des Runners, Regressionstest gegen künftige
+  Auslassungen, 22 gebundenen Preimage-Dateien und erneutem 12/12-
+  Produktnachweis für das unveränderte WI-0005-Profil.
 
 ## Nicht vorhanden
 
@@ -168,6 +175,23 @@ synthetischen Kriterien qualifiziert.
 - Release.
 
 ## Validierung
+
+WI-0010-Härtungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
+am 2026-08-28 unter Windows, Python 3.12.10 und Podman 6.1.0 mit Linux/amd64.
+Das WI-0005-Preimage bindet nun automatisch alle Intake-Pythonmodule, das
+Paket-Initialisierungsmodul und den Runner; der neue Regressionstest erfasst
+künftige ungebundene Module. Eine frische tatsächliche Podman-Qualifikation
+mit der unveränderten Image-ID bestand 12/12 Kriterien und band 22 Dateien.
+Getrennte aktive Proben belegten `NetworkMode=none`, die PID-Grenze 32,
+384 MiB RAM ohne zusätzlichen Swap, eine CPU, Abbruch- und Recovery-Cleanup
+sowie den Eingang-Grenzfall 32 MiB plus ein Byte. Zwei parallele tiefe Läufe
+blieben voneinander isoliert und räumten vollständig auf, endeten unter
+gemeinsamer Last jedoch beide fail-closed als `not_assessed`; Parallelbetrieb
+ist weiterhin nicht qualifiziert. Repository- und v2-Registry-Prüfung waren
+für 31 Artefakte erfolgreich. TEST-0001, EXP-0002 bis EXP-0007, WI-0005,
+WI-0008 und WI-0009 waren gültig; alle 136 Repository-Tests und `compileall`
+waren erfolgreich, `git diff --check` meldete keine Fehler. Die Wave ändert
+keine Produktfunktion, CLI, Provider-, Image-, Executor- oder Ressourcengrenze.
 
 WI-0009-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
 validiert am 2026-08-28 unter Python 3.12.10. Fünf gebundene synthetische
@@ -586,9 +610,10 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0009 ist `done`. Eine weitere Produktwave benötigt eine neue getrennte
-Bewertung und einen registrierten angenommenen Arbeitsgegenstand. WI-0009
-autorisiert weder Verzeichnissuche, Calibre-Vergleich, mehrere Bibliotheken,
+WI-0010 ist `done`. Eine weitere Produktwave benötigt eine neue getrennte
+Bewertung und einen registrierten angenommenen Arbeitsgegenstand. WI-0010
+war ausschließlich eine Nachweishärtung und autorisiert ebenso wie WI-0009
+weder Verzeichnissuche, Calibre-Vergleich, mehrere Bibliotheken,
 automatische Erkennung, externe Metadaten, Persistenz, Routing, Browser, REST,
 Agents noch Writes.
 

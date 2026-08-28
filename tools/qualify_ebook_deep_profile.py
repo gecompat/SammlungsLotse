@@ -42,51 +42,25 @@ from sammlungslotse.ebook_intake.snapshot import (  # noqa: E402
 
 PROFILE_PATH = ROOT / "runtime" / "ebook-deep-readonly" / "profile.json"
 RESULT_PATH = ROOT / "runtime" / "ebook-deep-readonly" / "qualification.json"
+PACKAGE_ROOT = ROOT / "src" / "sammlungslotse" / "ebook_intake"
 PREIMAGE_FILES = {
-    "cli": ROOT / "src" / "sammlungslotse" / "ebook_intake" / "cli.py",
     "containerfile": ROOT / "runtime" / "ebook-deep-readonly" / "Containerfile",
-    "deep_application": ROOT
-    / "src"
-    / "sammlungslotse"
-    / "ebook_intake"
-    / "deep_application.py",
-    "deep_model": ROOT
-    / "src"
-    / "sammlungslotse"
-    / "ebook_intake"
-    / "deep_model.py",
-    "deep_ports": ROOT
-    / "src"
-    / "sammlungslotse"
-    / "ebook_intake"
-    / "deep_ports.py",
-    "deep_profile": ROOT
-    / "src"
-    / "sammlungslotse"
-    / "ebook_intake"
-    / "deep_profile.py",
-    "deep_workspace": ROOT
-    / "src"
-    / "sammlungslotse"
-    / "ebook_intake"
-    / "deep_workspace.py",
-    "epubcheck_provider": ROOT
-    / "src"
-    / "sammlungslotse"
-    / "ebook_intake"
-    / "epubcheck_provider.py",
-    "podman_executor": ROOT
-    / "src"
-    / "sammlungslotse"
-    / "ebook_intake"
-    / "podman_executor.py",
     "profile": PROFILE_PATH,
     "provisioner": ROOT / "tools" / "provision_ebook_deep_profile.py",
     "qualifier": ROOT / "tools" / "qualify_ebook_deep_profile.py",
+    "runner": ROOT / "tools" / "run_ebook_intake.py",
+    "sammlungslotse/__init__.py": ROOT
+    / "src"
+    / "sammlungslotse"
+    / "__init__.py",
     "wrapper_source": ROOT
     / "runtime"
     / "ebook-deep-readonly"
     / "EpubCheckWrapper.java",
+    **{
+        f"ebook_intake/{path.name}": path
+        for path in sorted(PACKAGE_ROOT.glob("*.py"))
+    },
 }
 RUNNER = ROOT / "tools" / "run_ebook_intake.py"
 CASES = ROOT / "tests" / "fixtures" / "ebook" / "test-0001" / "v0.2" / "cases"
