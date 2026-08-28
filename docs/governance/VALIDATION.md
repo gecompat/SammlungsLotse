@@ -50,8 +50,10 @@ Für Produkt-, Governance- und Fixture-Code gelten:
       .ai/foundation/artifact_registry_github \
       tools/run_ebook_intake.py \
       tools/run_calibre_inventory.py \
+      tools/run_ebook_identity.py \
       tools/provision_calibre_readonly_profile.py \
       tools/qualify_calibre_readonly_profile.py \
+      tools/qualify_ebook_identity.py \
       tools/governance \
       tools/fixtures \
       tools/experiments \
@@ -211,6 +213,18 @@ Projektion, Pfadfreiheit, unveränderten Quellsnapshot sowie vollständiges
 Task- und Container-Cleanup. Fehler-, Grenz-, Instabilitäts- und
 Recoveryverträge werden zusätzlich durch fokussierte synthetische
 Produkttests erzwungen.
+
+Für den eingecheckten WI-0009-Produktnachweis gilt zusätzlich:
+
+    python tools/qualify_ebook_identity.py --validate-result
+
+Die CI-geeignete Prüfung startet keinen Container und benötigt kein Netzwerk.
+Sie bindet 16 erfüllte Kriterien an das vollständige Produktpreimage und fünf
+TEST-0001-Paare. Der zugrunde liegende tatsächliche Qualifikationslauf führt
+jeden JSON-Fall zweimal und die deutsche Ansicht einmal über den lokalen
+CLI-Prozess aus. Er prüft Ebenentrennung, Evidenzkanäle, Determinismus,
+Pfadfreiheit, unveränderte Fixture-Hashes, fehlende Produktwirkungen und null
+falsche Gleichheitskandidaten in den gebundenen Negativfällen.
 
 ## Pull-Request-Prüfungen
 

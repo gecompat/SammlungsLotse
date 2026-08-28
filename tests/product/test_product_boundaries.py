@@ -41,6 +41,7 @@ ADAPTER_IMPORT_ALLOWLIST = {
     "podman_executor.py": {"subprocess"},
     "calibre_inventory/executor.py": {"subprocess"},
     "calibre_inventory/workspace.py": {"shutil"},
+    "ebook_identity/analyzer.py": {"xml"},
 }
 ADAPTER_WRITE_ALLOWLIST = {
     "deep_workspace.py",

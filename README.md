@@ -9,8 +9,9 @@ manuellen Aufwand verursachen.
 
 Das Repository besitzt mit WI-0004 einen vollständig begrenzten read-only
 E-Book-Eingangstriage-Prototyp, mit WI-0005 einen optionalen tiefen
-EPUBCheck-Adapter, mit WI-0006 einen kleinen Mehrdatei-Bericht und mit WI-0007
-eine eng begrenzte read-only Calibre-Bestandsprojektion. Dies ist keine
+EPUBCheck-Adapter, mit WI-0006 einen kleinen Mehrdatei-Bericht, mit WI-0007
+eine eng begrenzte read-only Calibre-Bestandsprojektion und mit WI-0009 einen
+synthetisch qualifizierten Zwei-EPUB-Identitätskandidatenbericht. Dies ist keine
 vollständige Medienlinie und legt weder das allgemeine Laufzeitmodell noch
 eine technische Roadmap fest. Weitere Entwicklung beginnt weiterhin nur auf
 Grundlage der hier dokumentierten Produkt- und Governance-Verträge.
@@ -114,6 +115,16 @@ Die stdout-Ausgabe enthält nur Calibre-ID, Titel, Autoren, Sprachen und
 Formate. Sie kann private Sammlungsmetadaten enthalten und wird nicht
 persistiert. Mehrere Bibliotheken, automatische Erkennung, Content Server und
 jede schreibende Calibre-Operation bleiben außerhalb.
+
+Zwei ausdrücklich ausgewählte EPUB-Dateien können getrennt read-only auf
+fünf Identitätsebenen verglichen werden:
+
+    python tools/run_ebook_identity.py --json DATEI_1.epub DATEI_2.epub
+
+Der Bericht bezeichnet Eingänge nur als Position 1 und 2, trennt positive,
+negative und fehlende Evidenz und enthält sichtbare Enthaltung. Er sucht keine
+Dateien, vergleicht nicht gegen Calibre, persistiert nichts und löst keine
+Bestandsaktion aus.
 
 ## Lizenz
 

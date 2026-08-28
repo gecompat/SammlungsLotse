@@ -16,9 +16,9 @@ exakten lokalen Podman-Profil ausschließlich synthetisch qualifiziert.
 GATE-0004 hat die nächste Fortsetzung neu bewertet. WI-0008 ist als reine
 Härtungs- und Evidenzwave implementiert und mit 29/29 synthetischen Kriterien
 qualifiziert.
-GATE-0005 hat den nächsten read-only Nutzwert neu bewertet und WI-0009 als
-engen Zwei-EPUB-Identitätskandidatenbericht angenommen; die Implementierung
-steht aus.
+GATE-0005 hat den nächsten read-only Nutzwert neu bewertet. WI-0009 ist als
+enger Zwei-EPUB-Identitätskandidatenbericht implementiert und mit 16/16
+synthetischen Kriterien qualifiziert.
 
 ## Vorhanden
 
@@ -144,9 +144,16 @@ steht aus.
 - abgeschlossenes GATE-0005 mit getrenntem Vergleich von explizitem
   Zwei-EPUB-Identitätsbericht, Calibre-Bestandsvergleich und neuen Provider-
   oder Mehrbibliotheksflächen;
-- angenommener WI-0009-Vertrag für genau zwei ausdrückliche, unveränderliche
-  EPUB-Snapshots, fünf getrennte Identitätsebenen, sichtbare Enthaltung und
-  ausschließlich pfadfreie stdout-Ausgabe ohne Folgeaktion.
+- abgeschlossener WI-0009-Vertrag für genau zwei ausdrückliche,
+  unveränderliche EPUB-Snapshots, fünf getrennte Identitätsebenen, sichtbare
+  Enthaltung und ausschließlich pfadfreie stdout-Ausgabe ohne Folgeaktion;
+- ausschließlich auf der Python-3.12-Standardbibliothek beruhender lokaler
+  EPUB-/OPF-Adapter mit begrenzter In-Memory-Analyse, stabiler deutscher und
+  deterministischer JSON-CLI sowie Windows-Reparse-Point-Sperre;
+- eingecheckter WI-0009-Produktnachweis mit fünf gebundenen TEST-0001-Paaren,
+  je zwei tatsächlichen CLI-Wiederholungen, unveränderten Fixture-Hashes,
+  null falschen Gleichheitskandidaten in den Negativfällen und 16/16
+  erfüllten Kriterien.
 
 ## Nicht vorhanden
 
@@ -161,6 +168,19 @@ steht aus.
 - Release.
 
 ## Validierung
+
+WI-0009-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
+validiert am 2026-08-28 unter Python 3.12.10. Fünf gebundene synthetische
+Paare wurden je zweimal über den tatsächlichen JSON-CLI-Prozess sowie einmal
+über die deutsche Ansicht ausgeführt. Der eingecheckte Produktnachweis
+bestand 16/16 Kriterien für Bytegleichheit, Neuverpackung, Titelkollision,
+Übersetzung, Leseprobe/Vollausgabe, Ebenentrennung, Evidenzkanäle,
+Determinismus, Pfadfreiheit und unveränderte Eingänge. Alle 135 Repository-
+Tests waren erfolgreich. Die vollständigen Registry-, Fixture-, EXP-0002-
+bis EXP-0007-, WI-0005-, WI-0008-, `compileall`, `git diff --check`- und
+Foundation-Prüfungen waren ebenfalls erfolgreich. Dies qualifiziert nur den
+engen synthetischen Zwei-EPUB-Bericht, nicht reale Bestände, statistische
+Genauigkeit, Calibre-Abgleich, automatische Suche, Persistenz oder Writes.
 
 GATE-0005-/WI-0009-Planungswave: PROJECT_SEMANTIC und bestehende
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Python
@@ -566,12 +586,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0009 ist `accepted`. Nach Merge dieser Planungs-Wave darf eine getrennte
-Implementierungs-Wave ausschließlich den read-only Paarvergleich für genau
-zwei explizite EPUB-Dateien umsetzen und synthetisch abnehmen. Sie autorisiert
-weder Verzeichnissuche, Calibre-Vergleich, mehrere Bibliotheken, automatische
-Erkennung, externe Metadaten, Persistenz, Routing, Browser, REST, Agents noch
-Writes.
+WI-0009 ist `done`. Eine weitere Produktwave benötigt eine neue getrennte
+Bewertung und einen registrierten angenommenen Arbeitsgegenstand. WI-0009
+autorisiert weder Verzeichnissuche, Calibre-Vergleich, mehrere Bibliotheken,
+automatische Erkennung, externe Metadaten, Persistenz, Routing, Browser, REST,
+Agents noch Writes.
 
 ## Offene Punkte
 
