@@ -39,8 +39,13 @@ BANNED_CALLS = {
 ADAPTER_IMPORT_ALLOWLIST = {
     "deep_workspace.py": {"shutil"},
     "podman_executor.py": {"subprocess"},
+    "calibre_inventory/executor.py": {"subprocess"},
+    "calibre_inventory/workspace.py": {"shutil"},
 }
-ADAPTER_WRITE_ALLOWLIST = {"deep_workspace.py"}
+ADAPTER_WRITE_ALLOWLIST = {
+    "deep_workspace.py",
+    "calibre_inventory/workspace.py",
+}
 
 
 class ProductBoundaryTests(unittest.TestCase):
@@ -49,6 +54,7 @@ class ProductBoundaryTests(unittest.TestCase):
     ) -> None:
         violations: list[str] = []
         for path in sorted(PRODUCT_ROOT.rglob("*.py")):
+            relative = path.relative_to(PRODUCT_ROOT).as_posix()
             tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import):
@@ -57,9 +63,10 @@ class ProductBoundaryTests(unittest.TestCase):
                     roots = {node.module.partition(".")[0]}
                 else:
                     continue
-                blocked = (roots & BANNED_IMPORT_ROOTS) - ADAPTER_IMPORT_ALLOWLIST.get(
-                    path.name, set()
+                allowed = ADAPTER_IMPORT_ALLOWLIST.get(
+                    relative, ADAPTER_IMPORT_ALLOWLIST.get(path.name, set())
                 )
+                blocked = (roots & BANNED_IMPORT_ROOTS) - allowed
                 if blocked:
                     violations.append(f"{path.name}:{node.lineno}:{sorted(blocked)}")
         self.assertEqual([], violations)
@@ -67,6 +74,11 @@ class ProductBoundaryTests(unittest.TestCase):
     def test_product_code_has_no_write_or_extraction_calls(self) -> None:
         violations: list[str] = []
         for path in sorted(PRODUCT_ROOT.rglob("*.py")):
+            relative = path.relative_to(PRODUCT_ROOT).as_posix()
+            write_allowed = (
+                relative in ADAPTER_WRITE_ALLOWLIST
+                or path.name in ADAPTER_WRITE_ALLOWLIST
+            )
             tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
             for node in ast.walk(tree):
                 if not isinstance(node, ast.Call):
@@ -74,13 +86,13 @@ class ProductBoundaryTests(unittest.TestCase):
                 if (
                     isinstance(node.func, ast.Attribute)
                     and node.func.attr in BANNED_CALLS
-                    and path.name not in ADAPTER_WRITE_ALLOWLIST
+                    and not write_allowed
                 ):
                     violations.append(f"{path.name}:{node.lineno}:{node.func.attr}")
                 if (
                     isinstance(node.func, ast.Name)
                     and node.func.id == "open"
-                    and path.name not in ADAPTER_WRITE_ALLOWLIST
+                    and not write_allowed
                 ):
                     mode = node.args[1] if len(node.args) > 1 else None
                     if isinstance(mode, ast.Constant) and any(
@@ -92,7 +104,7 @@ class ProductBoundaryTests(unittest.TestCase):
                 if (
                     isinstance(node.func, ast.Attribute)
                     and node.func.attr == "open"
-                    and path.name not in ADAPTER_WRITE_ALLOWLIST
+                    and not write_allowed
                 ):
                     mode_nodes = list(node.args[1:2])
                     mode_nodes.extend(

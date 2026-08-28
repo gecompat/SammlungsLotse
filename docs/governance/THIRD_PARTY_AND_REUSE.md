@@ -68,9 +68,9 @@ prüft vorhandene Cachedateien erneut und bricht bei jeder Abweichung ab. Das
 Laufzeitimage wird in dieser Wave nicht veröffentlicht; eine spätere
 Distribution verlangt eine eigene Lizenz- und Notice-Prüfung.
 
-## Geplantes enges WI-0007-Produktprofil
+## Enges WI-0007-Produktprofil
 
-WI-0007 plant Calibre `9.13.0` als lokalen externen, read-only verwendeten
+WI-0007 bindet Calibre `9.13.0` als lokalen externen, read-only verwendeten
 Bestandsprovider. Calibre ist GPL-3.0-only; das offizielle Linux-x86_64-
 Artefakt wird nicht in Git aufgenommen und vor einem Image-Build gegen Größe
 192554776 Bytes sowie den offiziellen SHA-512-Wert
@@ -78,8 +78,10 @@ Artefakt wird nicht in Git aufgenommen und vor einem Image-Build gegen Größe
 geprüft. Die aktuelle Version, Lizenz, Schnittstelle und Provenienz wurden am
 2026-08-28 anhand offizieller Calibre-Quellen erneut bestätigt.
 
-Der Adapter verwendet ausschließlich `calibredb list` über eine wegwerfbare
+Der implementierte Adapter verwendet ausschließlich `calibredb list` über eine wegwerfbare
 Arbeitskopie. Ein Bestandslauf lädt keine Drittsoftware und baut kein Image.
 Das Produktimage wird nicht veröffentlicht; eine Distribution benötigt eine
-eigene vollständige GPL-, Notice- und Quellbereitstellungsprüfung. Diese
-Planungs-Wave führt noch keine Laufzeitabhängigkeit ein.
+eigene vollständige GPL-, Notice- und Quellbereitstellungsprüfung. Profil,
+Buildpreimage und die reproduzierbare lokale Image-ID
+`sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5`
+stehen unter `runtime/calibre-readonly/`.

@@ -1,0 +1,24 @@
+FROM docker.io/library/python@sha256:7a8b475003c4fe15a2cd4e55e5cfc2f3560bdc9333d624f24cdd6d4340fd7a17
+
+LABEL org.opencontainers.image.title="SammlungsLotse bounded Calibre inventory adapter"
+LABEL org.opencontainers.image.description="Local copy-on-read WI-0007 runtime; no automatic distribution"
+LABEL org.opencontainers.image.source="https://github.com/gecompat/SammlungsLotse"
+LABEL org.opencontainers.image.version="wi-0007-calibre-9.13.0/v1"
+LABEL org.opencontainers.image.licenses="GPL-3.0-only"
+
+COPY --chown=65532:65532 calibre /opt/calibre
+COPY --chown=65532:65532 calibre_inventory_wrapper.py /opt/adapter/calibre_inventory_wrapper.py
+
+RUN mkdir -p /library /output /config /tmp/home \
+    && chown -R 65532:65532 /library /output /config /tmp/home \
+    && chmod 0755 /library /output \
+    && chmod 0700 /config /tmp/home
+
+ENV CALIBRE_CONFIG_DIRECTORY=/config \
+    HOME=/tmp/home \
+    LANG=C.UTF-8 \
+    PATH=/opt/calibre:/usr/local/bin:/usr/bin:/bin \
+    QT_QPA_PLATFORM=offscreen
+
+USER 65532:65532
+ENTRYPOINT ["/usr/bin/env", "-i", "CALIBRE_CONFIG_DIRECTORY=/config", "HOME=/tmp/home", "LANG=C.UTF-8", "PATH=/opt/calibre:/usr/local/bin:/usr/bin:/bin", "QT_QPA_PLATFORM=offscreen", "python", "/opt/adapter/calibre_inventory_wrapper.py"]

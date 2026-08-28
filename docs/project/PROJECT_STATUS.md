@@ -11,8 +11,8 @@ WI-0005 und WI-0006 vollständig ausgeführt. Der erste tiefe read-only
 Produktadapter ist eng begrenzt implementiert und mit einem exakten lokalen
 Podman-Profil synthetisch qualifiziert; mehrere ausdrücklich angegebene
 Dateien können sequenziell in einem pfadfreien Bericht zusammengefasst werden.
-WI-0007 ist als nächste eng begrenzte Calibre-Produktwave angenommen; ihre
-Implementierung und Produktqualifikation stehen noch aus.
+WI-0007 ist als eng begrenzte Calibre-Produktwave implementiert und mit einem
+exakten lokalen Podman-Profil ausschließlich synthetisch qualifiziert.
 
 ## Vorhanden
 
@@ -108,19 +108,29 @@ Implementierung und Produktqualifikation stehen noch aus.
   summierten Snapshot-Bytes und 48 MiB UTF-8-Ausgabe, vollständiger
   sequenzieller Verarbeitung innerhalb der Grenzen sowie isolierten
   `internal_error`- und `not_assessed`-Ergebnissen.
-- angenommener Arbeitsgegenstand WI-0007 für genau eine ausdrücklich
+- abgeschlossener Arbeitsgegenstand WI-0007 für genau eine ausdrücklich
   angegebene lokale Calibre-Bibliothek, eine unveränderte begrenzte
   Copy-on-read-Arbeitskopie und eine pfadfreie stdout-Projektion auf externe
   Calibre-ID, Titel, Autoren, Sprachen und Formate;
 - am 2026-08-28 erneut anhand offizieller Primärquellen bestätigtes Calibre
   9.13.0 mit dokumentierter `calibredb`-Schnittstelle, GPL-3.0-only-Lizenz,
   Artefaktgröße und offiziellem SHA-512-Wert.
+- providerneutraler Calibre-Bestandsvertrag, begrenzter Verzeichnissnapshot,
+  task-private Copy-on-read-Arbeitskopie, dokumentierter CLI-Adapter und
+  getrennte deutsche sowie deterministische JSON-stdout-Oberfläche;
+- zweimal reproduzierbar gebaute, exakte Linux/amd64-Image-ID
+  `sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5`
+  mit netzwerklosem, unprivilegiertem und ressourcenbegrenztem Podman-Profil;
+- eingecheckter WI-0007-Produktnachweis mit 17/17 Kriterien aus einer
+  ausschließlich synthetischen TEST-0001-Calibre-Bibliothek, byteidentischen
+  JSON-Wiederholungen, unverändertem Quellsnapshot sowie vollständigem Task-
+  und Container-Cleanup.
 
 ## Nicht vorhanden
 
 - allgemeiner Technologie-Stack jenseits der reversiblen WI-0004-Auswahl;
 - allgemeines Laufzeit- oder Deploymentkonzept jenseits des eng begrenzten
-  WI-0005-Executors;
+  WI-0005- und WI-0007-Executors;
 - Produktdatenbank oder Suchindex;
 - öffentliche REST-, Agent- oder Browser-Schnittstelle sowie eine
   produktqualifizierte allgemeine CLI;
@@ -129,6 +139,25 @@ Implementierung und Produktqualifikation stehen noch aus.
 - Release.
 
 ## Validierung
+
+WI-0007-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
+validiert am 2026-08-28 unter Python 3.12.10, Podman 6.1.0 und Calibre 9.13.0.
+18 neue fokussierte Produktverträge prüfen Profilbindung, Snapshot- und
+Copy-on-read-Grenzen, Symlinks, Datei-, Summen- und Pfadlimits, minimale
+Projektion, Determinismus, Pfadbereinigung, Quelländerung, ungültige oder
+unverifizierte Providerergebnisse, Fehlerzustände, Recovery und Cleanup.
+Zwei frische Image-Builds erzeugten dieselbe gebundene Image-ID. Eine echte
+deutsche und zwei echte JSON-CLI-Ausführungen gegen eine aus TEST-0001
+erzeugte synthetische Calibre-Bibliothek waren erfolgreich; die JSON-Ausgaben
+waren byteidentisch, Quelle, Task-Root und Containerbestand blieben sauber.
+Der eingecheckte Produktnachweis bestand 17/17 Kriterien, darunter tatsächlicher
+Timeout und tatsächliche Rohoutput-Grenze mit vollständigem Cleanup. Die vollständige
+Repository-Regression umfasst 117 erfolgreiche Tests. Registry-, Fixture-,
+EXP-0002- bis EXP-0007-, WI-0005-, WI-0007-, `compileall`-,
+`git diff --check`- und Foundation-Prüfungen waren erfolgreich. Dies
+qualifiziert genau die lokale Einzelbibliotheksprojektion, nicht reale
+Bestände, Mehrfachziele, automatische Erkennung, Serverzugriff, Persistenz
+oder Writes.
 
 WI-0007-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
 am 2026-08-28 unter Python 3.12.10 und Podman 6.1.0. Repository- und
@@ -470,13 +499,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0007 ist `accepted`. Nach dem Merge dieser reinen Planungs- und
-Registrierungs-Wave folgt eine getrennte Implementierungs-Wave. Sie muss den
-providerneutralen Produktvertrag, die begrenzte Copy-on-read-Grenze, das
-exakte Calibre-9.13.0-Podman-Profil, deutsche und stabile JSON-Ausgabe sowie
-die vollständige synthetische Qualifikation umsetzen. Mehrere Bibliotheken,
-automatische Erkennung, Content Server, Persistenz, Browser, REST, Agents,
-native Windows-Ausführung und Writes bleiben außerhalb.
+WI-0007 ist `done`. Vor einer weiteren Produktwave ist neu zu entscheiden,
+welche offene Qualitäts- oder Nutzerfrage den höchsten Wert besitzt. Die
+abgeschlossene Wave autorisiert weder mehrere Bibliotheken, automatische
+Erkennung, Content Server, weitere Calibre-Felder, Dubletten, externe
+Metadaten, Routing, dauerhafte Persistenz, Browser, REST, Agents, native
+Windows-Ausführung noch Writes.
 
 ## Offene Punkte
 

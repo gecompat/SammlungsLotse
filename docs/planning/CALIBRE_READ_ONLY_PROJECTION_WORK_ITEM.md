@@ -1,6 +1,6 @@
 # WI-0007: Read-only Calibre-Bestandsprojektion umsetzen
 
-Status: ACCEPTED — IMPLEMENTIERUNG AUSSTEHEND
+Status: DONE — IMPLEMENTIERT UND SYNTHETISCH QUALIFIZIERT
 
 Stand: 2026-08-28
 
@@ -220,3 +220,35 @@ Verschieben, Umbenennen oder Löschen.
 Die Benutzerfreigabe vom 2026-08-28 umfasst Planung, Registrierung,
 Implementierung, ausschließlich synthetische Qualifikation, Pull Requests,
 exakte CI-Prüfung und Merge nach `origin/main`.
+
+## Implementierung und Abnahme
+
+Die getrennte Implementierungs-Wave hat den angenommenen Vertrag umgesetzt:
+
+- `sammlungslotse.calibre_inventory` trennt Modell, Anwendungsport,
+  Copy-on-read-Workspace, Calibre-Provider und Podman-Executor;
+- der Quellsnapshot inventarisiert nur reguläre Dateien und bindet relative
+  Namen, Größen und SHA-256-Werte unter festen Datei-, Summen-, Tiefen- und
+  Pfadgrenzen;
+- nur die geprüfte task-private Kopie wird beschreibbar unter `/library`
+  gemountet; die Quelle erreicht weder Container noch Calibre;
+- der feste Wrapper ruft ausschließlich `calibredb list` mit der minimalen
+  Feld-Whitelist auf;
+- `tools/run_calibre_inventory.py` liefert eine deutsche Ansicht oder
+  deterministisches JSON und akzeptiert genau eine explizite Bibliothek;
+- Bereitstellung, tatsächliche Qualifikation und CI-Nachweis sind getrennte
+  Werkzeuge; ein Nutzerlauf lädt und baut nichts.
+
+Das offizielle 192554776-Byte-Artefakt wurde erneut gegen seinen SHA-512-Wert
+geprüft. Zwei frische Builds aus dem digestgebundenen Linux/amd64-Basisimage
+erzeugten dieselbe Image-ID
+`sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5`.
+
+Eine ausschließlich aus TEST-0001 erzeugte synthetische Calibre-Bibliothek
+wurde tatsächlich über das Produktprofil projiziert. Deutsche Ausgabe und
+zwei JSON-Läufe waren erfolgreich; die JSON-Läufe waren byteidentisch. Die
+Projektion enthielt genau einen Datensatz mit ID, Titel, Autor, Sprache und
+Format, aber keinen Host- oder Bibliothekspfad. Quellsnapshot und
+Bibliotheksdateien blieben unverändert; Taskbereich und Profilcontainer waren
+nach allen Läufen leer. Der eingecheckte Nachweis bindet 17/17 Kriterien an
+Profil, Image-ID und vollständiges Produktpreimage.
