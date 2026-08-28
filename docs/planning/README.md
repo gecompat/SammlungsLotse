@@ -178,10 +178,12 @@ GATE-0007 hat diese Ergebnisbewertung mit fünf getrennten Fortsetzungen
 abgeschlossen. Es wählt WI-0011 als kleinste read-only Produktwave: genau ein
 explizites Eingangs-EPUB wird gegen genau einen expliziten Calibre-Datensatz
 über einen providerneutralen Snapshot-Handoff und den unveränderten
-fünfstufigen WI-0009-Bericht verglichen. Planung und Registrierung sind
-`accepted`; die Implementierung bleibt eine getrennte Wave. Automatische
-Suche, mehrere Bibliotheken, Persistenz und jede Bestandswirkung bleiben
-außerhalb.
+fünfstufigen WI-0009-Bericht verglichen. Die getrennte Implementierungswave
+ist abgeschlossen und auf dem eingefrorenen Preimage `d70c6de` mit 23/23
+ausschließlich synthetischen Kriterien qualifiziert. Automatische Suche,
+mehrere Dateien, IDs oder Bibliotheken, Persistenz und jede Bestandswirkung
+bleiben außerhalb. Vor einer weiteren Produktwave ist ein neues getrenntes
+Ergebnisgate erforderlich.
 
 ## Nicht übernehmen
 

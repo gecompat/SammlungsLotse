@@ -51,9 +51,11 @@ Für Produkt-, Governance- und Fixture-Code gelten:
       tools/run_ebook_intake.py \
       tools/run_calibre_inventory.py \
       tools/run_ebook_identity.py \
+      tools/run_ebook_calibre_identity.py \
       tools/provision_calibre_readonly_profile.py \
       tools/qualify_calibre_readonly_profile.py \
       tools/qualify_ebook_identity.py \
+      tools/qualify_ebook_calibre_identity.py \
       tools/governance \
       tools/fixtures \
       tools/experiments \
@@ -238,6 +240,30 @@ jeden JSON-Fall zweimal und die deutsche Ansicht einmal über den lokalen
 CLI-Prozess aus. Er prüft Ebenentrennung, Evidenzkanäle, Determinismus,
 Pfadfreiheit, unveränderte Fixture-Hashes, fehlende Produktwirkungen und null
 falsche Gleichheitskandidaten in den gebundenen Negativfällen.
+
+Für den eingecheckten WI-0011-Produktnachweis gilt zusätzlich:
+
+    python tools/qualify_ebook_calibre_identity.py --validate-result
+
+Die CI-geeignete Prüfung startet keinen Container. Sie bindet 23 erfüllte
+Kriterien an das vollständige Produktpreimage, das exakte Calibre-9.13.0-
+Image, die synthetische Qualifikationsbibliothek und TEST-0001-Fixtures. Der
+zugrunde liegende tatsächliche Lauf führt positive, neu gepackte, negative,
+fehlende, formatlose, ungültige, mehrfache und übergroße Fälle sowie
+Outputlimit, Timeout, Unterbrechung und Recovery aus. Er prüft Pfadfreiheit,
+Bytegleichheit, Rollen, fünf Identitätsebenen, Quellunverändertheit und
+vollständiges Task- und Container-Cleanup.
+
+Der tatsächliche ausschließlich synthetische Podman-Lauf verwendet neue
+kontrollierte Pfade unter `C:\rep`:
+
+    python tools/qualify_ebook_calibre_identity.py \
+      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0011-qualification \
+      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0011-qualification
+
+Qualifikations- und Evidenzziel müssen neue strikte Unterpfade sein. Die
+Taskwurzel wird vollständig entfernt; die 22 pfadfreien stdout-/stderr-
+Rohbelege bleiben außerhalb von Git für die manuelle Nachprüfung erhalten.
 
 ## Pull-Request-Prüfungen
 

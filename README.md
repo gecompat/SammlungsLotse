@@ -11,10 +11,13 @@ Das Repository besitzt mit WI-0004 einen vollständig begrenzten read-only
 E-Book-Eingangstriage-Prototyp, mit WI-0005 einen optionalen tiefen
 EPUBCheck-Adapter, mit WI-0006 einen kleinen Mehrdatei-Bericht, mit WI-0007
 eine eng begrenzte read-only Calibre-Bestandsprojektion und mit WI-0009 einen
-synthetisch qualifizierten Zwei-EPUB-Identitätskandidatenbericht. Dies ist keine
-vollständige Medienlinie und legt weder das allgemeine Laufzeitmodell noch
-eine technische Roadmap fest. Weitere Entwicklung beginnt weiterhin nur auf
-Grundlage der hier dokumentierten Produkt- und Governance-Verträge.
+synthetisch qualifizierten Zwei-EPUB-Identitätskandidatenbericht. WI-0011
+verbindet beide Verträge für genau ein explizites Eingangs-EPUB und genau
+einen expliziten Calibre-Datensatz read-only, providerneutral und ohne
+Bestandswirkung. Dies ist keine vollständige Medienlinie und legt weder das
+allgemeine Laufzeitmodell noch eine technische Roadmap fest. Weitere
+Entwicklung beginnt weiterhin nur auf Grundlage der hier dokumentierten
+Produkt- und Governance-Verträge.
 
 ## Produktauftrag
 

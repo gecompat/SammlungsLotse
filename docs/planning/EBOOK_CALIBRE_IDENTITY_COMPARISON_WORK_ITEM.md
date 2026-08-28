@@ -1,6 +1,6 @@
 # WI-0011: Explizites EPUB gegen einen Calibre-Datensatz read-only vergleichen
 
-Status: ACCEPTED — IMPLEMENTIERUNG GETRENNT
+Status: DONE — SYNTHETISCH QUALIFIZIERT
 
 Stand: 2026-08-28
 
@@ -126,6 +126,7 @@ Projekt-Tempbereichs liegen.
 Prozesscodes:
 
 - `0` für einen vollständig erzeugten Kandidatenbericht, auch bei Enthaltung;
+- `2` für ungültige oder mehrfache Eingabeparameter vor jedem Containerstart;
 - `4` für `not_assessed`, etwa fehlende ID, fehlendes EPUB, geschlossenes
   Preflight-Gate, fehlendes exaktes Profil oder kontrollierten Providerfehler;
 - `3` für Grenz-, Sicherheits-, Struktur-, Output- oder Cleanupfehler;
@@ -196,16 +197,40 @@ Agents, statistische oder KI-Ähnlichkeit, bestätigte Dublette, Import,
 Formatentfernung, Metadatenschreiben, Verschieben, Umbenennen, Löschen oder
 jede andere Bestandswirkung.
 
+## Ausführungsergebnis
+
+WI-0011 wurde auf dem eingefrorenen Produktpreimage
+`d70c6decb50f4560e52f64b4eef66fc8f4e76af2` ausschließlich mit
+synthetischem TEST-0001-Material ausgeführt. Der eingecheckte Nachweis unter
+`runtime/ebook-calibre-identity/qualification.json` bestand 23/23 Kriterien.
+
+Der positive Calibre-Record-Snapshot blieb mit SHA-256
+`1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5`
+bytegleich zum ausdrücklich ausgewählten EPUB. Zwei vollständige JSON-Läufe
+waren byteidentisch. Eine neu gepackte Repräsentation wurde als
+`representation_candidate`, der gebundene fachliche Negativfall ohne falsche
+Gleichheitsfreigabe als `abstain` bewertet.
+
+Fehlende und formatlose Datensätze, ungültige und mehrere IDs,
+Eingangsgrößenüberschreitung, unerwartete Ausgabe, Outputlimit, Timeout,
+simulierte Unterbrechung und Recovery endeten fail-closed. Eingangsdatei,
+Quellbibliothek und Fixtures blieben unverändert. Nach allen tatsächlichen
+CLI- und Podman-Läufen verblieben weder Taskdaten noch Container. 22
+stdout-/stderr-Rohbelege liegen ausschließlich außerhalb von Git unter dem
+kontrollierten Projekt-Artefaktpfad.
+
 ## Ausführungsreihenfolge
 
-1. GATE-0007 und diesen angenommenen Vertrag ohne Produktcode nach
-   `origin/main` mergen.
-2. Providerneutralen Handoff-Port, Calibre-Adapter, Anwendungskomposition,
-   getrennte CLI und automatisierte Verträge in einer eigenen Wave umsetzen.
-3. Das vollständige Produktpreimage committen und danach die tatsächliche
-   synthetische CLI-/Podman-Qualifikation ausführen.
-4. Erst nach vollständiger Regression, erforderlichen GitHub-Checks und
-   Post-Merge-Prüfung WI-0011 auf `done` setzen.
+1. GATE-0007 und der angenommene Vertrag wurden getrennt nach `origin/main`
+   integriert.
+2. Providerneutraler Handoff-Port, Calibre-Adapter,
+   Anwendungskomposition, getrennte CLI und automatisierte Verträge wurden
+   in einer eigenen Wave umgesetzt.
+3. Das vollständige Produktpreimage wurde vor der tatsächlichen
+   synthetischen CLI-/Podman-Qualifikation commitgebunden.
+4. Die lokale Qualifikation und vollständige Regression sind erfolgreich.
+   Erforderliche GitHub-Checks, Merge und Post-Merge-Prüfung bleiben die
+   letzten Integrationsschritte dieser Wave.
 
 Die Benutzeranweisung vom 2026-08-28 autorisiert die autonome Fortsetzung
 über diese Planung, die ausschließlich synthetische Implementierung und
