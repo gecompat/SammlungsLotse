@@ -136,9 +136,11 @@ Produktkriterien qualifiziert.
 GATE-0004 hat anschließend drei getrennte Fortsetzungen verglichen. Es wählt
 WI-0008 aus, um die konkrete Evidenz- und Reproduzierbarkeitslücke des
 einzelnen tatsächlichen Calibre-Datensatzes zu schließen. WI-0008 ist
-angenommen, aber noch nicht implementiert. Die Wave ändert weder
-Produktoberfläche und Felder noch Einzelbibliotheks-, Read-only-,
-Datenschutz- oder Writer-Grenzen.
+abgeschlossen: Die reproduzierbare Drei-Datensatz-Materialisierung deckte
+eine reale Mehrfachautoren-Normalisierung auf, die eng korrigiert und durch
+den neuen v2-Produktnachweis mit 29/29 Kriterien qualifiziert wurde. Die Wave
+ändert weder Produktoberfläche und Felder noch Einzelbibliotheks-,
+Read-only-, Datenschutz- oder Writer-Grenzen.
 
 ## Nicht übernehmen
 

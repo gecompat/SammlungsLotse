@@ -32,6 +32,14 @@ def _list_value(raw: Any) -> tuple[str, ...]:
     return tuple(values)
 
 
+def _authors(raw: Any) -> tuple[str, ...]:
+    if isinstance(raw, str):
+        values = [item.strip() for item in raw.split(" & ") if item.strip()]
+        if len(values) > 1:
+            return _list_value(values)
+    return _list_value(raw)
+
+
 def _formats(raw: Any) -> tuple[str, ...]:
     result = set()
     for value in _list_value(raw):
@@ -64,7 +72,7 @@ def parse_calibre_output(raw: bytes) -> tuple[CalibreBook, ...]:
             CalibreBook(
                 external_record_id=source_id,
                 title=title,
-                authors=_list_value(record.get("authors")),
+                authors=_authors(record.get("authors")),
                 languages=_list_value(record.get("languages")),
                 formats=_formats(record.get("formats")),
             )

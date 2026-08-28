@@ -13,8 +13,9 @@ Podman-Profil synthetisch qualifiziert; mehrere ausdrücklich angegebene
 Dateien können sequenziell in einem pfadfreien Bericht zusammengefasst werden.
 WI-0007 ist als eng begrenzte Calibre-Produktwave implementiert und mit einem
 exakten lokalen Podman-Profil ausschließlich synthetisch qualifiziert.
-GATE-0004 hat die nächste Fortsetzung neu bewertet und WI-0008 als reine
-Härtungs- und Evidenzwave angenommen; die Implementierung steht aus.
+GATE-0004 hat die nächste Fortsetzung neu bewertet. WI-0008 ist als reine
+Härtungs- und Evidenzwave implementiert und mit 29/29 synthetischen Kriterien
+qualifiziert.
 
 ## Vorhanden
 
@@ -130,9 +131,13 @@ Härtungs- und Evidenzwave angenommen; die Implementierung steht aus.
 - abgeschlossenes GATE-0004 mit getrenntem Vergleich von synthetischer
   Vertrags- und Evidenzhärtung, Mehrbibliothekszugriff und neuer
   Qualitätsfunktion;
-- angenommener WI-0008-Vertrag für eine eingecheckte, reproduzierbare und
-  mehrgliedrige synthetische Calibre-Qualifikation ohne Änderung des
-  WI-0007-Produktvertrags.
+- abgeschlossener WI-0008-Vertrag mit eingecheckter, reproduzierbarer
+  Drei-Datensatz-Materialisierung, hashgebundenen TEST-0001-Fixtures,
+  tatsächlicher Calibre-Normalisierung und v2-Produktnachweis mit 29/29
+  Kriterien;
+- eng korrigierte und automatisiert gebundene Mehrfachautoren-Projektion für
+  die tatsächliche `calibredb --for-machine`-Trennform ` & `, ohne Änderung
+  der fünf Produktfelder oder der Einzelbibliotheksgrenze.
 
 ## Nicht vorhanden
 
@@ -147,6 +152,27 @@ Härtungs- und Evidenzwave angenommen; die Implementierung steht aus.
 - Release.
 
 ## Validierung
+
+WI-0008-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
+validiert am 2026-08-28 unter Python 3.12.10, Podman 6.1.0 und Calibre 9.13.0.
+Der eingecheckte Materialisierer erzeugte zweimal frisch drei synthetische
+Datensätze aus drei hashgebundenen TEST-0001-Fixtures. Die fachlichen
+Projektionen waren identisch und deckten Mehrfachautoren, Mehrsprachigkeit,
+Mehrformat, leere Werte und Unicode ab. Der erste Lauf reproduzierte die
+tatsächliche `calibredb --for-machine`-Autorentrennung; die eng begrenzte
+Parserkorrektur ist durch einen fokussierten Regressionstest gebunden. Der
+endgültige LF-gebundene v2-Produktnachweis bestand 29/29 Kriterien mit
+byteidentischen JSON-Wiederholungen, deutscher Ansicht, unveränderten
+Fixtures und Bibliotheken sowie vollständigem Task-, Qualifikationsroot- und
+Container-Cleanup einschließlich Timeout, Outputgrenze und simuliertem
+Abbruch. Repository- und v2-Registry-Prüfung waren für 28 Artefakte
+erfolgreich; TEST-0001 bestätigte 30 Fälle und 49 Komponenten, EXP-0002 bis
+EXP-0007 sowie WI-0005 blieben gültig. Alle 123 Repository-Tests und
+`compileall` waren erfolgreich; `git diff --check` meldete keine Fehler.
+FOUNDATION_INTEGRITY meldete 0 Warnungen, 0 Fehler und 0 Blocker. Dies
+qualifiziert die reproduzierbare synthetische Vertragsabdeckung und die
+Mehrfachautorenkorrektur, nicht reale Bestände, Last, mehrere Bibliotheken,
+neue Felder oder Writes.
 
 GATE-0004-/WI-0008-Planungswave: PROJECT_SEMANTIC und bestehende
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Python
@@ -519,13 +545,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0008 ist `accepted`. Nach Merge dieser Planungs-Wave darf eine getrennte
-Implementierungs-Wave ausschließlich die synthetische Calibre-
-Materialisierung, Oracles und Qualifikation reproduzierbar erweitern. Die
-Wave autorisiert weder mehrere Bibliotheken, automatische Erkennung, Content
-Server, weitere Calibre-Felder, Dubletten, externe Metadaten, Routing,
-dauerhafte Persistenz, Browser, REST, Agents, native Windows-Ausführung noch
-Writes.
+WI-0008 ist `done`. Vor einer weiteren Produktwave ist neu zu entscheiden,
+welche offene Qualitäts- oder Nutzerfrage den höchsten Wert besitzt. Die
+abgeschlossene Wave autorisiert weder mehrere Bibliotheken, automatische
+Erkennung, Content Server, weitere Calibre-Felder, Dubletten, externe
+Metadaten, Routing, dauerhafte Persistenz, Browser, REST, Agents, native
+Windows-Ausführung noch Writes.
 
 ## Offene Punkte
 

@@ -184,6 +184,14 @@ class CalibreInventoryTests(unittest.TestCase):
         self.assertEqual(("epub", "pdf"), books[1].formats)
         self.assertNotIn("/library", repr(books))
 
+    def test_parser_splits_calibredb_machine_author_separator(self) -> None:
+        raw = json.dumps(
+            [{"id": 1, "title": "Atlas", "authors": "Ada Beispiel & Bea مثال"}],
+            ensure_ascii=False,
+        ).encode("utf-8")
+        books = parse_calibre_output(raw)
+        self.assertEqual(("Ada Beispiel", "Bea مثال"), books[0].authors)
+
     def test_parser_rejects_unknown_fields_and_invalid_ids(self) -> None:
         for value in ([{"id": 1, "title": "x", "tags": []}], [{"id": "1", "title": "x"}]):
             with self.subTest(value=value), self.assertRaises(ValueError):

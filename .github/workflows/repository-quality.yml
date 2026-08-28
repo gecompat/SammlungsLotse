@@ -56,6 +56,7 @@ jobs:
           tools/provision_ebook_deep_profile.py
           tools/qualify_ebook_deep_profile.py
           tools/provision_calibre_readonly_profile.py
+          tools/materialize_calibre_qualification_library.py
           tools/qualify_calibre_readonly_profile.py
           .ai/foundation/artifact_registry_github
           tools/governance

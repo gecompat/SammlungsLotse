@@ -1,0 +1,54 @@
+{
+  "profile_id": "wi-0007-calibre-9.13.0-podman-linux-amd64/v1",
+  "records": [
+    {
+      "authors": [
+        "Ada Beispiel",
+        "Bea مثال"
+      ],
+      "expected_id": 1,
+      "formats": [
+        {
+          "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-multiformat-edition/edition.epub",
+          "sha256": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5"
+        },
+        {
+          "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-multiformat-edition/edition.pdf",
+          "sha256": "f0e5257f4f8936a9beaf8f8b962a9fe57ad7a6211414641fe165a7d4f6fef85d"
+        }
+      ],
+      "languages": [
+        "deu",
+        "ara"
+      ],
+      "title": "Atlas Δ"
+    },
+    {
+      "authors": [
+        "Nora Beispiel"
+      ],
+      "expected_id": 2,
+      "formats": [],
+      "languages": [],
+      "title": "Ohne Format"
+    },
+    {
+      "authors": [
+        "ليلى مثال"
+      ],
+      "expected_id": 3,
+      "formats": [
+        {
+          "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/metadata-multilingual-rtl/multilingual-rtl.epub",
+          "sha256": "47db9023a483de9d6b23b9b0fce2440ce879d5953ccc8d9fd35f3a79735b6c5d"
+        }
+      ],
+      "languages": [
+        "ara"
+      ],
+      "title": "رحلة إلى المكتبة – Zürich"
+    }
+  ],
+  "schema": "sammlungslotse/calibre-qualification-library/v1",
+  "synthetic_only": true
+}
