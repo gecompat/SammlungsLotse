@@ -1,0 +1,76 @@
+{
+  "artifact": "EXP-0009",
+  "case_manifest": "experiments/ebook/exp-0009/case-manifest.json",
+  "case_totals": {
+    "completed": 15,
+    "not_assessed": 3,
+    "total": 18
+  },
+  "decisions": [
+    "candidate_same",
+    "candidate_related",
+    "different",
+    "abstain",
+    "not_applicable"
+  ],
+  "implementation": {
+    "external_dependencies": [],
+    "network": "not_used",
+    "product_code_changes": false,
+    "runtime": "Python 3.12 standard library",
+    "synthetic_only": true
+  },
+  "limits": {
+    "max_archive_entries": 512,
+    "max_expanded_bytes": 134217728,
+    "max_input_bytes": 33554432,
+    "max_report_bytes": 262144,
+    "max_total_input_bytes": 67108864
+  },
+  "measurement": {
+    "critical_same_stages": [
+      "byte",
+      "package",
+      "representation",
+      "edition",
+      "work"
+    ],
+    "labels": {
+      "byte": [
+        "candidate_same"
+      ],
+      "edition": [
+        "candidate_same"
+      ],
+      "package": [
+        "candidate_same"
+      ],
+      "representation": [
+        "candidate_same"
+      ],
+      "work": [
+        "candidate_same",
+        "candidate_related"
+      ]
+    },
+    "metrics": [
+      "precision",
+      "recall",
+      "selective_accuracy",
+      "coverage",
+      "abstention_rate",
+      "correct_abstention",
+      "unexpected_abstention"
+    ]
+  },
+  "profile_id": "exp-0009-identity-evidence-hardening/v1",
+  "repetitions": 2,
+  "schema": "sammlungslotse/exp-0009-execution-profile/v1",
+  "stages": [
+    "byte",
+    "package",
+    "representation",
+    "edition",
+    "work"
+  ]
+}

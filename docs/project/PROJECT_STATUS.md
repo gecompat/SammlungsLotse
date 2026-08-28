@@ -34,7 +34,9 @@ getrennt integriert. Die Implementierung ist abgeschlossen und mit 23/23
 synthetischen Kriterien qualifiziert.
 GATE-0008 ist danach ergebnisoffen ausgearbeitet und nun ausgewertet. Der
 Nutzer hat Option A gewählt. EXP-0009 ist als genau ein getrenntes
-synthetisches Evidenzexperiment angenommen; seine Ausführung steht noch aus.
+synthetisches Evidenzexperiment ausgeführt. Der methodische Nachweis bestand
+12/12 Kriterien; zwei kritische False-Same-Befunde qualifizieren die
+Produktqualität auf dem verbreiterten Goldstandard jedoch nicht.
 
 ## Vorhanden
 
@@ -195,9 +197,12 @@ synthetisches Evidenzexperiment angenommen; seine Ausführung steht noch aus.
 - ausgewertetes GATE-0008 mit katalogisierten qualitätssteigernden
   Tätigkeiten, elf weiterhin sichtbaren Fortsetzungsoptionen und der
   ausdrücklichen Auswahl A;
-- angenommener EXP-0009-Vertrag für genau 18 synthetische adversarielle
-  Identitätspaare, zwei Wiederholungen und getrennte Qualitätsmetriken ohne
-  Produktcode oder Bestandswirkung; die Ausführung steht noch aus.
+- abgeschlossener EXP-0009-Vertrag für genau 18 synthetische adversarielle
+  Identitätspaare, zwei semantisch identische Wiederholungen und 12/12
+  methodische Kriterien ohne Produktcode oder Bestandswirkung;
+- offener Qualitätsbefund aus `metadata-collision-work-conflict`: je ein
+  kritischer False Same auf Ausgaben- und Werkebene trotz verschiedener
+  Inhalte und widersprüchlicher expliziter Werkreferenzen.
 
 ## Nicht vorhanden
 
@@ -212,6 +217,22 @@ synthetisches Evidenzexperiment angenommen; seine Ausführung steht noch aus.
 - Release.
 
 ## Validierung
+
+EXP-0009-Ausführungswave: RUNTIME_EMPIRICAL und PROJECT_SEMANTIC lokal
+validiert am 2026-08-28 unter Windows und Python 3.12.10. Der eingefrorene
+Preimage-Commit `2ef2de0395e485283f3be4ca339ab5fed8657fee` führte genau 18
+synthetische Paare zweimal aus. Der Ergebnisvertrag bestand 12/12 methodische
+Kriterien; beide semantischen Wiederholungsdigests waren identisch. Drei
+Negativfälle endeten erwartbar `not_assessed`, alle Eingänge blieben
+unverändert und die Run-Wurzel wurde vollständig entfernt. Die getrennte
+Produktbewertung lautet wegen zweier kritischer False Same
+`not_qualified`. Repository- und v2-Registry-Prüfung waren für 37 Artefakte
+erfolgreich. TEST-0001 bestätigte 30 Fälle und 49 Komponenten; EXP-0002 bis
+EXP-0009 sowie die eingecheckten WI-0005-, WI-0008-, WI-0009- und WI-0011-
+Nachweise blieben gültig. Alle 165 Repository-Tests, `compileall` und
+`git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY meldete 0
+Warnungen, 0 Fehler und 0 Blocker. Dies belegt Methode und synthetische
+Befunde, nicht reale Häufigkeiten oder eine Produktkorrektur.
 
 GATE-0008-Auswahl- und EXP-0009-Planungswave: PROJECT_SEMANTIC und bestehende
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows und
@@ -737,13 +758,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011 ist auf `origin/main` vollständig abgeschlossen. GATE-0008 hat Option
-A ausgewählt und EXP-0009 ist angenommen. Als nächster eng begrenzter Schritt
-ist ausschließlich dieses Experiment mit synthetischen Daten auszuführen.
-Eine gefundene Produktlücke wird dokumentiert, nicht in derselben Wave
-korrigiert. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
-Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
-und Writes bleiben nicht autorisiert.
+WI-0011 und EXP-0009 sind abgeschlossen. Vor jeder Produktkorrektur oder
+anderen Fortsetzung muss ein neues Ergebnisgate die zwei kritischen
+False-Same-Befunde, eine konservative Regeländerung, weitere Evidenz,
+alternative Fortsetzungen und Pausieren getrennt bewerten. In EXP-0009 wird
+keine Korrektur vorgenommen. Automatische Suche, mehrere Dateien, IDs oder
+Bibliotheken, neue Calibre-Felder, externe Metadaten, Persistenz, Routing,
+Browser, REST, Agents und Writes bleiben nicht autorisiert.
 
 ## Offene Punkte
 
