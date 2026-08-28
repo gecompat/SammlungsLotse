@@ -237,7 +237,8 @@ Identifier-Rollen und als `work_references` eingeebnete Collection-Semantik.
 Die vier konformen Collection-Fälle entsprachen ihren Oracles; ein isoliertes
 Collection-Veto würde die aktuelle False-Same-Ursache deshalb nicht beheben.
 
-Der vollständige Ergebnisvertrag steht unter
-[experiments/ebook/exp-0010](../../experiments/ebook/exp-0010/README.md).
-Er autorisiert keine Produktkorrektur. Die Fortsetzung ist in GATE-0010
-offen zu entscheiden.
+Der vollständige Ergebnisvertrag steht in
+[`result.json`](../../experiments/ebook/exp-0010/result.json). README,
+Manifest und Profil bleiben als gebundenes Preimage unverändert. Das Ergebnis
+autorisiert keine Produktkorrektur. Die Fortsetzung ist in GATE-0010 offen zu
+entscheiden.
