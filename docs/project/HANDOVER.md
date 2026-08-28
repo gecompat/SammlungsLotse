@@ -119,9 +119,11 @@ Kriterien abgeschlossen; eine Produktwave ist damit nicht freigegeben.
 GATE-0007 ist `done`. Es hat den expliziten Einzelrecord-Vergleich,
 Bestandsqualitätsübersicht, Mehrbibliotheks-/Routing-Arbeit, neue
 Provider-/Architekturflächen und Pausieren getrennt bewertet. WI-0011 ist als
-kleinste read-only Produktwave `accepted`: genau ein Eingangs-EPUB, eine
+kleinste read-only Produktwave `done`: genau ein Eingangs-EPUB, eine
 Bibliothek und eine externe Calibre-ID, providerneutraler Snapshot-Handoff,
-unveränderter fünfstufiger Identitätsbericht und keine Bestandsaktion.
+unveränderter fünfstufiger Identitätsbericht und keine Bestandsaktion. Der
+eingecheckte Nachweis bindet das Preimage `d70c6de` und bestand 23/23
+ausschließlich synthetische Kriterien.
 
 ## Fortsetzung
 
@@ -153,17 +155,23 @@ Content Server, Persistenz und Writer weiterhin außerhalb.
 
 WI-0009 ist abgeschlossen. Produktcode und CLI liegen unter
 `src/sammlungslotse/ebook_identity/` und `tools/run_ebook_identity.py`, der
-reproduzierbare Nachweis unter `runtime/ebook-identity/`. Ein Vergleich gegen
-Calibre, Verzeichnissuche, mehr als zwei Eingänge, Persistenz, Routing und
-Writes bleiben außerhalb. Eine weitere Produktwave ist nicht automatisch
-freigegeben.
+reproduzierbare Nachweis unter `runtime/ebook-identity/`. WI-0009 selbst
+enthält keinen Calibre-Adapter, keine Verzeichnissuche, mehr als zwei
+Eingänge, Persistenz, Routing oder Writes.
 
 EXP-0008 ist abgeschlossen. Der pfadfreie Nachweis liegt unter
 `experiments/ebook/exp-0008/`; das genaue Preimage ist `fb08732b`. Die
 unterstützte Calibre-Einzelrecord-Übergabe ist nur synthetisch technisch
-qualifiziert. GATE-0007 hat daraufhin WI-0011 angenommen. Nach Merge der
-Planungs-Wave darf ausschließlich dieser explizite read-only Vergleich in
-einem neuen Worktree implementiert und synthetisch qualifiziert werden.
+qualifiziert. GATE-0007 hat daraufhin WI-0011 angenommen.
+
+WI-0011 ist abgeschlossen. Providerneutraler Port, Adapter, Anwendung und
+CLI liegen unter `src/sammlungslotse/ebook_calibre_identity/` und
+`tools/run_ebook_calibre_identity.py`; Profil und 23/23-Produktnachweis unter
+`runtime/ebook-calibre-identity/`. Der tatsächliche Lauf belegte
+Bytegleichheit, Repackaging, Enthaltung, Grenzen, Recovery und vollständiges
+Cleanup. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken,
+Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben
+außerhalb. Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
 
 ## Harte Grenzen
 

@@ -1,0 +1,33 @@
+{
+  "calibre_runtime": {
+    "image_id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5",
+    "locator": "runtime/calibre-readonly/profile.json",
+    "profile_id": "wi-0007-calibre-9.13.0-podman-linux-amd64/v1",
+    "sha256": "3489c543dbbcf73f07c090c5ba2599262af036366ec0efebbd3a2c40141cb17d"
+  },
+  "command": {
+    "fixed_flags": [
+      "--single-dir",
+      "--dont-update-metadata",
+      "--dont-write-opf",
+      "--dont-save-cover",
+      "--dont-save-extra-files",
+      "--formats",
+      "EPUB",
+      "--template",
+      "{id}"
+    ],
+    "program": "calibredb",
+    "subcommand": "export"
+  },
+  "limits": {
+    "external_record_id_max": 999999999,
+    "max_archive_entries": 512,
+    "max_expanded_bytes": 134217728,
+    "max_input_bytes": 4194304,
+    "max_report_bytes": 524288,
+    "max_total_input_bytes": 8388608
+  },
+  "profile_id": "wi-0011-calibre-identity-handoff/v1",
+  "schema": "sammlungslotse/ebook-calibre-identity-profile/v1"
+}

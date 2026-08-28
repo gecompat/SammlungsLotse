@@ -29,8 +29,9 @@ synthetischen Calibre-Datensatz. Die getrennte Ausführung ist mit 16/16
 Kriterien abgeschlossen.
 GATE-0007 hat das Ergebnis gegen vier alternative Fortsetzungen bewertet und
 WI-0011 als kleinste nächste read-only Produktwave ausgewählt. Planung und
-Registrierung des expliziten EPUB-gegen-Calibre-Datensatz-Vergleichs sind
-angenommen; die Implementierung ist noch getrennt.
+Registrierung des expliziten EPUB-gegen-Calibre-Datensatz-Vergleichs wurden
+getrennt integriert. Die Implementierung ist abgeschlossen und mit 23/23
+synthetischen Kriterien qualifiziert.
 
 ## Vorhanden
 
@@ -181,9 +182,13 @@ angenommen; die Implementierung ist noch getrennt.
   Einzelrecord-Identitätsbericht, Bestandsqualitätsübersicht,
   Mehrbibliotheks-/Routing-Arbeit, neuen Provider-/Architekturflächen und
   Pausieren;
-- angenommener WI-0011-Vertrag für genau ein explizites Eingangs-EPUB, eine
-  explizite Bibliothek und eine externe Calibre-ID über einen
-  providerneutralen read-only Snapshot-Handoff ohne Bestandswirkung.
+- abgeschlossener WI-0011-Vertrag für genau ein explizites Eingangs-EPUB,
+  eine explizite Bibliothek und eine externe Calibre-ID über einen
+  providerneutralen read-only Snapshot-Handoff ohne Bestandswirkung;
+- getrennte deutsche und deterministische JSON-CLI unter
+  `tools/run_ebook_calibre_identity.py`, exakte Calibre-9.13.0-
+  Profilbindung und eingecheckter 23/23-Produktnachweis mit tatsächlichen
+  synthetischen Podman-, Grenz-, Recovery- und Cleanupfällen.
 
 ## Nicht vorhanden
 
@@ -198,6 +203,26 @@ angenommen; die Implementierung ist noch getrennt.
 - Release.
 
 ## Validierung
+
+WI-0011-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
+validiert am 2026-08-28 unter Windows, Python 3.12.10, Podman 6.1.0 und
+Calibre 9.13.0 auf Linux/amd64. Das vor der tatsächlichen Ausführung
+eingefrorene Produktpreimage
+`d70c6decb50f4560e52f64b4eef66fc8f4e76af2` bestand 23/23 Kriterien. Zwei
+positive JSON-Wiederholungen waren byteidentisch; der exportierte Record-
+Snapshot blieb mit SHA-256
+`1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5`
+bytegleich. Repackaging ergab `representation_candidate`, der fachliche
+Negativfall ohne falsche Gleichheitsfreigabe `abstain`. Fehlende und
+formatlose Datensätze, ungültige und mehrere IDs, Größenüberschreitung,
+unerwartete Ausgabe, Outputlimit, Timeout und simulierte Unterbrechung
+endeten fail-closed; Recovery und vollständiges Cleanup waren erfolgreich.
+22 pfadfreie Rohbelege liegen außerhalb von Git. Repository- und v2-
+Registry-Prüfung waren für 35 Artefakte erfolgreich; alle bestehenden
+EXP-0002-bis-EXP-0008- und WI-0005-, WI-0008-, WI-0009-Nachweise blieben
+gültig. Alle 159 Repository-Tests und `compileall` waren erfolgreich;
+`git diff --check` meldete keine Fehler. FOUNDATION_INTEGRITY meldete 0
+Warnungen, 0 Fehler und 0 Blocker.
 
 GATE-0007-/WI-0011-Planungswave: PROJECT_SEMANTIC und bestehende
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows und
@@ -676,12 +701,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-GATE-0007 ist `done` und WI-0011 `accepted`. Nach Merge dieser reinen
-Planungs-Wave wird genau der eng begrenzte explizite EPUB-gegen-Calibre-
-Datensatz-Bericht getrennt implementiert und ausschließlich synthetisch
-qualifiziert. WI-0011 autorisiert weder automatische Suche, mehrere Dateien,
-IDs oder Bibliotheken, neue Calibre-Felder, externe Metadaten, Persistenz,
-Routing, Browser, REST, Agents noch Writes.
+WI-0011 ist lokal `done` und muss mit exakt erforderlichen GitHub-Checks,
+Merge sowie Post-Merge-Verifikation nach `origin/main` integriert werden.
+Danach ist erneut ein getrenntes Ergebnisgate erforderlich; keine weitere
+Produktwave ist automatisch freigegeben. WI-0011 autorisiert weiterhin weder
+automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue Calibre-
+Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents noch
+Writes.
 
 ## Offene Punkte
 
