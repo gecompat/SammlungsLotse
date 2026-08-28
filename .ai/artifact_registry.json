@@ -889,6 +889,37 @@
       ],
       "status": "done",
       "title": "Read-only Identitätskandidatenbericht für zwei EPUB-Dateien umsetzen"
+    },
+    "WI-0010": {
+      "acceptance_criteria": "Alle am tatsächlichen WI-0005-CLI-Lauf beteiligten Repositorydateien sind deterministisch gebunden; der eingecheckte Nachweis wird mit dem exakten Profil neu erzeugt; Netzwerk-, PID-, RAM-, CPU-, Unterbrechungs- und Recoverygrenzen bleiben synthetisch belegt; keine neue Produktfunktion entsteht.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a04724-3535-79dd-96d3-c5376ed948aa",
+      "created_on": "2026-08-28",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_WI0005_EVIDENCE_BINDING_HARDENING.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0005",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        }
+      ],
+      "status": "done",
+      "title": "WI-0005-Laufzeitpreimage vollständig binden und Härtungsnachweise ergänzen"
     }
   },
   "prefixes": {

@@ -73,7 +73,11 @@ Die netzwerklose CI-Prüfung wiederholt weder Downloads noch Containerläufe:
 
 Sie bindet den eingecheckten Nachweis an das aktive Profil, die Image-ID, die
 aktuellen Fixture-Hashes, zwölf Akzeptanzwerte sowie die zurückgelesenen
-Isolations-, Output- und Timeoutbelege.
+Isolations-, Output- und Timeoutbelege. Seit WI-0010 gehören außerdem der
+paketlose Runner, das Paket-Initialisierungsmodul und automatisch alle
+Python-Dateien unter `src/sammlungslotse/ebook_intake/` zum gebundenen
+Laufzeitpreimage. Ein Regressionstest verhindert, dass ein später ergänztes
+Intake-Modul unbemerkt ungebunden bleibt.
 
 Nach der WI-0006-Mehrdatei-Erweiterung wurde die vollständige Qualifikation
 erneut ausgeführt, weil `cli.py` Teil des gebundenen WI-0005-Preimages ist.
