@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-08-27
+Stand: 2026-08-28
 
 ## Phase
 
@@ -11,6 +11,8 @@ WI-0005 und WI-0006 vollständig ausgeführt. Der erste tiefe read-only
 Produktadapter ist eng begrenzt implementiert und mit einem exakten lokalen
 Podman-Profil synthetisch qualifiziert; mehrere ausdrücklich angegebene
 Dateien können sequenziell in einem pfadfreien Bericht zusammengefasst werden.
+WI-0007 ist als nächste eng begrenzte Calibre-Produktwave angenommen; ihre
+Implementierung und Produktqualifikation stehen noch aus.
 
 ## Vorhanden
 
@@ -106,6 +108,13 @@ Dateien können sequenziell in einem pfadfreien Bericht zusammengefasst werden.
   summierten Snapshot-Bytes und 48 MiB UTF-8-Ausgabe, vollständiger
   sequenzieller Verarbeitung innerhalb der Grenzen sowie isolierten
   `internal_error`- und `not_assessed`-Ergebnissen.
+- angenommener Arbeitsgegenstand WI-0007 für genau eine ausdrücklich
+  angegebene lokale Calibre-Bibliothek, eine unveränderte begrenzte
+  Copy-on-read-Arbeitskopie und eine pfadfreie stdout-Projektion auf externe
+  Calibre-ID, Titel, Autoren, Sprachen und Formate;
+- am 2026-08-28 erneut anhand offizieller Primärquellen bestätigtes Calibre
+  9.13.0 mit dokumentierter `calibredb`-Schnittstelle, GPL-3.0-only-Lizenz,
+  Artefaktgröße und offiziellem SHA-512-Wert.
 
 ## Nicht vorhanden
 
@@ -120,6 +129,17 @@ Dateien können sequenziell in einem pfadfreien Bericht zusammengefasst werden.
 - Release.
 
 ## Validierung
+
+WI-0007-Planungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
+am 2026-08-28 unter Python 3.12.10 und Podman 6.1.0. Repository- und
+v2-Registry-Prüfung waren für 26 registrierte Artefakte erfolgreich.
+TEST-0001 bestätigte 30 Fälle und 49 Komponenten; EXP-0002 bis EXP-0007 sowie
+der eingecheckte WI-0005-Produktnachweis bestätigten unverändert ihre
+gebundenen Kriterien. Alle 99 Repository-Tests und `compileall` waren
+erfolgreich; `git diff --check` meldete keine Fehler. FOUNDATION_INTEGRITY
+meldete 0 Warnungen, 0 Fehler und 0 Blocker. Dies belegt Plan-, Registry-,
+Dokument-, Fixture- und bestehende Regressionsintegrität, nicht die noch
+ausstehende WI-0007-Implementierung oder eine Calibre-Produktqualifikation.
 
 WI-0006-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
 validiert am 2026-08-27 unter Python 3.12.10, Podman 6.1.0 und EPUBCheck
@@ -450,11 +470,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0006 ist `done`. Vor einer weiteren Produktwave ist neu zu entscheiden,
-welche offene Qualitäts- oder Nutzerfrage den höchsten Wert besitzt. Die
-abgeschlossene Wave autorisiert weder Verzeichnissuche noch einen zweiten
-Provider, Ace, Calibre, Dubletten, Metadaten, Routing, dauerhafte Persistenz,
-Browser, REST, Agents, native Windows-Ausführung oder Writes.
+WI-0007 ist `accepted`. Nach dem Merge dieser reinen Planungs- und
+Registrierungs-Wave folgt eine getrennte Implementierungs-Wave. Sie muss den
+providerneutralen Produktvertrag, die begrenzte Copy-on-read-Grenze, das
+exakte Calibre-9.13.0-Podman-Profil, deutsche und stabile JSON-Ausgabe sowie
+die vollständige synthetische Qualifikation umsetzen. Mehrere Bibliotheken,
+automatische Erkennung, Content Server, Persistenz, Browser, REST, Agents,
+native Windows-Ausführung und Writes bleiben außerhalb.
 
 ## Offene Punkte
 
@@ -467,7 +489,7 @@ Browser, REST, Agents, native Windows-Ausführung oder Writes.
 
 ## Blocker
 
-Keine bekannten Blocker im abgeschlossenen WI-0005-Vertrag. Jede Änderung an
+Keine bekannten Blocker. Jede Änderung an
 Provider, Version, Runtime, Image, Executor oder Nutzeroberfläche verlangt
 eine neue Bewertung und Qualifikation. Schreibende Fähigkeiten bleiben
 unabhängig davon hinter einem eigenen Writer-Gate.

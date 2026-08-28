@@ -67,3 +67,19 @@ und resultierende Linux/amd64-Image-ID stehen vollständig in
 prüft vorhandene Cachedateien erneut und bricht bei jeder Abweichung ab. Das
 Laufzeitimage wird in dieser Wave nicht veröffentlicht; eine spätere
 Distribution verlangt eine eigene Lizenz- und Notice-Prüfung.
+
+## Geplantes enges WI-0007-Produktprofil
+
+WI-0007 plant Calibre `9.13.0` als lokalen externen, read-only verwendeten
+Bestandsprovider. Calibre ist GPL-3.0-only; das offizielle Linux-x86_64-
+Artefakt wird nicht in Git aufgenommen und vor einem Image-Build gegen Größe
+192554776 Bytes sowie den offiziellen SHA-512-Wert
+`c018cb47805040a9a83dc16986db618c539a7dc62f85da2760b7e22e0e8ada7533a01be797cdbd04a5d5f66c8efa2b0ac2db4819700e561351267cb4842a3fc6`
+geprüft. Die aktuelle Version, Lizenz, Schnittstelle und Provenienz wurden am
+2026-08-28 anhand offizieller Calibre-Quellen erneut bestätigt.
+
+Der Adapter verwendet ausschließlich `calibredb list` über eine wegwerfbare
+Arbeitskopie. Ein Bestandslauf lädt keine Drittsoftware und baut kein Image.
+Das Produktimage wird nicht veröffentlicht; eine Distribution benötigt eine
+eigene vollständige GPL-, Notice- und Quellbereitstellungsprüfung. Diese
+Planungs-Wave führt noch keine Laufzeitabhängigkeit ein.

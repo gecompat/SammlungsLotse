@@ -22,6 +22,7 @@ Experimente und spätere Entscheidungen:
 - [GATE-0003: V2 auswählen](EBOOK_GATE_0003_HANDOFF_DECISION.md);
 - [WI-0005: tiefen read-only Adapter begrenzen](EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md);
 - [WI-0006: read-only Mehrdatei-Eingangsbericht](EBOOK_MULTI_FILE_INTAKE_REPORT.md);
+- [WI-0007: read-only Calibre-Bestandsprojektion](CALIBRE_READ_ONLY_PROJECTION_WORK_ITEM.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -119,6 +120,14 @@ Standard, tiefe EPUBCheck-Prüfung bleibt Opt-in; Verzeichnissuche,
 Berichtsdatei, Persistenz, Fachsystemzugriff und Writes bleiben außerhalb.
 Die getrennte Implementierungs-Wave ist abgeschlossen und synthetisch über
 automatisierte sowie tatsächliche CLI- und Podman-Läufe abgenommen.
+
+Die nächste neu entschiedene Produktwave ist WI-0007. Sie übernimmt den in
+EXP-0002 belegten lokalen Calibre-Zugriff als enges Produktprofil: genau eine
+ausdrücklich angegebene Bibliothek, eine unveränderte begrenzte Copy-on-read-
+Arbeitskopie, die dokumentierte `calibredb`-CLI und eine pfadfreie Projektion
+auf Calibre-ID, Titel, Autoren, Sprachen und Formate. Planung und Registrierung
+sind angenommen; Produktimplementierung und synthetische Qualifikation folgen
+erst nach dem Plan-Merge in einer getrennten Wave.
 
 ## Nicht übernehmen
 

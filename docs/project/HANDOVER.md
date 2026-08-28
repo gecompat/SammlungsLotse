@@ -74,6 +74,13 @@ vorhandenen Einzelverträge. Die schnelle Prüfung bleibt Standard, der
 tiefe EPUBCheck-Weg bleibt Opt-in. Die synthetische Abnahme umfasst 99 Tests
 und zwei tatsächliche getrennte EPUBCheck-Läufe mit vollständigem Cleanup.
 
+WI-0007 ist als nächste getrennte Produktwave angenommen und unter
+`docs/planning/CALIBRE_READ_ONLY_PROJECTION_WORK_ITEM.md` vollständig
+begrenzt. Genau eine explizite lokale Calibre-Bibliothek soll über eine
+task-private Copy-on-read-Arbeitskopie und Calibre 9.13.0 pfadfrei auf ID,
+Titel, Autoren, Sprachen und Formate projiziert werden. Diese Planungs-Wave
+enthält noch keinen Produktcode und keine Produktqualifikation.
+
 ## Fortsetzung
 
 WI-0004 ist `done`. Der Produktcode liegt unter
@@ -91,6 +98,12 @@ WI-0006 als kleinen read-only Mehrdatei-Bericht ausgewählt; seine
 Implementierung ist abgeschlossen. Eine weitere Produktwave ist nicht
 automatisch freigegeben. WI-0006 entscheidet insbesondere keinen zweiten
 Provider, keine allgemeine Containerstrategie und keine schreibende Fähigkeit.
+
+Die Benutzerentscheidung vom 2026-08-28 hat WI-0007 nun ausdrücklich
+freigegeben. Nach dem Plan-Merge folgt eine getrennte Implementierungs-Wave
+mit Produktport, Copy-on-read-Grenze, exaktem Calibre-Profil, deutscher und
+stabiler JSON-CLI sowie ausschließlich synthetischer vollständiger
+Qualifikation. Erst deren geprüfter Merge darf WI-0007 auf `done` setzen.
 
 ## Harte Grenzen
 
@@ -112,8 +125,9 @@ Provider, keine allgemeine Containerstrategie und keine schreibende Fähigkeit.
 - konkrete REST- und Agent-Verträge;
 - konkrete FolioTone-Wiederverwendung;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
-- konkrete Calibre-, Accessibility- und Metadatenprovider-Adapter sowie
-  weitere tiefe Werkzeugprovider jenseits EPUBCheck 5.3.0;
+- Accessibility- und Metadatenprovider-Adapter sowie weitere tiefe
+  Werkzeugprovider jenseits EPUBCheck 5.3.0; der konkrete enge Calibre-
+  Bestandsprovider ist mit WI-0007 angenommen, aber noch nicht implementiert;
 - weitere empirisch qualifizierte Produktprofile jenseits des engen
   WI-0005-EPUBCheck-Profils; EXP-0002 qualifiziert nur den
   Copy-on-read-Calibre-Zugriff, EXP-0003 nur eine Evidenzprojektion mit nicht
