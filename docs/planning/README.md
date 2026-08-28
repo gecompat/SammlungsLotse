@@ -32,6 +32,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0008: unterstützte Calibre-Einzelrecord-EPUB-Übergabe](EBOOK_CALIBRE_SINGLE_RECORD_HANDOFF_EXPERIMENT.md);
 - [GATE-0007: Produktfortsetzung nach EXP-0008](EBOOK_GATE_0007_AFTER_EXP0008.md);
 - [WI-0011: explizites EPUB gegen einen Calibre-Datensatz](EBOOK_CALIBRE_IDENTITY_COMPARISON_WORK_ITEM.md);
+- [GATE-0008: Fortsetzung nach WI-0011 ergebnisoffen bewerten](EBOOK_GATE_0008_AFTER_WI0011.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -184,6 +185,14 @@ ausschließlich synthetischen Kriterien qualifiziert. Automatische Suche,
 mehrere Dateien, IDs oder Bibliotheken, Persistenz und jede Bestandswirkung
 bleiben außerhalb. Vor einer weiteren Produktwave ist ein neues getrenntes
 Ergebnisgate erforderlich.
+
+GATE-0008 ist als offenes Brainstorming-Gate registriert. Es inventarisiert
+qualitätssteigernde Tätigkeiten und elf getrennte Fortsetzungsoptionen, ohne
+eine Folge-Wave anzunehmen. Die kleinste aktuelle Entscheidungsmenge umfasst
+Identitätsqualität härten, begrenzte Kandidatensuche untersuchen,
+Bestandsqualitätsbefunde definieren und Pausieren. Identitätsqualität ist
+vorläufig empfohlen, aber nicht ausgewählt; Architektur-, Provider-,
+Persistenz-, UI- und Writerentscheidungen bleiben offen.
 
 ## Nicht übernehmen
 
