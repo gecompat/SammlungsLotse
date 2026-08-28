@@ -37,6 +37,11 @@ Nutzer hat Option A gewählt. EXP-0009 ist als genau ein getrenntes
 synthetisches Evidenzexperiment ausgeführt. Der methodische Nachweis bestand
 12/12 Kriterien; zwei kritische False-Same-Befunde qualifizieren die
 Produktqualität auf dem verbreiterten Goldstandard jedoch nicht.
+GATE-0009 ist als getrenntes offenes Ergebnisgate registriert. Es hält fest,
+dass EPUB-`belongs-to-collection` im aktuellen Produkt als
+`work_references` überdehnt wird, primäre und zusätzliche Identifier nicht
+getrennt sind und EXP-0009 deshalb noch keine konkrete Produktregel
+autorisiert.
 
 ## Vorhanden
 
@@ -203,6 +208,9 @@ Produktqualität auf dem verbreiterten Goldstandard jedoch nicht.
 - offener Qualitätsbefund aus `metadata-collision-work-conflict`: je ein
   kritischer False Same auf Ausgaben- und Werkebene trotz verschiedener
   Inhalte und widersprüchlicher expliziter Werkreferenzen.
+- offenes GATE-0009 mit getrenntem Vergleich von standardsgebundener
+  Evidenzreparatur, konservativer Produktwave, unabhängigem read-only
+  Qualitätsast und Pausieren; keine Folge ist ausgewählt.
 
 ## Nicht vorhanden
 
@@ -217,6 +225,17 @@ Produktqualität auf dem verbreiterten Goldstandard jedoch nicht.
 - Release.
 
 ## Validierung
+
+GATE-0009-Ergebnisgate-Wave: PROJECT_SEMANTIC und bestehende
+RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows und
+Python 3.12.10. Repository- und v2-Registry-Prüfung waren für 38 Artefakte
+erfolgreich. TEST-0001 bestätigte 30 Fälle und 49 Komponenten; EXP-0002 bis
+EXP-0009 sowie die eingecheckten WI-0005-, WI-0008-, WI-0009- und WI-0011-
+Nachweise blieben gültig. Alle 165 Repository-Tests, `compileall` und
+`git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY meldete 0
+Warnungen, 0 Fehler und 0 Blocker. Dies belegt den getrennten
+Entscheidungsraum und seine Primärquellenbindung, nicht die Auswahl einer
+Folgewave oder eine Produktkorrektur.
 
 EXP-0009-Ausführungswave: RUNTIME_EMPIRICAL und PROJECT_SEMANTIC lokal
 validiert am 2026-08-28 unter Windows und Python 3.12.10. Der eingefrorene
@@ -758,13 +777,14 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011 und EXP-0009 sind abgeschlossen. Vor jeder Produktkorrektur oder
-anderen Fortsetzung muss ein neues Ergebnisgate die zwei kritischen
-False-Same-Befunde, eine konservative Regeländerung, weitere Evidenz,
-alternative Fortsetzungen und Pausieren getrennt bewerten. In EXP-0009 wird
-keine Korrektur vorgenommen. Automatische Suche, mehrere Dateien, IDs oder
-Bibliotheken, neue Calibre-Felder, externe Metadaten, Persistenz, Routing,
-Browser, REST, Agents und Writes bleiben nicht autorisiert.
+WI-0011 und EXP-0009 sind abgeschlossen; GATE-0009 ist offen. Vor jeder neuen
+Registrierung oder Codeänderung ist ausdrücklich zwischen
+standardsgebundener Metadaten-/Oracle-Evidenz, einer konservativen
+Produktwave, einem unabhängigen Bestandsqualitätsast und Pausieren zu wählen.
+Die Evidenzreparatur ist vorläufig empfohlen, aber nicht angenommen.
+Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
+Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
+und Writes bleiben nicht autorisiert.
 
 ## Offene Punkte
 

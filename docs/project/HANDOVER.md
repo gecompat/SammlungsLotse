@@ -183,6 +183,15 @@ wurde nicht verändert. Vor einer Korrektur oder anderen Folge ist ein neues
 Ergebnisgate erforderlich. Kandidatensuche, Architektur, Provider,
 Persistenz, UI, API, Agents und Writers bleiben unentschieden.
 
+GATE-0009 ist als offenes Ergebnisgate registriert. Die aktuelle
+Primärquellenprüfung zeigt, dass `belongs-to-collection` Collection-
+Mitgliedschaft und keine Werk-ID beschreibt und dass der Produktparser den
+primären EPUB-Identifier nicht von zusätzlichen Identifiern trennt. Auch die
+EXP-0009-Matrix bindet diese Rollen noch nicht standardkonform. Deshalb ist
+eine standardsgebundene Evidence-Repair-Wave vorläufig empfohlen, aber nicht
+ausgewählt. Produktcode, ein neues EXP und eine Folge-ID bleiben bis zur
+Nutzerentscheidung gesperrt.
+
 ## Harte Grenzen
 
 - Fachsysteme bleiben führend.

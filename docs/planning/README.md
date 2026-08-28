@@ -34,6 +34,7 @@ Experimente und spätere Entscheidungen:
 - [WI-0011: explizites EPUB gegen einen Calibre-Datensatz](EBOOK_CALIBRE_IDENTITY_COMPARISON_WORK_ITEM.md);
 - [GATE-0008: Fortsetzung nach WI-0011 ergebnisoffen bewerten](EBOOK_GATE_0008_AFTER_WI0011.md);
 - [EXP-0009: Identitäts- und Enthaltungsevidenz verbreitern](EBOOK_IDENTITY_EVIDENCE_HARDENING_EXPERIMENT.md);
+- [GATE-0009: Fortsetzung nach EXP-0009 und Metadatensemantik bewerten](EBOOK_GATE_0009_AFTER_EXP0009.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -195,6 +196,14 @@ Werkreferenzen je einen kritischen False-Same-Befund auf Ausgaben- und
 Werkebene. Der Befund bleibt offen; eine Produktkorrektur benötigt ein neues
 Ergebnisgate. Kandidatensuche, Architektur-, Provider-, Persistenz-, UI- und
 Writerentscheidungen bleiben offen.
+
+GATE-0009 ist als offenes Ergebnisgate registriert. Es trennt die zwei
+EXP-0009-Oracle-Abweichungen von einer neu erkannten Semantiklücke: Das
+aktuelle interne Feld `work_references` enthält tatsächlich EPUB-
+`belongs-to-collection`-Werte, während primäre und zusätzliche Identifier
+nicht unterschieden werden. Standardsgebundene Evidenz ist deshalb
+vorläufig empfohlen, aber nicht ausgewählt. Eine Produktkorrektur,
+Kandidatensuche oder andere Folge-Wave ist nicht angenommen.
 
 ## Nicht übernehmen
 

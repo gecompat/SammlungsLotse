@@ -710,6 +710,60 @@
       "status": "done",
       "title": "Fortsetzung nach WI-0011 ergebnisoffen bewerten"
     },
+    "GATE-0009": {
+      "acceptance_criteria": "Der methodisch bestandene, produktseitig nicht qualifizierte EXP-0009-Befund wird von seiner noch unvollständigen EPUB-Metadatensemantik getrennt; standardgebundene Evidenzreparatur, konservative Produktänderungen, unabhängige Fortsetzungen und Pausieren werden nach Fehlerwirkung, Erkenntniswert, Reversibilität und Kopplung verglichen, ohne eine Folge-Wave oder Produktkorrektur anzunehmen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0488a-3e5a-75c4-8ec3-9d73f87c516b",
+      "created_on": "2026-08-28",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0009_AFTER_EXP0009.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0008",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0009",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0009",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "in_progress",
+      "title": "Fortsetzung nach EXP-0009 und Metadatensemantik bewerten"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],
