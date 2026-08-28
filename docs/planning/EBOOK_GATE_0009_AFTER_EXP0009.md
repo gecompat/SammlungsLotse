@@ -1,6 +1,6 @@
 # GATE-0009: Fortsetzung nach EXP-0009 und Metadatensemantik bewerten
 
-Status: OFFEN — KEINE FOLGEWAVE AUSGEWÄHLT
+Status: DONE — OPTION A AUSGEWÄHLT
 
 Stand: 2026-08-28
 
@@ -20,6 +20,14 @@ werden dürfen:
 
 GATE-0009 implementiert keine Regeländerung. Eine Empfehlung ist keine
 Annahme eines Experiments, Arbeitsgegenstands oder Technologiepfads.
+
+## Auswahlentscheidung
+
+Der Nutzer hat am 2026-08-28 ausdrücklich Option A gewählt. Damit ist genau
+EXP-0010 als standardsgebundene, produktcodefreie Metadaten- und
+Oracle-Evidenzwave angenommen. Die Optionen B, F und K sowie die weiteren
+Produktvorschläge bleiben nicht ausgewählt. Die Wahl autorisiert keine
+Produktkorrektur.
 
 ## Verifizierter EXP-0009-Befund
 
@@ -244,14 +252,8 @@ festschreiben.
 
 ## Entscheidungsstopp
 
-GATE-0009 bleibt offen. Vor der nächsten dauerhaften EXP-, WI- oder
-Produktänderung ist ausdrücklich zu wählen zwischen:
-
-- A — standardsgebundene Metadaten- und Oracle-Evidenz;
-- B — konservative Produktwave;
-- F — unabhängige Bestandsqualitätsbefunde;
-- K — pausieren;
-- oder einer bewusst anders priorisierten Option aus diesem Vergleich.
-
-Bis dahin wird keine Folge-ID reserviert und weder Produkt- noch
-Experimentcode begonnen.
+Die bisherige Stopgrenze ist durch die ausdrückliche Auswahl ausschließlich
+für EXP-0010 aufgehoben. Nach dessen Ergebnisintegration ist vor jeder
+Produktkorrektur, weiteren EXP-/WI-Registrierung oder anderen Fortsetzung ein
+neues Ergebnisgate erforderlich. Bis dahin bleiben Produktcode und alle
+anderen Optionen gesperrt.

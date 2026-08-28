@@ -183,14 +183,15 @@ wurde nicht verändert. Vor einer Korrektur oder anderen Folge ist ein neues
 Ergebnisgate erforderlich. Kandidatensuche, Architektur, Provider,
 Persistenz, UI, API, Agents und Writers bleiben unentschieden.
 
-GATE-0009 ist als offenes Ergebnisgate registriert. Die aktuelle
+GATE-0009 ist mit der ausdrücklichen Auswahl von Option A abgeschlossen. Die
+aktuelle
 Primärquellenprüfung zeigt, dass `belongs-to-collection` Collection-
 Mitgliedschaft und keine Werk-ID beschreibt und dass der Produktparser den
 primären EPUB-Identifier nicht von zusätzlichen Identifiern trennt. Auch die
-EXP-0009-Matrix bindet diese Rollen noch nicht standardkonform. Deshalb ist
-eine standardsgebundene Evidence-Repair-Wave vorläufig empfohlen, aber nicht
-ausgewählt. Produktcode, ein neues EXP und eine Folge-ID bleiben bis zur
-Nutzerentscheidung gesperrt.
+EXP-0009-Matrix bindet diese Rollen noch nicht standardkonform. EXP-0010 ist
+deshalb als genau eine produktcodefreie Evidence-Repair-Wave angenommen,
+aber noch nicht ausgeführt. Produktcode und jede andere Fortsetzung bleiben
+bis zu einem neuen Ergebnisgate gesperrt.
 
 ## Harte Grenzen
 
