@@ -30,6 +30,8 @@ Experimente und spätere Entscheidungen:
 - [WI-0010: WI-0005-Laufzeitpreimage vollständig binden](EBOOK_WI0005_EVIDENCE_BINDING_HARDENING.md);
 - [GATE-0006: nächste Evidenzfrage nach WI-0010](EBOOK_GATE_0006_AFTER_WI0010.md);
 - [EXP-0008: unterstützte Calibre-Einzelrecord-EPUB-Übergabe](EBOOK_CALIBRE_SINGLE_RECORD_HANDOFF_EXPERIMENT.md);
+- [GATE-0007: Produktfortsetzung nach EXP-0008](EBOOK_GATE_0007_AFTER_EXP0008.md);
+- [WI-0011: explizites EPUB gegen einen Calibre-Datensatz](EBOOK_CALIBRE_IDENTITY_COMPARISON_WORK_ITEM.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -171,6 +173,15 @@ abgeschlossen. Ein positives Ergebnis belegt nur die technische Naht; ein
 neues Ergebnisgate muss Produktvergleich, Alternativen und Pausieren erneut
 bewerten. Produktcode, Calibre-Vergleich, mehrere Bibliotheken, Persistenz und
 Writers sind dadurch nicht freigegeben.
+
+GATE-0007 hat diese Ergebnisbewertung mit fünf getrennten Fortsetzungen
+abgeschlossen. Es wählt WI-0011 als kleinste read-only Produktwave: genau ein
+explizites Eingangs-EPUB wird gegen genau einen expliziten Calibre-Datensatz
+über einen providerneutralen Snapshot-Handoff und den unveränderten
+fünfstufigen WI-0009-Bericht verglichen. Planung und Registrierung sind
+`accepted`; die Implementierung bleibt eine getrennte Wave. Automatische
+Suche, mehrere Bibliotheken, Persistenz und jede Bestandswirkung bleiben
+außerhalb.
 
 ## Nicht übernehmen
 
