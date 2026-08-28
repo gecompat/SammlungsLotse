@@ -228,9 +228,9 @@ kontrollierten Projekt-Artefaktpfad.
    in einer eigenen Wave umgesetzt.
 3. Das vollständige Produktpreimage wurde vor der tatsächlichen
    synthetischen CLI-/Podman-Qualifikation commitgebunden.
-4. Die lokale Qualifikation und vollständige Regression sind erfolgreich.
-   Erforderliche GitHub-Checks, Merge und Post-Merge-Prüfung bleiben die
-   letzten Integrationsschritte dieser Wave.
+4. Die lokale Qualifikation, vollständige Regression, beide erforderlichen
+   GitHub-Checks, der reguläre Merge über PR #40 und die Post-Merge-Prüfung
+   auf `origin/main` sind erfolgreich.
 
 Die Benutzeranweisung vom 2026-08-28 autorisiert die autonome Fortsetzung
 über diese Planung, die ausschließlich synthetische Implementierung und

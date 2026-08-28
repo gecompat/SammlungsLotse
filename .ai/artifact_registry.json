@@ -618,6 +618,44 @@
       "status": "done",
       "title": "Produktfortsetzung nach EXP-0008 auswählen"
     },
+    "GATE-0008": {
+      "acceptance_criteria": "Der verifizierte WI-0011-Post-Merge-Stand, qualitätssteigernde Tätigkeiten und eigenständige Fortsetzungsoptionen sind nach Nutzerwert, Evidenzreife, Fehlerwirkung, Reversibilität, Kopplung und Umsetzbarkeit verglichen; eine kleine Entscheidungsmenge samt Ausstiegsweg ist sichtbar, ohne eine Folge-Wave, Architektur, Providerwahl oder Schreibfähigkeit anzunehmen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a04825-2980-7b51-b47d-f7b86a4c6c32",
+      "created_on": "2026-08-28",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0008_AFTER_WI0011.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "in_progress",
+      "title": "Fortsetzung nach WI-0011 ergebnisoffen bewerten"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],

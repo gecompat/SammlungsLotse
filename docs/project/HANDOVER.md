@@ -173,6 +173,14 @@ Cleanup. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken,
 Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben
 außerhalb. Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
 
+GATE-0008 ist dafür als offenes Brainstorming-Gate registriert. Es bewertet
+qualitätssteigernde Tätigkeiten und elf eigenständige Fortsetzungen. Die
+kleinste noch unentschiedene Menge besteht aus Identitätsqualität härten,
+begrenzte Kandidatensuche untersuchen, Bestandsqualitätsbefunde definieren
+und Pausieren. Identitätsqualität ist wegen hoher Qualitätswirkung bei
+geringer neuer Kopplung vorläufig empfohlen, aber weder ausgewählt noch als
+EXP oder WI registriert.
+
 ## Harte Grenzen
 
 - Fachsysteme bleiben führend.

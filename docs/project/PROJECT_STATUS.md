@@ -32,6 +32,9 @@ WI-0011 als kleinste nächste read-only Produktwave ausgewählt. Planung und
 Registrierung des expliziten EPUB-gegen-Calibre-Datensatz-Vergleichs wurden
 getrennt integriert. Die Implementierung ist abgeschlossen und mit 23/23
 synthetischen Kriterien qualifiziert.
+GATE-0008 ist danach als ergebnisoffenes Brainstorming-Gate registriert. Es
+vergleicht Qualitäts-, Kandidatensuch-, Bestands-, Routing-, Such-,
+Oberflächen-, Writer- und Pausenoptionen, ohne eine Folge-Wave auszuwählen.
 
 ## Vorhanden
 
@@ -188,7 +191,11 @@ synthetischen Kriterien qualifiziert.
 - getrennte deutsche und deterministische JSON-CLI unter
   `tools/run_ebook_calibre_identity.py`, exakte Calibre-9.13.0-
   Profilbindung und eingecheckter 23/23-Produktnachweis mit tatsächlichen
-  synthetischen Podman-, Grenz-, Recovery- und Cleanupfällen.
+  synthetischen Podman-, Grenz-, Recovery- und Cleanupfällen;
+- offenes GATE-0008 mit katalogisierten qualitätssteigernden Tätigkeiten,
+  elf getrennten Fortsetzungsoptionen, sichtbaren Abbruchkanten und einer
+  kleinen noch unentschiedenen Auswahlmenge aus Identitätsqualität,
+  Kandidatensuche, Bestandsqualitätsbefunden und Pausieren.
 
 ## Nicht vorhanden
 
@@ -203,6 +210,17 @@ synthetischen Kriterien qualifiziert.
 - Release.
 
 ## Validierung
+
+GATE-0008-Brainstormingwave: PROJECT_SEMANTIC und bestehende
+RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows und
+Python 3.12.10. Repository- und v2-Registry-Prüfung waren für 36 Artefakte
+erfolgreich. TEST-0001 bestätigte 30 Fälle und 49 Komponenten; EXP-0002 bis
+EXP-0008 sowie die eingecheckten WI-0005-, WI-0008-, WI-0009- und WI-0011-
+Nachweise blieben gültig. Alle 159 Repository-Tests und `compileall` waren
+erfolgreich; `git diff --check` meldete keine Fehler. FOUNDATION_INTEGRITY
+meldete 0 Warnungen, 0 Fehler und 0 Blocker. Dies belegt den offenen
+Optionsraum, seine Registrierung und die unveränderte Bestandsregression,
+nicht die Auswahl oder Qualifikation einer Folge-Wave.
 
 WI-0011-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
 validiert am 2026-08-28 unter Windows, Python 3.12.10, Podman 6.1.0 und
@@ -222,7 +240,11 @@ Registry-Prüfung waren für 35 Artefakte erfolgreich; alle bestehenden
 EXP-0002-bis-EXP-0008- und WI-0005-, WI-0008-, WI-0009-Nachweise blieben
 gültig. Alle 159 Repository-Tests und `compileall` waren erfolgreich;
 `git diff --check` meldete keine Fehler. FOUNDATION_INTEGRITY meldete 0
-Warnungen, 0 Fehler und 0 Blocker.
+Warnungen, 0 Fehler und 0 Blocker. PR #40 wurde mit geprüftem Head
+`56efcd9fe322b12f3d39df9dffdbdbc67eaead3d` regulär gemergt. Der
+Merge-Commit `44093ace0b9716780bc9ea6d09166655edf67d3d` besitzt exakt die vorige
+Main-Basis und den PR-Head als Eltern; Merge- und Headbaum sind gleich. Der
+Post-Merge-Lauf `33154832441` auf exakt diesem `origin/main` war erfolgreich.
 
 GATE-0007-/WI-0011-Planungswave: PROJECT_SEMANTIC und bestehende
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows und
@@ -701,13 +723,14 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011 ist lokal `done` und muss mit exakt erforderlichen GitHub-Checks,
-Merge sowie Post-Merge-Verifikation nach `origin/main` integriert werden.
-Danach ist erneut ein getrenntes Ergebnisgate erforderlich; keine weitere
-Produktwave ist automatisch freigegeben. WI-0011 autorisiert weiterhin weder
-automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue Calibre-
-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents noch
-Writes.
+WI-0011 ist auf `origin/main` vollständig abgeschlossen. GATE-0008 ist offen;
+vor einer neuen Registrierung oder Implementierungswave ist ausdrücklich
+zwischen Identitätsqualität härten, begrenzte Kandidatensuche untersuchen,
+Bestandsqualitätsbefunde definieren, Pausieren oder einer bewusst anders
+priorisierten Option zu entscheiden. Die vorläufige Empfehlung für
+Identitätsqualität ist keine Auswahl. Automatische Suche, mehrere Dateien,
+IDs oder Bibliotheken, neue Calibre-Felder, externe Metadaten, Persistenz,
+Routing, Browser, REST, Agents und Writes bleiben nicht autorisiert.
 
 ## Offene Punkte
 
