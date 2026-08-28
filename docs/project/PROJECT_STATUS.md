@@ -37,11 +37,13 @@ Nutzer hat Option A gewählt. EXP-0009 ist als genau ein getrenntes
 synthetisches Evidenzexperiment ausgeführt. Der methodische Nachweis bestand
 12/12 Kriterien; zwei kritische False-Same-Befunde qualifizieren die
 Produktqualität auf dem verbreiterten Goldstandard jedoch nicht.
-GATE-0009 ist als getrenntes offenes Ergebnisgate registriert. Es hält fest,
+GATE-0009 ist nach ausdrücklicher Auswahl von Option A abgeschlossen. Es hält
+fest,
 dass EPUB-`belongs-to-collection` im aktuellen Produkt als
 `work_references` überdehnt wird, primäre und zusätzliche Identifier nicht
 getrennt sind und EXP-0009 deshalb noch keine konkrete Produktregel
-autorisiert.
+autorisiert. EXP-0010 ist als genau eine standardgebundene, produktcodefreie
+Metadaten- und Oracle-Evidenzwave angenommen, aber noch nicht ausgeführt.
 
 ## Vorhanden
 
@@ -208,9 +210,12 @@ autorisiert.
 - offener Qualitätsbefund aus `metadata-collision-work-conflict`: je ein
   kritischer False Same auf Ausgaben- und Werkebene trotz verschiedener
   Inhalte und widersprüchlicher expliziter Werkreferenzen.
-- offenes GATE-0009 mit getrenntem Vergleich von standardsgebundener
-  Evidenzreparatur, konservativer Produktwave, unabhängigem read-only
-  Qualitätsast und Pausieren; keine Folge ist ausgewählt.
+- abgeschlossenes GATE-0009 mit ausdrücklicher Auswahl der
+  standardsgebundenen Evidenzreparatur;
+- angenommener EXP-0010-Vertrag für genau zehn synthetische Paare, getrennte
+  primäre und zusätzliche Identifier, Collection-Rollen, vorab gebundene
+  Publikations-/Ausgaben-/Werkoracles und unabhängige EPUBCheck-Evidenz ohne
+  Produktcode oder Bestandswirkung.
 
 ## Nicht vorhanden
 
@@ -225,6 +230,17 @@ autorisiert.
 - Release.
 
 ## Validierung
+
+GATE-0009-Auswahl- und EXP-0010-Planungswave: PROJECT_SEMANTIC und bestehende
+RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows und
+Python 3.12.10. Repository- und v2-Registry-Prüfung waren für 39 Artefakte
+erfolgreich. TEST-0001 bestätigte 30 Fälle und 49 Komponenten; EXP-0002 bis
+EXP-0009 sowie die eingecheckten WI-0005-, WI-0008-, WI-0009- und WI-0011-
+Nachweise blieben gültig. Alle 165 Repository-Tests, `compileall` und
+`git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY meldete 0
+Warnungen, 0 Fehler und 0 Blocker. Dies belegt Auswahl, Registrierung und
+Begrenzung des EXP-0010-Vertrags, nicht die noch ausstehende Ausführung oder
+eine Produktkorrektur.
 
 GATE-0009-Ergebnisgate-Wave: PROJECT_SEMANTIC und bestehende
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows und
@@ -777,11 +793,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011 und EXP-0009 sind abgeschlossen; GATE-0009 ist offen. Vor jeder neuen
-Registrierung oder Codeänderung ist ausdrücklich zwischen
-standardsgebundener Metadaten-/Oracle-Evidenz, einer konservativen
-Produktwave, einem unabhängigen Bestandsqualitätsast und Pausieren zu wählen.
-Die Evidenzreparatur ist vorläufig empfohlen, aber nicht angenommen.
+WI-0011 und EXP-0009 sind abgeschlossen; GATE-0009 hat Option A ausgewählt.
+Als nächster getrennter Schritt ist ausschließlich EXP-0010 auf einem
+sauberen, eingecheckten Preimage auszuführen. Danach ist vor jeder
+Produktkorrektur oder weiteren Fortsetzung ein neues Ergebnisgate
+erforderlich.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.
