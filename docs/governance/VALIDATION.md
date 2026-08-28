@@ -141,6 +141,19 @@ und Temp-Cleanup, Originalunverändertheit, V3-Ablehnung sowie die
 zurückgelesene Podman-Isolation. Der vollständige lokale Lauf ist unter
 `experiments/ebook/exp-0007/` dokumentiert.
 
+Für den eingecheckten empirischen EXP-0008-Nachweis gilt:
+
+    python tools/experiments/run_exp_0008.py --validate-result
+
+Diese CI-geeignete Prüfung materialisiert keine Bibliothek und startet keinen
+Container. Sie bindet den Nachweis an das vollständige Experimentpreimage,
+das exakte Calibre-9.13.0-Profil und die synthetische
+TEST-0001-Qualifikationsbibliothek. Sie berechnet 16 Kriterien für genau eine
+explizite ID und EPUB, Bytegleichheit, unterstützte CLI-Nutzung,
+Copy-on-read, Containerisolation, Negativfälle, Ressourcenlimits,
+Wiederholbarkeit sowie vollständiges Cleanup neu. Der tatsächliche lokale
+Lauf ist unter `experiments/ebook/exp-0008/` dokumentiert.
+
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
     python -m unittest discover -s tests/product -p "test_*.py"

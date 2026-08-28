@@ -1,6 +1,6 @@
 # EXP-0008 — Unterstützte Calibre-Einzelrecord-EPUB-Übergabe
 
-Status: PREIMAGE VORBEREITET — EMPIRISCHER LAUF AUSSTEHEND
+Status: PASSED
 
 Stand: 2026-08-28
 
@@ -61,3 +61,33 @@ synthetischen EPUB-Datensatz über die unterstützte CLI sicher übergeben kann.
 Ein späterer Produktvergleich benötigt ein neues Ergebnisgate und einen
 eigenen angenommenen Arbeitsgegenstand. `not_qualified` und `inconclusive`
 führen fail-closed zu keiner Produktübernahme.
+
+## Ausführungsergebnis
+
+Der vollständige Lauf am 2026-08-28 unter Python 3.12.10 und Podman 6.1.0
+auf Linux/amd64 bestand 16/16 Kriterien. Zwei positive Wiederholungen
+exportierten Datensatz `1` jeweils als genau eine 1521 Byte große EPUB-Datei
+mit SHA-256
+`1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5`.
+Die normalisierten Wiederholungsergebnisse waren bytegleich; Quellbibliothek
+und alle Fixture-Hashes blieben unverändert.
+
+Fehlende ID und Datensatz ohne EPUB endeten als `selection_unavailable`.
+Mehrere und ungültige IDs wurden vor Task- und Containerstart abgelehnt.
+Unerwartete Ausgabe, Dateigrößenlimit, Timeout und simulierte Unterbrechung
+endeten jeweils fail-closed. Recovery entfernte einen eindeutig eigenen
+abgelaufenen Task vor einem erfolgreichen neuen Lauf. Nach dem Experiment
+waren null EXP-0008-Container und null temporäre Run-Verzeichnisse vorhanden.
+
+Ein erster vollständiger Lauf auf Preimage `f95309d` erreichte 15/16, weil
+die normalisierten positiven Ergebnisobjekte noch unterschiedliche
+Rohbeleg-Dateinamen enthielten. Laufzeit-, EPUB-, Isolations- und
+Cleanup-Evidenz waren identisch. Die reine Labelnormalisierung erhielt einen
+eigenen Regressionstest und den neuen Preimage-Commit
+`fb08732b71b6e214aa039a9f3d428a3b12c379ac`; danach wurde die gesamte Matrix
+neu ausgeführt. Der erste rote Ergebnisstand und beide Rohbelegsätze bleiben
+außerhalb von Git erhalten.
+
+Der pfadfreie eingecheckte Nachweis steht in [result.json](result.json). Er
+qualifiziert ausschließlich die technische synthetische Einzelrecord-
+Übergabe und keine Produktfunktion.

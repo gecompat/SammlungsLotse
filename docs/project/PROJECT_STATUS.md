@@ -25,7 +25,8 @@ unveränderte Produktprofil ist erneut 12/12 qualifiziert.
 GATE-0006 hat danach die nächste Erkenntnisfrage getrennt bewertet und
 EXP-0008 ausgewählt. Der angenommene Experimentvertrag prüft ausschließlich
 eine unterstützte, bytegleiche und task-private EPUB-Übergabe für genau einen
-synthetischen Calibre-Datensatz; die Ausführung ist noch getrennt.
+synthetischen Calibre-Datensatz. Die getrennte Ausführung ist mit 16/16
+Kriterien abgeschlossen.
 
 ## Vorhanden
 
@@ -168,8 +169,10 @@ synthetischen Calibre-Datensatz; die Ausführung ist noch getrennt.
 - abgeschlossenes GATE-0006 mit getrenntem Vergleich von
   Einzelrecord-Übergabe, Bestandsqualitätsübersicht, Mehrbibliothekszugriff,
   neuen Provider-/Architekturflächen und Pausieren;
-- angenommener EXP-0008-Vertrag für eine rein synthetische, unterstützte
-  Calibre-Einzelrecord-EPUB-Übergabe ohne Produkt- oder Bestandswirkung.
+- abgeschlossener EXP-0008-Vertrag mit exakt gebundenem Calibre-9.13.0-
+  Profil, zwei bytegleichen positiven Einzelrecord-Wiederholungen,
+  getrennten Fail-closed-Negativfällen und vollständigem Cleanup ohne
+  Produkt- oder Bestandswirkung.
 
 ## Nicht vorhanden
 
@@ -184,6 +187,25 @@ synthetischen Calibre-Datensatz; die Ausführung ist noch getrennt.
 - Release.
 
 ## Validierung
+
+EXP-0008-Ausführungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
+validiert am 2026-08-28 unter Windows, Python 3.12.10, Podman 6.1.0 und
+Calibre 9.13.0 auf Linux/amd64. Das gebundene Preimage `fb08732b` erzeugte
+zwei bytegleiche positive Einzelrecord-EPUB-Übergaben und bestand nach
+vollständiger Neuausführung 16/16 Kriterien. Fehlende oder formatlose
+Datensätze, mehrere und ungültige IDs, unerwartete Ausgabe, Outputlimit,
+Timeout und simulierte Unterbrechung endeten fail-closed; Recovery, Quell-
+und Fixture-Unverändertheit sowie vollständiges Task- und Container-Cleanup
+waren erfolgreich. Ein erster 15/16-Lauf wurde wegen ausschließlich
+labelabhängiger Rohbeleg-Schlüssel verworfen; die Normalisierung erhielt vor
+dem vollständigen Wiederholungslauf einen eigenen Regressionstest.
+Repository- und v2-Registry-Prüfung waren für 33 Artefakte erfolgreich.
+TEST-0001 bestätigte 30 Fälle und 49 Komponenten; EXP-0002 bis EXP-0008 sowie
+die eingecheckten WI-0005-, WI-0008- und WI-0009-Nachweise waren gültig. Alle
+145 Repository-Tests und `compileall` waren erfolgreich; `git diff --check`
+meldete keine Fehler. FOUNDATION_INTEGRITY meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Dies qualifiziert nur die synthetische technische Übergabenaht,
+nicht einen Calibre-Vergleich oder eine Produktfunktion.
 
 GATE-0006-/EXP-0008-Planungswave: PROJECT_SEMANTIC und bestehende
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows,
@@ -632,13 +654,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-GATE-0006 ist `done` und EXP-0008 `accepted`. Nach Merge dieser reinen
-Planungs-Wave wird genau das synthetische Experiment getrennt ausgeführt.
-Erst ein weiteres Ergebnisgate darf danach entscheiden, ob ein
-Einzelrecord-Vergleich als Produktwave überhaupt verfolgt wird. WI-0010,
-GATE-0006 und EXP-0008 autorisieren weder Produktcode noch Verzeichnissuche,
-Calibre-Vergleich, mehrere Bibliotheken, automatische Erkennung, externe
-Metadaten, Persistenz, Routing, Browser, REST, Agents oder Writes.
+GATE-0006 und EXP-0008 sind `done`. Ein neues getrenntes Ergebnisgate muss
+jetzt bewerten, ob der technisch qualifizierte Einzelrecord-Handoff als
+kleine Produktwave verfolgt, für eine andere Qualitätsfrage genutzt oder
+vorerst pausiert wird. WI-0010, GATE-0006 und EXP-0008 autorisieren weder
+Produktcode noch Verzeichnissuche, Calibre-Vergleich, mehrere Bibliotheken,
+automatische Erkennung, externe Metadaten, Persistenz, Routing, Browser, REST,
+Agents oder Writes.
 
 ## Offene Punkte
 

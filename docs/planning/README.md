@@ -166,9 +166,11 @@ GATE-0006 hat anschließend fünf getrennte Fortsetzungen verglichen. Es wählt
 EXP-0008 als genau eine neue synthetische Evidenzwave: Die unterstützte
 Calibre-CLI soll für eine explizite externe ID ausschließlich ein
 bytegleiches EPUB aus einer task-privaten Copy-on-read-Arbeitskopie
-bereitstellen. Der Experimentvertrag ist `accepted`; seine Ausführung bleibt
-eine getrennte Wave. Produktcode, Calibre-Vergleich, mehrere Bibliotheken,
-Persistenz und Writers sind dadurch nicht freigegeben.
+bereitstellen. Die getrennte Ausführung ist mit 16/16 Kriterien
+abgeschlossen. Ein positives Ergebnis belegt nur die technische Naht; ein
+neues Ergebnisgate muss Produktvergleich, Alternativen und Pausieren erneut
+bewerten. Produktcode, Calibre-Vergleich, mehrere Bibliotheken, Persistenz und
+Writers sind dadurch nicht freigegeben.
 
 ## Nicht übernehmen
 
