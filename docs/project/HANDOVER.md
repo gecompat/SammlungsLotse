@@ -109,6 +109,13 @@ qualifiziert; aktive synthetische Grenzproben für Netzwerk, PID, RAM, CPU,
 Unterbrechung, Recovery und Eingangslimit wurden getrennt dokumentiert.
 Parallelbetrieb bleibt ausdrücklich nicht qualifiziert.
 
+GATE-0006 ist `done`. Es hat fünf Anschlussoptionen getrennt bewertet und
+EXP-0008 als kleinste nächste Erkenntniswave ausgewählt. Der angenommene
+Experimentvertrag prüft genau eine explizite Calibre-ID, ausschließlich EPUB,
+Bytegleichheit, task-private Copy-on-read-Grenzen, Negativfälle und Cleanup
+mit synthetischem TEST-0001-Material. Die Experimentausführung beginnt erst
+nach Merge der Planungs-Wave; eine Produktwave ist damit nicht freigegeben.
+
 ## Fortsetzung
 
 WI-0004 ist `done`. Der Produktcode liegt unter
@@ -143,6 +150,11 @@ reproduzierbare Nachweis unter `runtime/ebook-identity/`. Ein Vergleich gegen
 Calibre, Verzeichnissuche, mehr als zwei Eingänge, Persistenz, Routing und
 Writes bleiben außerhalb. Eine weitere Produktwave ist nicht automatisch
 freigegeben.
+
+Als nächste getrennte Wave ist ausschließlich EXP-0008 angenommen. Es darf
+die unterstützte Calibre-Einzelrecord-Übergabe synthetisch qualifizieren, aber
+keinen Produktadapter oder Identitätsvergleich implementieren. Nach dem
+Ergebnis ist eine neue Gate-Bewertung erforderlich.
 
 ## Harte Grenzen
 

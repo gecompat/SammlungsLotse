@@ -22,6 +22,10 @@ synthetischen Kriterien qualifiziert.
 WI-0010 hat anschließend ausschließlich den WI-0005-Laufzeitnachweis
 gehärtet: Alle Intake-Module und der Runner sind vollständig gebunden, das
 unveränderte Produktprofil ist erneut 12/12 qualifiziert.
+GATE-0006 hat danach die nächste Erkenntnisfrage getrennt bewertet und
+EXP-0008 ausgewählt. Der angenommene Experimentvertrag prüft ausschließlich
+eine unterstützte, bytegleiche und task-private EPUB-Übergabe für genau einen
+synthetischen Calibre-Datensatz; die Ausführung ist noch getrennt.
 
 ## Vorhanden
 
@@ -161,6 +165,11 @@ unveränderte Produktprofil ist erneut 12/12 qualifiziert.
   Intake-Pythonmodule und des Runners, Regressionstest gegen künftige
   Auslassungen, 22 gebundenen Preimage-Dateien und erneutem 12/12-
   Produktnachweis für das unveränderte WI-0005-Profil.
+- abgeschlossenes GATE-0006 mit getrenntem Vergleich von
+  Einzelrecord-Übergabe, Bestandsqualitätsübersicht, Mehrbibliothekszugriff,
+  neuen Provider-/Architekturflächen und Pausieren;
+- angenommener EXP-0008-Vertrag für eine rein synthetische, unterstützte
+  Calibre-Einzelrecord-EPUB-Übergabe ohne Produkt- oder Bestandswirkung.
 
 ## Nicht vorhanden
 
@@ -175,6 +184,19 @@ unveränderte Produktprofil ist erneut 12/12 qualifiziert.
 - Release.
 
 ## Validierung
+
+GATE-0006-/EXP-0008-Planungswave: PROJECT_SEMANTIC und bestehende
+RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows,
+Python 3.12.10 und Podman 6.1.0. Repository- und v2-Registry-Prüfung waren für
+33 registrierte Artefakte erfolgreich. TEST-0001 bestätigte 30 Fälle und 49
+Komponenten; EXP-0002 bis EXP-0007 sowie die eingecheckten WI-0005-, WI-0008-
+und WI-0009-Nachweise blieben gültig. Alle 136 Repository-Tests und
+`compileall` waren erfolgreich; `git diff --check` meldete keine Fehler.
+FOUNDATION_INTEGRITY meldete 0 Warnungen, 0 Fehler und 0 Blocker. Eine
+nicht eingecheckte Auswahlprobe mit der exakten Calibre-Image-ID exportierte
+Datensatz `1` über die unterstützte CLI als bytegleiches EPUB und hinterließ
+keine Container oder aktiven Probeverzeichnisse. Sie begründet nur die
+Auswahl; die EXP-0008-Ausführung und Qualifikation sind noch nicht erfolgt.
 
 WI-0010-Härtungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal validiert
 am 2026-08-28 unter Windows, Python 3.12.10 und Podman 6.1.0 mit Linux/amd64.
@@ -610,12 +632,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0010 ist `done`. Eine weitere Produktwave benötigt eine neue getrennte
-Bewertung und einen registrierten angenommenen Arbeitsgegenstand. WI-0010
-war ausschließlich eine Nachweishärtung und autorisiert ebenso wie WI-0009
-weder Verzeichnissuche, Calibre-Vergleich, mehrere Bibliotheken,
-automatische Erkennung, externe Metadaten, Persistenz, Routing, Browser, REST,
-Agents noch Writes.
+GATE-0006 ist `done` und EXP-0008 `accepted`. Nach Merge dieser reinen
+Planungs-Wave wird genau das synthetische Experiment getrennt ausgeführt.
+Erst ein weiteres Ergebnisgate darf danach entscheiden, ob ein
+Einzelrecord-Vergleich als Produktwave überhaupt verfolgt wird. WI-0010,
+GATE-0006 und EXP-0008 autorisieren weder Produktcode noch Verzeichnissuche,
+Calibre-Vergleich, mehrere Bibliotheken, automatische Erkennung, externe
+Metadaten, Persistenz, Routing, Browser, REST, Agents oder Writes.
 
 ## Offene Punkte
 
