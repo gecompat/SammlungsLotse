@@ -173,13 +173,13 @@ Cleanup. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken,
 Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben
 außerhalb. Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
 
-GATE-0008 ist dafür als offenes Brainstorming-Gate registriert. Es bewertet
-qualitätssteigernde Tätigkeiten und elf eigenständige Fortsetzungen. Die
-kleinste noch unentschiedene Menge besteht aus Identitätsqualität härten,
-begrenzte Kandidatensuche untersuchen, Bestandsqualitätsbefunde definieren
-und Pausieren. Identitätsqualität ist wegen hoher Qualitätswirkung bei
-geringer neuer Kopplung vorläufig empfohlen, aber weder ausgewählt noch als
-EXP oder WI registriert.
+GATE-0008 ist ausgewertet. Der Nutzer hat am 2026-08-28 ausdrücklich Option A
+gewählt. EXP-0009 ist als genau ein getrenntes synthetisches
+Evidenzexperiment angenommen und registriert. Es bindet 18 adversarielle
+Paare, misst den unveränderten WI-0009-Identitätsdienst zweimal und trennt
+Messvertragsstatus von beobachteter Produktqualität. Die Ausführung steht
+noch aus. Kandidatensuche, Produktcode, Architektur, Provider, Persistenz,
+UI, API, Agents und Writers bleiben unentschieden.
 
 ## Harte Grenzen
 
