@@ -93,6 +93,15 @@ Materialisierung samt Oracles wurde ergänzt. Sie reproduzierte die echte
 und bestand danach 29/29 Kriterien. Produktoberfläche, Feldprojektion,
 Einzelbibliotheks- und Read-only-Grenzen bleiben unverändert.
 
+GATE-0005 ist `done`. Es hat einen expliziten Zwei-EPUB-Paarvergleich, einen
+Vergleich gegen Calibre sowie neue Provider- oder Mehrbibliotheksflächen
+getrennt bewertet und WI-0009 ausgewählt. WI-0009 ist `accepted`, aber noch
+nicht implementiert. Die nächste getrennte Wave darf ausschließlich genau
+zwei ausdrückliche unveränderliche EPUB-Snapshots über einen pfadfreien,
+erklärbaren Identitätskandidatenbericht vergleichen. Kandidaten, negative
+Evidenz, fehlende Evidenz und Enthaltung bleiben getrennt; es gibt keine
+Bestandsaktion.
+
 ## Fortsetzung
 
 WI-0004 ist `done`. Der Produktcode liegt unter
@@ -118,6 +127,11 @@ Calibre-9.13.0-Profil sowie deutsche und stabile JSON-CLI liegen unter
 Härtungswave abgeschlossen. Eine weitere Produktwave ist nicht automatisch
 freigegeben. Insbesondere sind mehrere Bibliotheken, automatische Erkennung,
 Content Server, Persistenz und Writer weiterhin außerhalb.
+
+WI-0009 ist als nächster eng begrenzter read-only Arbeitsgegenstand
+angenommen. Produktcode darf erst nach Merge seines Plans beginnen. Ein
+Vergleich gegen Calibre, Verzeichnissuche, mehr als zwei Eingänge,
+Persistenz, Routing und Writes bleiben außerhalb.
 
 ## Harte Grenzen
 

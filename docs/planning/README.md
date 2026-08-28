@@ -25,6 +25,8 @@ Experimente und spätere Entscheidungen:
 - [WI-0007: read-only Calibre-Bestandsprojektion](CALIBRE_READ_ONLY_PROJECTION_WORK_ITEM.md);
 - [GATE-0004: nächste Wave nach der Calibre-Projektion](EBOOK_GATE_0004_AFTER_CALIBRE_PROJECTION.md);
 - [WI-0008: synthetischen Calibre-Vertrag härten](CALIBRE_SYNTHETIC_CONTRACT_HARDENING.md);
+- [GATE-0005: nächsten read-only Nutzwert auswählen](EBOOK_GATE_0005_AFTER_CALIBRE_HARDENING.md);
+- [WI-0009: Identitätskandidatenbericht für zwei EPUB-Dateien](EBOOK_IDENTITY_CANDIDATE_REPORT_WORK_ITEM.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -141,6 +143,14 @@ eine reale Mehrfachautoren-Normalisierung auf, die eng korrigiert und durch
 den neuen v2-Produktnachweis mit 29/29 Kriterien qualifiziert wurde. Die Wave
 ändert weder Produktoberfläche und Felder noch Einzelbibliotheks-,
 Read-only-, Datenschutz- oder Writer-Grenzen.
+
+GATE-0005 hat danach den expliziten Zwei-EPUB-Paarvergleich, einen Vergleich
+gegen Calibre und neue Provider-/Mehrbibliotheksflächen getrennt bewertet.
+Es wählt WI-0009 als kleinsten nächsten Nutzwert. WI-0009 ist angenommen,
+aber noch nicht implementiert: Genau zwei explizite unveränderliche EPUB-
+Snapshots sollen einen pfadfreien, erklärbaren Identitätskandidatenbericht
+liefern. Kandidaten, negative Evidenz und Enthaltung bleiben getrennt; es
+gibt keine Bestandsaktion.
 
 ## Nicht übernehmen
 

@@ -16,6 +16,9 @@ exakten lokalen Podman-Profil ausschließlich synthetisch qualifiziert.
 GATE-0004 hat die nächste Fortsetzung neu bewertet. WI-0008 ist als reine
 Härtungs- und Evidenzwave implementiert und mit 29/29 synthetischen Kriterien
 qualifiziert.
+GATE-0005 hat den nächsten read-only Nutzwert neu bewertet und WI-0009 als
+engen Zwei-EPUB-Identitätskandidatenbericht angenommen; die Implementierung
+steht aus.
 
 ## Vorhanden
 
@@ -138,6 +141,12 @@ qualifiziert.
 - eng korrigierte und automatisiert gebundene Mehrfachautoren-Projektion für
   die tatsächliche `calibredb --for-machine`-Trennform ` & `, ohne Änderung
   der fünf Produktfelder oder der Einzelbibliotheksgrenze.
+- abgeschlossenes GATE-0005 mit getrenntem Vergleich von explizitem
+  Zwei-EPUB-Identitätsbericht, Calibre-Bestandsvergleich und neuen Provider-
+  oder Mehrbibliotheksflächen;
+- angenommener WI-0009-Vertrag für genau zwei ausdrückliche, unveränderliche
+  EPUB-Snapshots, fünf getrennte Identitätsebenen, sichtbare Enthaltung und
+  ausschließlich pfadfreie stdout-Ausgabe ohne Folgeaktion.
 
 ## Nicht vorhanden
 
@@ -152,6 +161,18 @@ qualifiziert.
 - Release.
 
 ## Validierung
+
+GATE-0005-/WI-0009-Planungswave: PROJECT_SEMANTIC und bestehende
+RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Python
+3.12.10. Repository- und v2-Registry-Prüfung waren für 30 registrierte
+Artefakte erfolgreich. TEST-0001 bestätigte 30 Fälle und 49 Komponenten;
+EXP-0002 bis EXP-0007 sowie die eingecheckten WI-0005- und WI-0008-
+Produktnachweise bestätigten unverändert ihre gebundenen Kriterien. Alle 123
+Repository-Tests und `compileall` waren erfolgreich; `git diff --check`
+meldete keine Fehler. FOUNDATION_INTEGRITY meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Dies belegt Plan-, Registry-, Dokument-, Fixture- und bestehende
+Regressionsintegrität, nicht die noch ausstehende WI-0009-Implementierung
+oder einen produktqualifizierten Identitätsvergleich.
 
 WI-0008-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
 validiert am 2026-08-28 unter Python 3.12.10, Podman 6.1.0 und Calibre 9.13.0.
@@ -545,12 +566,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0008 ist `done`. Vor einer weiteren Produktwave ist neu zu entscheiden,
-welche offene Qualitäts- oder Nutzerfrage den höchsten Wert besitzt. Die
-abgeschlossene Wave autorisiert weder mehrere Bibliotheken, automatische
-Erkennung, Content Server, weitere Calibre-Felder, Dubletten, externe
-Metadaten, Routing, dauerhafte Persistenz, Browser, REST, Agents, native
-Windows-Ausführung noch Writes.
+WI-0009 ist `accepted`. Nach Merge dieser Planungs-Wave darf eine getrennte
+Implementierungs-Wave ausschließlich den read-only Paarvergleich für genau
+zwei explizite EPUB-Dateien umsetzen und synthetisch abnehmen. Sie autorisiert
+weder Verzeichnissuche, Calibre-Vergleich, mehrere Bibliotheken, automatische
+Erkennung, externe Metadaten, Persistenz, Routing, Browser, REST, Agents noch
+Writes.
 
 ## Offene Punkte
 
