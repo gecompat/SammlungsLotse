@@ -1,0 +1,402 @@
+{
+  "artifact": "EXP-0009",
+  "cases": [
+    {
+      "base": {
+        "body": "Exact synthetic body.",
+        "creators": ["Synthetic Exact Author"],
+        "identifiers": ["urn:synthetic:edition:exact"],
+        "languages": ["en"],
+        "titles": ["Exact Synthetic Edition"],
+        "work_references": ["urn:synthetic:work:exact"]
+      },
+      "case_key": "byte-identical-renamed",
+      "expected_assessment": "completed",
+      "left": {},
+      "oracle": {
+        "byte": ["candidate_same"],
+        "edition": ["candidate_same"],
+        "package": ["candidate_same"],
+        "representation": ["candidate_same"],
+        "work": ["candidate_same"]
+      },
+      "right": {}
+    },
+    {
+      "base": {
+        "body": "Repackaged synthetic body.",
+        "creators": ["Synthetic Package Author"],
+        "identifiers": ["urn:synthetic:edition:repackaged"],
+        "languages": ["en"],
+        "titles": ["Repackaged Synthetic Edition"],
+        "work_references": ["urn:synthetic:work:repackaged"]
+      },
+      "case_key": "zip-repackaged",
+      "expected_assessment": "completed",
+      "left": {"zip_style": "stored_normal"},
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["candidate_same"],
+        "package": ["candidate_same"],
+        "representation": ["candidate_same"],
+        "work": ["candidate_same"]
+      },
+      "right": {"zip_style": "deflated_reverse"}
+    },
+    {
+      "base": {
+        "body": "Stable representation with package whitespace drift.",
+        "creators": ["Synthetic OPF Author"],
+        "identifiers": ["urn:synthetic:edition:opf-space"],
+        "languages": ["en"],
+        "titles": ["OPF Whitespace Edition"],
+        "work_references": ["urn:synthetic:work:opf-space"]
+      },
+      "case_key": "opf-whitespace-only",
+      "expected_assessment": "completed",
+      "left": {"opf_style": "compact"},
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["candidate_same"],
+        "package": ["different"],
+        "representation": ["candidate_same"],
+        "work": ["candidate_same"]
+      },
+      "right": {"opf_style": "spaced"}
+    },
+    {
+      "base": {
+        "body": "Unicode normalization body.",
+        "identifiers": ["urn:synthetic:edition:unicode"],
+        "languages": ["fr"],
+        "work_references": ["urn:synthetic:work:unicode"]
+      },
+      "case_key": "unicode-composition",
+      "expected_assessment": "completed",
+      "left": {"creators": ["Renée Exemple"], "titles": ["Café synthétique"]},
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["candidate_same"],
+        "package": ["different"],
+        "representation": ["candidate_same"],
+        "work": ["candidate_same"]
+      },
+      "right": {"creators": ["Renée Exemple"], "titles": ["Café synthétique"]}
+    },
+    {
+      "base": {
+        "body": "Case and whitespace normalization body.",
+        "work_references": ["urn:synthetic:work:case"]
+      },
+      "case_key": "case-whitespace-normalization",
+      "expected_assessment": "completed",
+      "left": {
+        "creators": ["A.   AUTHOR"],
+        "identifiers": ["URN:SYNTHETIC:EDITION:CASE"],
+        "languages": ["DE"],
+        "titles": ["  Mixed   Case Atlas  "]
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["candidate_same"],
+        "package": ["different"],
+        "representation": ["candidate_same"],
+        "work": ["candidate_same"]
+      },
+      "right": {
+        "creators": ["a. author"],
+        "identifiers": ["urn:synthetic:edition:case"],
+        "languages": ["de"],
+        "titles": ["mixed case atlas"]
+      }
+    },
+    {
+      "base": {
+        "creators": ["Synthetic Edition Author"],
+        "identifiers": ["urn:synthetic:edition:shared"],
+        "languages": ["en"],
+        "titles": ["Bound Synthetic Edition"],
+        "work_references": ["urn:synthetic:work:bound"]
+      },
+      "case_key": "same-identifier-edition",
+      "expected_assessment": "completed",
+      "left": {"body": "Edition body, first representation."},
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["candidate_same"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_same"]
+      },
+      "right": {"body": "Edition body, alternate representation."}
+    },
+    {
+      "base": {
+        "identifiers": ["urn:synthetic:identifier:reused"],
+        "languages": ["en"]
+      },
+      "case_key": "reused-identifier-title-conflict",
+      "expected_assessment": "completed",
+      "left": {
+        "body": "Unrelated alpha body.",
+        "creators": ["Alpha Author"],
+        "titles": ["Alpha Work"],
+        "work_references": ["urn:synthetic:work:alpha"]
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["different", "abstain"]
+      },
+      "right": {
+        "body": "Unrelated beta body.",
+        "creators": ["Beta Author"],
+        "titles": ["Beta Work"],
+        "work_references": ["urn:synthetic:work:beta"]
+      }
+    },
+    {
+      "base": {
+        "creators": ["Synthetic Field Author"],
+        "languages": ["de"],
+        "work_references": ["urn:synthetic:work:field-guide"]
+      },
+      "case_key": "sample-versus-full",
+      "expected_assessment": "completed",
+      "left": {
+        "body": "Kurzer synthetischer Auszug.",
+        "identifiers": ["urn:synthetic:edition:sample"],
+        "titles": ["Feldführer Leseprobe"]
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "right": {
+        "body": "Vollständiger synthetischer Haupttext.",
+        "identifiers": ["urn:synthetic:edition:full"],
+        "titles": ["Feldführer"]
+      }
+    },
+    {
+      "base": {
+        "creators": ["Synthetic River Author"],
+        "work_references": ["urn:synthetic:work:river"]
+      },
+      "case_key": "translation-shared-work",
+      "expected_assessment": "completed",
+      "left": {
+        "body": "An English synthetic river text.",
+        "identifiers": ["urn:synthetic:edition:river-en"],
+        "languages": ["en"],
+        "titles": ["River"]
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "right": {
+        "body": "Ein deutscher synthetischer Flusstext.",
+        "identifiers": ["urn:synthetic:edition:river-de"],
+        "languages": ["de"],
+        "titles": ["Fluss"]
+      }
+    },
+    {
+      "base": {
+        "creators": ["Synthetic Revision Author"],
+        "languages": ["en"],
+        "titles": ["Revision Study"],
+        "work_references": ["urn:synthetic:work:revision"]
+      },
+      "case_key": "revised-edition-shared-work",
+      "expected_assessment": "completed",
+      "left": {"body": "First synthetic edition.", "identifiers": ["urn:synthetic:edition:revision-1"]},
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "right": {"body": "Revised synthetic edition.", "identifiers": ["urn:synthetic:edition:revision-2"]}
+    },
+    {
+      "base": {
+        "languages": ["en"],
+        "work_references": ["urn:synthetic:collection:shared"]
+      },
+      "case_key": "collection-versus-constituent",
+      "expected_assessment": "completed",
+      "left": {
+        "body": "A synthetic collection body.",
+        "creators": ["Synthetic Collection Editor"],
+        "identifiers": ["urn:synthetic:edition:collection"],
+        "titles": ["Collected Synthetic Tales"]
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "right": {
+        "body": "One synthetic constituent body.",
+        "creators": ["Synthetic Tale Author"],
+        "identifiers": ["urn:synthetic:edition:constituent"],
+        "titles": ["A Single Synthetic Tale"]
+      }
+    },
+    {
+      "base": {
+        "languages": ["en"],
+        "titles": ["Shared Synthetic Title"]
+      },
+      "case_key": "title-collision-different-creators",
+      "expected_assessment": "completed",
+      "left": {
+        "body": "First unrelated collision body.",
+        "creators": ["First Collision Author"],
+        "identifiers": ["urn:synthetic:edition:collision-a"],
+        "work_references": ["urn:synthetic:work:collision-a"]
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["different"]
+      },
+      "right": {
+        "body": "Second unrelated collision body.",
+        "creators": ["Second Collision Author"],
+        "identifiers": ["urn:synthetic:edition:collision-b"],
+        "work_references": ["urn:synthetic:work:collision-b"]
+      }
+    },
+    {
+      "base": {
+        "creators": ["Synthetic Collision Author"],
+        "identifiers": ["urn:synthetic:identifier:ambiguous"],
+        "languages": ["en"],
+        "titles": ["Ambiguous Synthetic Metadata"]
+      },
+      "case_key": "metadata-collision-work-conflict",
+      "expected_assessment": "completed",
+      "left": {"body": "First explicitly unrelated work.", "work_references": ["urn:synthetic:work:conflict-a"]},
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["different", "abstain"]
+      },
+      "right": {"body": "Second explicitly unrelated work.", "work_references": ["urn:synthetic:work:conflict-b"]}
+    },
+    {
+      "base": {
+        "creators": [],
+        "identifiers": [],
+        "languages": [],
+        "titles": [],
+        "work_references": []
+      },
+      "case_key": "missing-all-bibliographic-metadata",
+      "expected_assessment": "completed",
+      "left": {"body": "First anonymous synthetic body."},
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["abstain"]
+      },
+      "right": {"body": "Second anonymous synthetic body."}
+    },
+    {
+      "base": {
+        "body": "Identical representation with partial metadata.",
+        "languages": ["en"],
+        "titles": ["Partial Synthetic Metadata"],
+        "work_references": ["urn:synthetic:work:partial"]
+      },
+      "case_key": "missing-identifier-and-creator-one-side",
+      "expected_assessment": "completed",
+      "left": {
+        "creators": ["Synthetic Partial Author"],
+        "identifiers": ["urn:synthetic:edition:partial"]
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["candidate_same"],
+        "package": ["different"],
+        "representation": ["candidate_same"],
+        "work": ["candidate_same"]
+      },
+      "right": {"creators": [], "identifiers": []}
+    },
+    {
+      "base": {"fault": "corrupt_zip"},
+      "case_key": "corrupt-zip-not-assessed",
+      "expected_assessment": "not_assessed",
+      "left": {},
+      "oracle": {
+        "byte": ["not_applicable"],
+        "edition": ["not_applicable"],
+        "package": ["not_applicable"],
+        "representation": ["not_applicable"],
+        "work": ["not_applicable"]
+      },
+      "right": {"fault": "none"}
+    },
+    {
+      "base": {},
+      "case_key": "unsafe-package-path-not-assessed",
+      "expected_assessment": "not_assessed",
+      "left": {"fault": "unsafe_path"},
+      "oracle": {
+        "byte": ["not_applicable"],
+        "edition": ["not_applicable"],
+        "package": ["not_applicable"],
+        "representation": ["not_applicable"],
+        "work": ["not_applicable"]
+      },
+      "right": {}
+    },
+    {
+      "base": {},
+      "case_key": "duplicate-logical-entry-not-assessed",
+      "expected_assessment": "not_assessed",
+      "left": {"fault": "duplicate_logical_entry"},
+      "oracle": {
+        "byte": ["not_applicable"],
+        "edition": ["not_applicable"],
+        "package": ["not_applicable"],
+        "representation": ["not_applicable"],
+        "work": ["not_applicable"]
+      },
+      "right": {}
+    }
+  ],
+  "defaults": {
+    "body": "Default synthetic body.",
+    "creators": ["Default Synthetic Author"],
+    "fault": "none",
+    "identifiers": ["urn:synthetic:edition:default"],
+    "languages": ["en"],
+    "opf_style": "compact",
+    "titles": ["Default Synthetic Title"],
+    "work_references": [],
+    "zip_style": "stored_normal"
+  },
+  "schema": "sammlungslotse/exp-0009-case-manifest/v1"
+}
