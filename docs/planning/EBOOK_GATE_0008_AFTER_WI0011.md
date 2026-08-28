@@ -1,6 +1,6 @@
 # GATE-0008: Fortsetzung nach WI-0011 ergebnisoffen bewerten
 
-Status: OFFEN — BRAINSTORMING, KEINE FOLGEWAVE AUSGEWÄHLT
+Status: AUSGEWERTET — OPTION A UND EXP-0009 AUSGEWÄHLT
 
 Stand: 2026-08-28
 
@@ -18,9 +18,11 @@ ordnet nach dem abgeschlossenen WI-0011:
 - welche Voraussetzungen, Abbruchkanten und getrennten Entscheidungen eine
   spätere Auswahl benötigt.
 
-Eine Empfehlung in diesem Dokument ist keine Annahme eines Experiments,
-Arbeitsgegenstands, Providers oder Technologiepfads. Dafür ist eine
-ausdrückliche Gate-Entscheidung mit eigener Registrierung erforderlich.
+Eine Empfehlung in diesem Dokument war keine Annahme eines Experiments,
+Arbeitsgegenstands, Providers oder Technologiepfads. Der Nutzer hat am
+2026-08-28 ausdrücklich Option A gewählt. Dadurch ist ausschließlich das
+getrennte Evidenzexperiment EXP-0009 angenommen; Produktcode, Provider- und
+Technologiepfade bleiben unentschieden.
 
 ## Verifizierte Ausgangslage
 
@@ -232,14 +234,14 @@ Dokumentation und Sicherheitsbefunde aktuell halten.
 - geeignete Form: valide Option, insbesondere wenn kein nächster Nutzwert
   priorisiert werden soll.
 
-## Vorläufige Einordnung ohne Auswahl
+## Einordnung vor der Auswahl
 
 Die kleinste kurzfristig sinnvolle Entscheidungsmenge besteht aus A, B, C
 und K:
 
 1. **A — Identitätsqualität härten** besitzt den höchsten direkten
-   Qualitätshebel bei der geringsten neuen Kopplung. Dies ist die vorläufige
-   Empfehlung für eine nächste Evidenzentscheidung, nicht ihre Annahme.
+   Qualitätshebel bei der geringsten neuen Kopplung. Diese Bewertung war die
+   Grundlage der späteren ausdrücklichen Auswahl.
 2. **B — Kandidatensuche experimentieren** schließt die größte sichtbare
    Lücke im aktuellen Nutzerablauf, benötigt aber vor Produktcode einen
    Suchaufgaben- und Recallvertrag.
@@ -268,16 +270,17 @@ Architekturentscheidungen. J bleibt hinter einem Writer-Gate.
   externe Dienste.
 - Keine Empfehlung in diesem Gate autorisiert Produktcode oder Writes.
 
-## Entscheidungsstopp
+## Gate-Ergebnis
 
-GATE-0008 bleibt offen. Vor dem nächsten dauerhaften EXP-, WI- oder
-Architekturartefakt ist ausdrücklich zu entscheiden zwischen:
+Der Nutzer hat am 2026-08-28 **A — Identitäts- und Evidenzqualität härten**
+ausgewählt. GATE-0008 ist damit ausgewertet. Als einzige direkte Folge ist
+[EXP-0009](EBOOK_IDENTITY_EVIDENCE_HARDENING_EXPERIMENT.md) angenommen und
+registriert. Das Experiment verbreitert den synthetischen Goldstandard,
+misst den unveränderten WI-0009-Produktdienst und darf auch Produktlücken als
+gültigen Erkenntnisbefund liefern.
 
-- A — Identitätsqualität härten;
-- B — begrenzte Kandidatensuche untersuchen;
-- C — Bestandsqualitätsbefunde definieren;
-- K — pausieren;
-- oder einer bewusst anders priorisierten Option aus diesem Katalog.
-
-Bis dahin wird keine Folge-ID reserviert, keine Produktwave angenommen und
-kein Implementierungs- oder Technologiepfad begonnen.
+B bis K bleiben katalogisierte Alternativen und sind weder verworfen noch
+angenommen. Die Auswahl autorisiert insbesondere keine Kandidatensuche,
+Produktänderung, Architektur, Provider-, Persistenz-, UI-, API-, Agent- oder
+Writerfläche. Nach EXP-0009 ist vor jeder solchen Fortsetzung erneut getrennt
+zu entscheiden.
