@@ -1,0 +1,67 @@
+{
+  "artifact": "EXP-0008",
+  "command": {
+    "fixed_flags": [
+      "--single-dir",
+      "--dont-update-metadata",
+      "--dont-write-opf",
+      "--dont-save-cover",
+      "--dont-save-extra-files",
+      "--formats",
+      "EPUB",
+      "--template",
+      "{id}"
+    ],
+    "program": "calibredb",
+    "subcommand": "export"
+  },
+  "fixture_ref": "TEST-0001",
+  "fixture_version": "0.3.0",
+  "limits": {
+    "control_output_file_bytes": 1024,
+    "control_timeout_seconds": 0.001,
+    "external_id_max": 999999999,
+    "max_export_files": 1,
+    "max_export_file_bytes": 4194304,
+    "stderr_bytes": 131072,
+    "stdout_bytes": 131072,
+    "timeout_seconds": 30
+  },
+  "qualification_library": {
+    "locator": "runtime/calibre-readonly/qualification-library.json",
+    "records": {
+      "missing": {
+        "external_record_id": "999"
+      },
+      "no_epub": {
+        "external_record_id": "2"
+      },
+      "positive": {
+        "expected_sha256": "1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5",
+        "expected_size_bytes": 1521,
+        "external_record_id": "1"
+      }
+    },
+    "sha256": "5c7c608e98b2f284a05fae6a2fb6bb29d1fb87593c0ec3cf9f41d2950c191a3d",
+    "synthetic_only": true
+  },
+  "repetitions": 2,
+  "runtime_profile": {
+    "image_id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5",
+    "locator": "runtime/calibre-readonly/profile.json",
+    "profile_id": "wi-0007-calibre-9.13.0-podman-linux-amd64/v1",
+    "sha256": "3489c543dbbcf73f07c090c5ba2599262af036366ec0efebbd3a2c40141cb17d"
+  },
+  "schema": "sammlungslotse/exp-0008-execution-profile/v1",
+  "selection": {
+    "direct_database_access": false,
+    "formats": [
+      "EPUB"
+    ],
+    "ids_per_request": 1,
+    "library_strategy": "task-private-copy-on-read",
+    "network": false,
+    "product_code": false,
+    "source_writes": false
+  }
+}
