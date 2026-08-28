@@ -416,6 +416,40 @@
       "status": "done",
       "title": "Tiefen read-only Werkzeugadapter zur Planung freigeben"
     },
+    "GATE-0004": {
+      "acceptance_criteria": "Die nächste Wave wird aus mindestens drei klar getrennten Optionen anhand Nutzwert, Evidenzlücke, Datenschutz, Kopplung, Reversibilität und bestehender Autorisierung ausgewählt; sie erweitert weder den WI-0007-Produktvertrag noch autorisiert sie reale Bestände oder Writes.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0464f-5c32-75fd-950d-c6630e44408e",
+      "created_on": "2026-08-28",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0004_AFTER_CALIBRE_PROJECTION.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0007",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0002",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "Nächste Wave nach der Calibre-Einzelbibliotheksprojektion auswählen"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],
@@ -733,6 +767,48 @@
       ],
       "status": "done",
       "title": "Read-only Calibre-Bestandsprojektion umsetzen"
+    },
+    "WI-0008": {
+      "acceptance_criteria": "Ein eingecheckter, ausschließlich synthetischer Materialisierungs- und Qualifikationsweg erzeugt reproduzierbar mehrere Calibre-Datensätze mit Mehrfachautoren, Mehrsprachigkeit, mehreren Formaten, fehlenden Werten und Unicode; das unveränderte WI-0007-Produktprofil projiziert nur ID, Titel, Autoren, Sprachen und Formate deterministisch und pfadfrei, lässt Quelle und Produktgrenzen unverändert und bereinigt alle Taskdaten und Container.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0464f-5cb2-74fd-a068-7b54a6237bf7",
+      "created_on": "2026-08-28",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/CALIBRE_SYNTHETIC_CONTRACT_HARDENING.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0007",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "EXP-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Synthetischen Calibre-Projektionsvertrag reproduzierbar härten"
     }
   },
   "prefixes": {

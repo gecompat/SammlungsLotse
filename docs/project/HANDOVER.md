@@ -84,6 +84,14 @@ reproduzierbar gebaut, der Adapter implementiert und die tatsächliche
 synthetische Produktqualifikation bestand 17/17 Kriterien einschließlich
 tatsächlichem Timeout und tatsächlicher Rohoutput-Grenze.
 
+GATE-0004 ist `done`. Es hat die Härtung des vorhandenen synthetischen
+Calibre-Vertrags, Mehrbibliothekszugriff und eine neue Qualitätsfunktion
+getrennt verglichen und WI-0008 ausgewählt. WI-0008 ist `accepted`, aber noch
+nicht implementiert. Die nächste getrennte Wave darf ausschließlich eine
+eingecheckte, reproduzierbare und mehrgliedrige synthetische Calibre-
+Materialisierung samt Oracles und Qualifikation ergänzen. Produktoberfläche,
+Feldprojektion, Einzelbibliotheks- und Read-only-Grenzen bleiben unverändert.
+
 ## Fortsetzung
 
 WI-0004 ist `done`. Der Produktcode liegt unter
@@ -105,8 +113,8 @@ Provider, keine allgemeine Containerstrategie und keine schreibende Fähigkeit.
 WI-0007 ist `done`. Produktport, Copy-on-read-Grenze, exaktes
 Calibre-9.13.0-Profil sowie deutsche und stabile JSON-CLI liegen unter
 `src/sammlungslotse/calibre_inventory/`, `runtime/calibre-readonly/` und
-`tools/run_calibre_inventory.py`. Die nächste Produktwave ist nicht
-automatisch freigegeben. Insbesondere sind mehrere Bibliotheken, automatische
+`tools/run_calibre_inventory.py`. WI-0008 ist als reine synthetische
+Härtungswave angenommen. Insbesondere sind mehrere Bibliotheken, automatische
 Erkennung, Content Server, Persistenz und Writer weiterhin außerhalb.
 
 ## Harte Grenzen
