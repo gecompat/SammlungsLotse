@@ -1,6 +1,6 @@
 # EXP-0008: Unterstützte Calibre-Einzelrecord-EPUB-Übergabe qualifizieren
 
-Status: ACCEPTED — AUSFÜHRUNG GETRENNT
+Status: DONE — SYNTHETISCH QUALIFIZIERT
 
 Stand: 2026-08-28
 
@@ -107,6 +107,28 @@ mindestens bestätigt:
   daraus entstehen.
 - `inconclusive`: die Umgebung liefert keinen vertrauenswürdigen Befund; der
   Versuch wird nicht als bestanden dargestellt.
+
+## Ausführungsergebnis
+
+EXP-0008 wurde am 2026-08-28 mit dem exakten Calibre-9.13.0-Image unter
+Python 3.12.10 und Podman 6.1.0 auf Linux/amd64 vollständig ausgeführt. Der
+eingecheckte Nachweis bindet das Preimage
+`fb08732b71b6e214aa039a9f3d428a3b12c379ac` und erfüllt 16/16 Kriterien.
+
+Beide positiven Wiederholungen exportierten genau eine EPUB-Datei mit 1521
+Bytes und dem erwarteten SHA-256
+`1d98510717f6c3f22b3219bdedf8cbdf38785f060bfca0522f66ccf374f684a5`.
+Die normalisierten Ergebnisse waren bytegleich. Fehlende ID, Datensatz ohne
+EPUB, mehrere oder ungültige IDs, unerwartete Ausgabe, Outputgrenze, Timeout
+und simulierte Unterbrechung endeten getrennt fail-closed. Recovery, Quell-
+und Fixture-Unverändertheit, zurückgelesene Containerisolation sowie
+vollständiges Task- und Container-Cleanup waren erfolgreich.
+
+Ein erster nicht übernommener 15/16-Lauf deckte ausschließlich eine
+labelabhängige Rohbeleg-Schlüsselung im Ergebnisrunner auf. Nach einem
+fokussierten Regressionstest und neuem Preimage wurde die gesamte Matrix
+wiederholt. Das qualifizierte Ergebnis belegt keine fachliche Identität und
+autorisiert keinen Produktvergleich.
 
 ## Nicht Bestandteil
 

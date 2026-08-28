@@ -113,8 +113,8 @@ GATE-0006 ist `done`. Es hat fünf Anschlussoptionen getrennt bewertet und
 EXP-0008 als kleinste nächste Erkenntniswave ausgewählt. Der angenommene
 Experimentvertrag prüft genau eine explizite Calibre-ID, ausschließlich EPUB,
 Bytegleichheit, task-private Copy-on-read-Grenzen, Negativfälle und Cleanup
-mit synthetischem TEST-0001-Material. Die Experimentausführung beginnt erst
-nach Merge der Planungs-Wave; eine Produktwave ist damit nicht freigegeben.
+mit synthetischem TEST-0001-Material. Die getrennte Ausführung ist mit 16/16
+Kriterien abgeschlossen; eine Produktwave ist damit nicht freigegeben.
 
 ## Fortsetzung
 
@@ -151,10 +151,12 @@ Calibre, Verzeichnissuche, mehr als zwei Eingänge, Persistenz, Routing und
 Writes bleiben außerhalb. Eine weitere Produktwave ist nicht automatisch
 freigegeben.
 
-Als nächste getrennte Wave ist ausschließlich EXP-0008 angenommen. Es darf
-die unterstützte Calibre-Einzelrecord-Übergabe synthetisch qualifizieren, aber
-keinen Produktadapter oder Identitätsvergleich implementieren. Nach dem
-Ergebnis ist eine neue Gate-Bewertung erforderlich.
+EXP-0008 ist abgeschlossen. Der pfadfreie Nachweis liegt unter
+`experiments/ebook/exp-0008/`; das genaue Preimage ist `fb08732b`. Die
+unterstützte Calibre-Einzelrecord-Übergabe ist nur synthetisch technisch
+qualifiziert. Als nächste getrennte Wave ist eine neue Gate-Bewertung
+erforderlich; sie muss Produktvergleich, andere Qualitätsfragen und Pausieren
+vergleichen, bevor Produktcode entstehen darf.
 
 ## Harte Grenzen
 
