@@ -116,6 +116,13 @@ Bytegleichheit, task-private Copy-on-read-Grenzen, Negativfälle und Cleanup
 mit synthetischem TEST-0001-Material. Die getrennte Ausführung ist mit 16/16
 Kriterien abgeschlossen; eine Produktwave ist damit nicht freigegeben.
 
+GATE-0007 ist `done`. Es hat den expliziten Einzelrecord-Vergleich,
+Bestandsqualitätsübersicht, Mehrbibliotheks-/Routing-Arbeit, neue
+Provider-/Architekturflächen und Pausieren getrennt bewertet. WI-0011 ist als
+kleinste read-only Produktwave `accepted`: genau ein Eingangs-EPUB, eine
+Bibliothek und eine externe Calibre-ID, providerneutraler Snapshot-Handoff,
+unveränderter fünfstufiger Identitätsbericht und keine Bestandsaktion.
+
 ## Fortsetzung
 
 WI-0004 ist `done`. Der Produktcode liegt unter
@@ -154,9 +161,9 @@ freigegeben.
 EXP-0008 ist abgeschlossen. Der pfadfreie Nachweis liegt unter
 `experiments/ebook/exp-0008/`; das genaue Preimage ist `fb08732b`. Die
 unterstützte Calibre-Einzelrecord-Übergabe ist nur synthetisch technisch
-qualifiziert. Als nächste getrennte Wave ist eine neue Gate-Bewertung
-erforderlich; sie muss Produktvergleich, andere Qualitätsfragen und Pausieren
-vergleichen, bevor Produktcode entstehen darf.
+qualifiziert. GATE-0007 hat daraufhin WI-0011 angenommen. Nach Merge der
+Planungs-Wave darf ausschließlich dieser explizite read-only Vergleich in
+einem neuen Worktree implementiert und synthetisch qualifiziert werden.
 
 ## Harte Grenzen
 
