@@ -1,6 +1,6 @@
 # EXP-0010: EPUB-Metadaten- und Oracle-Evidenz standardgebunden prüfen
 
-Status: ACCEPTED — AUSFÜHRUNG AUSSTEHEND
+Status: DONE — METHODE 12/12, PRODUKTQUALITÄT NOT_QUALIFIED
 
 Stand: 2026-08-28
 
@@ -213,5 +213,31 @@ CI-geeignete Ergebnisprüfung:
 
 ## Ausführungsergebnis
 
-Noch nicht ausgeführt. Ein Ergebnis wird erst nach dem eingefrorenen
-Preimage-Lauf eingetragen.
+Der vollständige Lauf auf dem eingefrorenen Preimage
+`fbb481b4e5f869943c0a668502d37e867b2db5ce` erfüllte alle zwölf
+methodischen Akzeptanzkriterien. Alle 16 Einzelpakete der acht konformen
+Qualitätsfälle bestanden EPUBCheck 5.3.0 ohne Befund. Die vier Pakete der
+zwei getrennten Negativkontrollen lieferten erwartbar `OPF-030` und/oder
+`RSC-005`. Zwei Produktwiederholungen erzeugten denselben semantischen Digest
+`6ad0a299de564216adc4684a8d9cbd851f717d8b007ecaab5b3be530347b1973`.
+
+Die Produktqualität lautet `not_qualified`. Drei konforme Fälle erzeugten
+je einen kritischen False Same auf Ausgabe und Werk:
+
+- gleicher primärer Identifier bei stark widersprüchlichem Inhalt;
+- gleicher typisierter Zusatz-Identifier bei verschiedenen primären
+  Identifiern und Ausgaben;
+- gleicher untypisierter Zusatzwert bei verschiedenen primären Identifiern
+  und kontrolliert verschiedenen Werken.
+
+Damit sind sechs kritische False Same sichtbar. Die gezielte
+`candidate_same`-Precision betrug auf Ausgabe und Werk je 0,25. Außerdem
+belegt der Lauf getrennt die fehlende Publikationsstufe, eingeebnete
+Identifier-Rollen und als `work_references` eingeebnete Collection-Semantik.
+Die vier konformen Collection-Fälle entsprachen ihren Oracles; ein isoliertes
+Collection-Veto würde die aktuelle False-Same-Ursache deshalb nicht beheben.
+
+Der vollständige Ergebnisvertrag steht unter
+[experiments/ebook/exp-0010](../../experiments/ebook/exp-0010/README.md).
+Er autorisiert keine Produktkorrektur. Die Fortsetzung ist in GATE-0010
+offen zu entscheiden.

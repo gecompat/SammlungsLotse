@@ -449,7 +449,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "EPUB-Metadaten- und Oracle-Evidenz standardgebunden prüfen"
     },
     "GATE-0001": {
@@ -817,6 +817,60 @@
       ],
       "status": "done",
       "title": "Fortsetzung nach EXP-0009 und Metadatensemantik bewerten"
+    },
+    "GATE-0010": {
+      "acceptance_criteria": "Der methodisch bestandene EXP-0010-Befund mit sechs kritischen False Same und drei getrennten semantischen Fähigkeitslücken wird von den korrekt abgewiesenen Konformitätskontrollen getrennt; konservative Enthaltung, Identifier-Rollen, Collection-Semantik, Publikationsstufe, unabhängige Fortsetzungen und Pausieren werden nach Fehlerwirkung, Erkenntniswert, Kopplung und Reversibilität verglichen, ohne eine Produktkorrektur oder Folge-Wave anzunehmen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a048f9-c998-7f22-b0e0-0db6ee29575b",
+      "created_on": "2026-08-28",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0010_AFTER_EXP0010.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0009",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0010",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0009",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0005",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "in_progress",
+      "title": "Produktfortsetzung nach EXP-0010 bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
