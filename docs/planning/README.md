@@ -23,6 +23,8 @@ Experimente und spätere Entscheidungen:
 - [WI-0005: tiefen read-only Adapter begrenzen](EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md);
 - [WI-0006: read-only Mehrdatei-Eingangsbericht](EBOOK_MULTI_FILE_INTAKE_REPORT.md);
 - [WI-0007: read-only Calibre-Bestandsprojektion](CALIBRE_READ_ONLY_PROJECTION_WORK_ITEM.md);
+- [GATE-0004: nächste Wave nach der Calibre-Projektion](EBOOK_GATE_0004_AFTER_CALIBRE_PROJECTION.md);
+- [WI-0008: synthetischen Calibre-Vertrag härten](CALIBRE_SYNTHETIC_CONTRACT_HARDENING.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -130,6 +132,13 @@ sind angenommen. Die getrennte Implementierungs-Wave ist abgeschlossen: Das
 exakte Calibre-9.13.0-Image wurde reproduzierbar gebaut, der Adapter umgesetzt
 und die deutsche sowie stabile JSON-CLI ausschließlich synthetisch mit 17/17
 Produktkriterien qualifiziert.
+
+GATE-0004 hat anschließend drei getrennte Fortsetzungen verglichen. Es wählt
+WI-0008 aus, um die konkrete Evidenz- und Reproduzierbarkeitslücke des
+einzelnen tatsächlichen Calibre-Datensatzes zu schließen. WI-0008 ist
+angenommen, aber noch nicht implementiert. Die Wave ändert weder
+Produktoberfläche und Felder noch Einzelbibliotheks-, Read-only-,
+Datenschutz- oder Writer-Grenzen.
 
 ## Nicht übernehmen
 

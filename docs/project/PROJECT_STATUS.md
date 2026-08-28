@@ -13,6 +13,8 @@ Podman-Profil synthetisch qualifiziert; mehrere ausdrücklich angegebene
 Dateien können sequenziell in einem pfadfreien Bericht zusammengefasst werden.
 WI-0007 ist als eng begrenzte Calibre-Produktwave implementiert und mit einem
 exakten lokalen Podman-Profil ausschließlich synthetisch qualifiziert.
+GATE-0004 hat die nächste Fortsetzung neu bewertet und WI-0008 als reine
+Härtungs- und Evidenzwave angenommen; die Implementierung steht aus.
 
 ## Vorhanden
 
@@ -125,6 +127,12 @@ exakten lokalen Podman-Profil ausschließlich synthetisch qualifiziert.
   ausschließlich synthetischen TEST-0001-Calibre-Bibliothek, byteidentischen
   JSON-Wiederholungen, unverändertem Quellsnapshot sowie vollständigem Task-
   und Container-Cleanup.
+- abgeschlossenes GATE-0004 mit getrenntem Vergleich von synthetischer
+  Vertrags- und Evidenzhärtung, Mehrbibliothekszugriff und neuer
+  Qualitätsfunktion;
+- angenommener WI-0008-Vertrag für eine eingecheckte, reproduzierbare und
+  mehrgliedrige synthetische Calibre-Qualifikation ohne Änderung des
+  WI-0007-Produktvertrags.
 
 ## Nicht vorhanden
 
@@ -139,6 +147,18 @@ exakten lokalen Podman-Profil ausschließlich synthetisch qualifiziert.
 - Release.
 
 ## Validierung
+
+GATE-0004-/WI-0008-Planungswave: PROJECT_SEMANTIC und bestehende
+RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Python
+3.12.10. Repository- und v2-Registry-Prüfung waren für 28 registrierte
+Artefakte erfolgreich. TEST-0001 bestätigte 30 Fälle und 49 Komponenten;
+EXP-0002 bis EXP-0007 sowie die eingecheckten WI-0005- und WI-0007-
+Produktnachweise bestätigten unverändert ihre gebundenen Kriterien. Alle 117
+Repository-Tests und `compileall` waren erfolgreich; `git diff --check`
+meldete keine Fehler. FOUNDATION_INTEGRITY meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Dies belegt Plan-, Registry-, Dokument-, Fixture- und bestehende
+Regressionsintegrität, nicht die noch ausstehende WI-0008-Implementierung
+oder eine erweiterte tatsächliche Calibre-Qualifikation.
 
 WI-0007-Implementierungswave: PROJECT_SEMANTIC und RUNTIME_EMPIRICAL lokal
 validiert am 2026-08-28 unter Python 3.12.10, Podman 6.1.0 und Calibre 9.13.0.
@@ -499,12 +519,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0007 ist `done`. Vor einer weiteren Produktwave ist neu zu entscheiden,
-welche offene Qualitäts- oder Nutzerfrage den höchsten Wert besitzt. Die
-abgeschlossene Wave autorisiert weder mehrere Bibliotheken, automatische
-Erkennung, Content Server, weitere Calibre-Felder, Dubletten, externe
-Metadaten, Routing, dauerhafte Persistenz, Browser, REST, Agents, native
-Windows-Ausführung noch Writes.
+WI-0008 ist `accepted`. Nach Merge dieser Planungs-Wave darf eine getrennte
+Implementierungs-Wave ausschließlich die synthetische Calibre-
+Materialisierung, Oracles und Qualifikation reproduzierbar erweitern. Die
+Wave autorisiert weder mehrere Bibliotheken, automatische Erkennung, Content
+Server, weitere Calibre-Felder, Dubletten, externe Metadaten, Routing,
+dauerhafte Persistenz, Browser, REST, Agents, native Windows-Ausführung noch
+Writes.
 
 ## Offene Punkte
 
