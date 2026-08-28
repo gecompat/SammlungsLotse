@@ -28,6 +28,8 @@ Experimente und spätere Entscheidungen:
 - [GATE-0005: nächsten read-only Nutzwert auswählen](EBOOK_GATE_0005_AFTER_CALIBRE_HARDENING.md);
 - [WI-0009: Identitätskandidatenbericht für zwei EPUB-Dateien](EBOOK_IDENTITY_CANDIDATE_REPORT_WORK_ITEM.md);
 - [WI-0010: WI-0005-Laufzeitpreimage vollständig binden](EBOOK_WI0005_EVIDENCE_BINDING_HARDENING.md);
+- [GATE-0006: nächste Evidenzfrage nach WI-0010](EBOOK_GATE_0006_AFTER_WI0010.md);
+- [EXP-0008: unterstützte Calibre-Einzelrecord-EPUB-Übergabe](EBOOK_CALIBRE_SINGLE_RECORD_HANDOFF_EXPERIMENT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -159,6 +161,14 @@ automatisch, besitzt einen Regressionstest gegen künftige Auslassungen und
 wurde mit dem unveränderten exakten Podman-Profil erneut 12/12 qualifiziert.
 Dies entscheidet keine weitere Produktfunktion und qualifiziert keinen
 Parallelbetrieb.
+
+GATE-0006 hat anschließend fünf getrennte Fortsetzungen verglichen. Es wählt
+EXP-0008 als genau eine neue synthetische Evidenzwave: Die unterstützte
+Calibre-CLI soll für eine explizite externe ID ausschließlich ein
+bytegleiches EPUB aus einer task-privaten Copy-on-read-Arbeitskopie
+bereitstellen. Der Experimentvertrag ist `accepted`; seine Ausführung bleibt
+eine getrennte Wave. Produktcode, Calibre-Vergleich, mehrere Bibliotheken,
+Persistenz und Writers sind dadurch nicht freigegeben.
 
 ## Nicht übernehmen
 
