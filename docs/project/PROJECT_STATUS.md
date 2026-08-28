@@ -43,7 +43,10 @@ dass EPUB-`belongs-to-collection` im aktuellen Produkt als
 `work_references` überdehnt wird, primäre und zusätzliche Identifier nicht
 getrennt sind und EXP-0009 deshalb noch keine konkrete Produktregel
 autorisiert. EXP-0010 ist als genau eine standardgebundene, produktcodefreie
-Metadaten- und Oracle-Evidenzwave angenommen, aber noch nicht ausgeführt.
+Metadaten- und Oracle-Evidenzwave ausgeführt. Der methodische Nachweis
+bestand 12/12, die Produktqualität ist wegen sechs kritischer False Same auf
+Ausgabe und Werk jedoch `not_qualified`. GATE-0010 ist als offenes
+Ergebnisgate registriert; keine Produktkorrektur ist ausgewählt.
 
 ## Vorhanden
 
@@ -212,10 +215,20 @@ Metadaten- und Oracle-Evidenzwave angenommen, aber noch nicht ausgeführt.
   Inhalte und widersprüchlicher expliziter Werkreferenzen.
 - abgeschlossenes GATE-0009 mit ausdrücklicher Auswahl der
   standardsgebundenen Evidenzreparatur;
-- angenommener EXP-0010-Vertrag für genau zehn synthetische Paare, getrennte
+- abgeschlossener EXP-0010-Vertrag für genau zehn synthetische Paare, getrennte
   primäre und zusätzliche Identifier, Collection-Rollen, vorab gebundene
   Publikations-/Ausgaben-/Werkoracles und unabhängige EPUBCheck-Evidenz ohne
-  Produktcode oder Bestandswirkung.
+  Produktcode oder Bestandswirkung;
+- methodisch bestandener EXP-0010-Nachweis mit 16/16 konformen
+  EPUBCheck-Einzelpaketen, vier erwartbar abgewiesenen Negativkontrollen, zwei
+  semantisch identischen Produktwiederholungen und sechs kritischen False
+  Same;
+- drei getrennte semantische Fähigkeitslücken: fehlende Publikationsstufe,
+  eingeebnete Identifier-Rollen und als `work_references` eingeebnete
+  Collection-Semantik;
+- offenes GATE-0010 mit Vergleich von engem Fail-safe-Guardrail,
+  Metadatenmodell v2, Publikationsstufe, unabhängigem Qualitätsast und
+  Pausieren; keine Folge ist ausgewählt.
 
 ## Nicht vorhanden
 
@@ -230,6 +243,24 @@ Metadaten- und Oracle-Evidenzwave angenommen, aber noch nicht ausgeführt.
 - Release.
 
 ## Validierung
+
+EXP-0010-Ausführungs- und GATE-0010-Ergebniswave: RUNTIME_EMPIRICAL,
+PROJECT_SEMANTIC und FOUNDATION_INTEGRITY lokal validiert am 2026-08-28 unter
+Windows und Python 3.12.10. Der eingefrorene Preimage-Commit
+`fbb481b4e5f869943c0a668502d37e867b2db5ce` erfüllte 12/12 methodische
+Kriterien: 16 konforme Einzelpakete bestanden EPUBCheck 5.3.0, vier
+absichtlich ungültige Kontrollen wurden erwartbar abgewiesen und zwei
+Produktwiederholungen waren semantisch identisch. Sechs kritische False Same
+und drei getrennte Fähigkeitslücken ergeben `not_qualified` für die
+Produktqualität. Repository- und v2-Registry-Prüfung waren für 40 Artefakte
+erfolgreich. TEST-0001 bestätigte 30 Fälle und 49 Komponenten; EXP-0002 bis
+EXP-0010 sowie die eingecheckten WI-0005-, WI-0008-, WI-0009- und WI-0011-
+Nachweise blieben gültig. Alle 173 Repository-Tests, `compileall` und
+`git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY am exakten
+Quellcommit `d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen,
+0 Fehler und 0 Blocker. Dies belegt den synthetischen EXP-0010-Befund und
+den offenen Entscheidungsraum, nicht reale Häufigkeiten oder eine
+Produktkorrektur.
 
 GATE-0009-Auswahl- und EXP-0010-Planungswave: PROJECT_SEMANTIC und bestehende
 RUNTIME_EMPIRICAL-Regression lokal validiert am 2026-08-28 unter Windows und
@@ -793,11 +824,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011 und EXP-0009 sind abgeschlossen; GATE-0009 hat Option A ausgewählt.
-Als nächster getrennter Schritt ist ausschließlich EXP-0010 auf einem
-sauberen, eingecheckten Preimage auszuführen. Danach ist vor jeder
-Produktkorrektur oder weiteren Fortsetzung ein neues Ergebnisgate
-erforderlich.
+WI-0011, EXP-0009, GATE-0009 und EXP-0010 sind abgeschlossen; GATE-0010 ist
+offen. Vor jeder Produktkorrektur oder weiteren Registrierung ist
+ausdrücklich zwischen engem Fail-safe-Guardrail, rollenbewusstem
+Metadatenmodell, eigener Publikationsstufe, unabhängigem Qualitätsast und
+Pausieren zu wählen. Der Guardrail ist als kleinste sichere Risikobremse
+vorläufig empfohlen, aber nicht angenommen.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

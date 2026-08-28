@@ -168,6 +168,19 @@ die sichtbare Trennung zwischen methodisch bestandenem Experiment und
 `not_qualified`-Produktqualität. Der vollständige synthetische Lauf ist unter
 `experiments/ebook/exp-0009/` dokumentiert.
 
+Für den eingecheckten empirischen EXP-0010-Nachweis gilt:
+
+    python tools/experiments/run_exp_0010.py --validate-result
+
+Diese CI-geeignete Prüfung materialisiert keine EPUBs und startet weder
+Container noch Netzwerkzugriffe. Sie bindet zehn vorab gebundene Paare, das
+vollständige Experiment- und WI-0009-Produktpreimage sowie das bestehende
+EPUBCheck-5.3.0-Profil. Aus den gespeicherten Ergebnissen berechnet sie zwölf
+methodische Kriterien, Konformitätserwartungen, fünfstufige Oraclematrix,
+Metriken, sechs kritische False Same und drei getrennte semantische
+Fähigkeitslücken neu. Der vollständige lokale Lauf ist unter
+`experiments/ebook/exp-0010/` dokumentiert.
+
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
     python -m unittest discover -s tests/product -p "test_*.py"

@@ -36,6 +36,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0009: Identitäts- und Enthaltungsevidenz verbreitern](EBOOK_IDENTITY_EVIDENCE_HARDENING_EXPERIMENT.md);
 - [GATE-0009: Fortsetzung nach EXP-0009 und Metadatensemantik bewerten](EBOOK_GATE_0009_AFTER_EXP0009.md);
 - [EXP-0010: EPUB-Metadaten- und Oracle-Evidenz standardgebunden prüfen](EBOOK_STANDARDS_BOUND_METADATA_ORACLE_EXPERIMENT.md);
+- [GATE-0010: Produktfortsetzung nach EXP-0010 bewerten](EBOOK_GATE_0010_AFTER_EXP0010.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -204,9 +205,12 @@ EXP-0009-Oracle-Abweichungen von einer neu erkannten Semantiklücke: Das
 aktuelle interne Feld `work_references` enthält tatsächlich EPUB-
 `belongs-to-collection`-Werte, während primäre und zusätzliche Identifier
 nicht unterschieden werden. EXP-0010 ist deshalb als genau eine
-standardsgebundene, produktcodefreie Evidenzwave angenommen. Eine
-Produktkorrektur, Kandidatensuche oder andere Folge-Wave ist nicht
-angenommen.
+standardsgebundene, produktcodefreie Evidenzwave angenommen und ausgeführt.
+Die Methode bestand 12/12; sechs kritische False Same auf Ausgabe und Werk
+sowie drei getrennte semantische Fähigkeitslücken lassen die Produktqualität
+`not_qualified`. GATE-0010 vergleicht den engen Fail-safe-Guardrail,
+rollenbewusstes Metadatenmodell, Publikationsstufe, unabhängige Fortsetzung
+und Pausieren. Keine Folge ist ausgewählt.
 
 ## Nicht übernehmen
 

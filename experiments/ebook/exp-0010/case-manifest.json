@@ -1,0 +1,463 @@
+{
+  "artifact": "EXP-0010",
+  "cases": [
+    {
+      "base": {
+        "body": "A stable synthetic chapter.",
+        "creator": "Ada Beispiel",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000001"
+        },
+        "title": "Controlled Minor Revision"
+      },
+      "case_key": "same-primary-minor-revision",
+      "conformance_expected": {
+        "left": "pass",
+        "right": "pass"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "modified": "2026-08-28T00:00:00Z"
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["candidate_same"],
+        "package": ["different"],
+        "representation": ["candidate_same"],
+        "work": ["candidate_same"]
+      },
+      "oracle_rationale": "Nur der gebundene Änderungszeitpunkt und damit die Paketbytes unterscheiden sich; kontrollierte Publikation, Ausgabe und Repräsentation bleiben gleich.",
+      "oracle_scope": "quality",
+      "publication_oracle": ["same"],
+      "right": {
+        "modified": "2026-08-28T00:01:00Z"
+      }
+    },
+    {
+      "base": {
+        "creator": "Berta Beispiel",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000002"
+        },
+        "title": "Reused Primary Identifier"
+      },
+      "case_key": "same-primary-strong-content-conflict",
+      "conformance_expected": {
+        "left": "pass",
+        "right": "pass"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "A synthetic astronomy monograph about distant galaxies."
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["different", "abstain"]
+      },
+      "oracle_rationale": "Die kontrollierten Quellen sind verschiedene, fachlich unverbundene Publikationen; der absichtlich wiederverwendete primäre Identifier darf die starken Inhaltsgegenbelege nicht überstimmen.",
+      "oracle_scope": "quality",
+      "publication_oracle": ["different", "abstain"],
+      "right": {
+        "body": "A synthetic cookery manual about sourdough starters."
+      }
+    },
+    {
+      "base": {
+        "additional_identifiers": [
+          {
+            "id": "isbn-id",
+            "identifier_type": "15",
+            "scheme": "onix:codelist5",
+            "value": "urn:isbn:9780101010101"
+          }
+        ],
+        "creator": "Carla Beispiel",
+        "title": "Shared Typed Additional Identifier"
+      },
+      "case_key": "shared-typed-additional-different-primary",
+      "conformance_expected": {
+        "left": "pass",
+        "right": "pass"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "First controlled edition of the shared synthetic work.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000031"
+        }
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "oracle_rationale": "Die kontrollierten Primäridentitäten und Ausgaben sind verschieden; der wiederverwendete typisierte Zusatzwert bezeichnet keine verlässliche Ausgabengleichheit, beide Ausgaben gehören aber zum selben synthetischen Werk.",
+      "oracle_scope": "quality",
+      "publication_oracle": ["different"],
+      "right": {
+        "body": "Second revised edition of the shared synthetic work.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000032"
+        }
+      }
+    },
+    {
+      "base": {
+        "additional_identifiers": [
+          {
+            "id": "catalog-id",
+            "identifier_type": null,
+            "scheme": null,
+            "value": "urn:synthetic:catalog:shared-untyped"
+          }
+        ],
+        "creator": "Dora Beispiel",
+        "title": "Shared Untyped Catalog Value"
+      },
+      "case_key": "shared-untyped-additional-different-primary",
+      "conformance_expected": {
+        "left": "pass",
+        "right": "pass"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "Controlled source alpha about forests.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000041"
+        }
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["different", "abstain"]
+      },
+      "oracle_rationale": "Die kontrollierten Quellen sind verschiedene Werke; ein gleicher untypisierter Zusatzwert und kollidierende Anzeige-Metadaten reichen nicht für Publikations-, Ausgaben- oder Werkgleichheit.",
+      "oracle_scope": "quality",
+      "publication_oracle": ["different"],
+      "right": {
+        "body": "Controlled source beta about ocean currents.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000042"
+        }
+      }
+    },
+    {
+      "base": {
+        "collections": [
+          {
+            "id": "series-id",
+            "identifier": "urn:uuid:20000000-0000-4000-8000-000000000005",
+            "name": "Synthetic Field Guides",
+            "position": null,
+            "type": "series"
+          }
+        ],
+        "creator": "Erika Beispiel"
+      },
+      "case_key": "series-overlap-distinct-works",
+      "conformance_expected": {
+        "left": "pass",
+        "right": "pass"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "A controlled field guide to synthetic trees.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000051"
+        },
+        "title": "Synthetic Trees"
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "oracle_rationale": "Die kontrollierten Werke sind verschiedene Bände derselben Serie; die Collection belegt eine Beziehung, aber keine Gleichheit.",
+      "oracle_scope": "quality",
+      "publication_oracle": ["different"],
+      "right": {
+        "body": "A controlled field guide to synthetic birds.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000052"
+        },
+        "title": "Synthetic Birds"
+      }
+    },
+    {
+      "base": {
+        "creator": "Frieda Beispiel"
+      },
+      "case_key": "set-overlap-distinct-members",
+      "conformance_expected": {
+        "left": "pass",
+        "right": "pass"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "The first controlled member of a finite set.",
+        "collections": [
+          {
+            "id": "set-id",
+            "identifier": "urn:uuid:20000000-0000-4000-8000-000000000006",
+            "name": "Synthetic Learning Set",
+            "position": "1",
+            "type": "set"
+          }
+        ],
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000061"
+        },
+        "title": "Learning Set One"
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "oracle_rationale": "Die kontrollierten Werke sind verschiedene Mitglieder eines Sets an verschiedenen Positionen; die Set-Zugehörigkeit belegt nur Beziehung.",
+      "oracle_scope": "quality",
+      "publication_oracle": ["different"],
+      "right": {
+        "body": "The second controlled member of a finite set.",
+        "collections": [
+          {
+            "id": "set-id",
+            "identifier": "urn:uuid:20000000-0000-4000-8000-000000000006",
+            "name": "Synthetic Learning Set",
+            "position": "2",
+            "type": "set"
+          }
+        ],
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000062"
+        },
+        "title": "Learning Set Two"
+      }
+    },
+    {
+      "base": {
+        "creator": "Gina Beispiel",
+        "title": "Multiple Collection Edition"
+      },
+      "case_key": "multiple-collections-partial-overlap",
+      "conformance_expected": {
+        "left": "pass",
+        "right": "pass"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "First controlled edition in a series and a set.",
+        "collections": [
+          {
+            "id": "series-id",
+            "identifier": "urn:uuid:20000000-0000-4000-8000-000000000071",
+            "name": "Shared Synthetic Series",
+            "position": "1",
+            "type": "series"
+          },
+          {
+            "id": "set-id",
+            "identifier": "urn:uuid:20000000-0000-4000-8000-000000000072",
+            "name": "Left Only Synthetic Set",
+            "position": "1",
+            "type": "set"
+          }
+        ],
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000071"
+        }
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "oracle_rationale": "Die kontrollierten Quellen sind verschiedene Ausgaben desselben Werks; nur eine von mehreren Collection-Zugehörigkeiten überlappt.",
+      "oracle_scope": "quality",
+      "publication_oracle": ["different"],
+      "right": {
+        "body": "Second controlled edition in only the shared series.",
+        "collections": [
+          {
+            "id": "series-id",
+            "identifier": "urn:uuid:20000000-0000-4000-8000-000000000071",
+            "name": "Shared Synthetic Series",
+            "position": "1",
+            "type": "series"
+          }
+        ],
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000072"
+        }
+      }
+    },
+    {
+      "base": {
+        "creator": "Hanna Beispiel",
+        "title": "Same Work Different Collections"
+      },
+      "case_key": "different-collections-same-work",
+      "conformance_expected": {
+        "left": "pass",
+        "right": "pass"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "First controlled edition assigned to collection alpha.",
+        "collections": [
+          {
+            "id": "series-alpha",
+            "identifier": "urn:uuid:20000000-0000-4000-8000-000000000081",
+            "name": "Synthetic Collection Alpha",
+            "position": null,
+            "type": "series"
+          }
+        ],
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000081"
+        }
+      },
+      "oracle": {
+        "byte": ["different"],
+        "edition": ["different", "abstain"],
+        "package": ["different"],
+        "representation": ["different"],
+        "work": ["candidate_related"]
+      },
+      "oracle_rationale": "Die kontrollierten Quellen sind verschiedene Ausgaben desselben Werks; verschiedene Collection-Zuordnungen widerlegen den Werkbezug nicht.",
+      "oracle_scope": "quality",
+      "publication_oracle": ["different"],
+      "right": {
+        "body": "Second controlled edition assigned to collection beta.",
+        "collections": [
+          {
+            "id": "set-beta",
+            "identifier": "urn:uuid:20000000-0000-4000-8000-000000000082",
+            "name": "Synthetic Collection Beta",
+            "position": null,
+            "type": "set"
+          }
+        ],
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000082"
+        }
+      }
+    },
+    {
+      "base": {
+        "creator": "Ida Beispiel",
+        "fault": "missing_primary_binding",
+        "title": "Invalid Primary Binding Control"
+      },
+      "case_key": "invalid-missing-primary-binding",
+      "conformance_expected": {
+        "left": "error",
+        "right": "error"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "First invalid primary binding control.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000091"
+        }
+      },
+      "oracle": {
+        "byte": ["not_applicable"],
+        "edition": ["not_applicable"],
+        "package": ["not_applicable"],
+        "representation": ["not_applicable"],
+        "work": ["not_applicable"]
+      },
+      "oracle_rationale": "Die fehlende Bindung verhindert eine standardgebundene Publikations- und Bibliografieaussage; der Fall bleibt getrennte Kontrolle.",
+      "oracle_scope": "control",
+      "publication_oracle": ["not_assessed"],
+      "right": {
+        "body": "Second invalid primary binding control.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-000000000092"
+        }
+      }
+    },
+    {
+      "base": {
+        "creator": "Jana Beispiel",
+        "fault": "missing_modified",
+        "title": "Invalid Modified Control"
+      },
+      "case_key": "invalid-missing-modified",
+      "conformance_expected": {
+        "left": "error",
+        "right": "error"
+      },
+      "expected_product_assessment": "completed",
+      "left": {
+        "body": "First invalid missing modified control.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-0000000000a1"
+        }
+      },
+      "oracle": {
+        "byte": ["not_applicable"],
+        "edition": ["not_applicable"],
+        "package": ["not_applicable"],
+        "representation": ["not_applicable"],
+        "work": ["not_applicable"]
+      },
+      "oracle_rationale": "Der fehlende letzte Änderungszeitpunkt verletzt die minimale Metadatenpflicht; der Fall bleibt getrennte Kontrolle.",
+      "oracle_scope": "control",
+      "publication_oracle": ["not_assessed"],
+      "right": {
+        "body": "Second invalid missing modified control.",
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-0000000000a2"
+        }
+      }
+    }
+  ],
+  "defaults": {
+    "additional_identifiers": [],
+    "body": "Synthetic body.",
+    "collections": [],
+    "creator": "Synthetic Creator",
+    "fault": "none",
+    "language": "en",
+    "modified": "2026-08-28T00:00:00Z",
+    "primary_identifier": {
+      "id": "pub-id",
+      "value": "urn:uuid:10000000-0000-4000-8000-000000000000"
+    },
+    "title": "Synthetic Publication"
+  },
+  "schema": "sammlungslotse/exp-0010-case-manifest/v1"
+}

@@ -1,0 +1,89 @@
+{
+  "artifact": "EXP-0010",
+  "case_manifest": "experiments/ebook/exp-0010/case-manifest.json",
+  "case_totals": {
+    "control": 2,
+    "quality": 8,
+    "total": 10
+  },
+  "conformance": {
+    "image_id": "sha256:d8143e59b2c478e0056200a3529b9beb74737885863c22097b198a9c0c92974e",
+    "profile_id": "wi-0005-epubcheck-5.3.0-temurin-21.0.12.1+1-podman-linux-amd64/v1",
+    "profile_locator": "runtime/ebook-deep-readonly/profile.json",
+    "provider_id": "epubcheck",
+    "provider_version": "5.3.0",
+    "runs_per_distinct_input": 1
+  },
+  "decisions": [
+    "candidate_same",
+    "candidate_related",
+    "different",
+    "abstain",
+    "not_applicable"
+  ],
+  "implementation": {
+    "external_dependencies": [
+      "existing WI-0005 EPUBCheck 5.3.0 profile"
+    ],
+    "network": "podman network=none",
+    "product_code_changes": false,
+    "runtime": "Python 3.12 standard library plus existing bounded EPUBCheck profile",
+    "synthetic_only": true
+  },
+  "limits": {
+    "max_archive_entries": 512,
+    "max_expanded_bytes": 134217728,
+    "max_input_bytes": 33554432,
+    "max_report_bytes": 262144,
+    "max_total_input_bytes": 67108864
+  },
+  "measurement": {
+    "critical_same_stages": [
+      "edition",
+      "work"
+    ],
+    "labels": {
+      "byte": [
+        "candidate_same"
+      ],
+      "edition": [
+        "candidate_same"
+      ],
+      "package": [
+        "candidate_same"
+      ],
+      "representation": [
+        "candidate_same"
+      ],
+      "work": [
+        "candidate_same",
+        "candidate_related"
+      ]
+    },
+    "metrics": [
+      "precision",
+      "recall",
+      "selective_accuracy",
+      "coverage",
+      "abstention_rate",
+      "correct_abstention",
+      "unexpected_abstention"
+    ],
+    "publication_oracle_decisions": [
+      "same",
+      "different",
+      "abstain",
+      "not_assessed"
+    ]
+  },
+  "profile_id": "exp-0010-standards-bound-metadata-oracle/v1",
+  "product_repetitions": 2,
+  "schema": "sammlungslotse/exp-0010-execution-profile/v1",
+  "stages": [
+    "byte",
+    "package",
+    "representation",
+    "edition",
+    "work"
+  ]
+}

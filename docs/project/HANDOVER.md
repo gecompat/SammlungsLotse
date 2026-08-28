@@ -189,9 +189,15 @@ Primärquellenprüfung zeigt, dass `belongs-to-collection` Collection-
 Mitgliedschaft und keine Werk-ID beschreibt und dass der Produktparser den
 primären EPUB-Identifier nicht von zusätzlichen Identifiern trennt. Auch die
 EXP-0009-Matrix bindet diese Rollen noch nicht standardkonform. EXP-0010 ist
-deshalb als genau eine produktcodefreie Evidence-Repair-Wave angenommen,
-aber noch nicht ausgeführt. Produktcode und jede andere Fortsetzung bleiben
-bis zu einem neuen Ergebnisgate gesperrt.
+deshalb als genau eine produktcodefreie Evidence-Repair-Wave angenommen und
+ausgeführt. Der methodische Nachweis bestand 12/12: 16 konforme Einzelpakete
+bestanden EPUBCheck, vier absichtlich ungültige Kontrollen wurden korrekt
+abgewiesen und beide Produktwiederholungen waren semantisch identisch. Die
+Produktqualität ist wegen sechs kritischer False Same auf Ausgabe und Werk
+`not_qualified`. Publikationsstufe, Identifier-Rollen und Collection-Semantik
+fehlen getrennt. GATE-0010 ist offen; ein enger Fail-safe-Guardrail ist
+vorläufig empfohlen, aber nicht ausgewählt. Produktcode und jede andere
+Fortsetzung bleiben bis zur Nutzerentscheidung gesperrt.
 
 ## Harte Grenzen
 
