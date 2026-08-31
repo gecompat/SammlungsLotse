@@ -1,6 +1,6 @@
 # EXP-0013 Ausführung
 
-Status: READY — PREIMAGE NOT EXECUTED
+Status: DONE — EXECUTED, METHOD PASSED; RESULT NOT_QUALIFIED
 
 Stand: 2026-09-01
 
@@ -13,10 +13,9 @@ Enthalten sind zunächst:
   Ausgabegrenzen;
 - dieser Ausführungshinweis.
 
-`result.json` darf erst nach einem sauberen Preimage-Commit und nur durch den
-gebundenen privaten Hauptlauf entstehen. Er enthält ausschließlich die
-gemeinsame pfadfreie Aggregation; private Einzelwerte oder Rohberichte werden
-nicht gespeichert.
+`result.json` entstand nach dem sauberen Preimage-Commit ausschließlich durch
+den gebundenen privaten Hauptlauf. Es enthält nur die gemeinsame pfadfreie
+Aggregation; private Einzelwerte oder Rohberichte wurden nicht gespeichert.
 
 ## Prüf- und Ausführungsfolge
 
@@ -55,3 +54,28 @@ Teilergebnis.
 
 Ein Ergebnis eröffnet ein neues getrenntes Gate. EXP-0013 autorisiert keine
 Produktkorrektur und keine Änderung unter `src/sammlungslotse/`.
+
+## Ergebnis
+
+Das Ausführungspreimage ist
+`6d32f5dad32481ef9ec163e742acb1ae77aaf226`. Die synthetische Kontrolle
+bestand mit 3/3 tatsächlichen WI-0011-Abschlüssen, 9/9 Negativkontrollen,
+identischer Aggregationswiederholung, unveränderten Quellen und vollständigem
+Cleanup.
+
+Der bestätigte private Hauptlauf verarbeitete genau drei EPUBs, vier
+Suchläufe und drei WI-0011-Vergleiche. Alle drei Vergleiche endeten
+`not_assessed` mit ausschließlich
+`ingress.preflight_gate_not_open`. Das Ergebnis ist deshalb fachlich
+`not_qualified`, obwohl die Methode alle 16/16 Kriterien bestand. Quellen,
+Tempbereich und Container blieben unverändert beziehungsweise wurden
+vollständig bereinigt.
+
+Der historische Validator lautet:
+
+```powershell
+python tools/experiments/validate_exp_0013_result.py
+```
+
+GATE-0016 trennt die Bewertung dieses Befunds von jeder möglichen
+Fortsetzung.

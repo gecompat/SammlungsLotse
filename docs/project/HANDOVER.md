@@ -234,13 +234,15 @@ private Smoke materialisierte genau drei EPUB-Kopien, führte vier Suchläufe
 aus, bewahrte die Quellen und bereinigte alle Kopien, blieb aber wegen 0/3
 abgeschlossenen WI-0011-Vergleichen `not_qualified`. Private Werte und
 Rohoutputs wurden nicht aufbewahrt. Der Nutzer hat in GATE-0015 ausdrücklich
-Option A gewählt. GATE-0015 ist `done`; EXP-0013 ist als akzeptierte, noch
-nicht ausgeführte produktcodefreie Diagnose registriert. Der Hauptlauf
-akzeptiert ausschließlich genau dieselben drei erneut explizit bestätigten
-EPUBs ohne Verzeichnissuche und gibt nur eine gemeinsame pfadfreie
-Reason-Code- und Eintrittsstufenaggregation aus. Die Implementierung beginnt
-erst nach Merge und Post-Merge-Prüfung in einem neuen Worktree. Kein
-Produktarbeitsgegenstand ist registriert.
+Option A gewählt. GATE-0015 und EXP-0013 sind `done`. Der Nutzer bestätigte
+genau dieselben drei EPUBs erneut; der produktcodefreie Hauptlauf
+verwendete keine Verzeichnissuche und bewahrte nur das gemeinsame pfadfreie
+Aggregat. Alle drei WI-0011-Läufe endeten vor dem Record-Handoff mit
+`ingress.preflight_gate_not_open`, daher ist das fachliche Ergebnis
+`not_qualified`. Quellen blieben unverändert und das Cleanup war vollständig.
+GATE-0016 ist `proposed`: A ist empfohlen, aber nicht ausgewählt; B, C, K und
+P bleiben offen. Ein neuer Experiment- oder Produktarbeitsgegenstand ist
+nicht registriert.
 
 ## Harte Grenzen
 

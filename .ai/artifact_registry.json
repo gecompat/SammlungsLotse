@@ -623,7 +623,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Private WI-0011-Nichtabschlussgründe produktcodefrei diagnostizieren"
     },
     "GATE-0001": {
@@ -1311,6 +1311,60 @@
       ],
       "status": "done",
       "title": "Ergebnis von EXP-0012 und private Praxisevidenz bewerten"
+    },
+    "GATE-0016": {
+      "acceptance_criteria": "Die Entscheidung trennt den nachgewiesenen dreifachen Ingress-Preflight-Nichtabschluss von WI-0011 und wählt nur nach ausdrücklicher Nutzerwahl zwischen einer weiter begrenzten pfadfreien Ursachenqualifizierung, rein synthetischer Vertiefung, einem später separat zu registrierenden Produktarbeitsgegenstand, Konservieren oder Pausieren; EXP-0013 autorisiert keine automatische Reparatur.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05a04-825f-74d6-b136-a811e435e8fa",
+      "created_on": "2026-09-01",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0016_AFTER_EXP0013.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0013",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0015",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "Ergebnis von EXP-0013 und geschlossene private Ingress-Gates bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
