@@ -215,16 +215,15 @@ GATE-0010 und WI-0012 sind `done`. Der Guardrail ist synthetisch qualifiziert;
 EXP-0010 und seine Oracles blieben unverändert und sind über den historischen
 Git-Preimage-Validator weiterhin 12/12 prüfbar.
 
-GATE-0011, EXP-0011 und GATE-0012 sind `done`. Der Nutzer hat in GATE-0012
-ausdrücklich Option A gewählt. WI-0013 ist als enger rollenbewusster
-V2-Zielvertrag umgesetzt und 29/29 synthetisch produktqualifiziert. V1 bleibt
-bytekompatibler Standard, während ausschließlich
-`--json --report-version v2` den neuen Bericht aktiviert. V1 und V2 bewahren
-dieselben fünf Entscheidungen, Regel-IDs und Evidenzkanäle. Der abhängige
-WI-0011-Weg ist auf demselben Preimage erneut 23/23 qualifiziert und bleibt
-standardmäßig V1. Eine Publikationsstufe, V1-Deprecation, Suche, Persistenz
-oder Writes sind nicht ausgewählt. Vor einer weiteren Produktwave ist eine
-neue ausdrückliche Ergebnisentscheidung erforderlich.
+GATE-0011, EXP-0011, GATE-0012, WI-0013 und GATE-0013 sind `done`. Der Nutzer
+hat in GATE-0013 ausdrücklich Option A gewählt: Der duale Aufrufvertrag wird
+stabil gehalten. V1 bleibt bytekompatibler Standard, während ausschließlich
+`--json --report-version v2` den rollenbewussten Bericht aktiviert. V1 und V2
+bewahren dieselben fünf Entscheidungen, Regel-IDs und Evidenzkanäle. Der
+abhängige WI-0011-Weg ist auf demselben Preimage erneut 23/23 qualifiziert und
+bleibt standardmäßig V1. Kein neuer Produktarbeitsgegenstand ist registriert.
+Eine Publikationsstufe, V1-Deprecation, Suche, Persistenz, Writes oder andere
+Produktfortsetzung benötigt eine neue ausdrückliche Ergebnisentscheidung.
 
 ## Harte Grenzen
 

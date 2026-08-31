@@ -59,6 +59,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_IDENTITY_ROLE_AWARE_V2_WORK_ITEM.md"
         ).read_text(encoding="utf-8")
+        cls.post_wi0013_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0013_AFTER_WI0013.md"
+        ).read_text(encoding="utf-8")
         cls.exp0011_result = json.loads(
             (
                 ROOT
@@ -197,6 +203,20 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("keine V1-Deprecation", self.v2_work_item)
         self.assertIn("29/29 Kriterien", self.v2_work_item)
         self.assertIn("erneut 23/23 qualifiziert", self.v2_work_item)
+        self.assertEqual(self.artifacts["GATE-0013"]["status"], "done")
+        self.assertIn(
+            "WI-0013", self.relation_targets("GATE-0013", "depends_on")
+        )
+        self.assertIn(
+            "DONE — OPTION A / DUALEN VERTRAG STABIL HALTEN",
+            self.post_wi0013_gate,
+        )
+        self.assertIn("V1 bleibt Standard; V2 bleibt Opt-in", self.post_wi0013_gate)
+        self.assertIn("kein WI-0014", self.post_wi0013_gate)
+        self.assertIn(
+            "Kein neuer Produktarbeitsgegenstand ist registriert",
+            self.post_wi0013_gate,
+        )
 
 
 if __name__ == "__main__":
