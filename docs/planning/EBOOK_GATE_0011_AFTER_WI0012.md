@@ -1,12 +1,12 @@
 # GATE-0011: Fortsetzung nach WI-0012 ergebnisoffen bewerten
 
-Status: ENTSCHEIDUNGSBEREIT — AUSWAHL OFFEN
+Status: DONE — OPTION A / EXP-0011 AUSGEWÄHLT
 
 Stand: 2026-08-31
 
 Artifact: GATE-0011
 
-## Entscheidungslage
+## Auswahlentscheidung
 
 WI-0012 hat die sechs kritischen False Same der unveränderten
 EXP-0010-Qualitätsmatrix auf null reduziert. Der positive
@@ -16,10 +16,14 @@ qualifiziert.
 
 Damit ist die unmittelbar sicherheitsrelevante False-Same-Kaskade beendet.
 Dieser Erfolg entscheidet aber weder das öffentliche Metadatenmodell noch
-eine neue Identitätsstufe oder die nächste Produktfunktion. GATE-0011
-registriert deshalb ausschließlich die erneute Bewertung. Keine Option ist
-ausgewählt, kein EXP-0011 oder WI-0013 ist registriert und Produktcode bleibt
-unverändert.
+eine neue Identitätsstufe oder die nächste Produktfunktion.
+
+Der Nutzer hat am 2026-08-31 ausdrücklich Option A gewählt. Damit ist genau
+EXP-0011 als produktcodefreie Vertrags- und Evidenzwave angenommen. Die
+Optionen B, C, D, E, F und K bleiben nicht ausgewählt. Der akzeptierte
+[Experimentvertrag](EBOOK_IDENTITY_METADATA_CONTRACT_EXPERIMENT.md) vergleicht
+drei vorab gebundene Vertragsvarianten; er implementiert weder Produktcode
+noch ein öffentliches Schema oder eine neue Entscheidungsregel.
 
 ## Gebundener Restbefund
 
@@ -94,7 +98,7 @@ entscheidet noch kein Zielschema.
 - Erkenntnisnutzen: hoch für die offene Vertrags- und Stufenentscheidung;
 - Kopplung: niedrig;
 - Reversibilität: sehr hoch;
-- Einordnung: **empfohlen**, aber noch nicht ausgewählt.
+- Einordnung: **als EXP-0011 ausgewählt**.
 
 ### B — Engen Guardrail gegen die zwei False-Related-Restfälle umsetzen
 
@@ -158,7 +162,7 @@ Restabweichungen bestehen.
 
 | Option | direkter Nutzwert | Evidenzreife | Kopplung | Reversibilität | Bewertung |
 |---|---:|---:|---:|---:|---|
-| A — Vertrags-/Evidenzwave | mittelbar hoch | hoch für Fragestellung | niedrig | sehr hoch | empfohlen, Auswahl offen |
+| A — Vertrags-/Evidenzwave | mittelbar hoch | hoch für Fragestellung | niedrig | sehr hoch | als EXP-0011 ausgewählt |
 | B — Restfall-Guardrail | niedrig bis mittel | niedrig | niedrig | hoch | Überanpassungsrisiko |
 | C — Collection-Korrektur | mittel | mittel | mittel | mittel | fachlich richtig, partiell |
 | D — Metadatenmodell v2 | hoch | mittel | mittel bis hoch | mittel | nach Vertragsklärung |
@@ -166,7 +170,7 @@ Restabweichungen bestehen.
 | F — unabhängiger Qualitätsast | getrennt | offen | niedrig bis mittel | hoch | valide Umpriorisierung |
 | K — pausieren | keine neue Wirkung | ausreichend zum Stoppen | keine | vollständig | valider Ausstieg |
 
-## Empfehlung ohne Vorentscheidung
+## Auswahlbegründung
 
 Option A ist die kleinste belastbare Fortsetzung. Der Guardrail hat den
 kritischen Fehler bereits beendet; der verbleibende Engpass ist nun die
@@ -175,11 +179,11 @@ Gleichheitsfehler. Eine produktcodefreie Vergleichswave kann diese
 Unsicherheit reduzieren, ohne ein öffentliches v2-Schema oder eine
 Publikationsstufe vorwegzunehmen.
 
-Die Empfehlung ist keine Auswahl. Erst eine ausdrückliche Nutzerentscheidung
-schließt GATE-0011 und autorisiert die Registrierung genau eines getrennten
-Folgeartefakts. Auch bei Auswahl A wird EXP-0011 erst in einer eigenen
-Planungswave registriert, begrenzt und integriert, bevor eine Ausführung
-beginnt.
+Die ausdrückliche Auswahl schließt GATE-0011 und autorisiert ausschließlich
+Registrierung und Planung von EXP-0011. Der Experimentlauf beginnt erst in
+einer eigenen Ausführungswave aus dem danach verifizierten `origin/main`.
+Eine spätere Produktübernahme benötigt nach dem Experiment ein neues
+getrenntes Ergebnisgate.
 
 ## Kanten, die nicht überschritten werden
 
@@ -195,10 +199,11 @@ beginnt.
 
 ## Gate-Folgen
 
-- GATE-0011 bleibt `in_progress`, bis der Nutzer A, B, C, D, E, F oder K
-  ausdrücklich auswählt.
-- Empfehlung A registriert noch kein Experiment und ändert keinen
-  Produktcode.
-- Jede ausgewählte Folge benötigt einen eigenen registrierten Vertrag, eine
-  isolierte Wave und eine ihrem Risiko angemessene Abnahme.
+- GATE-0011 ist mit der ausdrücklichen Auswahl von A `done`.
+- EXP-0011 ist als eigener Experimentvertrag `accepted`, aber noch nicht
+  ausgeführt.
+- Kein Produktarbeitsgegenstand ist registriert und Produktcode bleibt
+  unverändert.
+- Die EXP-0011-Ausführung benötigt eine isolierte Wave und eine ihrem Risiko
+  angemessene Abnahme.
 - Bis dahin gilt der aktuelle WI-0012-v1-Vertrag unverändert.

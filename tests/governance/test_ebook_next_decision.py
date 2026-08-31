@@ -41,6 +41,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0011_AFTER_WI0012.md"
         ).read_text(encoding="utf-8")
+        cls.metadata_contract_experiment = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_IDENTITY_METADATA_CONTRACT_EXPERIMENT.md"
+        ).read_text(encoding="utf-8")
 
     def relation_targets(self, reference: str, relation_type: str) -> set[str]:
         return {
@@ -93,23 +99,42 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("Der Kern übergibt nur Snapshot-Bytes", self.work_item_plan)
         self.assertIn("providerneutralen Ergebnisumschlag", self.work_item_plan)
 
-    def test_post_wi0012_gate_is_open_without_follow_up_artifact(self) -> None:
-        self.assertEqual(self.artifacts["GATE-0011"]["status"], "in_progress")
+    def test_post_wi0012_gate_selects_experiment_without_product_work_item(self) -> None:
+        self.assertEqual(self.artifacts["GATE-0011"]["status"], "done")
         self.assertIn(
             "GATE-0010", self.relation_targets("GATE-0011", "depends_on")
         )
         self.assertIn(
             "WI-0012", self.relation_targets("GATE-0011", "depends_on")
         )
-        self.assertNotIn("EXP-0011", self.artifacts)
+        self.assertEqual(self.artifacts["EXP-0011"]["status"], "accepted")
+        self.assertIn(
+            "GATE-0011", self.relation_targets("EXP-0011", "depends_on")
+        )
+        self.assertIn(
+            "EXP-0010", self.relation_targets("EXP-0011", "derived_from")
+        )
         self.assertNotIn("WI-0013", self.artifacts)
-        self.assertIn("ENTSCHEIDUNGSBEREIT — AUSWAHL OFFEN", self.post_wi0012_gate)
+        self.assertIn(
+            "DONE — OPTION A / EXP-0011 AUSGEWÄHLT", self.post_wi0012_gate
+        )
         self.assertIn(
             "### A — Produktcodefreie Vertrags- und Evidenzwave",
             self.post_wi0012_gate,
         )
-        self.assertIn("noch nicht ausgewählt", self.post_wi0012_gate)
+        self.assertIn("als EXP-0011 ausgewählt", self.post_wi0012_gate)
         self.assertIn("### K — Pausieren", self.post_wi0012_gate)
+        self.assertIn("ACCEPTED — NOT EXECUTED", self.metadata_contract_experiment)
+        for heading in (
+            "### V1 — Unveränderter v1-Bericht plus Evidenzbegleiter",
+            "### V2 — Rollenbewusster Bericht v2 mit fünf Stufen",
+            "### V3 — Rollenbewusster Bericht v2 mit Publikationsstufe",
+        ):
+            self.assertIn(heading, self.metadata_contract_experiment)
+        self.assertIn("genau 15 Paare", self.metadata_contract_experiment)
+        self.assertIn("noch nicht implementiert", self.metadata_contract_experiment)
+        self.assertFalse((ROOT / "experiments" / "ebook" / "exp-0011").exists())
+        self.assertFalse((ROOT / "tools" / "experiments" / "run_exp_0011.py").exists())
 
 
 if __name__ == "__main__":
