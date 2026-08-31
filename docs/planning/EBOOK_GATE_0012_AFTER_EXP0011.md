@@ -1,10 +1,19 @@
 # GATE-0012: Fortsetzung nach EXP-0011 ergebnisoffen bewerten
 
-Status: READY — USER DECISION REQUIRED
+Status: DONE — OPTION A / WI-0013 AUSGEWÄHLT
 
 Stand: 2026-08-31
 
 Artifact: GATE-0012
+
+## Auswahlentscheidung
+
+Der Nutzer hat am 2026-08-31 ausdrücklich Option A ausgewählt. Damit ist
+GATE-0012 `done`. Der enge rollenbewusste V2-Zielvertrag wird getrennt als
+WI-0013 registriert. Diese Auswahl autorisiert ausschließlich dessen
+Planung und eine nach erfolgreicher Integration beginnende, begrenzte
+Implementierungswave. V1 bleibt zunächst unveränderter Standard; eine
+Deprecation oder Entfernung von V1 ist nicht ausgewählt.
 
 ## Gebundener Ergebnisstand
 
@@ -161,10 +170,11 @@ vertretbar. C ist die belastbarste Fortsetzung, wenn eine eigene
 Publikationsentscheidung fachlich wichtig ist. D besitzt ohne Produktregel
 noch keine proportionale Evidenzreife.
 
-Diese Bewertung ist keine Auswahl. GATE-0012 bleibt `in_progress`, bis der
-Nutzer A, B, C, D, F oder K ausdrücklich auswählt. Vorher wird weder ein
-Produktarbeitsgegenstand registriert noch Produktcode oder ein öffentliches
-Schema verändert.
+Mit der ausdrücklichen Auswahl von A ist diese Bewertung abgeschlossen.
+WI-0013 übernimmt ausschließlich den zusammenhängenden V2-Bericht mit den
+fünf bestehenden Produktstufen. B, C, D, F und K sind nicht ausgewählt.
+Insbesondere wird weder ein Evidenzbegleiter noch eine Publikationsstufe,
+Publikationsregel oder unabhängige Produktlinie autorisiert.
 
 ## Kanten, die nicht überschritten werden
 

@@ -53,6 +53,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0012_AFTER_EXP0011.md"
         ).read_text(encoding="utf-8")
+        cls.v2_work_item = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_IDENTITY_ROLE_AWARE_V2_WORK_ITEM.md"
+        ).read_text(encoding="utf-8")
         cls.exp0011_result = json.loads(
             (
                 ROOT
@@ -114,7 +120,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("Der Kern übergibt nur Snapshot-Bytes", self.work_item_plan)
         self.assertIn("providerneutralen Ergebnisumschlag", self.work_item_plan)
 
-    def test_post_wi0012_gate_selects_experiment_without_product_work_item(self) -> None:
+    def test_post_exp0011_gate_selects_bounded_v2_work_item(self) -> None:
         self.assertEqual(self.artifacts["GATE-0011"]["status"], "done")
         self.assertIn(
             "GATE-0010", self.relation_targets("GATE-0011", "depends_on")
@@ -129,11 +135,15 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn(
             "EXP-0010", self.relation_targets("EXP-0011", "derived_from")
         )
-        self.assertNotIn("WI-0013", self.artifacts)
-        self.assertEqual(self.artifacts["GATE-0012"]["status"], "in_progress")
+        self.assertEqual(self.artifacts["GATE-0012"]["status"], "done")
         self.assertIn(
             "EXP-0011", self.relation_targets("GATE-0012", "depends_on")
         )
+        self.assertEqual(self.artifacts["WI-0013"]["status"], "accepted")
+        for dependency in ("GATE-0012", "EXP-0011", "WI-0012", "TEST-0001"):
+            self.assertIn(
+                dependency, self.relation_targets("WI-0013", "depends_on")
+            )
         self.assertIn(
             "DONE — OPTION A / EXP-0011 AUSGEWÄHLT", self.post_wi0012_gate
         )
@@ -161,7 +171,9 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertTrue((ROOT / "tools" / "experiments" / "run_exp_0011.py").is_file())
         self.assertEqual("pass", self.exp0011_result["status"])
         self.assertTrue(all(self.exp0011_result["acceptance"].values()))
-        self.assertIn("READY — USER DECISION REQUIRED", self.post_exp0011_gate)
+        self.assertIn(
+            "DONE — OPTION A / WI-0013 AUSGEWÄHLT", self.post_exp0011_gate
+        )
         for heading in (
             "### A — V2 als engen Zielvertrag auswählen",
             "### B — V1 als additive Kompatibilitätsoption auswählen",
@@ -170,7 +182,16 @@ class EbookNextDecisionTests(unittest.TestCase):
             "### K — Pausieren",
         ):
             self.assertIn(heading, self.post_exp0011_gate)
-        self.assertIn("Diese Bewertung ist keine Auswahl", self.post_exp0011_gate)
+        self.assertIn("ausdrücklich Option A ausgewählt", self.post_exp0011_gate)
+        self.assertIn("ACCEPTED — NOT IMPLEMENTED", self.v2_work_item)
+        self.assertIn("--json --report-version v2", self.v2_work_item)
+        self.assertIn(
+            "sammlungslotse/ebook-identity-candidate-report/v2",
+            self.v2_work_item,
+        )
+        self.assertIn("genau die fünf Stufen", self.v2_work_item)
+        self.assertIn("Es entsteht keine Stufe `publication`", self.v2_work_item)
+        self.assertIn("keine V1-Deprecation", self.v2_work_item)
 
 
 if __name__ == "__main__":

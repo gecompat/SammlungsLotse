@@ -214,16 +214,16 @@ GATE-0010 und WI-0012 sind `done`. Der Guardrail ist synthetisch qualifiziert;
 EXP-0010 und seine Oracles blieben unverändert und sind über den historischen
 Git-Preimage-Validator weiterhin 12/12 prüfbar.
 
-GATE-0011 ist mit der ausdrücklichen Auswahl von Option A `done`. EXP-0011
-ist als produktcodefreie Vertrags- und Evidenzwave `accepted`, aber noch
-nicht ausgeführt. Der Vertrag vergleicht auf 15 bereits gebundenen
-synthetischen Paaren einen unveränderten v1-Bericht mit Evidenzbegleiter,
-einen rollenbewussten Fünf-Stufen-v2-Kandidaten und einen v2-Kandidaten mit
-Publikationsstufe. Bestehende Entscheidungen und Oracles bleiben
-unverändert; keine Variante ist als öffentliches Produktmodell ausgewählt.
-Nach Integration dieser Planungswave beginnt die Experimentimplementierung
-in einem neuen isolierten Worktree. Produktcode bleibt bis zu einem neuen
-Ergebnisgate gesperrt.
+GATE-0011 und EXP-0011 sind `done`. Der commitgebundene Doppellauf auf 15
+synthetischen Paaren bestand 14/14 Kriterien; alle drei Varianten bewahren
+Rollen, Provenienz und die fünf bestehenden Produktstufen. Der Nutzer hat in
+GATE-0012 ausdrücklich Option A gewählt. GATE-0012 ist `done`; WI-0013 ist
+als enger rollenbewusster V2-Zielvertrag `accepted`, aber noch nicht
+implementiert. V1 bleibt unveränderter Standard, während ausschließlich
+`--json --report-version v2` den neuen Bericht aktivieren darf. Eine
+Publikationsstufe, V1-Deprecation, Suche, Persistenz oder Writes sind nicht
+ausgewählt. Nach Integration und Post-Merge-Prüfung dieser Planungswave
+beginnt die Implementierung in einem neuen isolierten Worktree.
 
 ## Harte Grenzen
 
@@ -243,6 +243,7 @@ Ergebnisgate gesperrt.
 - Persistenz und Suche;
 - Deployment und UI;
 - konkrete REST- und Agent-Verträge;
+- V1-Deprecation oder -Entfernung sowie eine eigene Publikationsstufe;
 - konkrete FolioTone-Wiederverwendung;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - Accessibility- und externe Metadatenprovider-Adapter sowie weitere tiefe
