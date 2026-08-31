@@ -186,19 +186,21 @@ explizites Eingangs-EPUB wird gegen genau einen expliziten Calibre-Datensatz
 über einen providerneutralen Snapshot-Handoff und den unveränderten
 fünfstufigen WI-0009-Bericht verglichen. Die getrennte Implementierungswave
 ist abgeschlossen und auf dem eingefrorenen Preimage `d70c6de` mit 23/23
-ausschließlich synthetischen Kriterien qualifiziert. Automatische Suche,
-mehrere Dateien, IDs oder Bibliotheken, Persistenz und jede Bestandswirkung
-bleiben außerhalb. Vor einer weiteren Produktwave ist ein neues getrenntes
-Ergebnisgate erforderlich.
+ausschließlich synthetischen Kriterien qualifiziert. Nach WI-0012 wurde der
+abhängige Produktweg gegen den neuen Analyzer-Preimage `97017a2` erneut
+tatsächlich 23/23 qualifiziert. Automatische Suche, mehrere Dateien, IDs oder
+Bibliotheken, Persistenz und jede Bestandswirkung bleiben außerhalb. Vor einer
+weiteren Produktwave ist ein neues getrenntes Ergebnisgate erforderlich.
 
 GATE-0008 ist ausgewertet und EXP-0009 abgeschlossen. Der methodische
 Doppellauf bestand 12/12 Kriterien, qualifizierte den unveränderten
 WI-0009-Identitätsdienst auf der breiteren adversariellen Paarmatrix aber
 nicht: Ein Metadatenkollisionsfall erzeugte trotz widersprüchlicher
 Werkreferenzen je einen kritischen False-Same-Befund auf Ausgaben- und
-Werkebene. Der Befund bleibt offen; eine Produktkorrektur benötigt ein neues
-Ergebnisgate. Kandidatensuche, Architektur-, Provider-, Persistenz-, UI- und
-Writerentscheidungen bleiben offen.
+Werkebene. Der Befund blieb bis zu einem neuen Ergebnisgate offen. Dieses Gate
+wählte inzwischen WI-0012; dessen enger Guardrail beseitigt die kritischen
+Gleichheitsfreigaben. Kandidatensuche, Architektur-, Provider-, Persistenz-,
+UI- und Writerentscheidungen bleiben offen.
 
 GATE-0009 ist mit der ausdrücklichen Auswahl von Option A abgeschlossen. Es
 trennt die zwei
@@ -210,9 +212,12 @@ standardsgebundene, produktcodefreie Evidenzwave angenommen und ausgeführt.
 Die Methode bestand 12/12; sechs kritische False Same auf Ausgabe und Werk
 sowie drei getrennte semantische Fähigkeitslücken lassen die Produktqualität
 `not_qualified`. GATE-0010 hat nach ausdrücklicher Nutzerauswahl den engen
-Fail-safe-Guardrail als WI-0012 angenommen. Die Implementierung steht noch
-aus. Rollenbewusstes Metadatenmodell, Publikationsstufe, Collection-Semantik,
-unabhängige Fortsetzung und Pausieren bleiben getrennt offen.
+Fail-safe-Guardrail als WI-0012 angenommen. Die Implementierung ist
+abgeschlossen und mit 19/19 synthetischen Kriterien qualifiziert; die sechs
+kritischen False Same sind auf null reduziert. Zwei schwächere
+`candidate_related`-Werkabweichungen bleiben sichtbar. Rollenbewusstes
+Metadatenmodell, Publikationsstufe, Collection-Semantik, unabhängige
+Fortsetzung und Pausieren bleiben getrennt offen.
 
 ## Nicht übernehmen
 

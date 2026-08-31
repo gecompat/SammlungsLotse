@@ -43,7 +43,14 @@ zweite Prüfung kontrolliert die v2-Registry-Semantik.
 
 Für Produkt-, Governance- und Fixture-Code gelten:
 
-    python -m unittest discover -s tests -p "test_*.py"
+    python tools/run_repository_tests.py
+
+Der Repository-Testadapter entdeckt weiterhin die vollständige Testsuite. Er
+ersetzt ausschließlich die zwei eingefrorenen Ergebnisprüfungen von EXP-0009
+und EXP-0010, die absichtlich den jeweils damaligen aktuellen Produktstand
+erwarten, durch zwei gleichzählige Prüfungen gegen deren historisches
+Git-Preimage. Er bricht ab, falls einer der vier expliziten Test-IDs fehlt oder
+mehrfach vorkommt; alle übrigen entdeckten Tests laufen unverändert.
 
     python -m compileall -q \
       src/sammlungslotse \
@@ -56,6 +63,7 @@ Für Produkt-, Governance- und Fixture-Code gelten:
       tools/qualify_calibre_readonly_profile.py \
       tools/qualify_ebook_identity.py \
       tools/qualify_ebook_calibre_identity.py \
+      tools/run_repository_tests.py \
       tools/governance \
       tools/fixtures \
       tools/experiments \
@@ -158,28 +166,37 @@ Lauf ist unter `experiments/ebook/exp-0008/` dokumentiert.
 
 Für den eingecheckten empirischen EXP-0009-Nachweis gilt:
 
-    python tools/experiments/run_exp_0009.py --validate-result
+    python tools/experiments/validate_exp_0009_result.py
 
 Diese CI-geeignete Prüfung materialisiert keine EPUBs neu. Sie bindet Profil,
-Manifest, Runner und den vollständigen unveränderten Identitäts-
-Produktpreimage, berechnet alle Metriken und 12 methodischen
-Akzeptanzkriterien aus den zwei gespeicherten Wiederholungen neu und erzwingt
-die sichtbare Trennung zwischen methodisch bestandenem Experiment und
+Manifest und Runner an das historische Git-Preimage und prüft die
+unveränderten eingefrorenen Experimentdateien. Danach berechnet der
+eingefrorene Validator alle Metriken und 12 methodischen Akzeptanzkriterien
+aus den zwei gespeicherten Wiederholungen neu und erzwingt die sichtbare
+Trennung zwischen methodisch bestandenem Experiment und
 `not_qualified`-Produktqualität. Der vollständige synthetische Lauf ist unter
-`experiments/ebook/exp-0009/` dokumentiert.
+`experiments/ebook/exp-0009/` dokumentiert. Der ursprüngliche Aufruf
+`python tools/experiments/run_exp_0009.py --validate-result` bleibt nur im
+eingefrorenen Produktpreimage selbst grün, weil er absichtlich den damals
+aktuellen Produktcode bindet.
 
 Für den eingecheckten empirischen EXP-0010-Nachweis gilt:
 
-    python tools/experiments/run_exp_0010.py --validate-result
+    python tools/experiments/validate_exp_0010_result.py
 
 Diese CI-geeignete Prüfung materialisiert keine EPUBs und startet weder
-Container noch Netzwerkzugriffe. Sie bindet zehn vorab gebundene Paare, das
-vollständige Experiment- und WI-0009-Produktpreimage sowie das bestehende
-EPUBCheck-5.3.0-Profil. Aus den gespeicherten Ergebnissen berechnet sie zwölf
+Container noch Netzwerkzugriffe. Sie liest das vollständige historische
+Produktpreimage aus dem gebundenen Git-Commit, prüft die unveränderten
+Experimentdateien und verwendet danach den eingefrorenen EXP-0010-Validator.
+Damit bleiben zehn vorab gebundene Paare, EPUBCheck-5.3.0-Profil, zwölf
 methodische Kriterien, Konformitätserwartungen, fünfstufige Oraclematrix,
-Metriken, sechs kritische False Same und drei getrennte semantische
-Fähigkeitslücken neu. Der vollständige lokale Lauf ist unter
-`experiments/ebook/exp-0010/` dokumentiert.
+Metriken, sechs historische False Same und drei getrennte semantische
+Fähigkeitslücken auch nach späteren Produktänderungen prüfbar. Der
+vollständige lokale Lauf ist unter `experiments/ebook/exp-0010/`
+dokumentiert. Der ursprüngliche Aufruf
+`python tools/experiments/run_exp_0010.py --validate-result` bleibt nur im
+eingefrorenen Produktpreimage selbst grün, weil er absichtlich den damals
+aktuellen Produktcode bindet.
 
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
@@ -254,17 +271,28 @@ Task- und Container-Cleanup. Fehler-, Grenz-, Instabilitäts- und
 Recoveryverträge werden zusätzlich durch fokussierte synthetische
 Produkttests erzwungen.
 
-Für den eingecheckten WI-0009-Produktnachweis gilt zusätzlich:
+Für den aktuellen, mit WI-0012 fortgeschriebenen EPUB-Identitäts-
+Produktnachweis gilt zusätzlich:
 
     python tools/qualify_ebook_identity.py --validate-result
 
 Die CI-geeignete Prüfung startet keinen Container und benötigt kein Netzwerk.
-Sie bindet 16 erfüllte Kriterien an das vollständige Produktpreimage und fünf
-TEST-0001-Paare. Der zugrunde liegende tatsächliche Qualifikationslauf führt
-jeden JSON-Fall zweimal und die deutsche Ansicht einmal über den lokalen
-CLI-Prozess aus. Er prüft Ebenentrennung, Evidenzkanäle, Determinismus,
-Pfadfreiheit, unveränderte Fixture-Hashes, fehlende Produktwirkungen und null
-falsche Gleichheitskandidaten in den gebundenen Negativfällen.
+Sie bindet 19 erfüllte Kriterien und den Preimage-Commit an fünf
+TEST-0001-Paare sowie acht konforme Qualitätsfälle aus dem unveränderten
+EXP-0010-Fallmanifest. Der zugrunde liegende tatsächliche
+Qualifikationslauf lautet:
+
+    python tools/qualify_ebook_identity.py \
+      --temp-root C:\rep\tmp\SammlungsLotse\wi-0012-qualification
+
+Er führt jeden der dreizehn JSON-Fälle zweimal und die deutsche Ansicht
+einmal über den lokalen CLI-Prozess aus. Er prüft Ebenentrennung,
+Evidenzkanäle, öffentliches v1-Schema, Determinismus, Pfadfreiheit,
+unveränderte Eingänge, vollständiges Task-Cleanup, fehlende
+Produktwirkungen und null kritische False Same. Zwei verbleibende
+`candidate_related`-Werkabweichungen bleiben im Nachweis ausdrücklich
+sichtbar und sind keine vollständige Qualifikation der noch flachen
+Identifier-/Collection-Semantik.
 
 Für den eingecheckten WI-0011-Produktnachweis gilt zusätzlich:
 
@@ -279,12 +307,19 @@ Outputlimit, Timeout, Unterbrechung und Recovery aus. Er prüft Pfadfreiheit,
 Bytegleichheit, Rollen, fünf Identitätsebenen, Quellunverändertheit und
 vollständiges Task- und Container-Cleanup.
 
+Nach der WI-0012-Guardrail-Änderung wurde dieser abhängige Produktweg gegen
+den neuen Analyzer-Preimage-Commit
+`97017a2f33b314a6623685a2d07c9638babc0f40` erneut tatsächlich qualifiziert.
+Der aktuelle eingecheckte Nachweis mit SHA-256
+`8c4120cbcdf21524674a17a906f44226df9194a11c1189dc8bdfad20c47f9b2e`
+bestand weiterhin 23/23 Kriterien.
+
 Der tatsächliche ausschließlich synthetische Podman-Lauf verwendet neue
 kontrollierte Pfade unter `C:\rep`:
 
     python tools/qualify_ebook_calibre_identity.py \
-      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0011-qualification \
-      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0011-qualification
+      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0012-wi0011-requalification \
+      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0012-wi0011-requalification
 
 Qualifikations- und Evidenzziel müssen neue strikte Unterpfade sein. Die
 Taskwurzel wird vollständig entfernt; die 22 pfadfreien stdout-/stderr-

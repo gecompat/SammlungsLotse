@@ -1,6 +1,6 @@
 # GATE-0010: Produktfortsetzung nach EXP-0010 bewerten
 
-Status: AUSGEWERTET — OPTION A / WI-0012 AUSGEWÄHLT
+Status: AUSGEWERTET — OPTION A / WI-0012 AUSGEFÜHRT
 
 Stand: 2026-08-31
 
@@ -63,12 +63,12 @@ Damit entstanden sechs kritische False Same. Die Precision von
 
 ### Unmittelbar entscheidungswirksame Ursache
 
-`identity.edition.identifier_title` behandelt jeden überlappenden
-`dc:identifier` zusammen mit Titel- und Creator-Überlappung als
-`candidate_same`. Die Regel unterscheidet weder primäre von zusätzlichen
-Identifiern noch verlangt sie kompatible Repräsentationsevidenz. Der
-Werkentscheid `identity.work.same_edition` übernimmt diese Ausgabengleichheit
-anschließend unverändert.
+Die vor WI-0012 aktive Regel `identity.edition.identifier_title` behandelte
+jeden überlappenden `dc:identifier` zusammen mit Titel- und Creator-
+Überlappung als `candidate_same`. Die Regel unterscheidet weder primäre von
+zusätzlichen Identifiern noch verlangt sie kompatible
+Repräsentationsevidenz. Der Werkentscheid `identity.work.same_edition`
+übernimmt diese Ausgabengleichheit anschließend unverändert.
 
 Diese Kaskade erklärt alle sechs kritischen Befunde der konformen Matrix.
 
@@ -187,11 +187,22 @@ bleiben dadurch möglich und werden nicht vorentschieden.
 ## Gate-Folgen
 
 - GATE-0010 ist mit der ausdrücklichen Auswahl von A `done`.
-- WI-0012 ist als eigener Arbeitsgegenstand `accepted`.
-- Produktcode beginnt erst nach Merge dieser Planungs-Wave nach `main`.
+- WI-0012 wurde als eigener Arbeitsgegenstand angenommen und ist inzwischen
+  `done` sowie 19/19 synthetisch qualifiziert.
 - EXP-0010, seine Falloracles und sein Ergebnis werden nicht umgeschrieben.
 - Die geringere Ausgabenabdeckung bleibt als bewusster Trade-off sichtbar.
 - Metadatenmodell v2, Publikationsstufe und Collection-Semantik benötigen
   später eine eigene Entscheidung.
 - Nach WI-0012 wird erneut getrennt bewertet; keine weitere Produktwave wird
   durch dieses Gate vorweggenommen.
+
+## Ergebnis der ausgewählten Wave
+
+WI-0012 reduzierte die sechs kritischen False Same der unveränderten
+EXP-0010-Qualitätsmatrix auf null. Der positive Gleichrepräsentationsfall
+blieb `candidate_same`. Zwei `candidate_related`-Werkabweichungen bleiben als
+Restbefunde der nicht übernommenen rollenbewussten Metadaten- und
+Collection-Semantik sichtbar. Das öffentliche v1-Berichtsschema blieb
+unverändert; EXP-0010 und seine Oracles wurden nicht umgeschrieben. Der
+abhängige WI-0011-Calibre-Identitätsweg blieb nach tatsächlicher
+Requalifikation auf demselben Analyzer-Preimage mit 23/23 Kriterien gültig.

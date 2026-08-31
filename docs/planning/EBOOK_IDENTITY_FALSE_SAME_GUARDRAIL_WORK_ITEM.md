@@ -1,6 +1,6 @@
 # WI-0012: False-Same-Guardrail für den EPUB-Identitätsbericht umsetzen
 
-Status: ANGENOMMEN — IMPLEMENTIERUNG AUSSTEHEND
+Status: DONE — SYNTHETISCH QUALIFIZIERT
 
 Stand: 2026-08-31
 
@@ -114,8 +114,8 @@ WI-0012 ist erst `done`, wenn:
 12. Eingänge unverändert bleiben und Produktcode weder Netzwerk-,
     Persistenz-, Fachsystem- noch Writerfähigkeit erhält;
 13. EXP-0010-Ergebnis, Falloracles und Preimage unverändert bleiben und
-    `python tools/experiments/run_exp_0010.py --validate-result` weiterhin
-    erfolgreich ist;
+    `python tools/experiments/validate_exp_0010_result.py` weiterhin
+    erfolgreich gegen den gebundenen historischen Git-Commit ist;
 14. fokussierte Produkt- und Experimenttests sowie vollständige
     Repository-, Registry-, TEST-0001-, Produktnachweis-, `compileall`,
     `git diff --check`- und Foundation-Regression erfolgreich sind;
@@ -130,6 +130,48 @@ Collection-Semantik, Änderung der EXP-0010-Oracles, neue Eingaben oder
 Provider, Calibre-Erweiterung, automatische Suche, Verzeichnissuche,
 Persistenz, Index, Routing, Browser, REST, Agents, KI-Ähnlichkeit,
 bestätigte Dublette oder jede schreibende Bestandsoperation.
+
+## Ausführungsergebnis
+
+Der Guardrail wurde auf dem commitgebundenen Produktpreimage
+`97017a2f33b314a6623685a2d07c9638babc0f40` umgesetzt. Die
+Ausgabenentscheidung `identity.edition.identifier_representation_metadata`
+setzt nun gleiche Repräsentation zusätzlich zu Identifier-, Titel- und
+Creator-Evidenz voraus. Bei verschiedener Repräsentation bleiben die
+gebundenen Konfliktfälle auf Ausgabenebene `abstain`; Werkgleichheit wird
+nicht mehr aus ihnen übernommen.
+
+Der aktuelle v2-Produktnachweis unter
+`runtime/ebook-identity/qualification.json` besitzt SHA-256
+`e92b4ecac1ed971b6e5dffab84c520203bb1e78e38b21afafcfba08c5406ed0c`
+und bestand 19/19 Kriterien. Fünf TEST-0001-Paare und acht konforme
+EXP-0010-Qualitätsfälle liefen je zweimal über den tatsächlichen JSON-CLI-
+Prozess; die deutsche Ansicht wurde zusätzlich ausgeführt. Eingänge blieben
+unverändert, beide Wiederholungen waren byteidentisch, Output blieb pfadfrei
+und der kontrollierte Task-Root wurde vollständig geleert.
+
+Die sechs historischen kritischen False Same sind auf null reduziert. Der
+Positivfall `same-primary-minor-revision` bleibt auf Repräsentations-,
+Ausgaben- und Werkebene `candidate_same`. Zwei schwächere Werkabweichungen
+bleiben sichtbar: `same-primary-strong-content-conflict` und
+`shared-untyped-additional-different-primary` liefern weiterhin
+`candidate_related`, obwohl ihre Werkoracles nur `different` oder `abstain`
+erlauben. Diese Restbefunde gehören zur nicht übernommenen rollenbewussten
+Metadaten-/Collection-Semantik und sind keine kritischen Gleichheitsfreigaben.
+
+EXP-0010, seine Oracles und sein ursprünglicher Runner blieben bytegenau
+unverändert. Der neue historische Validator prüfte das gespeicherte Ergebnis
+gegen den eingefrorenen Git-Commit erneut mit 12/12 methodischen Kriterien
+und dem historischen Qualitätsurteil `not_qualified`.
+
+Der von WI-0012 abhängige WI-0011-Calibre-Identitätsweg wurde anschließend
+mit dem exakten Calibre-9.13.0-Image erneut tatsächlich ausgeführt. Sein
+aktueller Nachweis bindet denselben Analyzer-Preimage-Commit `97017a2`, besitzt
+SHA-256
+`8c4120cbcdf21524674a17a906f44226df9194a11c1189dc8bdfad20c47f9b2e`
+und bestand weiterhin 23/23 Kriterien einschließlich Repackaging,
+Negativfällen, Grenzen, Recovery sowie vollständigem Task- und
+Container-Cleanup.
 
 ## Ausführungsreihenfolge
 

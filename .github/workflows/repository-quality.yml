@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
@@ -42,19 +44,19 @@ jobs:
       - name: Validate EXP-0007 empirical result contract
         run: python tools/experiments/run_exp_0007.py --validate-result
       - name: Validate EXP-0009 empirical result contract
-        run: python tools/experiments/run_exp_0009.py --validate-result
+        run: python tools/experiments/validate_exp_0009_result.py
       - name: Validate EXP-0010 empirical result contract
-        run: python tools/experiments/run_exp_0010.py --validate-result
+        run: python tools/experiments/validate_exp_0010_result.py
       - name: Validate WI-0005 product qualification result
         run: python tools/qualify_ebook_deep_profile.py --validate-result
       - name: Validate WI-0007 product qualification result
         run: python tools/qualify_calibre_readonly_profile.py --validate-result
-      - name: Validate WI-0009 product qualification result
+      - name: Validate current EPUB identity product qualification result
         run: python tools/qualify_ebook_identity.py --validate-result
       - name: Validate WI-0011 product qualification result
         run: python tools/qualify_ebook_calibre_identity.py --validate-result
       - name: Run repository tests
-        run: python -m unittest discover -s tests -p "test_*.py"
+        run: python tools/run_repository_tests.py
       - name: Compile Python sources and tools
         run: >-
           python -m compileall -q
@@ -70,6 +72,7 @@ jobs:
           tools/qualify_calibre_readonly_profile.py
           tools/qualify_ebook_identity.py
           tools/qualify_ebook_calibre_identity.py
+          tools/run_repository_tests.py
           .ai/foundation/artifact_registry_github
           tools/governance
           tools/fixtures

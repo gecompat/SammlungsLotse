@@ -123,7 +123,9 @@ kleinste read-only Produktwave `done`: genau ein Eingangs-EPUB, eine
 Bibliothek und eine externe Calibre-ID, providerneutraler Snapshot-Handoff,
 unveränderter fünfstufiger Identitätsbericht und keine Bestandsaktion. Der
 eingecheckte Nachweis bindet das Preimage `d70c6de` und bestand 23/23
-ausschließlich synthetische Kriterien.
+ausschließlich synthetische Kriterien. Nach WI-0012 wurde der abhängige Weg
+gegen den neuen Analyzer-Preimage `97017a2` tatsächlich erneut 23/23
+qualifiziert.
 
 ## Fortsetzung
 
@@ -169,26 +171,30 @@ CLI liegen unter `src/sammlungslotse/ebook_calibre_identity/` und
 `tools/run_ebook_calibre_identity.py`; Profil und 23/23-Produktnachweis unter
 `runtime/ebook-calibre-identity/`. Der tatsächliche Lauf belegte
 Bytegleichheit, Repackaging, Enthaltung, Grenzen, Recovery und vollständiges
-Cleanup. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken,
-Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben
-außerhalb. Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
+Cleanup. Nach der WI-0012-Guardrail-Änderung bestand der aktuelle Nachweis
+gegen Preimage `97017a2` und das unveränderte Calibre-9.13.0-Image erneut
+23/23 Kriterien. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken,
+Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben außerhalb.
+Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
 
-WI-0012 ist als nächste kleine Produktwave angenommen. Der öffentliche
-WI-0009-v1-Berichtsvertrag und die fünf Ebenen bleiben unverändert;
-`candidate_same` auf Ausgabenebene benötigt künftig zusätzlich gleiche
-Repräsentation und kompatible Metadaten. Die sechs EXP-0010-False-Same-
-Befunde müssen entfallen, ohne EXP-0010 oder seine Oracles umzuschreiben.
+WI-0012 ist abgeschlossen. Der öffentliche WI-0009-v1-Berichtsvertrag und
+die fünf Ebenen blieben unverändert; `candidate_same` auf Ausgabenebene
+benötigt jetzt zusätzlich gleiche Repräsentation und kompatible Metadaten.
+Der aktuelle v2-Produktnachweis bindet den Preimage-Commit `97017a2`, fünf
+TEST-0001-Paare und acht konforme EXP-0010-Qualitätsfälle. Er bestand 19/19
+Kriterien und reduzierte die sechs kritischen False Same auf null. Zwei
+`candidate_related`-Werkabweichungen bleiben ausdrücklich sichtbar.
 Metadatenmodell v2, Publikationsstufe, Collection-Neumodellierung, Suche,
 Persistenz und Writes bleiben außerhalb.
 
 GATE-0008 ist ausgewertet und EXP-0009 abgeschlossen. Zwei unabhängige Läufe
 über 18 vorab gebundene synthetische Paare erfüllten 12/12 methodische
-Kriterien. Die Produktqualität ist `not_qualified`: Der Fall
+Kriterien. Die damalige Produktqualität war `not_qualified`: Der Fall
 `metadata-collision-work-conflict` erzeugte trotz verschiedener Inhalte und
 widersprüchlicher Werkreferenzen `candidate_same` auf Ausgaben- und
-Werkebene. Beide kritischen False-Same-Befunde bleiben offen; Produktcode
-wurde nicht verändert. Vor einer Korrektur oder anderen Folge ist ein neues
-Ergebnisgate erforderlich. Kandidatensuche, Architektur, Provider,
+Werkebene. Das Experiment selbst veränderte keinen Produktcode; der später
+ausgewählte WI-0012-Guardrail beseitigt diese kritischen Freigaben, ohne den
+historischen Befund umzuschreiben. Kandidatensuche, Architektur, Provider,
 Persistenz, UI, API, Agents und Writers bleiben unentschieden.
 
 GATE-0009 ist mit der ausdrücklichen Auswahl von Option A abgeschlossen. Die
@@ -204,8 +210,10 @@ abgewiesen und beide Produktwiederholungen waren semantisch identisch. Die
 Produktqualität ist wegen sechs kritischer False Same auf Ausgabe und Werk
 `not_qualified`. Publikationsstufe, Identifier-Rollen und Collection-Semantik
 fehlen getrennt. Der Nutzer hat für GATE-0010 ausdrücklich Option A gewählt.
-GATE-0010 ist `done`; WI-0012 ist als enger False-Same-Guardrail `accepted`.
-Produktcode beginnt erst nach Integration dieser Planungs-Wave nach `main`.
+GATE-0010 und WI-0012 sind `done`. Der Guardrail ist synthetisch qualifiziert;
+EXP-0010 und seine Oracles blieben unverändert und sind über den historischen
+Git-Preimage-Validator weiterhin 12/12 prüfbar. Vor einer weiteren
+Produktwave ist ein neues getrenntes Ergebnisgate erforderlich.
 
 ## Harte Grenzen
 
