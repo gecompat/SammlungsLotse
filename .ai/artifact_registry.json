@@ -568,6 +568,64 @@
       "status": "done",
       "title": "Begrenzte Calibre-Kandidatensuche produktcodefrei qualifizieren"
     },
+    "EXP-0013": {
+      "acceptance_criteria": "Der Hauptlauf akzeptiert ausschließlich genau die drei vom Nutzer erneut explizit bestätigten privaten EPUB-Dateien mit gebundenen Einzel- und Summengrößen ohne Verzeichnissuche, verarbeitet nur task-private read-only Kopien und aggregiert aus dem unveränderten WI-0011-Weg ausschließlich pfadfreie Reason-Code- und Eintrittsstufenhäufigkeiten; synthetische Kontrollen binden Aggregation, Mindestmenge, Fail-closed-Verhalten, Quellunverändertheit und Cleanup, während private Dateien, Metadaten, Pfade, Hashes und Rohoutputs, Netzwerk, direkte metadata.db-Nutzung, Persistenz, Produktcode und Bestandswirkungen ausgeschlossen bleiben.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a059c3-0c98-77ca-ae40-a3c993220389",
+      "created_on": "2026-08-31",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_PRIVATE_WI0011_NONCOMPLETION_DIAGNOSTIC_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0015",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0012",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0007",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0012",
+          "type": "derived_from"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Private WI-0011-Nichtabschlussgründe produktcodefrei diagnostizieren"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -1251,7 +1309,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "Ergebnis von EXP-0012 und private Praxisevidenz bewerten"
     },
     "REQ-0001": {

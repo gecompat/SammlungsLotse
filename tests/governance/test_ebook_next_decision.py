@@ -83,6 +83,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0015_AFTER_EXP0012.md"
         ).read_text(encoding="utf-8")
+        cls.private_noncompletion_experiment = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_PRIVATE_WI0011_NONCOMPLETION_DIAGNOSTIC_EXPERIMENT.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -307,7 +313,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "eligible_with_tradeoffs",
             self.exp0012_result["metrics"]["variants"]["V3"]["classification"],
         )
-        self.assertEqual(self.artifacts["GATE-0015"]["status"], "proposed")
+        self.assertEqual(self.artifacts["GATE-0015"]["status"], "done")
         self.assertIn(
             "EXP-0012", self.relation_targets("GATE-0015", "depends_on")
         )
@@ -320,8 +326,49 @@ class EbookNextDecisionTests(unittest.TestCase):
             "### K — Pausieren",
         ):
             self.assertIn(heading, self.post_exp0012_gate)
-        self.assertIn("A ist empfohlen, aber nicht ausgewählt", self.post_exp0012_gate)
+        self.assertIn(
+            "Option A am 2026-08-31 ausdrücklich ausgewählt",
+            self.post_exp0012_gate,
+        )
         self.assertIn("0/3 WI-0011-Vergleiche", self.post_exp0012_gate)
+        self.assertEqual(self.artifacts["EXP-0013"]["status"], "accepted")
+        for dependency in (
+            "GATE-0015",
+            "EXP-0012",
+            "WI-0011",
+            "WI-0007",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("EXP-0013", "depends_on")
+            )
+        self.assertIn(
+            "ACCEPTED — NOT EXECUTED", self.private_noncompletion_experiment
+        )
+        self.assertIn(
+            "genau drei wiederholte", self.private_noncompletion_experiment
+        )
+        self.assertIn(
+            "keine Verzeichnis-, Glob-, Index- oder rekursive Suche",
+            self.private_noncompletion_experiment,
+        )
+        self.assertIn(
+            "alle drei Dateien zusammen höchstens 12 MiB",
+            self.private_noncompletion_experiment,
+        )
+        self.assertIn(
+            "reason_code_counts", self.private_noncompletion_experiment
+        )
+        self.assertIn(
+            "entry_stage_counts", self.private_noncompletion_experiment
+        )
+        self.assertIn(
+            "keine Änderung unter `src/sammlungslotse/`",
+            self.private_noncompletion_experiment,
+        )
+        self.assertIn(
+            "ein neues getrenntes Gate", self.private_noncompletion_experiment
+        )
 
 
 if __name__ == "__main__":
