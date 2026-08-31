@@ -214,14 +214,16 @@ GATE-0010 und WI-0012 sind `done`. Der Guardrail ist synthetisch qualifiziert;
 EXP-0010 und seine Oracles blieben unverändert und sind über den historischen
 Git-Preimage-Validator weiterhin 12/12 prüfbar.
 
-GATE-0011 ist als getrenntes Ergebnisgate registriert und
-entscheidungsbereit. Es trennt die zwei schwächeren `candidate_related`-
-Werkabweichungen von der irreführend eingeebneten Collection-Semantik, den
-fehlenden Identifier-Rollen und der fehlenden Publikationsstufe. Option A,
-eine produktcodefreie Vertrags- und Evidenzwave, ist empfohlen, aber noch
-nicht ausgewählt. A, B, C, D, E, F und K bleiben offen; weder EXP-0011 noch
-WI-0013 ist registriert. Die nächste zulässige Aktion ist die ausdrückliche
-Nutzerauswahl, nicht Produktimplementierung.
+GATE-0011 ist mit der ausdrücklichen Auswahl von Option A `done`. EXP-0011
+ist als produktcodefreie Vertrags- und Evidenzwave `accepted`, aber noch
+nicht ausgeführt. Der Vertrag vergleicht auf 15 bereits gebundenen
+synthetischen Paaren einen unveränderten v1-Bericht mit Evidenzbegleiter,
+einen rollenbewussten Fünf-Stufen-v2-Kandidaten und einen v2-Kandidaten mit
+Publikationsstufe. Bestehende Entscheidungen und Oracles bleiben
+unverändert; keine Variante ist als öffentliches Produktmodell ausgewählt.
+Nach Integration dieser Planungswave beginnt die Experimentimplementierung
+in einem neuen isolierten Worktree. Produktcode bleibt bis zu einem neuen
+Ergebnisgate gesperrt.
 
 ## Harte Grenzen
 

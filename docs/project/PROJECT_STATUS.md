@@ -52,12 +52,13 @@ qualifiziert. Die sechs kritischen False Same sind auf null reduziert; zwei
 schwächere `candidate_related`-Werkabweichungen bleiben sichtbar. Der davon
 abhängige WI-0011-Calibre-Identitätsweg wurde gegen den neuen Analyzer-
 Preimage `97017a2` tatsächlich erneut mit 23/23 Kriterien qualifiziert.
-GATE-0011 ist nun als getrenntes Ergebnisgate registriert und
-entscheidungsbereit. Es trennt die zwei schwächeren `candidate_related`-
-Werkabweichungen von Identifier-Rollen, Collection-Provenienz und fehlender
-Publikationsstufe. Eine produktcodefreie Vertrags- und Evidenzwave ist als
-kleinste reversible Fortsetzung empfohlen; die Auswahl bleibt offen und es
-ist kein Folgeartefakt registriert.
+GATE-0011 ist nach ausdrücklicher Auswahl von Option A abgeschlossen.
+EXP-0011 ist als produktcodefreie Vertrags- und Evidenzwave `accepted`, aber
+noch nicht ausgeführt. Der Vertrag vergleicht genau drei Varianten auf 15
+bereits gebundenen synthetischen Paaren und trennt Rollenverlust,
+Collection-Provenienz, Publikationsausdruck, Entscheidungstreue und
+Migrationsfläche. Ein öffentliches Schema, Produktmodell oder eine neue
+Entscheidungsregel ist nicht ausgewählt.
 
 ## Vorhanden
 
@@ -255,9 +256,11 @@ ist kein Folgeartefakt registriert.
 - zwei sichtbare verbleibende Werk-Oracledifferenzen mit
   `candidate_related`, die nicht als vollständige Qualifikation der flachen
   Identifier- oder Collection-Semantik dargestellt werden;
-- registriertes, entscheidungsbereites GATE-0011 mit sieben getrennten
-  Fortsetzungen, Empfehlung A ohne Vorentscheidung und unverändertem
-  Produktcode.
+- abgeschlossenes GATE-0011 mit ausdrücklicher Auswahl der produktcodefreien
+  Vertrags- und Evidenzwave;
+- akzeptierter EXP-0011-Vertrag für genau drei experimentelle
+  Vertragsvarianten, 15 gebundene synthetische Paare, unveränderte aktuelle
+  Entscheidungen und weiterhin unveränderten Produktcode.
 
 ## Nicht vorhanden
 
@@ -272,6 +275,22 @@ ist kein Folgeartefakt registriert.
 - Release.
 
 ## Validierung
+
+GATE-0011-Auswahl- und EXP-0011-Planungswave: PROJECT_SEMANTIC, bestehende
+RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
+2026-08-31 unter Windows und Python 3.12.10. Repository- und v2-Registry-
+Prüfung waren für 43 Artefakte erfolgreich. TEST-0001 bestätigte 30 Fälle
+und 49 Komponenten; EXP-0002 bis EXP-0007, die historischen EXP-0009- und
+EXP-0010-Ergebnisse sowie die eingecheckten WI-0005-, WI-0008-, WI-0011-
+und WI-0012-Produktnachweise blieben gültig. Der kontrollierte Testlauf
+entdeckte 178 Tests, ersetzte genau zwei veraltete Current-Preimage-
+Ergebnisprüfungen eins zu eins durch Historical-Preimage-Prüfungen und
+führte 176 Tests erfolgreich aus. `compileall` und `git diff --check` waren
+erfolgreich. FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler
+und 0 Blocker. Dies belegt Auswahl, Registrierung und Begrenzung von
+EXP-0011, nicht die noch ausstehende Experimentausführung, einen führenden
+Variantenbefund oder eine Produktübernahme.
 
 GATE-0011-Ergebnisgate-Wave: PROJECT_SEMANTIC, bestehende
 RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
@@ -905,12 +924,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 ## Nächster Schritt
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010 und WI-0012 sind
-abgeschlossen. GATE-0011 ist entscheidungsbereit und trennt den beseitigten
-kritischen False-Same-Befund von den zwei verbleibenden `candidate_related`-
-Werkabweichungen sowie den offenen Rollen-, Collection- und
-Publikationsfragen. Als kleinste reversible Fortsetzung ist A, eine
-produktcodefreie Vertrags- und Evidenzwave, empfohlen. A, B, C, D, E, F und
-K bleiben auswählbar; keine Folge ist angenommen oder registriert.
+abgeschlossen. GATE-0011 hat Option A ausdrücklich ausgewählt und EXP-0011
+ist als produktcodefreier Vertrag angenommen. Nach Integration und
+Post-Merge-Verifikation dieser Planungswave wird EXP-0011 in einem neuen
+isolierten Worktree implementiert und erst aus einem sauberen,
+commitgebundenen Preimage ausgeführt. Das Ergebnis benötigt vor jeder
+Produktübernahme ein neues getrenntes Ergebnisgate.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

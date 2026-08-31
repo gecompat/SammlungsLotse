@@ -39,6 +39,7 @@ Experimente und spätere Entscheidungen:
 - [GATE-0010: Produktfortsetzung nach EXP-0010 bewerten](EBOOK_GATE_0010_AFTER_EXP0010.md);
 - [WI-0012: False-Same-Guardrail für den EPUB-Identitätsbericht](EBOOK_IDENTITY_FALSE_SAME_GUARDRAIL_WORK_ITEM.md);
 - [GATE-0011: Fortsetzung nach WI-0012 ergebnisoffen bewerten](EBOOK_GATE_0011_AFTER_WI0012.md);
+- [EXP-0011: rollenbewusste Metadaten- und Identitätsverträge vergleichen](EBOOK_IDENTITY_METADATA_CONTRACT_EXPERIMENT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -220,13 +221,14 @@ kritischen False Same sind auf null reduziert. Zwei schwächere
 Metadatenmodell, Publikationsstufe, Collection-Semantik, unabhängige
 Fortsetzung und Pausieren bleiben getrennt offen.
 
-GATE-0011 ist als getrenntes Ergebnisgate registriert und
-entscheidungsbereit. Es hält die zwei schwächeren `candidate_related`-
-Werkabweichungen von Identifier-Rollen, Collection-Provenienz und fehlender
-Publikationsstufe auseinander. Option A, eine produktcodefreie Vertrags- und
-Evidenzwave, ist als kleinste reversible Fortsetzung empfohlen; die Auswahl
-bleibt ausdrücklich offen. Es ist weder ein Folgeexperiment noch ein
-Arbeitsgegenstand registriert oder freigegeben.
+GATE-0011 ist mit der ausdrücklichen Auswahl von Option A abgeschlossen.
+EXP-0011 ist als genau eine produktcodefreie Vertrags- und Evidenzwave
+angenommen, aber noch nicht ausgeführt. Der gebundene Vertrag vergleicht einen
+unveränderten v1-Bericht mit Evidenzbegleiter, einen rollenbewussten
+Fünf-Stufen-v2-Kandidaten und einen v2-Kandidaten mit Publikationsstufe. Er
+wählt noch kein öffentliches Schema oder Produktmodell. Produktcode,
+bestehende Oracles und Qualifikationsnachweise bleiben unverändert; vor einer
+Ausführung wird die Planungswave getrennt integriert und post-merge geprüft.
 
 ## Nicht übernehmen
 
