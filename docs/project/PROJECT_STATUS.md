@@ -58,9 +58,12 @@ commitgebundene Lauf bestand 14/14 Kriterien auf genau 15 synthetischen
 Paaren; V1, V2 und V3 verlieren auf der EXP-0010-Rollenmatrix null Felder,
 decken jeweils 145/145 Werte mit Provenienz ab und erhalten alle fünf
 Produktstufen unverändert. Alle Varianten sind
-`eligible_with_tradeoffs`. GATE-0012 ist entscheidungsbereit und bleibt bis
-zur ausdrücklichen Nutzerauswahl `in_progress`; ein öffentliches Schema,
-Produktmodell, eine Publikationsregel oder Produktwave ist nicht ausgewählt.
+`eligible_with_tradeoffs`. Der Nutzer hat in GATE-0012 ausdrücklich Option A
+gewählt. GATE-0012 ist `done`; WI-0013 ist als enger rollenbewusster
+V2-Zielvertrag `accepted`, aber noch nicht implementiert. V1 bleibt
+unveränderter Standard, V2 wird ausschließlich explizit aktiviert und behält
+die fünf vorhandenen Produktstufen. Publikationsstufe und V1-Deprecation sind
+nicht ausgewählt.
 
 ## Vorhanden
 
@@ -265,9 +268,11 @@ Produktmodell, eine Publikationsregel oder Produktwave ist nicht ausgewählt.
   gebundenen synthetischen Paaren, zwei identischen semantischen
   Wiederholungen, null Rollenverlust, 145/145 Provenienzwerten je Variante,
   unveränderten aktuellen Entscheidungen und unverändertem Produktcode;
-- entscheidungsbereites GATE-0012 mit getrennten Optionen für V2, additiven
-  V1-Begleiter, ein Publikationsregel-Experiment, direkte V3-Auswahl,
-  unabhängige Fortsetzung und Pausieren, ohne automatische Zielauswahl.
+- abgeschlossenes GATE-0012 mit ausdrücklicher Auswahl des engen
+  rollenbewussten V2-Zielvertrags;
+- akzeptierter, noch nicht implementierter WI-0013-Vertrag mit
+  bytekompatiblem V1-Standardpfad, explizitem V2-Opt-in, fünf unveränderten
+  Entscheidungsstufen und synthetischem Qualifikationsvertrag.
 
 ## Nicht vorhanden
 
@@ -282,6 +287,18 @@ Produktmodell, eine Publikationsregel oder Produktwave ist nicht ausgewählt.
 - Release.
 
 ## Validierung
+
+GATE-0012-Auswahl- und WI-0013-Planungswave: PROJECT_SEMANTIC, bestehende
+RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
+2026-08-31 unter Windows und Python 3.12.10. Repository- und v2-Registry-
+Prüfung waren für 45 Artefakte erfolgreich. Der kontrollierte Testlauf
+entdeckte 185 Tests, ersetzte genau drei Current-Preimage-Ergebnisprüfungen
+durch Historical-Preimage-Prüfungen und führte 182 Tests erfolgreich aus.
+`compileall` und `git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY
+am exakten Quellcommit `d49f978f33001fcc098998ff7c04ffb209b28033`
+meldete 0 Warnungen, 0 Fehler und 0 Blocker. Dies belegt Auswahl,
+Registrierung und Begrenzung von WI-0013, nicht dessen Implementierung oder
+Produktqualifikation.
 
 EXP-0011-Ausführungs- und GATE-0012-Ergebniswave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-08-31
@@ -947,13 +964,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011 und
-EXP-0011 sind abgeschlossen. GATE-0012 benötigt eine ausdrückliche Auswahl:
-A für den engen rollenbewussten V2-Zielvertrag, B für den additiven
-V1-Evidenzbegleiter, C für ein vorgeschaltetes Publikationsregel-Experiment,
-D für den breiten V3-Zielvertrag, F für einen unabhängigen read-only Ast oder
-K zum Pausieren. Vor dieser Auswahl wird weder ein Produktarbeitsgegenstand
-registriert noch Produktcode oder ein öffentliches Schema verändert.
+WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
+EXP-0011 und GATE-0012 sind abgeschlossen. WI-0013 ist nach ausdrücklicher
+Auswahl von Option A als enger rollenbewusster V2-Zielvertrag angenommen. Nach
+Integration und Post-Merge-Prüfung der Planungswave folgt die Implementierung
+in einem neuen isolierten Worktree. Der unveränderte V1-Bericht bleibt
+Standard; nur `--json --report-version v2` aktiviert V2. Eine
+Publikationsstufe oder V1-Deprecation ist nicht autorisiert.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

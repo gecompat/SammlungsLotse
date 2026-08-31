@@ -40,6 +40,8 @@ Experimente und spätere Entscheidungen:
 - [WI-0012: False-Same-Guardrail für den EPUB-Identitätsbericht](EBOOK_IDENTITY_FALSE_SAME_GUARDRAIL_WORK_ITEM.md);
 - [GATE-0011: Fortsetzung nach WI-0012 ergebnisoffen bewerten](EBOOK_GATE_0011_AFTER_WI0012.md);
 - [EXP-0011: rollenbewusste Metadaten- und Identitätsverträge vergleichen](EBOOK_IDENTITY_METADATA_CONTRACT_EXPERIMENT.md);
+- [GATE-0012: Fortsetzung nach EXP-0011 bewerten](EBOOK_GATE_0012_AFTER_EXP0011.md);
+- [WI-0013: rollenbewussten EPUB-Identitätsbericht V2 umsetzen](EBOOK_IDENTITY_ROLE_AWARE_V2_WORK_ITEM.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -221,14 +223,15 @@ kritischen False Same sind auf null reduziert. Zwei schwächere
 Metadatenmodell, Publikationsstufe, Collection-Semantik, unabhängige
 Fortsetzung und Pausieren bleiben getrennt offen.
 
-GATE-0011 ist mit der ausdrücklichen Auswahl von Option A abgeschlossen.
-EXP-0011 ist als genau eine produktcodefreie Vertrags- und Evidenzwave
-angenommen, aber noch nicht ausgeführt. Der gebundene Vertrag vergleicht einen
-unveränderten v1-Bericht mit Evidenzbegleiter, einen rollenbewussten
-Fünf-Stufen-v2-Kandidaten und einen v2-Kandidaten mit Publikationsstufe. Er
-wählt noch kein öffentliches Schema oder Produktmodell. Produktcode,
-bestehende Oracles und Qualifikationsnachweise bleiben unverändert; vor einer
-Ausführung wird die Planungswave getrennt integriert und post-merge geprüft.
+GATE-0011 und EXP-0011 sind abgeschlossen. Der gebundene Doppellauf bestand
+14/14 Kriterien und zeigte für V1, V2 und V3 null Rollenverlust sowie
+vollständige Provenienz. Der Nutzer hat in GATE-0012 ausdrücklich Option A
+gewählt. WI-0013 ist deshalb als enger rollenbewusster V2-Zielvertrag
+`accepted`, aber noch nicht implementiert. V1 bleibt unveränderter Standard;
+V2 wird nur explizit aktiviert und bewahrt die fünf vorhandenen
+Produktstufen. Publikationsstufe, V1-Deprecation, Suche, Persistenz und Writes
+bleiben außerhalb. Die Implementierung beginnt erst nach Integration und
+Post-Merge-Prüfung dieser Planungswave in einem neuen isolierten Worktree.
 
 ## Nicht übernehmen
 
