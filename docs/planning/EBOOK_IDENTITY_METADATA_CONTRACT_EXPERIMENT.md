@@ -1,6 +1,6 @@
 # EXP-0011: Rollenbewusste Metadaten- und Identitätsverträge produktcodefrei vergleichen
 
-Status: ACCEPTED — NOT EXECUTED
+Status: ACCEPTED — EXECUTION PREIMAGE IMPLEMENTED, NOT RUN
 
 Stand: 2026-08-31
 
@@ -245,8 +245,9 @@ CI-geeignete Ergebnisprüfung:
 
     python tools/experiments/run_exp_0011.py --validate-result
 
-Diese Befehle sind in der aktuellen Planungswave noch nicht implementiert
-und wurden nicht ausgeführt.
+Diese Befehle sind im getrennten Ausführungspreimage implementiert. Der
+tatsächliche Experimentlauf wurde noch nicht ausgeführt und bleibt bis zum
+sauberen, eingecheckten Preimage gesperrt.
 
 ## Ausführungsreihenfolge
 

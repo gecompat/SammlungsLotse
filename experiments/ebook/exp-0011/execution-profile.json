@@ -1,0 +1,42 @@
+{
+  "artifact": "EXP-0011",
+  "case_sources": {
+    "exp_0010_control": 2,
+    "exp_0010_quality": 8,
+    "test_0001": 5,
+    "total": 15
+  },
+  "implementation": {
+    "container_access": false,
+    "external_dependencies": [],
+    "network_access": false,
+    "product_code_changes": false,
+    "runtime": "Python 3.12 standard library plus existing repository product modules",
+    "synthetic_only": true,
+    "versioned_media_writes": false
+  },
+  "measurements": [
+    "role_loss",
+    "semantic_naming",
+    "provenance_coverage",
+    "decision_fidelity",
+    "publication_expression",
+    "residual_explainability",
+    "v1_compatibility",
+    "migration_surface",
+    "determinism_and_boundaries"
+  ],
+  "profile_id": "exp-0011-role-aware-metadata-contract-comparison/v1",
+  "repetitions": 2,
+  "result_classifications": [
+    "eligible",
+    "eligible_with_tradeoffs",
+    "not_eligible"
+  ],
+  "schema": "sammlungslotse/exp-0011-execution-profile/v1",
+  "variants": [
+    "V1",
+    "V2",
+    "V3"
+  ]
+}

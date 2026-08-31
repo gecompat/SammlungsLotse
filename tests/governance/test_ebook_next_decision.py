@@ -124,7 +124,10 @@ class EbookNextDecisionTests(unittest.TestCase):
         )
         self.assertIn("als EXP-0011 ausgewählt", self.post_wi0012_gate)
         self.assertIn("### K — Pausieren", self.post_wi0012_gate)
-        self.assertIn("ACCEPTED — NOT EXECUTED", self.metadata_contract_experiment)
+        self.assertIn(
+            "ACCEPTED — EXECUTION PREIMAGE IMPLEMENTED, NOT RUN",
+            self.metadata_contract_experiment,
+        )
         for heading in (
             "### V1 — Unveränderter v1-Bericht plus Evidenzbegleiter",
             "### V2 — Rollenbewusster Bericht v2 mit fünf Stufen",
@@ -132,9 +135,14 @@ class EbookNextDecisionTests(unittest.TestCase):
         ):
             self.assertIn(heading, self.metadata_contract_experiment)
         self.assertIn("genau 15 Paare", self.metadata_contract_experiment)
-        self.assertIn("noch nicht implementiert", self.metadata_contract_experiment)
-        self.assertFalse((ROOT / "experiments" / "ebook" / "exp-0011").exists())
-        self.assertFalse((ROOT / "tools" / "experiments" / "run_exp_0011.py").exists())
+        self.assertIn("noch nicht ausgeführt", self.metadata_contract_experiment)
+        self.assertTrue(
+            (ROOT / "experiments" / "ebook" / "exp-0011" / "execution-profile.json").is_file()
+        )
+        self.assertTrue((ROOT / "tools" / "experiments" / "run_exp_0011.py").is_file())
+        self.assertFalse(
+            (ROOT / "experiments" / "ebook" / "exp-0011" / "result.json").exists()
+        )
 
 
 if __name__ == "__main__":
