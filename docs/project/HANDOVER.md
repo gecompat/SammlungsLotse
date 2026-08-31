@@ -212,8 +212,16 @@ Produktqualität ist wegen sechs kritischer False Same auf Ausgabe und Werk
 fehlen getrennt. Der Nutzer hat für GATE-0010 ausdrücklich Option A gewählt.
 GATE-0010 und WI-0012 sind `done`. Der Guardrail ist synthetisch qualifiziert;
 EXP-0010 und seine Oracles blieben unverändert und sind über den historischen
-Git-Preimage-Validator weiterhin 12/12 prüfbar. Vor einer weiteren
-Produktwave ist ein neues getrenntes Ergebnisgate erforderlich.
+Git-Preimage-Validator weiterhin 12/12 prüfbar.
+
+GATE-0011 ist als getrenntes Ergebnisgate registriert und
+entscheidungsbereit. Es trennt die zwei schwächeren `candidate_related`-
+Werkabweichungen von der irreführend eingeebneten Collection-Semantik, den
+fehlenden Identifier-Rollen und der fehlenden Publikationsstufe. Option A,
+eine produktcodefreie Vertrags- und Evidenzwave, ist empfohlen, aber noch
+nicht ausgewählt. A, B, C, D, E, F und K bleiben offen; weder EXP-0011 noch
+WI-0013 ist registriert. Die nächste zulässige Aktion ist die ausdrückliche
+Nutzerauswahl, nicht Produktimplementierung.
 
 ## Harte Grenzen
 

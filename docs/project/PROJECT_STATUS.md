@@ -52,6 +52,12 @@ qualifiziert. Die sechs kritischen False Same sind auf null reduziert; zwei
 schwächere `candidate_related`-Werkabweichungen bleiben sichtbar. Der davon
 abhängige WI-0011-Calibre-Identitätsweg wurde gegen den neuen Analyzer-
 Preimage `97017a2` tatsächlich erneut mit 23/23 Kriterien qualifiziert.
+GATE-0011 ist nun als getrenntes Ergebnisgate registriert und
+entscheidungsbereit. Es trennt die zwei schwächeren `candidate_related`-
+Werkabweichungen von Identifier-Rollen, Collection-Provenienz und fehlender
+Publikationsstufe. Eine produktcodefreie Vertrags- und Evidenzwave ist als
+kleinste reversible Fortsetzung empfohlen; die Auswahl bleibt offen und es
+ist kein Folgeartefakt registriert.
 
 ## Vorhanden
 
@@ -248,7 +254,10 @@ Preimage `97017a2` tatsächlich erneut mit 23/23 Kriterien qualifiziert.
   12/12 Kriterien prüfen;
 - zwei sichtbare verbleibende Werk-Oracledifferenzen mit
   `candidate_related`, die nicht als vollständige Qualifikation der flachen
-  Identifier- oder Collection-Semantik dargestellt werden.
+  Identifier- oder Collection-Semantik dargestellt werden;
+- registriertes, entscheidungsbereites GATE-0011 mit sieben getrennten
+  Fortsetzungen, Empfehlung A ohne Vorentscheidung und unverändertem
+  Produktcode.
 
 ## Nicht vorhanden
 
@@ -263,6 +272,22 @@ Preimage `97017a2` tatsächlich erneut mit 23/23 Kriterien qualifiziert.
 - Release.
 
 ## Validierung
+
+GATE-0011-Ergebnisgate-Wave: PROJECT_SEMANTIC, bestehende
+RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
+2026-08-31 unter Windows und Python 3.12.10. Repository- und v2-Registry-
+Prüfung waren für 42 Artefakte erfolgreich. TEST-0001 bestätigte 30 Fälle
+und 49 Komponenten; EXP-0002 bis EXP-0007, die historischen EXP-0009- und
+EXP-0010-Ergebnisse sowie die eingecheckten WI-0005-, WI-0008-, WI-0011-
+und WI-0012-Produktnachweise blieben gültig. Der kontrollierte Testlauf
+entdeckte 178 Tests, ersetzte genau zwei veraltete Current-Preimage-
+Ergebnisprüfungen eins zu eins durch Historical-Preimage-Prüfungen und
+führte 176 Tests erfolgreich aus. `compileall` und `git diff --check` waren
+erfolgreich. FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler
+und 0 Blocker. Dies belegt Registrierung, Trennung und Entscheidungsreife
+von GATE-0011, nicht die Auswahl oder Ausführung einer Folgewave, ein neues
+Metadatenmodell oder eine Produktänderung.
 
 WI-0012-Implementierungswave: PROJECT_SEMANTIC, RUNTIME_EMPIRICAL und
 FOUNDATION_INTEGRITY lokal validiert am 2026-08-31 unter Windows, Python
@@ -880,11 +905,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 ## Nächster Schritt
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010 und WI-0012 sind
-abgeschlossen. Vor einer weiteren Produktwave ist ein neues getrenntes
-Ergebnisgate erforderlich. Es muss den nun beseitigten kritischen
-False-Same-Befund von den zwei verbleibenden `candidate_related`-
-Werkabweichungen und den weiterhin offenen Rollen-, Collection- und
-Publikationsfragen trennen; keine Folge ist ausgewählt.
+abgeschlossen. GATE-0011 ist entscheidungsbereit und trennt den beseitigten
+kritischen False-Same-Befund von den zwei verbleibenden `candidate_related`-
+Werkabweichungen sowie den offenen Rollen-, Collection- und
+Publikationsfragen. Als kleinste reversible Fortsetzung ist A, eine
+produktcodefreie Vertrags- und Evidenzwave, empfohlen. A, B, C, D, E, F und
+K bleiben auswählbar; keine Folge ist angenommen oder registriert.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

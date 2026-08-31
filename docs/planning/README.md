@@ -38,6 +38,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0010: EPUB-Metadaten- und Oracle-Evidenz standardgebunden prüfen](EBOOK_STANDARDS_BOUND_METADATA_ORACLE_EXPERIMENT.md);
 - [GATE-0010: Produktfortsetzung nach EXP-0010 bewerten](EBOOK_GATE_0010_AFTER_EXP0010.md);
 - [WI-0012: False-Same-Guardrail für den EPUB-Identitätsbericht](EBOOK_IDENTITY_FALSE_SAME_GUARDRAIL_WORK_ITEM.md);
+- [GATE-0011: Fortsetzung nach WI-0012 ergebnisoffen bewerten](EBOOK_GATE_0011_AFTER_WI0012.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -218,6 +219,14 @@ kritischen False Same sind auf null reduziert. Zwei schwächere
 `candidate_related`-Werkabweichungen bleiben sichtbar. Rollenbewusstes
 Metadatenmodell, Publikationsstufe, Collection-Semantik, unabhängige
 Fortsetzung und Pausieren bleiben getrennt offen.
+
+GATE-0011 ist als getrenntes Ergebnisgate registriert und
+entscheidungsbereit. Es hält die zwei schwächeren `candidate_related`-
+Werkabweichungen von Identifier-Rollen, Collection-Provenienz und fehlender
+Publikationsstufe auseinander. Option A, eine produktcodefreie Vertrags- und
+Evidenzwave, ist als kleinste reversible Fortsetzung empfohlen; die Auswahl
+bleibt ausdrücklich offen. Es ist weder ein Folgeexperiment noch ein
+Arbeitsgegenstand registriert oder freigegeben.
 
 ## Nicht übernehmen
 
