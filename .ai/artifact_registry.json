@@ -506,6 +506,68 @@
       "status": "done",
       "title": "Rollenbewusste Metadaten- und Identitätsverträge produktcodefrei vergleichen"
     },
+    "EXP-0012": {
+      "acceptance_criteria": "Genau drei vorab gebundene, feldbezogene Calibre-Suchstrategien werden auf acht synthetischen Aufgaben in genau einer expliziten task-privaten Bibliothekskopie je zweimal ausgeführt; calibredb search und eine minimale list-Projektion liefern höchstens fünf sortierte IDs, jeder Treffer wird getrennt über den unveränderten WI-0011-Vertrag bewertet, Recall, Fehlkandidaten, Begrenzung, Determinismus, Pfadfreiheit, Quellunverändertheit und Cleanup werden gemessen, während Produktcode, direkte metadata.db-Nutzung, Netzwerk, Persistenz, mehrere Bibliotheken, Rankingbehauptung und Bestandswirkung ausgeschlossen bleiben.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a058f6-6124-7002-b759-7b5804d8afe2",
+      "created_on": "2026-08-31",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_CALIBRE_CANDIDATE_SEARCH_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0014",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0013",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0007",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0008",
+          "type": "derived_from"
+        },
+        {
+          "target": "GATE-0013",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Begrenzte Calibre-Kandidatensuche produktcodefrei qualifizieren"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -1139,7 +1201,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "Nächsten read-only Nutzwert nach WI-0013 bewerten"
     },
     "REQ-0001": {

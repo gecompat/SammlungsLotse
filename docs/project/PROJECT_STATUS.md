@@ -66,10 +66,12 @@ und behält die fünf vorhandenen Produktstufen. Der abhängige WI-0011-Weg ist
 auf demselben Preimage erneut 23/23 qualifiziert. Publikationsstufe und
 V1-Deprecation sind nicht ausgewählt. GATE-0013 ist nach ausdrücklicher
 Auswahl von Option A abgeschlossen: V1 bleibt Standard, V2 bleibt Opt-in und
-kein neuer Produktarbeitsgegenstand ist registriert. GATE-0014 bewertet nun
-die nächste read-only Fortsetzung ergebnisoffen. Eine produktcodefreie,
-begrenzte Kandidatensuche in genau einer Bibliothek ist empfohlen, aber noch
-nicht ausgewählt.
+kein neuer Produktarbeitsgegenstand ist registriert. Der Nutzer hat in
+GATE-0014 ausdrücklich Option A gewählt. GATE-0014 ist abgeschlossen und
+EXP-0012 als akzeptiertes, noch nicht ausgeführtes produktcodefreies
+Experiment für begrenzte Kandidatensuche in genau einer Bibliothek
+registriert. Der ergänzende private Drei-EPUB-Praxissmoke bleibt lokal,
+anonymisiert und außerhalb der synthetischen Abnahme.
 
 ## Vorhanden
 
@@ -283,9 +285,11 @@ nicht ausgewählt.
 - abgeschlossenes GATE-0013 mit ausdrücklicher Auswahl, den dualen Vertrag
   stabil zu halten, ohne neuen Produktarbeitsgegenstand, Defaultwechsel,
   Deprecation oder Publikationswave;
-- vorgeschlagenes GATE-0014 mit getrennten Optionen für begrenzte
-  Kandidatensuche, Bestandsqualitätsbefunde, bibliografische Konflikte,
-  Mehrbibliotheks-Routing, Migrationsevidenz, Maintenance und Pausieren.
+- abgeschlossenes GATE-0014 mit ausdrücklicher Auswahl der begrenzten,
+  produktcodefreien Kandidatensuche;
+- akzeptiertes, noch nicht ausgeführtes EXP-0012 mit drei Suchstrategien,
+  acht synthetischen Aufgaben, zwei Wiederholungen, höchstens fünf
+  Kandidaten und getrenntem WI-0011-Vergleich je Treffer.
 
 ## Nicht vorhanden
 
@@ -301,10 +305,11 @@ nicht ausgewählt.
 
 ## Validierung
 
-GATE-0014-Planungswave: PROJECT_SEMANTIC, bestehende RUNTIME_EMPIRICAL-
-Regression und FOUNDATION_INTEGRITY lokal validiert am 2026-08-31 unter
-Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren für 47
-Artefakte erfolgreich. Der kontrollierte Testlauf entdeckte 189 Tests,
+GATE-0014-Auswahl- und EXP-0012-Vertragswave: PROJECT_SEMANTIC, bestehende
+RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
+2026-08-31 unter Windows und Python 3.12.10. Repository- und v2-Registry-
+Prüfung waren für 48 Artefakte erfolgreich. Der kontrollierte Testlauf
+entdeckte 189 Tests,
 ersetzte genau drei Current-Preimage-Ergebnisprüfungen durch
 Historical-Preimage-Prüfungen und führte 186 Tests erfolgreich aus. Die
 aktuellen WI-0013- und WI-0011-Produktnachweise bestanden weiterhin 29/29
@@ -312,9 +317,10 @@ beziehungsweise 23/23 Kriterien; EXP-0009, EXP-0010 und EXP-0011 blieben
 historisch mit 12/12, 12/12 und 14/14 Kriterien prüfbar. `compileall` und
 `git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY am exakten
 Quellcommit `d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen,
-0 Fehler und 0 Blocker. Dies belegt die offene Anschlussbewertung und die
-Regression des unveränderten Produktstands, nicht die Auswahl oder
-Ausführung einer Folgeoption.
+0 Fehler und 0 Blocker. Dies belegt die ausdrückliche Auswahl, den eng
+gebundenen noch nicht ausgeführten Experimentvertrag und die Regression des
+unveränderten Produktstands, nicht das Ergebnis von EXP-0012 oder eine
+Produktübernahme.
 
 GATE-0013-Ergebniswave: PROJECT_SEMANTIC, bestehende RUNTIME_EMPIRICAL-
 Regression und FOUNDATION_INTEGRITY lokal validiert am 2026-08-31 unter
@@ -1035,14 +1041,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 ## Nächster Schritt
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
-EXP-0011, GATE-0012, WI-0013 und GATE-0013 sind abgeschlossen. GATE-0014 ist
-als nächste ergebnisoffene Entscheidung `proposed`. Option A, eine
-produktcodefreie Evidenzwave für begrenzte Kandidatensuche in genau einer
-synthetischen Calibre-Bibliothek, ist empfohlen, aber nicht ausgewählt.
-Alternativ bleiben Bestandsqualitätsbefunde, bibliografische Konflikte,
-Mehrbibliotheks-Routing, V2-Migrationsevidenz, Maintenance und Pausieren
-offen. Bis zur ausdrücklichen Auswahl ist kein Experiment oder
-Produktarbeitsgegenstand registriert. V1 bleibt Standard; nur
+EXP-0011, GATE-0012, WI-0013, GATE-0013 und GATE-0014 sind abgeschlossen.
+EXP-0012 ist `accepted`, aber noch nicht ausgeführt. Nach Merge und
+Post-Merge-Prüfung wird es in einer neuen isolierten Wave synthetisch
+implementiert und tatsächlich ausgeführt. Ergänzend werden höchstens drei
+private EPUB-Kopien in einem lokalen, nicht eingecheckten und vollständig
+bereinigten Praxissmoke geprüft. Ein Produktarbeitsgegenstand ist nicht
+registriert. V1 bleibt Standard; nur
 `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents

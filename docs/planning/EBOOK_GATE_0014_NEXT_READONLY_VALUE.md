@@ -1,6 +1,6 @@
 # GATE-0014: Nächsten read-only Nutzwert nach WI-0013 bewerten
 
-Status: PROPOSED — AUSWAHL OFFEN
+Status: DONE — OPTION A / EXP-0012 AUSGEWÄHLT
 
 Stand: 2026-08-31
 
@@ -17,6 +17,22 @@ GATE-0014 bestimmt den kleinsten sinnvollen nächsten read-only Nutzwert nach
 dem stabilisierten Identitätsvertrag. Es hält fachlich unterschiedliche
 Fragen getrennt und registriert ohne weitere ausdrückliche Nutzerauswahl
 weder Experiment noch Arbeitsgegenstand.
+
+## Auswahlentscheidung
+
+Der Nutzer hat Option A am 2026-08-31 ausdrücklich ausgewählt. GATE-0014 ist
+damit abgeschlossen und ausschließlich EXP-0012 ist als akzeptiertes, noch
+nicht ausgeführtes Experiment registriert.
+
+Die Auswahl autorisiert die getrennte Planung und Ausführung von EXP-0012
+nach Merge und Post-Merge-Prüfung. Sie autorisiert keine Produktsuche und
+keinen Produktcode. Die Optionen B bis F und K bleiben nicht ausgewählt.
+
+Der anschließende Nutzerhinweis bindet ergänzend höchstens drei einzelne
+private EPUBs aus einer nur zur Laufzeit übergebenen Quelle für einen lokalen,
+nicht eingecheckten Praxissmoke. Die synthetische Matrix bleibt der
+reproduzierbare Abnahmenachweis; private Dateien, Werte und Pfade bleiben
+außerhalb von Git und werden nach dem Lauf bereinigt.
 
 ## Verifizierte Ausgangslage
 
@@ -170,9 +186,10 @@ synthetisch gebunden. Damit ist jetzt nicht eine weitere Identitätsregel,
 sondern die sichere Erzeugung einer begrenzten Kandidatenmenge der nächste
 offene Engpass.
 
-Die Empfehlung nimmt A nicht an. Erst eine ausdrückliche Nutzerauswahl darf
-GATE-0014 schließen und ein getrennt registriertes Experiment autorisieren.
-B bis F und K bleiben echte Alternativen.
+Der Nutzer hat A ausdrücklich angenommen. EXP-0012 bindet deshalb genau das
+produktcodefreie Experiment; eine spätere Produktübernahme benötigt auch bei
+positivem Ergebnis ein neues getrenntes Ergebnisgate. B bis F und K bleiben
+nicht ausgewählt.
 
 ## Kanten, die nicht überschritten werden
 
@@ -194,8 +211,9 @@ B bis F und K bleiben echte Alternativen.
 
 ## Gate-Stand
 
-- GATE-0014 bleibt `proposed`.
-- A ist empfohlen, aber nicht ausgewählt.
-- Kein Experiment und kein Produktarbeitsgegenstand ist registriert.
-- Eine Antwort mit A, B, C, D, E, F oder K ist die nächste erforderliche
-  ausdrückliche Entscheidung.
+- GATE-0014 ist `done`.
+- EXP-0012 ist `accepted`, aber noch nicht ausgeführt.
+- Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
+  unverändert.
+- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
+  `origin/main`.

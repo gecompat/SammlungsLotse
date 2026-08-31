@@ -44,6 +44,7 @@ Experimente und spätere Entscheidungen:
 - [WI-0013: rollenbewussten EPUB-Identitätsbericht V2 umsetzen](EBOOK_IDENTITY_ROLE_AWARE_V2_WORK_ITEM.md);
 - [GATE-0013: Ergebnis nach WI-0013 und V2-Opt-in bewerten](EBOOK_GATE_0013_AFTER_WI0013.md);
 - [GATE-0014: nächsten read-only Nutzwert nach WI-0013 bewerten](EBOOK_GATE_0014_NEXT_READONLY_VALUE.md);
+- [EXP-0012: begrenzte Calibre-Kandidatensuche produktcodefrei qualifizieren](EBOOK_CALIBRE_CANDIDATE_SEARCH_EXPERIMENT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -238,12 +239,14 @@ nach ausdrücklicher Auswahl von Option A abgeschlossen: Der duale Vertrag
 bleibt stabil, kein neuer Produktarbeitsgegenstand ist registriert. Ein
 V2-Default, eine V1-Deprecation, eine Publikationsstufe oder eine andere
 Produktfunktion benötigt eine neue getrennte Ergebnisentscheidung. GATE-0014
-ist als ergebnisoffene Anschlussbewertung registriert. Es empfiehlt eine
-produktcodefreie, begrenzte Kandidatensuche in genau einer synthetischen
-Calibre-Bibliothek, nimmt sie aber nicht an. Bestandsqualitätsbefunde,
-bibliografische Konflikte, Routing, Migrationsevidenz, Maintenance und
-Pausieren bleiben getrennte Alternativen. Ohne ausdrückliche Auswahl ist kein
-Experiment oder Arbeitsgegenstand freigegeben.
+ist nach ausdrücklicher Auswahl von Option A abgeschlossen. EXP-0012 ist als
+akzeptiertes, noch nicht ausgeführtes Experiment registriert: Drei
+feldgebundene Suchstrategien werden auf acht synthetischen Aufgaben in genau
+einer Calibre-Bibliothek je zweimal verglichen; jeder Kandidat wird getrennt
+über WI-0011 bewertet. Ein ausdrücklich gewünschter lokaler Praxissmoke darf
+daneben höchstens drei private EPUB-Kopien verwenden, ohne Dateien,
+Metadaten, Pfade oder Rohoutputs einzuchecken. B bis F und K bleiben nicht
+ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert.
 
 ## Nicht übernehmen
 
