@@ -77,6 +77,21 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_CALIBRE_CANDIDATE_SEARCH_EXPERIMENT.md"
         ).read_text(encoding="utf-8")
+        cls.post_exp0012_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0015_AFTER_EXP0012.md"
+        ).read_text(encoding="utf-8")
+        cls.exp0012_result = json.loads(
+            (
+                ROOT
+                / "experiments"
+                / "ebook"
+                / "exp-0012"
+                / "result.json"
+            ).read_text(encoding="utf-8")
+        )
         cls.exp0011_result = json.loads(
             (
                 ROOT
@@ -248,7 +263,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "Kein Produktarbeitsgegenstand ist registriert",
             self.next_readonly_gate,
         )
-        self.assertEqual(self.artifacts["EXP-0012"]["status"], "accepted")
+        self.assertEqual(self.artifacts["EXP-0012"]["status"], "done")
         for dependency in (
             "GATE-0014",
             "WI-0013",
@@ -268,13 +283,45 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("genau acht Aufgaben", self.candidate_search_experiment)
         self.assertIn("genau zwei", self.candidate_search_experiment)
         self.assertIn("höchstens fünf Kandidaten", self.candidate_search_experiment)
-        self.assertIn("ACCEPTED — NOT EXECUTED", self.candidate_search_experiment)
+        self.assertIn(
+            "DONE — EXECUTED, 16/16 METHOD CRITERIA PASSED",
+            self.candidate_search_experiment,
+        )
         self.assertIn(
             "keine Änderung unter `src/sammlungslotse/`",
             self.candidate_search_experiment,
         )
         self.assertIn("höchstens drei einzelnen EPUBs", self.candidate_search_experiment)
         self.assertIn("nicht eingecheckten", self.next_readonly_gate)
+        self.assertEqual("pass", self.exp0012_result["status"])
+        self.assertTrue(all(self.exp0012_result["acceptance"].values()))
+        self.assertEqual(
+            "eligible_with_tradeoffs",
+            self.exp0012_result["metrics"]["variants"]["V1"]["classification"],
+        )
+        self.assertEqual(
+            "not_qualified",
+            self.exp0012_result["metrics"]["variants"]["V2"]["classification"],
+        )
+        self.assertEqual(
+            "eligible_with_tradeoffs",
+            self.exp0012_result["metrics"]["variants"]["V3"]["classification"],
+        )
+        self.assertEqual(self.artifacts["GATE-0015"]["status"], "proposed")
+        self.assertIn(
+            "EXP-0012", self.relation_targets("GATE-0015", "depends_on")
+        )
+        for heading in (
+            "### A — Private Nichtabschlussgründe produktcodefrei diagnostizieren",
+            "### B — V1 als optionale Identifier-Suche für einen Produktvertrag prüfen",
+            "### C — V3 als begrenzte Titel-/Autor-Kandidatensuche prüfen",
+            "### D — Einen mehrstufigen Suchvertrag weiter experimentieren",
+            "### E — Nur die synthetische Evidenz konservieren",
+            "### K — Pausieren",
+        ):
+            self.assertIn(heading, self.post_exp0012_gate)
+        self.assertIn("A ist empfohlen, aber nicht ausgewählt", self.post_exp0012_gate)
+        self.assertIn("0/3 WI-0011-Vergleiche", self.post_exp0012_gate)
 
 
 if __name__ == "__main__":

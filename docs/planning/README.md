@@ -45,6 +45,7 @@ Experimente und spätere Entscheidungen:
 - [GATE-0013: Ergebnis nach WI-0013 und V2-Opt-in bewerten](EBOOK_GATE_0013_AFTER_WI0013.md);
 - [GATE-0014: nächsten read-only Nutzwert nach WI-0013 bewerten](EBOOK_GATE_0014_NEXT_READONLY_VALUE.md);
 - [EXP-0012: begrenzte Calibre-Kandidatensuche produktcodefrei qualifizieren](EBOOK_CALIBRE_CANDIDATE_SEARCH_EXPERIMENT.md);
+- [GATE-0015: Ergebnis nach EXP-0012 und private Praxisevidenz bewerten](EBOOK_GATE_0015_AFTER_EXP0012.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -239,14 +240,25 @@ nach ausdrücklicher Auswahl von Option A abgeschlossen: Der duale Vertrag
 bleibt stabil, kein neuer Produktarbeitsgegenstand ist registriert. Ein
 V2-Default, eine V1-Deprecation, eine Publikationsstufe oder eine andere
 Produktfunktion benötigt eine neue getrennte Ergebnisentscheidung. GATE-0014
-ist nach ausdrücklicher Auswahl von Option A abgeschlossen. EXP-0012 ist als
-akzeptiertes, noch nicht ausgeführtes Experiment registriert: Drei
-feldgebundene Suchstrategien werden auf acht synthetischen Aufgaben in genau
-einer Calibre-Bibliothek je zweimal verglichen; jeder Kandidat wird getrennt
-über WI-0011 bewertet. Ein ausdrücklich gewünschter lokaler Praxissmoke darf
-daneben höchstens drei private EPUB-Kopien verwenden, ohne Dateien,
-Metadaten, Pfade oder Rohoutputs einzuchecken. B bis F und K bleiben nicht
-ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert.
+ist nach ausdrücklicher Auswahl von Option A abgeschlossen. EXP-0012 wurde
+als enges Experiment registriert und ausgeführt: Drei feldgebundene
+Suchstrategien wurden auf acht synthetischen Aufgaben in genau einer
+Calibre-Bibliothek je zweimal verglichen; jeder Kandidat wurde getrennt über
+WI-0011 bewertet. Der ausdrücklich gewünschte lokale Praxissmoke verwendete
+daneben genau drei private EPUB-Kopien, ohne Dateien, Metadaten, Pfade oder
+Rohoutputs einzuchecken. B bis F und K blieben nicht ausgewählt. Ein
+Produktarbeitsgegenstand ist nicht registriert.
+
+EXP-0012 ist abgeschlossen und bestand 16/16 methodische Kriterien in zwei
+semantisch identischen synthetischen Wiederholungen. V1 und V3 sind
+`eligible_with_tradeoffs`; V2 ist wegen eines vorab gebundenen Misses
+`not_qualified`. Es gab null unerwartete Kandidaten und null kritische False
+Same. Der getrennte private Drei-EPUB-Smoke materialisierte die Bibliothek,
+führte vier Suchläufe aus und bereinigte alles, blieb aber bei 0/3
+abgeschlossenen WI-0011-Vergleichen `not_qualified`. GATE-0015 bewertet diese
+Diskrepanz ergebnisoffen und empfiehlt vor jeder Produktwave eine eng
+begrenzte, produktcodefreie Diagnose der privaten Nichtabschlussgründe. Diese
+Empfehlung ist nicht ausgewählt.
 
 ## Nicht übernehmen
 

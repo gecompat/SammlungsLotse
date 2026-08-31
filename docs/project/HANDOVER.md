@@ -225,15 +225,18 @@ bleibt standardmäßig V1. Kein neuer Produktarbeitsgegenstand ist registriert.
 Eine Publikationsstufe, V1-Deprecation, Suche, Persistenz, Writes oder andere
 Produktfortsetzung benötigt eine neue ausdrückliche Ergebnisentscheidung.
 
-Der Nutzer hat in GATE-0014 ausdrücklich Option A gewählt. GATE-0014 ist
-`done`; EXP-0012 ist als akzeptiertes, noch nicht ausgeführtes
-produktcodefreies Experiment registriert. Es bindet drei Calibre-
-Suchstrategien, acht synthetische Aufgaben, zwei Wiederholungen, höchstens
-fünf Kandidaten und den getrennten WI-0011-Vergleich jedes Treffers. Ein
-zusätzlicher lokaler Praxissmoke darf auf ausdrücklichen Nutzerhinweis
-höchstens drei private EPUB-Kopien verwenden; private Dateien, Metadaten,
-Pfade und Rohoutputs bleiben außerhalb von Git und werden bereinigt. B bis F
-und K sind nicht ausgewählt. Kein Produktarbeitsgegenstand ist registriert.
+Der Nutzer hat in GATE-0014 ausdrücklich Option A gewählt. GATE-0014 und
+EXP-0012 sind `done`. Der commitgebundene synthetische Lauf bestand 16/16
+Methodenkriterien in zwei semantisch identischen Wiederholungen. V1 und V3
+sind `eligible_with_tradeoffs`; V2 ist wegen eines Misses `not_qualified`.
+Es gab null unerwartete Kandidaten und null kritische False Same. Der getrennte
+private Smoke materialisierte genau drei EPUB-Kopien, führte vier Suchläufe
+aus, bewahrte die Quellen und bereinigte alle Kopien, blieb aber wegen 0/3
+abgeschlossenen WI-0011-Vergleichen `not_qualified`. Private Werte und
+Rohoutputs wurden nicht aufbewahrt. GATE-0015 ist `proposed` und empfiehlt vor
+jeder Produktwave eine enge produktcodefreie Diagnose dieses privaten
+Nichtabschlusses. A ist nicht ausgewählt; kein Produktarbeitsgegenstand ist
+registriert.
 
 ## Harte Grenzen
 

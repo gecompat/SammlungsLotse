@@ -1,0 +1,67 @@
+{
+  "artifact": "EXP-0012",
+  "commands": {
+    "identity": "tools/run_ebook_calibre_identity.py --json",
+    "projection_fields": [
+      "title",
+      "authors",
+      "languages",
+      "formats",
+      "identifiers"
+    ],
+    "search_limit": 5,
+    "search_program": "calibredb"
+  },
+  "implementation": {
+    "direct_database_access": false,
+    "multiple_libraries": false,
+    "network_access": false,
+    "product_code_changes": false,
+    "ranking_claim": false,
+    "versioned_private_media": false,
+    "writer_effects": false
+  },
+  "limits": {
+    "candidate_limit": 5,
+    "library_records": 12,
+    "private_epub_limit": 3,
+    "query_bytes": 512,
+    "repetitions": 2,
+    "stderr_bytes": 131072,
+    "stdout_bytes": 131072,
+    "step_timeout_seconds": 30,
+    "synthetic_tasks": 8
+  },
+  "private_smoke": {
+    "acceptance_authority": false,
+    "anonymous_aggregate_only": true,
+    "cleanup_required": true,
+    "explicit_opt_in": true,
+    "source_read_only": true
+  },
+  "profile_id": "exp-0012-calibre-candidate-search/v1",
+  "runtime_bindings": {
+    "calibre": {
+      "image_id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5",
+      "locator": "runtime/calibre-readonly/profile.json",
+      "profile_id": "wi-0007-calibre-9.13.0-podman-linux-amd64/v1",
+      "sha256": "3489c543dbbcf73f07c090c5ba2599262af036366ec0efebbd3a2c40141cb17d"
+    },
+    "identity": {
+      "locator": "runtime/ebook-calibre-identity/profile.json",
+      "profile_id": "wi-0011-calibre-identity-handoff/v1",
+      "sha256": "5e6fbc8233d5d273a9d21a0e85f77921ae2c1711579e44043bb73961faa32b23"
+    },
+    "test_0001": {
+      "locator": "tests/fixtures/ebook/test-0001/v0.3/manifest.json",
+      "sha256": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2",
+      "version": "0.3.0"
+    }
+  },
+  "schema": "sammlungslotse/exp-0012-execution-profile/v1",
+  "strategies": [
+    "V1",
+    "V2",
+    "V3"
+  ]
+}

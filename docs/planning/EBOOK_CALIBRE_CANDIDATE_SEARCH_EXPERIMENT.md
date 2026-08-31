@@ -1,6 +1,6 @@
 # EXP-0012: Begrenzte Calibre-Kandidatensuche produktcodefrei qualifizieren
 
-Status: ACCEPTED — NOT EXECUTED
+Status: DONE — EXECUTED, 16/16 METHOD CRITERIA PASSED
 
 Stand: 2026-08-31
 
@@ -201,3 +201,30 @@ synthetischen Methodenstatus.
 - keine automatische Same-, Import-, Routing- oder Schreibentscheidung;
 - keine Erweiterung auf mehrere Bibliotheken;
 - keine V1-Deprecation oder V2-Defaultänderung.
+
+## Ausführungsergebnis
+
+Der Lauf auf dem commitgebundenen Preimage `deddef0` bestand 16/16
+methodische Kriterien. Beide Wiederholungen waren semantisch identisch;
+Quellen, Fixtures und die task-private Bibliothek blieben unverändert, das
+Ergebnis war pfadfrei und alle Tasks sowie Container wurden bereinigt.
+
+Die Varianten blieben getrennt:
+
+| Variante | Anwendbarkeit | Recall | Precision | Befund |
+|---|---:|---:|---:|---|
+| V1 Identifier exakt | 3/8 | 1,0 | 0,75 | `eligible_with_tradeoffs` |
+| V2 Titel+Autor exakt | 8/8 | 0,8889 | 1,0 | `not_qualified` |
+| V3 Titel+Autor Contains | 8/8 | 1,0 | 0,9 | `eligible_with_tradeoffs` |
+
+V1 lieferte einen erlaubten Zusatzkandidaten beim wiederverwendeten
+Identifier. V2 verfehlte den vorab gebundenen Treffer bei der Zeichen- und
+Teilwertvariante. V3 fand alle relevanten IDs und einen erlaubten
+Zusatzkandidaten. Keine Variante erzeugte einen unerwarteten Kandidaten, eine
+kritische False-Same-Entscheidung oder eine gesättigte Fünfermenge.
+
+Der ausdrücklich getrennte private Smoke materialisierte drei EPUB-Kopien und
+führte vier Suchläufe mit unveränderten Quellen und vollständigem Cleanup aus.
+Er blieb `not_qualified`, weil 0/3 WI-0011-Vergleiche `completed` erreichten.
+Private Werte und Rohoutputs wurden nicht aufbewahrt. GATE-0015 bewertet diese
+Ergebnisse ergebnisoffen; EXP-0012 autorisiert weiterhin keine Produktwave.

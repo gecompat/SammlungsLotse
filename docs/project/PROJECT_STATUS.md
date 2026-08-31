@@ -67,11 +67,13 @@ auf demselben Preimage erneut 23/23 qualifiziert. Publikationsstufe und
 V1-Deprecation sind nicht ausgewählt. GATE-0013 ist nach ausdrücklicher
 Auswahl von Option A abgeschlossen: V1 bleibt Standard, V2 bleibt Opt-in und
 kein neuer Produktarbeitsgegenstand ist registriert. Der Nutzer hat in
-GATE-0014 ausdrücklich Option A gewählt. GATE-0014 ist abgeschlossen und
-EXP-0012 als akzeptiertes, noch nicht ausgeführtes produktcodefreies
-Experiment für begrenzte Kandidatensuche in genau einer Bibliothek
-registriert. Der ergänzende private Drei-EPUB-Praxissmoke bleibt lokal,
-anonymisiert und außerhalb der synthetischen Abnahme.
+GATE-0014 ausdrücklich Option A gewählt. GATE-0014 und EXP-0012 sind
+abgeschlossen. Der synthetische Lauf bestand 16/16 Methodenkriterien; V1 und
+V3 sind `eligible_with_tradeoffs`, V2 ist wegen eines Misses
+`not_qualified`. Der lokale private Drei-EPUB-Praxissmoke blieb bei vier
+erfolgreich ausgeführten Suchen, vollständigem Cleanup, aber 0/3
+abgeschlossenen WI-0011-Vergleichen `not_qualified`. GATE-0015 bewertet diese
+Diskrepanz ergebnisoffen; kein Produktarbeitsgegenstand ist registriert.
 
 ## Vorhanden
 
@@ -287,9 +289,14 @@ anonymisiert und außerhalb der synthetischen Abnahme.
   Deprecation oder Publikationswave;
 - abgeschlossenes GATE-0014 mit ausdrücklicher Auswahl der begrenzten,
   produktcodefreien Kandidatensuche;
-- akzeptiertes, noch nicht ausgeführtes EXP-0012 mit drei Suchstrategien,
-  acht synthetischen Aufgaben, zwei Wiederholungen, höchstens fünf
-  Kandidaten und getrenntem WI-0011-Vergleich je Treffer.
+- abgeschlossenes EXP-0012 mit 16/16 Methodenkriterien, zwei identischen
+  Wiederholungen, V1 und V3 als `eligible_with_tradeoffs`, V2 als
+  `not_qualified`, null unerwarteten Kandidaten und null kritischen False Same;
+- lokaler privater Drei-EPUB-Smoke mit vier Suchläufen, unveränderten Quellen,
+  vollständigem Cleanup und offenem 0/3-WI-0011-Nichtabschluss;
+- vorgeschlagenes GATE-0015 mit getrennten Optionen für private
+  Ursachenklärung, V1, V3, mehrstufiges Folgeexperiment, Konservieren und
+  Pausieren.
 
 ## Nicht vorhanden
 
@@ -304,6 +311,22 @@ anonymisiert und außerhalb der synthetischen Abnahme.
 - Release.
 
 ## Validierung
+
+EXP-0012-Ergebnis- und GATE-0015-Wave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-08-31
+unter Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren
+für 49 Artefakte erfolgreich. Der kontrollierte Testlauf entdeckte 197 Tests,
+ersetzte genau vier Current-Preimage-Ergebnisprüfungen durch gleichzählige
+Historical-Preimage-Prüfungen und führte 193 Tests erfolgreich aus. EXP-0012
+blieb historisch gegen `deddef0` mit 16/16 Kriterien prüfbar; EXP-0009,
+EXP-0010 und EXP-0011 bestanden historisch weiterhin 12/12, 12/12 und 14/14.
+`compileall` und `git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY am
+exakten Quellcommit `d49f978f33001fcc098998ff7c04ffb209b28033`
+meldete 0 Warnungen, 0 Fehler und 0 Blocker. Dies belegt Methode, Ergebnisgate
+und unveränderten Produktstand, nicht eine Produktfreigabe. Der getrennte
+private Smoke wählte genau drei EPUBs, führte vier Suchen aus, bewahrte die
+Quellen und bereinigte vollständig; 0/3 WI-0011-Abschlüsse bleiben als
+anonymer offener Befund dokumentiert.
 
 GATE-0014-Auswahl- und EXP-0012-Vertragswave: PROJECT_SEMANTIC, bestehende
 RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
@@ -1041,13 +1064,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 ## Nächster Schritt
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
-EXP-0011, GATE-0012, WI-0013, GATE-0013 und GATE-0014 sind abgeschlossen.
-EXP-0012 ist `accepted`, aber noch nicht ausgeführt. Nach Merge und
-Post-Merge-Prüfung wird es in einer neuen isolierten Wave synthetisch
-implementiert und tatsächlich ausgeführt. Ergänzend werden höchstens drei
-private EPUB-Kopien in einem lokalen, nicht eingecheckten und vollständig
-bereinigten Praxissmoke geprüft. Ein Produktarbeitsgegenstand ist nicht
-registriert. V1 bleibt Standard; nur
+EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014 und EXP-0012 sind
+abgeschlossen. GATE-0015 ist als nächste ergebnisoffene Entscheidung
+`proposed`. Option A, eine eng begrenzte produktcodefreie Diagnose der
+privaten 0/3-WI-0011-Nichtabschlüsse mit höchstens denselben drei EPUBs, ist
+empfohlen, aber nicht ausgewählt. V1- oder V3-Produktverträge, ein
+mehrstufiges Folgeexperiment, Konservieren und Pausieren bleiben getrennt
+offen. Ein Produktarbeitsgegenstand ist nicht registriert. V1 bleibt Standard; nur
 `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
