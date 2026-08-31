@@ -240,5 +240,6 @@ Collection-Veto würde die aktuelle False-Same-Ursache deshalb nicht beheben.
 Der vollständige Ergebnisvertrag steht in
 [`result.json`](../../experiments/ebook/exp-0010/result.json). README,
 Manifest und Profil bleiben als gebundenes Preimage unverändert. Das Ergebnis
-autorisiert keine Produktkorrektur. Die Fortsetzung ist in GATE-0010 offen zu
-entscheiden.
+autorisierte für sich keine Produktkorrektur. GATE-0010 hat anschließend nach
+ausdrücklicher Nutzerauswahl den engen Fail-safe-Guardrail als WI-0012
+angenommen; Experimentergebnis, Oracles und Preimage bleiben unverändert.

@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-08-28
+Stand: 2026-08-31
 
 ## Phase
 
@@ -45,8 +45,9 @@ getrennt sind und EXP-0009 deshalb noch keine konkrete Produktregel
 autorisiert. EXP-0010 ist als genau eine standardgebundene, produktcodefreie
 Metadaten- und Oracle-Evidenzwave ausgeführt. Der methodische Nachweis
 bestand 12/12, die Produktqualität ist wegen sechs kritischer False Same auf
-Ausgabe und Werk jedoch `not_qualified`. GATE-0010 ist als offenes
-Ergebnisgate registriert; keine Produktkorrektur ist ausgewählt.
+Ausgabe und Werk jedoch `not_qualified`. GATE-0010 ist nach ausdrücklicher
+Nutzerauswahl mit Option A abgeschlossen. WI-0012 ist als enger
+False-Same-Guardrail angenommen; seine Implementierung steht aus.
 
 ## Vorhanden
 
@@ -226,9 +227,12 @@ Ergebnisgate registriert; keine Produktkorrektur ist ausgewählt.
 - drei getrennte semantische Fähigkeitslücken: fehlende Publikationsstufe,
   eingeebnete Identifier-Rollen und als `work_references` eingeebnete
   Collection-Semantik;
-- offenes GATE-0010 mit Vergleich von engem Fail-safe-Guardrail,
-  Metadatenmodell v2, Publikationsstufe, unabhängigem Qualitätsast und
-  Pausieren; keine Folge ist ausgewählt.
+- abgeschlossenes GATE-0010 mit ausdrücklicher Auswahl des engen
+  Fail-safe-Guardrails;
+- angenommener WI-0012-Vertrag, der die sechs belegten False Same durch eine
+  zusätzliche Repräsentationsbedingung stoppt, ohne öffentliches v1-Schema,
+  Metadatenmodell, Publikationsstufe oder Collection-Semantik zu erweitern;
+  die Implementierung steht aus.
 
 ## Nicht vorhanden
 
@@ -243,6 +247,18 @@ Ergebnisgate registriert; keine Produktkorrektur ist ausgewählt.
 - Release.
 
 ## Validierung
+
+GATE-0010-Auswahl- und WI-0012-Planungswave: PROJECT_SEMANTIC, bestehende
+RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
+2026-08-31 unter Windows und Python 3.12.10. Repository- und v2-Registry-
+Prüfung waren für 41 Artefakte erfolgreich. TEST-0001 bestätigte 30 Fälle
+und 49 Komponenten; EXP-0002 bis EXP-0010 sowie die eingecheckten WI-0005-,
+WI-0008-, WI-0009- und WI-0011-Nachweise blieben gültig. Alle 173
+Repository-Tests, `compileall` und `git diff --check` waren erfolgreich.
+FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler
+und 0 Blocker. Dies belegt Auswahl, Registrierung und Begrenzung von WI-0012,
+nicht die noch ausstehende Guardrail-Implementierung oder Produktqualität.
 
 EXP-0010-Ausführungs- und GATE-0010-Ergebniswave: RUNTIME_EMPIRICAL,
 PROJECT_SEMANTIC und FOUNDATION_INTEGRITY lokal validiert am 2026-08-28 unter
@@ -824,12 +840,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011, EXP-0009, GATE-0009 und EXP-0010 sind abgeschlossen; GATE-0010 ist
-offen. Vor jeder Produktkorrektur oder weiteren Registrierung ist
-ausdrücklich zwischen engem Fail-safe-Guardrail, rollenbewusstem
-Metadatenmodell, eigener Publikationsstufe, unabhängigem Qualitätsast und
-Pausieren zu wählen. Der Guardrail ist als kleinste sichere Risikobremse
-vorläufig empfohlen, aber nicht angenommen.
+WI-0011, EXP-0009, GATE-0009, EXP-0010 und GATE-0010 sind abgeschlossen.
+WI-0012 ist als kleinste sichere Risikobremse angenommen. Als Nächstes wird
+in einer getrennten Implementierungs-Wave ausschließlich der
+False-Same-Guardrail umgesetzt und gegen die unveränderte EXP-0010-Matrix
+sowie die bestehenden WI-0009-Fälle synthetisch qualifiziert.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.
