@@ -53,12 +53,14 @@ schwächere `candidate_related`-Werkabweichungen bleiben sichtbar. Der davon
 abhängige WI-0011-Calibre-Identitätsweg wurde gegen den neuen Analyzer-
 Preimage `97017a2` tatsächlich erneut mit 23/23 Kriterien qualifiziert.
 GATE-0011 ist nach ausdrücklicher Auswahl von Option A abgeschlossen.
-EXP-0011 ist als produktcodefreie Vertrags- und Evidenzwave `accepted`, aber
-noch nicht ausgeführt. Der Vertrag vergleicht genau drei Varianten auf 15
-bereits gebundenen synthetischen Paaren und trennt Rollenverlust,
-Collection-Provenienz, Publikationsausdruck, Entscheidungstreue und
-Migrationsfläche. Ein öffentliches Schema, Produktmodell oder eine neue
-Entscheidungsregel ist nicht ausgewählt.
+EXP-0011 ist als produktcodefreie Vertrags- und Evidenzwave ausgeführt. Der
+commitgebundene Lauf bestand 14/14 Kriterien auf genau 15 synthetischen
+Paaren; V1, V2 und V3 verlieren auf der EXP-0010-Rollenmatrix null Felder,
+decken jeweils 145/145 Werte mit Provenienz ab und erhalten alle fünf
+Produktstufen unverändert. Alle Varianten sind
+`eligible_with_tradeoffs`. GATE-0012 ist entscheidungsbereit und bleibt bis
+zur ausdrücklichen Nutzerauswahl `in_progress`; ein öffentliches Schema,
+Produktmodell, eine Publikationsregel oder Produktwave ist nicht ausgewählt.
 
 ## Vorhanden
 
@@ -258,9 +260,14 @@ Entscheidungsregel ist nicht ausgewählt.
   Identifier- oder Collection-Semantik dargestellt werden;
 - abgeschlossenes GATE-0011 mit ausdrücklicher Auswahl der produktcodefreien
   Vertrags- und Evidenzwave;
-- akzeptierter EXP-0011-Vertrag für genau drei experimentelle
-  Vertragsvarianten, 15 gebundene synthetische Paare, unveränderte aktuelle
-  Entscheidungen und weiterhin unveränderten Produktcode.
+- abgeschlossener EXP-0011-Vertrag und historisch prüfbarer 14/14-Nachweis
+  aus Preimage `a5aeb019`, genau drei experimentellen Vertragsvarianten, 15
+  gebundenen synthetischen Paaren, zwei identischen semantischen
+  Wiederholungen, null Rollenverlust, 145/145 Provenienzwerten je Variante,
+  unveränderten aktuellen Entscheidungen und unverändertem Produktcode;
+- entscheidungsbereites GATE-0012 mit getrennten Optionen für V2, additiven
+  V1-Begleiter, ein Publikationsregel-Experiment, direkte V3-Auswahl,
+  unabhängige Fortsetzung und Pausieren, ohne automatische Zielauswahl.
 
 ## Nicht vorhanden
 
@@ -275,6 +282,23 @@ Entscheidungsregel ist nicht ausgewählt.
 - Release.
 
 ## Validierung
+
+EXP-0011-Ausführungs- und GATE-0012-Ergebniswave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-08-31
+unter Windows und Python 3.12.10. Der commitgebundene Lauf aus Preimage
+`a5aeb0196d8d6a32fc90da46ca158ba693c6a0db` bestand 14/14 methodische
+Kriterien auf 15 synthetischen Paaren; beide Wiederholungen lieferten den
+semantischen SHA-256-Wert
+`ec22878a8668852498b13181a24387c8f78838e2ee13eefe2c020bdd06df9cc5`.
+Der historische Validator rechnete alle Ergebniswerte ohne Experimentlauf
+neu. Repository- und v2-Registry-Prüfung waren für 44 Artefakte erfolgreich.
+Der kontrollierte Testlauf entdeckte 185 Tests, ersetzte genau drei
+Current-Preimage-Ergebnisprüfungen durch Historical-Preimage-Prüfungen und
+führte 182 Tests erfolgreich aus. `compileall` und `git diff --check` waren
+erfolgreich. FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler
+und 0 Blocker. Dies belegt Ausführung, Begrenzung und Entscheidungsreife,
+nicht die Auswahl eines Zielvertrags oder eine Produktänderung.
 
 GATE-0011-Auswahl- und EXP-0011-Planungswave: PROJECT_SEMANTIC, bestehende
 RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
@@ -923,13 +947,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010 und WI-0012 sind
-abgeschlossen. GATE-0011 hat Option A ausdrücklich ausgewählt und EXP-0011
-ist als produktcodefreier Vertrag angenommen. Nach Integration und
-Post-Merge-Verifikation dieser Planungswave wird EXP-0011 in einem neuen
-isolierten Worktree implementiert und erst aus einem sauberen,
-commitgebundenen Preimage ausgeführt. Das Ergebnis benötigt vor jeder
-Produktübernahme ein neues getrenntes Ergebnisgate.
+WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011 und
+EXP-0011 sind abgeschlossen. GATE-0012 benötigt eine ausdrückliche Auswahl:
+A für den engen rollenbewussten V2-Zielvertrag, B für den additiven
+V1-Evidenzbegleiter, C für ein vorgeschaltetes Publikationsregel-Experiment,
+D für den breiten V3-Zielvertrag, F für einen unabhängigen read-only Ast oder
+K zum Pausieren. Vor dieser Auswahl wird weder ein Produktarbeitsgegenstand
+registriert noch Produktcode oder ein öffentliches Schema verändert.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

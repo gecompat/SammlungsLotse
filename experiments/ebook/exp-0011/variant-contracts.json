@@ -1,0 +1,75 @@
+{
+  "artifact": "EXP-0011",
+  "common": {
+    "metadata_fields": [
+      "primary_identifier",
+      "additional_identifiers",
+      "modified",
+      "collection_memberships"
+    ],
+    "product_stages": [
+      "byte",
+      "package",
+      "representation",
+      "edition",
+      "work"
+    ],
+    "provenance_statuses": [
+      "observed",
+      "derived",
+      "missing"
+    ]
+  },
+  "schema": "sammlungslotse/exp-0011-variant-contracts/v1",
+  "variants": {
+    "V1": {
+      "classification_rule": "eligible_with_tradeoffs",
+      "field_mapping": {
+        "legacy_report": "byte-identical public v1 payload",
+        "role_aware_metadata": "evidence_companion.inputs[input_index]",
+        "stages": "report_v1.stages"
+      },
+      "migration_surface": [
+        "new evidence-companion producer",
+        "consumer join by input_index",
+        "companion schema and qualification evidence"
+      ],
+      "publication_expression": "gap",
+      "schema": "sammlungslotse/experiment/exp-0011/v1-plus-evidence-companion"
+    },
+    "V2": {
+      "classification_rule": "eligible_with_tradeoffs",
+      "field_mapping": {
+        "identifiers": "inputs[].metadata.primary_identifier plus additional_identifiers",
+        "stages": "five unchanged product stages",
+        "work_references": "inputs[].metadata.collection_memberships"
+      },
+      "migration_surface": [
+        "identity report model",
+        "JSON and German CLI projections",
+        "identity tests and snapshot expectations",
+        "WI-0012 and WI-0011 qualification evidence"
+      ],
+      "publication_expression": "gap",
+      "schema": "sammlungslotse/experiment/exp-0011/role-aware-five-stage-v2"
+    },
+    "V3": {
+      "classification_rule": "eligible_with_tradeoffs",
+      "field_mapping": {
+        "identifiers": "inputs[].metadata.primary_identifier plus additional_identifiers",
+        "publication": "stages[publication] with assessment not_assessed",
+        "stages": "five unchanged product stages plus experimental publication stage",
+        "work_references": "inputs[].metadata.collection_memberships"
+      },
+      "migration_surface": [
+        "identity report model and stage ordering",
+        "JSON and German CLI projections",
+        "identity tests and snapshot expectations",
+        "WI-0012 and WI-0011 qualification evidence",
+        "downstream consumers that enumerate five stages"
+      ],
+      "publication_expression": "separate_not_assessed_stage",
+      "schema": "sammlungslotse/experiment/exp-0011/role-aware-publication-stage-v2"
+    }
+  }
+}

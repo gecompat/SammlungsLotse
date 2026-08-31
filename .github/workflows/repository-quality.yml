@@ -47,6 +47,8 @@ jobs:
         run: python tools/experiments/validate_exp_0009_result.py
       - name: Validate EXP-0010 empirical result contract
         run: python tools/experiments/validate_exp_0010_result.py
+      - name: Validate EXP-0011 empirical result contract
+        run: python tools/experiments/validate_exp_0011_result.py
       - name: Validate WI-0005 product qualification result
         run: python tools/qualify_ebook_deep_profile.py --validate-result
       - name: Validate WI-0007 product qualification result

@@ -503,7 +503,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Rollenbewusste Metadaten- und Identitätsverträge produktcodefrei vergleichen"
     },
     "GATE-0001": {
@@ -979,6 +979,56 @@
       ],
       "status": "done",
       "title": "Fortsetzung nach WI-0012 ergebnisoffen bewerten"
+    },
+    "GATE-0012": {
+      "acceptance_criteria": "Das methodisch bestandene EXP-0011-Ergebnis wird als ungewichteter Vergleich von V1, V2 und V3 bewertet; Kompatibilität, Rollen- und Provenienzerhalt, Publikationsausdruck, Migrationsfläche, verbleibende Evidenzlücken, unabhängige Fortsetzung und Pausieren bleiben getrennt, und ohne ausdrückliche Nutzerauswahl werden weder Zielvertrag noch Produktarbeitsgegenstand, öffentliches Schema, Publikationsregel oder Produktcode angenommen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05863-1775-71f0-ad2e-9aea2fbb2b2a",
+      "created_on": "2026-08-31",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0012_AFTER_EXP0011.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0012",
+          "type": "related_to"
+        },
+        {
+          "target": "EXP-0010",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "in_progress",
+      "title": "Fortsetzung nach EXP-0011 ergebnisoffen bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",

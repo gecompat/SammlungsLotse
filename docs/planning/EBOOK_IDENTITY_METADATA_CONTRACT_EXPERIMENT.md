@@ -1,10 +1,33 @@
 # EXP-0011: Rollenbewusste Metadaten- und Identitätsverträge produktcodefrei vergleichen
 
-Status: ACCEPTED — NOT EXECUTED
+Status: DONE — EXECUTED, 14/14 METHOD CRITERIA PASSED
 
 Stand: 2026-08-31
 
 Artifact: EXP-0011
+
+## Ausführungsergebnis
+
+Der produktcodefreie Lauf wurde aus dem vollständigen Git-Preimage
+`a5aeb0196d8d6a32fc90da46ca158ba693c6a0db` ausgeführt. Genau 15 gebundene
+synthetische Paare wurden in zwei unabhängigen Wiederholungen auf V1, V2 und
+V3 projiziert. Beide Wiederholungen besitzen denselben semantischen
+SHA-256-Wert
+`ec22878a8668852498b13181a24387c8f78838e2ee13eefe2c020bdd06df9cc5`.
+
+Alle 14 methodischen Kriterien sind erfüllt. Jede Variante verliert auf der
+acht Fälle umfassenden Rollenmatrix null Felder, deckt 145/145 projizierte
+Werte mit Quelle und Status ab, erhält die fünf vorhandenen
+Produktentscheidungen vollständig und lässt beide
+`identity.work.title_creator`-Restfälle sichtbar. V1 erhält die 13
+qualifizierten v1-Berichte bytegenau; V1 und V2 weisen die
+Publikationsstufenlücke aus, V3 stellt eine getrennte, mangels Produktregel
+korrekt `not_assessed` bleibende Stufe dar.
+
+Alle drei Varianten sind `eligible_with_tradeoffs`; keine wurde als
+Zielvertrag ausgewählt. Ergebnis und vollständige Projektionen stehen unter
+`experiments/ebook/exp-0011/result.json`. Die Fortsetzung wird ausschließlich
+im getrennten [GATE-0012](EBOOK_GATE_0012_AFTER_EXP0011.md) entschieden.
 
 ## Gate-Entscheidung
 
@@ -245,8 +268,9 @@ CI-geeignete Ergebnisprüfung:
 
     python tools/experiments/run_exp_0011.py --validate-result
 
-Diese Befehle sind in der aktuellen Planungswave noch nicht implementiert
-und wurden nicht ausgeführt.
+Diese Befehle sind im getrennten Ausführungspreimage implementiert. Der
+tatsächliche Experimentlauf wurde noch nicht ausgeführt und bleibt bis zum
+sauberen, eingecheckten Preimage gesperrt.
 
 ## Ausführungsreihenfolge
 

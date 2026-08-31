@@ -46,11 +46,12 @@ Für Produkt-, Governance- und Fixture-Code gelten:
     python tools/run_repository_tests.py
 
 Der Repository-Testadapter entdeckt weiterhin die vollständige Testsuite. Er
-ersetzt ausschließlich die zwei eingefrorenen Ergebnisprüfungen von EXP-0009
-und EXP-0010, die absichtlich den jeweils damaligen aktuellen Produktstand
-erwarten, durch zwei gleichzählige Prüfungen gegen deren historisches
-Git-Preimage. Er bricht ab, falls einer der vier expliziten Test-IDs fehlt oder
-mehrfach vorkommt; alle übrigen entdeckten Tests laufen unverändert.
+ersetzt ausschließlich die drei eingefrorenen Ergebnisprüfungen von EXP-0009,
+EXP-0010 und EXP-0011, die absichtlich den jeweils damaligen aktuellen
+Produktstand erwarten, durch drei gleichzählige Prüfungen gegen deren
+historisches Git-Preimage. Er bricht ab, falls einer der sechs expliziten
+Test-IDs fehlt oder mehrfach vorkommt; alle übrigen entdeckten Tests laufen
+unverändert.
 
     python -m compileall -q \
       src/sammlungslotse \
@@ -197,6 +198,30 @@ dokumentiert. Der ursprüngliche Aufruf
 `python tools/experiments/run_exp_0010.py --validate-result` bleibt nur im
 eingefrorenen Produktpreimage selbst grün, weil er absichtlich den damals
 aktuellen Produktcode bindet.
+
+Für den eingecheckten empirischen EXP-0011-Nachweis gilt:
+
+    python tools/experiments/validate_exp_0011_result.py
+
+Diese CI-geeignete Prüfung erzeugt keine Medien und startet weder Container
+noch Netzwerkzugriff oder Experimentwiederholung. Sie liest das vollständige
+historische Preimage aus dem gebundenen Git-Commit
+`a5aeb0196d8d6a32fc90da46ca158ba693c6a0db`, prüft die unveränderten
+Experimentdateien und lässt den eingefrorenen Runner Ergebnisbindung,
+Messvektoren und alle 14 Akzeptanzwerte neu berechnen. Damit bleiben genau 15
+synthetische Paare, drei Varianten, zwei identische semantische
+Wiederholungen, null Rollenverlust, vollständige Provenienz, unveränderte fünf
+Produktstufen, Publikationslücke beziehungsweise V3-Ausdruck und die zwei
+sichtbaren Restfälle auch nach späteren Produktänderungen prüfbar. Der
+vollständige Nachweis liegt unter `experiments/ebook/exp-0011/`.
+
+Der Aufruf
+
+    python tools/experiments/run_exp_0011.py --validate-result
+
+bleibt für das eingefrorene Ausführungspreimage gültig. Die historische
+Prüfung ist der dauerhafte CI-Vertrag und führt den Experimentlauf nicht neu
+aus.
 
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
