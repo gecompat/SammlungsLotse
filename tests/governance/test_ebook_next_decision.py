@@ -47,6 +47,21 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_IDENTITY_METADATA_CONTRACT_EXPERIMENT.md"
         ).read_text(encoding="utf-8")
+        cls.post_exp0011_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0012_AFTER_EXP0011.md"
+        ).read_text(encoding="utf-8")
+        cls.exp0011_result = json.loads(
+            (
+                ROOT
+                / "experiments"
+                / "ebook"
+                / "exp-0011"
+                / "result.json"
+            ).read_text(encoding="utf-8")
+        )
 
     def relation_targets(self, reference: str, relation_type: str) -> set[str]:
         return {
@@ -107,7 +122,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn(
             "WI-0012", self.relation_targets("GATE-0011", "depends_on")
         )
-        self.assertEqual(self.artifacts["EXP-0011"]["status"], "accepted")
+        self.assertEqual(self.artifacts["EXP-0011"]["status"], "done")
         self.assertIn(
             "GATE-0011", self.relation_targets("EXP-0011", "depends_on")
         )
@@ -115,6 +130,10 @@ class EbookNextDecisionTests(unittest.TestCase):
             "EXP-0010", self.relation_targets("EXP-0011", "derived_from")
         )
         self.assertNotIn("WI-0013", self.artifacts)
+        self.assertEqual(self.artifacts["GATE-0012"]["status"], "in_progress")
+        self.assertIn(
+            "EXP-0011", self.relation_targets("GATE-0012", "depends_on")
+        )
         self.assertIn(
             "DONE — OPTION A / EXP-0011 AUSGEWÄHLT", self.post_wi0012_gate
         )
@@ -125,7 +144,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("als EXP-0011 ausgewählt", self.post_wi0012_gate)
         self.assertIn("### K — Pausieren", self.post_wi0012_gate)
         self.assertIn(
-            "ACCEPTED — EXECUTION PREIMAGE IMPLEMENTED, NOT RUN",
+            "DONE — EXECUTED, 14/14 METHOD CRITERIA PASSED",
             self.metadata_contract_experiment,
         )
         for heading in (
@@ -135,14 +154,23 @@ class EbookNextDecisionTests(unittest.TestCase):
         ):
             self.assertIn(heading, self.metadata_contract_experiment)
         self.assertIn("genau 15 Paare", self.metadata_contract_experiment)
-        self.assertIn("noch nicht ausgeführt", self.metadata_contract_experiment)
+        self.assertIn("Alle 14 methodischen Kriterien", self.metadata_contract_experiment)
         self.assertTrue(
             (ROOT / "experiments" / "ebook" / "exp-0011" / "execution-profile.json").is_file()
         )
         self.assertTrue((ROOT / "tools" / "experiments" / "run_exp_0011.py").is_file())
-        self.assertFalse(
-            (ROOT / "experiments" / "ebook" / "exp-0011" / "result.json").exists()
-        )
+        self.assertEqual("pass", self.exp0011_result["status"])
+        self.assertTrue(all(self.exp0011_result["acceptance"].values()))
+        self.assertIn("READY — USER DECISION REQUIRED", self.post_exp0011_gate)
+        for heading in (
+            "### A — V2 als engen Zielvertrag auswählen",
+            "### B — V1 als additive Kompatibilitätsoption auswählen",
+            "### C — V3 erst durch ein Publikationsregel-Experiment vertiefen",
+            "### D — V3 direkt als Zielvertrag auswählen",
+            "### K — Pausieren",
+        ):
+            self.assertIn(heading, self.post_exp0011_gate)
+        self.assertIn("Diese Bewertung ist keine Auswahl", self.post_exp0011_gate)
 
 
 if __name__ == "__main__":
