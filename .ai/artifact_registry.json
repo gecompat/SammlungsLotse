@@ -869,7 +869,7 @@
           "type": "related_to"
         }
       ],
-      "status": "in_progress",
+      "status": "done",
       "title": "Produktfortsetzung nach EXP-0010 bewerten"
     },
     "REQ-0001": {
@@ -1358,6 +1358,61 @@
       ],
       "status": "done",
       "title": "Explizites EPUB gegen einen Calibre-Datensatz read-only vergleichen"
+    },
+    "WI-0012": {
+      "acceptance_criteria": "Der unveränderte v1-Berichtsvertrag erzeugt bei überlappenden Identifiern und Titeln nur dann candidate_same auf Ausgabenebene, wenn die Repräsentation gleich und die vorhandenen Metadaten kompatibel sind; die sechs kritischen EXP-0010-False-Same-Befunde werden ohne Umschreiben des eingefrorenen Experiments beseitigt, Werkgleichheit folgt nur aus qualifizierter Ausgabengleichheit, und Evidenzkanäle, Pfadfreiheit, Read-only-Grenzen sowie bestehende positive Fälle bleiben synthetisch belegt.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05777-90bb-75a1-a865-1d8134088e9a",
+      "created_on": "2026-08-31",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_IDENTITY_FALSE_SAME_GUARDRAIL_WORK_ITEM.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0010",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0010",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0009",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "False-Same-Guardrail für den EPUB-Identitätsbericht umsetzen"
     }
   },
   "prefixes": {

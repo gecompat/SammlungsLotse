@@ -1,16 +1,34 @@
 # GATE-0010: Produktfortsetzung nach EXP-0010 bewerten
 
-Status: OFFEN — KEINE FOLGEWAVE AUSGEWÄHLT
+Status: AUSGEWERTET — OPTION A / WI-0012 AUSGEWÄHLT
 
-Stand: 2026-08-28
+Stand: 2026-08-31
 
 Artifact: GATE-0010
+
+## Entscheidung
+
+Der Nutzer hat am 2026-08-31 ausdrücklich Option A ausgewählt. Als nächste
+kleine Produktwave wird WI-0012 angenommen: ein enger Fail-safe-Guardrail für
+den bestehenden EPUB-Identitätskandidatenbericht.
+
+WI-0012 beseitigt ausschließlich die empirisch belegte False-Same-Kaskade.
+Identifier- und Titelüberlappung dürfen eine Ausgabe nur noch dann als
+`candidate_same` einstufen, wenn zusätzlich die Repräsentation gleich und die
+vorhandenen Metadaten kompatibel sind. Werkgleichheit darf weiterhin nur aus
+einer nach diesem Guardrail qualifizierten Ausgabengleichheit folgen.
+
+Das öffentliche v1-Berichtsschema, die fünf vorhandenen Identitätsebenen und
+die getrennten positiven, negativen und fehlenden Evidenzkanäle bleiben
+erhalten. Die Auswahl nimmt weder ein rollenbewusstes Metadatenmodell noch
+eine Publikationsstufe oder Collection-Neumodellierung vorweg.
 
 ## Zweck
 
 Dieses Ergebnisgate trennt die unmittelbar belegte False-Same-Ursache von
-drei weiter reichenden Modelllücken. Es implementiert keine Produktregel und
-nimmt keine Folge-Wave an.
+drei weiter reichenden Modelllücken. Die Bewertung selbst implementiert keine
+Produktregel; sie autorisiert mit der ausdrücklichen Auswahl ausschließlich
+den unter WI-0012 begrenzten Guardrail.
 
 ## Verifizierter EXP-0010-Befund
 
@@ -93,7 +111,7 @@ härten:
 - Reversibilität: hoch;
 - bewusster Nachteil: geringere Ausgabenabdeckung und mögliche False
   Negatives bei verändertem Inhalt;
-- Einordnung: vorläufig empfohlen als kleinste sichere Produktwave.
+- Einordnung: als WI-0012 ausgewählt.
 
 ### B — Rollenbewusstes Metadatenmodell v2 einführen
 
@@ -145,15 +163,15 @@ dargestellt werden.
 
 | Option | unmittelbare Risikoreduktion | langfristige Semantik | Kopplung | Empfehlung |
 |---|---:|---:|---:|---|
-| A — Fail-safe-Guardrail | sehr hoch | begrenzt | niedrig | vorläufig empfohlen |
+| A — Fail-safe-Guardrail | sehr hoch | begrenzt | niedrig | als WI-0012 ausgewählt |
 | B — Metadatenmodell v2 | hoch | hoch | mittel bis hoch | sinnvoll nach engerem Vertrag |
 | C — Publikationsstufe plus v2 | hoch | sehr hoch | hoch | derzeit zu breit |
 | F — unabhängiger Qualitätsast | keine für Identität | keine | niedrig bis mittel | valide Umpriorisierung |
 | K — pausieren | keine neue Exposition | keine | keine | valider Ausstieg |
 
-A ist vorläufig empfohlen, weil es exakt die empirisch belegte Kaskade
-stoppt, ohne die drei weiter reichenden Modellfragen in dieselbe Wave zu
-ziehen. B und D bleiben dadurch möglich und werden nicht vorentschieden.
+A ist ausgewählt, weil es exakt die empirisch belegte Kaskade stoppt, ohne
+die drei weiter reichenden Modellfragen in dieselbe Wave zu ziehen. B und D
+bleiben dadurch möglich und werden nicht vorentschieden.
 
 ## Kanten, die nicht überschritten werden
 
@@ -166,9 +184,14 @@ ziehen. B und D bleiben dadurch möglich und werden nicht vorentschieden.
 - Keine Option autorisiert Suche, Persistenz, reale/private Medien,
   Fachsystem- oder Dateischreiben.
 
-## Entscheidungsstopp
+## Gate-Folgen
 
-GATE-0010 bleibt offen. Vor jeder Produktänderung oder weiteren EXP-/WI-
-Registrierung ist ausdrücklich zwischen A, B, C, F, K oder einer bewusst
-anders begrenzten Option zu wählen. Bis dahin wird keine Folge-ID reserviert
-und kein Produktcode begonnen.
+- GATE-0010 ist mit der ausdrücklichen Auswahl von A `done`.
+- WI-0012 ist als eigener Arbeitsgegenstand `accepted`.
+- Produktcode beginnt erst nach Merge dieser Planungs-Wave nach `main`.
+- EXP-0010, seine Falloracles und sein Ergebnis werden nicht umgeschrieben.
+- Die geringere Ausgabenabdeckung bleibt als bewusster Trade-off sichtbar.
+- Metadatenmodell v2, Publikationsstufe und Collection-Semantik benötigen
+  später eine eigene Entscheidung.
+- Nach WI-0012 wird erneut getrennt bewertet; keine weitere Produktwave wird
+  durch dieses Gate vorweggenommen.

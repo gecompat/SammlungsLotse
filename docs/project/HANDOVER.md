@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-08-28
+Stand: 2026-08-31
 
 ## Aktueller Stand
 
@@ -173,6 +173,14 @@ Cleanup. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken,
 Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben
 außerhalb. Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
 
+WI-0012 ist als nächste kleine Produktwave angenommen. Der öffentliche
+WI-0009-v1-Berichtsvertrag und die fünf Ebenen bleiben unverändert;
+`candidate_same` auf Ausgabenebene benötigt künftig zusätzlich gleiche
+Repräsentation und kompatible Metadaten. Die sechs EXP-0010-False-Same-
+Befunde müssen entfallen, ohne EXP-0010 oder seine Oracles umzuschreiben.
+Metadatenmodell v2, Publikationsstufe, Collection-Neumodellierung, Suche,
+Persistenz und Writes bleiben außerhalb.
+
 GATE-0008 ist ausgewertet und EXP-0009 abgeschlossen. Zwei unabhängige Läufe
 über 18 vorab gebundene synthetische Paare erfüllten 12/12 methodische
 Kriterien. Die Produktqualität ist `not_qualified`: Der Fall
@@ -195,9 +203,9 @@ bestanden EPUBCheck, vier absichtlich ungültige Kontrollen wurden korrekt
 abgewiesen und beide Produktwiederholungen waren semantisch identisch. Die
 Produktqualität ist wegen sechs kritischer False Same auf Ausgabe und Werk
 `not_qualified`. Publikationsstufe, Identifier-Rollen und Collection-Semantik
-fehlen getrennt. GATE-0010 ist offen; ein enger Fail-safe-Guardrail ist
-vorläufig empfohlen, aber nicht ausgewählt. Produktcode und jede andere
-Fortsetzung bleiben bis zur Nutzerentscheidung gesperrt.
+fehlen getrennt. Der Nutzer hat für GATE-0010 ausdrücklich Option A gewählt.
+GATE-0010 ist `done`; WI-0012 ist als enger False-Same-Guardrail `accepted`.
+Produktcode beginnt erst nach Integration dieser Planungs-Wave nach `main`.
 
 ## Harte Grenzen
 
