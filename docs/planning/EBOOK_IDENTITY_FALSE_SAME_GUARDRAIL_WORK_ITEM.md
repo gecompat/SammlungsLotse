@@ -114,8 +114,8 @@ WI-0012 ist erst `done`, wenn:
 12. Eingänge unverändert bleiben und Produktcode weder Netzwerk-,
     Persistenz-, Fachsystem- noch Writerfähigkeit erhält;
 13. EXP-0010-Ergebnis, Falloracles und Preimage unverändert bleiben und
-    `python tools/experiments/run_exp_0010.py --validate-result` weiterhin
-    erfolgreich ist;
+    `python tools/experiments/validate_exp_0010_result.py` weiterhin
+    erfolgreich gegen den gebundenen historischen Git-Commit ist;
 14. fokussierte Produkt- und Experimenttests sowie vollständige
     Repository-, Registry-, TEST-0001-, Produktnachweis-, `compileall`,
     `git diff --check`- und Foundation-Regression erfolgreich sind;

@@ -211,8 +211,14 @@ def analyze_pair(first: Snapshot, second: Snapshot, limits: IdentityLimits) -> t
         edition_decision, edition_rule = "different", "identity.edition.language_conflict"
     elif flags["identifiers_overlap"] and not flags["titles_present"]:
         edition_decision, edition_rule = "abstain", "identity.edition.identifier_without_title"
-    elif flags["identifiers_overlap"] and flags["titles_overlap"] and (flags["creators_overlap"] or not flags["creators_present"]):
-        edition_decision, edition_rule = "candidate_same", "identity.edition.identifier_title"
+    elif (
+        representation_equal
+        and flags["identifiers_overlap"]
+        and flags["titles_overlap"]
+        and (flags["creators_overlap"] or not flags["creators_present"])
+    ):
+        edition_decision = "candidate_same"
+        edition_rule = "identity.edition.identifier_representation_metadata"
     elif representation_equal and flags["titles_overlap"] and (flags["creators_overlap"] or not flags["creators_present"]):
         edition_decision, edition_rule = "candidate_same", "identity.edition.representation_metadata"
     else:

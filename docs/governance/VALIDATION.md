@@ -170,16 +170,21 @@ die sichtbare Trennung zwischen methodisch bestandenem Experiment und
 
 Für den eingecheckten empirischen EXP-0010-Nachweis gilt:
 
-    python tools/experiments/run_exp_0010.py --validate-result
+    python tools/experiments/validate_exp_0010_result.py
 
 Diese CI-geeignete Prüfung materialisiert keine EPUBs und startet weder
-Container noch Netzwerkzugriffe. Sie bindet zehn vorab gebundene Paare, das
-vollständige Experiment- und WI-0009-Produktpreimage sowie das bestehende
-EPUBCheck-5.3.0-Profil. Aus den gespeicherten Ergebnissen berechnet sie zwölf
+Container noch Netzwerkzugriffe. Sie liest das vollständige historische
+Produktpreimage aus dem gebundenen Git-Commit, prüft die unveränderten
+Experimentdateien und verwendet danach den eingefrorenen EXP-0010-Validator.
+Damit bleiben zehn vorab gebundene Paare, EPUBCheck-5.3.0-Profil, zwölf
 methodische Kriterien, Konformitätserwartungen, fünfstufige Oraclematrix,
-Metriken, sechs kritische False Same und drei getrennte semantische
-Fähigkeitslücken neu. Der vollständige lokale Lauf ist unter
-`experiments/ebook/exp-0010/` dokumentiert.
+Metriken, sechs historische False Same und drei getrennte semantische
+Fähigkeitslücken auch nach späteren Produktänderungen prüfbar. Der
+vollständige lokale Lauf ist unter `experiments/ebook/exp-0010/`
+dokumentiert. Der ursprüngliche Aufruf
+`python tools/experiments/run_exp_0010.py --validate-result` bleibt nur im
+eingefrorenen Produktpreimage selbst grün, weil er absichtlich den damals
+aktuellen Produktcode bindet.
 
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
