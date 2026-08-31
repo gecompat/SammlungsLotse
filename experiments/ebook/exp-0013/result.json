@@ -1,0 +1,25 @@
+{
+  "artifact": "EXP-0013",
+  "assessment_counts": {
+    "completed": 0,
+    "not_assessed": 3
+  },
+  "cleanup_complete": true,
+  "entry_stage_counts": {
+    "completed": 0,
+    "identity_analysis": 0,
+    "ingress_preflight": 3,
+    "record_handoff": 0,
+    "unclassified": 0
+  },
+  "input_count": 3,
+  "path_free": true,
+  "reason_code_counts": {
+    "ingress.preflight_gate_not_open": 3
+  },
+  "schema": "sammlungslotse/exp-0013-private-diagnostic-result/v1",
+  "search_runs": 4,
+  "source_unchanged": true,
+  "status": "not_qualified",
+  "wi0011_runs": 3
+}

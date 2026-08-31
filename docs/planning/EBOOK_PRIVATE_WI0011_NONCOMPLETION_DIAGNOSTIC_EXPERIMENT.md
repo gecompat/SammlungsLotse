@@ -1,6 +1,6 @@
 # EXP-0013: Private WI-0011-Nichtabschlussgründe produktcodefrei diagnostizieren
 
-Status: ACCEPTED — NOT EXECUTED
+Status: DONE — EXECUTED, 16/16 METHOD CRITERIA PASSED; RESULT NOT_QUALIFIED
 
 Stand: 2026-08-31
 
@@ -183,19 +183,47 @@ Ein methodischer `pass` ist keine Produktfreigabe. Der fachliche Befund darf
 `not_qualified` oder `inconclusive` sein und wird nicht in einen Erfolg
 umgedeutet.
 
+## Ergebnis
+
+Der Hauptlauf wurde am 2026-09-01 gegen das saubere Preimage
+`6d32f5dad32481ef9ec163e742acb1ae77aaf226` ausgeführt. Der Nutzer bestätigte
+ausdrücklich dieselben drei EXP-0012-Eingänge und für den zunächst als PDF
+genannten ersten Locator die exakt gleichnamige EPUB-Alternative. Es fand
+keine Verzeichnis-, Glob-, Index- oder rekursive Suche statt.
+
+EXP-0013 bestand alle 16 methodischen Kriterien:
+
+- drei synthetische tatsächliche WI-0011-Vergleiche, neun Negativkontrollen
+  und beide Aggregationswiederholungen bestanden;
+- genau drei private EPUBs, eine task-private Bibliothek, vier Suchläufe und
+  genau drei WI-0011-Läufe wurden verarbeitet;
+- `assessment_counts` lautet `completed=0`, `not_assessed=3`;
+- `reason_code_counts` enthält ausschließlich
+  `ingress.preflight_gate_not_open=3`;
+- `entry_stage_counts` enthält ausschließlich `ingress_preflight=3`; es gab
+  keine unbekannte beziehungsweise `unclassified` Stufe;
+- Quellen, Tempbereich und Container blieben unverändert beziehungsweise
+  wurden vollständig bereinigt;
+- das Ergebnis ist pfadfrei und enthält keine privaten Einzelwerte,
+  Metadaten, Locators, Hashes, Querys, IDs oder Rohoutputs.
+
+Der Ergebnisstatus ist fachlich `not_qualified`, weil kein WI-0011-Vergleich
+`completed` erreichte. Der Befund lokalisiert alle drei Nichtabschlüsse vor
+dem Record-Handoff in der Ingress-Vorprüfung; er erklärt noch nicht den
+konkreten Intake-Grund und autorisiert keine Reparatur. GATE-0016 bewertet die
+Fortsetzung getrennt.
+
 ## Ausführungsfolge
 
-1. Diese Auswahl- und Vertragswave wird validiert, gemergt und auf
+1. Die Auswahl- und Vertragswave wurde validiert, gemergt und auf
    `origin/main` post-merge geprüft.
-2. Die Implementierung beginnt erst danach in einem neuen isolierten
-   Worktree vom exakten neuen `origin/main`.
-3. Profil, Runner, synthetische Kontrollen und Tests werden ohne Produktcode
-   implementiert und als sauberes Preimage committed.
-4. Erst gegen dieses Commit wird der private Eingangssatz erneut explizit
-   übergeben und der lokale Diagnoselauf ausgeführt.
-5. Ein historischer Validator bindet nur die zulässige Aggregation an das
-   Preimage. Private Arbeits- oder Rohdaten bleiben außerhalb von Git.
-6. Das Ergebnis öffnet ein neues getrenntes Gate; EXP-0013 wählt keine
+2. Profil, Runner, synthetische Kontrollen und Tests wurden ohne Produktcode
+   implementiert und als Preimage `6d32f5d` committed.
+3. Gegen dieses Commit wurde der private Eingangssatz erneut explizit
+   bestätigt und lokal ausgeführt.
+4. Der historische Validator bindet ausschließlich die zulässige Aggregation
+   an das Preimage; private Arbeits- oder Rohdaten bleiben außerhalb von Git.
+5. GATE-0016 bewertet das Ergebnis getrennt; EXP-0013 wählt keine
    Produktfortsetzung.
 
 ## Nicht-Ziele

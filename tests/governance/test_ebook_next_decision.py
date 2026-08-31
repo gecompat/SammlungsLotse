@@ -89,6 +89,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_PRIVATE_WI0011_NONCOMPLETION_DIAGNOSTIC_EXPERIMENT.md"
         ).read_text(encoding="utf-8")
+        cls.post_exp0013_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0016_AFTER_EXP0013.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -104,6 +110,15 @@ class EbookNextDecisionTests(unittest.TestCase):
                 / "experiments"
                 / "ebook"
                 / "exp-0011"
+                / "result.json"
+            ).read_text(encoding="utf-8")
+        )
+        cls.exp0013_result = json.loads(
+            (
+                ROOT
+                / "experiments"
+                / "ebook"
+                / "exp-0013"
                 / "result.json"
             ).read_text(encoding="utf-8")
         )
@@ -331,7 +346,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             self.post_exp0012_gate,
         )
         self.assertIn("0/3 WI-0011-Vergleiche", self.post_exp0012_gate)
-        self.assertEqual(self.artifacts["EXP-0013"]["status"], "accepted")
+        self.assertEqual(self.artifacts["EXP-0013"]["status"], "done")
         for dependency in (
             "GATE-0015",
             "EXP-0012",
@@ -343,7 +358,8 @@ class EbookNextDecisionTests(unittest.TestCase):
                 dependency, self.relation_targets("EXP-0013", "depends_on")
             )
         self.assertIn(
-            "ACCEPTED — NOT EXECUTED", self.private_noncompletion_experiment
+            "DONE — EXECUTED, 16/16 METHOD CRITERIA PASSED; RESULT NOT_QUALIFIED",
+            self.private_noncompletion_experiment,
         )
         self.assertIn(
             "genau drei wiederholte", self.private_noncompletion_experiment
@@ -367,7 +383,42 @@ class EbookNextDecisionTests(unittest.TestCase):
             self.private_noncompletion_experiment,
         )
         self.assertIn(
-            "ein neues getrenntes Gate", self.private_noncompletion_experiment
+            "ein neues getrenntes Ergebnisgate",
+            self.private_noncompletion_experiment,
+        )
+        self.assertEqual("not_qualified", self.exp0013_result["status"])
+        self.assertEqual(3, self.exp0013_result["input_count"])
+        self.assertEqual(
+            {"ingress.preflight_gate_not_open": 3},
+            self.exp0013_result["reason_code_counts"],
+        )
+        self.assertEqual(
+            3, self.exp0013_result["entry_stage_counts"]["ingress_preflight"]
+        )
+        self.assertTrue(self.exp0013_result["path_free"])
+        self.assertEqual(self.artifacts["GATE-0016"]["status"], "proposed")
+        for dependency in (
+            "EXP-0013",
+            "GATE-0015",
+            "WI-0011",
+            "WI-0004",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("GATE-0016", "depends_on")
+            )
+        for heading in (
+            "### A — Private Intake-Gate-Ursachen produktcodefrei qualifizieren",
+            "### B — Ausschließlich synthetische Intake-Matrix vertiefen",
+            "### C — Produktdiagnostik getrennt erwägen",
+            "### K — Evidenz konservieren",
+            "### P — E-Book-Identitätszweig pausieren",
+        ):
+            self.assertIn(heading, self.post_exp0013_gate)
+        self.assertIn("A ist empfohlen, aber nicht ausgewählt", self.post_exp0013_gate)
+        self.assertIn(
+            "Kein neuer Experiment- oder Produktarbeitsgegenstand ist registriert",
+            self.post_exp0013_gate,
         )
 
 

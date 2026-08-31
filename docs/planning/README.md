@@ -47,6 +47,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0012: begrenzte Calibre-Kandidatensuche produktcodefrei qualifizieren](EBOOK_CALIBRE_CANDIDATE_SEARCH_EXPERIMENT.md);
 - [GATE-0015: Ergebnis nach EXP-0012 und private Praxisevidenz bewerten](EBOOK_GATE_0015_AFTER_EXP0012.md);
 - [EXP-0013: private WI-0011-Nichtabschlussgründe produktcodefrei diagnostizieren](EBOOK_PRIVATE_WI0011_NONCOMPLETION_DIAGNOSTIC_EXPERIMENT.md);
+- [GATE-0016: Ergebnis nach EXP-0013 und geschlossene private Ingress-Gates bewerten](EBOOK_GATE_0016_AFTER_EXP0013.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -258,11 +259,16 @@ Same. Der getrennte private Drei-EPUB-Smoke materialisierte die Bibliothek,
 führte vier Suchläufe aus und bereinigte alles, blieb aber bei 0/3
 abgeschlossenen WI-0011-Vergleichen `not_qualified`. Der Nutzer hat in
 GATE-0015 ausdrücklich Option A gewählt. GATE-0015 ist abgeschlossen und
-EXP-0013 als akzeptierte, noch nicht ausgeführte produktcodefreie Diagnose
-registriert. Der Hauptlauf nimmt ausschließlich genau dieselben drei erneut
-explizit bestätigten EPUBs ohne Verzeichnissuche an und darf nur pfadfreie
-Reason-Code- und Eintrittsstufenhäufigkeiten aggregieren. B bis E und K
-bleiben nicht ausgewählt; ein Produktarbeitsgegenstand ist nicht registriert.
+EXP-0013 abgeschlossen. Der erneut ausdrücklich bestätigte Hauptlauf nahm
+genau dieselben drei EPUBs ohne Verzeichnissuche an. Alle drei WI-0011-Läufe
+endeten vor dem Record-Handoff mit
+`ingress.preflight_gate_not_open`; das pfadfreie Gruppenaggregat ist deshalb
+`not_qualified`. Methode, Quellunverändertheit und Cleanup bestanden. Das
+Ergebnis erklärt noch nicht den konkreten Intake-Grund und autorisiert keine
+Reparatur. GATE-0016 ist `proposed`: A ist als kleinste produktcodefreie
+Ursachenqualifizierung empfohlen, aber nicht ausgewählt; B, C, K und P
+bleiben offen. Ein neuer Experiment- oder Produktarbeitsgegenstand ist nicht
+registriert.
 
 ## Nicht übernehmen
 

@@ -1,0 +1,165 @@
+{
+  "artifact": "EXP-0013",
+  "commands": {
+    "identity": "tools/run_ebook_calibre_identity.py --json",
+    "projection_fields": [
+      "title",
+      "authors",
+      "languages",
+      "formats",
+      "identifiers"
+    ],
+    "search_limit": 5,
+    "search_program": "calibredb",
+    "search_variants": [
+      "V1",
+      "V2"
+    ]
+  },
+  "implementation": {
+    "direct_database_access": false,
+    "directory_discovery": false,
+    "network_access": false,
+    "persistence": false,
+    "private_values_retained": false,
+    "product_code_changes": false,
+    "writer_surface": false
+  },
+  "input_contract": {
+    "confirmation_flag": "--confirm-same-exp-0012-inputs",
+    "count": 3,
+    "max_file_bytes": 4194304,
+    "max_total_bytes": 12582912,
+    "regular_files_only": true,
+    "suffix": ".epub"
+  },
+  "limits": {
+    "identity_timeout_seconds": 40,
+    "max_reason_code_bytes": 96,
+    "max_reason_codes_per_report": 1,
+    "output_bytes": 8192,
+    "private_search_runs": 4,
+    "query_bytes": 512,
+    "stderr_bytes": 131072,
+    "stdout_bytes": 131072,
+    "step_timeout_seconds": 30,
+    "synthetic_wi0011_runs": 3
+  },
+  "output_contract": {
+    "allowed_fields": [
+      "artifact",
+      "assessment_counts",
+      "cleanup_complete",
+      "entry_stage_counts",
+      "input_count",
+      "path_free",
+      "reason_code_counts",
+      "schema",
+      "search_runs",
+      "source_unchanged",
+      "status",
+      "wi0011_runs"
+    ],
+    "schema": "sammlungslotse/exp-0013-private-diagnostic-result/v1",
+    "statuses": [
+      "pass",
+      "not_qualified",
+      "inconclusive"
+    ]
+  },
+  "profile_id": "exp-0013-private-wi0011-noncompletion/v1",
+  "runtime_bindings": {
+    "calibre": {
+      "image_id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5",
+      "locator": "runtime/calibre-readonly/profile.json",
+      "profile_id": "wi-0007-calibre-9.13.0-podman-linux-amd64/v1",
+      "sha256": "3489c543dbbcf73f07c090c5ba2599262af036366ec0efebbd3a2c40141cb17d"
+    },
+    "exp_0012_manifest": {
+      "locator": "experiments/ebook/exp-0012/case-manifest.json",
+      "sha256": "db6ecd881896fdc233c89e84428a58decb80569a3c96b9cd24278a75ae9063e1"
+    },
+    "identity": {
+      "locator": "runtime/ebook-calibre-identity/profile.json",
+      "profile_id": "wi-0011-calibre-identity-handoff/v1",
+      "sha256": "5e6fbc8233d5d273a9d21a0e85f77921ae2c1711579e44043bb73961faa32b23"
+    },
+    "test_0001": {
+      "locator": "tests/fixtures/ebook/test-0001/v0.3/manifest.json",
+      "sha256": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2",
+      "version": "0.3.0"
+    }
+  },
+  "schema": "sammlungslotse/exp-0013-execution-profile/v1",
+  "synthetic_controls": {
+    "actual_wi0011_record_ids": [
+      1,
+      4,
+      9
+    ],
+    "aggregation_matrix": {
+      "expected": {
+        "assessment_counts": {
+          "completed": 1,
+          "not_assessed": 4
+        },
+        "entry_stage_counts": {
+          "completed": 1,
+          "identity_analysis": 1,
+          "ingress_preflight": 1,
+          "record_handoff": 1,
+          "unclassified": 1
+        },
+        "reason_code_counts": {
+          "executor.timeout": 1,
+          "future.unknown": 1,
+          "identity.not_assessed": 1,
+          "ingress.preflight_gate_not_open": 1
+        },
+        "status": "inconclusive"
+      },
+      "reports": [
+        {
+          "assessment": "completed",
+          "handoff_reason_codes": []
+        },
+        {
+          "assessment": "not_assessed",
+          "handoff_reason_codes": [
+            "ingress.preflight_gate_not_open"
+          ]
+        },
+        {
+          "assessment": "not_assessed",
+          "handoff_reason_codes": [
+            "executor.timeout"
+          ]
+        },
+        {
+          "assessment": "not_assessed",
+          "handoff_reason_codes": [
+            "identity.not_assessed"
+          ]
+        },
+        {
+          "assessment": "not_assessed",
+          "handoff_reason_codes": [
+            "future.unknown"
+          ]
+        }
+      ]
+    },
+    "aggregation_repetitions": 2,
+    "negative_controls": [
+      "two_inputs",
+      "four_inputs",
+      "duplicate_input",
+      "directory_input",
+      "link_input",
+      "oversized_input",
+      "partial_execution",
+      "private_output_field",
+      "incomplete_cleanup"
+    ]
+  }
+}

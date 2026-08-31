@@ -51,7 +51,8 @@ EXP-0010, EXP-0011 und EXP-0012, die absichtlich den jeweils damaligen
 aktuellen Produktstand erwarten, durch vier gleichzählige Prüfungen gegen
 deren historisches Git-Preimage. Er bricht ab, falls einer der acht expliziten
 Test-IDs fehlt oder mehrfach vorkommt; alle übrigen entdeckten Tests laufen
-unverändert.
+unverändert. Die neue EXP-0013-Historical-Preimage-Prüfung ist selbst ein
+aktueller Test und benötigt keinen Ersatz eines alten Current-Preimage-Tests.
 
     python -m compileall -q \
       src/sammlungslotse \
@@ -222,6 +223,20 @@ Der Aufruf
 bleibt für das eingefrorene Ausführungspreimage gültig. Die historische
 Prüfung ist der dauerhafte CI-Vertrag und führt den Experimentlauf nicht neu
 aus.
+
+Für die eingecheckten empirischen EXP-0012- und EXP-0013-Nachweise gelten:
+
+    python tools/experiments/validate_exp_0012_result.py
+    python tools/experiments/validate_exp_0013_result.py
+
+Beide Prüfungen führen weder private noch synthetische Hauptläufe erneut aus.
+Sie binden die zulässigen Experimentdateien und Ergebnisse an ihre
+historischen Git-Preimages. EXP-0013 erzwingt zusätzlich exakt das pfadfreie
+Zwölf-Felder-Aggregat aus drei Eingängen, vier Suchläufen, drei WI-0011-
+Läufen, dreifachem `ingress.preflight_gate_not_open`, unveränderten Quellen,
+vollständigem Cleanup und fachlichem Status `not_qualified`. Private
+Einzelwerte, Locators, Hashes, Metadaten, Querys, IDs und Rohoutputs sind kein
+Teil des Nachweises.
 
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
