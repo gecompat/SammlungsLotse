@@ -16,6 +16,7 @@ OBSOLETE_CURRENT_PREIMAGE_TESTS = frozenset(
         "experiments.test_exp_0009.Exp0009Tests.test_empirical_result_contract_when_present",
         "experiments.test_exp_0010.Exp0010Tests.test_empirical_result_contract_when_present",
         "experiments.test_exp_0011.Exp0011Tests.test_empirical_result_contract_when_present",
+        "experiments.test_exp_0012.Exp0012Tests.test_empirical_result_contract_when_present",
     }
 )
 HISTORICAL_REPLACEMENT_TESTS = frozenset(
@@ -26,6 +27,8 @@ HISTORICAL_REPLACEMENT_TESTS = frozenset(
         "test_exp_0010_result_against_historical_preimage",
         "governance.test_historical_experiment_results.HistoricalExperimentResultTests."
         "test_exp_0011_result_against_historical_preimage",
+        "governance.test_historical_experiment_results.HistoricalExperimentResultTests."
+        "test_exp_0012_result_against_historical_preimage",
     }
 )
 

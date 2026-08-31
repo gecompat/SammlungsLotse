@@ -1,0 +1,3887 @@
+{
+  "acceptance": {
+    "candidate_limit_enforced": true,
+    "checked_in_result_path_free": true,
+    "critical_false_same_counted": true,
+    "every_candidate_uses_wi0011": true,
+    "exact_profile_image_and_preimage": true,
+    "failures_and_limit_visible": true,
+    "matrix_three_variants_eight_tasks_two_runs": true,
+    "minimal_projection_path_free": true,
+    "network_database_persistence_product_and_writer_false": true,
+    "recall_precision_and_misses_reported": true,
+    "repetitions_semantically_identical": true,
+    "search_and_identity_evidence_separate": true,
+    "source_and_library_unchanged": true,
+    "supported_search_and_list_only": true,
+    "synthetic_fixtures_prebound_and_unchanged": true,
+    "task_and_container_cleanup_complete": true
+  },
+  "artifact": "EXP-0012",
+  "cleanup": {
+    "containers_after": [],
+    "containers_before": [],
+    "identity_temp_empty": true,
+    "task_root_removed": true
+  },
+  "effects": {
+    "direct_database_access": false,
+    "network": false,
+    "persistence": false,
+    "product_code": false,
+    "supported_calibredb_only": true,
+    "writer": false
+  },
+  "executed_on": "2026-08-31",
+  "fixtures": {
+    "after": {
+      "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/full.epub": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/sample.epub": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-byte-equal/source-a/same.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/source-en.epub": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/translation-de.epub": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-a.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-b.epub": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-a.epub": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-b.epub": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/metadata-multilingual-rtl/multilingual-rtl.epub": "47db9023a483de9d6b23b9b0fce2440ce879d5953ccc8d9fd35f3a79735b6c5d"
+    },
+    "before": {
+      "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/full.epub": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/sample.epub": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-byte-equal/source-a/same.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/source-en.epub": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/translation-de.epub": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-a.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-b.epub": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-a.epub": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-b.epub": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327",
+      "tests/fixtures/ebook/test-0001/v0.3/cases/metadata-multilingual-rtl/multilingual-rtl.epub": "47db9023a483de9d6b23b9b0fce2440ce879d5953ccc8d9fd35f3a79735b6c5d"
+    }
+  },
+  "image_id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5",
+  "library": {
+    "after": "3de886aef6e11b6133efb05055ccd3c4d9b0c2110a01b0c284ddb5a7e4b48609",
+    "before": "3de886aef6e11b6133efb05055ccd3c4d9b0c2110a01b0c284ddb5a7e4b48609",
+    "records": 12
+  },
+  "limitations": [
+    "synthetic TEST-0001 evidence only",
+    "one task-private Calibre library",
+    "maximum five candidates",
+    "no completeness or ranking claim",
+    "private smoke is separate and not retained",
+    "no product authorization"
+  ],
+  "metrics": {
+    "variants": {
+      "V1": {
+        "applicable_runs": 3,
+        "candidate_limit_reached_runs": 0,
+        "candidates": 4,
+        "classification": "eligible_with_tradeoffs",
+        "critical_false_same": 0,
+        "extra_candidates": 1,
+        "missed_relevant": 0,
+        "not_applicable_runs": 5,
+        "precision": 0.75,
+        "recall": 1.0,
+        "unexpected_candidates": 0
+      },
+      "V2": {
+        "applicable_runs": 8,
+        "candidate_limit_reached_runs": 0,
+        "candidates": 8,
+        "classification": "not_qualified",
+        "critical_false_same": 0,
+        "extra_candidates": 0,
+        "missed_relevant": 1,
+        "not_applicable_runs": 0,
+        "precision": 1.0,
+        "recall": 0.8888888888888888,
+        "unexpected_candidates": 0
+      },
+      "V3": {
+        "applicable_runs": 8,
+        "candidate_limit_reached_runs": 0,
+        "candidates": 10,
+        "classification": "eligible_with_tradeoffs",
+        "critical_false_same": 0,
+        "extra_candidates": 1,
+        "missed_relevant": 0,
+        "not_applicable_runs": 0,
+        "precision": 0.9,
+        "recall": 1.0,
+        "unexpected_candidates": 0
+      }
+    }
+  },
+  "preimage": {
+    "docs/planning/EBOOK_CALIBRE_CANDIDATE_SEARCH_EXPERIMENT.md": "4fd3df336ce51c1649434f9f3208b9d29531313f53913fbdce33c449ce4aca14",
+    "experiments/ebook/exp-0012/README.md": "110c8468a63de614cc05097a39ee4b8f921ea4077d468bb5926c9b4aa92283d2",
+    "experiments/ebook/exp-0012/case-manifest.json": "db6ecd881896fdc233c89e84428a58decb80569a3c96b9cd24278a75ae9063e1",
+    "experiments/ebook/exp-0012/execution-profile.json": "3f03a3f35ed09e301af55547b0589aad2492bf47818d4d2e9cc789e94f6906b4",
+    "runtime/calibre-readonly/profile.json": "3489c543dbbcf73f07c090c5ba2599262af036366ec0efebbd3a2c40141cb17d",
+    "runtime/ebook-calibre-identity/profile.json": "5e6fbc8233d5d273a9d21a0e85f77921ae2c1711579e44043bb73961faa32b23",
+    "src/sammlungslotse/calibre_inventory/profile.py": "b7de96e7801de5ce7e1017b737df04b334740edd2c01be17f9174f0c5a5e63b2",
+    "src/sammlungslotse/calibre_inventory/workspace.py": "e508ed6cbf656cf0bee12f7666ccff9edb2f294e1a292c2fcf3f5785e8d0d793",
+    "src/sammlungslotse/ebook_calibre_identity/application.py": "1d0389c04a35749a7db24461cf298f74bcc54277eaeb69301e631fd89c0e9cb8",
+    "src/sammlungslotse/ebook_calibre_identity/cli.py": "93b9facc2e29ecd27a22d34a2315e3e1d9085c150f89b11446710c271f9135cd",
+    "src/sammlungslotse/ebook_calibre_identity/executor.py": "c64e7aab42c7218ea104d27b88abb38a32394050c43ef49b66feb01183012f21",
+    "src/sammlungslotse/ebook_calibre_identity/model.py": "7217013481e9405d708d9e1b050d319708b81d827bfb97c06c4201816cf5b9ab",
+    "src/sammlungslotse/ebook_calibre_identity/profile.py": "b22207e1884601d225e5406645fa4f6dd811bc3114d4e04a8439a1e9296f7478",
+    "src/sammlungslotse/ebook_calibre_identity/provider.py": "130b9eeacd4810e32c95cb0f104bd5296ae23bbf03a54b33725e6f337f0d1daf",
+    "src/sammlungslotse/ebook_identity/analyzer.py": "f3ace579406dd8d7a9f14b4faeccc86d6e574ddcda5a5cded72ebdd87ca61226",
+    "src/sammlungslotse/ebook_identity/application.py": "f896e98be092611caaa40b86c621b215b375ef8234c3821214b8059cbfc5ff60",
+    "src/sammlungslotse/ebook_identity/model.py": "23578b639e3d94d20c26c72f883fdf3d9097c6924ffc8b08975b8f2dfd3f2687",
+    "src/sammlungslotse/ebook_intake/application.py": "da82da5c07f42f7eb4853a7627781906f389dbdb4a16152b5bd3d54f2260b123",
+    "src/sammlungslotse/ebook_intake/model.py": "18810819df8ff39a22dde7621ee445173f7d5612155cf484a2d193ca3085d2cd",
+    "src/sammlungslotse/ebook_intake/podman_executor.py": "a10458ae6d5cfa8b404df2f91c1fd8fb90efdd696f68f292c87587b2558e2319",
+    "src/sammlungslotse/ebook_intake/ports.py": "03ef7072762c67ac9918c3f51d0f117577f973e9ef71a755ba4b500ebac27e09",
+    "src/sammlungslotse/ebook_intake/snapshot.py": "a4b1d722f4433c62da96f5d02dba3cb11547ec5c626e2231fde112a192d99ede",
+    "tests/experiments/test_exp_0012.py": "396892eae4cbc239065ee1c6350cee9949b788f3d0a4a25d2fa4e7bd645e113a",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/full.epub": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/sample.epub": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/identity-byte-equal/source-a/same.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/source-en.epub": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/translation-de.epub": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-a.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-b.epub": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-a.epub": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-b.epub": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327",
+    "tests/fixtures/ebook/test-0001/v0.3/cases/metadata-multilingual-rtl/multilingual-rtl.epub": "47db9023a483de9d6b23b9b0fce2440ce879d5953ccc8d9fd35f3a79735b6c5d",
+    "tests/fixtures/ebook/test-0001/v0.3/manifest.json": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2",
+    "tools/experiments/run_exp_0012.py": "7832d8a24da4c01fd41d4515fd994932bd88e80739f4260475a1e9579ee614b3",
+    "tools/materialize_calibre_qualification_library.py": "ac1383fa3861be509518918c63786813fbf6f0096e60d374941bf9f87d27ba58",
+    "tools/run_ebook_calibre_identity.py": "b6d37416f6e2c893ba03925489e7b6349b70b250d55c20f4dbda8d966f01b0f5"
+  },
+  "preimage_commit": "deddef016ed61dbbddc4a938c7f2ec0cabb8228e",
+  "privacy": {
+    "path_free_result": true,
+    "private_values_retained": false
+  },
+  "profile_id": "exp-0012-calibre-candidate-search/v1",
+  "runs": [
+    {
+      "observations": [
+        {
+          "case": "identifier-unique-same-edition",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              8
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "identifiers:=isbn:=9780000000008",
+            "relevant_found_ids": [
+              8
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V1"
+        },
+        {
+          "case": "identifier-unique-same-edition",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            },
+            {
+              "external_record_id": 9,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "representation_candidate",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 9,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000009"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8,
+              9
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              8,
+              9
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Twin Edition\" and author:\"=Edition Author\"",
+            "relevant_found_ids": [
+              8,
+              9
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "identifier-unique-same-edition",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            },
+            {
+              "external_record_id": 9,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "representation_candidate",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 9,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000009"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8,
+              9
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              8,
+              9
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Twin Edition\" and author:\"Edition Author\"",
+            "relevant_found_ids": [
+              8,
+              9
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "identifier-reuse-content-conflict",
+          "identity_evidence": [
+            {
+              "external_record_id": 1,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Ada Exact"
+                ],
+                "external_record_id": 1,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000001"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Identifier Anchor"
+              }
+            },
+            {
+              "external_record_id": 2,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "abstain",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "abstain",
+                    "rule_id": "identity.edition.insufficient_evidence",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "abstain",
+                    "rule_id": "identity.work.insufficient_evidence",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Mallory Conflict"
+                ],
+                "external_record_id": 2,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000001"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Identifier Conflict"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [
+              2
+            ],
+            "relevant_ids": [
+              1
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              1,
+              2
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "identifiers:=isbn:=9780000000001",
+            "relevant_found_ids": [
+              1
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V1"
+        },
+        {
+          "case": "identifier-reuse-content-conflict",
+          "identity_evidence": [
+            {
+              "external_record_id": 1,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Ada Exact"
+                ],
+                "external_record_id": 1,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000001"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Identifier Anchor"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              1
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              1
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Identifier Anchor\" and author:\"=Ada Exact\"",
+            "relevant_found_ids": [
+              1
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "identifier-reuse-content-conflict",
+          "identity_evidence": [
+            {
+              "external_record_id": 1,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Ada Exact"
+                ],
+                "external_record_id": 1,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000001"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Identifier Anchor"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              1
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              1
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Identifier Anchor\" and author:\"Ada Exact\"",
+            "relevant_found_ids": [
+              1
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "title-author-unique-without-identifier",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "title-author-unique-without-identifier",
+          "identity_evidence": [
+            {
+              "external_record_id": 3,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Nora Unique"
+                ],
+                "external_record_id": 3,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Silent Harbor"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              3
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              3
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Silent Harbor\" and author:\"=Nora Unique\"",
+            "relevant_found_ids": [
+              3
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "title-author-unique-without-identifier",
+          "identity_evidence": [
+            {
+              "external_record_id": 3,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Nora Unique"
+                ],
+                "external_record_id": 3,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Silent Harbor"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              3
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              3
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Silent Harbor\" and author:\"Nora Unique\"",
+            "relevant_found_ids": [
+              3
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "title-collision-different-author",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "title-collision-different-author",
+          "identity_evidence": [
+            {
+              "external_record_id": 4,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Alpha Author"
+                ],
+                "external_record_id": 4,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Shared Title"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              4
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              4
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Shared Title\" and author:\"=Alpha Author\"",
+            "relevant_found_ids": [
+              4
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "title-collision-different-author",
+          "identity_evidence": [
+            {
+              "external_record_id": 4,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Alpha Author"
+                ],
+                "external_record_id": 4,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Shared Title"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              4
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              4
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Shared Title\" and author:\"Alpha Author\"",
+            "relevant_found_ids": [
+              4
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "author-collision-different-title",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "author-collision-different-title",
+          "identity_evidence": [
+            {
+              "external_record_id": 6,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Shared Author"
+                ],
+                "external_record_id": 6,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Alpha One"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              6
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              6
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Alpha One\" and author:\"=Shared Author\"",
+            "relevant_found_ids": [
+              6
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "author-collision-different-title",
+          "identity_evidence": [
+            {
+              "external_record_id": 6,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Shared Author"
+                ],
+                "external_record_id": 6,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Alpha One"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              6
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              6
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Alpha One\" and author:\"Shared Author\"",
+            "relevant_found_ids": [
+              6
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "same-title-author-multiple-editions",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              8
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "identifiers:=isbn:=9780000000008",
+            "relevant_found_ids": [
+              8
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V1"
+        },
+        {
+          "case": "same-title-author-multiple-editions",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            },
+            {
+              "external_record_id": 9,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "representation_candidate",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 9,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000009"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8,
+              9
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              8,
+              9
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Twin Edition\" and author:\"=Edition Author\"",
+            "relevant_found_ids": [
+              8,
+              9
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "same-title-author-multiple-editions",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            },
+            {
+              "external_record_id": 9,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "representation_candidate",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 9,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000009"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8,
+              9
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              8,
+              9
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Twin Edition\" and author:\"Edition Author\"",
+            "relevant_found_ids": [
+              8,
+              9
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "punctuation-and-character-variant",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "punctuation-and-character-variant",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              10
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [
+              10
+            ],
+            "query": "title:\"=Voyage\" and author:\"=Clara\"",
+            "relevant_found_ids": [],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "punctuation-and-character-variant",
+          "identity_evidence": [
+            {
+              "external_record_id": 10,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Clara Example"
+                ],
+                "external_record_id": 10,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "deu"
+                ],
+                "title": "Punctuation: Voyage"
+              }
+            },
+            {
+              "external_record_id": 11,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "abstain",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.edition.language_conflict",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "abstain",
+                    "rule_id": "identity.work.insufficient_evidence",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Clara Secondary"
+                ],
+                "external_record_id": 11,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Voyage Extended"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [
+              11
+            ],
+            "relevant_ids": [
+              10
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              10,
+              11
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Voyage\" and author:\"Clara\"",
+            "relevant_found_ids": [
+              10
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "no-match",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "no-match",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Absent Book\" and author:\"=Nobody\"",
+            "relevant_found_ids": [],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "no-match",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Absent Book\" and author:\"Nobody\"",
+            "relevant_found_ids": [],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        }
+      ],
+      "repetition": 1
+    },
+    {
+      "observations": [
+        {
+          "case": "identifier-unique-same-edition",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              8
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "identifiers:=isbn:=9780000000008",
+            "relevant_found_ids": [
+              8
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V1"
+        },
+        {
+          "case": "identifier-unique-same-edition",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            },
+            {
+              "external_record_id": 9,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "representation_candidate",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 9,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000009"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8,
+              9
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              8,
+              9
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Twin Edition\" and author:\"=Edition Author\"",
+            "relevant_found_ids": [
+              8,
+              9
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "identifier-unique-same-edition",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            },
+            {
+              "external_record_id": 9,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "representation_candidate",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 9,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000009"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8,
+              9
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              8,
+              9
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Twin Edition\" and author:\"Edition Author\"",
+            "relevant_found_ids": [
+              8,
+              9
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "identifier-reuse-content-conflict",
+          "identity_evidence": [
+            {
+              "external_record_id": 1,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Ada Exact"
+                ],
+                "external_record_id": 1,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000001"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Identifier Anchor"
+              }
+            },
+            {
+              "external_record_id": 2,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "abstain",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "abstain",
+                    "rule_id": "identity.edition.insufficient_evidence",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "abstain",
+                    "rule_id": "identity.work.insufficient_evidence",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Mallory Conflict"
+                ],
+                "external_record_id": 2,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000001"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Identifier Conflict"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [
+              2
+            ],
+            "relevant_ids": [
+              1
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              1,
+              2
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "identifiers:=isbn:=9780000000001",
+            "relevant_found_ids": [
+              1
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V1"
+        },
+        {
+          "case": "identifier-reuse-content-conflict",
+          "identity_evidence": [
+            {
+              "external_record_id": 1,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Ada Exact"
+                ],
+                "external_record_id": 1,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000001"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Identifier Anchor"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              1
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              1
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Identifier Anchor\" and author:\"=Ada Exact\"",
+            "relevant_found_ids": [
+              1
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "identifier-reuse-content-conflict",
+          "identity_evidence": [
+            {
+              "external_record_id": 1,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Ada Exact"
+                ],
+                "external_record_id": 1,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000001"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Identifier Anchor"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              1
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              1
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Identifier Anchor\" and author:\"Ada Exact\"",
+            "relevant_found_ids": [
+              1
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "title-author-unique-without-identifier",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "title-author-unique-without-identifier",
+          "identity_evidence": [
+            {
+              "external_record_id": 3,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Nora Unique"
+                ],
+                "external_record_id": 3,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Silent Harbor"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              3
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              3
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Silent Harbor\" and author:\"=Nora Unique\"",
+            "relevant_found_ids": [
+              3
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "title-author-unique-without-identifier",
+          "identity_evidence": [
+            {
+              "external_record_id": 3,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Nora Unique"
+                ],
+                "external_record_id": 3,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Silent Harbor"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              3
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              3
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Silent Harbor\" and author:\"Nora Unique\"",
+            "relevant_found_ids": [
+              3
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "title-collision-different-author",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "title-collision-different-author",
+          "identity_evidence": [
+            {
+              "external_record_id": 4,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Alpha Author"
+                ],
+                "external_record_id": 4,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Shared Title"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              4
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              4
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Shared Title\" and author:\"=Alpha Author\"",
+            "relevant_found_ids": [
+              4
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "title-collision-different-author",
+          "identity_evidence": [
+            {
+              "external_record_id": 4,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Alpha Author"
+                ],
+                "external_record_id": 4,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Shared Title"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              4
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              4
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Shared Title\" and author:\"Alpha Author\"",
+            "relevant_found_ids": [
+              4
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "author-collision-different-title",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "author-collision-different-title",
+          "identity_evidence": [
+            {
+              "external_record_id": 6,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Shared Author"
+                ],
+                "external_record_id": 6,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Alpha One"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              6
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              6
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Alpha One\" and author:\"=Shared Author\"",
+            "relevant_found_ids": [
+              6
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "author-collision-different-title",
+          "identity_evidence": [
+            {
+              "external_record_id": 6,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Shared Author"
+                ],
+                "external_record_id": 6,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Alpha One"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              6
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              6
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Alpha One\" and author:\"Shared Author\"",
+            "relevant_found_ids": [
+              6
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "same-title-author-multiple-editions",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 1,
+            "candidate_ids": [
+              8
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "identifiers:=isbn:=9780000000008",
+            "relevant_found_ids": [
+              8
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V1"
+        },
+        {
+          "case": "same-title-author-multiple-editions",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            },
+            {
+              "external_record_id": 9,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "representation_candidate",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 9,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000009"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8,
+              9
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              8,
+              9
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Twin Edition\" and author:\"=Edition Author\"",
+            "relevant_found_ids": [
+              8,
+              9
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "same-title-author-multiple-editions",
+          "identity_evidence": [
+            {
+              "external_record_id": 8,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 8,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000008"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            },
+            {
+              "external_record_id": 9,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "representation_candidate",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Edition Author"
+                ],
+                "external_record_id": 9,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {
+                  "isbn": "9780000000009"
+                },
+                "languages": [
+                  "eng"
+                ],
+                "title": "Twin Edition"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              8,
+              9
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              8,
+              9
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Twin Edition\" and author:\"Edition Author\"",
+            "relevant_found_ids": [
+              8,
+              9
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "punctuation-and-character-variant",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "punctuation-and-character-variant",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": [
+              10
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [
+              10
+            ],
+            "query": "title:\"=Voyage\" and author:\"=Clara\"",
+            "relevant_found_ids": [],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "punctuation-and-character-variant",
+          "identity_evidence": [
+            {
+              "external_record_id": 10,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "exact_byte_match",
+                "stages": [
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.edition.identifier_representation_metadata",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "candidate_same",
+                    "rule_id": "identity.work.same_edition",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Clara Example"
+                ],
+                "external_record_id": 10,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "deu"
+                ],
+                "title": "Punctuation: Voyage"
+              }
+            },
+            {
+              "external_record_id": 11,
+              "identity": {
+                "assessment": "completed",
+                "effects": {
+                  "cleanup_complete": true,
+                  "container_started": true,
+                  "domain_system_writes": false,
+                  "network_access": false,
+                  "persistence": false,
+                  "source_modified": false,
+                  "task_materialized": true,
+                  "writer": false
+                },
+                "overall": "abstain",
+                "stages": [
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.byte.sha256",
+                    "stage": "byte"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.package.canonical_entries",
+                    "stage": "package"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.representation.spine_text",
+                    "stage": "representation"
+                  },
+                  {
+                    "decision": "different",
+                    "rule_id": "identity.edition.language_conflict",
+                    "stage": "edition"
+                  },
+                  {
+                    "decision": "abstain",
+                    "rule_id": "identity.work.insufficient_evidence",
+                    "stage": "work"
+                  }
+                ]
+              },
+              "projection": {
+                "authors": [
+                  "Clara Secondary"
+                ],
+                "external_record_id": 11,
+                "formats": [
+                  "epub"
+                ],
+                "identifiers": {},
+                "languages": [
+                  "eng"
+                ],
+                "title": "Voyage Extended"
+              }
+            }
+          ],
+          "oracle": {
+            "allowed_extra_ids": [
+              11
+            ],
+            "relevant_ids": [
+              10
+            ]
+          },
+          "search_evidence": {
+            "candidate_count": 2,
+            "candidate_ids": [
+              10,
+              11
+            ],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Voyage\" and author:\"Clara\"",
+            "relevant_found_ids": [
+              10
+            ],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        },
+        {
+          "case": "no-match",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": null,
+          "status": "not_applicable",
+          "variant": "V1"
+        },
+        {
+          "case": "no-match",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"=Absent Book\" and author:\"=Nobody\"",
+            "relevant_found_ids": [],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V2"
+        },
+        {
+          "case": "no-match",
+          "identity_evidence": [],
+          "oracle": {
+            "allowed_extra_ids": [],
+            "relevant_ids": []
+          },
+          "search_evidence": {
+            "candidate_count": 0,
+            "candidate_ids": [],
+            "candidate_limit_reached": false,
+            "missed_relevant_ids": [],
+            "query": "title:\"Absent Book\" and author:\"Nobody\"",
+            "relevant_found_ids": [],
+            "unexpected_ids": []
+          },
+          "status": "executed",
+          "variant": "V3"
+        }
+      ],
+      "repetition": 2
+    }
+  ],
+  "schema": "sammlungslotse/exp-0012-result/v1",
+  "status": "pass",
+  "synthetic_only": true
+}

@@ -565,7 +565,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Begrenzte Calibre-Kandidatensuche produktcodefrei qualifizieren"
     },
     "GATE-0001": {
@@ -1203,6 +1203,56 @@
       ],
       "status": "done",
       "title": "Nächsten read-only Nutzwert nach WI-0013 bewerten"
+    },
+    "GATE-0015": {
+      "acceptance_criteria": "Das synthetische EXP-0012-Methodenergebnis, die getrennten Variantenmetriken und der ausschließlich lokal aggregierte private Praxissmoke werden ohne Produktannahme bewertet; Suchstrategie, Feldkombination, Nulltreffer, Fehlkandidaten, private Nichtabschlussgründe, Vollständigkeitsgrenzen und Pausieren bleiben getrennte Optionen, und ohne ausdrückliche Nutzerauswahl werden weder Produktarbeitsgegenstand noch Such-, Ranking-, Persistenz-, UI-, API-, Agent- oder Writerfläche registriert.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05967-a7d0-72f0-868f-ba1f4d47ce67",
+      "created_on": "2026-08-31",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0015_AFTER_EXP0012.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0012",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0014",
+          "type": "related_to"
+        },
+        {
+          "target": "WI-0011",
+          "type": "related_to"
+        },
+        {
+          "target": "WI-0007",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "Ergebnis von EXP-0012 und private Praxisevidenz bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",

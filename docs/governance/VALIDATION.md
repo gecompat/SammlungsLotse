@@ -46,10 +46,10 @@ Für Produkt-, Governance- und Fixture-Code gelten:
     python tools/run_repository_tests.py
 
 Der Repository-Testadapter entdeckt weiterhin die vollständige Testsuite. Er
-ersetzt ausschließlich die drei eingefrorenen Ergebnisprüfungen von EXP-0009,
-EXP-0010 und EXP-0011, die absichtlich den jeweils damaligen aktuellen
-Produktstand erwarten, durch drei gleichzählige Prüfungen gegen deren
-historisches Git-Preimage. Er bricht ab, falls einer der sechs expliziten
+ersetzt ausschließlich die vier eingefrorenen Ergebnisprüfungen von EXP-0009,
+EXP-0010, EXP-0011 und EXP-0012, die absichtlich den jeweils damaligen
+aktuellen Produktstand erwarten, durch vier gleichzählige Prüfungen gegen
+deren historisches Git-Preimage. Er bricht ab, falls einer der acht expliziten
 Test-IDs fehlt oder mehrfach vorkommt; alle übrigen entdeckten Tests laufen
 unverändert.
 
