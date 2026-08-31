@@ -64,7 +64,9 @@ V2-Zielvertrag ist umgesetzt und 29/29 synthetisch produktqualifiziert. V1
 bleibt bytekompatibler Standard, V2 wird ausschließlich explizit aktiviert
 und behält die fünf vorhandenen Produktstufen. Der abhängige WI-0011-Weg ist
 auf demselben Preimage erneut 23/23 qualifiziert. Publikationsstufe und
-V1-Deprecation sind nicht ausgewählt.
+V1-Deprecation sind nicht ausgewählt. GATE-0013 ist nach ausdrücklicher
+Auswahl von Option A abgeschlossen: V1 bleibt Standard, V2 bleibt Opt-in und
+kein neuer Produktarbeitsgegenstand ist registriert.
 
 ## Vorhanden
 
@@ -274,7 +276,10 @@ V1-Deprecation sind nicht ausgewählt.
   rollenbewussten V2-Zielvertrags;
 - abgeschlossener WI-0013 mit bytekompatiblem V1-Standardpfad, explizitem
   V2-Opt-in, rollenbewusster Metadatenprojektion, fünf unveränderten
-  Entscheidungsstufen und 29/29 synthetischem Produktnachweis.
+  Entscheidungsstufen und 29/29 synthetischem Produktnachweis;
+- abgeschlossenes GATE-0013 mit ausdrücklicher Auswahl, den dualen Vertrag
+  stabil zu halten, ohne neuen Produktarbeitsgegenstand, Defaultwechsel,
+  Deprecation oder Publikationswave.
 
 ## Nicht vorhanden
 
@@ -289,6 +294,21 @@ V1-Deprecation sind nicht ausgewählt.
 - Release.
 
 ## Validierung
+
+GATE-0013-Ergebniswave: PROJECT_SEMANTIC, bestehende RUNTIME_EMPIRICAL-
+Regression und FOUNDATION_INTEGRITY lokal validiert am 2026-08-31 unter
+Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren für 46
+Artefakte erfolgreich. Der kontrollierte Testlauf entdeckte 189 Tests,
+ersetzte genau drei Current-Preimage-Ergebnisprüfungen durch
+Historical-Preimage-Prüfungen und führte 186 Tests erfolgreich aus. Die
+aktuellen WI-0013- und WI-0011-Produktnachweise bestanden weiterhin 29/29
+beziehungsweise 23/23 Kriterien; EXP-0009, EXP-0010 und EXP-0011 blieben
+historisch mit 12/12, 12/12 und 14/14 Kriterien prüfbar. `compileall` und
+`git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY am exakten
+Quellcommit `d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen,
+0 Fehler und 0 Blocker. Dies belegt die registrierte Ergebnisentscheidung
+und die Regression des unveränderten Produktstands, nicht eine neue
+Produktfunktion, Migration oder Publikationsstufe.
 
 WI-0013-Implementierungswave: PROJECT_SEMANTIC, RUNTIME_EMPIRICAL und
 FOUNDATION_INTEGRITY lokal validiert am 2026-08-31 unter Windows, Python
@@ -994,11 +1014,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 ## Nächster Schritt
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
-EXP-0011, GATE-0012 und WI-0013 sind abgeschlossen. Der unveränderte
-V1-Bericht bleibt Standard; nur `--json --report-version v2` aktiviert den
-rollenbewussten V2-Bericht. Vor einer weiteren Produktwave ist ein neues
-getrenntes Ergebnisgate erforderlich. Eine Publikationsstufe, V1-Deprecation
-oder automatische Migration ist nicht autorisiert.
+EXP-0011, GATE-0012, WI-0013 und GATE-0013 sind abgeschlossen. Der Nutzer
+hat in GATE-0013 ausdrücklich Option A gewählt: Der unveränderte V1-Bericht
+bleibt Standard; nur `--json --report-version v2` aktiviert den
+rollenbewussten V2-Bericht. Es ist kein neuer Produktarbeitsgegenstand
+registriert. Eine Publikationsstufe, V1-Deprecation, automatische Migration
+oder andere Produktfortsetzung benötigt eine neue getrennte
+Ergebnisentscheidung.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

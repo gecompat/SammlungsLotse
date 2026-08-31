@@ -1030,6 +1030,60 @@
       "status": "done",
       "title": "Fortsetzung nach EXP-0011 ergebnisoffen bewerten"
     },
+    "GATE-0013": {
+      "acceptance_criteria": "Der post-merge verifizierte WI-0013-Ergebnisstand wird getrennt nach Kompatibilität, Verbraucherwirkung, Evidenzreife, Migrationslast, Publikationslücke, unabhängiger Fortsetzung und Pausieren bewertet; die ausdrücklich ausgewählte Stabilisierung hält V1 als Standard und V2 als Opt-in, registriert keinen neuen Produktarbeitsgegenstand und verlangt für V2-Default, V1-Deprecation, Publikationsstufe oder weitere Produktfunktion eine neue ausdrückliche Entscheidung.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a058b4-e251-74be-bcae-02a692ad8ad4",
+      "created_on": "2026-08-31",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0013_AFTER_WI0013.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0013",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0012",
+          "type": "related_to"
+        },
+        {
+          "target": "WI-0011",
+          "type": "related_to"
+        },
+        {
+          "target": "EXP-0011",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "Ergebnis nach WI-0013 und V2-Opt-in bewerten"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],

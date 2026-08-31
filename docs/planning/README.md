@@ -42,6 +42,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0011: rollenbewusste Metadaten- und Identitätsverträge vergleichen](EBOOK_IDENTITY_METADATA_CONTRACT_EXPERIMENT.md);
 - [GATE-0012: Fortsetzung nach EXP-0011 bewerten](EBOOK_GATE_0012_AFTER_EXP0011.md);
 - [WI-0013: rollenbewussten EPUB-Identitätsbericht V2 umsetzen](EBOOK_IDENTITY_ROLE_AWARE_V2_WORK_ITEM.md);
+- [GATE-0013: Ergebnis nach WI-0013 und V2-Opt-in bewerten](EBOOK_GATE_0013_AFTER_WI0013.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -231,8 +232,11 @@ produktqualifiziert. V1 bleibt bytekompatibler Standard; ausschließlich
 vorhandenen Produktstufen und die zwei sichtbaren `candidate_related`-
 Restabweichungen. Der abhängige WI-0011-Weg wurde auf demselben Preimage
 erneut 23/23 qualifiziert und bleibt standardmäßig V1. Publikationsstufe,
-V1-Deprecation, Suche, Persistenz und Writes bleiben außerhalb. Vor einer
-weiteren Produktwave ist eine neue ausdrückliche Ergebnisentscheidung nötig.
+V1-Deprecation, Suche, Persistenz und Writes bleiben außerhalb. GATE-0013 ist
+nach ausdrücklicher Auswahl von Option A abgeschlossen: Der duale Vertrag
+bleibt stabil, kein neuer Produktarbeitsgegenstand ist registriert. Ein
+V2-Default, eine V1-Deprecation, eine Publikationsstufe oder eine andere
+Produktfunktion benötigt eine neue getrennte Ergebnisentscheidung.
 
 ## Nicht übernehmen
 
