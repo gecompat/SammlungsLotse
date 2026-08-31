@@ -124,8 +124,8 @@ Bibliothek und eine externe Calibre-ID, providerneutraler Snapshot-Handoff,
 unveränderter fünfstufiger Identitätsbericht und keine Bestandsaktion. Der
 eingecheckte Nachweis bindet das Preimage `d70c6de` und bestand 23/23
 ausschließlich synthetische Kriterien. Nach WI-0012 wurde der abhängige Weg
-gegen den neuen Analyzer-Preimage `97017a2` tatsächlich erneut 23/23
-qualifiziert.
+gegen den Analyzer-Preimage `97017a2` und nach WI-0013 gegen `dde1326`
+tatsächlich erneut jeweils 23/23 qualifiziert.
 
 ## Fortsetzung
 
@@ -171,21 +171,22 @@ CLI liegen unter `src/sammlungslotse/ebook_calibre_identity/` und
 `tools/run_ebook_calibre_identity.py`; Profil und 23/23-Produktnachweis unter
 `runtime/ebook-calibre-identity/`. Der tatsächliche Lauf belegte
 Bytegleichheit, Repackaging, Enthaltung, Grenzen, Recovery und vollständiges
-Cleanup. Nach der WI-0012-Guardrail-Änderung bestand der aktuelle Nachweis
-gegen Preimage `97017a2` und das unveränderte Calibre-9.13.0-Image erneut
-23/23 Kriterien. Automatische Suche, mehrere Dateien, IDs oder Bibliotheken,
+Cleanup. Nach WI-0013 bestand der aktuelle Nachweis gegen Preimage `dde1326`
+und das unveränderte Calibre-9.13.0-Image erneut 23/23 Kriterien. Automatische
+Suche, mehrere Dateien, IDs oder Bibliotheken,
 Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben außerhalb.
 Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
 
 WI-0012 ist abgeschlossen. Der öffentliche WI-0009-v1-Berichtsvertrag und
 die fünf Ebenen blieben unverändert; `candidate_same` auf Ausgabenebene
 benötigt jetzt zusätzlich gleiche Repräsentation und kompatible Metadaten.
-Der aktuelle v2-Produktnachweis bindet den Preimage-Commit `97017a2`, fünf
-TEST-0001-Paare und acht konforme EXP-0010-Qualitätsfälle. Er bestand 19/19
-Kriterien und reduzierte die sechs kritischen False Same auf null. Zwei
-`candidate_related`-Werkabweichungen bleiben ausdrücklich sichtbar.
-Metadatenmodell v2, Publikationsstufe, Collection-Neumodellierung, Suche,
-Persistenz und Writes bleiben außerhalb.
+Der damalige WI-0012-v2-Qualifikationsnachweis bindet den Preimage-Commit
+`97017a2`, fünf TEST-0001-Paare und acht konforme EXP-0010-Qualitätsfälle. Er
+bestand 19/19 Kriterien und reduzierte die sechs kritischen False Same auf
+null. Zwei `candidate_related`-Werkabweichungen bleiben ausdrücklich
+sichtbar. Das rollenbewusste Metadatenmodell blieb in WI-0012 noch außerhalb
+und wurde erst mit WI-0013 umgesetzt; Publikationsstufe, Suche, Persistenz und
+Writes bleiben weiterhin außerhalb.
 
 GATE-0008 ist ausgewertet und EXP-0009 abgeschlossen. Zwei unabhängige Läufe
 über 18 vorab gebundene synthetische Paare erfüllten 12/12 methodische
@@ -214,16 +215,16 @@ GATE-0010 und WI-0012 sind `done`. Der Guardrail ist synthetisch qualifiziert;
 EXP-0010 und seine Oracles blieben unverändert und sind über den historischen
 Git-Preimage-Validator weiterhin 12/12 prüfbar.
 
-GATE-0011 und EXP-0011 sind `done`. Der commitgebundene Doppellauf auf 15
-synthetischen Paaren bestand 14/14 Kriterien; alle drei Varianten bewahren
-Rollen, Provenienz und die fünf bestehenden Produktstufen. Der Nutzer hat in
-GATE-0012 ausdrücklich Option A gewählt. GATE-0012 ist `done`; WI-0013 ist
-als enger rollenbewusster V2-Zielvertrag `accepted`, aber noch nicht
-implementiert. V1 bleibt unveränderter Standard, während ausschließlich
-`--json --report-version v2` den neuen Bericht aktivieren darf. Eine
-Publikationsstufe, V1-Deprecation, Suche, Persistenz oder Writes sind nicht
-ausgewählt. Nach Integration und Post-Merge-Prüfung dieser Planungswave
-beginnt die Implementierung in einem neuen isolierten Worktree.
+GATE-0011, EXP-0011 und GATE-0012 sind `done`. Der Nutzer hat in GATE-0012
+ausdrücklich Option A gewählt. WI-0013 ist als enger rollenbewusster
+V2-Zielvertrag umgesetzt und 29/29 synthetisch produktqualifiziert. V1 bleibt
+bytekompatibler Standard, während ausschließlich
+`--json --report-version v2` den neuen Bericht aktiviert. V1 und V2 bewahren
+dieselben fünf Entscheidungen, Regel-IDs und Evidenzkanäle. Der abhängige
+WI-0011-Weg ist auf demselben Preimage erneut 23/23 qualifiziert und bleibt
+standardmäßig V1. Eine Publikationsstufe, V1-Deprecation, Suche, Persistenz
+oder Writes sind nicht ausgewählt. Vor einer weiteren Produktwave ist eine
+neue ausdrückliche Ergebnisentscheidung erforderlich.
 
 ## Harte Grenzen
 

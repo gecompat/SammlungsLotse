@@ -5,7 +5,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
-REPORT_SCHEMA = "sammlungslotse/ebook-identity-candidate-report/v1"
+REPORT_SCHEMA_V1 = "sammlungslotse/ebook-identity-candidate-report/v1"
+REPORT_SCHEMA_V2 = "sammlungslotse/ebook-identity-candidate-report/v2"
+REPORT_SCHEMA = REPORT_SCHEMA_V1
 STAGES = ("byte", "package", "representation", "edition", "work")
 DECISIONS = frozenset(
     {"candidate_same", "candidate_related", "different", "abstain", "not_applicable"}
@@ -42,12 +44,78 @@ class IdentityLimits:
 
 
 @dataclass(frozen=True, slots=True)
+class Identifier:
+    id: str | None
+    value: str
+
+    def to_dict(self) -> dict[str, object]:
+        return {"id": self.id, "value": self.value}
+
+
+@dataclass(frozen=True, slots=True)
+class AdditionalIdentifier:
+    id: str | None
+    identifier_type: str | None
+    scheme: str | None
+    value: str
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "id": self.id,
+            "identifier_type": self.identifier_type,
+            "scheme": self.scheme,
+            "value": self.value,
+        }
+
+
+@dataclass(frozen=True, slots=True)
+class CollectionMembership:
+    id: str | None
+    identifier: str | None
+    name: str
+    position: str | None
+    type: str | None
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "id": self.id,
+            "identifier": self.identifier,
+            "name": self.name,
+            "position": self.position,
+            "type": self.type,
+        }
+
+
+def _leaf_provenance(
+    value: object, prefix: str, source: str
+) -> dict[str, dict[str, str]]:
+    if value is None or value == []:
+        return {prefix: {"source": source, "status": "missing"}}
+    if isinstance(value, dict):
+        result: dict[str, dict[str, str]] = {}
+        for key in sorted(value):
+            result.update(_leaf_provenance(value[key], f"{prefix}.{key}", source))
+        return result
+    if isinstance(value, list):
+        result = {}
+        for index, item in enumerate(value):
+            result.update(_leaf_provenance(item, f"{prefix}[{index}]", source))
+        return result
+    return {prefix: {"source": source, "status": "observed"}}
+
+
+@dataclass(frozen=True, slots=True)
 class EmbeddedMetadata:
     titles: tuple[str, ...]
     creators: tuple[str, ...]
     languages: tuple[str, ...]
     identifiers: tuple[str, ...]
     work_references: tuple[str, ...]
+    primary_identifier: Identifier | None
+    primary_identifier_element_ref: str | None
+    additional_identifiers: tuple[AdditionalIdentifier, ...]
+    modified: str | None
+    collection_memberships: tuple[CollectionMembership, ...]
 
     def to_dict(self) -> dict[str, object]:
         return {
@@ -56,6 +124,48 @@ class EmbeddedMetadata:
             "languages": list(self.languages),
             "titles": list(self.titles),
             "work_references": list(self.work_references),
+        }
+
+    def to_dict_v2(self) -> dict[str, object]:
+        role_values: dict[str, object] = {
+            "primary_identifier": (
+                None
+                if self.primary_identifier is None
+                else self.primary_identifier.to_dict()
+            ),
+            "primary_identifier_element_ref": self.primary_identifier_element_ref,
+            "additional_identifiers": [
+                item.to_dict() for item in self.additional_identifiers
+            ],
+            "modified": self.modified,
+            "collection_memberships": [
+                item.to_dict() for item in self.collection_memberships
+            ],
+        }
+        sources = {
+            "primary_identifier": "package@unique-identifier and dc:identifier",
+            "primary_identifier_element_ref": "package@unique-identifier",
+            "additional_identifiers": (
+                "dc:identifier and identifier-type refinements"
+            ),
+            "modified": "meta[property=dcterms:modified]",
+            "collection_memberships": "belongs-to-collection refinements",
+        }
+        provenance: dict[str, dict[str, str]] = {}
+        for key, source in sources.items():
+            provenance.update(_leaf_provenance(role_values[key], key, source))
+        return {
+            "additional_identifiers": role_values["additional_identifiers"],
+            "collection_memberships": role_values["collection_memberships"],
+            "creators": list(self.creators),
+            "languages": list(self.languages),
+            "modified": role_values["modified"],
+            "primary_identifier": role_values["primary_identifier"],
+            "primary_identifier_element_ref": role_values[
+                "primary_identifier_element_ref"
+            ],
+            "provenance": provenance,
+            "titles": list(self.titles),
         }
 
 
@@ -83,6 +193,11 @@ class InputObservation:
             "sha256": self.sha256,
             "size_bytes": self.size_bytes,
         }
+
+    def to_dict_v2(self) -> dict[str, object]:
+        value = self.to_dict()
+        value["metadata"] = self.metadata.to_dict_v2()
+        return value
 
 
 @dataclass(frozen=True, slots=True)
@@ -148,6 +263,12 @@ class IdentityReport:
             "limits": self.limits.to_dict(),
             "overall": self.overall,
             "reason_codes": list(self.reason_codes),
-            "schema": REPORT_SCHEMA,
+            "schema": REPORT_SCHEMA_V1,
             "stages": [item.to_dict() for item in self.stages],
         }
+
+    def to_dict_v2(self) -> dict[str, object]:
+        value = self.to_dict()
+        value["inputs"] = [item.to_dict_v2() for item in self.inputs]
+        value["schema"] = REPORT_SCHEMA_V2
+        return value

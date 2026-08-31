@@ -223,15 +223,16 @@ kritischen False Same sind auf null reduziert. Zwei schwächere
 Metadatenmodell, Publikationsstufe, Collection-Semantik, unabhängige
 Fortsetzung und Pausieren bleiben getrennt offen.
 
-GATE-0011 und EXP-0011 sind abgeschlossen. Der gebundene Doppellauf bestand
-14/14 Kriterien und zeigte für V1, V2 und V3 null Rollenverlust sowie
-vollständige Provenienz. Der Nutzer hat in GATE-0012 ausdrücklich Option A
-gewählt. WI-0013 ist deshalb als enger rollenbewusster V2-Zielvertrag
-`accepted`, aber noch nicht implementiert. V1 bleibt unveränderter Standard;
-V2 wird nur explizit aktiviert und bewahrt die fünf vorhandenen
-Produktstufen. Publikationsstufe, V1-Deprecation, Suche, Persistenz und Writes
-bleiben außerhalb. Die Implementierung beginnt erst nach Integration und
-Post-Merge-Prüfung dieser Planungswave in einem neuen isolierten Worktree.
+GATE-0011, EXP-0011 und GATE-0012 sind abgeschlossen. Der Nutzer hat in
+GATE-0012 ausdrücklich Option A gewählt. WI-0013 ist als enger
+rollenbewusster V2-Zielvertrag umgesetzt und 29/29 synthetisch
+produktqualifiziert. V1 bleibt bytekompatibler Standard; ausschließlich
+`--json --report-version v2` aktiviert V2. Beide Versionen bewahren die fünf
+vorhandenen Produktstufen und die zwei sichtbaren `candidate_related`-
+Restabweichungen. Der abhängige WI-0011-Weg wurde auf demselben Preimage
+erneut 23/23 qualifiziert und bleibt standardmäßig V1. Publikationsstufe,
+V1-Deprecation, Suche, Persistenz und Writes bleiben außerhalb. Vor einer
+weiteren Produktwave ist eine neue ausdrückliche Ergebnisentscheidung nötig.
 
 ## Nicht übernehmen
 
