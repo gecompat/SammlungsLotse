@@ -65,6 +65,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0013_AFTER_WI0013.md"
         ).read_text(encoding="utf-8")
+        cls.next_readonly_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0014_NEXT_READONLY_VALUE.md"
+        ).read_text(encoding="utf-8")
         cls.exp0011_result = json.loads(
             (
                 ROOT
@@ -216,6 +222,25 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn(
             "Kein neuer Produktarbeitsgegenstand ist registriert",
             self.post_wi0013_gate,
+        )
+        self.assertEqual(self.artifacts["GATE-0014"]["status"], "proposed")
+        self.assertIn(
+            "GATE-0013", self.relation_targets("GATE-0014", "depends_on")
+        )
+        for heading in (
+            "### A — Begrenzte Kandidatensuche produktcodefrei evidenzieren",
+            "### B — Read-only Bestandsqualitätsbefunde definieren",
+            "### C — Bibliografische Konflikte read-only erklären",
+            "### D — Mehrbibliotheks-Routing experimentieren",
+            "### E — V2-Verbraucher- und Migrationsevidenz erheben",
+            "### F — Nur Maintenance und Requalifikation fortsetzen",
+            "### K — Pausieren",
+        ):
+            self.assertIn(heading, self.next_readonly_gate)
+        self.assertIn("A ist empfohlen, aber nicht ausgewählt", self.next_readonly_gate)
+        self.assertIn(
+            "Kein Experiment und kein Produktarbeitsgegenstand ist registriert",
+            self.next_readonly_gate,
         )
 
 

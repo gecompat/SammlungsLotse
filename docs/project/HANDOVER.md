@@ -225,6 +225,15 @@ bleibt standardmäßig V1. Kein neuer Produktarbeitsgegenstand ist registriert.
 Eine Publikationsstufe, V1-Deprecation, Suche, Persistenz, Writes oder andere
 Produktfortsetzung benötigt eine neue ausdrückliche Ergebnisentscheidung.
 
+GATE-0014 ist als nächste ergebnisoffene Anschlussbewertung `proposed`. Es
+empfiehlt Option A: ein produktcodefreies Experiment zu einer kleinen, hart
+begrenzten und erklärbaren Kandidatensuche für genau ein explizites
+Eingangs-EPUB und genau eine synthetische Calibre-Bibliothek. Die Optionen B
+bis F sowie K halten Bestandsqualitätsbefunde, bibliografische Konflikte,
+Mehrbibliotheks-Routing, V2-Migrationsevidenz, Maintenance und Pausieren
+getrennt offen. A ist nicht ausgewählt; kein Experiment und kein
+Produktarbeitsgegenstand ist registriert.
+
 ## Harte Grenzen
 
 - Fachsysteme bleiben führend.
