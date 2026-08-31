@@ -225,14 +225,15 @@ bleibt standardmäßig V1. Kein neuer Produktarbeitsgegenstand ist registriert.
 Eine Publikationsstufe, V1-Deprecation, Suche, Persistenz, Writes oder andere
 Produktfortsetzung benötigt eine neue ausdrückliche Ergebnisentscheidung.
 
-GATE-0014 ist als nächste ergebnisoffene Anschlussbewertung `proposed`. Es
-empfiehlt Option A: ein produktcodefreies Experiment zu einer kleinen, hart
-begrenzten und erklärbaren Kandidatensuche für genau ein explizites
-Eingangs-EPUB und genau eine synthetische Calibre-Bibliothek. Die Optionen B
-bis F sowie K halten Bestandsqualitätsbefunde, bibliografische Konflikte,
-Mehrbibliotheks-Routing, V2-Migrationsevidenz, Maintenance und Pausieren
-getrennt offen. A ist nicht ausgewählt; kein Experiment und kein
-Produktarbeitsgegenstand ist registriert.
+Der Nutzer hat in GATE-0014 ausdrücklich Option A gewählt. GATE-0014 ist
+`done`; EXP-0012 ist als akzeptiertes, noch nicht ausgeführtes
+produktcodefreies Experiment registriert. Es bindet drei Calibre-
+Suchstrategien, acht synthetische Aufgaben, zwei Wiederholungen, höchstens
+fünf Kandidaten und den getrennten WI-0011-Vergleich jedes Treffers. Ein
+zusätzlicher lokaler Praxissmoke darf auf ausdrücklichen Nutzerhinweis
+höchstens drei private EPUB-Kopien verwenden; private Dateien, Metadaten,
+Pfade und Rohoutputs bleiben außerhalb von Git und werden bereinigt. B bis F
+und K sind nicht ausgewählt. Kein Produktarbeitsgegenstand ist registriert.
 
 ## Harte Grenzen
 

@@ -71,6 +71,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0014_NEXT_READONLY_VALUE.md"
         ).read_text(encoding="utf-8")
+        cls.candidate_search_experiment = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_CALIBRE_CANDIDATE_SEARCH_EXPERIMENT.md"
+        ).read_text(encoding="utf-8")
         cls.exp0011_result = json.loads(
             (
                 ROOT
@@ -223,7 +229,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "Kein neuer Produktarbeitsgegenstand ist registriert",
             self.post_wi0013_gate,
         )
-        self.assertEqual(self.artifacts["GATE-0014"]["status"], "proposed")
+        self.assertEqual(self.artifacts["GATE-0014"]["status"], "done")
         self.assertIn(
             "GATE-0013", self.relation_targets("GATE-0014", "depends_on")
         )
@@ -237,11 +243,38 @@ class EbookNextDecisionTests(unittest.TestCase):
             "### K — Pausieren",
         ):
             self.assertIn(heading, self.next_readonly_gate)
-        self.assertIn("A ist empfohlen, aber nicht ausgewählt", self.next_readonly_gate)
+        self.assertIn("Option A am 2026-08-31 ausdrücklich ausgewählt", self.next_readonly_gate)
         self.assertIn(
-            "Kein Experiment und kein Produktarbeitsgegenstand ist registriert",
+            "Kein Produktarbeitsgegenstand ist registriert",
             self.next_readonly_gate,
         )
+        self.assertEqual(self.artifacts["EXP-0012"]["status"], "accepted")
+        for dependency in (
+            "GATE-0014",
+            "WI-0013",
+            "WI-0011",
+            "WI-0007",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("EXP-0012", "depends_on")
+            )
+        for heading in (
+            "### V1 — Exakter typisierter Identifier",
+            "### V2 — Exakter Titel plus exakter Autor",
+            "### V3 — Feldgebundener Titel- und Autor-Contains",
+        ):
+            self.assertIn(heading, self.candidate_search_experiment)
+        self.assertIn("genau acht Aufgaben", self.candidate_search_experiment)
+        self.assertIn("genau zwei", self.candidate_search_experiment)
+        self.assertIn("höchstens fünf Kandidaten", self.candidate_search_experiment)
+        self.assertIn("ACCEPTED — NOT EXECUTED", self.candidate_search_experiment)
+        self.assertIn(
+            "keine Änderung unter `src/sammlungslotse/`",
+            self.candidate_search_experiment,
+        )
+        self.assertIn("höchstens drei einzelnen EPUBs", self.candidate_search_experiment)
+        self.assertIn("nicht eingecheckten", self.next_readonly_gate)
 
 
 if __name__ == "__main__":
