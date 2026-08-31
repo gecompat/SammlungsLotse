@@ -1,6 +1,6 @@
 # WI-0013: Rollenbewussten EPUB-Identitätsbericht V2 umsetzen
 
-Status: ACCEPTED — NOT IMPLEMENTED
+Status: DONE — IMPLEMENTIERT UND SYNTHETISCH PRODUKTQUALIFIZIERT
 
 Stand: 2026-08-31
 
@@ -141,11 +141,39 @@ grüne Teilprüfung oder ein nicht commitgebundener Lauf genügt nicht.
 
 ## Abnahme
 
-WI-0013 kann erst `done` werden, wenn die Implementierung und der vollständige
-synthetische Produktnachweis in einem getrennten Pull Request integriert,
-alle erforderlichen Checks grün und der exakte Merge-Commit auf `origin/main`
-post-merge geprüft sind. Bis dahin bedeutet `accepted` ausschließlich, dass
-dieser enge Vertrag zur Umsetzung freigegeben ist.
+Die Implementierung ist auf dem vollständigen Git-Preimage
+`dde132646f9e578f582231c2a7be946134490184` ausgeführt. Das interne Modell
+bewahrt die bisherige V1-Projektion und ergänzt ausschließlich die gebundenen
+Rollenfelder. `tools/run_ebook_identity.py` lässt V1 als Standard unverändert
+und aktiviert V2 nur mit `--json --report-version v2`.
+
+Der eingecheckte Qualifikationsnachweis unter
+`runtime/ebook-identity/qualification.json` besitzt SHA-256
+`feebe3ff325aec657fcff928c76bece18aa01c48a90aa5f8281620ee23b52e51` und
+bestand 29/29 Kriterien. Er belegt auf 13 qualifizierten Paaren jeweils zwei
+tatsächliche V1- und V2-CLI-Läufe, bytekompatibles V1, die exakte gebundene
+V2-Rollenprojektion, identische fünf Entscheidungsstufen, 241/241
+Provenienzeinträge, zwei getrennte ungültige Kontrollen, Pfadfreiheit,
+unveränderte Eingänge, vollständiges Cleanup und null Produktwirkungen.
+
+Der abhängige WI-0011-Calibre-Weg blieb standardmäßig auf V1 und wurde gegen
+denselben Preimage sowie das unveränderte Calibre-9.13.0-Image tatsächlich
+erneut 23/23 qualifiziert. Sein eingecheckter Nachweis besitzt SHA-256
+`90fbe6856aeb09f89e382c59312f7035ac9777de57a316fc336bb81fcf5a7d4e`.
+Die 22 pfadfreien Rohbelege liegen außerhalb von Git unter
+`C:\rep\artifacts\SammlungsLotse\wi-0013-wi0011-requalification-dde1326`;
+die Taskwurzel wurde vollständig entfernt.
+
+Die historischen EXP-0009-, EXP-0010- und EXP-0011-Ergebnisse blieben
+unverändert und bestanden ihre commitgebundenen Validatoren weiterhin mit
+12/12, 12/12 und 14/14 Kriterien. Die zwei bekannten
+`candidate_related`-Werkabweichungen bleiben sichtbar; sie wurden weder
+umklassifiziert noch als gelöst dargestellt.
+
+WI-0013 ist mit Integration dieser Implementierung und des vollständigen
+synthetischen Produktnachweises `done`. Er gilt erst nach grünen erforderlichen
+Checks und Post-Merge-Prüfung des exakten Merge-Commits auf `origin/main` als
+endgültig integriert.
 
 Eine spätere V1-Deprecation, eine neue Publikationsstufe oder eine weitere
 Produktfortsetzung benötigt eine neue ausdrückliche Entscheidung.

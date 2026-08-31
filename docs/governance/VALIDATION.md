@@ -296,28 +296,27 @@ Task- und Container-Cleanup. Fehler-, Grenz-, Instabilitäts- und
 Recoveryverträge werden zusätzlich durch fokussierte synthetische
 Produkttests erzwungen.
 
-Für den aktuellen, mit WI-0012 fortgeschriebenen EPUB-Identitäts-
+Für den aktuellen, mit WI-0013 fortgeschriebenen EPUB-Identitäts-
 Produktnachweis gilt zusätzlich:
 
     python tools/qualify_ebook_identity.py --validate-result
 
 Die CI-geeignete Prüfung startet keinen Container und benötigt kein Netzwerk.
-Sie bindet 19 erfüllte Kriterien und den Preimage-Commit an fünf
-TEST-0001-Paare sowie acht konforme Qualitätsfälle aus dem unveränderten
-EXP-0010-Fallmanifest. Der zugrunde liegende tatsächliche
-Qualifikationslauf lautet:
+Sie bindet 29 erfüllte Kriterien und den Preimage-Commit an fünf
+TEST-0001-Paare, acht konforme Qualitätsfälle und zwei getrennte ungültige
+Kontrollen aus dem unveränderten EXP-0010-Fallmanifest. Der zugrunde liegende
+tatsächliche Qualifikationslauf lautet:
 
     python tools/qualify_ebook_identity.py \
-      --temp-root C:\rep\tmp\SammlungsLotse\wi-0012-qualification
+      --temp-root C:\rep\tmp\SammlungsLotse\wi-0013-qualification
 
-Er führt jeden der dreizehn JSON-Fälle zweimal und die deutsche Ansicht
-einmal über den lokalen CLI-Prozess aus. Er prüft Ebenentrennung,
-Evidenzkanäle, öffentliches v1-Schema, Determinismus, Pfadfreiheit,
-unveränderte Eingänge, vollständiges Task-Cleanup, fehlende
-Produktwirkungen und null kritische False Same. Zwei verbleibende
-`candidate_related`-Werkabweichungen bleiben im Nachweis ausdrücklich
-sichtbar und sind keine vollständige Qualifikation der noch flachen
-Identifier-/Collection-Semantik.
+Er führt jeden der dreizehn qualifizierten Fälle je zweimal über den
+tatsächlichen V1- und V2-CLI-Pfad aus. Er prüft bytekompatibles V1, die
+gebundene rollenbewusste V2-Projektion, fünf identische Stufen,
+241 Provenienzeinträge, Determinismus, Pfadfreiheit, unveränderte Eingänge,
+vollständiges Task-Cleanup, fehlende Produktwirkungen und null kritische
+False Same. Zwei verbleibende `candidate_related`-Werkabweichungen bleiben im
+Nachweis ausdrücklich sichtbar.
 
 Für den eingecheckten WI-0011-Produktnachweis gilt zusätzlich:
 
@@ -332,19 +331,19 @@ Outputlimit, Timeout, Unterbrechung und Recovery aus. Er prüft Pfadfreiheit,
 Bytegleichheit, Rollen, fünf Identitätsebenen, Quellunverändertheit und
 vollständiges Task- und Container-Cleanup.
 
-Nach der WI-0012-Guardrail-Änderung wurde dieser abhängige Produktweg gegen
-den neuen Analyzer-Preimage-Commit
-`97017a2f33b314a6623685a2d07c9638babc0f40` erneut tatsächlich qualifiziert.
+Nach WI-0013 wurde dieser abhängige Produktweg gegen den neuen
+Analyzer-Preimage-Commit
+`dde132646f9e578f582231c2a7be946134490184` erneut tatsächlich qualifiziert.
 Der aktuelle eingecheckte Nachweis mit SHA-256
-`8c4120cbcdf21524674a17a906f44226df9194a11c1189dc8bdfad20c47f9b2e`
+`90fbe6856aeb09f89e382c59312f7035ac9777de57a316fc336bb81fcf5a7d4e`
 bestand weiterhin 23/23 Kriterien.
 
 Der tatsächliche ausschließlich synthetische Podman-Lauf verwendet neue
 kontrollierte Pfade unter `C:\rep`:
 
     python tools/qualify_ebook_calibre_identity.py \
-      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0012-wi0011-requalification \
-      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0012-wi0011-requalification
+      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0013-wi0011-requalification \
+      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0013-wi0011-requalification
 
 Qualifikations- und Evidenzziel müssen neue strikte Unterpfade sein. Die
 Taskwurzel wird vollständig entfernt; die 22 pfadfreien stdout-/stderr-

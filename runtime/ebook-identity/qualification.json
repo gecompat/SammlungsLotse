@@ -8,22 +8,254 @@
     "generated_inputs_unchanged": true,
     "german_view": true,
     "identity_levels_separate": true,
+    "invalid_controls_separate_and_visible": true,
     "network_effect_false": true,
     "original_effect_false": true,
     "path_free_output": true,
     "positive_negative_missing_separate": true,
     "public_schema_unchanged": true,
+    "report_version_fails_closed": true,
     "residual_model_gaps_visible": true,
     "same_representation_candidate_preserved": true,
     "task_cleanup_complete": true,
     "test_0001_contract_preserved": true,
+    "v1_default_byte_compatible": true,
+    "v1_explicit_version_byte_compatible": true,
+    "v2_decision_semantics_preserved": true,
+    "v2_explicit_opt_in": true,
+    "v2_no_publication_stage": true,
+    "v2_provenance_complete": true,
+    "v2_role_projection_matches_exp0011": true,
+    "v2_schema_selected": true,
     "work_same_requires_qualified_edition": true,
     "write_effect_false": true
   },
   "case_counts": {
+    "exp_0010_control": 2,
     "exp_0010_quality": 8,
     "test_0001": 5,
-    "total": 13
+    "total_observed": 15,
+    "total_qualified": 13
+  },
+  "control_input_hashes": {
+    "invalid-missing-modified": {
+      "left": "0abbcf2bf485d9a758c5a66646c6803d10505d30e7494b6de3ff66dab3234b5e",
+      "right": "789e0e455f1c88d610d3d399b0f2e4b3ed88e22249121f82a0954d8618a51165"
+    },
+    "invalid-missing-primary-binding": {
+      "left": "83590db97790641a83f82a6ecf790ecbc015805d0f3cf27e05400497e3abc7ba",
+      "right": "73289e53a496fc0b32f35afcc0eba3ea3dca2a52c448031cf12e17b668c5bbb3"
+    }
+  },
+  "control_role_observations": {
+    "invalid-missing-modified": [
+      {
+        "additional_identifiers": [],
+        "collection_memberships": [],
+        "creators": [
+          "Jana Beispiel"
+        ],
+        "languages": [
+          "en"
+        ],
+        "modified": null,
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-0000000000a1"
+        },
+        "primary_identifier_element_ref": "pub-id",
+        "provenance": {
+          "additional_identifiers": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "missing"
+          },
+          "collection_memberships": {
+            "source": "belongs-to-collection refinements",
+            "status": "missing"
+          },
+          "modified": {
+            "source": "meta[property=dcterms:modified]",
+            "status": "missing"
+          },
+          "primary_identifier.id": {
+            "source": "package@unique-identifier and dc:identifier",
+            "status": "observed"
+          },
+          "primary_identifier.value": {
+            "source": "package@unique-identifier and dc:identifier",
+            "status": "observed"
+          },
+          "primary_identifier_element_ref": {
+            "source": "package@unique-identifier",
+            "status": "observed"
+          }
+        },
+        "titles": [
+          "Invalid Modified Control"
+        ]
+      },
+      {
+        "additional_identifiers": [],
+        "collection_memberships": [],
+        "creators": [
+          "Jana Beispiel"
+        ],
+        "languages": [
+          "en"
+        ],
+        "modified": null,
+        "primary_identifier": {
+          "id": "pub-id",
+          "value": "urn:uuid:10000000-0000-4000-8000-0000000000a2"
+        },
+        "primary_identifier_element_ref": "pub-id",
+        "provenance": {
+          "additional_identifiers": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "missing"
+          },
+          "collection_memberships": {
+            "source": "belongs-to-collection refinements",
+            "status": "missing"
+          },
+          "modified": {
+            "source": "meta[property=dcterms:modified]",
+            "status": "missing"
+          },
+          "primary_identifier.id": {
+            "source": "package@unique-identifier and dc:identifier",
+            "status": "observed"
+          },
+          "primary_identifier.value": {
+            "source": "package@unique-identifier and dc:identifier",
+            "status": "observed"
+          },
+          "primary_identifier_element_ref": {
+            "source": "package@unique-identifier",
+            "status": "observed"
+          }
+        },
+        "titles": [
+          "Invalid Modified Control"
+        ]
+      }
+    ],
+    "invalid-missing-primary-binding": [
+      {
+        "additional_identifiers": [
+          {
+            "id": "pub-id",
+            "identifier_type": null,
+            "scheme": null,
+            "value": "urn:uuid:10000000-0000-4000-8000-000000000091"
+          }
+        ],
+        "collection_memberships": [],
+        "creators": [
+          "Ida Beispiel"
+        ],
+        "languages": [
+          "en"
+        ],
+        "modified": "2026-08-28T00:00:00Z",
+        "primary_identifier": null,
+        "primary_identifier_element_ref": "missing-id",
+        "provenance": {
+          "additional_identifiers[0].id": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "observed"
+          },
+          "additional_identifiers[0].identifier_type": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "missing"
+          },
+          "additional_identifiers[0].scheme": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "missing"
+          },
+          "additional_identifiers[0].value": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "observed"
+          },
+          "collection_memberships": {
+            "source": "belongs-to-collection refinements",
+            "status": "missing"
+          },
+          "modified": {
+            "source": "meta[property=dcterms:modified]",
+            "status": "observed"
+          },
+          "primary_identifier": {
+            "source": "package@unique-identifier and dc:identifier",
+            "status": "missing"
+          },
+          "primary_identifier_element_ref": {
+            "source": "package@unique-identifier",
+            "status": "observed"
+          }
+        },
+        "titles": [
+          "Invalid Primary Binding Control"
+        ]
+      },
+      {
+        "additional_identifiers": [
+          {
+            "id": "pub-id",
+            "identifier_type": null,
+            "scheme": null,
+            "value": "urn:uuid:10000000-0000-4000-8000-000000000092"
+          }
+        ],
+        "collection_memberships": [],
+        "creators": [
+          "Ida Beispiel"
+        ],
+        "languages": [
+          "en"
+        ],
+        "modified": "2026-08-28T00:00:00Z",
+        "primary_identifier": null,
+        "primary_identifier_element_ref": "missing-id",
+        "provenance": {
+          "additional_identifiers[0].id": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "observed"
+          },
+          "additional_identifiers[0].identifier_type": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "missing"
+          },
+          "additional_identifiers[0].scheme": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "missing"
+          },
+          "additional_identifiers[0].value": {
+            "source": "dc:identifier and identifier-type refinements",
+            "status": "observed"
+          },
+          "collection_memberships": {
+            "source": "belongs-to-collection refinements",
+            "status": "missing"
+          },
+          "modified": {
+            "source": "meta[property=dcterms:modified]",
+            "status": "observed"
+          },
+          "primary_identifier": {
+            "source": "package@unique-identifier and dc:identifier",
+            "status": "missing"
+          },
+          "primary_identifier_element_ref": {
+            "source": "package@unique-identifier",
+            "status": "observed"
+          }
+        },
+        "titles": [
+          "Invalid Primary Binding Control"
+        ]
+      }
+    ]
   },
   "critical_false_same_count": 0,
   "guardrail_case_results": {
@@ -265,21 +497,56 @@
   "preimage": {
     "experiments/ebook/exp-0010/case-manifest.json": "59a103663bcf4b019d20610423ac0fd5ad0eda848f149ca4c0952ccda9a17f2a",
     "experiments/ebook/exp-0010/result.json": "61652ba4126bbc017f5ce4a9eb376e8d0242ec1a2fef779754912702069a1781",
+    "experiments/ebook/exp-0011/result.json": "5a30aed87ce5f283e81a1c622adb13513ab53e6fb0b3f426e76bcad05988584b",
     "src/sammlungslotse/ebook_identity/__init__.py": "c2186b7e86c72d8df9b7da53f522a1ce95b8e604c2d75f15e437668ca65eb818",
-    "src/sammlungslotse/ebook_identity/analyzer.py": "d748cf7ed3f65a6a884a671653455b5a4773986ce4abd37b582a778a886c6bac",
+    "src/sammlungslotse/ebook_identity/analyzer.py": "f3ace579406dd8d7a9f14b4faeccc86d6e574ddcda5a5cded72ebdd87ca61226",
     "src/sammlungslotse/ebook_identity/application.py": "f896e98be092611caaa40b86c621b215b375ef8234c3821214b8059cbfc5ff60",
-    "src/sammlungslotse/ebook_identity/cli.py": "204dc4bb8c8c0d53848b6cb553abe5ddb14108f8a5a7d00e64ab889b9b098eae",
-    "src/sammlungslotse/ebook_identity/model.py": "446385e4f731f79a4c9c12df5b00c4385d5055aa21bed840296a9fd4bb3e36ba",
+    "src/sammlungslotse/ebook_identity/cli.py": "8e9b0c2d1c576020ac8d86d344fd7cae610b349d08674de26bc03774330c777c",
+    "src/sammlungslotse/ebook_identity/model.py": "23578b639e3d94d20c26c72f883fdf3d9097c6924ffc8b08975b8f2dfd3f2687",
     "src/sammlungslotse/ebook_intake/snapshot.py": "a4b1d722f4433c62da96f5d02dba3cb11547ec5c626e2231fde112a192d99ede",
     "tests/fixtures/ebook/test-0001/v0.3/manifest.json": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2",
+    "tests/product/test_ebook_identity_v2.py": "3b826aedec2f451587f46f2ac7de2e93f510d9ad327f8aeea0150f2ecb212587",
     "tools/experiments/run_exp_0010.py": "b49b493cf8ff10dbb334f2851c87915bb2b76c9c7e5523ca356961072fba3c21",
     "tools/experiments/validate_exp_0010_result.py": "d2e8282f94b6ec4c7194a59c81dd12e644adab22c1b9ea082c7f07bd914323e8",
-    "tools/qualify_ebook_identity.py": "7554a51a00bf896015f0cf74a9159309ab6718a01a423b9f7c98353b11eaa177",
+    "tools/experiments/validate_exp_0011_result.py": "10a8ad1b49e20d94fc9313275c20f8e5bae098599002f51c4a48cf90326e4f2c",
+    "tools/qualify_ebook_identity.py": "62606ea720629e77250f67b3ee3caa7b601087432fbbc23d96e6bd0c06f5437e",
     "tools/run_ebook_identity.py": "9816bd47c79445dfe27427450624a6a841cd864637acd1f2fc42686062ea89a5"
   },
-  "preimage_commit": "97017a2f33b314a6623685a2d07c9638babc0f40",
-  "profile": "wi-0012-ebook-identity-false-same-guardrail/v1",
+  "preimage_commit": "dde132646f9e578f582231c2a7be946134490184",
+  "profile": "wi-0013-ebook-identity-role-aware-v2/v1",
   "repetitions_per_case": 2,
+  "report_sha256": {
+    "v1": {
+      "byte_equal": "2c3ffd49c57db5c5cba3389f6adf4de0c4536210159b33982040010c23a3af09",
+      "different-collections-same-work": "e5a4e50cb1abb3ec57ef81fe5070bb56229948b5e46bb2321e1a673cb001bfea",
+      "multiple-collections-partial-overlap": "f832228b59b57df0f4d134c26a3cdff54b9dae9c2d2460199a39a30ad4a9459a",
+      "repackaged": "1c43749bd090b53adad8a0a2f11a7cf532801cd5fcb474a1835e4256a34f1e0a",
+      "same-primary-minor-revision": "b40eaa5ee21ddd127e687ce9163132e64cbaacbd3cb0cf19dc5de9347e0d26f9",
+      "same-primary-strong-content-conflict": "4241c8d087e8cd15f6706d0e4ef11c0fa94836fb9138612f92080027a28cbad2",
+      "sample_full": "f2c4290cba4a4afbe29b7aa5038f853e6791a45fe0ec8d42eab9713c46c71904",
+      "series-overlap-distinct-works": "26bd9d1889b86ee4a3d3e64cfe40f57a3775f0d2a362a2758eaa9b64ffd59457",
+      "set-overlap-distinct-members": "0ee28a586810317bf60cfe530ef94ddaa44d081a501a344699fdff2e769d9d56",
+      "shared-typed-additional-different-primary": "1026722132e9c3514f9e726384306eafdbac3c0874c9d68f8bb9e72ff5538690",
+      "shared-untyped-additional-different-primary": "1a11d856e7f3ed6e15b01472248a2005b8f1d38bed8fb635fb1e77e35eaaaf91",
+      "title_collision": "2c7b493f3490da158776b83982265e156f07ca4851b3991563bca7ec422eb10e",
+      "translation": "5ca2c5199bad577ac55780deb31fbcb8093e64a6f5a09abab9d8ad3b2fb09dbc"
+    },
+    "v2": {
+      "byte_equal": "068816d505ae6bd846388a94c36b597fd1d7b814d71af05723bf4f2227038e8c",
+      "different-collections-same-work": "ef11ddca72c6606975e869c5d052a7bd906f1b02428e47e9cbf7ad3840553e4f",
+      "multiple-collections-partial-overlap": "65a58255ae0c410e371d5e2d02d4fcba38f98b449de868bb9fce3e9ce39d29b2",
+      "repackaged": "7946c383f23574b79b1e3737b80e7cdc97fb827c1ad0f4cc913748d7bcf560ec",
+      "same-primary-minor-revision": "6a44e8ce6021f4c427f5d29bacbeab8c4a2b6152b7068a50092ac4ca04ce023f",
+      "same-primary-strong-content-conflict": "4da3e7b4d5e2ccaa446abc62475c5c4caf89fc83cef365770bae282b56b1281f",
+      "sample_full": "edd918cf057c8be3e641df9a695cc56dc6fe4b8a6e27ef774aea318940124e4a",
+      "series-overlap-distinct-works": "65011cd12a5967c400bdd8a610b808cfef1388c4f69a701634f695e581d5913b",
+      "set-overlap-distinct-members": "f3f463acb37bbd0bcde2859cdade613c00ac8aeac04712adea8c1f4a280f2a7a",
+      "shared-typed-additional-different-primary": "1c107434dbe16c45adaca204fcb92add5d820a7e479a7fcc9c82df46f75e29af",
+      "shared-untyped-additional-different-primary": "5d661713a24b2e55f5971c898c99f42f21e49df629d11cb717f13a87b02112b5",
+      "title_collision": "b8a03d07cb7b2f192548baadd29395025a691357ef8cab41853fe085b4ed3abd",
+      "translation": "798fc0f2be73dd442e87ba4dd25b8737d7a89c93b691a1cc750d2fca20963eb8"
+    }
+  },
   "residual_oracle_mismatches": [
     {
       "actual": "candidate_related",
@@ -300,8 +567,13 @@
       "stage": "work"
     }
   ],
-  "schema": "sammlungslotse/ebook-identity-qualification/v2",
-  "scope_verdict": "guardrail_qualified_with_residual_related_mismatches",
+  "role_provenance_metrics": {
+    "missing": 68,
+    "observed": 173,
+    "total": 241
+  },
+  "schema": "sammlungslotse/ebook-identity-qualification/v3",
+  "scope_verdict": "role_aware_v2_qualified_with_v1_compatibility_and_residual_related_mismatches",
   "status": "pass",
   "test_0001_case_results": {
     "byte_equal": {

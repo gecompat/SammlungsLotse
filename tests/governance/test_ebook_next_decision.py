@@ -139,7 +139,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn(
             "EXP-0011", self.relation_targets("GATE-0012", "depends_on")
         )
-        self.assertEqual(self.artifacts["WI-0013"]["status"], "accepted")
+        self.assertEqual(self.artifacts["WI-0013"]["status"], "done")
         for dependency in ("GATE-0012", "EXP-0011", "WI-0012", "TEST-0001"):
             self.assertIn(
                 dependency, self.relation_targets("WI-0013", "depends_on")
@@ -183,7 +183,10 @@ class EbookNextDecisionTests(unittest.TestCase):
         ):
             self.assertIn(heading, self.post_exp0011_gate)
         self.assertIn("ausdrücklich Option A ausgewählt", self.post_exp0011_gate)
-        self.assertIn("ACCEPTED — NOT IMPLEMENTED", self.v2_work_item)
+        self.assertIn(
+            "DONE — IMPLEMENTIERT UND SYNTHETISCH PRODUKTQUALIFIZIERT",
+            self.v2_work_item,
+        )
         self.assertIn("--json --report-version v2", self.v2_work_item)
         self.assertIn(
             "sammlungslotse/ebook-identity-candidate-report/v2",
@@ -192,6 +195,8 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("genau die fünf Stufen", self.v2_work_item)
         self.assertIn("Es entsteht keine Stufe `publication`", self.v2_work_item)
         self.assertIn("keine V1-Deprecation", self.v2_work_item)
+        self.assertIn("29/29 Kriterien", self.v2_work_item)
+        self.assertIn("erneut 23/23 qualifiziert", self.v2_work_item)
 
 
 if __name__ == "__main__":

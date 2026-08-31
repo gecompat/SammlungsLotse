@@ -59,11 +59,12 @@ Paaren; V1, V2 und V3 verlieren auf der EXP-0010-Rollenmatrix null Felder,
 decken jeweils 145/145 Werte mit Provenienz ab und erhalten alle fünf
 Produktstufen unverändert. Alle Varianten sind
 `eligible_with_tradeoffs`. Der Nutzer hat in GATE-0012 ausdrücklich Option A
-gewählt. GATE-0012 ist `done`; WI-0013 ist als enger rollenbewusster
-V2-Zielvertrag `accepted`, aber noch nicht implementiert. V1 bleibt
-unveränderter Standard, V2 wird ausschließlich explizit aktiviert und behält
-die fünf vorhandenen Produktstufen. Publikationsstufe und V1-Deprecation sind
-nicht ausgewählt.
+gewählt. GATE-0012 und WI-0013 sind `done`. Der enge rollenbewusste
+V2-Zielvertrag ist umgesetzt und 29/29 synthetisch produktqualifiziert. V1
+bleibt bytekompatibler Standard, V2 wird ausschließlich explizit aktiviert
+und behält die fünf vorhandenen Produktstufen. Der abhängige WI-0011-Weg ist
+auf demselben Preimage erneut 23/23 qualifiziert. Publikationsstufe und
+V1-Deprecation sind nicht ausgewählt.
 
 ## Vorhanden
 
@@ -219,7 +220,7 @@ nicht ausgewählt.
   providerneutralen read-only Snapshot-Handoff ohne Bestandswirkung;
 - getrennte deutsche und deterministische JSON-CLI unter
   `tools/run_ebook_calibre_identity.py`, exakte Calibre-9.13.0-
-  Profilbindung und nach WI-0012 gegen Preimage `97017a2` erneuerter
+  Profilbindung und nach WI-0013 gegen Preimage `dde1326` erneuerter
   eingecheckter 23/23-Produktnachweis mit tatsächlichen synthetischen Podman-,
   Grenz-, Recovery- und Cleanupfällen;
 - ausgewertetes GATE-0008 mit katalogisierten qualitätssteigernden
@@ -251,10 +252,11 @@ nicht ausgewählt.
   eine zusätzliche Repräsentationsbedingung auf null reduziert, ohne
   öffentliches v1-Schema, Metadatenmodell, Publikationsstufe oder
   Collection-Semantik zu erweitern;
-- aktueller v2-Produktnachweis mit 19/19 Kriterien, fünf bestehenden
-  TEST-0001-Paaren, acht konformen EXP-0010-Qualitätsfällen, je zwei
-  byteidentischen JSON-CLI-Wiederholungen, deutscher Ansicht, unveränderten
-  Eingängen, pfadfreier Ausgabe und vollständigem Task-Cleanup;
+- aktueller v3-Qualifikationsnachweis mit 29/29 Kriterien, fünf bestehenden
+  TEST-0001-Paaren, acht konformen EXP-0010-Qualitätsfällen, zwei getrennten
+  ungültigen Kontrollen, je zwei tatsächlichen V1- und V2-JSON-CLI-
+  Wiederholungen, bytekompatiblem V1, 241/241 Provenienzeinträgen,
+  unveränderten Eingängen, pfadfreier Ausgabe und vollständigem Task-Cleanup;
 - historische EXP-0009- und EXP-0010-Validatoren, die die unveränderten
   Ergebnisse weiterhin gegen ihre eingefrorenen Git-Preimage-Commits mit je
   12/12 Kriterien prüfen;
@@ -270,9 +272,9 @@ nicht ausgewählt.
   unveränderten aktuellen Entscheidungen und unverändertem Produktcode;
 - abgeschlossenes GATE-0012 mit ausdrücklicher Auswahl des engen
   rollenbewussten V2-Zielvertrags;
-- akzeptierter, noch nicht implementierter WI-0013-Vertrag mit
-  bytekompatiblem V1-Standardpfad, explizitem V2-Opt-in, fünf unveränderten
-  Entscheidungsstufen und synthetischem Qualifikationsvertrag.
+- abgeschlossener WI-0013 mit bytekompatiblem V1-Standardpfad, explizitem
+  V2-Opt-in, rollenbewusster Metadatenprojektion, fünf unveränderten
+  Entscheidungsstufen und 29/29 synthetischem Produktnachweis.
 
 ## Nicht vorhanden
 
@@ -287,6 +289,33 @@ nicht ausgewählt.
 - Release.
 
 ## Validierung
+
+WI-0013-Implementierungswave: PROJECT_SEMANTIC, RUNTIME_EMPIRICAL und
+FOUNDATION_INTEGRITY lokal validiert am 2026-08-31 unter Windows, Python
+3.12.10, Podman 6.1.0 und Calibre 9.13.0 auf Linux/amd64. Das
+commitgebundene Produktpreimage
+`dde132646f9e578f582231c2a7be946134490184` bestand 29/29 Kriterien auf fünf
+TEST-0001-Paaren, acht konformen EXP-0010-Qualitätsfällen und zwei getrennten
+ungültigen Kontrollen. V1 blieb bytekompatibler Standard, V2 entsprach der
+gebundenen EXP-0011-Rollenprojektion, alle fünf Entscheidungen blieben
+identisch, 241/241 Provenienzeinträge waren vollständig und es entstanden
+null kritische False Same. Der Nachweis besitzt SHA-256
+`feebe3ff325aec657fcff928c76bece18aa01c48a90aa5f8281620ee23b52e51`.
+Der abhängige WI-0011-Weg wurde gegen denselben Preimage und das unveränderte
+Calibre-Image tatsächlich erneut 23/23 qualifiziert; sein Nachweis besitzt
+SHA-256
+`90fbe6856aeb09f89e382c59312f7035ac9777de57a316fc336bb81fcf5a7d4e`.
+Seine Taskwurzel wurde vollständig entfernt; 22 pfadfreie Rohbelege liegen
+außerhalb von Git unter
+`C:\rep\artifacts\SammlungsLotse\wi-0013-wi0011-requalification-dde1326`.
+Die historischen EXP-0009-, EXP-0010- und EXP-0011-Validatoren bestanden
+weiterhin 12/12, 12/12 und 14/14. Repository- und v2-Registry-Prüfung waren
+für 45 Artefakte erfolgreich. Der kontrollierte Testlauf entdeckte 189 Tests,
+ersetzte genau drei Current-Preimage-Ergebnisprüfungen durch Historical-
+Preimage-Prüfungen und führte 186 Tests erfolgreich aus. `compileall` und
+`git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY am exakten
+Quellcommit `d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen,
+0 Fehler und 0 Blocker.
 
 GATE-0012-Auswahl- und WI-0013-Planungswave: PROJECT_SEMANTIC, bestehende
 RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
@@ -965,12 +994,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 ## Nächster Schritt
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
-EXP-0011 und GATE-0012 sind abgeschlossen. WI-0013 ist nach ausdrücklicher
-Auswahl von Option A als enger rollenbewusster V2-Zielvertrag angenommen. Nach
-Integration und Post-Merge-Prüfung der Planungswave folgt die Implementierung
-in einem neuen isolierten Worktree. Der unveränderte V1-Bericht bleibt
-Standard; nur `--json --report-version v2` aktiviert V2. Eine
-Publikationsstufe oder V1-Deprecation ist nicht autorisiert.
+EXP-0011, GATE-0012 und WI-0013 sind abgeschlossen. Der unveränderte
+V1-Bericht bleibt Standard; nur `--json --report-version v2` aktiviert den
+rollenbewussten V2-Bericht. Vor einer weiteren Produktwave ist ein neues
+getrenntes Ergebnisgate erforderlich. Eine Publikationsstufe, V1-Deprecation
+oder automatische Migration ist nicht autorisiert.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.
