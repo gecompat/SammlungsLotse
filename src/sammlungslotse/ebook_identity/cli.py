@@ -21,8 +21,14 @@ def _configure_utf8_streams() -> None:
             reconfigure(encoding="utf-8")
 
 
-def render_json(report: IdentityReport) -> str:
-    payload = json.dumps(report.to_dict(), ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+def render_json(report: IdentityReport, report_version: str = "v1") -> str:
+    if report_version == "v1":
+        value = report.to_dict()
+    elif report_version == "v2":
+        value = report.to_dict_v2()
+    else:
+        raise ValueError("unsupported identity report version")
+    payload = json.dumps(value, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
     if len(payload.encode("utf-8")) > report.limits.max_report_bytes:
         raise RuntimeError("identity report exceeds output limit")
     return payload
@@ -72,12 +78,20 @@ def parser() -> argparse.ArgumentParser:
     )
     result.add_argument("input", nargs=2, type=Path, help="zwei lokale EPUB-Dateien")
     result.add_argument("--json", action="store_true", help="pfadfreien JSON-Vertrag ausgeben")
+    result.add_argument(
+        "--report-version",
+        choices=("v1", "v2"),
+        help="explizite JSON-Vertragsversion",
+    )
     return result
 
 
 def main(argv: list[str] | None = None) -> int:
     _configure_utf8_streams()
-    args = parser().parse_args(argv)
+    argument_parser = parser()
+    args = argument_parser.parse_args(argv)
+    if args.report_version is not None and not args.json:
+        argument_parser.error("--report-version requires --json")
     try:
         first = args.input[0].resolve(strict=False)
         second = args.input[1].resolve(strict=False)
@@ -86,7 +100,11 @@ def main(argv: list[str] | None = None) -> int:
         report = IdentityCandidateService().compare(
             LocalFileSnapshotReader(args.input[0]), LocalFileSnapshotReader(args.input[1])
         )
-        output = render_json(report) if args.json else render_human(report)
+        output = (
+            render_json(report, args.report_version or "v1")
+            if args.json
+            else render_human(report)
+        )
     except KeyboardInterrupt:
         print("Identitätsvergleich wurde abgebrochen.", file=sys.stderr)
         return 130

@@ -13,7 +13,15 @@ from xml.etree import ElementTree
 
 from sammlungslotse.ebook_intake.model import Snapshot
 
-from .model import EmbeddedMetadata, IdentityLimits, InputObservation, StageResult
+from .model import (
+    AdditionalIdentifier,
+    CollectionMembership,
+    EmbeddedMetadata,
+    Identifier,
+    IdentityLimits,
+    InputObservation,
+    StageResult,
+)
 
 
 SAMPLE_TERMS = ("leseprobe", "sample", "excerpt")
@@ -41,6 +49,101 @@ def _xml_values(root: ElementTree.Element, name: str) -> tuple[str, ...]:
         value
         for element in root.findall(f".//{{{namespace}}}{name}")
         if (value := " ".join("".join(element.itertext()).split()))
+    )
+
+
+def _xml_text(element: ElementTree.Element) -> str:
+    return " ".join("".join(element.itertext()).split())
+
+
+def _role_aware_metadata(
+    package: ElementTree.Element,
+) -> tuple[
+    Identifier | None,
+    str | None,
+    tuple[AdditionalIdentifier, ...],
+    str | None,
+    tuple[CollectionMembership, ...],
+]:
+    opf = "http://www.idpf.org/2007/opf"
+    dc = "http://purl.org/dc/elements/1.1/"
+    unique_ref = package.get("unique-identifier", "")
+    identifiers = package.findall(f".//{{{opf}}}metadata/{{{dc}}}identifier")
+    metas = package.findall(f".//{{{opf}}}metadata/{{{opf}}}meta")
+
+    def refinement(
+        item_id: str, property_name: str
+    ) -> ElementTree.Element | None:
+        return next(
+            (
+                item
+                for item in metas
+                if item.get("refines") == f"#{item_id}"
+                and item.get("property") == property_name
+            ),
+            None,
+        )
+
+    primary_element = next(
+        (item for item in identifiers if item.get("id") == unique_ref), None
+    )
+    primary = (
+        Identifier(primary_element.get("id"), _xml_text(primary_element))
+        if primary_element is not None
+        else None
+    )
+    additional = []
+    for item in identifiers:
+        if item is primary_element:
+            continue
+        item_id = item.get("id", "")
+        typed = refinement(item_id, "identifier-type") if item_id else None
+        additional.append(
+            AdditionalIdentifier(
+                id=item_id or None,
+                identifier_type=_xml_text(typed) if typed is not None else None,
+                scheme=typed.get("scheme") if typed is not None else None,
+                value=_xml_text(item),
+            )
+        )
+    modified_element = next(
+        (
+            item
+            for item in metas
+            if item.get("property") == "dcterms:modified"
+            and not item.get("refines")
+        ),
+        None,
+    )
+    collections = []
+    for item in metas:
+        if item.get("property") != "belongs-to-collection":
+            continue
+        item_id = item.get("id", "")
+        collection_type = refinement(item_id, "collection-type") if item_id else None
+        collection_id = refinement(item_id, "dcterms:identifier") if item_id else None
+        position = refinement(item_id, "group-position") if item_id else None
+        collections.append(
+            CollectionMembership(
+                id=item_id or None,
+                identifier=(
+                    _xml_text(collection_id) if collection_id is not None else None
+                ),
+                name=_xml_text(item),
+                position=_xml_text(position) if position is not None else None,
+                type=(
+                    _xml_text(collection_type)
+                    if collection_type is not None
+                    else None
+                ),
+            )
+        )
+    return (
+        primary,
+        unique_ref or None,
+        tuple(additional),
+        _xml_text(modified_element) if modified_element is not None else None,
+        tuple(collections),
     )
 
 
@@ -140,12 +243,24 @@ def _read_epub(snapshot: Snapshot, index: int, limits: IdentityLimits) -> InputO
         if item.get("property") == "belongs-to-collection"
         if (value := " ".join("".join(item.itertext()).split()))
     )
+    (
+        primary_identifier,
+        primary_identifier_element_ref,
+        additional_identifiers,
+        modified,
+        collection_memberships,
+    ) = _role_aware_metadata(package)
     metadata = EmbeddedMetadata(
         titles=_xml_values(package, "title"),
         creators=_xml_values(package, "creator"),
         languages=_xml_values(package, "language"),
         identifiers=_xml_values(package, "identifier"),
         work_references=work_references,
+        primary_identifier=primary_identifier,
+        primary_identifier_element_ref=primary_identifier_element_ref,
+        additional_identifiers=additional_identifiers,
+        modified=modified,
+        collection_memberships=collection_memberships,
     )
     return InputObservation(
         input_index=index,
