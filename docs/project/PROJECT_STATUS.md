@@ -47,7 +47,11 @@ Metadaten- und Oracle-Evidenzwave ausgeführt. Der methodische Nachweis
 bestand 12/12, die Produktqualität ist wegen sechs kritischer False Same auf
 Ausgabe und Werk jedoch `not_qualified`. GATE-0010 ist nach ausdrücklicher
 Nutzerauswahl mit Option A abgeschlossen. WI-0012 ist als enger
-False-Same-Guardrail angenommen; seine Implementierung steht aus.
+False-Same-Guardrail umgesetzt und mit 19/19 synthetischen Kriterien
+qualifiziert. Die sechs kritischen False Same sind auf null reduziert; zwei
+schwächere `candidate_related`-Werkabweichungen bleiben sichtbar. Der davon
+abhängige WI-0011-Calibre-Identitätsweg wurde gegen den neuen Analyzer-
+Preimage `97017a2` tatsächlich erneut mit 23/23 Kriterien qualifiziert.
 
 ## Vorhanden
 
@@ -203,17 +207,19 @@ False-Same-Guardrail angenommen; seine Implementierung steht aus.
   providerneutralen read-only Snapshot-Handoff ohne Bestandswirkung;
 - getrennte deutsche und deterministische JSON-CLI unter
   `tools/run_ebook_calibre_identity.py`, exakte Calibre-9.13.0-
-  Profilbindung und eingecheckter 23/23-Produktnachweis mit tatsächlichen
-  synthetischen Podman-, Grenz-, Recovery- und Cleanupfällen;
+  Profilbindung und nach WI-0012 gegen Preimage `97017a2` erneuerter
+  eingecheckter 23/23-Produktnachweis mit tatsächlichen synthetischen Podman-,
+  Grenz-, Recovery- und Cleanupfällen;
 - ausgewertetes GATE-0008 mit katalogisierten qualitätssteigernden
   Tätigkeiten, elf weiterhin sichtbaren Fortsetzungsoptionen und der
   ausdrücklichen Auswahl A;
 - abgeschlossener EXP-0009-Vertrag für genau 18 synthetische adversarielle
   Identitätspaare, zwei semantisch identische Wiederholungen und 12/12
   methodische Kriterien ohne Produktcode oder Bestandswirkung;
-- offener Qualitätsbefund aus `metadata-collision-work-conflict`: je ein
+- historischer Qualitätsbefund aus `metadata-collision-work-conflict`: je ein
   kritischer False Same auf Ausgaben- und Werkebene trotz verschiedener
-  Inhalte und widersprüchlicher expliziter Werkreferenzen.
+  Inhalte und widersprüchlicher expliziter Werkreferenzen, inzwischen durch
+  WI-0012 fail-safe beseitigt, ohne EXP-0009 umzuschreiben;
 - abgeschlossenes GATE-0009 mit ausdrücklicher Auswahl der
   standardsgebundenen Evidenzreparatur;
 - abgeschlossener EXP-0010-Vertrag für genau zehn synthetische Paare, getrennte
@@ -229,10 +235,20 @@ False-Same-Guardrail angenommen; seine Implementierung steht aus.
   Collection-Semantik;
 - abgeschlossenes GATE-0010 mit ausdrücklicher Auswahl des engen
   Fail-safe-Guardrails;
-- angenommener WI-0012-Vertrag, der die sechs belegten False Same durch eine
-  zusätzliche Repräsentationsbedingung stoppt, ohne öffentliches v1-Schema,
-  Metadatenmodell, Publikationsstufe oder Collection-Semantik zu erweitern;
-  die Implementierung steht aus.
+- abgeschlossener WI-0012-Guardrail, der die sechs belegten False Same durch
+  eine zusätzliche Repräsentationsbedingung auf null reduziert, ohne
+  öffentliches v1-Schema, Metadatenmodell, Publikationsstufe oder
+  Collection-Semantik zu erweitern;
+- aktueller v2-Produktnachweis mit 19/19 Kriterien, fünf bestehenden
+  TEST-0001-Paaren, acht konformen EXP-0010-Qualitätsfällen, je zwei
+  byteidentischen JSON-CLI-Wiederholungen, deutscher Ansicht, unveränderten
+  Eingängen, pfadfreier Ausgabe und vollständigem Task-Cleanup;
+- historische EXP-0009- und EXP-0010-Validatoren, die die unveränderten
+  Ergebnisse weiterhin gegen ihre eingefrorenen Git-Preimage-Commits mit je
+  12/12 Kriterien prüfen;
+- zwei sichtbare verbleibende Werk-Oracledifferenzen mit
+  `candidate_related`, die nicht als vollständige Qualifikation der flachen
+  Identifier- oder Collection-Semantik dargestellt werden.
 
 ## Nicht vorhanden
 
@@ -247,6 +263,29 @@ False-Same-Guardrail angenommen; seine Implementierung steht aus.
 - Release.
 
 ## Validierung
+
+WI-0012-Implementierungswave: PROJECT_SEMANTIC, RUNTIME_EMPIRICAL und
+FOUNDATION_INTEGRITY lokal validiert am 2026-08-31 unter Windows, Python
+3.12.10, Podman 6.1.0 und Calibre 9.13.0 auf Linux/amd64. Das
+commitgebundene Produktpreimage
+`97017a2f33b314a6623685a2d07c9638babc0f40` bestand 19/19 Guardrail-
+Kriterien mit null kritischen False Same und zwei ausdrücklich sichtbaren
+`candidate_related`-Restabweichungen. Der abhängige WI-0011-Weg wurde gegen
+denselben Analyzer-Preimage tatsächlich erneut 23/23 qualifiziert; sein
+aktueller Nachweis besitzt SHA-256
+`8c4120cbcdf21524674a17a906f44226df9194a11c1189dc8bdfad20c47f9b2e`.
+Repository- und v2-Registry-Prüfung waren für 41 Artefakte erfolgreich.
+TEST-0001 bestätigte 30 Fälle und 49 Komponenten; EXP-0002 bis EXP-0007 sowie
+die historischen EXP-0009- und EXP-0010-Nachweise und die eingecheckten
+WI-0005-, WI-0008-, WI-0011- und WI-0012-Produktnachweise blieben gültig. Der
+kontrollierte Testlauf entdeckte 177 Tests, ersetzte genau zwei veraltete
+Current-Preimage-Ergebnisprüfungen eins zu eins durch Historical-Preimage-
+Prüfungen und führte 175 Tests erfolgreich aus. `compileall` und
+`git diff --check` waren erfolgreich. FOUNDATION_INTEGRITY am exakten
+Quellcommit `d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen,
+0 Fehler und 0 Blocker. Dies belegt den engen Guardrail und seine
+synthetischen abhängigen Produktwege, nicht ein vollständiges
+bibliografisches Identitätsmodell oder reale Häufigkeiten.
 
 GATE-0010-Auswahl- und WI-0012-Planungswave: PROJECT_SEMANTIC, bestehende
 RUNTIME_EMPIRICAL-Regression und FOUNDATION_INTEGRITY lokal validiert am
@@ -840,11 +879,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0011, EXP-0009, GATE-0009, EXP-0010 und GATE-0010 sind abgeschlossen.
-WI-0012 ist als kleinste sichere Risikobremse angenommen. Als Nächstes wird
-in einer getrennten Implementierungs-Wave ausschließlich der
-False-Same-Guardrail umgesetzt und gegen die unveränderte EXP-0010-Matrix
-sowie die bestehenden WI-0009-Fälle synthetisch qualifiziert.
+WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010 und WI-0012 sind
+abgeschlossen. Vor einer weiteren Produktwave ist ein neues getrenntes
+Ergebnisgate erforderlich. Es muss den nun beseitigten kritischen
+False-Same-Befund von den zwei verbleibenden `candidate_related`-
+Werkabweichungen und den weiterhin offenen Rollen-, Collection- und
+Publikationsfragen trennen; keine Folge ist ausgewählt.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

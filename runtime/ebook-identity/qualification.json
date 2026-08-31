@@ -1,23 +1,309 @@
 {
   "acceptance": {
     "actual_cli_completed": true,
-    "byte_equality_detected": true,
+    "critical_false_same_eliminated": true,
     "deterministic_json": true,
     "explicit_two_input_boundary": true,
     "fixture_inputs_unchanged": true,
+    "generated_inputs_unchanged": true,
     "german_view": true,
     "identity_levels_separate": true,
     "network_effect_false": true,
-    "no_false_same_candidate": true,
     "original_effect_false": true,
     "path_free_output": true,
     "positive_negative_missing_separate": true,
-    "repackaging_detected": true,
-    "sample_full_separated": true,
-    "translation_related_not_same_edition": true,
+    "public_schema_unchanged": true,
+    "residual_model_gaps_visible": true,
+    "same_representation_candidate_preserved": true,
+    "task_cleanup_complete": true,
+    "test_0001_contract_preserved": true,
+    "work_same_requires_qualified_edition": true,
     "write_effect_false": true
   },
-  "case_results": {
+  "case_counts": {
+    "exp_0010_quality": 8,
+    "test_0001": 5,
+    "total": 13
+  },
+  "critical_false_same_count": 0,
+  "guardrail_case_results": {
+    "different-collections-same-work": {
+      "overall": "related_work_candidate",
+      "stages": {
+        "byte": {
+          "decision": "different",
+          "rule_id": "identity.byte.sha256"
+        },
+        "edition": {
+          "decision": "abstain",
+          "rule_id": "identity.edition.insufficient_evidence"
+        },
+        "package": {
+          "decision": "different",
+          "rule_id": "identity.package.canonical_entries"
+        },
+        "representation": {
+          "decision": "different",
+          "rule_id": "identity.representation.spine_text"
+        },
+        "work": {
+          "decision": "candidate_related",
+          "rule_id": "identity.work.title_creator"
+        }
+      }
+    },
+    "multiple-collections-partial-overlap": {
+      "overall": "related_work_candidate",
+      "stages": {
+        "byte": {
+          "decision": "different",
+          "rule_id": "identity.byte.sha256"
+        },
+        "edition": {
+          "decision": "abstain",
+          "rule_id": "identity.edition.insufficient_evidence"
+        },
+        "package": {
+          "decision": "different",
+          "rule_id": "identity.package.canonical_entries"
+        },
+        "representation": {
+          "decision": "different",
+          "rule_id": "identity.representation.spine_text"
+        },
+        "work": {
+          "decision": "candidate_related",
+          "rule_id": "identity.work.explicit_reference"
+        }
+      }
+    },
+    "same-primary-minor-revision": {
+      "overall": "representation_candidate",
+      "stages": {
+        "byte": {
+          "decision": "different",
+          "rule_id": "identity.byte.sha256"
+        },
+        "edition": {
+          "decision": "candidate_same",
+          "rule_id": "identity.edition.identifier_representation_metadata"
+        },
+        "package": {
+          "decision": "different",
+          "rule_id": "identity.package.canonical_entries"
+        },
+        "representation": {
+          "decision": "candidate_same",
+          "rule_id": "identity.representation.spine_text"
+        },
+        "work": {
+          "decision": "candidate_same",
+          "rule_id": "identity.work.same_edition"
+        }
+      }
+    },
+    "same-primary-strong-content-conflict": {
+      "overall": "related_work_candidate",
+      "stages": {
+        "byte": {
+          "decision": "different",
+          "rule_id": "identity.byte.sha256"
+        },
+        "edition": {
+          "decision": "abstain",
+          "rule_id": "identity.edition.insufficient_evidence"
+        },
+        "package": {
+          "decision": "different",
+          "rule_id": "identity.package.canonical_entries"
+        },
+        "representation": {
+          "decision": "different",
+          "rule_id": "identity.representation.spine_text"
+        },
+        "work": {
+          "decision": "candidate_related",
+          "rule_id": "identity.work.title_creator"
+        }
+      }
+    },
+    "series-overlap-distinct-works": {
+      "overall": "related_work_candidate",
+      "stages": {
+        "byte": {
+          "decision": "different",
+          "rule_id": "identity.byte.sha256"
+        },
+        "edition": {
+          "decision": "abstain",
+          "rule_id": "identity.edition.insufficient_evidence"
+        },
+        "package": {
+          "decision": "different",
+          "rule_id": "identity.package.canonical_entries"
+        },
+        "representation": {
+          "decision": "different",
+          "rule_id": "identity.representation.spine_text"
+        },
+        "work": {
+          "decision": "candidate_related",
+          "rule_id": "identity.work.explicit_reference"
+        }
+      }
+    },
+    "set-overlap-distinct-members": {
+      "overall": "related_work_candidate",
+      "stages": {
+        "byte": {
+          "decision": "different",
+          "rule_id": "identity.byte.sha256"
+        },
+        "edition": {
+          "decision": "abstain",
+          "rule_id": "identity.edition.insufficient_evidence"
+        },
+        "package": {
+          "decision": "different",
+          "rule_id": "identity.package.canonical_entries"
+        },
+        "representation": {
+          "decision": "different",
+          "rule_id": "identity.representation.spine_text"
+        },
+        "work": {
+          "decision": "candidate_related",
+          "rule_id": "identity.work.explicit_reference"
+        }
+      }
+    },
+    "shared-typed-additional-different-primary": {
+      "overall": "related_work_candidate",
+      "stages": {
+        "byte": {
+          "decision": "different",
+          "rule_id": "identity.byte.sha256"
+        },
+        "edition": {
+          "decision": "abstain",
+          "rule_id": "identity.edition.insufficient_evidence"
+        },
+        "package": {
+          "decision": "different",
+          "rule_id": "identity.package.canonical_entries"
+        },
+        "representation": {
+          "decision": "different",
+          "rule_id": "identity.representation.spine_text"
+        },
+        "work": {
+          "decision": "candidate_related",
+          "rule_id": "identity.work.title_creator"
+        }
+      }
+    },
+    "shared-untyped-additional-different-primary": {
+      "overall": "related_work_candidate",
+      "stages": {
+        "byte": {
+          "decision": "different",
+          "rule_id": "identity.byte.sha256"
+        },
+        "edition": {
+          "decision": "abstain",
+          "rule_id": "identity.edition.insufficient_evidence"
+        },
+        "package": {
+          "decision": "different",
+          "rule_id": "identity.package.canonical_entries"
+        },
+        "representation": {
+          "decision": "different",
+          "rule_id": "identity.representation.spine_text"
+        },
+        "work": {
+          "decision": "candidate_related",
+          "rule_id": "identity.work.title_creator"
+        }
+      }
+    }
+  },
+  "guardrail_input_hashes": {
+    "different-collections-same-work": {
+      "left": "c65eec10679691369db0b89f125de93190081d5aef3648d4bd1e0bf6728afb90",
+      "right": "85f9a692086a0deaeabe98f43e233aafc23feafd95169bb9b52bf84373c9ce34"
+    },
+    "multiple-collections-partial-overlap": {
+      "left": "d540e45b52a11754bc6b74fa43545c7cb2406194fa74f2d91974171de4772d73",
+      "right": "5ba2a697a1f07c4b850c849db5ba3426f4626a63b4e70a2597f680323064d6ac"
+    },
+    "same-primary-minor-revision": {
+      "left": "cbcfb099b6308ddc99b1f63a387e0c8e8fb0ffbd952c798243b1e839070335e1",
+      "right": "a62a851a17d17ab5f32b702c0125bb0189a7f94591a716fbe8e1f43beab6d9a1"
+    },
+    "same-primary-strong-content-conflict": {
+      "left": "15650a9c6d461c7f3ba766375448308214373d46fd4da0c4dce31851deb85776",
+      "right": "1f153330bc81a3975eee7808fb5b2e4661f3fd7f22d87cb55dd072d1404e2788"
+    },
+    "series-overlap-distinct-works": {
+      "left": "2c573c9016da56b00ba9e36209d2b0c4a58d6759835a02164530e27dca4631fd",
+      "right": "c92c456de28e717a314d6fc45cba13852e3b206153462ce5187541cdc3d9e3a8"
+    },
+    "set-overlap-distinct-members": {
+      "left": "ff302d5b4e090bcdb54a874643c1945764fa65436e62aa4f90cca9a009524857",
+      "right": "6bc9833d4f5af5c4592d830c539cd6b98eee4553ec010e987f2aa81c07115098"
+    },
+    "shared-typed-additional-different-primary": {
+      "left": "b9fff8f278ebe3bb023c0716efc22927b9de2e5b6a83ceca31c55b74a61a4d80",
+      "right": "677f1f210eaa971ad6d030b4f358bb4da8aff12adad414eb3194f67ffe320cbf"
+    },
+    "shared-untyped-additional-different-primary": {
+      "left": "3160ecf353be048a7be2baa60c7539b6ddc72f430bcd7aba79701e447808bccf",
+      "right": "270bcb1c75877aff6145524bd21d9b2f4b5ef63fa135be449ad5984874f7be46"
+    }
+  },
+  "preimage": {
+    "experiments/ebook/exp-0010/case-manifest.json": "59a103663bcf4b019d20610423ac0fd5ad0eda848f149ca4c0952ccda9a17f2a",
+    "experiments/ebook/exp-0010/result.json": "61652ba4126bbc017f5ce4a9eb376e8d0242ec1a2fef779754912702069a1781",
+    "src/sammlungslotse/ebook_identity/__init__.py": "c2186b7e86c72d8df9b7da53f522a1ce95b8e604c2d75f15e437668ca65eb818",
+    "src/sammlungslotse/ebook_identity/analyzer.py": "d748cf7ed3f65a6a884a671653455b5a4773986ce4abd37b582a778a886c6bac",
+    "src/sammlungslotse/ebook_identity/application.py": "f896e98be092611caaa40b86c621b215b375ef8234c3821214b8059cbfc5ff60",
+    "src/sammlungslotse/ebook_identity/cli.py": "204dc4bb8c8c0d53848b6cb553abe5ddb14108f8a5a7d00e64ab889b9b098eae",
+    "src/sammlungslotse/ebook_identity/model.py": "446385e4f731f79a4c9c12df5b00c4385d5055aa21bed840296a9fd4bb3e36ba",
+    "src/sammlungslotse/ebook_intake/snapshot.py": "a4b1d722f4433c62da96f5d02dba3cb11547ec5c626e2231fde112a192d99ede",
+    "tests/fixtures/ebook/test-0001/v0.3/manifest.json": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2",
+    "tools/experiments/run_exp_0010.py": "b49b493cf8ff10dbb334f2851c87915bb2b76c9c7e5523ca356961072fba3c21",
+    "tools/experiments/validate_exp_0010_result.py": "d2e8282f94b6ec4c7194a59c81dd12e644adab22c1b9ea082c7f07bd914323e8",
+    "tools/qualify_ebook_identity.py": "7554a51a00bf896015f0cf74a9159309ab6718a01a423b9f7c98353b11eaa177",
+    "tools/run_ebook_identity.py": "9816bd47c79445dfe27427450624a6a841cd864637acd1f2fc42686062ea89a5"
+  },
+  "preimage_commit": "97017a2f33b314a6623685a2d07c9638babc0f40",
+  "profile": "wi-0012-ebook-identity-false-same-guardrail/v1",
+  "repetitions_per_case": 2,
+  "residual_oracle_mismatches": [
+    {
+      "actual": "candidate_related",
+      "allowed": [
+        "different",
+        "abstain"
+      ],
+      "case_key": "same-primary-strong-content-conflict",
+      "stage": "work"
+    },
+    {
+      "actual": "candidate_related",
+      "allowed": [
+        "different",
+        "abstain"
+      ],
+      "case_key": "shared-untyped-additional-different-primary",
+      "stage": "work"
+    }
+  ],
+  "schema": "sammlungslotse/ebook-identity-qualification/v2",
+  "scope_verdict": "guardrail_qualified_with_residual_related_mismatches",
+  "status": "pass",
+  "test_0001_case_results": {
     "byte_equal": {
       "edition": "candidate_same",
       "overall": "exact_byte_match",
@@ -44,7 +330,7 @@
       "work": "candidate_related"
     }
   },
-  "fixture_hashes": {
+  "test_0001_fixture_hashes": {
     "edition-sample-vs-full/full.epub": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
     "edition-sample-vs-full/sample.epub": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
     "identity-byte-equal/source-a/same.epub": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
@@ -55,20 +341,5 @@
     "identity-repackaged/package-b.epub": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
     "identity-title-collision/work-a.epub": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
     "identity-title-collision/work-b.epub": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327"
-  },
-  "preimage": {
-    "src/sammlungslotse/ebook_identity/__init__.py": "c2186b7e86c72d8df9b7da53f522a1ce95b8e604c2d75f15e437668ca65eb818",
-    "src/sammlungslotse/ebook_identity/analyzer.py": "7d3e8cc7f018c19eee94f39bfcf53c3a64c86b194c594b1bb2dbe1bff0111fd0",
-    "src/sammlungslotse/ebook_identity/application.py": "f896e98be092611caaa40b86c621b215b375ef8234c3821214b8059cbfc5ff60",
-    "src/sammlungslotse/ebook_identity/cli.py": "204dc4bb8c8c0d53848b6cb553abe5ddb14108f8a5a7d00e64ab889b9b098eae",
-    "src/sammlungslotse/ebook_identity/model.py": "446385e4f731f79a4c9c12df5b00c4385d5055aa21bed840296a9fd4bb3e36ba",
-    "src/sammlungslotse/ebook_intake/snapshot.py": "a4b1d722f4433c62da96f5d02dba3cb11547ec5c626e2231fde112a192d99ede",
-    "tests/fixtures/ebook/test-0001/v0.3/manifest.json": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2",
-    "tools/qualify_ebook_identity.py": "75180b0d132abdb0179e745445fc90082cee899cbbf0a957395b24a19a29241d",
-    "tools/run_ebook_identity.py": "9816bd47c79445dfe27427450624a6a841cd864637acd1f2fc42686062ea89a5"
-  },
-  "profile": "wi-0009-two-explicit-epub-readonly/v1",
-  "repetitions_per_case": 2,
-  "schema": "sammlungslotse/ebook-identity-qualification/v1",
-  "status": "pass"
+  }
 }
