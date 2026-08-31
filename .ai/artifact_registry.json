@@ -1084,6 +1084,64 @@
       "status": "done",
       "title": "Ergebnis nach WI-0013 und V2-Opt-in bewerten"
     },
+    "GATE-0014": {
+      "acceptance_criteria": "Der nach GATE-0013 stabilisierte duale Identitätsvertrag und die weiterhin offenen Nutzerfragen werden nach direktem read-only Nutzwert, Evidenzreife, Fehlerwirkung, Kopplung, Reversibilität und Voraussetzungen verglichen; begrenzte Kandidatensuche in genau einer Bibliothek, Bestandsqualitätsbefunde, bibliografische Konflikte, Mehrbibliotheks-Routing, Maintenance und Pausieren bleiben getrennte Optionen, und ohne ausdrückliche Nutzerauswahl werden weder Experiment, Arbeitsgegenstand, Produktcode, Provider-, Persistenz-, UI-, API-, Agent- noch Writerfläche angenommen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a058d7-fddb-7e9f-8e47-74b2580e10ed",
+      "created_on": "2026-08-31",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0014_NEXT_READONLY_VALUE.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0013",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0013",
+          "type": "related_to"
+        },
+        {
+          "target": "WI-0011",
+          "type": "related_to"
+        },
+        {
+          "target": "WI-0007",
+          "type": "related_to"
+        },
+        {
+          "target": "GATE-0008",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "Nächsten read-only Nutzwert nach WI-0013 bewerten"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],
