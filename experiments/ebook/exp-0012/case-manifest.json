@@ -1,0 +1,220 @@
+{
+  "records": [
+    {
+      "authors": ["Ada Exact"],
+      "expected_id": 1,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-byte-equal/source-a/same.epub",
+      "identifiers": {"isbn": "9780000000001"},
+      "languages": ["eng"],
+      "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "title": "Identifier Anchor"
+    },
+    {
+      "authors": ["Mallory Conflict"],
+      "expected_id": 2,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-b.epub",
+      "identifiers": {"isbn": "9780000000001"},
+      "languages": ["eng"],
+      "sha256": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327",
+      "title": "Identifier Conflict"
+    },
+    {
+      "authors": ["Nora Unique"],
+      "expected_id": 3,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-a.epub",
+      "identifiers": {},
+      "languages": ["eng"],
+      "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "title": "Silent Harbor"
+    },
+    {
+      "authors": ["Alpha Author"],
+      "expected_id": 4,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-a.epub",
+      "identifiers": {},
+      "languages": ["eng"],
+      "sha256": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+      "title": "Shared Title"
+    },
+    {
+      "authors": ["Beta Author"],
+      "expected_id": 5,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-b.epub",
+      "identifiers": {},
+      "languages": ["eng"],
+      "sha256": "90549c3a8bebc209a0ac39e879404be25ccad3495980cf522b6ee4b1d2219327",
+      "title": "Shared Title"
+    },
+    {
+      "authors": ["Shared Author"],
+      "expected_id": 6,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/sample.epub",
+      "identifiers": {},
+      "languages": ["eng"],
+      "sha256": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+      "title": "Alpha One"
+    },
+    {
+      "authors": ["Shared Author"],
+      "expected_id": 7,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/full.epub",
+      "identifiers": {},
+      "languages": ["eng"],
+      "sha256": "5a5729ca7def8bd512d08e9779421d0714fd5410fe6717597a5e225eaa45f7cb",
+      "title": "Beta Two"
+    },
+    {
+      "authors": ["Edition Author"],
+      "expected_id": 8,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-a.epub",
+      "identifiers": {"isbn": "9780000000008"},
+      "languages": ["eng"],
+      "sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "title": "Twin Edition"
+    },
+    {
+      "authors": ["Edition Author"],
+      "expected_id": 9,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-b.epub",
+      "identifiers": {"isbn": "9780000000009"},
+      "languages": ["eng"],
+      "sha256": "80c01b8fd8e0ec669cbf11316ec11e664614948a9498912c30b1f1d4d9899190",
+      "title": "Twin Edition"
+    },
+    {
+      "authors": ["Clara Example"],
+      "expected_id": 10,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/metadata-multilingual-rtl/multilingual-rtl.epub",
+      "identifiers": {},
+      "languages": ["deu"],
+      "sha256": "47db9023a483de9d6b23b9b0fce2440ce879d5953ccc8d9fd35f3a79735b6c5d",
+      "title": "Punctuation: Voyage"
+    },
+    {
+      "authors": ["Clara Secondary"],
+      "expected_id": 11,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/source-en.epub",
+      "identifiers": {},
+      "languages": ["eng"],
+      "sha256": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+      "title": "Voyage Extended"
+    },
+    {
+      "authors": ["Other Author"],
+      "expected_id": 12,
+      "fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/translation-de.epub",
+      "identifiers": {},
+      "languages": ["deu"],
+      "sha256": "2746f3e1fc10b9872cba0eb365980d31329cebbd09c30765e6c66f0ef760c354",
+      "title": "Unrelated Work"
+    }
+  ],
+  "schema": "sammlungslotse/exp-0012-case-manifest/v1",
+  "synthetic_only": true,
+  "tasks": [
+    {
+      "author": "Edition Author",
+      "case": "identifier-unique-same-edition",
+      "identifier": {"type": "isbn", "value": "9780000000008"},
+      "input_fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-a.epub",
+      "input_sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "oracle": {
+        "V1": {"allowed_extra_ids": [], "relevant_ids": [8]},
+        "V2": {"allowed_extra_ids": [], "relevant_ids": [8, 9]},
+        "V3": {"allowed_extra_ids": [], "relevant_ids": [8, 9]}
+      },
+      "title": "Twin Edition"
+    },
+    {
+      "author": "Ada Exact",
+      "case": "identifier-reuse-content-conflict",
+      "identifier": {"type": "isbn", "value": "9780000000001"},
+      "input_fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-byte-equal/source-a/same.epub",
+      "input_sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "oracle": {
+        "V1": {"allowed_extra_ids": [2], "relevant_ids": [1]},
+        "V2": {"allowed_extra_ids": [], "relevant_ids": [1]},
+        "V3": {"allowed_extra_ids": [], "relevant_ids": [1]}
+      },
+      "title": "Identifier Anchor"
+    },
+    {
+      "author": "Nora Unique",
+      "case": "title-author-unique-without-identifier",
+      "identifier": null,
+      "input_fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-a.epub",
+      "input_sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "oracle": {
+        "V1": {"allowed_extra_ids": [], "relevant_ids": []},
+        "V2": {"allowed_extra_ids": [], "relevant_ids": [3]},
+        "V3": {"allowed_extra_ids": [], "relevant_ids": [3]}
+      },
+      "title": "Silent Harbor"
+    },
+    {
+      "author": "Alpha Author",
+      "case": "title-collision-different-author",
+      "identifier": null,
+      "input_fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-title-collision/work-a.epub",
+      "input_sha256": "9f34ff3ea366c5983cf707662a7e3d633c407f8240969ed6700df61030cb35d2",
+      "oracle": {
+        "V1": {"allowed_extra_ids": [], "relevant_ids": []},
+        "V2": {"allowed_extra_ids": [], "relevant_ids": [4]},
+        "V3": {"allowed_extra_ids": [], "relevant_ids": [4]}
+      },
+      "title": "Shared Title"
+    },
+    {
+      "author": "Shared Author",
+      "case": "author-collision-different-title",
+      "identifier": null,
+      "input_fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/edition-sample-vs-full/sample.epub",
+      "input_sha256": "213f08c669328991f6859624ed834dc3cde1efe3ad1956037af8d33b91827bf4",
+      "oracle": {
+        "V1": {"allowed_extra_ids": [], "relevant_ids": []},
+        "V2": {"allowed_extra_ids": [], "relevant_ids": [6]},
+        "V3": {"allowed_extra_ids": [], "relevant_ids": [6]}
+      },
+      "title": "Alpha One"
+    },
+    {
+      "author": "Edition Author",
+      "case": "same-title-author-multiple-editions",
+      "identifier": {"type": "isbn", "value": "9780000000008"},
+      "input_fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-repackaged/package-a.epub",
+      "input_sha256": "ef9cb1967e323af32471d6f9164eae142f0e0a3a84f162815f709678d9c9526c",
+      "oracle": {
+        "V1": {"allowed_extra_ids": [], "relevant_ids": [8]},
+        "V2": {"allowed_extra_ids": [], "relevant_ids": [8, 9]},
+        "V3": {"allowed_extra_ids": [], "relevant_ids": [8, 9]}
+      },
+      "title": "Twin Edition"
+    },
+    {
+      "author": "Clara",
+      "case": "punctuation-and-character-variant",
+      "identifier": null,
+      "input_fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/metadata-multilingual-rtl/multilingual-rtl.epub",
+      "input_sha256": "47db9023a483de9d6b23b9b0fce2440ce879d5953ccc8d9fd35f3a79735b6c5d",
+      "oracle": {
+        "V1": {"allowed_extra_ids": [], "relevant_ids": []},
+        "V2": {"allowed_extra_ids": [], "relevant_ids": [10]},
+        "V3": {"allowed_extra_ids": [11], "relevant_ids": [10]}
+      },
+      "title": "Voyage"
+    },
+    {
+      "author": "Nobody",
+      "case": "no-match",
+      "identifier": null,
+      "input_fixture": "tests/fixtures/ebook/test-0001/v0.3/cases/identity-edition-vs-translation/source-en.epub",
+      "input_sha256": "6a5a613f5498304be5c407acf8bd3b388835859368988f0ee37de989fa3bf38c",
+      "oracle": {
+        "V1": {"allowed_extra_ids": [], "relevant_ids": []},
+        "V2": {"allowed_extra_ids": [], "relevant_ids": []},
+        "V3": {"allowed_extra_ids": [], "relevant_ids": []}
+      },
+      "title": "Absent Book"
+    }
+  ]
+}
