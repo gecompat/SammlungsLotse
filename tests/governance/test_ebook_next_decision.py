@@ -35,6 +35,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_DEEP_READONLY_ADAPTER_WORK_ITEM.md"
         ).read_text(encoding="utf-8")
+        cls.post_wi0012_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0011_AFTER_WI0012.md"
+        ).read_text(encoding="utf-8")
 
     def relation_targets(self, reference: str, relation_type: str) -> set[str]:
         return {
@@ -86,6 +92,24 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("## Implementierung und Abnahme", self.work_item_plan)
         self.assertIn("Der Kern übergibt nur Snapshot-Bytes", self.work_item_plan)
         self.assertIn("providerneutralen Ergebnisumschlag", self.work_item_plan)
+
+    def test_post_wi0012_gate_is_open_without_follow_up_artifact(self) -> None:
+        self.assertEqual(self.artifacts["GATE-0011"]["status"], "in_progress")
+        self.assertIn(
+            "GATE-0010", self.relation_targets("GATE-0011", "depends_on")
+        )
+        self.assertIn(
+            "WI-0012", self.relation_targets("GATE-0011", "depends_on")
+        )
+        self.assertNotIn("EXP-0011", self.artifacts)
+        self.assertNotIn("WI-0013", self.artifacts)
+        self.assertIn("ENTSCHEIDUNGSBEREIT — AUSWAHL OFFEN", self.post_wi0012_gate)
+        self.assertIn(
+            "### A — Produktcodefreie Vertrags- und Evidenzwave",
+            self.post_wi0012_gate,
+        )
+        self.assertIn("noch nicht ausgewählt", self.post_wi0012_gate)
+        self.assertIn("### K — Pausieren", self.post_wi0012_gate)
 
 
 if __name__ == "__main__":
