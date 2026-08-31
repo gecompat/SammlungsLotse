@@ -72,8 +72,12 @@ abgeschlossen. Der synthetische Lauf bestand 16/16 Methodenkriterien; V1 und
 V3 sind `eligible_with_tradeoffs`, V2 ist wegen eines Misses
 `not_qualified`. Der lokale private Drei-EPUB-Praxissmoke blieb bei vier
 erfolgreich ausgeführten Suchen, vollständigem Cleanup, aber 0/3
-abgeschlossenen WI-0011-Vergleichen `not_qualified`. GATE-0015 bewertet diese
-Diskrepanz ergebnisoffen; kein Produktarbeitsgegenstand ist registriert.
+abgeschlossenen WI-0011-Vergleichen `not_qualified`. Der Nutzer hat in
+GATE-0015 ausdrücklich Option A gewählt. GATE-0015 ist abgeschlossen und
+EXP-0013 als akzeptierte, noch nicht ausgeführte produktcodefreie Diagnose
+registriert. Sie bindet genau dieselben drei erneut explizit bestätigten
+EPUBs, pfadfreie Gruppenaggregate und vollständiges Cleanup; kein
+Produktarbeitsgegenstand ist registriert.
 
 ## Vorhanden
 
@@ -294,9 +298,12 @@ Diskrepanz ergebnisoffen; kein Produktarbeitsgegenstand ist registriert.
   `not_qualified`, null unerwarteten Kandidaten und null kritischen False Same;
 - lokaler privater Drei-EPUB-Smoke mit vier Suchläufen, unveränderten Quellen,
   vollständigem Cleanup und offenem 0/3-WI-0011-Nichtabschluss;
-- vorgeschlagenes GATE-0015 mit getrennten Optionen für private
-  Ursachenklärung, V1, V3, mehrstufiges Folgeexperiment, Konservieren und
-  Pausieren.
+- abgeschlossenes GATE-0015 mit ausdrücklicher Auswahl der privaten,
+  produktcodefreien Ursachenklärung;
+- akzeptiertes, noch nicht ausgeführtes EXP-0013 für genau dieselben drei
+  erneut explizit bestätigten EPUBs, ausschließlich pfadfreie Reason-Code-
+  und Eintrittsstufenaggregate sowie synthetisch gebundene Datenschutz- und
+  Cleanupkontrollen.
 
 ## Nicht vorhanden
 
@@ -311,6 +318,22 @@ Diskrepanz ergebnisoffen; kein Produktarbeitsgegenstand ist registriert.
 - Release.
 
 ## Validierung
+
+GATE-0015-Auswahl- und EXP-0013-Vertragswave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-08-31
+unter Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren
+für 50 Artefakte erfolgreich; die fünf fokussierten Gate-Tests bestanden.
+Der kontrollierte Testlauf entdeckte 197 Tests, ersetzte genau vier
+Current-Preimage-Ergebnisprüfungen durch gleichzählige
+Historical-Preimage-Prüfungen und führte 193 Tests erfolgreich aus. TEST-0001,
+EXP-0002 bis EXP-0007, die historischen Ergebnisse von EXP-0009 bis EXP-0012
+und die Qualifikationsnachweise von WI-0005, WI-0008, WI-0013 und WI-0011
+blieben gültig. `compileall` und `git diff --check` waren erfolgreich.
+FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Dies belegt die ausdrückliche Auswahl A sowie den eng gebundenen,
+noch nicht ausgeführten EXP-0013-Vertrag; es belegt weder einen privaten
+Diagnosebefund noch eine Produktfreigabe.
 
 EXP-0012-Ergebnis- und GATE-0015-Wave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-08-31
@@ -1064,13 +1087,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 ## Nächster Schritt
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
-EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014 und EXP-0012 sind
-abgeschlossen. GATE-0015 ist als nächste ergebnisoffene Entscheidung
-`proposed`. Option A, eine eng begrenzte produktcodefreie Diagnose der
-privaten 0/3-WI-0011-Nichtabschlüsse mit höchstens denselben drei EPUBs, ist
-empfohlen, aber nicht ausgewählt. V1- oder V3-Produktverträge, ein
-mehrstufiges Folgeexperiment, Konservieren und Pausieren bleiben getrennt
-offen. Ein Produktarbeitsgegenstand ist nicht registriert. V1 bleibt Standard; nur
+EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012 und GATE-0015
+sind abgeschlossen. EXP-0013 ist `accepted`, aber noch nicht ausgeführt. Nach
+Merge und Post-Merge-Prüfung werden Profil, Runner und synthetische Kontrollen
+in einer neuen isolierten Wave implementiert und als Preimage gebunden. Der
+private Hauptlauf benötigt danach die erneute explizite Übergabe genau
+derselben drei EPUBs; ohne sie wird keine private Diagnose ausgeführt. Ein
+Produktarbeitsgegenstand ist nicht registriert. V1 bleibt Standard; nur
 `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents

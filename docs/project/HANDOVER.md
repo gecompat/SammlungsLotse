@@ -233,10 +233,14 @@ Es gab null unerwartete Kandidaten und null kritische False Same. Der getrennte
 private Smoke materialisierte genau drei EPUB-Kopien, führte vier Suchläufe
 aus, bewahrte die Quellen und bereinigte alle Kopien, blieb aber wegen 0/3
 abgeschlossenen WI-0011-Vergleichen `not_qualified`. Private Werte und
-Rohoutputs wurden nicht aufbewahrt. GATE-0015 ist `proposed` und empfiehlt vor
-jeder Produktwave eine enge produktcodefreie Diagnose dieses privaten
-Nichtabschlusses. A ist nicht ausgewählt; kein Produktarbeitsgegenstand ist
-registriert.
+Rohoutputs wurden nicht aufbewahrt. Der Nutzer hat in GATE-0015 ausdrücklich
+Option A gewählt. GATE-0015 ist `done`; EXP-0013 ist als akzeptierte, noch
+nicht ausgeführte produktcodefreie Diagnose registriert. Der Hauptlauf
+akzeptiert ausschließlich genau dieselben drei erneut explizit bestätigten
+EPUBs ohne Verzeichnissuche und gibt nur eine gemeinsame pfadfreie
+Reason-Code- und Eintrittsstufenaggregation aus. Die Implementierung beginnt
+erst nach Merge und Post-Merge-Prüfung in einem neuen Worktree. Kein
+Produktarbeitsgegenstand ist registriert.
 
 ## Harte Grenzen
 

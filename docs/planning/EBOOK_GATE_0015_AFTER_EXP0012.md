@@ -1,6 +1,6 @@
 # GATE-0015: Ergebnis nach EXP-0012 und private Praxisevidenz bewerten
 
-Status: PROPOSED — AUSWAHL OFFEN
+Status: DONE — OPTION A / EXP-0013 AUSGEWÄHLT
 
 Stand: 2026-08-31
 
@@ -12,6 +12,22 @@ GATE-0015 trennt das positive Methodenergebnis von EXP-0012 von einer
 Produktentscheidung. Es bewertet die drei Suchstrategien, deren fachliche
 Grenzen und den anonymen privaten Praxissmoke. Ohne ausdrückliche Auswahl wird
 weder ein weiteres Experiment noch ein Produktarbeitsgegenstand registriert.
+
+## Auswahlentscheidung
+
+Der Nutzer hat Option A am 2026-08-31 ausdrücklich ausgewählt. GATE-0015 ist
+damit abgeschlossen und ausschließlich EXP-0013 als akzeptiertes, noch nicht
+ausgeführtes Experiment registriert.
+
+Die Auswahl autorisiert die getrennte Planung und Ausführung der
+produktcodefreien Diagnose nach Merge und Post-Merge-Prüfung. Sie autorisiert
+keine Produktkorrektur und keine Suchstrategie. Die Optionen B bis E und K
+bleiben nicht ausgewählt.
+
+Da private Pfade und Rohdaten des ersten Smoke absichtlich nicht gespeichert
+wurden, müssen genau dieselben drei EPUBs für den späteren Hauptlauf erneut
+explizit übergeben und als derselbe Eingangssatz bestätigt werden. EXP-0013
+führt keine Verzeichnis- oder Dateisuche aus.
 
 ## Verifizierte Evidenz
 
@@ -40,6 +56,8 @@ Nichtabschlussgründe wurden absichtlich nicht aufbewahrt.
 ## Optionen
 
 ### A — Private Nichtabschlussgründe produktcodefrei diagnostizieren
+
+**Ausgewählt als EXP-0013.**
 
 Ein enges Folgeexperiment würde dieselben Grenzen beibehalten und höchstens
 dieselben drei privaten EPUBs erneut kopieren. Es dürfte ausschließlich
@@ -104,9 +122,10 @@ nachgelagerte Identitätsbewertung blieb in allen drei Fällen unvollständig.
 Eine Produktsuche auf Basis ausschließlich der synthetischen Matrix würde
 diese reale Anschlusslücke überspringen.
 
-Die Empfehlung nimmt A nicht an. Erst eine ausdrückliche Auswahl darf
-GATE-0015 schließen und ein Folgeexperiment oder einen Produktarbeitsgegenstand
-registrieren.
+Die Empfehlung nahm A für sich noch nicht an. Der Nutzer hat A inzwischen
+ausdrücklich ausgewählt. EXP-0013 bindet deshalb genau die produktcodefreie
+Diagnose; eine spätere Produktübernahme benötigt unabhängig vom Ergebnis ein
+neues getrenntes Gate.
 
 ## Harte Grenzen
 
@@ -121,8 +140,10 @@ registrieren.
 
 ## Gate-Stand
 
-- GATE-0015 bleibt `proposed`.
-- A ist empfohlen, aber nicht ausgewählt.
-- Kein neuer Experiment- oder Produktarbeitsgegenstand ist registriert.
-- Eine Antwort mit A, B, C, D, E oder K ist die nächste ausdrückliche
-  Entscheidung.
+- GATE-0015 ist `done`.
+- EXP-0013 ist `accepted`, aber noch nicht ausgeführt.
+- Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
+  unverändert.
+- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
+  `origin/main` und benötigt die erneute explizite Übergabe derselben drei
+  privaten EPUBs.

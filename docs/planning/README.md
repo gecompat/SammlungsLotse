@@ -46,6 +46,7 @@ Experimente und spätere Entscheidungen:
 - [GATE-0014: nächsten read-only Nutzwert nach WI-0013 bewerten](EBOOK_GATE_0014_NEXT_READONLY_VALUE.md);
 - [EXP-0012: begrenzte Calibre-Kandidatensuche produktcodefrei qualifizieren](EBOOK_CALIBRE_CANDIDATE_SEARCH_EXPERIMENT.md);
 - [GATE-0015: Ergebnis nach EXP-0012 und private Praxisevidenz bewerten](EBOOK_GATE_0015_AFTER_EXP0012.md);
+- [EXP-0013: private WI-0011-Nichtabschlussgründe produktcodefrei diagnostizieren](EBOOK_PRIVATE_WI0011_NONCOMPLETION_DIAGNOSTIC_EXPERIMENT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -255,10 +256,13 @@ semantisch identischen synthetischen Wiederholungen. V1 und V3 sind
 `not_qualified`. Es gab null unerwartete Kandidaten und null kritische False
 Same. Der getrennte private Drei-EPUB-Smoke materialisierte die Bibliothek,
 führte vier Suchläufe aus und bereinigte alles, blieb aber bei 0/3
-abgeschlossenen WI-0011-Vergleichen `not_qualified`. GATE-0015 bewertet diese
-Diskrepanz ergebnisoffen und empfiehlt vor jeder Produktwave eine eng
-begrenzte, produktcodefreie Diagnose der privaten Nichtabschlussgründe. Diese
-Empfehlung ist nicht ausgewählt.
+abgeschlossenen WI-0011-Vergleichen `not_qualified`. Der Nutzer hat in
+GATE-0015 ausdrücklich Option A gewählt. GATE-0015 ist abgeschlossen und
+EXP-0013 als akzeptierte, noch nicht ausgeführte produktcodefreie Diagnose
+registriert. Der Hauptlauf nimmt ausschließlich genau dieselben drei erneut
+explizit bestätigten EPUBs ohne Verzeichnissuche an und darf nur pfadfreie
+Reason-Code- und Eintrittsstufenhäufigkeiten aggregieren. B bis E und K
+bleiben nicht ausgewählt; ein Produktarbeitsgegenstand ist nicht registriert.
 
 ## Nicht übernehmen
 
