@@ -437,12 +437,20 @@ def evaluate_cases() -> tuple[list[dict[str, Any]], dict[str, str]]:
         report = current_report(payloads)
         if source_case["oracle_scope"] == "quality":
             _assert_qualification("exp_0010", case_key, report, qualification)
-        elif report["assessment"] != "not_assessed":
-            raise RuntimeError(f"EXP-0011 invalid control was assessed: {case_key}")
         standards = _standard_projections(payloads)
         cases.append(
             {
                 "case_key": case_key,
+                "control_conformance": (
+                    copy.deepcopy(source_case["conformance_expected"])
+                    if source_case["oracle_scope"] == "control"
+                    else None
+                ),
+                "experiment_assessment": (
+                    "not_assessed"
+                    if source_case["oracle_scope"] == "control"
+                    else "qualified_product_observation"
+                ),
                 "oracle_scope": source_case["oracle_scope"],
                 "publication_oracle": source_case.get("publication_oracle"),
                 "source": "exp_0010",
@@ -689,7 +697,14 @@ def acceptance_from_result(
             and result.get("preimage") == current_preimage()
             and bool(re.fullmatch(r"[0-9a-f]{40}", result.get("preimage_commit", "")))
         ),
-        "02_exactly_fifteen_synthetic_pairs": counts == profile["case_sources"],
+        "02_exactly_fifteen_synthetic_pairs": counts == profile["case_sources"]
+        and all(
+            case.get("experiment_assessment") == "not_assessed"
+            and case.get("control_conformance")
+            and set(case["control_conformance"].values()) == {"error"}
+            for case in cases
+            if case.get("oracle_scope") == "control"
+        ),
         "03_three_complete_variant_projections": projections_complete,
         "04_v1_reports_byte_identical_for_thirteen_qualified_cases": (
             len(qualified) == 13 and metrics.get("V1", {}).get("v1_report_byte_equal") is True
