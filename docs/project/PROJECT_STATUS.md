@@ -98,7 +98,9 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   16 Methodenkriterien bestanden; alle drei Strategien sind innerhalb der
   gebundenen Matrix `eligible_with_tradeoffs`, mit zehn fail-closed
   Enthaltungen und null kritischen Fehlfortsetzungen je Strategie.
-  GATE-0019 ist `proposed`; keine seiner Optionen ist ausgewählt und ein
+  Der Nutzer hat in GATE-0019 ausdrücklich Option A gewählt. GATE-0019 ist
+  abgeschlossen und EXP-0017 als rein synthetische Downstream-Isolations-
+  und Threat-Model-Wave angenommen, aber noch nicht ausgeführt. Ein
   Produktarbeitsgegenstand ist nicht registriert.
 
 ## Vorhanden
@@ -348,11 +350,14 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   identischen Wiederholungen, 96 Parserläufen, 16/16 Methodenkriterien, drei
   `eligible_with_tradeoffs`-Strategien, jeweils zehn Enthaltungen und null
   kritischen Fehlfortsetzungen, False Negatives oder Context Mismatches;
-- vorgeschlagenes GATE-0019 mit fünf getrennten Optionen für weitere
-  synthetische Downstream-Evidenz, review-beibehaltende Erklärbarkeit, eine
-  höher riskante strikte Navigationsausnahme, Konservieren oder Pausieren.
-  Keine Option ist ausgewählt; Produktcode und private Medien bleiben
-  außerhalb.
+- abgeschlossenes GATE-0019 mit ausdrücklicher Auswahl der synthetischen
+  Downstream-Isolations- und Threat-Model-Qualifikation;
+- angenommenes, noch nicht ausgeführtes EXP-0017 mit genau zwölf
+  synthetischen EPUBs aus vier S3-Navigations-, vier Ressourcen-/Aktiv- und
+  vier Täuschungskontexten, zwei Wiederholungen, unverändertem WI-0005-
+  Provider- und Executorstand, lokaler Messkanarie, effektiver
+  Netzwerklosigkeit sowie fail-closed Timeout-, Output- und Cleanupgrenzen;
+  Produktcode und private Medien bleiben außerhalb.
 
 ## Nicht vorhanden
 
@@ -367,6 +372,26 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
 - Release.
 
 ## Validierung
+
+GATE-0019-Auswahl- und EXP-0017-Vertragswave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
+unter Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren
+für 58 Artefakte erfolgreich; die sieben fokussierten Gate-Tests bestanden.
+Der einmalige kontrollierte Volltest auf dem stabilen Vertragskandidaten
+entdeckte 242 Tests, ersetzte genau fünf eingefrorene Preimage-Prüfungen durch
+gleichzählige Historical-Preimage-Prüfungen und führte 237 Tests erfolgreich
+aus. `compileall`, `git diff --check`, die begrenzte Datenschutzsuche und die
+Prüfung auf leeren Produktcode-Diff waren erfolgreich. FOUNDATION_INTEGRITY
+am exakten Quellcommit `d49f978f33001fcc098998ff7c04ffb209b28033`
+meldete 0 Warnungen, 0 Fehler und 0 Blocker. Der read-only Host-Preflight fand
+Podman Client und Server `6.1.0`, Linux/amd64 sowie die exakt gebundene
+WI-0005-Image-ID
+`sha256:d8143e59b2c478e0056200a3529b9beb74737885863c22097b198a9c0c92974e`.
+Dies belegt die ausdrückliche Auswahl A, Registrierung und Begrenzung von
+EXP-0017 sowie erreichbare Ausführungsvoraussetzungen. Es belegt weder einen
+Experimentlauf, effektive Isolation während der zwölf Fälle, null
+Kanarientreffer noch eine Produktfreigabe oder Lockerung des
+WI-0004-Review-Gates.
 
 EXP-0016-Ausführungs- und Ergebnisbindungswave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1282,9 +1307,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
-EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018 und EXP-0016
-sind abgeschlossen. GATE-0019 ist `proposed`. A ist als kleinste nächste
-Evidenzfrage empfohlen, aber A, B, C, K und P sind nicht ausgewählt; ein
+EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018, EXP-0016 und
+GATE-0019 sind abgeschlossen. Der Nutzer hat für GATE-0019 ausdrücklich A
+gewählt. EXP-0017 ist `accepted` und wird nach Merge und Post-Merge-Prüfung
+in einer neuen isolierten Wave implementiert und ausschließlich synthetisch
+ausgeführt. B, C, K und P sind nicht ausgewählt; ein
 Produktarbeitsgegenstand ist nicht registriert. V1 bleibt Standard; nur
 `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue

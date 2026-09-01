@@ -54,6 +54,7 @@ Experimente und spätere Entscheidungen:
 - [GATE-0018: EXP-0015-Ergebnis und gemeinsamen Navigationskontext bewerten](EBOOK_GATE_0018_AFTER_EXP0015.md);
 - [EXP-0016: synthetische EPUB-Navigationskontext- und Sicherheitsmatrix qualifizieren](EBOOK_SYNTHETIC_NAVIGATION_SAFETY_MATRIX_EXPERIMENT.md);
 - [GATE-0019: EXP-0016-Ergebnis und mögliche Reviewdifferenzierung bewerten](EBOOK_GATE_0019_AFTER_EXP0016.md);
+- [EXP-0017: synthetische Downstream-Isolation des tiefen EPUB-Pfads qualifizieren](EBOOK_SYNTHETIC_DOWNSTREAM_ISOLATION_EXPERIMENT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -292,9 +293,14 @@ Navigation-, SVG-, CSS-, Schema- und Täuschungsfälle in 96 Parserläufen.
 Alle 16 Methodenkriterien bestanden; alle drei Strategien sind innerhalb der
 Matrix `eligible_with_tradeoffs`, mit jeweils zehn fail-closed Enthaltungen
 und null kritischen Fehlfortsetzungen. GATE-0019 ist als getrenntes
-Ergebnisgate `proposed`. A ist empfohlen, aber A, B, C, K und P sind nicht
-ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert; Produktcode
-und WI-0004-Review-Gate bleiben unverändert.
+Ergebnisgate abgeschlossen; der Nutzer hat ausdrücklich Option A gewählt.
+EXP-0017 ist als genau eine synthetische Downstream-Isolations- und
+Threat-Model-Wave `accepted`. Sie bindet zwölf Fälle, den unveränderten
+WI-0005-Provider- und Executorstand, eine lokale Messkanarie, effektive
+Netzwerklosigkeit sowie Timeout-, Output- und Cleanup-Grenzen. B, C, K und P
+bleiben nicht ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert;
+Produktcode und WI-0004-Review-Gate bleiben unverändert. EXP-0017 ist noch
+nicht ausgeführt.
 
 ## Nicht übernehmen
 

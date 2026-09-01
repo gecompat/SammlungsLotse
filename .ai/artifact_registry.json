@@ -813,6 +813,81 @@
       "status": "done",
       "title": "Synthetische EPUB-Navigationskontext- und Sicherheitsmatrix qualifizieren"
     },
+    "EXP-0017": {
+      "acceptance_criteria": "Das Experiment ohne Produktcodeänderung materialisiert ausschließlich zwölf vorab gebundene synthetische EPUBs aus je vier EXP-0016-S3-Navigations-, Ressourcen- beziehungsweise Aktiv- und mehrdeutig-täuschenden Kontexten, führt jeden Fall zweimal über den exakt hash-, profil-, image- und versionsgebundenen unveränderten WI-0005-EPUBCheck-Provider und Podman-Executor, prüft die EXP-0016-Klassifikation unabhängig, belegt mit einer resetbaren loopback-only Messkanarie null Deep-Path-Anfragen, liest die effektive Netzwerklosigkeit und Isolation vor dem Prozess zurück, bewahrt Parserdifferenzen getrennt, verlangt deterministische pfadfreie Aggregate, fail-closed Timeout- und Outputgrenzen, unveränderte Eingänge sowie vollständiges Task- und Container-Cleanup und öffnet unabhängig vom Ergebnis ein neues Gate; private Medien, externes Netzwerk, Produktcodeänderungen, Persistenz, Review-Lockerung und Bestandswirkung bleiben ausgeschlossen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05e86-30e7-7df6-98ac-b04fbcca3b88",
+      "created_on": "2026-09-01",
+      "external_refs": [
+        {
+          "system": "w3c_epub_33",
+          "value": "https://www.w3.org/TR/2026/REC-epub-33-20260113/"
+        },
+        {
+          "system": "w3c_epub_rs_33",
+          "value": "https://www.w3.org/TR/2024/REC-epub-rs-33-20241017/"
+        },
+        {
+          "system": "epubcheck_release",
+          "value": "https://github.com/w3c/epubcheck/releases/tag/v5.3.0"
+        }
+      ],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_SYNTHETIC_DOWNSTREAM_ISOLATION_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0005",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0010",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0016",
+          "type": "derived_from"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Synthetische Downstream-Isolation des tiefen EPUB-Pfads qualifizieren"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -1720,7 +1795,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "EXP-0016-Ergebnis und mögliche Reviewdifferenzierung bewerten"
     },
     "REQ-0001": {
