@@ -92,8 +92,11 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   verarbeitete genau drei EPUBs; die einzige gemeinsame grobe Klasse ist
   `content.navigation=3`. Es gab keine seltene bekannte Klasse und keinen
   unklassifizierten Eingang. Quellen blieben unverändert und das Cleanup war
-  vollständig. GATE-0018 ist `proposed`; keine Option und kein
-  Produktarbeitsgegenstand sind ausgewählt.
+  vollständig. Der Nutzer hat in GATE-0018 ausdrücklich Option A gewählt.
+  GATE-0018 ist abgeschlossen und EXP-0016 als rein synthetische,
+  produktcodefreie Navigationskontext- und Sicherheitsmatrix angenommen,
+  aber noch nicht ausgeführt. Ein Produktarbeitsgegenstand ist nicht
+  registriert.
 
 ## Vorhanden
 
@@ -335,10 +338,13 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   `content.navigation=3`, keiner seltenen oder unklassifizierten Klasse,
   unveränderten Quellen, vollständigem Cleanup und keinen privaten
   Referenzwerten oder Einzelzuordnungen;
-- vorgeschlagenes GATE-0018 zur ausdrücklichen Auswahl zwischen rein
-  synthetischer Vertiefung, getrenntem Erklärbarkeits- oder
-  Sicherheitsarbeitsgegenstand, Evidenzkonservierung und Pausieren; keine
-  Option ist ausgewählt.
+- abgeschlossenes GATE-0018 mit ausdrücklicher Auswahl der rein synthetischen
+  Navigationskontext- und Sicherheitsmatrix;
+- angenommenes, noch nicht ausgeführtes EXP-0016 mit genau 48 synthetischen
+  Package-, XHTML-, Navigation-, SVG-, CSS-, Schema- und Täuschungsfällen,
+  drei vorab gebundenen Strategien, dominanten kritischen
+  Fehlfortsetzungskosten und einem getrennten Ergebnisgate; Produktcode und
+  private Medien bleiben außerhalb.
 
 ## Nicht vorhanden
 
@@ -353,6 +359,22 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
 - Release.
 
 ## Validierung
+
+GATE-0018-Auswahl- und EXP-0016-Vertragswave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
+unter Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren
+für 56 Artefakte erfolgreich; die sechs fokussierten Gate-Tests bestanden.
+Der einmalige kontrollierte Volltest auf dem stabilen Vertragskandidaten
+entdeckte 230 Tests, ersetzte genau fünf eingefrorene Preimage-Prüfungen durch
+gleichzählige Historical-Preimage-Prüfungen und führte 225 Tests erfolgreich
+aus. `compileall`, `git diff --check` und die begrenzte Datenschutzsuche waren
+erfolgreich; unter `src/sammlungslotse/` gab es keine Änderung.
+FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Dies belegt die ausdrückliche Auswahl A sowie den eng gebundenen,
+noch nicht ausgeführten EXP-0016-Vertrag; es belegt weder ein
+Experimentergebnis noch eine Produktfreigabe oder Lockerung des
+WI-0004-Review-Gates.
 
 EXP-0015-Ergebnis- und GATE-0018-Wave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1221,13 +1243,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
-EXP-0013, GATE-0016, EXP-0014, GATE-0017 und EXP-0015 sind abgeschlossen.
-GATE-0018 ist `proposed` und offen für die ausdrückliche Auswahl A, B, C, K
-oder P. A vertieft ausschließlich synthetisch die Navigationskontext- und
-Sicherheitsmatrix, B erwägt getrennt eine pfadfreie Erklärbarkeit, C eine
-höher riskante Sicherheitsregel oder Review-Lockerung, K konserviert die
-Evidenz und P pausiert. Keine Option und kein Produktarbeitsgegenstand sind
-ausgewählt. V1 bleibt Standard; nur `--json --report-version v2` aktiviert V2.
+EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015 und GATE-0018 sind
+abgeschlossen. EXP-0016 ist `accepted` und wird nach Merge und
+Post-Merge-Prüfung in einer neuen isolierten Wave ausschließlich synthetisch
+implementiert und ausgeführt. B, C, K und P sind nicht ausgewählt; ein
+Produktarbeitsgegenstand ist nicht registriert. V1 bleibt Standard; nur
+`--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

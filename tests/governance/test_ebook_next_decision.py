@@ -119,6 +119,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0018_AFTER_EXP0015.md"
         ).read_text(encoding="utf-8")
+        cls.navigation_safety_experiment = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_SYNTHETIC_NAVIGATION_SAFETY_MATRIX_EXPERIMENT.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -601,7 +607,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             self.private_remote_context_experiment,
         )
 
-    def test_exp0015_result_opens_gate_without_authorizing_product_code(self) -> None:
+    def test_exp0015_result_and_gate0018_select_synthetic_experiment(self) -> None:
         self.assertEqual("pass", self.exp0015_result["status"])
         self.assertEqual("shared_context_present", self.exp0015_result["qualification"])
         self.assertEqual(3, self.exp0015_result["input_count"])
@@ -616,7 +622,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertTrue(self.exp0015_result["source_unchanged"])
         self.assertTrue(self.exp0015_result["cleanup_complete"])
         self.assertTrue(self.exp0015_result["path_free"])
-        self.assertEqual("proposed", self.artifacts["GATE-0018"]["status"])
+        self.assertEqual("done", self.artifacts["GATE-0018"]["status"])
         for dependency in (
             "EXP-0015",
             "GATE-0017",
@@ -636,14 +642,50 @@ class EbookNextDecisionTests(unittest.TestCase):
         ):
             self.assertIn(heading, self.post_exp0015_gate)
         self.assertIn(
-            "A, B, C, K und P sind nicht ausgewählt", self.post_exp0015_gate
+            "Option A am 2026-09-01 ausdrücklich ausgewählt",
+            self.post_exp0015_gate,
         )
+        self.assertIn("**Ausgewählt als EXP-0016.**", self.post_exp0015_gate)
         self.assertIn(
-            "Die Empfehlung nimmt keine Option an", self.post_exp0015_gate
+            "B, C, K und P bleiben nicht ausgewählt", self.post_exp0015_gate
         )
         self.assertIn(
             "keine Änderung unter `src/sammlungslotse/`",
             self.post_exp0015_gate,
+        )
+        self.assertEqual("accepted", self.artifacts["EXP-0016"]["status"])
+        for dependency in (
+            "GATE-0018",
+            "EXP-0015",
+            "WI-0004",
+            "WI-0011",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("EXP-0016", "depends_on")
+            )
+        self.assertIn(
+            "EXP-0015", self.relation_targets("EXP-0016", "derived_from")
+        )
+        self.assertIn(
+            "ACCEPTED — NOT EXECUTED", self.navigation_safety_experiment
+        )
+        self.assertIn(
+            "genau 48 benannte Fälle", self.navigation_safety_experiment
+        )
+        for strategy in (
+            "`review_all_http_s`",
+            "`classify_and_keep_review`",
+            "`strict_navigation_candidate`",
+        ):
+            self.assertIn(strategy, self.navigation_safety_experiment)
+        self.assertIn("Bereits ein", self.navigation_safety_experiment)
+        self.assertIn(
+            "Fall qualifiziert die Strategie nicht",
+            self.navigation_safety_experiment,
+        )
+        self.assertIn(
+            "keine Produktfreigabe", self.navigation_safety_experiment
         )
 
 

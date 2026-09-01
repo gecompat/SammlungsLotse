@@ -52,6 +52,7 @@ Experimente und spätere Entscheidungen:
 - [GATE-0017: EXP-0014-Ergebnis und dreifache Remote-Ressourcen-Reviewentscheidung bewerten](EBOOK_GATE_0017_AFTER_EXP0014.md);
 - [EXP-0015: private Remote-Referenzkontexte produktcodefrei und pfadfrei gruppieren](EBOOK_PRIVATE_REMOTE_REFERENCE_CONTEXT_EXPERIMENT.md);
 - [GATE-0018: EXP-0015-Ergebnis und gemeinsamen Navigationskontext bewerten](EBOOK_GATE_0018_AFTER_EXP0015.md);
+- [EXP-0016: synthetische EPUB-Navigationskontext- und Sicherheitsmatrix qualifizieren](EBOOK_SYNTHETIC_NAVIGATION_SAFETY_MATRIX_EXPERIMENT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -282,8 +283,14 @@ die synthetische Kontrolle mit 7/7 Kontextklassen, 19/19 Negativkontrollen und
 drei EPUBs. Die einzige gemeinsame Klasse lautet `content.navigation=3`;
 seltene bekannte Klassen wurden nicht unterdrückt und unklassifizierte
 Eingänge blieben null. Quellen waren unverändert und das Cleanup vollständig.
-GATE-0018 ist `proposed`; A, B, C, K und P sind nicht ausgewählt. Ein
-Produktarbeitsgegenstand ist nicht registriert.
+Der Nutzer hat in GATE-0018 ausdrücklich Option A gewählt. GATE-0018 ist
+abgeschlossen und EXP-0016 als genau eine rein synthetische,
+produktcodefreie Navigationskontext- und Sicherheitsmatrix angenommen. Der
+Vertrag bindet 48 Package-, XHTML-, Navigation-, SVG-, CSS-, Schema- und
+Täuschungsfälle, drei getrennte Vergleichsstrategien sowie dominante Kosten
+kritischer Fehlfortsetzungen. B, C, K und P bleiben nicht ausgewählt. Ein
+Produktarbeitsgegenstand ist nicht registriert; EXP-0016 ist noch nicht
+ausgeführt.
 
 ## Nicht übernehmen
 
