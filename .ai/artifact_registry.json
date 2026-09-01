@@ -739,7 +739,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Private Remote-Referenzkontexte produktcodefrei und pfadfrei gruppieren"
     },
     "GATE-0001": {
@@ -1535,6 +1535,60 @@
       ],
       "status": "done",
       "title": "EXP-0014-Ergebnis und dreifache Remote-Ressourcen-Reviewentscheidung bewerten"
+    },
+    "GATE-0018": {
+      "acceptance_criteria": "Die Entscheidung trennt den methodisch bestandenen EXP-0015-Befund mit content.navigation in drei von drei Eingängen von jeder Aussage über Gefährlichkeit, Erreichbarkeit, EPUB-Gültigkeit oder eine erforderliche Produktkorrektur und wählt nur nach ausdrücklicher Nutzerentscheidung zwischen rein synthetischer Navigationskontextvertiefung, einem getrennt zu registrierenden Erklärbarkeits- oder Sicherheitsarbeitsgegenstand, konservativem Beibehalten des WI-0004-Review-Gates, Evidenzkonservierung oder Pausieren; EXP-0015 autorisiert weder Produktcode noch eine automatische Lockerung des Review-Gates oder weitere private Analyse.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05ba9-cf06-7a85-9b73-b6cb0cc268c9",
+      "created_on": "2026-09-01",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0018_AFTER_EXP0015.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0015",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0017",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "EXP-0015-Ergebnis und gemeinsamen Navigationskontext bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",

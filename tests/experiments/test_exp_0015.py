@@ -14,6 +14,7 @@ from pathlib import Path
 from unittest import mock
 
 from tools.experiments import run_exp_0015
+from tools.experiments import validate_exp_0015_result
 
 
 def test_temp_base() -> Path:
@@ -40,7 +41,10 @@ def projection(
 class Exp0015Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.profile = run_exp_0015.validate_contract()
+        cls.profile = run_exp_0015.load_json(run_exp_0015.PROFILE_PATH)
+        cls.result = validate_exp_0015_result.validate(
+            validate_exp_0015_result.RESULT_PATH
+        )
 
     def make_epubs(self, root: Path, count: int = 4) -> list[Path]:
         result = []
@@ -86,17 +90,22 @@ class Exp0015Tests(unittest.TestCase):
             "experiments/ebook/exp-0015/result.json",
             run_exp_0015.PREIMAGE_FILES,
         )
-        self.assertFalse(run_exp_0015.RESULT_PATH.exists())
+        self.assertTrue(run_exp_0015.RESULT_PATH.exists())
+        self.assertEqual("pass", self.result["status"])
+        self.assertEqual(
+            {"content.navigation": 3}, self.result["context_input_counts"]
+        )
 
     def test_runtime_bindings_match_bound_files(self) -> None:
         bindings = self.profile["runtime_bindings"]["files"]
+        historical = validate_exp_0015_result.historical_preimage()
         self.assertEqual(len(run_exp_0015.RUNTIME_LOCATORS), len(bindings))
         for binding, locator in zip(
             bindings, run_exp_0015.RUNTIME_LOCATORS, strict=True
         ):
             self.assertEqual(locator, binding["locator"])
             self.assertEqual(
-                run_exp_0015.sha256_file(run_exp_0015.ROOT / locator),
+                historical[locator],
                 binding["sha256"],
             )
 
@@ -315,6 +324,9 @@ class Exp0015Tests(unittest.TestCase):
                     run_exp_0015, "require_committed_preimage", return_value="a" * 40
                 ),
                 mock.patch.object(
+                    run_exp_0015, "validate_contract", return_value=self.profile
+                ),
+                mock.patch.object(
                     run_exp_0015,
                     "run_synthetic_controls",
                     return_value={"status": "pass"},
@@ -355,6 +367,9 @@ class Exp0015Tests(unittest.TestCase):
                 mock.patch.object(run_exp_0015, "ALLOWED_TEMP_ROOT", temp_root),
                 mock.patch.object(
                     run_exp_0015, "require_committed_preimage", return_value="a" * 40
+                ),
+                mock.patch.object(
+                    run_exp_0015, "validate_contract", return_value=self.profile
                 ),
                 mock.patch.object(
                     run_exp_0015,

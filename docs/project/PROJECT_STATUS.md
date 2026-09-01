@@ -85,12 +85,15 @@ aus genau drei EPUBs erneut; jede task-private Kopie durchlief genau einmal
 den unveränderten WI-0004-JSON-Weg. Alle drei Ergebnisse lauteten `review`
 mit `epub.remote_reference.present` und `security.remote_resource`.
 Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
-vollständig. Der Nutzer hat in GATE-0017 ausdrücklich Option A gewählt.
-GATE-0017 ist abgeschlossen und EXP-0015 als akzeptiertes, noch nicht
-ausgeführtes Experiment registriert. Es gruppiert ausschließlich grobe
-Remote-Referenzkontexte desselben erneut bestätigten Dreiersatzes und zeigt
-Klassen erst ab Mindestgruppe zwei. Kein Produktarbeitsgegenstand ist
-registriert.
+  vollständig. Der Nutzer hat in GATE-0017 ausdrücklich Option A gewählt.
+  GATE-0017 und EXP-0015 sind abgeschlossen. Nach grüner CI auf dem sauberen
+  Preimage bestand die synthetische Kontrolle mit 7/7 Kontextklassen,
+  19/19 Negativkontrollen und 32 Parserläufen. Der erneut bestätigte Hauptlauf
+  verarbeitete genau drei EPUBs; die einzige gemeinsame grobe Klasse ist
+  `content.navigation=3`. Es gab keine seltene bekannte Klasse und keinen
+  unklassifizierten Eingang. Quellen blieben unverändert und das Cleanup war
+  vollständig. GATE-0018 ist `proposed`; keine Option und kein
+  Produktarbeitsgegenstand sind ausgewählt.
 
 ## Vorhanden
 
@@ -326,11 +329,16 @@ registriert.
   und vollständigem Cleanup;
 - abgeschlossenes GATE-0017 mit ausdrücklicher Auswahl der privaten,
   produktcodefreien und pfadfreien Referenzkontextgruppierung;
-- akzeptiertes, noch nicht ausgeführtes EXP-0015 für denselben erneut
-  bestätigten Dreiersatz, genau einen lokalen Parserlauf je task-privater
-  Kopie, eine vorab gebundene grobe Kontexttaxonomie, Mindestgruppe zwei,
-  vollständige Unterdrückung seltener Klassenliterale und keine privaten
-  Referenzwerte oder Einzelzuordnungen.
+- abgeschlossenes EXP-0015 mit demselben erneut bestätigten Dreiersatz,
+  7/7 synthetischen Kontextklassen, 19/19 Negativkontrollen, 32 synthetischen
+  Parserläufen, genau einem privaten Parserlauf je task-privater Kopie,
+  `content.navigation=3`, keiner seltenen oder unklassifizierten Klasse,
+  unveränderten Quellen, vollständigem Cleanup und keinen privaten
+  Referenzwerten oder Einzelzuordnungen;
+- vorgeschlagenes GATE-0018 zur ausdrücklichen Auswahl zwischen rein
+  synthetischer Vertiefung, getrenntem Erklärbarkeits- oder
+  Sicherheitsarbeitsgegenstand, Evidenzkonservierung und Pausieren; keine
+  Option ist ausgewählt.
 
 ## Nicht vorhanden
 
@@ -345,6 +353,28 @@ registriert.
 - Release.
 
 ## Validierung
+
+EXP-0015-Ergebnis- und GATE-0018-Wave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
+unter Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren
+für 55 Artefakte erfolgreich; die sechs fokussierten Gate-Tests und alle
+sieben historischen Ergebnisprüfungen bestanden. Der kontrollierte Testlauf
+entdeckte 230 Tests, ersetzte genau fünf eingefrorene Preimage-Prüfungen durch
+gleichzählige Historical-Preimage-Prüfungen und führte 225 Tests erfolgreich
+aus. EXP-0015 blieb gegen das grüne Ausführungspreimage
+`cefe2d29b54b8e6cbc60b07b1485da473565cda7` gebunden. Die synthetische
+Kontrolle bestand mit 7/7 Kontextklassen, 19/19 Negativkontrollen und
+32 Parserläufen. Das 483-Byte-Ergebnis mit SHA-256
+`651ad195b54531d20e0fc6ff882df6e1d4b38765e877057faf7858f36dae50a1`
+enthält ausschließlich `content.navigation=3`, keine seltene bekannte Klasse,
+null unklassifizierte Eingänge, unveränderte Quellen und vollständiges
+Cleanup. `compileall`, `git diff --check` und die begrenzte Datenschutzsuche
+waren erfolgreich; unter `src/sammlungslotse/` gab es keine Änderung.
+FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Dies belegt Methode, pfadfreies Aggregat und die offene
+Ergebnisentscheidung, nicht Erreichbarkeit, Ausführung, Gefährlichkeit,
+EPUB-Gültigkeit oder eine Produktfreigabe.
 
 GATE-0017-Auswahl- und EXP-0015-Vertragswave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1191,14 +1221,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
-EXP-0013, GATE-0016, EXP-0014 und GATE-0017 sind abgeschlossen. EXP-0015 ist
-`accepted`, aber noch nicht ausgeführt. Nach Merge und Post-Merge-Prüfung
-werden Profil, Runner und synthetische Kontrollen in einer neuen isolierten
-Wave implementiert und als Preimage gebunden. Der private Hauptlauf bleibt
-auf den mit Option A erneut bestätigten Dreiersatz, Mindestgruppe zwei und
-ein pfadfreies Aggregat begrenzt. Kein Produktarbeitsgegenstand ist
-registriert. V1 bleibt Standard; nur `--json --report-version v2` aktiviert
-V2.
+EXP-0013, GATE-0016, EXP-0014, GATE-0017 und EXP-0015 sind abgeschlossen.
+GATE-0018 ist `proposed` und offen für die ausdrückliche Auswahl A, B, C, K
+oder P. A vertieft ausschließlich synthetisch die Navigationskontext- und
+Sicherheitsmatrix, B erwägt getrennt eine pfadfreie Erklärbarkeit, C eine
+höher riskante Sicherheitsregel oder Review-Lockerung, K konserviert die
+Evidenz und P pausiert. Keine Option und kein Produktarbeitsgegenstand sind
+ausgewählt. V1 bleibt Standard; nur `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

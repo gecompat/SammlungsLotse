@@ -113,6 +113,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_PRIVATE_REMOTE_REFERENCE_CONTEXT_EXPERIMENT.md"
         ).read_text(encoding="utf-8")
+        cls.post_exp0015_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0018_AFTER_EXP0015.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -146,6 +152,15 @@ class EbookNextDecisionTests(unittest.TestCase):
                 / "experiments"
                 / "ebook"
                 / "exp-0014"
+                / "result.json"
+            ).read_text(encoding="utf-8")
+        )
+        cls.exp0015_result = json.loads(
+            (
+                ROOT
+                / "experiments"
+                / "ebook"
+                / "exp-0015"
                 / "result.json"
             ).read_text(encoding="utf-8")
         )
@@ -548,7 +563,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "`security.remote_resource` ist ein Reviewgrund, kein Schadensnachweis",
             self.post_exp0014_gate,
         )
-        self.assertEqual(self.artifacts["EXP-0015"]["status"], "accepted")
+        self.assertEqual(self.artifacts["EXP-0015"]["status"], "done")
         for dependency in (
             "GATE-0017",
             "EXP-0014",
@@ -563,7 +578,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "EXP-0014", self.relation_targets("EXP-0015", "derived_from")
         )
         self.assertIn(
-            "ACCEPTED — NOT EXECUTED", self.private_remote_context_experiment
+            "DONE — EXECUTED, METHOD PASSED", self.private_remote_context_experiment
         )
         self.assertIn(
             "Mindestgruppe beträgt exakt `2` von `3` Eingängen",
@@ -584,6 +599,51 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn(
             "Ein methodischer `pass` oder eine gemeinsame Kontextklasse ist keine",
             self.private_remote_context_experiment,
+        )
+
+    def test_exp0015_result_opens_gate_without_authorizing_product_code(self) -> None:
+        self.assertEqual("pass", self.exp0015_result["status"])
+        self.assertEqual("shared_context_present", self.exp0015_result["qualification"])
+        self.assertEqual(3, self.exp0015_result["input_count"])
+        self.assertEqual(3, self.exp0015_result["parser_runs"])
+        self.assertEqual(3, self.exp0015_result["remote_reference_input_count"])
+        self.assertEqual(
+            {"content.navigation": 3},
+            self.exp0015_result["context_input_counts"],
+        )
+        self.assertFalse(self.exp0015_result["suppressed_context_present"])
+        self.assertEqual(0, self.exp0015_result["unclassified_input_count"])
+        self.assertTrue(self.exp0015_result["source_unchanged"])
+        self.assertTrue(self.exp0015_result["cleanup_complete"])
+        self.assertTrue(self.exp0015_result["path_free"])
+        self.assertEqual("proposed", self.artifacts["GATE-0018"]["status"])
+        for dependency in (
+            "EXP-0015",
+            "GATE-0017",
+            "WI-0004",
+            "WI-0011",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("GATE-0018", "depends_on")
+            )
+        for heading in (
+            "### A — Rein synthetische Navigationskontext- und Sicherheitsmatrix vertiefen",
+            "### B — Erklärbarkeitsarbeitsgegenstand getrennt erwägen",
+            "### C — Sicherheitsregel oder Review-Lockerung getrennt untersuchen",
+            "### K — Evidenz konservieren und bestehendes Review beibehalten",
+            "### P — E-Book-Identitätszweig pausieren",
+        ):
+            self.assertIn(heading, self.post_exp0015_gate)
+        self.assertIn(
+            "A, B, C, K und P sind nicht ausgewählt", self.post_exp0015_gate
+        )
+        self.assertIn(
+            "Die Empfehlung nimmt keine Option an", self.post_exp0015_gate
+        )
+        self.assertIn(
+            "keine Änderung unter `src/sammlungslotse/`",
+            self.post_exp0015_gate,
         )
 
 

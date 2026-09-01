@@ -1,6 +1,6 @@
 # EXP-0015 Ausführung
 
-Status: ACCEPTED — EXECUTION PREIMAGE; PRIVATE RESULT ABSENT
+Status: DONE — EXECUTED, METHOD PASSED; RESULT REVIEW 3/3
 
 Stand: 2026-09-01
 
@@ -11,15 +11,21 @@ Enthalten sind:
 
 - `execution-profile.json`: exakte Eingangs-, Parser-, Datenschutz-,
   Kontroll- und Ausgabegrenzen;
+- `result.json`: ausschließlich die gemeinsame pfadfreie
+  Mindestgruppenaggregation;
 - dieser Ausführungshinweis.
 
-Ein privates `result.json` gehört ausdrücklich noch nicht zum Preimage. Der
-Hauptlauf ist erst nach Commit, erfolgreicher CI auf exakt diesem Commit und
-erneutem Nachweis der drei bestätigten direkten EPUB-Locators zulässig.
+`result.json` entstand erst nach Commit und erfolgreicher CI auf exakt dem
+Ausführungspreimage sowie nach erneutem Nachweis der drei bestätigten direkten
+EPUB-Locators. Private Einzelwerte oder Parserprojektionen wurden weder
+ausgegeben noch gespeichert.
 
-## Prüf- und Ausführungsfolge
+## Historisch durchgeführte Prüf- und Ausführungsfolge
 
-Profil und statische Bindungen:
+Profil und statische Bindungen wurden auf dem später ausgeführten Preimage
+mit folgendem Befehl geprüft. Nach Abschluss und Registry-Status `done` ist
+statt dieses Current-Preimage-Modus der unten genannte historische Validator
+maßgeblich:
 
 ```powershell
 python tools/experiments/run_exp_0015.py --validate-profile
@@ -64,5 +70,30 @@ ihr Klassenliteral bleibt verborgen. Unklassifizierte Funde führen zu
 Teilergebnis.
 
 EXP-0015 autorisiert weder eine Produktkorrektur noch eine Änderung unter
-`src/sammlungslotse/`. Die fachliche Bewertung eines späteren Ergebnisses
-bleibt einem nachgelagerten Gate vorbehalten.
+`src/sammlungslotse/`. Die fachliche Bewertung bleibt GATE-0018 vorbehalten.
+
+## Ergebnis
+
+Das Ausführungspreimage ist
+`cefe2d29b54b8e6cbc60b07b1485da473565cda7`. Vor dem privaten Lauf bestanden
+auf diesem Commit beide erforderlichen GitHub-Checks. Die synthetische
+Kontrolle bestand mit 7/7 Kontextklassen, 19/19 Negativkontrollen,
+32 Parserläufen, identischer Aggregationswiederholung, unveränderten Quellen
+und vollständigem Cleanup.
+
+Der bestätigte private Hauptlauf verarbeitete genau drei EPUBs. In allen drei
+Eingängen war `content.navigation` präsent. Weitere bekannte Klassen,
+unterdrückte seltene Klassen oder unklassifizierte Eingänge traten im
+gebundenen Aggregat nicht auf. Quellen blieben unverändert und das Cleanup war
+vollständig.
+
+Das 483-Byte-Ergebnis besitzt den SHA-256-Wert
+`651ad195b54531d20e0fc6ff882df6e1d4b38765e877057faf7858f36dae50a1`.
+Der historische Validator lautet:
+
+```powershell
+python tools/experiments/validate_exp_0015_result.py
+```
+
+Der Klassenbefund ist keine Aussage über einzelne Referenzen, Erreichbarkeit,
+Ausführung, Gefährlichkeit oder EPUB-Gültigkeit und keine Produktfreigabe.
