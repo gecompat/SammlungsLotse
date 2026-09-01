@@ -101,6 +101,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_PRIVATE_INGRESS_PREFLIGHT_CAUSE_EXPERIMENT.md"
         ).read_text(encoding="utf-8")
+        cls.post_exp0014_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0017_AFTER_EXP0014.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -125,6 +131,15 @@ class EbookNextDecisionTests(unittest.TestCase):
                 / "experiments"
                 / "ebook"
                 / "exp-0013"
+                / "result.json"
+            ).read_text(encoding="utf-8")
+        )
+        cls.exp0014_result = json.loads(
+            (
+                ROOT
+                / "experiments"
+                / "ebook"
+                / "exp-0014"
                 / "result.json"
             ).read_text(encoding="utf-8")
         )
@@ -429,7 +444,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "**Ausgewählt als EXP-0014.**",
             self.post_exp0013_gate,
         )
-        self.assertEqual(self.artifacts["EXP-0014"]["status"], "accepted")
+        self.assertEqual(self.artifacts["EXP-0014"]["status"], "done")
         for dependency in (
             "GATE-0016",
             "EXP-0013",
@@ -444,7 +459,8 @@ class EbookNextDecisionTests(unittest.TestCase):
             "EXP-0013", self.relation_targets("EXP-0014", "derived_from")
         )
         self.assertIn(
-            "ACCEPTED — NOT EXECUTED", self.private_ingress_cause_experiment
+            "DONE — EXECUTED, METHOD PASSED; RESULT REVIEW 3/3",
+            self.private_ingress_cause_experiment,
         )
         self.assertIn(
             "genau drei wiederholte", self.private_ingress_cause_experiment
@@ -473,6 +489,51 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn(
             "Ein methodischer `pass` ist keine Produktfreigabe",
             self.private_ingress_cause_experiment,
+        )
+        self.assertEqual("pass", self.exp0014_result["status"])
+        self.assertEqual(3, self.exp0014_result["input_count"])
+        self.assertEqual(3, self.exp0014_result["intake_runs"])
+        self.assertEqual(
+            3, self.exp0014_result["next_action_counts"]["review"]
+        )
+        self.assertEqual(
+            3,
+            self.exp0014_result["finding_code_counts"][
+                "security.remote_resource"
+            ],
+        )
+        self.assertEqual(
+            0, self.exp0014_result["unclassified_observation_count"]
+        )
+        self.assertEqual(0, self.exp0014_result["unclassified_finding_count"])
+        self.assertTrue(self.exp0014_result["source_unchanged"])
+        self.assertTrue(self.exp0014_result["cleanup_complete"])
+        self.assertTrue(self.exp0014_result["path_free"])
+        self.assertEqual(self.artifacts["GATE-0017"]["status"], "proposed")
+        for dependency in (
+            "EXP-0014",
+            "GATE-0016",
+            "WI-0004",
+            "WI-0011",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("GATE-0017", "depends_on")
+            )
+        for heading in (
+            "### A — Private Referenzarten produktcodefrei und pfadfrei qualifizieren",
+            "### B — Ausschließlich synthetische Remote-Referenzmatrix vertiefen",
+            "### C — Produktarbeitsgegenstand getrennt erwägen",
+            "### K — Evidenz konservieren und bestehendes Review beibehalten",
+            "### P — E-Book-Identitätszweig pausieren",
+        ):
+            self.assertIn(heading, self.post_exp0014_gate)
+        self.assertIn(
+            "A, B, C, K und P sind nicht ausgewählt", self.post_exp0014_gate
+        )
+        self.assertIn(
+            "`security.remote_resource` ist ein Reviewgrund, kein Schadensnachweis",
+            self.post_exp0014_gate,
         )
 
 

@@ -1,6 +1,6 @@
 # EXP-0014: Private Ingress-Preflight-Ursachen produktcodefrei qualifizieren
 
-Status: ACCEPTED — NOT EXECUTED
+Status: DONE — EXECUTED, METHOD PASSED; RESULT REVIEW 3/3
 
 Stand: 2026-09-01
 
@@ -13,8 +13,8 @@ EXP-0014 qualifiziert ausschließlich, welche bereits öffentlichen
 WI-0004-Folgeaktionen, Beobachtungs- und Befundcodes die drei in EXP-0013
 belegten geschlossenen Ingress-Vorprüfungen erklären.
 
-Die Auswahl autorisiert diesen Experimentvertrag und seine getrennte
-Ausführung nach Merge und Post-Merge-Prüfung. Sie autorisiert keine
+Die Auswahl autorisierte diesen Experimentvertrag und seine getrennte
+Ausführung nach Merge und Post-Merge-Prüfung. Sie autorisierte keine
 Produktkorrektur, keine neue Diagnoseoberfläche und keinen Produktcode. Das
 Ergebnis öffnet ein neues getrenntes Ergebnisgate.
 
@@ -170,19 +170,51 @@ Ein methodischer `pass` ist keine Produktfreigabe. Die beobachteten
 Gruppenhäufigkeiten beschreiben nur diesen ausdrücklich begrenzten
 Eingangssatz.
 
+## Ausführungsergebnis
+
+Das saubere Ausführungspreimage ist Commit
+`e82d01e6d669e85646dafd6ab3d569fc38e0d71b`. Die vier tatsächlichen
+synthetischen WI-0004-Läufe, alle elf Negativkontrollen und beide
+Aggregationswiederholungen bestanden.
+
+Der Nutzer bestätigte am 2026-09-01 erneut denselben Satz aus genau drei
+privaten EPUBs wie in EXP-0013. Der Hauptlauf führte für jede neutrale
+task-private Kopie genau einen unveränderten WI-0004-JSON-Lauf aus. Das
+pfadfreie Aggregat lautet:
+
+- `next_action_counts.review=3`; alle anderen Folgeaktionen stehen auf null;
+- `finding_code_counts.format.epub=3`;
+- `finding_code_counts.security.remote_resource=3`;
+- `observation_code_counts.epub.remote_reference.present=3`;
+- unbekannte Beobachtungs- und Befundcodes jeweils null;
+- Quellen unverändert, Pfadfreiheit belegt und Cleanup vollständig;
+- Gesamtstatus `pass`.
+
+Das 907-Byte-Ergebnis besitzt den SHA-256-Wert
+`0eab4893eb85d05c07622bfe70721a58f03e8285e199738b1513237dc3207411`.
+Es enthält keine privaten Referenzwerte, URLs, Domains, Metadaten,
+Einzelzuordnungen, Locators, Pfade, Hashwerte, Größen oder Rohberichte.
+
+Der Befund erklärt den dreifachen Ingress-Preflight-Nichtabschluss innerhalb
+des bestehenden WI-0004-Vertrags: Remote-Ressourcen führen fail-safe zu
+`review`. Er belegt weder Schadcode, EPUB-Standardsgültigkeit,
+bibliografische Identität noch einen Produktfehler. GATE-0017 bewertet jede
+mögliche Fortsetzung getrennt.
+
 ## Ausführungsfolge
 
-1. Diese Auswahl- und Vertragswave wird validiert, gemergt und auf
+1. Die Auswahl- und Vertragswave wurde validiert, gemergt und auf
    `origin/main` post-merge geprüft.
-2. Profil, Runner, synthetische Kontrollen und Tests werden danach in einem
-   neuen isolierten Worktree ohne Produktcode implementiert und als sauberes
-   Preimage committed.
-3. Erst gegen dieses Commit werden die drei privaten Locators erneut explizit
-   übergeben und als derselbe EXP-0013-Eingangssatz bestätigt.
-4. Ein historischer Validator bindet nur die zulässige Aggregation an das
-   Preimage. Private Arbeits- oder Rohdaten bleiben außerhalb von Git.
-5. Das Ergebnis öffnet ein neues getrenntes Gate; EXP-0014 wählt keine
-   Produktfortsetzung.
+2. Profil, Runner, synthetische Kontrollen und Tests wurden in einem neuen
+   isolierten Worktree ohne Produktcode implementiert und als Preimage
+   `e82d01e` committed.
+3. Gegen dieses Commit wurden dieselben drei privaten Locators erneut
+   bestätigt und genau einmal je task-privater Kopie verarbeitet.
+4. Der historische Validator bindet ausschließlich die zulässige
+   Aggregation an das Preimage. Private Arbeits- oder Rohdaten bleiben
+   außerhalb von Git.
+5. GATE-0017 ist als getrennte Ergebnisentscheidung offen; EXP-0014 wählt
+   keine Produktfortsetzung.
 
 ## Nicht-Ziele
 

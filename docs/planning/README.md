@@ -49,6 +49,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0013: private WI-0011-Nichtabschlussgründe produktcodefrei diagnostizieren](EBOOK_PRIVATE_WI0011_NONCOMPLETION_DIAGNOSTIC_EXPERIMENT.md);
 - [GATE-0016: Ergebnis nach EXP-0013 und geschlossene private Ingress-Gates bewerten](EBOOK_GATE_0016_AFTER_EXP0013.md);
 - [EXP-0014: private Ingress-Preflight-Ursachen produktcodefrei qualifizieren](EBOOK_PRIVATE_INGRESS_PREFLIGHT_CAUSE_EXPERIMENT.md);
+- [GATE-0017: EXP-0014-Ergebnis und dreifache Remote-Ressourcen-Reviewentscheidung bewerten](EBOOK_GATE_0017_AFTER_EXP0014.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -267,13 +268,13 @@ endeten vor dem Record-Handoff mit
 `not_qualified`. Methode, Quellunverändertheit und Cleanup bestanden. Das
 Ergebnis erklärt noch nicht den konkreten Intake-Grund und autorisiert keine
 Reparatur. Der Nutzer hat in GATE-0016 ausdrücklich Option A gewählt.
-GATE-0016 ist abgeschlossen und EXP-0014 als akzeptierte, noch nicht
-ausgeführte produktcodefreie Ursachenqualifizierung registriert. Der
-Hauptlauf darf genau dieselben drei erneut explizit bestätigten EPUBs ohne
-Verzeichnissuche je einmal über den unveränderten WI-0004-JSON-Weg führen und
-nur pfadfreie Gruppenhäufigkeiten öffentlicher Folgeaktionen, Beobachtungs-
-und Befundcodes speichern. B, C, K und P bleiben nicht ausgewählt; ein
-Produktarbeitsgegenstand ist nicht registriert.
+GATE-0016 und EXP-0014 sind abgeschlossen. Der erneut bestätigte Hauptlauf
+führte dieselben drei EPUBs ohne Verzeichnissuche je einmal über den
+unveränderten WI-0004-JSON-Weg. Alle drei Ergebnisse lauteten `review` mit
+`epub.remote_reference.present` und `security.remote_resource`; unbekannte
+Codes blieben null, Quellen unverändert und das Cleanup vollständig.
+GATE-0017 bewertet diesen pfadfreien Gruppenbefund getrennt. A, B, C, K und P
+sind nicht ausgewählt; ein Produktarbeitsgegenstand ist nicht registriert.
 
 ## Nicht übernehmen
 

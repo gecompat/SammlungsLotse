@@ -80,10 +80,12 @@ WI-0011-Läufe endeten vor dem Record-Handoff mit
 `ingress.preflight_gate_not_open`; das pfadfreie Ergebnis ist deshalb
 `not_qualified`. Quellen blieben unverändert und das Cleanup war vollständig.
 Der Nutzer hat in GATE-0016 ausdrücklich Option A gewählt. GATE-0016 ist
-abgeschlossen und EXP-0014 als akzeptierte, noch nicht ausgeführte
-produktcodefreie Ursachenqualifizierung registriert. Sie bindet genau
-dieselben drei erneut explizit bestätigten EPUBs, den unveränderten WI-0004-
-JSON-Weg, pfadfreie Gruppenaggregate und vollständiges Cleanup. Kein
+abgeschlossen und EXP-0014 ausgeführt. Der Nutzer bestätigte denselben Satz
+aus genau drei EPUBs erneut; jede task-private Kopie durchlief genau einmal
+den unveränderten WI-0004-JSON-Weg. Alle drei Ergebnisse lauteten `review`
+mit `epub.remote_reference.present` und `security.remote_resource`.
+Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
+vollständig. GATE-0017 bewertet diesen Befund getrennt und ist offen. Kein
 Produktarbeitsgegenstand ist registriert.
 
 ## Vorhanden
@@ -313,11 +315,14 @@ Produktarbeitsgegenstand ist registriert.
   unveränderten Quellen und vollständigem Cleanup;
 - abgeschlossenes GATE-0016 mit ausdrücklicher Auswahl der privaten,
   produktcodefreien Intake-Ursachenqualifizierung;
-- akzeptiertes, noch nicht ausgeführtes EXP-0014 für genau dieselben drei
-  erneut explizit bestätigten EPUBs, je einen unveränderten WI-0004-JSON-Lauf,
-  ausschließlich pfadfreie Gruppenhäufigkeiten öffentlicher Folgeaktionen,
-  Beobachtungs- und Befundcodes sowie synthetisch gebundene Datenschutz- und
-  Cleanupkontrollen.
+- abgeschlossenes EXP-0014 mit 4/4 tatsächlichen synthetischen WI-0004-
+  Kontrollen, 11/11 Negativkontrollen, genau denselben drei erneut bestätigten
+  EPUBs, drei unveränderten WI-0004-JSON-Läufen, `review=3`,
+  `security.remote_resource=3`, null unbekannten Codes, unveränderten Quellen
+  und vollständigem Cleanup;
+- offenes GATE-0017 zur getrennten Bewertung von privater
+  Referenzartenqualifizierung, synthetischer Vertiefung, möglichem späteren
+  Produktarbeitsgegenstand, Konservieren oder Pausieren.
 
 ## Nicht vorhanden
 
@@ -332,6 +337,27 @@ Produktarbeitsgegenstand ist registriert.
 - Release.
 
 ## Validierung
+
+EXP-0014-Ergebnis- und GATE-0017-Wave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
+unter Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren
+für 53 Artefakte erfolgreich; die fünf fokussierten Gate-Tests und alle sechs
+historischen Ergebnisprüfungen bestanden. Der kontrollierte Testlauf entdeckte
+217 Tests, ersetzte genau fünf eingefrorene Preimage-Prüfungen durch
+gleichzählige Historical-Preimage-Prüfungen und führte 212 Tests erfolgreich
+aus. EXP-0014 blieb gegen das Ausführungspreimage
+`e82d01e6d669e85646dafd6ab3d569fc38e0d71b` gebunden. Das 907-Byte-Ergebnis
+mit SHA-256
+`0eab4893eb85d05c07622bfe70721a58f03e8285e199738b1513237dc3207411`
+enthält genau drei `review`-Aktionen und dreimal
+`security.remote_resource`, keine unbekannten Codes, unveränderte Quellen und
+vollständiges Cleanup. `compileall`, `git diff --check` und die begrenzte
+Datenschutzsuche waren erfolgreich; unter `src/sammlungslotse/` gab es keine
+Änderung. FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Dies belegt Methode, pfadfreies Aggregat und die offene
+Ergebnisentscheidung, nicht die Schädlichkeit der Referenzen, die
+Standardsgültigkeit der EPUBs oder eine Produktfreigabe.
 
 GATE-0016-Auswahl- und EXP-0014-Vertragswave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1139,15 +1165,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 ## Nächster Schritt
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
-EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012 und GATE-0015
-sowie EXP-0013 und GATE-0016 sind abgeschlossen. EXP-0014 ist `accepted`,
-aber noch nicht ausgeführt. Nach Merge und Post-Merge-Prüfung werden Profil,
-Runner und synthetische Kontrollen in einer neuen isolierten Wave
-implementiert und als Preimage gebunden. Der private Hauptlauf benötigt
-danach die erneute explizite Übergabe genau derselben drei EPUBs; ohne sie
-wird keine private Diagnose ausgeführt. Ein Produktarbeitsgegenstand ist
-nicht registriert. V1 bleibt Standard; nur `--json --report-version v2`
-aktiviert V2.
+EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
+EXP-0013, GATE-0016 und EXP-0014 sind abgeschlossen. GATE-0017 ist
+`proposed` und offen für die ausdrückliche Auswahl A, B, C, K oder P. Keine
+Option ist vorweggenommen und kein Produktarbeitsgegenstand registriert. V1
+bleibt Standard; nur `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

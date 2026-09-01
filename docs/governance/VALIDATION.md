@@ -46,13 +46,14 @@ Für Produkt-, Governance- und Fixture-Code gelten:
     python tools/run_repository_tests.py
 
 Der Repository-Testadapter entdeckt weiterhin die vollständige Testsuite. Er
-ersetzt ausschließlich die vier eingefrorenen Ergebnisprüfungen von EXP-0009,
-EXP-0010, EXP-0011 und EXP-0012, die absichtlich den jeweils damaligen
-aktuellen Produktstand erwarten, durch vier gleichzählige Prüfungen gegen
-deren historisches Git-Preimage. Er bricht ab, falls einer der acht expliziten
-Test-IDs fehlt oder mehrfach vorkommt; alle übrigen entdeckten Tests laufen
-unverändert. Die neue EXP-0013-Historical-Preimage-Prüfung ist selbst ein
-aktueller Test und benötigt keinen Ersatz eines alten Current-Preimage-Tests.
+ersetzt ausschließlich die fünf eingefrorenen Preimage-Prüfungen von
+EXP-0009, EXP-0010, EXP-0011, EXP-0012 und EXP-0014, die absichtlich den
+jeweils damaligen Repositoryzustand erwarten, durch fünf gleichzählige
+Prüfungen gegen deren historisches Git-Preimage. Er bricht ab, falls einer der
+zehn expliziten Test-IDs fehlt oder mehrfach vorkommt; alle übrigen entdeckten
+Tests laufen unverändert. Die EXP-0013-Historical-Preimage-Prüfung ist selbst
+ein aktueller Test und benötigt keinen Ersatz eines alten
+Current-Preimage-Tests.
 
     python -m compileall -q \
       src/sammlungslotse \
@@ -224,19 +225,24 @@ bleibt für das eingefrorene Ausführungspreimage gültig. Die historische
 Prüfung ist der dauerhafte CI-Vertrag und führt den Experimentlauf nicht neu
 aus.
 
-Für die eingecheckten empirischen EXP-0012- und EXP-0013-Nachweise gelten:
+Für die eingecheckten empirischen EXP-0012-, EXP-0013- und EXP-0014-Nachweise
+gelten:
 
     python tools/experiments/validate_exp_0012_result.py
     python tools/experiments/validate_exp_0013_result.py
+    python tools/experiments/validate_exp_0014_result.py
 
-Beide Prüfungen führen weder private noch synthetische Hauptläufe erneut aus.
-Sie binden die zulässigen Experimentdateien und Ergebnisse an ihre
+Die drei Prüfungen führen weder private noch synthetische Hauptläufe erneut
+aus. Sie binden die zulässigen Experimentdateien und Ergebnisse an ihre
 historischen Git-Preimages. EXP-0013 erzwingt zusätzlich exakt das pfadfreie
 Zwölf-Felder-Aggregat aus drei Eingängen, vier Suchläufen, drei WI-0011-
 Läufen, dreifachem `ingress.preflight_gate_not_open`, unveränderten Quellen,
-vollständigem Cleanup und fachlichem Status `not_qualified`. Private
+vollständigem Cleanup und fachlichem Status `not_qualified`. EXP-0014
+erzwingt das pfadfreie Aggregat aus drei einzelnen WI-0004-Läufen mit drei
+`review`-Aktionen, dreifachem `security.remote_resource`, ohne unbekannte
+Codes, bei unveränderten Quellen und vollständigem Cleanup. Private
 Einzelwerte, Locators, Hashes, Metadaten, Querys, IDs und Rohoutputs sind kein
-Teil des Nachweises.
+Teil der Nachweise.
 
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
