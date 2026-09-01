@@ -143,7 +143,8 @@ Gate und für Produktcode zusätzlich einen angenommenen Arbeitsgegenstand.
   gebunden.
 - GATE-0018 ist `done`.
 - EXP-0016 ist `done`; Matrix, Runner und Ergebnis sind historisch gebunden.
-- GATE-0019 ist `proposed` und offen; keine seiner Optionen ist ausgewählt.
+- GATE-0019 ist `done`; der Nutzer hat dort Option A ausgewählt.
+- EXP-0017 ist `accepted`, aber noch nicht ausgeführt.
 - B, C, K und P sind nicht ausgewählt.
 - Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
   unverändert.

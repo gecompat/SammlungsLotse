@@ -131,6 +131,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0019_AFTER_EXP0016.md"
         ).read_text(encoding="utf-8")
+        cls.downstream_isolation_experiment = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_SYNTHETIC_DOWNSTREAM_ISOLATION_EXPERIMENT.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -703,7 +709,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "keine Produktfreigabe", self.navigation_safety_experiment
         )
 
-    def test_exp0016_result_opens_gate0019_without_product_authorization(self) -> None:
+    def test_exp0016_result_and_gate0019_select_downstream_experiment(self) -> None:
         self.assertEqual("pass", self.exp0016_result["status"])
         self.assertEqual(48, self.exp0016_result["case_count"])
         self.assertEqual(96, self.exp0016_result["parser_runs"])
@@ -733,7 +739,7 @@ class EbookNextDecisionTests(unittest.TestCase):
                 0, outcome["metrics"]["critical_false_continue"]
             )
 
-        self.assertEqual("proposed", self.artifacts["GATE-0019"]["status"])
+        self.assertEqual("done", self.artifacts["GATE-0019"]["status"])
         for dependency in (
             "EXP-0016",
             "GATE-0018",
@@ -758,10 +764,56 @@ class EbookNextDecisionTests(unittest.TestCase):
             "A ist die kleinste nächste Evidenzfrage", self.post_exp0016_gate
         )
         self.assertIn(
-            "A, B, C, K und P sind nicht ausgewählt", self.post_exp0016_gate
+            "Option A am 2026-09-01 ausdrücklich ausgewählt",
+            self.post_exp0016_gate,
+        )
+        self.assertIn("**Ausgewählt als EXP-0017.**", self.post_exp0016_gate)
+        self.assertIn(
+            "B, C, K und P bleiben nicht ausgewählt", self.post_exp0016_gate
         )
         self.assertIn("Produktcode und das", self.post_exp0016_gate)
-        self.assertIn("WI-0004-Review-Gate bleiben unverändert", self.post_exp0016_gate)
+        self.assertIn(
+            "WI-0004-Review-Gate bleiben unverändert", self.post_exp0016_gate
+        )
+
+        self.assertEqual("accepted", self.artifacts["EXP-0017"]["status"])
+        for dependency in (
+            "GATE-0019",
+            "EXP-0016",
+            "WI-0004",
+            "WI-0005",
+            "WI-0010",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("EXP-0017", "depends_on")
+            )
+        self.assertIn(
+            "EXP-0016", self.relation_targets("EXP-0017", "derived_from")
+        )
+        self.assertIn(
+            "ACCEPTED — NOT EXECUTED", self.downstream_isolation_experiment
+        )
+        self.assertIn(
+            "genau zwölf Fälle", self.downstream_isolation_experiment
+        )
+        self.assertIn(
+            "genau 24 Providerläufe", self.downstream_isolation_experiment
+        )
+        self.assertIn(
+            "18 Kriterien", self.downstream_isolation_experiment
+        )
+        self.assertIn(
+            "`network=none`", self.downstream_isolation_experiment
+        )
+        self.assertIn(
+            "keine Änderung unter `src/sammlungslotse/`",
+            self.downstream_isolation_experiment,
+        )
+        self.assertIn(
+            "neues getrenntes Ergebnisgate",
+            self.downstream_isolation_experiment,
+        )
 
 
 if __name__ == "__main__":

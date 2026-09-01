@@ -265,7 +265,12 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   hatte null kritische Fehlfortsetzungen, False Negatives oder Context
   Mismatches. Private Eingänge, Produktimport, Netzwerk, Persistenz, tiefer
   Werkzeuglauf und Bestandswirkung fehlten; Produktcode blieb unverändert.
-  GATE-0019 ist `proposed`. A ist empfohlen, aber A, B, C, K und P sind nicht
+  Der Nutzer hat in GATE-0019 ausdrücklich Option A gewählt. GATE-0019 ist
+  `done`; EXP-0017 ist als rein synthetische Downstream-Isolations- und
+  Threat-Model-Wave `accepted`, aber noch nicht ausgeführt. Der Vertrag
+  bindet genau zwölf EPUBs, zwei Wiederholungen, den unveränderten WI-0005-
+  Provider- und Executorstand, eine lokale Messkanarie sowie Isolations-,
+  Timeout-, Output- und Cleanupgrenzen. B, C, K und P bleiben nicht
   ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert und das
   WI-0004-Review-Gate bleibt unverändert.
 

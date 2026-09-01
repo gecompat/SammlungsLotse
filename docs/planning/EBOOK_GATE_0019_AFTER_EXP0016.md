@@ -1,6 +1,6 @@
 # GATE-0019: EXP-0016-Ergebnis und mögliche Reviewdifferenzierung bewerten
 
-Status: PROPOSED — OPEN FOR EXPLICIT SELECTION
+Status: DONE — OPTION A / EXP-0017 AUSGEWÄHLT
 
 Stand: 2026-09-01
 
@@ -13,6 +13,19 @@ die synthetische Trennbarkeit gebundener Referenzkontexte von jeder Aussage
 über konkrete Lesesysteme, Werkzeug- oder Netzwerkverhalten, Nutzerabsicht,
 Zielvertrauen und Produktsicherheit. Ohne ausdrückliche Auswahl wird weder
 ein Folgeexperiment noch ein Produktarbeitsgegenstand registriert.
+
+## Auswahlentscheidung
+
+Der Nutzer hat Option A am 2026-09-01 ausdrücklich ausgewählt. GATE-0019 ist
+damit abgeschlossen und ausschließlich EXP-0017 als akzeptiertes, noch nicht
+ausgeführtes Experiment registriert.
+
+Die Auswahl autorisiert nach Merge, Post-Merge-Prüfung und einem sauberen
+Ausführungspreimage nur die synthetische Downstream-Isolations- und
+Threat-Model-Qualifikation des unveränderten WI-0005-Pfads. Sie autorisiert
+keine Produktregel, keine Änderung unter `src/sammlungslotse/`, keine
+Lockerung oder Umgehung des WI-0004-Review-Gates und keine private Analyse.
+B, C, K und P bleiben nicht ausgewählt.
 
 ## Verifizierte Evidenz
 
@@ -62,6 +75,8 @@ unverändert.
 ## Optionen
 
 ### A — Synthetische Downstream-Isolation und Threat Model qualifizieren
+
+**Ausgewählt als EXP-0017.**
 
 Ein neues getrenntes Experiment könnte ausschließlich synthetische EPUBs mit
 den qualifizierten S3-, Ressourcen- und Täuschungskontexten gegen den exakt
@@ -124,8 +139,13 @@ aber kein Review. K ist die sichere Endposition, wenn das bestehende
 Reviewverhalten genügt. C ist ohne die Downstream- und Threat-Model-Evidenz
 aus A verfrüht.
 
-Die Empfehlung nimmt keine Option an. Eine Fortsetzung erfordert die
-ausdrückliche Auswahl von A, B, C, K oder P.
+Die Empfehlung nahm A für sich noch nicht an. Der Nutzer hat A inzwischen
+ausdrücklich ausgewählt. EXP-0017 bindet deshalb vorab eine ausschließlich
+synthetische Matrix, den unveränderten WI-0005-Provider- und Executorstand,
+eine loopback-only Messkanarie sowie Isolations-, Timeout-, Output- und
+Cleanup-Grenzen. Unabhängig vom Ergebnis benötigt jede Produktfortsetzung ein
+neues getrenntes Gate und für Produktcode zusätzlich einen angenommenen
+Arbeitsgegenstand.
 
 ## Harte Grenzen
 
@@ -145,7 +165,10 @@ ausdrückliche Auswahl von A, B, C, K oder P.
 ## Gate-Stand
 
 - EXP-0016 ist `done`; Methode, Matrix und Ergebnis sind historisch gebunden.
-- GATE-0019 ist `proposed` und offen für eine ausdrückliche Auswahl.
-- A, B, C, K und P sind nicht ausgewählt.
+- GATE-0019 ist `done`.
+- EXP-0017 ist `accepted`, aber noch nicht ausgeführt.
+- B, C, K und P sind nicht ausgewählt.
 - Kein Produktarbeitsgegenstand ist registriert; Produktcode und das
   WI-0004-Review-Gate bleiben unverändert.
+- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
+  `origin/main` und gegen ein sauberes Commit-Preimage.
