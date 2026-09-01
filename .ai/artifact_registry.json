@@ -810,7 +810,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Synthetische EPUB-Navigationskontext- und Sicherheitsmatrix qualifizieren"
     },
     "GATE-0001": {
@@ -1660,6 +1660,68 @@
       ],
       "status": "done",
       "title": "EXP-0015-Ergebnis und gemeinsamen Navigationskontext bewerten"
+    },
+    "GATE-0019": {
+      "acceptance_criteria": "Die Entscheidung trennt den methodisch bestandenen EXP-0016-Befund mit drei synthetisch eligible_with_tradeoffs eingestuften Strategien, null kritischen Fehlfortsetzungen, null False Negatives und zehn fail-closed Enthaltungen von jeder Aussage über konkrete Lesesysteme, Netzwerkverhalten, Nutzerabsicht, Zielvertrauen oder Produktsicherheit und wählt nur nach ausdrücklicher Nutzerentscheidung zwischen einer weiteren synthetischen Downstream-Isolations- und Threat-Model-Wave, einem getrennt zu registrierenden Review-beibehaltenden Erklärbarkeitsarbeitsgegenstand, einer höher riskanten strikten Navigationsausnahme mit eigenem Threat Model und Produktarbeitsgegenstand, konservativem Beibehalten des WI-0004-Review-Gates oder Pausieren; EXP-0016 autorisiert weder Produktcode noch eine automatische Review-Lockerung.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05d28-66f8-7741-8be3-71098bb99630",
+      "created_on": "2026-09-01",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0019_AFTER_EXP0016.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0018",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0015",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0005",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "EXP-0016-Ergebnis und mögliche Reviewdifferenzierung bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",

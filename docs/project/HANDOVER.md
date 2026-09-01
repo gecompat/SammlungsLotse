@@ -258,11 +258,16 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   null unklassifizierte Eingänge. Quellen blieben unverändert und das Cleanup
   vollständig; private Werte und Einzelzuordnungen wurden nicht aufbewahrt.
   Der Nutzer hat in GATE-0018 ausdrücklich Option A gewählt. GATE-0018 ist
-  `done`; EXP-0016 ist als rein synthetische, produktcodefreie
-  Navigationskontext- und Sicherheitsmatrix `accepted`, aber noch nicht
-  ausgeführt. Der Vertrag bindet genau 48 Fälle, drei Strategien und
-  dominante Kosten kritischer Fehlfortsetzungen. B, C, K und P bleiben nicht
-  ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert.
+  `done`; EXP-0016 ist ebenfalls `done`. Der rein synthetische Doppellauf
+  verarbeitete genau 48 Fälle in 96 Parserläufen. Alle 16 Methodenkriterien
+  bestanden. Alle drei Strategien sind innerhalb der gebundenen Matrix
+  `eligible_with_tradeoffs`; jede behielt zehn fail-closed Enthaltungen und
+  hatte null kritische Fehlfortsetzungen, False Negatives oder Context
+  Mismatches. Private Eingänge, Produktimport, Netzwerk, Persistenz, tiefer
+  Werkzeuglauf und Bestandswirkung fehlten; Produktcode blieb unverändert.
+  GATE-0019 ist `proposed`. A ist empfohlen, aber A, B, C, K und P sind nicht
+  ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert und das
+  WI-0004-Review-Gate bleibt unverändert.
 
 ## Harte Grenzen
 

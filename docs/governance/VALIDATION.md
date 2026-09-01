@@ -244,6 +244,24 @@ Codes, bei unveränderten Quellen und vollständigem Cleanup. Private
 Einzelwerte, Locators, Hashes, Metadaten, Querys, IDs und Rohoutputs sind kein
 Teil der Nachweise.
 
+Für die eingecheckten empirischen EXP-0015- und EXP-0016-Nachweise gelten:
+
+    python tools/experiments/validate_exp_0015_result.py
+    python tools/experiments/validate_exp_0016_result.py
+
+Beide Prüfungen führen den jeweiligen Hauptlauf nicht erneut aus. EXP-0015
+bindet das ausschließlich gruppierte private Ergebnis mit
+`content.navigation=3`, ohne seltene oder unklassifizierte Klasse, an sein
+historisches Preimage. EXP-0016 bindet Profil, 48-Fall-Manifest, Runner und
+das rein synthetische 96-Parserlauf-Ergebnis an das grüne
+Ausführungspreimage. Der Validator erzwingt 16 erfüllte Methodenkriterien,
+zwei semantisch identische Wiederholungen, die getrennten Metriken aller drei
+Strategien, null kritische Fehlfortsetzungen, null False Negatives, zehn
+fail-closed Enthaltungen, vollständiges Cleanup und fehlende Produkt- oder
+Bestandswirkung. Die synthetische Einstufung
+`eligible_with_tradeoffs` ist keine Produktfreigabe und lockert das
+WI-0004-Review-Gate nicht.
+
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
     python -m unittest discover -s tests/product -p "test_*.py"

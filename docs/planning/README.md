@@ -53,6 +53,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0015: private Remote-Referenzkontexte produktcodefrei und pfadfrei gruppieren](EBOOK_PRIVATE_REMOTE_REFERENCE_CONTEXT_EXPERIMENT.md);
 - [GATE-0018: EXP-0015-Ergebnis und gemeinsamen Navigationskontext bewerten](EBOOK_GATE_0018_AFTER_EXP0015.md);
 - [EXP-0016: synthetische EPUB-Navigationskontext- und Sicherheitsmatrix qualifizieren](EBOOK_SYNTHETIC_NAVIGATION_SAFETY_MATRIX_EXPERIMENT.md);
+- [GATE-0019: EXP-0016-Ergebnis und mögliche Reviewdifferenzierung bewerten](EBOOK_GATE_0019_AFTER_EXP0016.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -285,12 +286,15 @@ seltene bekannte Klassen wurden nicht unterdrückt und unklassifizierte
 Eingänge blieben null. Quellen waren unverändert und das Cleanup vollständig.
 Der Nutzer hat in GATE-0018 ausdrücklich Option A gewählt. GATE-0018 ist
 abgeschlossen und EXP-0016 als genau eine rein synthetische,
-produktcodefreie Navigationskontext- und Sicherheitsmatrix angenommen. Der
-Vertrag bindet 48 Package-, XHTML-, Navigation-, SVG-, CSS-, Schema- und
-Täuschungsfälle, drei getrennte Vergleichsstrategien sowie dominante Kosten
-kritischer Fehlfortsetzungen. B, C, K und P bleiben nicht ausgewählt. Ein
-Produktarbeitsgegenstand ist nicht registriert; EXP-0016 ist noch nicht
-ausgeführt.
+produktcodefreie Navigationskontext- und Sicherheitsmatrix ausgeführt. Der
+historisch gebundene Doppellauf verarbeitete 48 Package-, XHTML-,
+Navigation-, SVG-, CSS-, Schema- und Täuschungsfälle in 96 Parserläufen.
+Alle 16 Methodenkriterien bestanden; alle drei Strategien sind innerhalb der
+Matrix `eligible_with_tradeoffs`, mit jeweils zehn fail-closed Enthaltungen
+und null kritischen Fehlfortsetzungen. GATE-0019 ist als getrenntes
+Ergebnisgate `proposed`. A ist empfohlen, aber A, B, C, K und P sind nicht
+ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert; Produktcode
+und WI-0004-Review-Gate bleiben unverändert.
 
 ## Nicht übernehmen
 

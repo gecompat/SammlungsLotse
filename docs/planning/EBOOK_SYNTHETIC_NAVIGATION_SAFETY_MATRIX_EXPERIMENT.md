@@ -1,6 +1,6 @@
 # EXP-0016: Synthetische EPUB-Navigationskontext- und Sicherheitsmatrix qualifizieren
 
-Status: ACCEPTED — NOT EXECUTED
+Status: DONE — EXECUTED, METHOD PASSED; THREE STRATEGIES ELIGIBLE_WITH_TRADEOFFS
 
 Stand: 2026-09-01
 
@@ -213,6 +213,40 @@ Snippets oder einzelne URLs werden nicht in den Ergebnisbericht kopiert. Das
 versionierte Fallmanifest bleibt die einzige Detailquelle der vollständig
 synthetischen Orakel.
 
+## Ergebnis
+
+Das saubere Ausführungspreimage ist Commit
+`969fa6331afdfc4ceb808ffeed71f7a30193205b`. Vor dem synthetischen Hauptlauf
+bestanden auf genau diesem Commit beide erforderlichen GitHub-Checks
+`repository-quality` und `registry-integrity`.
+
+Der gebundene Doppellauf verarbeitete genau 48 Fälle mit insgesamt
+96 Parserläufen. Beide Wiederholungen waren semantisch identisch. Alle sechs
+Kontextklassen und die sechs tatsächlich verwendeten Schemagruppen stimmten
+ohne Context Mismatch oder False Negative mit dem Orakel überein. Alle
+16 methodischen Akzeptanzwerte bestanden.
+
+S1 `review_all_http_s` und S2 `classify_and_keep_review` behielten jeweils
+acht konservative Reviews und zehn fail-closed Enthaltungen. S3
+`strict_navigation_candidate` reduzierte die konservativen Reviews auf null
+und behielt dieselben zehn Enthaltungen. Alle drei Strategien hatten null
+kritische Fehlfortsetzungen, null False Negatives und null Context Mismatches
+und sind innerhalb der gebundenen Matrix `eligible_with_tradeoffs`.
+
+Private Eingänge, Produktimport, Netzwerk, Persistenz, tiefer Werkzeuglauf
+und Bestandswirkung fehlten. Produktcode blieb unverändert; Taskmaterial
+wurde vollständig bereinigt. Das 2.279-Byte-Ergebnis besitzt den SHA-256-Wert
+`6c748dd1477dba56a37e19b7a5bf798d32e702e8d6d2a230ebfa3c98d775db08`.
+Der historische Validator lautet:
+
+```powershell
+python tools/experiments/validate_exp_0016_result.py
+```
+
+GATE-0019 trennt die synthetische Trennbarkeit von jeder möglichen
+Produktfortsetzung. Insbesondere ist `candidate_continue_deep_read_only`
+keine Freigabe, einen Link zu öffnen oder das WI-0004-Review-Gate zu lockern.
+
 ## Methodische Akzeptanzkriterien
 
 EXP-0016 ist methodisch nur bestanden, wenn alle folgenden 16 Kriterien
@@ -249,20 +283,19 @@ erfüllt sind:
 Ein methodischer `pass` oder eine `eligible_with_tradeoffs`-Strategie ist
 keine Produktfreigabe und kein Beleg der Vertrauenswürdigkeit eines Ziels.
 
-## Ausführungsfolge
+## Historisch durchgeführte Ausführungsfolge
 
-1. Diese Auswahl- und Vertragswave wird validiert, gemergt und auf
+1. Die Auswahl- und Vertragswave wurde validiert, gemergt und auf
    `origin/main` post-merge geprüft.
-2. Profil, 48-Fall-Manifest, Runner und fokussierte Tests werden danach in
+2. Profil, 48-Fall-Manifest, Runner und fokussierte Tests wurden danach in
    einem neuen isolierten Worktree ohne Produktcode implementiert und als
    sauberes Preimage committed.
-3. Erst nach grüner CI auf diesem exakten Preimage wird der synthetische
+3. Erst nach grüner CI auf diesem exakten Preimage wurde der synthetische
    Doppellauf ausgeführt.
-4. Ein historischer Validator bindet Profil, Manifest, Runner und Ergebnis an
+4. Der historische Validator bindet Profil, Manifest, Runner und Ergebnis an
    das Preimage, ohne den Experimentlauf in späteren Produktständen neu
    auszuführen.
-5. Das Ergebnis öffnet ein neues getrenntes Gate; EXP-0016 wählt keine
-   Produktfortsetzung.
+5. Das Ergebnis öffnet GATE-0019; EXP-0016 wählt keine Produktfortsetzung.
 
 ## Harte Grenzen
 

@@ -9,6 +9,7 @@ import unittest
 from pathlib import Path
 
 from tools.experiments import run_exp_0016
+from tools.experiments import validate_exp_0016_result
 
 
 RUNNER_PATH = Path(run_exp_0016.__file__)
@@ -17,7 +18,15 @@ RUNNER_PATH = Path(run_exp_0016.__file__)
 class Exp0016Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.profile, cls.cases = run_exp_0016.load_contract()
+        if run_exp_0016.RESULT_PATH.is_file():
+            cls.result = validate_exp_0016_result.validate()
+            cls.profile = run_exp_0016.load_json(run_exp_0016.PROFILE_PATH)
+            cls.cases = run_exp_0016.validate_manifest(
+                run_exp_0016.load_json(run_exp_0016.CASE_MANIFEST_PATH)
+            )
+        else:
+            cls.profile, cls.cases = run_exp_0016.load_contract()
+            cls.result = None
         cls.by_id = {case["case_id"]: case for case in cls.cases}
 
     def test_profile_binds_exact_synthetic_product_free_boundary(self) -> None:
@@ -212,22 +221,22 @@ class Exp0016Tests(unittest.TestCase):
 
     def test_runtime_bindings_match_every_bound_file(self) -> None:
         bindings = self.profile["runtime_bindings"]["files"]
+        historical = validate_exp_0016_result.historical_preimage()
         self.assertEqual(len(run_exp_0016.RUNTIME_LOCATORS), len(bindings))
         for binding, locator in zip(
             bindings, run_exp_0016.RUNTIME_LOCATORS, strict=True
         ):
             self.assertEqual(locator, binding["locator"])
             self.assertEqual(
-                run_exp_0016.sha256_file(run_exp_0016.ROOT / locator),
+                historical[locator],
                 binding["sha256"],
             )
 
     def test_result_contract_when_present(self) -> None:
-        if not run_exp_0016.RESULT_PATH.is_file():
+        if self.result is None:
             self.skipTest("result.json is created only after green preimage CI")
-        result = run_exp_0016.validate_result()
-        self.assertEqual("pass", result["status"])
-        self.assertTrue(all(result["acceptance"].values()))
+        self.assertEqual("pass", self.result["status"])
+        self.assertTrue(all(self.result["acceptance"].values()))
 
 
 if __name__ == "__main__":
