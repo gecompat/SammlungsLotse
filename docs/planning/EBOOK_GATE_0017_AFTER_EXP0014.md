@@ -1,6 +1,6 @@
 # GATE-0017: EXP-0014-Ergebnis und dreifache Remote-Ressourcen-Reviewentscheidung bewerten
 
-Status: PROPOSED — OPEN FOR EXPLICIT SELECTION
+Status: DONE — OPTION A / EXP-0015 AUSGEWÄHLT
 
 Stand: 2026-09-01
 
@@ -13,6 +13,19 @@ die nun bekannte gemeinsame WI-0004-Reviewursache von jeder Aussage über
 Gefährlichkeit, EPUB-Qualität oder eine nötige Produktkorrektur. Ohne
 ausdrückliche Auswahl wird weder ein Folgeexperiment noch ein
 Produktarbeitsgegenstand registriert.
+
+## Auswahlentscheidung
+
+Der Nutzer hat Option A am 2026-09-01 ausdrücklich ausgewählt. GATE-0017 ist
+damit abgeschlossen und ausschließlich EXP-0015 als akzeptiertes, noch nicht
+ausgeführtes Experiment registriert.
+
+Die Auswahl bestätigt für EXP-0015 erneut denselben Dreiersatz privater EPUBs
+wie in EXP-0014. Sie autorisiert nach Merge, Post-Merge-Prüfung und einem
+sauberen Ausführungspreimage ausschließlich die gruppierte
+Referenzkontextqualifizierung. Sie autorisiert weder Produktcode noch eine
+Lockerung oder Umgehung des bestehenden WI-0004-Review-Gates. B, C, K und P
+bleiben nicht ausgewählt.
 
 ## Verifizierte Evidenz
 
@@ -62,6 +75,8 @@ aktuellen Sicherheitsvertrag.
 
 ### A — Private Referenzarten produktcodefrei und pfadfrei qualifizieren
 
+**Ausgewählt als EXP-0015.**
+
 Ein neues enges Experiment könnte höchstens dieselben drei erneut explizit
 bestätigten EPUBs verwenden und ausschließlich vorab gebundene, gruppierte
 Referenzkontexte zählen. URLs, Domains, Fragmente, Inhalte, Metadaten,
@@ -109,8 +124,11 @@ Vertiefung, beantwortet aber die reale Kontextfrage nicht. K ist die sichere
 Endposition, wenn das vorhandene konservative Reviewverhalten genügt. C ist
 ohne Referenzarten- oder erweiterte synthetische Evidenz verfrüht.
 
-Die Empfehlung nimmt keine Option an. Erst eine ausdrückliche Nutzerwahl
-schließt GATE-0017 und kann einen getrennten Vertrag autorisieren.
+Die Empfehlung nahm A für sich noch nicht an. Der Nutzer hat A inzwischen
+ausdrücklich ausgewählt. EXP-0015 bindet deshalb genau die produktcodefreie,
+pfadfreie Gruppierung grober Referenzkontexte mit einer Mindestgruppe von
+zwei Eingängen. Eine Produktregel benötigt unabhängig vom Ergebnis ein neues
+getrenntes Gate und einen angenommenen Produktarbeitsgegenstand.
 
 ## Harte Grenzen
 
@@ -129,7 +147,10 @@ schließt GATE-0017 und kann einen getrennten Vertrag autorisieren.
 
 - EXP-0014 ist `done`; Methode und pfadfreies Aggregat sind historisch
   gebunden.
-- GATE-0017 ist `proposed` und offen.
-- A, B, C, K und P sind nicht ausgewählt.
+- GATE-0017 ist `done`.
+- EXP-0015 ist `accepted`, aber noch nicht ausgeführt.
+- B, C, K und P sind nicht ausgewählt.
 - Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
   unverändert.
+- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
+  `origin/main` und gegen ein sauberes Commit-Preimage.

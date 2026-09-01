@@ -50,6 +50,7 @@ Experimente und spätere Entscheidungen:
 - [GATE-0016: Ergebnis nach EXP-0013 und geschlossene private Ingress-Gates bewerten](EBOOK_GATE_0016_AFTER_EXP0013.md);
 - [EXP-0014: private Ingress-Preflight-Ursachen produktcodefrei qualifizieren](EBOOK_PRIVATE_INGRESS_PREFLIGHT_CAUSE_EXPERIMENT.md);
 - [GATE-0017: EXP-0014-Ergebnis und dreifache Remote-Ressourcen-Reviewentscheidung bewerten](EBOOK_GATE_0017_AFTER_EXP0014.md);
+- [EXP-0015: private Remote-Referenzkontexte produktcodefrei und pfadfrei gruppieren](EBOOK_PRIVATE_REMOTE_REFERENCE_CONTEXT_EXPERIMENT.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -273,8 +274,14 @@ führte dieselben drei EPUBs ohne Verzeichnissuche je einmal über den
 unveränderten WI-0004-JSON-Weg. Alle drei Ergebnisse lauteten `review` mit
 `epub.remote_reference.present` und `security.remote_resource`; unbekannte
 Codes blieben null, Quellen unverändert und das Cleanup vollständig.
-GATE-0017 bewertet diesen pfadfreien Gruppenbefund getrennt. A, B, C, K und P
-sind nicht ausgewählt; ein Produktarbeitsgegenstand ist nicht registriert.
+Der Nutzer hat in GATE-0017 ausdrücklich Option A gewählt. GATE-0017 ist
+abgeschlossen und EXP-0015 als akzeptiertes, noch nicht ausgeführtes
+produktcodefreies Experiment registriert. Es verwendet ausschließlich
+denselben erneut bestätigten Dreiersatz, zählt pro Eingang nur die Präsenz
+vorab gebundener grober Referenzkontexte und gibt ein Klassenliteral erst ab
+Mindestgruppe zwei aus. Seltene Klassen, URLs, Domains, Inhalte,
+Einzelzuordnungen und Rohoutputs bleiben unterdrückt. B, C, K und P sind nicht
+ausgewählt; ein Produktarbeitsgegenstand ist nicht registriert.
 
 ## Nicht übernehmen
 
