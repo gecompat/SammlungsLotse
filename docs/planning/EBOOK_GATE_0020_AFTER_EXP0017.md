@@ -1,6 +1,6 @@
 # GATE-0020: EXP-0017-Ergebnis und sichere Produktfortsetzung bewerten
 
-Status: PROPOSED — NO OPTION SELECTED
+Status: DONE — OPTION B / WI-0014 AUSGEWÄHLT
 
 Stand: 2026-09-01
 
@@ -13,6 +13,15 @@ den Nachweis für den exakt gebundenen WI-0005-Provider- und Executorstand von
 jeder Produktentscheidung. Ohne ausdrückliche Auswahl werden weder ein
 weiteres Experiment noch ein Produktarbeitsgegenstand registriert oder
 begonnen.
+
+## Auswahl
+
+Der Nutzer hat am 2026-09-01 ausdrücklich Option B ausgewählt. GATE-0020 ist
+damit abgeschlossen und WI-0014 als angenommener, getrennt gebundener
+Produktarbeitsgegenstand registriert. A, C, K und P bleiben nicht ausgewählt.
+Die Auswahl autorisiert den WI-0014-Vertrag und nach dessen Merge eine
+getrennte Implementierungswave. Sie autorisiert weder eine Lockerung des
+WI-0004-Review-Gates noch erneute private Analyse.
 
 ## Verifizierte Evidenz
 
@@ -87,6 +96,8 @@ Engine separat binden und dürfte keine Produktregel auswählen.
 
 ### B — Review-beibehaltende Kontexterklärung als Arbeitsgegenstand auswählen
 
+**Ausgewählt als WI-0014.**
+
 Ein neuer, separat anzunehmender Produktarbeitsgegenstand könnte `review`
 unverändert lassen und ausschließlich eine grobe, pfadfreie Erklärung der
 bereits qualifizierten Kontextklasse ergänzen. Vor Implementierung müssten
@@ -135,8 +146,9 @@ wird; sonst würde es weitere Methodenevidenz ohne unmittelbaren Produktnutzen
 erzeugen. C bleibt die risikoreichste Option und ist durch den methodischen
 EXP-0017-Pass nicht automatisch gerechtfertigt.
 
-Diese Empfehlung nimmt keine Option an. A, B, C, K und P sind nicht
-ausgewählt. Eine Fortsetzung benötigt eine neue ausdrückliche Nutzerauswahl.
+Die Empfehlung wurde durch die ausdrückliche Auswahl B angenommen. A, C, K
+und P bleiben nicht ausgewählt. Die Implementierung ist ausschließlich im
+gebundenen WI-0014-Vertrag zulässig.
 
 ## Harte Grenzen
 
@@ -153,7 +165,8 @@ ausgewählt. Eine Fortsetzung benötigt eine neue ausdrückliche Nutzerauswahl.
 ## Gate-Stand
 
 - EXP-0017 ist `done`; Methode und Ergebnis sind historisch gebunden.
-- GATE-0020 ist `proposed`.
-- A, B, C, K und P sind nicht ausgewählt.
-- Kein Folgeexperiment und kein Produktarbeitsgegenstand sind registriert.
+- GATE-0020 ist `done`; Option B ist ausgewählt.
+- WI-0014 ist `accepted`; A, C, K und P bleiben nicht ausgewählt.
+- Die Implementierung beginnt erst nach Merge und Post-Merge-Prüfung des
+  WI-0014-Vertrags in einem neuen sauberen Worktree.
 - Produktcode und WI-0004-Review-Gate bleiben unverändert.
