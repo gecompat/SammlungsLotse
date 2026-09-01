@@ -107,6 +107,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0017_AFTER_EXP0014.md"
         ).read_text(encoding="utf-8")
+        cls.private_remote_context_experiment = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_PRIVATE_REMOTE_REFERENCE_CONTEXT_EXPERIMENT.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -509,7 +515,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertTrue(self.exp0014_result["source_unchanged"])
         self.assertTrue(self.exp0014_result["cleanup_complete"])
         self.assertTrue(self.exp0014_result["path_free"])
-        self.assertEqual(self.artifacts["GATE-0017"]["status"], "proposed")
+        self.assertEqual(self.artifacts["GATE-0017"]["status"], "done")
         for dependency in (
             "EXP-0014",
             "GATE-0016",
@@ -529,11 +535,55 @@ class EbookNextDecisionTests(unittest.TestCase):
         ):
             self.assertIn(heading, self.post_exp0014_gate)
         self.assertIn(
-            "A, B, C, K und P sind nicht ausgewählt", self.post_exp0014_gate
+            "Option A am 2026-09-01 ausdrücklich ausgewählt",
+            self.post_exp0014_gate,
+        )
+        self.assertIn(
+            "**Ausgewählt als EXP-0015.**", self.post_exp0014_gate
+        )
+        self.assertIn(
+            "B, C, K und P sind nicht ausgewählt", self.post_exp0014_gate
         )
         self.assertIn(
             "`security.remote_resource` ist ein Reviewgrund, kein Schadensnachweis",
             self.post_exp0014_gate,
+        )
+        self.assertEqual(self.artifacts["EXP-0015"]["status"], "accepted")
+        for dependency in (
+            "GATE-0017",
+            "EXP-0014",
+            "WI-0004",
+            "WI-0011",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("EXP-0015", "depends_on")
+            )
+        self.assertIn(
+            "EXP-0014", self.relation_targets("EXP-0015", "derived_from")
+        )
+        self.assertIn(
+            "ACCEPTED — NOT EXECUTED", self.private_remote_context_experiment
+        )
+        self.assertIn(
+            "Mindestgruppe beträgt exakt `2` von `3` Eingängen",
+            self.private_remote_context_experiment,
+        )
+        self.assertIn(
+            "`suppressed_context_present` als reines Boolean",
+            self.private_remote_context_experiment,
+        )
+        self.assertIn(
+            "keine Vorkommenszahlen und keine Einzelzuordnung",
+            self.private_remote_context_experiment,
+        )
+        self.assertIn(
+            "keine Änderung unter `src/sammlungslotse/`",
+            self.private_remote_context_experiment,
+        )
+        self.assertIn(
+            "Ein methodischer `pass` oder eine gemeinsame Kontextklasse ist keine",
+            self.private_remote_context_experiment,
         )
 
 

@@ -684,6 +684,64 @@
       "status": "done",
       "title": "Private Ingress-Preflight-Ursachen produktcodefrei qualifizieren"
     },
+    "EXP-0015": {
+      "acceptance_criteria": "Das Experiment verarbeitet ausschließlich denselben vom Nutzer mit GATE-0017 Option A erneut bestätigten Dreiersatz über drei direkte reguläre EPUB-Locators und task-private bytegleiche Kopien; es führt keine Suche, kein Netzwerk, keinen tiefen Werkzeuglauf und keinen Produktcode aus, bindet vor dem privaten Lauf eine vollständige grobe Referenzkontexttaxonomie sowie eine Mindestgruppe von zwei Eingängen und speichert ausschließlich pfadfreie Gruppenpräsenz je Kontextklasse, wobei Klassen unter der Mindestgruppe ohne Literal nur als Suppression sichtbar bleiben; URLs, Domains, Fragmente, Inhalte, Metadaten, Dateinamen, ZIP-Einträge, Einzelzuordnungen, Hashes, Größen und Rohoutputs werden nicht aufbewahrt, Quellen bleiben unverändert und Cleanup ist vollständig; synthetische Positiv-, Negativ-, Grenz-, Unterdrückungs- und Wiederholbarkeitskontrollen bestehen gegen ein sauberes Commit-Preimage, ein methodischer Erfolg öffnet ein getrenntes Ergebnisgate und autorisiert weder Produktcode noch eine Lockerung des WI-0004-Review-Gates.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05b86-a142-78ae-a99f-590ef2fa293f",
+      "created_on": "2026-09-01",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_PRIVATE_REMOTE_REFERENCE_CONTEXT_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0017",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0014",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0014",
+          "type": "derived_from"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Private Remote-Referenzkontexte produktcodefrei und pfadfrei gruppieren"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -1475,7 +1533,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "EXP-0014-Ergebnis und dreifache Remote-Ressourcen-Reviewentscheidung bewerten"
     },
     "REQ-0001": {

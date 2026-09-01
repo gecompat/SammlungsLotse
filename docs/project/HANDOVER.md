@@ -247,9 +247,14 @@ Verzeichnissuche genau einmal den unveränderten WI-0004-JSON-Weg. Alle drei
 Läufe ergaben `review`, `format.epub`, `epub.remote_reference.present` und
 `security.remote_resource`; unbekannte Codes blieben null, Quellen
 unverändert und das Cleanup vollständig. Private URLs, Domains, Werte,
-Locators und Rohberichte wurden nicht aufbewahrt. GATE-0017 trennt diesen
-Reviewbefund von jeder Produktkorrektur und ist offen für die ausdrückliche
-Auswahl A, B, C, K oder P. Ein Produktarbeitsgegenstand ist nicht registriert.
+Locators und Rohberichte wurden nicht aufbewahrt. Der Nutzer hat in GATE-0017
+ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
+bestätigt. GATE-0017 ist `done`; EXP-0015 ist `accepted`, aber noch nicht
+ausgeführt. Das Experiment darf nach Merge und sauberem Preimage nur grobe
+Kontextpräsenz gruppieren, Klassenliterale ab Mindestgruppe zwei zeigen und
+weder URLs, Domains, ZIP-Eintragsnamen, Vorkommenszahlen noch
+Einzelzuordnungen aufbewahren. B, C, K und P bleiben nicht ausgewählt. Ein
+Produktarbeitsgegenstand ist nicht registriert.
 
 ## Harte Grenzen
 
