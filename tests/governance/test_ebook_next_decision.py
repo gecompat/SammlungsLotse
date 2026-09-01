@@ -149,6 +149,20 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md"
         ).read_text(encoding="utf-8")
+        cls.post_wi0014_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0021_AFTER_WI0014.md"
+        ).read_text(encoding="utf-8")
+        cls.wi0014_result = json.loads(
+            (
+                ROOT
+                / "runtime"
+                / "ebook-intake-context"
+                / "qualification.json"
+            ).read_text(encoding="utf-8")
+        )
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -883,7 +897,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn("A, C, K und P bleiben nicht ausgewählt", self.post_exp0017_gate)
 
         work_item = self.artifacts["WI-0014"]
-        self.assertEqual("accepted", work_item["status"])
+        self.assertEqual("done", work_item["status"])
         self.assertEqual(
             "docs/planning/EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md",
             work_item["locator"],
@@ -918,6 +932,48 @@ class EbookNextDecisionTests(unittest.TestCase):
             if relation == {"target": "GATE-0020", "type": "depends_on"}
         }
         self.assertEqual({"WI-0014"}, followups)
+
+    def test_wi0014_result_opens_gate0021_without_selecting_followup(self) -> None:
+        self.assertEqual("pass", self.wi0014_result["status"])
+        self.assertEqual(
+            "ed7f173896b7365d2f91fb47baa1bc4065c23bcb",
+            self.wi0014_result["preimage_commit"],
+        )
+        self.assertEqual(16, sum(self.wi0014_result["acceptance"].values()))
+        self.assertEqual(0, self.wi0014_result["classifier"]["mismatches"])
+        self.assertEqual(
+            11, self.wi0014_result["public_cli"]["closed_review_cases"]
+        )
+        self.assertTrue(self.wi0014_result["cleanup_complete"])
+
+        gate = self.artifacts["GATE-0021"]
+        self.assertEqual("proposed", gate["status"])
+        self.assertEqual(
+            "docs/planning/EBOOK_GATE_0021_AFTER_WI0014.md",
+            gate["locator"],
+        )
+        self.assertIn("CAP-0002", self.relation_targets("GATE-0021", "parent"))
+        for dependency in ("WI-0014", "WI-0004"):
+            self.assertIn(
+                dependency, self.relation_targets("GATE-0021", "depends_on")
+            )
+        self.assertIn(
+            "GATE-0020", self.relation_targets("GATE-0021", "related_to")
+        )
+        for heading in (
+            "### A — Den qualifizierten V2-Vertrag stabil halten",
+            "### B — Weitere additive, review-beibehaltende Erklärung erwägen",
+            "### K — Ergebnis konservieren und keine Fortsetzung beginnen",
+            "### P — E-Book-Zweig pausieren",
+        ):
+            self.assertIn(heading, self.post_wi0014_gate)
+        self.assertIn(
+            "A, B, K und P bleiben ungewählt", self.post_wi0014_gate
+        )
+        self.assertIn(
+            "Ohne neue ausdrückliche Auswahl beginnt keine Folgearbeit",
+            self.post_wi0014_gate,
+        )
 
 
 if __name__ == "__main__":

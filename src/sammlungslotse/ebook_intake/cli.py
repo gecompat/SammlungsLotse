@@ -73,9 +73,15 @@ def render_human(report: TriageReport) -> str:
     )
 
 
-def render_json(report: TriageReport) -> str:
+def render_json(report: TriageReport, report_version: str = "v1") -> str:
+    if report_version == "v1":
+        value = report.to_dict()
+    elif report_version == "v2":
+        value = report.to_dict_v2()
+    else:
+        raise ValueError("unsupported intake report version")
     payload = json.dumps(
-        report.to_dict(), ensure_ascii=False, separators=(",", ":"), sort_keys=True
+        value, ensure_ascii=False, separators=(",", ":"), sort_keys=True
     )
     if len(payload.encode("utf-8")) > report.limits.max_report_bytes:
         raise RuntimeError("bounded report exceeds its output limit")
@@ -120,19 +126,31 @@ def render_deep_human(report: DeepToolResult) -> str:
 
 
 def render_combined_json(
-    report: CombinedIntakeReport, *, max_bytes: int
+    report: CombinedIntakeReport, *, max_bytes: int, report_version: str = "v1"
 ) -> str:
+    if report_version == "v1":
+        value = report.to_dict()
+    elif report_version == "v2":
+        value = report.to_dict_v2()
+    else:
+        raise ValueError("unsupported intake report version")
     payload = json.dumps(
-        report.to_dict(), ensure_ascii=False, separators=(",", ":"), sort_keys=True
+        value, ensure_ascii=False, separators=(",", ":"), sort_keys=True
     )
     if len(payload.encode("utf-8")) > max_bytes:
         raise RuntimeError("bounded combined report exceeds its output limit")
     return payload
 
 
-def render_batch_json(report: BatchReport) -> str:
+def render_batch_json(report: BatchReport, report_version: str = "v1") -> str:
+    if report_version == "v1":
+        value = report.to_dict()
+    elif report_version == "v2":
+        value = report.to_dict_v2()
+    else:
+        raise ValueError("unsupported intake report version")
     payload = json.dumps(
-        report.to_dict(), ensure_ascii=False, separators=(",", ":"), sort_keys=True
+        value, ensure_ascii=False, separators=(",", ":"), sort_keys=True
     )
     if len(payload.encode("utf-8")) > report.limits.max_report_bytes:
         raise RuntimeError("bounded batch report exceeds its output limit")
@@ -191,6 +209,11 @@ def parser() -> argparse.ArgumentParser:
     )
     result.add_argument(
         "--json", action="store_true", help="pfadbereinigten JSON-Vertrag ausgeben"
+    )
+    result.add_argument(
+        "--report-version",
+        choices=("v1", "v2"),
+        help="explizite JSON-Vertragsversion",
     )
     result.add_argument(
         "--deep-read-only",
@@ -262,7 +285,12 @@ def _run_single(args: argparse.Namespace) -> tuple[str, int]:
         LocalFileSnapshotReader(args.input[0]), TriageLimits()
     )
     if not args.deep_read_only:
-        return (render_json(report) if args.json else render_human(report), 0)
+        return (
+            render_json(report, args.report_version or "v1")
+            if args.json
+            else render_human(report),
+            0,
+        )
 
     inspector, profile = _deep_inspector(args)
     deep = inspector(report)
@@ -273,7 +301,11 @@ def _run_single(args: argparse.Namespace) -> tuple[str, int]:
         else 3 * 1024 * 1024
     )
     output = (
-        render_combined_json(combined, max_bytes=maximum)
+        render_combined_json(
+            combined,
+            max_bytes=maximum,
+            report_version=args.report_version or "v1",
+        )
         if args.json
         else f"{render_human(report)}\n\n{render_deep_human(deep)}"
     )
@@ -292,7 +324,11 @@ def _run_batch(args: argparse.Namespace) -> tuple[str, int]:
         limits=limits,
         deep_inspector=inspector,
     )
-    output = render_batch_json(report) if args.json else render_batch_human(report)
+    output = (
+        render_batch_json(report, args.report_version or "v1")
+        if args.json
+        else render_batch_human(report)
+    )
     if report.has_internal_error:
         return output, 3
     if report.has_unassessed_deep_result:
@@ -302,7 +338,10 @@ def _run_batch(args: argparse.Namespace) -> tuple[str, int]:
 
 def main(argv: list[str] | None = None) -> int:
     _configure_utf8_streams()
-    args = parser().parse_args(argv)
+    argument_parser = parser()
+    args = argument_parser.parse_args(argv)
+    if args.report_version is not None and not args.json:
+        argument_parser.error("--report-version requires --json")
     try:
         if len(args.input) == 1:
             output, exit_code = _run_single(args)

@@ -46,14 +46,16 @@ Für Produkt-, Governance- und Fixture-Code gelten:
     python tools/run_repository_tests.py
 
 Der Repository-Testadapter entdeckt weiterhin die vollständige Testsuite. Er
-ersetzt ausschließlich die fünf eingefrorenen Preimage-Prüfungen von
-EXP-0009, EXP-0010, EXP-0011, EXP-0012 und EXP-0014, die absichtlich den
-jeweils damaligen Repositoryzustand erwarten, durch fünf gleichzählige
-Prüfungen gegen deren historisches Git-Preimage. Er bricht ab, falls einer der
-zehn expliziten Test-IDs fehlt oder mehrfach vorkommt; alle übrigen entdeckten
-Tests laufen unverändert. Die EXP-0013-Historical-Preimage-Prüfung ist selbst
-ein aktueller Test und benötigt keinen Ersatz eines alten
-Current-Preimage-Tests.
+ersetzt vier einzelne eingefrorene Current-Preimage-Prüfungen von EXP-0009
+bis EXP-0012 sowie das vollständig eingefrorene elfprüfige EXP-0014-Modul
+durch fünf Prüfungen gegen das jeweilige historische Git-Preimage. EXP-0014
+muss als ganzes Modul historisch bleiben, weil sein `setUpClass` absichtlich
+den damaligen vollständigen WI-0004-Laufzeitstand bindet. Der Adapter bricht
+ab, falls einer der neun expliziten Einzel- beziehungsweise Ersatztest-IDs
+fehlt oder mehrfach vorkommt oder das EXP-0014-Modul nicht genau elf Tests
+enthält. Alle übrigen entdeckten Tests laufen unverändert. Die EXP-0013-
+Historical-Preimage-Prüfung ist selbst ein aktueller Test und benötigt keinen
+Ersatz eines alten Current-Preimage-Tests.
 
     python -m compileall -q \
       src/sammlungslotse \
@@ -64,6 +66,7 @@ Current-Preimage-Tests.
       tools/run_ebook_calibre_identity.py \
       tools/provision_calibre_readonly_profile.py \
       tools/qualify_calibre_readonly_profile.py \
+      tools/qualify_ebook_intake_context.py \
       tools/qualify_ebook_identity.py \
       tools/qualify_ebook_calibre_identity.py \
       tools/run_repository_tests.py \
@@ -319,6 +322,37 @@ Zwei JSON-Läufe über den stabilen Eingang müssen byteidentisch sein. Die
 Abnahme qualifiziert nur den lokalen synthetischen Prototyp; sie startet kein
 tiefes Werkzeug und verwendet keine realen oder privaten Medien.
 
+Für den additiven WI-0014-V2-Produktnachweis gilt zusätzlich:
+
+    python tools/qualify_ebook_intake_context.py --validate-result
+
+Die CI-geeignete Prüfung startet weder Parsermatrix, CLI-Prozesse noch ein
+tiefes Werkzeug neu. Sie bindet den eingecheckten Nachweis an das vollständige
+historische Produktpreimage, den V1-Ausgangscommit und die unveränderten
+EXP-0016- und EXP-0017-Fallmatrizen.
+
+Der tatsächliche ausschließlich synthetische Hauptlauf ist bis zu einem
+sauberen, vollständig lokal getesteten und in beiden Pflichtchecks grünen
+Preimage gesperrt:
+
+    python tools/qualify_ebook_intake_context.py \
+      --temp-root C:\rep\tmp\SammlungsLotse\wi-0014-qualification \
+      --result C:\rep\artifacts\SammlungsLotse\wi-0014-qualification.json \
+      --confirm-green-preimage-ci
+
+Er prüft zweimal alle 48 EXP-0016-Parserorakel sowie zweimal alle zwölf als
+begrenzte EPUBs materialisierten EXP-0017-Fälle über den tatsächlichen V1-
+und V2-Einzeldatei-CLI-Weg. Zusätzlich vergleicht er V1 bytegenau mit dem
+gebundenen Ausgangscommit und prüft Batch- und kombinierte V2-Schemata, das
+geschlossene Review-/Deep-Gate, Pfadfreiheit, unveränderte Eingänge,
+fehlende verbotene Wirkungen und vollständiges Task-Cleanup.
+
+Der einmalige Lauf auf dem in beiden Pflichtchecks grünen Preimage
+`ed7f173896b7365d2f91fb47baa1bc4065c23bcb` bestand 16/16 Kriterien. Der
+aktuelle eingecheckte Nachweis mit SHA-256
+`16b33a98904157593de335ce0aa8a8348f3c1d9a795fdbe34765251a5dbc3046`
+ist historisch an dieses Preimage gebunden.
+
 Für den eingecheckten WI-0005-Produktnachweis gilt zusätzlich:
 
     python tools/qualify_ebook_deep_profile.py --validate-result
@@ -401,19 +435,19 @@ Outputlimit, Timeout, Unterbrechung und Recovery aus. Er prüft Pfadfreiheit,
 Bytegleichheit, Rollen, fünf Identitätsebenen, Quellunverändertheit und
 vollständiges Task- und Container-Cleanup.
 
-Nach WI-0013 wurde dieser abhängige Produktweg gegen den neuen
-Analyzer-Preimage-Commit
-`dde132646f9e578f582231c2a7be946134490184` erneut tatsächlich qualifiziert.
+Nach dem WI-0014-Implementierungskandidaten wurde dieser abhängige Produktweg
+gegen den erweiterten Intake-Preimage-Commit
+`7cb840785c5fba1e5148fbe05bbaf1b1f92a4f0a` erneut tatsächlich qualifiziert.
 Der aktuelle eingecheckte Nachweis mit SHA-256
-`90fbe6856aeb09f89e382c59312f7035ac9777de57a316fc336bb81fcf5a7d4e`
+`4418272946704246b4710bea92faf2021ae7f1d5c4225f915c9f15beb9c27fe9`
 bestand weiterhin 23/23 Kriterien.
 
 Der tatsächliche ausschließlich synthetische Podman-Lauf verwendet neue
 kontrollierte Pfade unter `C:\rep`:
 
     python tools/qualify_ebook_calibre_identity.py \
-      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0013-wi0011-requalification \
-      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0013-wi0011-requalification
+      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0014-wi0011-requalification \
+      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0014-wi0011-requalification
 
 Qualifikations- und Evidenzziel müssen neue strikte Unterpfade sein. Die
 Taskwurzel wird vollständig entfernt; die 22 pfadfreien stdout-/stderr-

@@ -1,0 +1,53 @@
+{
+  "artifact": "WI-0014",
+  "baseline_commit": "2639b7f883af5c20732bef5234c9c87270e0e0a6",
+  "case_sources": {
+    "classifier": {
+      "count": 48,
+      "locator": "experiments/ebook/exp-0016/cases.json"
+    },
+    "public_cli": {
+      "count": 12,
+      "locator": "experiments/ebook/exp-0017/cases.json"
+    }
+  },
+  "execution_gate": {
+    "confirmation_flag": "--confirm-green-preimage-ci",
+    "green_preimage_ci_required": true
+  },
+  "forbidden_effects": [
+    "deep_tool_execution",
+    "domain_system_writes",
+    "external_network_access",
+    "original_modification",
+    "persistence",
+    "private_inputs",
+    "writer_surface"
+  ],
+  "profile_id": "wi-0014-ebook-intake-review-context-v2/v1",
+  "public_contract": {
+    "assessments": [
+      "ambiguous_or_unknown",
+      "classified",
+      "not_applicable"
+    ],
+    "context_classes": [
+      "ambiguous_or_deceptive",
+      "content.active_or_submission",
+      "content.user_activated_hyperlink",
+      "package.optional_linked_resource",
+      "publication.automatic_remote_resource",
+      "reference.local_or_other_scheme"
+    ],
+    "schemas": {
+      "batch_v1": "sammlungslotse/ebook-intake-batch-report/v1",
+      "batch_v2": "sammlungslotse/ebook-intake-batch-report/v2",
+      "combined_v1": "sammlungslotse/ebook-intake-with-deep-report/v1",
+      "combined_v2": "sammlungslotse/ebook-intake-combined-report/v2",
+      "single_v1": "sammlungslotse/ebook-intake-report/v1",
+      "single_v2": "sammlungslotse/ebook-intake-report/v2"
+    }
+  },
+  "repetitions": 2,
+  "schema": "sammlungslotse/ebook-intake-context-qualification-profile/v1"
+}

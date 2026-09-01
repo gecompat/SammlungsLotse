@@ -11,7 +11,9 @@ from .model import NEXT_ACTIONS, TriageReport
 from .ports import SnapshotReader
 
 
-BATCH_REPORT_SCHEMA = "sammlungslotse/ebook-intake-batch-report/v1"
+BATCH_REPORT_SCHEMA_V1 = "sammlungslotse/ebook-intake-batch-report/v1"
+BATCH_REPORT_SCHEMA_V2 = "sammlungslotse/ebook-intake-batch-report/v2"
+BATCH_REPORT_SCHEMA = BATCH_REPORT_SCHEMA_V1
 BATCH_ITEM_STATUSES = frozenset({"completed", "internal_error", "not_processed"})
 BATCH_STATUSES = frozenset({"completed", "partial", "limit_exceeded"})
 
@@ -61,14 +63,27 @@ class BatchItemReport:
             raise ValueError("deep report needs a triage report")
 
     def to_dict(self) -> dict[str, object]:
+        return self._to_dict("v1")
+
+    def to_dict_v2(self) -> dict[str, object]:
+        return self._to_dict("v2")
+
+    def _to_dict(self, report_version: str) -> dict[str, object]:
         result: dict[str, object] | None = None
         if self.triage is not None:
             if self.deep_read_only is None:
-                result = self.triage.to_dict()
+                result = (
+                    self.triage.to_dict_v2()
+                    if report_version == "v2"
+                    else self.triage.to_dict()
+                )
             else:
-                result = CombinedIntakeReport(
-                    self.triage, self.deep_read_only
-                ).to_dict()
+                combined = CombinedIntakeReport(self.triage, self.deep_read_only)
+                result = (
+                    combined.to_dict_v2()
+                    if report_version == "v2"
+                    else combined.to_dict()
+                )
         return {
             "input_index": self.input_index,
             "reason_codes": list(self.reason_codes),
@@ -115,6 +130,12 @@ class BatchReport:
         )
 
     def to_dict(self) -> dict[str, object]:
+        return self._to_dict("v1")
+
+    def to_dict_v2(self) -> dict[str, object]:
+        return self._to_dict("v2")
+
+    def _to_dict(self, report_version: str) -> dict[str, object]:
         actions = {action: 0 for action in sorted(NEXT_ACTIONS)}
         assessments = {
             "epubcheck_conformance_findings": 0,
@@ -132,9 +153,16 @@ class BatchReport:
             "batch_status": self.batch_status,
             "deep_read_only_requested": self.deep_read_only_requested,
             "input_count": self.input_count,
-            "items": [item.to_dict() for item in self.items],
+            "items": [
+                item.to_dict_v2() if report_version == "v2" else item.to_dict()
+                for item in self.items
+            ],
             "limits": self.limits.to_dict(),
-            "schema": BATCH_REPORT_SCHEMA,
+            "schema": (
+                BATCH_REPORT_SCHEMA_V2
+                if report_version == "v2"
+                else BATCH_REPORT_SCHEMA_V1
+            ),
             "summary": {
                 "deep_assessments": assessments,
                 "item_statuses": item_statuses,

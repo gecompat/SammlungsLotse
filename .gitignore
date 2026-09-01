@@ -54,6 +54,8 @@ Desktop.ini
 /runtime/
 !/runtime/
 /runtime/*
+!/runtime/ebook-intake-context/
+!/runtime/ebook-intake-context/**
 !/runtime/ebook-deep-readonly/
 !/runtime/ebook-deep-readonly/**
 !/runtime/calibre-readonly/

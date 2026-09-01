@@ -34,7 +34,7 @@
     "success": {
       "assessment": "no_epubcheck_conformance_errors_reported",
       "exit_code": 0,
-      "raw_report_sha256": "05fe8f65173de5ce2f0945c315c1cd5d9a9909a554ddeb8d423c890dc04572c8",
+      "raw_report_sha256": "bd378ad8f53cbbc8e65df9f3961d2c475856be480556441bae82671ffb9ba714",
       "raw_report_size_bytes": 3859
     },
     "timeout": {
@@ -124,18 +124,19 @@
     "containerfile": "5c496f29b5e72e87f9b1effc5575510e6148100370a9aa148f2f9272f19871a7",
     "ebook_intake/__init__.py": "5a3854461e569698a92995a7ec8cd39eecfeab3a0c9637b7b25dc000b2b8259d",
     "ebook_intake/application.py": "da82da5c07f42f7eb4853a7627781906f389dbdb4a16152b5bd3d54f2260b123",
-    "ebook_intake/batch.py": "0cf5e698669c242754e7fa3cdf8a612c15df56ed14ccf094b740335bd7869eab",
-    "ebook_intake/cli.py": "493840b8f5ad2f2f97c0e7e605de25386ef3602936c5719b826cbc91e6e73b7a",
+    "ebook_intake/batch.py": "93f593439db540e3f7d1ccfbde2f2d1f59cb85b775044b648b310a67caed9eed",
+    "ebook_intake/cli.py": "185dff706d02e792d951ebaa611c403a38841f156b2a56756e76973be8ef10dd",
+    "ebook_intake/context.py": "734a790c6b309670b8eedd72e5bc3079d19b82057f034cc31867314d955ff920",
     "ebook_intake/deep_application.py": "7ed28fbd14a12e12a890f4de6b05cfdff5a6fc279090c08150a9cbadb92031f4",
-    "ebook_intake/deep_model.py": "dd1d9b19acafca49e7ccf5b7477caca979c1a86206f0543a0bbb63da2838598f",
+    "ebook_intake/deep_model.py": "d2f1495c0c24eab2eb3e39f3a61f81437da62e8a37bd4b13ced4724265dfa5e1",
     "ebook_intake/deep_ports.py": "d85f7ee24d8e83b4a3babd24341239e7f9bf6ab2dcd17c30ecaecb7c55791b4b",
     "ebook_intake/deep_profile.py": "8382e235e9296be20fe0ddf54a837dc5da59f624c69543999d369c0bdc3ab562",
     "ebook_intake/deep_workspace.py": "c73161dfd2643b612c345f20b5a5d1fe315638e036791fb4ffc766b55365deb4",
     "ebook_intake/epubcheck_provider.py": "f606b5fc3e1184455456e9991b20e7df176b390d2188aa3bed451e0838860432",
-    "ebook_intake/model.py": "18810819df8ff39a22dde7621ee445173f7d5612155cf484a2d193ca3085d2cd",
+    "ebook_intake/model.py": "064bde3e8284c8c6ed56e4472e221c7a69cf6f8fe3721586927c9d806a3b2d9c",
     "ebook_intake/podman_executor.py": "a10458ae6d5cfa8b404df2f91c1fd8fb90efdd696f68f292c87587b2558e2319",
     "ebook_intake/ports.py": "03ef7072762c67ac9918c3f51d0f117577f973e9ef71a755ba4b500ebac27e09",
-    "ebook_intake/preflight.py": "2a73da1bc50e317af996cf10f3447050b7ea16693bb78630de4faa9619ddcf88",
+    "ebook_intake/preflight.py": "1882100d6d5af2595cb4d9adda47028ba9bc456b70ad7b143aba12b865463e80",
     "ebook_intake/snapshot.py": "a4b1d722f4433c62da96f5d02dba3cb11547ec5c626e2231fde112a192d99ede",
     "profile": "e38925c2819d7666ad40ea6a30a643988e6fb3a894d9a18bdb2571e873457076",
     "provisioner": "5d5fa3091e1277d0d03fabe996d00ef4e445a744d76d77d2038473eab504e8bf",
@@ -145,7 +146,7 @@
     "wrapper_source": "d5a095e87f0461f296432ed88b017bfc7600e2f288d3f1ce35e99095e6cb8464"
   },
   "profile_id": "wi-0005-epubcheck-5.3.0-temurin-21.0.12.1+1-podman-linux-amd64/v1",
-  "qualified_at": "2026-08-28T06:55:32.609536+00:00",
+  "qualified_at": "2026-09-01T21:55:03.739804+00:00",
   "schema": "sammlungslotse/deep-read-only-qualification/v1",
   "status": "PASS"
 }

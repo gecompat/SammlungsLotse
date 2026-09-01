@@ -125,7 +125,8 @@ unveränderter fünfstufiger Identitätsbericht und keine Bestandsaktion. Der
 eingecheckte Nachweis bindet das Preimage `d70c6de` und bestand 23/23
 ausschließlich synthetische Kriterien. Nach WI-0012 wurde der abhängige Weg
 gegen den Analyzer-Preimage `97017a2` und nach WI-0013 gegen `dde1326`
-tatsächlich erneut jeweils 23/23 qualifiziert.
+tatsächlich erneut jeweils 23/23 qualifiziert. Nach dem WI-0014-
+Implementierungskandidaten bestand er gegen `7cb8407` erneut 23/23.
 
 ## Fortsetzung
 
@@ -172,8 +173,9 @@ CLI liegen unter `src/sammlungslotse/ebook_calibre_identity/` und
 `runtime/ebook-calibre-identity/`. Der tatsächliche Lauf belegte
 Bytegleichheit, Repackaging, Enthaltung, Grenzen, Recovery und vollständiges
 Cleanup. Nach WI-0013 bestand der aktuelle Nachweis gegen Preimage `dde1326`
-und das unveränderte Calibre-9.13.0-Image erneut 23/23 Kriterien. Automatische
-Suche, mehrere Dateien, IDs oder Bibliotheken,
+und nach dem WI-0014-Implementierungskandidaten gegen `7cb8407` mit dem
+unveränderten Calibre-9.13.0-Image erneut 23/23 Kriterien. Automatische Suche,
+mehrere Dateien, IDs oder Bibliotheken,
 Persistenz, Routing, UI, REST, Agents und Bestandswirkungen bleiben außerhalb.
 Vor einer weiteren Produktwave ist erneut getrennt zu bewerten.
 
@@ -278,11 +280,19 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   Bericht bleibt unverändert außerhalb von Git und die eng begrenzte
   Korrektur ist transparent dokumentiert. Der Nutzer hat in GATE-0020
   ausdrücklich Option B gewählt. GATE-0020 ist `done`; WI-0014 ist als
-  review-beibehaltende, pfadfreie V2-Kontexterklärung `accepted`. Der Vertrag
+  review-beibehaltende, pfadfreie V2-Kontexterklärung `done`. Der Vertrag
   hält Human- und Standard-JSON-Ausgabe bytekompatibel, bindet die sechs
   EXP-0016-Kontextklassen samt fail-closed Rückfall und lässt das
-  WI-0004-Review-Gate unverändert. Produktcode beginnt erst nach Merge und
-  Post-Merge-Prüfung dieser Vertragswave in einem neuen sauberen Worktree.
+  WI-0004-Review-Gate unverändert. Der getrennte additive
+  Implementierungskandidat liegt im neuen sauberen Worktree vor. V2 ist nur
+  explizit für Einzel-, Batch- und kombiniertes JSON aktiv; V1, Humanweg,
+  `review` und Deep-Read-Gate bleiben unverändert. Der stabile lokale
+  Kandidat bestand 255/255 Repositorytests; die davon getrennte
+  WI-0005-Requalifizierung bestand 12/12 Kriterien. Der abhängige WI-0011-
+  Weg bestand auf demselben Kandidaten erneut 23/23. Der einmalige
+  WI-0014-Hauptlauf auf dem beidseitig CI-grünen Preimage `ed7f173` bestand
+  16/16 Kriterien und ist eingecheckt gebunden. GATE-0021 ist als getrenntes
+  Ergebnisgate `proposed`; A, B, K und P sind nicht ausgewählt.
 
 ## Harte Grenzen
 
@@ -303,6 +313,8 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
 - Deployment und UI;
 - konkrete REST- und Agent-Verträge;
 - V1-Deprecation oder -Entfernung sowie eine eigene Publikationsstufe;
+- Auswahl in GATE-0021 zwischen Stabilhalten von V2, weiterer additiver
+  Erklärung, Konservieren und Pausieren;
 - konkrete FolioTone-Wiederverwendung;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - Accessibility- und externe Metadatenprovider-Adapter sowie weitere tiefe

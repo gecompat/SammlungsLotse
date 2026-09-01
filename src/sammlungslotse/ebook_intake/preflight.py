@@ -7,7 +7,15 @@ import re
 import zipfile
 from pathlib import PurePosixPath
 
-from .model import Evidence, Snapshot, TriageLimits, TriageReport, evidence
+from .context import classify_payload
+from .model import (
+    Evidence,
+    ReviewContext,
+    Snapshot,
+    TriageLimits,
+    TriageReport,
+    evidence,
+)
 
 
 MARKUP_SUFFIXES = (".xhtml", ".html", ".htm", ".svg", ".opf", ".xml", ".css")
@@ -30,6 +38,7 @@ def _report(
     capability: str,
     action: str,
     limits: TriageLimits,
+    review_context: ReviewContext | None = None,
 ) -> TriageReport:
     return TriageReport(
         snapshot=snapshot,
@@ -39,6 +48,7 @@ def _report(
         next_action=action,
         deep_read_only_allowed=action == "continue_deep_read_only",
         limits=limits,
+        review_context=review_context or ReviewContext.not_applicable(),
     )
 
 
@@ -256,7 +266,7 @@ class EpubPreflight:
 
         scan = self._scan_markup(archive, infos, limits, observations, findings)
         if scan is not None:
-            capability, action = scan
+            capability, action, review_context = scan
             return _report(
                 snapshot=snapshot,
                 observations=observations,
@@ -264,6 +274,7 @@ class EpubPreflight:
                 capability=capability,
                 action=action,
                 limits=limits,
+                review_context=review_context,
             )
         return _report(
             snapshot=snapshot,
@@ -281,7 +292,7 @@ class EpubPreflight:
         limits: TriageLimits,
         observations: list[Evidence],
         findings: list[Evidence],
-    ) -> tuple[str, str] | None:
+    ) -> tuple[str, str, ReviewContext] | None:
         selected = [
             info
             for info in infos
@@ -292,10 +303,12 @@ class EpubPreflight:
             info.file_size > limits.max_markup_entry_bytes for info in selected
         ):
             findings.append(evidence("resource.markup_limit_exceeded"))
-            return "supported", "stop"
+            return "supported", "stop", ReviewContext.not_applicable()
 
         has_script = False
         has_remote = False
+        context_classes: set[str] = set()
+        context_ambiguous = False
         actual_total = 0
         try:
             for info in selected:
@@ -307,14 +320,50 @@ class EpubPreflight:
                     or actual_total > limits.max_markup_total_bytes
                 ):
                     findings.append(evidence("resource.markup_limit_exceeded"))
-                    return "supported", "stop"
+                    return "supported", "stop", ReviewContext.not_applicable()
                 lowered = payload.lower()
-                has_script = has_script or b"<script" in lowered
-                has_remote = has_remote or REMOTE_REFERENCE.search(payload) is not None
+                entry_has_script = b"<script" in lowered
+                entry_has_remote = REMOTE_REFERENCE.search(payload) is not None
+                has_script = has_script or entry_has_script
+                has_remote = has_remote or entry_has_remote
+                if entry_has_script or entry_has_remote:
+                    suffix = PurePosixPath(info.filename).suffix.casefold()
+                    document_type = {
+                        ".css": "css",
+                        ".opf": "opf",
+                        ".svg": "svg",
+                        ".htm": "xhtml",
+                        ".html": "xhtml",
+                        ".xhtml": "xhtml",
+                    }.get(suffix)
+                    if entry_has_script:
+                        context_classes.add("content.active_or_submission")
+                    if document_type is None:
+                        context_classes.add("ambiguous_or_deceptive")
+                        context_ambiguous = True
+                    else:
+                        classified = classify_payload(document_type, payload)
+                        if entry_has_remote:
+                            if classified.scheme_group in {"http", "https"}:
+                                context_classes.add(classified.context)
+                            else:
+                                context_classes.add("ambiguous_or_deceptive")
+                                context_ambiguous = True
+                        if (
+                            entry_has_script
+                            and classified.context == "reference.local_or_other_scheme"
+                        ):
+                            context_classes.add(classified.context)
+                        if (
+                            classified.context == "ambiguous_or_deceptive"
+                            and classified.scheme_group != "none"
+                        ):
+                            context_classes.add("ambiguous_or_deceptive")
+                            context_ambiguous = True
         except (OSError, RuntimeError, NotImplementedError, zipfile.BadZipFile):
             observations.append(evidence("container.open_error"))
             findings.append(evidence("container.corrupt"))
-            return "unsupported", "stop"
+            return "unsupported", "stop", ReviewContext.not_applicable()
 
         observations.append(evidence("markup.shallow_scan", size_bytes=actual_total))
         if has_script:
@@ -324,5 +373,11 @@ class EpubPreflight:
             observations.append(evidence("epub.remote_reference.present"))
             _append_once(findings, evidence("security.remote_resource"))
         if has_script or has_remote:
-            return "supported", "review"
+            return (
+                "supported",
+                "review",
+                ReviewContext.for_review(
+                    context_classes, ambiguous=context_ambiguous
+                ),
+            )
         return None

@@ -108,9 +108,12 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   Grenzproben und vollständigem Cleanup. Der frühere `inconclusive`-Bericht
   auf `2bb29e0` bleibt unverändert außerhalb von Git. Der Nutzer hat in
   GATE-0020 ausdrücklich Option B gewählt. GATE-0020 ist abgeschlossen und
-  WI-0014 als review-beibehaltende, pfadfreie V2-Kontexterklärung `accepted`.
-  Produktcode und WI-0004-Review-Gate sind in dieser Vertragswave
-  unverändert.
+  WI-0014 als review-beibehaltende, pfadfreie V2-Kontexterklärung `done`.
+  V2 bleibt explizites JSON-Opt-in für Einzel-, Batch- und kombinierten
+  Bericht; V1, Humanweg, `review` und Deep-Read-Gate bleiben unverändert. Der
+  einmalige commitgebundene Hauptlauf auf Preimage `ed7f173` bestand 16/16
+  Kriterien. GATE-0021 ist als getrenntes Ergebnisgate `proposed`; keine
+  Option ist ausgewählt.
 
 ## Vorhanden
 
@@ -266,7 +269,8 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   providerneutralen read-only Snapshot-Handoff ohne Bestandswirkung;
 - getrennte deutsche und deterministische JSON-CLI unter
   `tools/run_ebook_calibre_identity.py`, exakte Calibre-9.13.0-
-  Profilbindung und nach WI-0013 gegen Preimage `dde1326` erneuerter
+  Profilbindung und nach dem WI-0014-Implementierungskandidaten gegen
+  Preimage `7cb8407` erneuerter
   eingecheckter 23/23-Produktnachweis mit tatsächlichen synthetischen Podman-,
   Grenz-, Recovery- und Cleanupfällen;
 - ausgewertetes GATE-0008 mit katalogisierten qualitätssteigernden
@@ -385,6 +389,49 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
 - Release.
 
 ## Validierung
+
+WI-0014-Ergebnisbindungs- und GATE-0021-Wave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-02
+unter Windows und Python 3.12.10. Der historische 16/16-Produktnachweis und
+24 fokussierte Produkt-, Qualifikations- und Gate-Prüfungen bestanden.
+Repository- und v2-Registry-Prüfung waren für 61 Artefakte erfolgreich;
+`compileall` und `git diff --check` waren grün. Der Foundation-Validator am
+exakten installierten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler
+und 0 Blocker. Der vollständige Repositorytest wird auf dem finalen
+Ergebnisbindungscommit durch die erforderliche GitHub-CI ausgeführt und
+lokal nicht redundant wiederholt. Diese Evidenz belegt Ergebnisbindung und
+das ergebnisoffene Gate, nicht die Auswahl einer GATE-0021-Option.
+
+WI-0014-Implementierungskandidat: PROJECT_SEMANTIC, RUNTIME_EMPIRICAL und
+FOUNDATION_INTEGRITY lokal validiert am 2026-09-02 unter Windows und Python
+3.12.10. 76 fokussierte Produkt-, Qualifikations- und Boundary-Prüfungen
+sowie der historische EXP-0014-Nachweis bestanden. Der einmalige
+vollständige Repositorytest entdeckte 270 Tests, schloss vier einzelne
+eingefrorene Current-Preimage-Prüfungen und das elfprüfige eingefrorene
+EXP-0014-Modul aus, ersetzte sie durch fünf Historical-Preimage-Prüfungen und
+führte 255 Tests erfolgreich aus. Die separat erforderliche aktuelle
+WI-0005-Deep-Read-only-Requalifizierung bestand 12/12 Kriterien. Die nach
+der V2-Modellerweiterung ebenfalls erforderliche WI-0011-Requalifizierung
+lief tatsächlich über Podman erneut 23/23 Kriterien und vollständiges
+Cleanup. Repository- und v2-Registry-Prüfung waren für 60 Artefakte
+erfolgreich; `compileall` und `git diff --check` waren grün. Der
+Foundation-Validator am exakten
+installierten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler
+und 0 Blocker. Beide GitHub-Pflichtchecks bestanden anschließend auf dem
+exakten Ergebnispreimage `ed7f173896b7365d2f91fb47baa1bc4065c23bcb`.
+
+Der danach genau einmal ausgeführte WI-0014-Hauptlauf bestand 16/16
+Kriterien: 96 Klassifikatorläufe über 48 Fälle ohne Mismatch, 96
+Einzeldatei-CLI-Läufe über zwölf Fälle mit bytegleichem V1 und
+deterministischem V2, elf unverändert geschlossene Reviewfälle, ein
+`not_applicable`-Kontrollfall, gültige Batch- und kombinierte V2-Schemata,
+kein gestarteter Deep-Provider, pfadfreie Berichte, unveränderte Eingänge und
+vollständiges Cleanup. Der eingecheckte Nachweis besitzt SHA-256
+`16b33a98904157593de335ce0aa8a8348f3c1d9a795fdbe34765251a5dbc3046`.
+Diese Evidenz qualifiziert WI-0014, nicht eine Reviewlockerung oder eine
+weitere Produktwave.
 
 GATE-0020-Auswahl- und WI-0014-Vertragswave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1373,13 +1420,15 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
 EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018, EXP-0016,
-GATE-0019, EXP-0017 und GATE-0020 sind abgeschlossen. Der Nutzer hat in
-GATE-0020 ausdrücklich Option B gewählt. WI-0014 ist als enger
-review-beibehaltender Produktvertrag `accepted`; seine Implementierung darf
-erst nach Merge und Post-Merge-Prüfung dieser Vertragswave in einem neuen
-sauberen Worktree beginnen. Human- und Standard-JSON-Ausgabe bleiben
-bytekompatibles V1; nur `--json --report-version v2` darf die pfadfreie
-Kontexterklärung aktivieren. Das WI-0004-Review-Gate bleibt unverändert.
+GATE-0019, EXP-0017, GATE-0020 und WI-0014 sind abgeschlossen. Der Nutzer hat
+in GATE-0020 ausdrücklich Option B gewählt. Der enge review-beibehaltende
+V2-Produktvertrag bestand 16/16 commitgebundene Kriterien. Human- und
+Standard-JSON-Ausgabe bleiben bytekompatibles V1; nur
+`--json --report-version v2` aktiviert die pfadfreie Kontexterklärung. Das
+WI-0004-Review-Gate bleibt unverändert. GATE-0021 ist `proposed` und stellt
+Stabilhalten, weitere additive Erklärung, Konservieren und Pausieren
+gegenüber. Keine Option ist ausgewählt; ohne neue ausdrückliche Auswahl
+beginnt keine Folgearbeit.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

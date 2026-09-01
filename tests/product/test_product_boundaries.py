@@ -42,6 +42,7 @@ ADAPTER_IMPORT_ALLOWLIST = {
     "calibre_inventory/executor.py": {"subprocess"},
     "calibre_inventory/workspace.py": {"shutil"},
     "ebook_identity/analyzer.py": {"xml"},
+    "ebook_intake/context.py": {"html", "xml"},
 }
 ADAPTER_WRITE_ALLOWLIST = {
     "deep_workspace.py",

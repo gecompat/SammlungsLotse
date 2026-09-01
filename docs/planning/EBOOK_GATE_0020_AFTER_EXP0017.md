@@ -166,7 +166,9 @@ gebundenen WI-0014-Vertrag zulässig.
 
 - EXP-0017 ist `done`; Methode und Ergebnis sind historisch gebunden.
 - GATE-0020 ist `done`; Option B ist ausgewählt.
-- WI-0014 ist `accepted`; A, C, K und P bleiben nicht ausgewählt.
-- Die Implementierung beginnt erst nach Merge und Post-Merge-Prüfung des
-  WI-0014-Vertrags in einem neuen sauberen Worktree.
-- Produktcode und WI-0004-Review-Gate bleiben unverändert.
+- WI-0014 ist inzwischen `done` und bestand 16/16 commitgebundene
+  Produktkriterien; die damaligen Optionen A, C, K und P bleiben nicht
+  ausgewählt.
+- GATE-0021 ist als getrenntes Ergebnisgate `proposed`; dort ist keine Option
+  ausgewählt.
+- Das WI-0004-Review-Gate bleibt unverändert.
