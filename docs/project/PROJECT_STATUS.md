@@ -106,8 +106,11 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   identischen Wiederholungen, 24 Providerläufen, null Orakelmismatches, null
   Deep-Path-Kanarientreffern, effektiver Netzwerklosigkeit, fail-closed
   Grenzproben und vollständigem Cleanup. Der frühere `inconclusive`-Bericht
-  auf `2bb29e0` bleibt unverändert außerhalb von Git. GATE-0020 ist offen;
-  keine Option und kein Folgearbeitsgegenstand sind ausgewählt.
+  auf `2bb29e0` bleibt unverändert außerhalb von Git. Der Nutzer hat in
+  GATE-0020 ausdrücklich Option B gewählt. GATE-0020 ist abgeschlossen und
+  WI-0014 als review-beibehaltende, pfadfreie V2-Kontexterklärung `accepted`.
+  Produktcode und WI-0004-Review-Gate sind in dieser Vertragswave
+  unverändert.
 
 ## Vorhanden
 
@@ -382,6 +385,20 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
 - Release.
 
 ## Validierung
+
+GATE-0020-Auswahl- und WI-0014-Vertragswave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
+unter Windows und Python 3.12.10. Die 13 fokussierten Gate-, Registrierungs-
+und Registryprüfungen bestanden. Repository- und v2-Registry-Prüfung waren
+für 60 Artefakte erfolgreich. Der einmalige vollständige Repositorytest auf
+dem stabilen Vertragskandidaten entdeckte 257 Tests, ersetzte genau fünf
+eingefrorene Current-Preimage-Prüfungen durch ihre Historical-Preimage-
+Prüfungen und führte 252 Tests erfolgreich aus. `git diff --check` war
+erfolgreich. Der Foundation-Validator am exakten installierten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler
+und 0 Blocker. Produktcode blieb unverändert. Diese Evidenz belegt Auswahl,
+Registrierung und Begrenzung von WI-0014, nicht dessen Implementierung oder
+Produktqualifikation.
 
 EXP-0017-Ausführungs- und Ergebnisbindungswave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1356,12 +1373,13 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
 EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018, EXP-0016,
-GATE-0019 und EXP-0017 sind abgeschlossen. GATE-0020 ist `proposed`; seine
-Optionen A, B, C, K und P sind nicht ausgewählt. B ist als kleinste
-review-beibehaltende Produktfortsetzung empfohlen, aber weder ein
-Folgeexperiment noch ein Produktarbeitsgegenstand ist registriert. V1 bleibt
-Standard; nur
-`--json --report-version v2` aktiviert V2.
+GATE-0019, EXP-0017 und GATE-0020 sind abgeschlossen. Der Nutzer hat in
+GATE-0020 ausdrücklich Option B gewählt. WI-0014 ist als enger
+review-beibehaltender Produktvertrag `accepted`; seine Implementierung darf
+erst nach Merge und Post-Merge-Prüfung dieser Vertragswave in einem neuen
+sauberen Worktree beginnen. Human- und Standard-JSON-Ausgabe bleiben
+bytekompatibles V1; nur `--json --report-version v2` darf die pfadfreie
+Kontexterklärung aktivieren. Das WI-0004-Review-Gate bleibt unverändert.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

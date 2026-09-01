@@ -143,6 +143,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0020_AFTER_EXP0017.md"
         ).read_text(encoding="utf-8")
+        cls.review_context_work_item = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -833,7 +839,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             self.downstream_isolation_experiment,
         )
 
-    def test_exp0017_result_opens_gate0020_without_selecting_a_followup(self) -> None:
+    def test_gate0020_selects_b_and_binds_wi0014_without_relaxing_review(self) -> None:
         self.assertEqual("pass", self.exp0017_result["status"])
         self.assertEqual(12, self.exp0017_result["case_count"])
         self.assertEqual(2, self.exp0017_result["repetitions"])
@@ -852,7 +858,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertFalse(self.exp0017_result["effects"]["product_code_modified"])
         self.assertFalse(self.exp0017_result["effects"]["private_inputs"])
 
-        self.assertEqual("proposed", self.artifacts["GATE-0020"]["status"])
+        self.assertEqual("done", self.artifacts["GATE-0020"]["status"])
         self.assertIn(
             "CAP-0002", self.relation_targets("GATE-0020", "parent")
         )
@@ -872,20 +878,46 @@ class EbookNextDecisionTests(unittest.TestCase):
             "B ist die kleinste entwickelbare Produktfortsetzung",
             self.post_exp0017_gate,
         )
-        self.assertIn(
-            "Diese Empfehlung nimmt keine Option an", self.post_exp0017_gate
+        self.assertIn("Option B ausgewählt", self.post_exp0017_gate)
+        self.assertIn("**Ausgewählt als WI-0014.**", self.post_exp0017_gate)
+        self.assertIn("A, C, K und P bleiben nicht ausgewählt", self.post_exp0017_gate)
+
+        work_item = self.artifacts["WI-0014"]
+        self.assertEqual("accepted", work_item["status"])
+        self.assertEqual(
+            "docs/planning/EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md",
+            work_item["locator"],
         )
-        self.assertIn(
-            "A, B, C, K und P sind nicht\nausgewählt",
-            self.post_exp0017_gate,
-        )
+        for dependency in (
+            "GATE-0020",
+            "EXP-0016",
+            "EXP-0017",
+            "WI-0004",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("WI-0014", "depends_on")
+            )
+        self.assertIn("WI-0005", self.relation_targets("WI-0014", "related_to"))
+        for literal in (
+            "sammlungslotse/ebook-intake-report/v2",
+            "sammlungslotse/ebook-intake-batch-report/v2",
+            "sammlungslotse/ebook-intake-combined-report/v2",
+            "content.user_activated_hyperlink",
+            "ambiguous_or_unknown",
+            "`next_action=review`",
+            "`deep_read_only_allowed=false`",
+            "48 EXP-0016-Orakelfälle",
+            "zwölf EXP-0017-Fälle",
+        ):
+            self.assertIn(literal, self.review_context_work_item)
         followups = {
             reference
             for reference, artifact in self.artifacts.items()
             for relation in artifact.get("relations", [])
             if relation == {"target": "GATE-0020", "type": "depends_on"}
         }
-        self.assertEqual(set(), followups)
+        self.assertEqual({"WI-0014"}, followups)
 
 
 if __name__ == "__main__":

@@ -1845,7 +1845,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "EXP-0017-Ergebnis und sichere Produktfortsetzung bewerten"
     },
     "REQ-0001": {
@@ -2444,6 +2444,65 @@
       ],
       "status": "done",
       "title": "Role-aware EPUB identity report V2"
+    },
+    "WI-0014": {
+      "acceptance_criteria": "Der unveränderte Human- und Standard-JSON-Pfad erzeugt weiterhin bytegenau den V1-Bericht; ausschließlich --json --report-version v2 ergänzt bei review eine deterministische pfadfreie Aggregation der sechs in EXP-0016 qualifizierten Kontextklassen mit explizitem ambiguous_or_unknown-Rückfall, während next_action=review, deep_read_only_allowed=false, bestehende Beobachtungen und Befunde sowie alle V1-Schemata unverändert bleiben und die synthetische Produktqualifikation null Netzwerk, Writes, Persistenz, private Daten oder Bestandswirkung belegt.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05ee0-3882-7fe5-9943-ca7357d5ccf8",
+      "created_on": "2026-09-01",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0020",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0017",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0005",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Review-Kontexterklärung V2 für die EPUB-Eingangstriage umsetzen"
     }
   },
   "prefixes": {

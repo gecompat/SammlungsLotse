@@ -276,10 +276,13 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   historisch gebunden. Der erste vollständige Lauf auf Preimage `2bb29e0`
   blieb wegen einer zu breiten Semantikprojektion `inconclusive`; dieser
   Bericht bleibt unverändert außerhalb von Git und die eng begrenzte
-  Korrektur ist transparent dokumentiert. GATE-0020 ist `proposed`; A, B, C,
-  K und P sind nicht ausgewählt. Ein Folgeexperiment oder
-  Produktarbeitsgegenstand ist nicht registriert und das WI-0004-Review-Gate
-  bleibt unverändert.
+  Korrektur ist transparent dokumentiert. Der Nutzer hat in GATE-0020
+  ausdrücklich Option B gewählt. GATE-0020 ist `done`; WI-0014 ist als
+  review-beibehaltende, pfadfreie V2-Kontexterklärung `accepted`. Der Vertrag
+  hält Human- und Standard-JSON-Ausgabe bytekompatibel, bindet die sechs
+  EXP-0016-Kontextklassen samt fail-closed Rückfall und lässt das
+  WI-0004-Review-Gate unverändert. Produktcode beginnt erst nach Merge und
+  Post-Merge-Prüfung dieser Vertragswave in einem neuen sauberen Worktree.
 
 ## Harte Grenzen
 
