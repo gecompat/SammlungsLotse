@@ -95,6 +95,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_GATE_0016_AFTER_EXP0013.md"
         ).read_text(encoding="utf-8")
+        cls.private_ingress_cause_experiment = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_PRIVATE_INGRESS_PREFLIGHT_CAUSE_EXPERIMENT.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -396,7 +402,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             3, self.exp0013_result["entry_stage_counts"]["ingress_preflight"]
         )
         self.assertTrue(self.exp0013_result["path_free"])
-        self.assertEqual(self.artifacts["GATE-0016"]["status"], "proposed")
+        self.assertEqual(self.artifacts["GATE-0016"]["status"], "done")
         for dependency in (
             "EXP-0013",
             "GATE-0015",
@@ -415,10 +421,58 @@ class EbookNextDecisionTests(unittest.TestCase):
             "### P — E-Book-Identitätszweig pausieren",
         ):
             self.assertIn(heading, self.post_exp0013_gate)
-        self.assertIn("A ist empfohlen, aber nicht ausgewählt", self.post_exp0013_gate)
         self.assertIn(
-            "Kein neuer Experiment- oder Produktarbeitsgegenstand ist registriert",
+            "Option A am 2026-09-01 ausdrücklich ausgewählt",
             self.post_exp0013_gate,
+        )
+        self.assertIn(
+            "**Ausgewählt als EXP-0014.**",
+            self.post_exp0013_gate,
+        )
+        self.assertEqual(self.artifacts["EXP-0014"]["status"], "accepted")
+        for dependency in (
+            "GATE-0016",
+            "EXP-0013",
+            "WI-0004",
+            "WI-0011",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("EXP-0014", "depends_on")
+            )
+        self.assertIn(
+            "EXP-0013", self.relation_targets("EXP-0014", "derived_from")
+        )
+        self.assertIn(
+            "ACCEPTED — NOT EXECUTED", self.private_ingress_cause_experiment
+        )
+        self.assertIn(
+            "genau drei wiederholte", self.private_ingress_cause_experiment
+        )
+        self.assertIn(
+            "keine Verzeichnis-, Glob-, Index- oder rekursive Suche",
+            self.private_ingress_cause_experiment,
+        )
+        self.assertIn(
+            "tools/run_ebook_intake.py --json",
+            self.private_ingress_cause_experiment,
+        )
+        self.assertIn(
+            "observation_code_counts", self.private_ingress_cause_experiment
+        )
+        self.assertIn(
+            "finding_code_counts", self.private_ingress_cause_experiment
+        )
+        self.assertIn(
+            "`unclassified`-Zählwert", self.private_ingress_cause_experiment
+        )
+        self.assertIn(
+            "keine Änderung unter `src/sammlungslotse/`",
+            self.private_ingress_cause_experiment,
+        )
+        self.assertIn(
+            "Ein methodischer `pass` ist keine Produktfreigabe",
+            self.private_ingress_cause_experiment,
         )
 
 
