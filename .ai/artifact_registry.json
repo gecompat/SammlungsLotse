@@ -681,7 +681,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Private Ingress-Preflight-Ursachen produktcodefrei qualifizieren"
     },
     "GATE-0001": {
@@ -1423,6 +1423,60 @@
       ],
       "status": "done",
       "title": "Ergebnis von EXP-0013 und geschlossene private Ingress-Gates bewerten"
+    },
+    "GATE-0017": {
+      "acceptance_criteria": "Die Entscheidung trennt den methodisch bestandenen EXP-0014-Befund mit drei von drei bestehenden WI-0004-Reviewaktionen und ausschließlich gebundenen Remote-Ressourcen-Codes von jeder Produktkorrektur und wählt nur nach ausdrücklicher Nutzerwahl zwischen einer weiter begrenzten pfadfreien Referenzartenqualifizierung, rein synthetischer Vertiefung, einem später separat zu registrierenden Produktarbeitsgegenstand, Konservieren oder Pausieren; EXP-0014 autorisiert weder eine automatische Lockerung des Review-Gates noch einen tiefen Werkzeuglauf.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05b6f-85d3-7201-9ab1-5634bf5785d7",
+      "created_on": "2026-09-01",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0017_AFTER_EXP0014.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0014",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "EXP-0014-Ergebnis und dreifache Remote-Ressourcen-Reviewentscheidung bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",

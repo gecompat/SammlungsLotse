@@ -1,22 +1,23 @@
 # EXP-0014 Ausführung
 
-Status: READY — PREIMAGE IMPLEMENTED; PRIVATE RUN NOT EXECUTED
+Status: DONE — EXECUTED, METHOD PASSED; RESULT REVIEW 3/3
 
 Stand: 2026-09-01
 
 Dieser Ordner bindet die produktcodefreie Ausführung aus
 `docs/planning/EBOOK_PRIVATE_INGRESS_PREFLIGHT_CAUSE_EXPERIMENT.md`.
 
-Enthalten sind vor dem privaten Lauf ausschließlich:
+Enthalten sind:
 
 - `execution-profile.json`: exakte Eingangs-, WI-0004-, Kontroll- und
   Ausgabegrenzen;
+- `result.json`: ausschließlich die gemeinsame pfadfreie Aggregation;
 - dieser Ausführungshinweis.
 
-Ein `result.json` darf erst nach einem sauberen Preimage-Commit und nach der
-erneuten ausdrücklichen Übergabe derselben drei EPUB-Locators wie in EXP-0013
-entstehen. Private Einzelwerte oder vollständige WI-0004-Berichte werden
-weder ausgegeben noch gespeichert.
+`result.json` entstand nach dem sauberen Preimage-Commit und nach erneuter
+ausdrücklicher Bestätigung derselben drei EPUB-Locators wie in EXP-0013.
+Private Einzelwerte oder vollständige WI-0004-Berichte wurden weder
+ausgegeben noch gespeichert.
 
 ## Prüf- und Ausführungsfolge
 
@@ -62,6 +63,28 @@ den betreffenden `unclassified`-Zählwert, setzt den Ergebnisstatus auf
 `inconclusive` und führt zu Exitcode 2. Ausführungs-, Sicherheits- oder
 Cleanupfehler erzeugen kein Teilergebnis.
 
-Ein späteres Ergebnis eröffnet ein neues getrenntes Gate. EXP-0014
-autorisiert weder eine Produktkorrektur noch eine Änderung unter
-`src/sammlungslotse/`.
+## Ergebnis
+
+Das Ausführungspreimage ist
+`e82d01e6d669e85646dafd6ab3d569fc38e0d71b`. Die synthetische Kontrolle
+bestand mit 4/4 tatsächlichen WI-0004-Läufen, 11/11 Negativkontrollen,
+identischer Aggregationswiederholung, unveränderten Quellen und vollständigem
+Cleanup.
+
+Der bestätigte private Hauptlauf verarbeitete genau drei EPUBs. Alle drei
+Läufe ergaben `review`, `format.epub`,
+`epub.remote_reference.present` und `security.remote_resource`. Unbekannte
+Beobachtungs- oder Befundcodes traten nicht auf. Quellen und task-private
+Kopien blieben unverändert beziehungsweise wurden vollständig bereinigt.
+
+Das 907-Byte-Ergebnis besitzt den SHA-256-Wert
+`0eab4893eb85d05c07622bfe70721a58f03e8285e199738b1513237dc3207411`.
+Der historische Validator lautet:
+
+```powershell
+python tools/experiments/validate_exp_0014_result.py
+```
+
+GATE-0017 trennt die Bewertung dieses Reviewbefunds von jeder möglichen
+Fortsetzung. EXP-0014 autorisiert weder eine Produktkorrektur noch eine
+Änderung unter `src/sammlungslotse/`.

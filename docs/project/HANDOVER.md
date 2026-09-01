@@ -241,13 +241,15 @@ Aggregat. Alle drei WI-0011-Läufe endeten vor dem Record-Handoff mit
 `ingress.preflight_gate_not_open`, daher ist das fachliche Ergebnis
 `not_qualified`. Quellen blieben unverändert und das Cleanup war vollständig.
 Der Nutzer hat in GATE-0016 ausdrücklich Option A gewählt. GATE-0016 ist
-`done`; EXP-0014 ist als akzeptierte, noch nicht ausgeführte
-produktcodefreie Ursachenqualifizierung registriert. Der Hauptlauf bindet
-genau dieselben drei erneut explizit bestätigten EPUBs ohne
-Verzeichnissuche, führt jede task-private Kopie genau einmal über den
-unveränderten WI-0004-JSON-Weg und bewahrt nur pfadfreie Gruppenhäufigkeiten
-öffentlicher Folgeaktionen, Beobachtungs- und Befundcodes. B, C, K und P
-bleiben nicht ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert.
+`done`; EXP-0014 ist ebenfalls `done`. Der Nutzer bestätigte denselben Satz
+aus genau drei EPUBs erneut. Jede task-private Kopie durchlief ohne
+Verzeichnissuche genau einmal den unveränderten WI-0004-JSON-Weg. Alle drei
+Läufe ergaben `review`, `format.epub`, `epub.remote_reference.present` und
+`security.remote_resource`; unbekannte Codes blieben null, Quellen
+unverändert und das Cleanup vollständig. Private URLs, Domains, Werte,
+Locators und Rohberichte wurden nicht aufbewahrt. GATE-0017 trennt diesen
+Reviewbefund von jeder Produktkorrektur und ist offen für die ausdrückliche
+Auswahl A, B, C, K oder P. Ein Produktarbeitsgegenstand ist nicht registriert.
 
 ## Harte Grenzen
 

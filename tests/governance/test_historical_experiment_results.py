@@ -9,6 +9,7 @@ from tools.experiments import validate_exp_0010_result
 from tools.experiments import validate_exp_0011_result
 from tools.experiments import validate_exp_0012_result
 from tools.experiments import validate_exp_0013_result
+from tools.experiments import validate_exp_0014_result
 
 
 class HistoricalExperimentResultTests(unittest.TestCase):
@@ -47,6 +48,18 @@ class HistoricalExperimentResultTests(unittest.TestCase):
         self.assertEqual("not_qualified", result["status"])
         self.assertEqual(3, result["input_count"])
         self.assertEqual(3, result["entry_stage_counts"]["ingress_preflight"])
+        self.assertTrue(result["path_free"])
+
+    def test_exp_0014_result_against_historical_preimage(self) -> None:
+        result = validate_exp_0014_result.validate(
+            validate_exp_0014_result.RESULT_PATH
+        )
+        self.assertEqual("pass", result["status"])
+        self.assertEqual(3, result["input_count"])
+        self.assertEqual(3, result["next_action_counts"]["review"])
+        self.assertEqual(
+            3, result["finding_code_counts"]["security.remote_resource"]
+        )
         self.assertTrue(result["path_free"])
 
 

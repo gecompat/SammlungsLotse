@@ -1,0 +1,36 @@
+{
+  "artifact": "EXP-0014",
+  "cleanup_complete": true,
+  "finding_code_counts": {
+    "format.epub": 3,
+    "security.remote_resource": 3
+  },
+  "input_count": 3,
+  "intake_runs": 3,
+  "next_action_counts": {
+    "abstain": 0,
+    "continue_deep_read_only": 0,
+    "defer": 0,
+    "review": 3,
+    "stop": 0
+  },
+  "observation_code_counts": {
+    "container.compressed_size": 3,
+    "container.entry_count": 3,
+    "container.expanded_size": 3,
+    "container.mimetype.epub": 3,
+    "epub.remote_reference.present": 3,
+    "filename.extension.epub": 3,
+    "format.signature.zip": 3,
+    "input.sha256": 3,
+    "input.size": 3,
+    "markup.shallow_scan": 3,
+    "snapshot.stable": 3
+  },
+  "path_free": true,
+  "schema": "sammlungslotse/exp-0014-private-preflight-cause-result/v1",
+  "source_unchanged": true,
+  "status": "pass",
+  "unclassified_finding_count": 0,
+  "unclassified_observation_count": 0
+}

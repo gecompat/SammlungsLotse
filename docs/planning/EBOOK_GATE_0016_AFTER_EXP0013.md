@@ -16,8 +16,9 @@ weder ein Folgeexperiment noch ein Produktarbeitsgegenstand registriert.
 ## Auswahlentscheidung
 
 Der Nutzer hat Option A am 2026-09-01 ausdrücklich ausgewählt. GATE-0016 ist
-damit abgeschlossen und ausschließlich EXP-0014 als akzeptiertes, noch nicht
-ausgeführtes Experiment registriert.
+damit abgeschlossen und registrierte ausschließlich EXP-0014. Das damals
+akzeptierte, noch nicht ausgeführte Experiment ist inzwischen abgeschlossen;
+sein Ergebnis wird getrennt in GATE-0017 bewertet.
 
 Die Auswahl autorisiert die getrennte Planung und Ausführung der
 produktcodefreien Intake-Ursachenqualifizierung nach Merge und
@@ -25,9 +26,10 @@ Post-Merge-Prüfung. Sie autorisiert keine Reparatur, Produktdiagnostik oder
 Produktänderung. B, C, K und P bleiben nicht ausgewählt.
 
 Da private Locators und Rohberichte absichtlich nicht aufbewahrt wurden,
-müssen genau dieselben drei EPUBs für den späteren Hauptlauf erneut explizit
-übergeben und als derselbe EXP-0013-Eingangssatz bestätigt werden. EXP-0014
-führt keine Verzeichnis- oder Dateisuche aus.
+mussten genau dieselben drei EPUBs für den späteren Hauptlauf erneut explizit
+übergeben und als derselbe EXP-0013-Eingangssatz bestätigt werden. Diese
+erneute Bestätigung erfolgte vor EXP-0014; das Experiment führte keine
+Verzeichnis- oder Dateisuche aus.
 
 ## Verifizierte Evidenz
 
@@ -126,10 +128,11 @@ unabhängig vom Ergebnis ein neues getrenntes Gate.
 ## Gate-Stand
 
 - GATE-0016 ist `done`.
-- EXP-0014 ist `accepted`, aber noch nicht ausgeführt.
+- EXP-0014 ist `done`; der pfadfreie Ergebnisnachweis ist historisch gebunden.
+- GATE-0017 ist `proposed` und offen; keine seiner Optionen ist ausgewählt.
 - B, C, K und P sind nicht ausgewählt.
 - Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
   unverändert.
-- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
-  `origin/main` und benötigt die erneute explizite Übergabe derselben drei
+- Die autorisierte Ausführung erfolgte in einer neuen isolierten Wave vom
+  gemergten `origin/main` nach erneuter expliziter Übergabe derselben drei
   privaten EPUBs.
