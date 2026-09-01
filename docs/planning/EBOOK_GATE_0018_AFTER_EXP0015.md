@@ -142,9 +142,10 @@ Gate und für Produktcode zusätzlich einen angenommenen Arbeitsgegenstand.
 - EXP-0015 ist `done`; Methode und pfadfreies Aggregat sind historisch
   gebunden.
 - GATE-0018 ist `done`.
-- EXP-0016 ist `accepted`, aber noch nicht ausgeführt.
+- EXP-0016 ist `done`; Matrix, Runner und Ergebnis sind historisch gebunden.
+- GATE-0019 ist `proposed` und offen; keine seiner Optionen ist ausgewählt.
 - B, C, K und P sind nicht ausgewählt.
 - Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
   unverändert.
-- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
+- Die Ausführung erfolgte in einer neuen isolierten Wave vom gemergten
   `origin/main` und gegen ein sauberes Commit-Preimage.

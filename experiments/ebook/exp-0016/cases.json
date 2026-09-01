@@ -1,0 +1,591 @@
+{
+  "artifact": "EXP-0016",
+  "cases": [
+    {
+      "case_id": "usr-001",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "candidate_continue_deep_read_only"
+      },
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><a href=\"https://example.invalid/read\">read</a></body></html>"
+    },
+    {
+      "case_id": "usr-002",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "candidate_continue_deep_read_only"
+      },
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_scheme_group": "http",
+      "snippet": "<html><body><a href='http://example.invalid/read'>read</a></body></html>"
+    },
+    {
+      "case_id": "usr-003",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "candidate_continue_deep_read_only"
+      },
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><map><area href=\"https://example.invalid/map\"/></map></body></html>"
+    },
+    {
+      "case_id": "usr-004",
+      "document_type": "nav",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "candidate_continue_deep_read_only"
+      },
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><nav epub:type=\"toc\"><a href=\"https://example.invalid/toc\">toc</a></nav></body></html>"
+    },
+    {
+      "case_id": "usr-005",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "candidate_continue_deep_read_only"
+      },
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><a href=\"HTTPS://example.invalid/case\">case</a></body></html>"
+    },
+    {
+      "case_id": "usr-006",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "candidate_continue_deep_read_only"
+      },
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><a href=\"https&#58;//example.invalid/entity\">entity</a></body></html>"
+    },
+    {
+      "case_id": "usr-007",
+      "document_type": "svg",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "candidate_continue_deep_read_only"
+      },
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_scheme_group": "https",
+      "snippet": "<svg><a href=\"https://example.invalid/svg\"><text>svg</text></a></svg>"
+    },
+    {
+      "case_id": "usr-008",
+      "document_type": "svg",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "candidate_continue_deep_read_only"
+      },
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_scheme_group": "http",
+      "snippet": "<svg xmlns:xlink=\"http://www.w3.org/1999/xlink\"><a xlink:href=\"http://example.invalid/svg-xlink\"><text>x</text></a></svg>"
+    },
+    {
+      "case_id": "pkg-001",
+      "document_type": "opf",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "package.optional_linked_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<package><metadata><link rel=\"record\" href=\"https://example.invalid/record\"/></metadata></package>"
+    },
+    {
+      "case_id": "pkg-002",
+      "document_type": "opf",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "package.optional_linked_resource",
+      "expected_scheme_group": "http",
+      "snippet": "<package><metadata><link rel=\"alternate\" href=\"http://example.invalid/alternate\"/></metadata></package>"
+    },
+    {
+      "case_id": "pkg-003",
+      "document_type": "opf",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "package.optional_linked_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<package><metadata><link rel=\"record\" href=\"HTTPS://example.invalid/upper\"/></metadata></package>"
+    },
+    {
+      "case_id": "pkg-004",
+      "document_type": "opf",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "package.optional_linked_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<package><metadata><link rel=\"record\" href=\"https&#58;//example.invalid/entity\"/></metadata></package>"
+    },
+    {
+      "case_id": "pkg-005",
+      "document_type": "opf",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "package.optional_linked_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<package><collection><metadata><link rel=\"record\" href=\"https://example.invalid/collection-record\"/></metadata></collection></package>"
+    },
+    {
+      "case_id": "pkg-006",
+      "document_type": "opf",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "package.optional_linked_resource",
+      "expected_scheme_group": "http",
+      "snippet": "<package><metadata><link rel=\"dcterms:description\" href=\"http://example.invalid/description\"/></metadata></package>"
+    },
+    {
+      "case_id": "res-001",
+      "document_type": "opf",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<package><manifest><item id=\"remote\" href=\"https://example.invalid/publication-resource\"/></manifest></package>"
+    },
+    {
+      "case_id": "res-002",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><img src=\"https://example.invalid/image.png\"/></body></html>"
+    },
+    {
+      "case_id": "res-003",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "http",
+      "snippet": "<html><body><audio src='http://example.invalid/audio.mp3'></audio></body></html>"
+    },
+    {
+      "case_id": "res-004",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><video poster=\"https://example.invalid/poster.png\"></video></body></html>"
+    },
+    {
+      "case_id": "res-005",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><video><source src=\"https://example.invalid/video.mp4\"/></video></body></html>"
+    },
+    {
+      "case_id": "res-006",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "http",
+      "snippet": "<html><body><iframe src=\"http://example.invalid/frame\"></iframe></body></html>"
+    },
+    {
+      "case_id": "res-007",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><object data=\"https://example.invalid/object.bin\"></object></body></html>"
+    },
+    {
+      "case_id": "res-008",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "https",
+      "snippet": "<html><head><link rel=\"stylesheet\" href=\"https://example.invalid/style.css\"/></head></html>"
+    },
+    {
+      "case_id": "res-009",
+      "document_type": "css",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "https",
+      "snippet": "body { background-image: url(\"https://example.invalid/background.png\"); }"
+    },
+    {
+      "case_id": "res-010",
+      "document_type": "css",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_scheme_group": "http",
+      "snippet": "@import url('http://example.invalid/import.css');"
+    },
+    {
+      "case_id": "act-001",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "content.active_or_submission",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><script src=\"https://example.invalid/code.js\"></script></body></html>"
+    },
+    {
+      "case_id": "act-002",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "content.active_or_submission",
+      "expected_scheme_group": "http",
+      "snippet": "<html><body><form action=\"http://example.invalid/submit\"></form></body></html>"
+    },
+    {
+      "case_id": "act-003",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "content.active_or_submission",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><input type=\"submit\" formaction=\"https://example.invalid/input\"/></body></html>"
+    },
+    {
+      "case_id": "act-004",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "content.active_or_submission",
+      "expected_scheme_group": "http",
+      "snippet": "<html><body><button formaction=\"http://example.invalid/button\">send</button></body></html>"
+    },
+    {
+      "case_id": "act-005",
+      "document_type": "svg",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "content.active_or_submission",
+      "expected_scheme_group": "https",
+      "snippet": "<svg><script href=\"https://example.invalid/svg-script.js\"/></svg>"
+    },
+    {
+      "case_id": "act-006",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "content.active_or_submission",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><embed src=\"https://example.invalid/plugin.bin\"/></body></html>"
+    },
+    {
+      "case_id": "non-001",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "not_remote",
+        "review_all_http_s": "not_remote",
+        "strict_navigation_candidate": "not_remote"
+      },
+      "expected_context": "reference.local_or_other_scheme",
+      "expected_scheme_group": "local_relative_or_fragment",
+      "snippet": "<html><body><a href=\"chapter.xhtml\">chapter</a></body></html>"
+    },
+    {
+      "case_id": "non-002",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "not_remote",
+        "review_all_http_s": "not_remote",
+        "strict_navigation_candidate": "not_remote"
+      },
+      "expected_context": "reference.local_or_other_scheme",
+      "expected_scheme_group": "local_relative_or_fragment",
+      "snippet": "<html><body><a href=\"#note\">note</a></body></html>"
+    },
+    {
+      "case_id": "non-003",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "reference.local_or_other_scheme",
+      "expected_scheme_group": "data_or_file",
+      "snippet": "<html><body><img src=\"data:image/png;base64,AA==\"/></body></html>"
+    },
+    {
+      "case_id": "non-004",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "reference.local_or_other_scheme",
+      "expected_scheme_group": "data_or_file",
+      "snippet": "<html><body><a href=\"file:///synthetic/item\">file</a></body></html>"
+    },
+    {
+      "case_id": "non-005",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "reference.local_or_other_scheme",
+      "expected_scheme_group": "helper_or_other",
+      "snippet": "<html><body><a href=\"mailto:reader@example.invalid\">mail</a></body></html>"
+    },
+    {
+      "case_id": "non-006",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "reference.local_or_other_scheme",
+      "expected_scheme_group": "helper_or_other",
+      "snippet": "<html><body><a href=\"tel:+10000000000\">call</a></body></html>"
+    },
+    {
+      "case_id": "non-007",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "reference.local_or_other_scheme",
+      "expected_scheme_group": "helper_or_other",
+      "snippet": "<html><body><a href=\"ftp://example.invalid/archive\">ftp</a></body></html>"
+    },
+    {
+      "case_id": "non-008",
+      "document_type": "opf",
+      "expected_actions": {
+        "classify_and_keep_review": "review",
+        "review_all_http_s": "review",
+        "strict_navigation_candidate": "review"
+      },
+      "expected_context": "reference.local_or_other_scheme",
+      "expected_scheme_group": "helper_or_other",
+      "snippet": "<package><metadata><link rel=\"record\" href=\"urn:isbn:0000000000\"/></metadata></package>"
+    },
+    {
+      "case_id": "amb-001",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<html><head><link rel=\"next stylesheet\" href=\"https://example.invalid/mixed\"/></head></html>"
+    },
+    {
+      "case_id": "amb-002",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "network_path_reference",
+      "snippet": "<html><body><a href=\"//example.invalid/network-path\">network</a></body></html>"
+    },
+    {
+      "case_id": "amb-003",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<html><!-- <a href=\"https://example.invalid/comment\"> --><body></body></html>"
+    },
+    {
+      "case_id": "amb-004",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><script>const target = 'https://example.invalid/literal';</script></body></html>"
+    },
+    {
+      "case_id": "amb-005",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><custom href=\"https://example.invalid/unknown\"></custom></body></html>"
+    },
+    {
+      "case_id": "amb-006",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><foreign:widget href=\"https://example.invalid/foreign\"></foreign:widget></body></html>"
+    },
+    {
+      "case_id": "amb-007",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><a href=\" https://example.invalid/space \">space</a></body></html>"
+    },
+    {
+      "case_id": "amb-008",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><a href=\"https:\n//example.invalid/control\">control</a></body></html>"
+    },
+    {
+      "case_id": "amb-009",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<html><body><a href=\"https://example.invalid/link\"><img src=\"https://example.invalid/pixel.png\"/></a></body></html>"
+    },
+    {
+      "case_id": "amb-010",
+      "document_type": "xhtml",
+      "expected_actions": {
+        "classify_and_keep_review": "abstain",
+        "review_all_http_s": "abstain",
+        "strict_navigation_candidate": "abstain"
+      },
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_scheme_group": "https",
+      "snippet": "<a href=\"https://example.invalid/malformed\""
+    }
+  ],
+  "distribution": {
+    "ambiguous_or_deceptive": 10,
+    "content.active_or_submission": 6,
+    "content.user_activated_hyperlink": 8,
+    "package.optional_linked_resource": 6,
+    "publication.automatic_remote_resource": 10,
+    "reference.local_or_other_scheme": 8
+  },
+  "schema": "sammlungslotse/exp-0016-case-manifest/v1",
+  "standards_date": "2026-09-01"
+}

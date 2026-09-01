@@ -125,6 +125,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_SYNTHETIC_NAVIGATION_SAFETY_MATRIX_EXPERIMENT.md"
         ).read_text(encoding="utf-8")
+        cls.post_exp0016_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0019_AFTER_EXP0016.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -167,6 +173,15 @@ class EbookNextDecisionTests(unittest.TestCase):
                 / "experiments"
                 / "ebook"
                 / "exp-0015"
+                / "result.json"
+            ).read_text(encoding="utf-8")
+        )
+        cls.exp0016_result = json.loads(
+            (
+                ROOT
+                / "experiments"
+                / "ebook"
+                / "exp-0016"
                 / "result.json"
             ).read_text(encoding="utf-8")
         )
@@ -653,7 +668,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "keine Änderung unter `src/sammlungslotse/`",
             self.post_exp0015_gate,
         )
-        self.assertEqual("accepted", self.artifacts["EXP-0016"]["status"])
+        self.assertEqual("done", self.artifacts["EXP-0016"]["status"])
         for dependency in (
             "GATE-0018",
             "EXP-0015",
@@ -668,7 +683,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "EXP-0015", self.relation_targets("EXP-0016", "derived_from")
         )
         self.assertIn(
-            "ACCEPTED — NOT EXECUTED", self.navigation_safety_experiment
+            "DONE — EXECUTED, METHOD PASSED", self.navigation_safety_experiment
         )
         self.assertIn(
             "genau 48 benannte Fälle", self.navigation_safety_experiment
@@ -687,6 +702,66 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn(
             "keine Produktfreigabe", self.navigation_safety_experiment
         )
+
+    def test_exp0016_result_opens_gate0019_without_product_authorization(self) -> None:
+        self.assertEqual("pass", self.exp0016_result["status"])
+        self.assertEqual(48, self.exp0016_result["case_count"])
+        self.assertEqual(96, self.exp0016_result["parser_runs"])
+        self.assertEqual(2, self.exp0016_result["repetitions"])
+        self.assertTrue(self.exp0016_result["runs_semantically_identical"])
+        self.assertTrue(all(self.exp0016_result["acceptance"].values()))
+        self.assertFalse(any(self.exp0016_result["effects"].values()))
+        self.assertTrue(self.exp0016_result["cleanup_complete"])
+        self.assertTrue(self.exp0016_result["path_free"])
+        for strategy, conservative_review in (
+            ("review_all_http_s", 8),
+            ("classify_and_keep_review", 8),
+            ("strict_navigation_candidate", 0),
+        ):
+            outcome = self.exp0016_result["strategies"][strategy]
+            self.assertEqual(
+                "eligible_with_tradeoffs", outcome["classification"]
+            )
+            self.assertEqual(10, outcome["metrics"]["abstention"])
+            self.assertEqual(
+                conservative_review,
+                outcome["metrics"]["conservative_review"],
+            )
+            self.assertEqual(0, outcome["metrics"]["context_false_negative"])
+            self.assertEqual(0, outcome["metrics"]["context_mismatch"])
+            self.assertEqual(
+                0, outcome["metrics"]["critical_false_continue"]
+            )
+
+        self.assertEqual("proposed", self.artifacts["GATE-0019"]["status"])
+        for dependency in (
+            "EXP-0016",
+            "GATE-0018",
+            "EXP-0015",
+            "WI-0004",
+            "WI-0005",
+            "WI-0011",
+            "TEST-0001",
+        ):
+            self.assertIn(
+                dependency, self.relation_targets("GATE-0019", "depends_on")
+            )
+        for heading in (
+            "### A — Synthetische Downstream-Isolation und Threat Model qualifizieren",
+            "### B — Review-beibehaltende Kontexterklärung als Arbeitsgegenstand erwägen",
+            "### C — Strikte Navigationsausnahme als Produktarbeitsgegenstand erwägen",
+            "### K — Evidenz konservieren und bestehendes Review beibehalten",
+            "### P — E-Book-Identitätszweig pausieren",
+        ):
+            self.assertIn(heading, self.post_exp0016_gate)
+        self.assertIn(
+            "A ist die kleinste nächste Evidenzfrage", self.post_exp0016_gate
+        )
+        self.assertIn(
+            "A, B, C, K und P sind nicht ausgewählt", self.post_exp0016_gate
+        )
+        self.assertIn("Produktcode und das", self.post_exp0016_gate)
+        self.assertIn("WI-0004-Review-Gate bleiben unverändert", self.post_exp0016_gate)
 
 
 if __name__ == "__main__":

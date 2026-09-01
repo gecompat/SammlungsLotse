@@ -11,6 +11,7 @@ from tools.experiments import validate_exp_0012_result
 from tools.experiments import validate_exp_0013_result
 from tools.experiments import validate_exp_0014_result
 from tools.experiments import validate_exp_0015_result
+from tools.experiments import validate_exp_0016_result
 
 
 class HistoricalExperimentResultTests(unittest.TestCase):
@@ -74,6 +75,21 @@ class HistoricalExperimentResultTests(unittest.TestCase):
         )
         self.assertFalse(result["suppressed_context_present"])
         self.assertEqual(0, result["unclassified_input_count"])
+        self.assertTrue(result["path_free"])
+
+    def test_exp_0016_result_against_historical_preimage(self) -> None:
+        result = validate_exp_0016_result.validate(
+            validate_exp_0016_result.RESULT_PATH
+        )
+        self.assertEqual("pass", result["status"])
+        self.assertEqual(48, result["case_count"])
+        self.assertEqual(96, result["parser_runs"])
+        self.assertEqual(
+            0,
+            result["strategies"]["strict_navigation_candidate"]["metrics"][
+                "critical_false_continue"
+            ],
+        )
         self.assertTrue(result["path_free"])
 
 

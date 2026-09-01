@@ -93,10 +93,13 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   `content.navigation=3`. Es gab keine seltene bekannte Klasse und keinen
   unklassifizierten Eingang. Quellen blieben unverändert und das Cleanup war
   vollständig. Der Nutzer hat in GATE-0018 ausdrücklich Option A gewählt.
-  GATE-0018 ist abgeschlossen und EXP-0016 als rein synthetische,
-  produktcodefreie Navigationskontext- und Sicherheitsmatrix angenommen,
-  aber noch nicht ausgeführt. Ein Produktarbeitsgegenstand ist nicht
-  registriert.
+  GATE-0018 und EXP-0016 sind abgeschlossen. Der rein synthetische,
+  produktcodefreie Doppellauf verarbeitete 48 Fälle in 96 Parserläufen. Alle
+  16 Methodenkriterien bestanden; alle drei Strategien sind innerhalb der
+  gebundenen Matrix `eligible_with_tradeoffs`, mit zehn fail-closed
+  Enthaltungen und null kritischen Fehlfortsetzungen je Strategie.
+  GATE-0019 ist `proposed`; keine seiner Optionen ist ausgewählt und ein
+  Produktarbeitsgegenstand ist nicht registriert.
 
 ## Vorhanden
 
@@ -340,11 +343,16 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   Referenzwerten oder Einzelzuordnungen;
 - abgeschlossenes GATE-0018 mit ausdrücklicher Auswahl der rein synthetischen
   Navigationskontext- und Sicherheitsmatrix;
-- angenommenes, noch nicht ausgeführtes EXP-0016 mit genau 48 synthetischen
-  Package-, XHTML-, Navigation-, SVG-, CSS-, Schema- und Täuschungsfällen,
-  drei vorab gebundenen Strategien, dominanten kritischen
-  Fehlfortsetzungskosten und einem getrennten Ergebnisgate; Produktcode und
-  private Medien bleiben außerhalb.
+- abgeschlossenes EXP-0016 mit genau 48 synthetischen Package-, XHTML-,
+  Navigation-, SVG-, CSS-, Schema- und Täuschungsfällen, zwei semantisch
+  identischen Wiederholungen, 96 Parserläufen, 16/16 Methodenkriterien, drei
+  `eligible_with_tradeoffs`-Strategien, jeweils zehn Enthaltungen und null
+  kritischen Fehlfortsetzungen, False Negatives oder Context Mismatches;
+- vorgeschlagenes GATE-0019 mit fünf getrennten Optionen für weitere
+  synthetische Downstream-Evidenz, review-beibehaltende Erklärbarkeit, eine
+  höher riskante strikte Navigationsausnahme, Konservieren oder Pausieren.
+  Keine Option ist ausgewählt; Produktcode und private Medien bleiben
+  außerhalb.
 
 ## Nicht vorhanden
 
@@ -359,6 +367,37 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
 - Release.
 
 ## Validierung
+
+EXP-0016-Ausführungs- und Ergebnisbindungswave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
+unter Windows und Python 3.12.10. Das saubere Ausführungspreimage
+`969fa6331afdfc4ceb808ffeed71f7a30193205b` bestand vor dem Hauptlauf beide
+erforderlichen GitHub-Checks. Der einmalige lokale Volltest auf diesem
+stabilen Preimage entdeckte 240 Tests, ersetzte genau fünf eingefrorene
+Preimage-Prüfungen durch gleichzählige Historical-Preimage-Prüfungen und
+führte 235 Tests erfolgreich aus; die noch fehlende Ergebnisdatei erzeugte
+genau einen erwarteten Skip. Danach verarbeitete genau ein bestätigter
+synthetischer Doppellauf 48 Fälle in 96 Parserläufen. Beide Wiederholungen
+waren semantisch identisch, alle 16 Akzeptanzwerte bestanden und alle drei
+Strategien wurden `eligible_with_tradeoffs` eingestuft. S1 und S2 besitzen
+je acht konservative Reviews, S3 null; jede Strategie besitzt zehn
+fail-closed Enthaltungen und null kritische Fehlfortsetzungen, False
+Negatives oder Context Mismatches.
+
+Der historische Validator bindet das 2.279-Byte-Ergebnis mit SHA-256
+`6c748dd1477dba56a37e19b7a5bf798d32e702e8d6d2a230ebfa3c98d775db08`
+an Profil, 48-Fall-Manifest, Runner und Preimage, ohne den Hauptlauf erneut
+auszuführen. Auf dem Ergebnisstand bestanden 25 gezielte Experiment-,
+Historical-Result- und Gate-Tests sowie Repository- und v2-Registry-Prüfung
+für 57 Artefakte. `compileall`, `git diff --check`, die begrenzte
+Datenschutzsuche und die Prüfung auf leeren Produktcode-Diff bestanden.
+FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Ein zweiter lokaler Volltest und ein zweiter Experimentlauf wurden
+bewusst nicht ausgeführt; die vollständige Suite auf dem finalen
+Ergebniscommit bleibt Aufgabe der erforderlichen GitHub-CI. Dies belegt den
+synthetischen Befund, aber weder Produktsicherheit noch eine Lockerung des
+WI-0004-Review-Gates.
 
 GATE-0018-Auswahl- und EXP-0016-Vertragswave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1243,10 +1282,9 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
-EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015 und GATE-0018 sind
-abgeschlossen. EXP-0016 ist `accepted` und wird nach Merge und
-Post-Merge-Prüfung in einer neuen isolierten Wave ausschließlich synthetisch
-implementiert und ausgeführt. B, C, K und P sind nicht ausgewählt; ein
+EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018 und EXP-0016
+sind abgeschlossen. GATE-0019 ist `proposed`. A ist als kleinste nächste
+Evidenzfrage empfohlen, aber A, B, C, K und P sind nicht ausgewählt; ein
 Produktarbeitsgegenstand ist nicht registriert. V1 bleibt Standard; nur
 `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
