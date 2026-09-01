@@ -98,10 +98,16 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   16 Methodenkriterien bestanden; alle drei Strategien sind innerhalb der
   gebundenen Matrix `eligible_with_tradeoffs`, mit zehn fail-closed
   Enthaltungen und null kritischen Fehlfortsetzungen je Strategie.
-  Der Nutzer hat in GATE-0019 ausdrücklich Option A gewählt. GATE-0019 ist
-  abgeschlossen und EXP-0017 als rein synthetische Downstream-Isolations-
-  und Threat-Model-Wave angenommen, aber noch nicht ausgeführt. Ein
-  Produktarbeitsgegenstand ist nicht registriert.
+  Der Nutzer hat in GATE-0019 ausdrücklich Option A gewählt. GATE-0019 und
+  EXP-0017 sind abgeschlossen. Das korrigierte saubere Preimage `53a1e2d`
+  bestand den vollständigen lokalen Repositorytest und beide exakten
+  GitHub-Pflichtchecks. Der danach genau einmal ausgeführte synthetische
+  Hauptlauf bestand 18/18 Kriterien mit zwölf Fällen, zwei semantisch
+  identischen Wiederholungen, 24 Providerläufen, null Orakelmismatches, null
+  Deep-Path-Kanarientreffern, effektiver Netzwerklosigkeit, fail-closed
+  Grenzproben und vollständigem Cleanup. Der frühere `inconclusive`-Bericht
+  auf `2bb29e0` bleibt unverändert außerhalb von Git. GATE-0020 ist offen;
+  keine Option und kein Folgearbeitsgegenstand sind ausgewählt.
 
 ## Vorhanden
 
@@ -352,12 +358,16 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   kritischen Fehlfortsetzungen, False Negatives oder Context Mismatches;
 - abgeschlossenes GATE-0019 mit ausdrücklicher Auswahl der synthetischen
   Downstream-Isolations- und Threat-Model-Qualifikation;
-- angenommenes, noch nicht ausgeführtes EXP-0017 mit genau zwölf
-  synthetischen EPUBs aus vier S3-Navigations-, vier Ressourcen-/Aktiv- und
-  vier Täuschungskontexten, zwei Wiederholungen, unverändertem WI-0005-
-  Provider- und Executorstand, lokaler Messkanarie, effektiver
-  Netzwerklosigkeit sowie fail-closed Timeout-, Output- und Cleanupgrenzen;
-  Produktcode und private Medien bleiben außerhalb.
+- abgeschlossenes EXP-0017 mit historisch gebundenem 18/18-Pass: genau zwölf
+  zur Laufzeit erzeugte synthetische EPUBs aus vier S3-Navigations-, vier
+  Ressourcen-/Aktiv- und vier Täuschungskontexten, zwei semantisch identische
+  Wiederholungen, 24 abgeschlossene, isolierte und bereinigte Providerläufe,
+  null Orakelmismatches und Deep-Path-Kanarientreffer, effektives
+  `network=none`, fail-closed Timeout- und Outputproben sowie vollständiges
+  Cleanup; der erste `inconclusive`-Bericht und die eng begrenzte Korrektur
+  bleiben transparent dokumentiert, Produktcode und private Medien außerhalb;
+- vorgeschlagenes GATE-0020 mit fünf ausdrücklich wählbaren Fortsetzungen,
+  ohne ausgewählte Option, Folgeexperiment oder Produktarbeitsgegenstand;
 
 ## Nicht vorhanden
 
@@ -372,6 +382,44 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
 - Release.
 
 ## Validierung
+
+EXP-0017-Ausführungs- und Ergebnisbindungswave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
+unter Windows und Python 3.12.10. Das maßgebliche saubere
+Ausführungspreimage `53a1e2dbefd03c7d770e949490ea1ec7783bfe98` bestand vor
+dem Hauptlauf den einmaligen vollständigen lokalen Repositorytest mit 255
+entdeckten, fünf gezielt durch Historical-Preimage-Prüfungen ersetzten und
+250 erfolgreich ausgeführten Tests; die noch fehlende Ergebnisdatei erzeugte
+genau einen erwarteten Skip. Beide erforderlichen GitHub-Checks waren auf
+exakt diesem Commit grün.
+
+Der danach genau einmal ausgeführte synthetische Hauptlauf bestand 18/18
+Kriterien: zwölf Fälle, zwei semantisch identische Wiederholungen, 24
+abgeschlossene, prozessgestartete, isolationsverifizierte und bereinigte
+Providerläufe, null Kontext-, S3- oder Schemagruppenmismatches, genau eine
+Kontrollverbindung und null Deep-Path-Kanarientreffer. Effektives
+`network=none`, die vollständigen Isolationswerte, fail-closed Timeout- und
+Outputproben, unveränderte Eingänge und vollständiges Cleanup wurden
+zurückgelesen. Der 4.429-Byte-Bericht mit SHA-256
+`ffb748bc7429b4362392c1464b6268bf404df74625420a8498d405558c88db61`
+ist gegen dieses historische Preimage gültig. Der erste
+`inconclusive`-Bericht auf `2bb29e0` bleibt unverändert außerhalb von Git;
+seine getrennt getestete Semantikprojektionskorrektur und das neue grüne
+Preimage sind transparent dokumentiert.
+
+Für die Ergebnisbindung bestanden der historische Validator sowie 29 von 30
+gemeinsam ausgeführten Fokusprüfungen unmittelbar. Die einzige Abweichung war
+eine veraltete Satzbehauptung zum fortgeschriebenen GATE-0019-Stand; nach der
+Anpassung bestand genau dieser betroffene Test. Repository- und v2-Registry-
+Prüfung waren für 59 Artefakte erfolgreich; `compileall`, `git diff --check`,
+die begrenzte Datenschutzsuche und der leere Produktcode-Diff waren
+erfolgreich. Der Foundation-Validator am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Der vollständige Repositorytest wird auf dem finalen
+Ergebnisbindungscommit durch die erforderliche GitHub-CI ausgeführt und
+lokal nicht redundant wiederholt. Diese Evidenz belegt Methode und
+Ergebnisbindung, nicht Produktfreigabe oder eine Lockerung des
+WI-0004-Review-Gates.
 
 GATE-0019-Auswahl- und EXP-0017-Vertragswave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1307,12 +1355,12 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
-EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018, EXP-0016 und
-GATE-0019 sind abgeschlossen. Der Nutzer hat für GATE-0019 ausdrücklich A
-gewählt. EXP-0017 ist `accepted` und wird nach Merge und Post-Merge-Prüfung
-in einer neuen isolierten Wave implementiert und ausschließlich synthetisch
-ausgeführt. B, C, K und P sind nicht ausgewählt; ein
-Produktarbeitsgegenstand ist nicht registriert. V1 bleibt Standard; nur
+EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018, EXP-0016,
+GATE-0019 und EXP-0017 sind abgeschlossen. GATE-0020 ist `proposed`; seine
+Optionen A, B, C, K und P sind nicht ausgewählt. B ist als kleinste
+review-beibehaltende Produktfortsetzung empfohlen, aber weder ein
+Folgeexperiment noch ein Produktarbeitsgegenstand ist registriert. V1 bleibt
+Standard; nur
 `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents

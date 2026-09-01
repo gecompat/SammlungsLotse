@@ -1,6 +1,6 @@
 # EXP-0017: Synthetische Downstream-Isolation des tiefen EPUB-Pfads qualifizieren
 
-Status: ACCEPTED — NOT EXECUTED
+Status: DONE — METHOD PASSED
 
 Stand: 2026-09-01
 
@@ -209,6 +209,42 @@ Orakelmismatch, unvollständiger Lauf, Kanarientreffer, Isolationsdrift,
 nicht fail-closed beendeter Grenzfall, Cleanuprest, Pfad-/URL-Leak oder
 Produktänderung ergibt keinen methodischen `pass`.
 
+## Gebundenes Ergebnis
+
+Das maßgebliche saubere Ausführungspreimage
+`53a1e2dbefd03c7d770e949490ea1ec7783bfe98` bestand vor dem Hauptlauf den
+vollständigen lokalen Repositorytest und beide GitHub-Pflichtchecks. Der
+anschließende einmalige Lauf verarbeitete zwölf Fälle in zwei Wiederholungen
+über genau 24 tatsächliche Provideraufrufe. Alle 18 methodischen Kriterien
+bestanden.
+
+Kontext-, Schemagruppen- und S3-Orakelmismatches sowie Deep-Path-
+Kanarientreffer waren null. Die Kontrollkanarie zählte genau eine getrennte
+Sensitivitätsverbindung. Beide Wiederholungen waren semantisch identisch;
+alle zwölf Aufrufe je Wiederholung waren abgeschlossen, prozessgestartet,
+isolationsverifiziert und bereinigt. Timeout- und Outputproben endeten
+fail-closed, `network=none` und die weiteren Isolationswerte wurden effektiv
+zurückgelesen, und alle Task- und Containerreste waren entfernt.
+
+Das 4.429-Byte-Ergebnis unter `experiments/ebook/exp-0017/result.json` ist
+mit SHA-256
+`ffb748bc7429b4362392c1464b6268bf404df74625420a8498d405558c88db61`
+historisch an das Preimage gebunden. Produktcode, WI-0004-Gate, Profil,
+Fachsystem und Sammlung blieben unverändert; private Eingänge, externes
+Netzwerk, Persistenz und Writes fehlten.
+
+Ein früherer vollständiger Lauf auf Commit
+`2bb29e0ac2b4dd45ac452364ece0f9addbb1572a` blieb wegen einer zu breiten
+Semantikprojektion `inconclusive`: Zwei Byte laufzeitabhängiges
+Rohbericht-Größenrauschen wurden fälschlich als semantischer Unterschied
+gewertet. Dieser Bericht blieb unverändert außerhalb von Git. Die eng
+begrenzte Korrektur wurde getrennt getestet und nur auf einem neuen, erneut
+vollständig grünen Preimage ausgeführt; die Rohbericht-Größenaggregate sind
+im maßgeblichen Ergebnis weiterhin sichtbar.
+
+Der methodische `pass` wählt keine Produktfortsetzung. GATE-0020 ist als
+getrenntes Ergebnisgate `proposed`; keine seiner Optionen ist ausgewählt.
+
 ## Harte Grenzen
 
 - ausschließlich synthetische, zur Laufzeit erzeugte EPUBs;
@@ -226,12 +262,12 @@ Produktänderung ergibt keinen methodischen `pass`.
 
 ## Abbruch- und Fortsetzungsregel
 
-Fehlen Podman, das exakte Image oder eine gebundene Voraussetzung, bleibt
-EXP-0017 `accepted` und `not executed`. Bei Isolationsdrift, Kanarientreffer,
-inkompletter Matrix, Cleanupfehler oder Produktänderung lautet das Ergebnis
-nicht `pass`; es wird keine Regel nachjustiert, um den Befund zu verdecken.
+Vor dem Lauf hätten fehlendes Podman, ein abweichendes Image oder eine
+fehlende Bindung EXP-0017 bei `accepted` und `not executed` gehalten. Bei
+Isolationsdrift, Kanarientreffer, inkompletter Matrix, Cleanupfehler oder
+Produktänderung hätte das Ergebnis nicht `pass` gelautet; keine Regel wurde
+nachjustiert, um einen Befund zu verdecken.
 
-Nach dem historisch gebundenen Ergebnis bewertet ein neues getrenntes Ergebnisgate:
-weitere Evidenz, Review-beibehaltende Erklärbarkeit, eine mögliche
-Produktregel, konservatives Beibehalten oder Pausieren. EXP-0017 selbst
-autorisiert keine dieser Fortsetzungen.
+GATE-0020 bewertet nun weitere Evidenz, review-beibehaltende Erklärbarkeit,
+eine mögliche Produktregel, konservatives Beibehalten oder Pausieren.
+EXP-0017 selbst autorisiert keine dieser Fortsetzungen.

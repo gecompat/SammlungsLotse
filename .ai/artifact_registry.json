@@ -885,7 +885,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Synthetische Downstream-Isolation des tiefen EPUB-Pfads qualifizieren"
     },
     "GATE-0001": {
@@ -1797,6 +1797,56 @@
       ],
       "status": "done",
       "title": "EXP-0016-Ergebnis und mögliche Reviewdifferenzierung bewerten"
+    },
+    "GATE-0020": {
+      "acceptance_criteria": "Das Gate bewertet den historisch gebundenen EXP-0017-Pass getrennt von jeder Produktfreigabe, stellt weitere synthetische Lesesystemevidenz, review-beibehaltende Kontexterklärung, eine strikte Navigationsausnahme, konservatives Beibehalten und Pausieren als ausdrücklich wählbare Optionen gegenüber und registriert oder beginnt ohne neue Nutzerauswahl weder Folgeexperiment noch Produktarbeitsgegenstand; Produktcode, WI-0004-Review-Gate, private Daten, Fachsystem und Sammlung bleiben unverändert.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05ecb-6b42-7299-9d3b-3d21d404f607",
+      "created_on": "2026-09-01",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0020_AFTER_EXP0017.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0017",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0005",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "EXP-0017-Ergebnis und sichere Produktfortsetzung bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",

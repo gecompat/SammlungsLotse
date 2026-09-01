@@ -137,6 +137,12 @@ class EbookNextDecisionTests(unittest.TestCase):
             / "planning"
             / "EBOOK_SYNTHETIC_DOWNSTREAM_ISOLATION_EXPERIMENT.md"
         ).read_text(encoding="utf-8")
+        cls.post_exp0017_gate = (
+            ROOT
+            / "docs"
+            / "planning"
+            / "EBOOK_GATE_0020_AFTER_EXP0017.md"
+        ).read_text(encoding="utf-8")
         cls.exp0012_result = json.loads(
             (
                 ROOT
@@ -188,6 +194,15 @@ class EbookNextDecisionTests(unittest.TestCase):
                 / "experiments"
                 / "ebook"
                 / "exp-0016"
+                / "result.json"
+            ).read_text(encoding="utf-8")
+        )
+        cls.exp0017_result = json.loads(
+            (
+                ROOT
+                / "experiments"
+                / "ebook"
+                / "exp-0017"
                 / "result.json"
             ).read_text(encoding="utf-8")
         )
@@ -771,12 +786,15 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertIn(
             "B, C, K und P bleiben nicht ausgewählt", self.post_exp0016_gate
         )
-        self.assertIn("Produktcode und das", self.post_exp0016_gate)
+        self.assertIn(
+            "Kein Folgeexperiment oder Produktarbeitsgegenstand",
+            self.post_exp0016_gate,
+        )
         self.assertIn(
             "WI-0004-Review-Gate bleiben unverändert", self.post_exp0016_gate
         )
 
-        self.assertEqual("accepted", self.artifacts["EXP-0017"]["status"])
+        self.assertEqual("done", self.artifacts["EXP-0017"]["status"])
         for dependency in (
             "GATE-0019",
             "EXP-0016",
@@ -792,7 +810,7 @@ class EbookNextDecisionTests(unittest.TestCase):
             "EXP-0016", self.relation_targets("EXP-0017", "derived_from")
         )
         self.assertIn(
-            "ACCEPTED — NOT EXECUTED", self.downstream_isolation_experiment
+            "DONE — METHOD PASSED", self.downstream_isolation_experiment
         )
         self.assertIn(
             "genau zwölf Fälle", self.downstream_isolation_experiment
@@ -814,6 +832,60 @@ class EbookNextDecisionTests(unittest.TestCase):
             "neues getrenntes Ergebnisgate",
             self.downstream_isolation_experiment,
         )
+
+    def test_exp0017_result_opens_gate0020_without_selecting_a_followup(self) -> None:
+        self.assertEqual("pass", self.exp0017_result["status"])
+        self.assertEqual(12, self.exp0017_result["case_count"])
+        self.assertEqual(2, self.exp0017_result["repetitions"])
+        self.assertEqual(24, self.exp0017_result["provider_runs"])
+        self.assertTrue(self.exp0017_result["runs_semantically_identical"])
+        self.assertTrue(all(self.exp0017_result["acceptance"].values()))
+        self.assertEqual(
+            {"context": 0, "s3_action": 0, "scheme_group": 0},
+            self.exp0017_result["parser_oracle_mismatches"],
+        )
+        self.assertEqual(
+            {"control_connections": 1, "deep_path_connections": 0},
+            self.exp0017_result["canary"],
+        )
+        self.assertEqual("none", self.exp0017_result["isolation"]["network"])
+        self.assertFalse(self.exp0017_result["effects"]["product_code_modified"])
+        self.assertFalse(self.exp0017_result["effects"]["private_inputs"])
+
+        self.assertEqual("proposed", self.artifacts["GATE-0020"]["status"])
+        self.assertIn(
+            "CAP-0002", self.relation_targets("GATE-0020", "parent")
+        )
+        for dependency in ("EXP-0017", "GATE-0019", "WI-0004", "WI-0005"):
+            self.assertIn(
+                dependency, self.relation_targets("GATE-0020", "depends_on")
+            )
+        for heading in (
+            "### A — Weitere synthetische Lesesystem- und Aktivierungsevidenz qualifizieren",
+            "### B — Review-beibehaltende Kontexterklärung als Arbeitsgegenstand auswählen",
+            "### C — Strikte Navigationsausnahme als Produktarbeitsgegenstand auswählen",
+            "### K — Evidenz konservieren und bestehendes Review beibehalten",
+            "### P — E-Book-Identitätszweig pausieren",
+        ):
+            self.assertIn(heading, self.post_exp0017_gate)
+        self.assertIn(
+            "B ist die kleinste entwickelbare Produktfortsetzung",
+            self.post_exp0017_gate,
+        )
+        self.assertIn(
+            "Diese Empfehlung nimmt keine Option an", self.post_exp0017_gate
+        )
+        self.assertIn(
+            "A, B, C, K und P sind nicht\nausgewählt",
+            self.post_exp0017_gate,
+        )
+        followups = {
+            reference
+            for reference, artifact in self.artifacts.items()
+            for relation in artifact.get("relations", [])
+            if relation == {"target": "GATE-0020", "type": "depends_on"}
+        }
+        self.assertEqual(set(), followups)
 
 
 if __name__ == "__main__":
