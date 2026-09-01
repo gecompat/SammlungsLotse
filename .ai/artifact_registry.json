@@ -626,6 +626,64 @@
       "status": "done",
       "title": "Private WI-0011-Nichtabschlussgründe produktcodefrei diagnostizieren"
     },
+    "EXP-0014": {
+      "acceptance_criteria": "Der Hauptlauf akzeptiert ausschließlich genau dieselben drei erneut explizit bestätigten privaten EPUB-Dateien mit gebundenen Einzel- und Summengrößen ohne Verzeichnissuche, verarbeitet nur task-private read-only Kopien genau einmal über den unveränderten WI-0004-JSON-Weg und speichert ausschließlich pfadfreie Gruppenhäufigkeiten der vorab gebundenen öffentlichen Folgeaktionen, Beobachtungs- und Befundcodes; synthetische Kontrollen binden Projektion, Mindestmenge, Determinismus, unbekannte Codes, Quellunverändertheit und Cleanup, während private Einzelwerte, Metadaten, Pfade, Hashes und Rohoutputs, Netzwerk, Persistenz, Produktcode und Bestandswirkungen ausgeschlossen bleiben.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05b0a-d9ed-7b94-96b4-cc85544427c8",
+      "created_on": "2026-09-01",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_PRIVATE_INGRESS_PREFLIGHT_CAUSE_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0013",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0013",
+          "type": "derived_from"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Private Ingress-Preflight-Ursachen produktcodefrei qualifizieren"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -1363,7 +1421,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "Ergebnis von EXP-0013 und geschlossene private Ingress-Gates bewerten"
     },
     "REQ-0001": {

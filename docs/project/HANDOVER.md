@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-08-31
+Stand: 2026-09-01
 
 ## Aktueller Stand
 
@@ -240,9 +240,14 @@ verwendete keine Verzeichnissuche und bewahrte nur das gemeinsame pfadfreie
 Aggregat. Alle drei WI-0011-Läufe endeten vor dem Record-Handoff mit
 `ingress.preflight_gate_not_open`, daher ist das fachliche Ergebnis
 `not_qualified`. Quellen blieben unverändert und das Cleanup war vollständig.
-GATE-0016 ist `proposed`: A ist empfohlen, aber nicht ausgewählt; B, C, K und
-P bleiben offen. Ein neuer Experiment- oder Produktarbeitsgegenstand ist
-nicht registriert.
+Der Nutzer hat in GATE-0016 ausdrücklich Option A gewählt. GATE-0016 ist
+`done`; EXP-0014 ist als akzeptierte, noch nicht ausgeführte
+produktcodefreie Ursachenqualifizierung registriert. Der Hauptlauf bindet
+genau dieselben drei erneut explizit bestätigten EPUBs ohne
+Verzeichnissuche, führt jede task-private Kopie genau einmal über den
+unveränderten WI-0004-JSON-Weg und bewahrt nur pfadfreie Gruppenhäufigkeiten
+öffentlicher Folgeaktionen, Beobachtungs- und Befundcodes. B, C, K und P
+bleiben nicht ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert.
 
 ## Harte Grenzen
 

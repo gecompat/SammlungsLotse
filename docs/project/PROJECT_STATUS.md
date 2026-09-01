@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-08-31
+Stand: 2026-09-01
 
 ## Phase
 
@@ -79,9 +79,12 @@ verarbeitete genau dieselben drei EPUBs ohne Verzeichnissuche. Alle drei
 WI-0011-Läufe endeten vor dem Record-Handoff mit
 `ingress.preflight_gate_not_open`; das pfadfreie Ergebnis ist deshalb
 `not_qualified`. Quellen blieben unverändert und das Cleanup war vollständig.
-GATE-0016 ist `proposed`: A ist empfohlen, aber nicht ausgewählt; B, C, K und
-P bleiben offen. Kein neuer Experiment- oder Produktarbeitsgegenstand ist
-registriert.
+Der Nutzer hat in GATE-0016 ausdrücklich Option A gewählt. GATE-0016 ist
+abgeschlossen und EXP-0014 als akzeptierte, noch nicht ausgeführte
+produktcodefreie Ursachenqualifizierung registriert. Sie bindet genau
+dieselben drei erneut explizit bestätigten EPUBs, den unveränderten WI-0004-
+JSON-Weg, pfadfreie Gruppenaggregate und vollständiges Cleanup. Kein
+Produktarbeitsgegenstand ist registriert.
 
 ## Vorhanden
 
@@ -308,9 +311,13 @@ registriert.
   explizit bestätigten EPUBs, vier Suchläufen, drei vor dem Record-Handoff
   geschlossenen Ingress-Preflight-Gates, pfadfreiem `not_qualified`-Aggregat,
   unveränderten Quellen und vollständigem Cleanup;
-- vorgeschlagenes GATE-0016 mit fünf getrennten Optionen A, B, C, K und P;
-  A ist empfohlen, aber nicht ausgewählt, und kein Folgegegenstand ist
-  registriert.
+- abgeschlossenes GATE-0016 mit ausdrücklicher Auswahl der privaten,
+  produktcodefreien Intake-Ursachenqualifizierung;
+- akzeptiertes, noch nicht ausgeführtes EXP-0014 für genau dieselben drei
+  erneut explizit bestätigten EPUBs, je einen unveränderten WI-0004-JSON-Lauf,
+  ausschließlich pfadfreie Gruppenhäufigkeiten öffentlicher Folgeaktionen,
+  Beobachtungs- und Befundcodes sowie synthetisch gebundene Datenschutz- und
+  Cleanupkontrollen.
 
 ## Nicht vorhanden
 
@@ -325,6 +332,23 @@ registriert.
 - Release.
 
 ## Validierung
+
+GATE-0016-Auswahl- und EXP-0014-Vertragswave: PROJECT_SEMANTIC,
+RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
+unter Windows und Python 3.12.10. Repository- und v2-Registry-Prüfung waren
+für 52 Artefakte erfolgreich; die fünf fokussierten Gate-Tests bestanden.
+Der kontrollierte Testlauf entdeckte 205 Tests, ersetzte genau vier
+Current-Preimage-Ergebnisprüfungen durch gleichzählige Historical-Preimage-
+Prüfungen und führte 201 Tests erfolgreich aus. TEST-0001, EXP-0002 bis
+EXP-0007, die historischen Ergebnisse von EXP-0009 bis EXP-0013 und die
+Qualifikationsnachweise von WI-0005, WI-0008, WI-0013 und WI-0011 blieben
+gültig. `compileall`, `git diff --check` und die Datenschutzsuche waren
+erfolgreich; unter `src/sammlungslotse/` gab es keine Änderung.
+FOUNDATION_INTEGRITY am exakten Quellcommit
+`d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler und
+0 Blocker. Dies belegt die ausdrückliche Auswahl A sowie den eng gebundenen,
+noch nicht ausgeführten EXP-0014-Vertrag; es belegt weder einen privaten
+Ursachenbefund noch eine Produktfreigabe.
 
 EXP-0013-Ergebnis- und GATE-0016-Wave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-01
@@ -1116,13 +1140,14 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012 und GATE-0015
-sowie EXP-0013 sind abgeschlossen. GATE-0016 ist `proposed`. A, die
-produktcodefreie Qualifizierung der konkreten privaten Intake-Gate-Ursachen,
-ist empfohlen, aber nicht ausgewählt. B vertieft nur synthetisch, C erwägt
-Produktdiagnostik erst über einen später getrennt zu registrierenden Vertrag,
-K konserviert und P pausiert den Zweig. Vor einer ausdrücklichen Auswahl von
-A, B, C, K oder P wird kein Folgegegenstand registriert. V1 bleibt Standard;
-nur `--json --report-version v2` aktiviert V2.
+sowie EXP-0013 und GATE-0016 sind abgeschlossen. EXP-0014 ist `accepted`,
+aber noch nicht ausgeführt. Nach Merge und Post-Merge-Prüfung werden Profil,
+Runner und synthetische Kontrollen in einer neuen isolierten Wave
+implementiert und als Preimage gebunden. Der private Hauptlauf benötigt
+danach die erneute explizite Übergabe genau derselben drei EPUBs; ohne sie
+wird keine private Diagnose ausgeführt. Ein Produktarbeitsgegenstand ist
+nicht registriert. V1 bleibt Standard; nur `--json --report-version v2`
+aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

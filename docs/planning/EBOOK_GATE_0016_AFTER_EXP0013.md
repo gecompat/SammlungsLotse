@@ -1,6 +1,6 @@
 # GATE-0016: Ergebnis nach EXP-0013 und geschlossene private Ingress-Gates bewerten
 
-Status: PROPOSED — AUSWAHL OFFEN
+Status: DONE — OPTION A / EXP-0014 AUSGEWÄHLT
 
 Stand: 2026-09-01
 
@@ -12,6 +12,22 @@ Dieses Gate bewertet den methodisch bestandenen, fachlich jedoch
 `not_qualified` gebliebenen EXP-0013-Befund. Es trennt die nun lokalisierte
 Ingress-Lücke von jeder Produktkorrektur. Ohne ausdrückliche Auswahl wird
 weder ein Folgeexperiment noch ein Produktarbeitsgegenstand registriert.
+
+## Auswahlentscheidung
+
+Der Nutzer hat Option A am 2026-09-01 ausdrücklich ausgewählt. GATE-0016 ist
+damit abgeschlossen und ausschließlich EXP-0014 als akzeptiertes, noch nicht
+ausgeführtes Experiment registriert.
+
+Die Auswahl autorisiert die getrennte Planung und Ausführung der
+produktcodefreien Intake-Ursachenqualifizierung nach Merge und
+Post-Merge-Prüfung. Sie autorisiert keine Reparatur, Produktdiagnostik oder
+Produktänderung. B, C, K und P bleiben nicht ausgewählt.
+
+Da private Locators und Rohberichte absichtlich nicht aufbewahrt wurden,
+müssen genau dieselben drei EPUBs für den späteren Hauptlauf erneut explizit
+übergeben und als derselbe EXP-0013-Eingangssatz bestätigt werden. EXP-0014
+führt keine Verzeichnis- oder Dateisuche aus.
 
 ## Verifizierte Evidenz
 
@@ -52,6 +68,8 @@ gebundene Evidenzfrage.
 
 ### A — Private Intake-Gate-Ursachen produktcodefrei qualifizieren
 
+**Ausgewählt als EXP-0014.**
+
 Ein Folgeexperiment verwendet höchstens dieselben drei erneut explizit
 bestätigten EPUBs und den unveränderten vorhandenen Intake-Weg. Es darf nur
 pfadfreie Gruppenhäufigkeiten der bestehenden Gate-Aktion sowie der bereits
@@ -89,8 +107,10 @@ Schutz-, Container-, Stabilitäts- oder Reviewgrund vorliegt. B vermeidet
 private Eingänge, beantwortet aber die reale Lücke nicht. C wäre verfrüht,
 solange die Ursache unbekannt ist.
 
-Die Empfehlung nimmt A nicht an. Erst eine ausdrückliche Auswahl darf
-GATE-0016 schließen und einen Folgegegenstand registrieren.
+Die Empfehlung nahm A für sich noch nicht an. Der Nutzer hat A inzwischen
+ausdrücklich ausgewählt. EXP-0014 bindet deshalb genau die produktcodefreie
+Ursachenqualifizierung; eine Reparatur oder Produktübernahme benötigt
+unabhängig vom Ergebnis ein neues getrenntes Gate.
 
 ## Harte Grenzen
 
@@ -105,9 +125,11 @@ GATE-0016 schließen und einen Folgegegenstand registrieren.
 
 ## Gate-Stand
 
-- GATE-0016 ist `proposed`.
-- A ist empfohlen, aber nicht ausgewählt.
-- B, C, K und P bleiben eigenständige Alternativen.
-- Kein neuer Experiment- oder Produktarbeitsgegenstand ist registriert.
-- Eine Antwort mit A, B, C, K oder P ist die nächste ausdrückliche
-  Entscheidung.
+- GATE-0016 ist `done`.
+- EXP-0014 ist `accepted`, aber noch nicht ausgeführt.
+- B, C, K und P sind nicht ausgewählt.
+- Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
+  unverändert.
+- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
+  `origin/main` und benötigt die erneute explizite Übergabe derselben drei
+  privaten EPUBs.
