@@ -299,8 +299,10 @@ Threat-Model-Wave `accepted`. Sie bindet zwölf Fälle, den unveränderten
 WI-0005-Provider- und Executorstand, eine lokale Messkanarie, effektive
 Netzwerklosigkeit sowie Timeout-, Output- und Cleanup-Grenzen. B, C, K und P
 bleiben nicht ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert;
-Produktcode und WI-0004-Review-Gate bleiben unverändert. EXP-0017 ist noch
-nicht ausgeführt.
+Produktcode und WI-0004-Review-Gate bleiben unverändert. Das getrennte
+Ausführungs-Preimage mit Manifest, In-Memory-Materialisierer, Runner und
+containerfreien Fokusprüfungen ist implementiert; `result.json` und ein
+Hauptlauf existieren noch nicht.
 
 ## Nicht übernehmen
 

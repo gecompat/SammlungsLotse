@@ -100,7 +100,8 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   Enthaltungen und null kritischen Fehlfortsetzungen je Strategie.
   Der Nutzer hat in GATE-0019 ausdrücklich Option A gewählt. GATE-0019 ist
   abgeschlossen und EXP-0017 als rein synthetische Downstream-Isolations-
-  und Threat-Model-Wave angenommen, aber noch nicht ausgeführt. Ein
+  und Threat-Model-Wave angenommen. Das getrennte Ausführungs-Preimage ist
+  implementiert, aber weder ein Hauptlauf noch ein Ergebnis existiert. Ein
   Produktarbeitsgegenstand ist nicht registriert.
 
 ## Vorhanden
@@ -352,12 +353,13 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   kritischen Fehlfortsetzungen, False Negatives oder Context Mismatches;
 - abgeschlossenes GATE-0019 mit ausdrücklicher Auswahl der synthetischen
   Downstream-Isolations- und Threat-Model-Qualifikation;
-- angenommenes, noch nicht ausgeführtes EXP-0017 mit genau zwölf
-  synthetischen EPUBs aus vier S3-Navigations-, vier Ressourcen-/Aktiv- und
-  vier Täuschungskontexten, zwei Wiederholungen, unverändertem WI-0005-
-  Provider- und Executorstand, lokaler Messkanarie, effektiver
-  Netzwerklosigkeit sowie fail-closed Timeout-, Output- und Cleanupgrenzen;
-  Produktcode und private Medien bleiben außerhalb.
+- angenommenes, noch nicht ausgeführtes EXP-0017 mit implementiertem,
+  hashgebundenem Ausführungs-Preimage: genau zwölf zur Laufzeit erzeugte
+  synthetische EPUBs aus vier S3-Navigations-, vier Ressourcen-/Aktiv- und
+  vier Täuschungskontexten, zwei Wiederholungen, direkter unveränderter
+  WI-0005-Provider- und Executorpfad, lokale IPv4-Loopback-Messkanarie,
+  effektive Netzwerklosigkeit sowie fail-closed Timeout-, Output- und
+  Cleanupgrenzen; Produktcode und private Medien bleiben außerhalb;
 
 ## Nicht vorhanden
 
@@ -1309,10 +1311,12 @@ WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
 EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018, EXP-0016 und
 GATE-0019 sind abgeschlossen. Der Nutzer hat für GATE-0019 ausdrücklich A
-gewählt. EXP-0017 ist `accepted` und wird nach Merge und Post-Merge-Prüfung
-in einer neuen isolierten Wave implementiert und ausschließlich synthetisch
-ausgeführt. B, C, K und P sind nicht ausgewählt; ein
-Produktarbeitsgegenstand ist nicht registriert. V1 bleibt Standard; nur
+gewählt. EXP-0017 ist `accepted`; sein getrenntes Ausführungs-Preimage ist
+implementiert. Der ausschließlich synthetische Hauptlauf bleibt bis zum
+sauberen Commit, einmalig grünen lokalen Volltest und beiden grünen
+Pflichtchecks auf exakt diesem Commit gesperrt. B, C, K und P sind nicht
+ausgewählt; ein Produktarbeitsgegenstand ist nicht registriert. V1 bleibt
+Standard; nur
 `--json --report-version v2` aktiviert V2.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents

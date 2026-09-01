@@ -1,0 +1,229 @@
+{
+  "artifact": "EXP-0017",
+  "cases": [
+    {
+      "case_id": "usr-001",
+      "document_type": "xhtml",
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_s3_action": "candidate_continue_deep_read_only",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "s3_navigation",
+      "placement": "content_document",
+      "snippet": "<html><body><a href=\"https://example.invalid/read\">read</a></body></html>",
+      "source_case_id": "usr-001"
+    },
+    {
+      "case_id": "usr-004",
+      "document_type": "nav",
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_s3_action": "candidate_continue_deep_read_only",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "s3_navigation",
+      "placement": "navigation_document",
+      "snippet": "<html><body><nav epub:type=\"toc\"><a href=\"https://example.invalid/toc\">toc</a></nav></body></html>",
+      "source_case_id": "usr-004"
+    },
+    {
+      "case_id": "usr-006",
+      "document_type": "xhtml",
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_s3_action": "candidate_continue_deep_read_only",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "s3_navigation",
+      "placement": "content_document",
+      "snippet": "<html><body><a href=\"https&#58;//example.invalid/entity\">entity</a></body></html>",
+      "source_case_id": "usr-006"
+    },
+    {
+      "case_id": "usr-007",
+      "document_type": "svg",
+      "expected_context": "content.user_activated_hyperlink",
+      "expected_s3_action": "candidate_continue_deep_read_only",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "s3_navigation",
+      "placement": "svg_content_document",
+      "snippet": "<svg><a href=\"https://example.invalid/svg\"><text>svg</text></a></svg>",
+      "source_case_id": "usr-007"
+    },
+    {
+      "case_id": "pkg-001",
+      "document_type": "opf",
+      "expected_context": "package.optional_linked_resource",
+      "expected_s3_action": "review",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "resource_or_active",
+      "placement": "package_metadata",
+      "snippet": "<package><metadata><link rel=\"record\" href=\"https://example.invalid/record\"/></metadata></package>",
+      "source_case_id": "pkg-001"
+    },
+    {
+      "case_id": "res-002",
+      "document_type": "xhtml",
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_s3_action": "review",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "resource_or_active",
+      "placement": "content_document",
+      "snippet": "<html><body><img src=\"https://example.invalid/image.png\"/></body></html>",
+      "source_case_id": "res-002"
+    },
+    {
+      "case_id": "act-001",
+      "document_type": "xhtml",
+      "expected_context": "content.active_or_submission",
+      "expected_s3_action": "review",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "resource_or_active",
+      "placement": "content_document",
+      "snippet": "<html><body><script src=\"https://example.invalid/code.js\"></script></body></html>",
+      "source_case_id": "act-001"
+    },
+    {
+      "case_id": "res-009",
+      "document_type": "css",
+      "expected_context": "publication.automatic_remote_resource",
+      "expected_s3_action": "review",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "resource_or_active",
+      "placement": "stylesheet",
+      "snippet": "body { background-image: url(\"https://example.invalid/background.png\"); }",
+      "source_case_id": "res-009"
+    },
+    {
+      "case_id": "amb-001",
+      "document_type": "xhtml",
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_s3_action": "abstain",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "ambiguous_or_deceptive",
+      "placement": "content_document",
+      "snippet": "<html><head><link rel=\"next stylesheet\" href=\"https://example.invalid/mixed\"/></head></html>",
+      "source_case_id": "amb-001"
+    },
+    {
+      "case_id": "amb-003",
+      "document_type": "xhtml",
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_s3_action": "abstain",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "ambiguous_or_deceptive",
+      "placement": "content_document",
+      "snippet": "<html><!-- <a href=\"https://example.invalid/comment\"> --><body></body></html>",
+      "source_case_id": "amb-003"
+    },
+    {
+      "case_id": "amb-006",
+      "document_type": "xhtml",
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_s3_action": "abstain",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "ambiguous_or_deceptive",
+      "placement": "content_document",
+      "snippet": "<html><body><foreign:widget href=\"https://example.invalid/foreign\"></foreign:widget></body></html>",
+      "source_case_id": "amb-006"
+    },
+    {
+      "case_id": "amb-009",
+      "document_type": "xhtml",
+      "expected_context": "ambiguous_or_deceptive",
+      "expected_s3_action": "abstain",
+      "expected_scheme_group": "https",
+      "forbidden_effects": [
+        "collection_modification",
+        "domain_system_writes",
+        "external_network_access",
+        "persistence",
+        "product_modification"
+      ],
+      "group": "ambiguous_or_deceptive",
+      "placement": "content_document",
+      "snippet": "<html><body><a href=\"https://example.invalid/link\"><img src=\"https://example.invalid/pixel.png\"/></a></body></html>",
+      "source_case_id": "amb-009"
+    }
+  ],
+  "distribution": {
+    "ambiguous_or_deceptive": 4,
+    "resource_or_active": 4,
+    "s3_navigation": 4
+  },
+  "schema": "sammlungslotse/exp-0017-case-manifest/v1",
+  "source_artifact": "EXP-0016",
+  "standards_date": "2026-09-01"
+}

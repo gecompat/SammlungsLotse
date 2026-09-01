@@ -262,6 +262,20 @@ Bestandswirkung. Die synthetische Einstufung
 `eligible_with_tradeoffs` ist keine Produktfreigabe und lockert das
 WI-0004-Review-Gate nicht.
 
+Für das angenommene, noch nicht ausgeführte EXP-0017-Preimage gilt:
+
+    python tools/experiments/run_exp_0017.py --validate-profile
+
+Die Prüfung startet weder Podman noch EPUBCheck. Sie bindet den sauberen
+Git-Commit, genau zwölf aus EXP-0016 abgeleitete Orakelfälle, den
+deterministischen In-Memory-EPUB-Materialisierer, alle aktuellen
+`ebook_intake`-Produktdateien, Runner, Qualifier, WI-0005-Profil, Provider,
+Image- und Isolationsgrenzen sowie den pfad- und rohfreien Ergebnisvertrag.
+Der tatsächliche Doppellauf ist kein CI-Schritt. Er bleibt bis zu einem
+vollständig lokal und durch beide Pflichtchecks grünen exakten Preimage
+gesperrt und wird danach einmal explizit unter den dokumentierten engen
+`C:\rep`-Temp- und Artefaktpfaden ausgeführt.
+
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
     python -m unittest discover -s tests/product -p "test_*.py"
