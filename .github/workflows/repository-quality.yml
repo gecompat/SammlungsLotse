@@ -63,6 +63,8 @@ jobs:
         run: python tools/experiments/validate_exp_0017_result.py
       - name: Validate WI-0005 product qualification result
         run: python tools/qualify_ebook_deep_profile.py --validate-result
+      - name: Validate WI-0014 product qualification result
+        run: python tools/qualify_ebook_intake_context.py --validate-result
       - name: Validate WI-0007 product qualification result
         run: python tools/qualify_calibre_readonly_profile.py --validate-result
       - name: Validate current EPUB identity product qualification result

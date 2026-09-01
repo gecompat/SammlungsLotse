@@ -1,6 +1,6 @@
 # WI-0014: Review-Kontexterklärung V2 für die EPUB-Eingangstriage umsetzen
 
-Status: IMPLEMENTED — COMMITGEBUNDENE PRODUKTQUALIFIKATION AUSSTEHEND
+Status: DONE — 16/16 COMMITGEBUNDENE PRODUKTKRITERIEN BESTANDEN
 
 Stand: 2026-09-02
 
@@ -147,7 +147,7 @@ getrennte Nachweise. Ein grüner Teilnachweis ersetzt keinen der beiden
 anderen. Unveränderte Vollprüfungen werden erst auf dem stabilen Kandidaten
 und nicht nach jeder Zwischenänderung wiederholt.
 
-## Implementierungszwischenstand
+## Implementierung und Ergebnis
 
 Der additive V2-Kandidat ist umgesetzt. Das interne Modell trägt eine
 validierte, sortierte Kontextprojektion; `context.py` reproduziert die sechs
@@ -159,10 +159,10 @@ Deep-Read-Gate. Einzel-, Batch- und kombinierter JSON-Weg aktivieren V2 nur
 `runtime/ebook-intake-context/profile.json` und
 `tools/qualify_ebook_intake_context.py` binden den Ausgangscommit, beide
 synthetischen Fallmatrizen, die vollständige Intake-Laufzeit und die drei
-öffentlichen Projektionsflächen. Der tatsächliche Hauptlauf bleibt bis zu
-einem sauberen, vollständig getesteten und in beiden Pflichtchecks grünen
-Preimage gesperrt. Deshalb ist WI-0014 in diesem Zwischenstand noch nicht
-`done`.
+öffentlichen Projektionsflächen. Der tatsächliche Hauptlauf blieb bis zum
+sauberen, vollständig getesteten und in beiden Pflichtchecks grünen Preimage
+`ed7f173896b7365d2f91fb47baa1bc4065c23bcb` gesperrt und wurde danach genau
+einmal ausgeführt.
 
 Auf dem stabilen lokalen Kandidaten bestanden 76 fokussierte Produkt- und
 Boundary-Prüfungen, der historische EXP-0014-Nachweis und 255/255 durch den
@@ -171,17 +171,26 @@ Laufzeit erforderliche WI-0005-Requalifizierung bestand unabhängig 12/12
 Kriterien. Der ebenfalls vom erweiterten Intake-Modell abhängige WI-0011-
 Produktweg wurde tatsächlich mit Podman erneut qualifiziert und bestand
 23/23 Kriterien. Projekt-, Registry-, Kompilierungs-, Diff- und Foundation-
-Prüfungen waren ebenfalls grün. Der nächste neue Nachweis ist damit nicht
-ein weiterer lokaler Volltest, sondern die Pflicht-CI auf dem sauberen
-Ergebnisbindungscommit.
+Prüfungen waren ebenfalls grün.
+
+Der Hauptlauf bestand 16/16 Kriterien. Die 48 EXP-0016-Fälle liefen zweimal
+ohne Mismatch; alle zwölf öffentlichen CLI-Fälle behielten V1 bytegleich und
+V2 deterministisch. Elf bestehende Reviewfälle blieben geschlossen, der
+bewusste Nicht-Review-Kontrollfall erhielt `not_applicable`, Batch und
+kombinierter Bericht verwendeten die gebundenen V2-Schemata, kein
+Deep-Provider startete und alle Eingänge sowie das Cleanup blieben
+unverändert. Der pfadfreie Nachweis unter
+`runtime/ebook-intake-context/qualification.json` besitzt SHA-256
+`16b33a98904157593de335ce0aa8a8348f3c1d9a795fdbe34765251a5dbc3046`.
+WI-0014 ist damit `done`.
 
 ## Ergebnisfolge
 
-Nach einer bestandenen Implementierung und Produktqualifikation wird WI-0014
-auf `done` gesetzt. Das Ergebnis öffnet ein getrenntes Gate. Dieses spätere
-Gate darf V2 stabil halten, weitere additive Erklärung erwägen, konservieren
-oder pausieren; es wählt ohne neue ausdrückliche Nutzerentscheidung keine
-weitere Produktänderung.
+Die bestandene Implementierung und Produktqualifikation hat GATE-0021 als
+getrenntes Ergebnisgate geöffnet. Es darf V2 stabil halten, weitere additive
+Erklärung erwägen, konservieren oder pausieren; es wählt ohne neue
+ausdrückliche Nutzerentscheidung keine weitere Produktänderung. Derzeit ist
+keine Option ausgewählt.
 
 ## Nicht-Ziele
 

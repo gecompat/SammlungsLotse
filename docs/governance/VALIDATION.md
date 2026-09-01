@@ -347,6 +347,12 @@ gebundenen Ausgangscommit und prüft Batch- und kombinierte V2-Schemata, das
 geschlossene Review-/Deep-Gate, Pfadfreiheit, unveränderte Eingänge,
 fehlende verbotene Wirkungen und vollständiges Task-Cleanup.
 
+Der einmalige Lauf auf dem in beiden Pflichtchecks grünen Preimage
+`ed7f173896b7365d2f91fb47baa1bc4065c23bcb` bestand 16/16 Kriterien. Der
+aktuelle eingecheckte Nachweis mit SHA-256
+`16b33a98904157593de335ce0aa8a8348f3c1d9a795fdbe34765251a5dbc3046`
+ist historisch an dieses Preimage gebunden.
+
 Für den eingecheckten WI-0005-Produktnachweis gilt zusätzlich:
 
     python tools/qualify_ebook_deep_profile.py --validate-result

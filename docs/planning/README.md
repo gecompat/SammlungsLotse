@@ -57,6 +57,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0017: synthetische Downstream-Isolation des tiefen EPUB-Pfads qualifizieren](EBOOK_SYNTHETIC_DOWNSTREAM_ISOLATION_EXPERIMENT.md);
 - [GATE-0020: EXP-0017-Ergebnis und sichere Produktfortsetzung bewerten](EBOOK_GATE_0020_AFTER_EXP0017.md);
 - [WI-0014: Review-Kontexterklärung V2 für die EPUB-Eingangstriage umsetzen](EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md);
+- [GATE-0021: WI-0014-Ergebnis und sichere Produktfortsetzung bewerten](EBOOK_GATE_0021_AFTER_WI0014.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -307,7 +308,7 @@ erste `inconclusive`-Bericht auf `2bb29e0` bleibt unverändert außerhalb von
 Git; seine eng begrenzte Semantikprojektionskorrektur ist transparent
 dokumentiert. Der Nutzer hat in GATE-0020 ausdrücklich Option B gewählt.
 GATE-0020 ist abgeschlossen und WI-0014 als review-beibehaltender,
-pfadfreier V2-Produktarbeitsgegenstand `accepted`. Der Vertrag hält Human-
+pfadfreier V2-Produktarbeitsgegenstand `done`. Der Vertrag hält Human-
 und Standard-JSON-Ausgabe bytekompatibel, bindet die sechs EXP-0016-
 Kontextklassen samt fail-closed Rückfall und lässt das WI-0004-Review-Gate
 unverändert. Der getrennte additive Implementierungskandidat liegt im neuen
@@ -317,9 +318,11 @@ Produktregression sind grün. Auch der einmalige vollständige lokale
 Kandidatenlauf mit 255/255 ausgeführten Tests und die unabhängige
 WI-0005-Requalifizierung mit 12/12 Kriterien sind grün. Der abhängige
 WI-0011-Weg wurde auf dem Kandidaten ebenfalls tatsächlich mit Podman erneut
-qualifiziert und bestand 23/23 Kriterien. WI-0014 bleibt bis zum
-commitgebundenen synthetischen Hauptlauf und dessen Ergebnisbindung
-`accepted`.
+qualifiziert und bestand 23/23 Kriterien. Der danach einmalig auf dem grünen
+Preimage `ed7f173` ausgeführte WI-0014-Hauptlauf bestand 16/16 Kriterien;
+sein pfadfreier Nachweis ist eingecheckt. GATE-0021 bewertet als neues
+`proposed` Ergebnisgate Stabilhalten, weitere additive Erklärung,
+Konservieren und Pausieren. Keine Option ist ausgewählt.
 
 ## Nicht übernehmen
 

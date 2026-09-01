@@ -280,7 +280,7 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   Bericht bleibt unverändert außerhalb von Git und die eng begrenzte
   Korrektur ist transparent dokumentiert. Der Nutzer hat in GATE-0020
   ausdrücklich Option B gewählt. GATE-0020 ist `done`; WI-0014 ist als
-  review-beibehaltende, pfadfreie V2-Kontexterklärung `accepted`. Der Vertrag
+  review-beibehaltende, pfadfreie V2-Kontexterklärung `done`. Der Vertrag
   hält Human- und Standard-JSON-Ausgabe bytekompatibel, bindet die sechs
   EXP-0016-Kontextklassen samt fail-closed Rückfall und lässt das
   WI-0004-Review-Gate unverändert. Der getrennte additive
@@ -289,9 +289,10 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   `review` und Deep-Read-Gate bleiben unverändert. Der stabile lokale
   Kandidat bestand 255/255 Repositorytests; die davon getrennte
   WI-0005-Requalifizierung bestand 12/12 Kriterien. Der abhängige WI-0011-
-  Weg bestand auf demselben Kandidaten erneut 23/23. WI-0014 bleibt bis zum
-  commitgebundenen synthetischen Hauptlauf und dessen Ergebnisbindung
-  `accepted`.
+  Weg bestand auf demselben Kandidaten erneut 23/23. Der einmalige
+  WI-0014-Hauptlauf auf dem beidseitig CI-grünen Preimage `ed7f173` bestand
+  16/16 Kriterien und ist eingecheckt gebunden. GATE-0021 ist als getrenntes
+  Ergebnisgate `proposed`; A, B, K und P sind nicht ausgewählt.
 
 ## Harte Grenzen
 
@@ -312,6 +313,8 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
 - Deployment und UI;
 - konkrete REST- und Agent-Verträge;
 - V1-Deprecation oder -Entfernung sowie eine eigene Publikationsstufe;
+- Auswahl in GATE-0021 zwischen Stabilhalten von V2, weiterer additiver
+  Erklärung, Konservieren und Pausieren;
 - konkrete FolioTone-Wiederverwendung;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - Accessibility- und externe Metadatenprovider-Adapter sowie weitere tiefe

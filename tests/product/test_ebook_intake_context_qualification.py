@@ -89,6 +89,17 @@ class EbookIntakeContextQualificationTests(unittest.TestCase):
         self.assertIn("tools/qualify_ebook_intake_context.py", locators)
         self.assertIn("tests/product/test_ebook_intake_v2.py", locators)
 
+    def test_checked_in_result_is_exact_and_historically_bound(self) -> None:
+        result = qualification.validate_result_dict(
+            qualification.load_json(qualification.RESULT_PATH)
+        )
+
+        self.assertEqual("ed7f173896b7365d2f91fb47baa1bc4065c23bcb", result["preimage_commit"])
+        self.assertEqual(16, sum(result["acceptance"].values()))
+        self.assertEqual(0, result["classifier"]["mismatches"])
+        self.assertEqual(11, result["public_cli"]["closed_review_cases"])
+        self.assertTrue(result["cleanup_complete"])
+
     def test_result_validator_rejects_claims_with_changed_metrics(self) -> None:
         result = {
             field: None for field in qualification.RESULT_FIELDS

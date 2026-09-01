@@ -1848,6 +1848,52 @@
       "status": "done",
       "title": "EXP-0017-Ergebnis und sichere Produktfortsetzung bewerten"
     },
+    "GATE-0021": {
+      "acceptance_criteria": "Das Gate bewertet den commitgebundenen WI-0014-Pass getrennt von jeder weiteren Produktfreigabe, stellt unverändertes Stabilhalten von V2, ausschließlich additive weitere Erklärung, konservatives Beibehalten und Pausieren als ausdrücklich wählbare Optionen gegenüber und registriert oder beginnt ohne neue Nutzerauswahl keinen Folgearbeitsgegenstand; V1, Review-Gate, private Daten, Fachsystem und Sammlung bleiben unverändert.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05f0b-46a4-7c2b-946b-9bef33726aae",
+      "created_on": "2026-09-02",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0021_AFTER_WI0014.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0014",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0020",
+          "type": "related_to"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "proposed",
+      "title": "WI-0014-Ergebnis und sichere Produktfortsetzung bewerten"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],
@@ -2501,7 +2547,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Review-Kontexterklärung V2 für die EPUB-Eingangstriage umsetzen"
     }
   },
