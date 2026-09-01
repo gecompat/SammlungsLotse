@@ -257,8 +257,12 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   ausschließlich `content.navigation=3`, keine seltene bekannte Klasse und
   null unklassifizierte Eingänge. Quellen blieben unverändert und das Cleanup
   vollständig; private Werte und Einzelzuordnungen wurden nicht aufbewahrt.
-  GATE-0018 ist `proposed`; A, B, C, K und P bleiben nicht ausgewählt. Ein
-  Produktarbeitsgegenstand ist nicht registriert.
+  Der Nutzer hat in GATE-0018 ausdrücklich Option A gewählt. GATE-0018 ist
+  `done`; EXP-0016 ist als rein synthetische, produktcodefreie
+  Navigationskontext- und Sicherheitsmatrix `accepted`, aber noch nicht
+  ausgeführt. Der Vertrag bindet genau 48 Fälle, drei Strategien und
+  dominante Kosten kritischer Fehlfortsetzungen. B, C, K und P bleiben nicht
+  ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert.
 
 ## Harte Grenzen
 

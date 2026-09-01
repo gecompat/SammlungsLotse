@@ -742,6 +742,77 @@
       "status": "done",
       "title": "Private Remote-Referenzkontexte produktcodefrei und pfadfrei gruppieren"
     },
+    "EXP-0016": {
+      "acceptance_criteria": "Das vollständig produktcodefreie Experiment verarbeitet ausschließlich eine vorab gebundene synthetische Matrix aus EPUB-Package-, XHTML-, SVG-, Navigations-, Ressourcen-, Täuschungs- sowie HTTP(S)- und Nicht-HTTP(S)-Kontexten ohne private Medien, Netzwerk, Produktimport, Persistenz, tiefes Werkzeug oder Bestandswirkung; ein standardsgebundenes Orakel trennt nutzeraktivierte Hyperlinks, optionale Package-Links, automatisch oder aktiv verarbeitbare Ressourcen, lokale beziehungsweise andere Schemata und mehrdeutige Fälle, vergleicht drei vorab gebundene Review- und Differenzierungsstrategien mit dominanten kritischen Fehlfortsetzungs-Kosten, verlangt null kritische Fehlfortsetzungen, vollständige Fallabdeckung, Determinismus und fail-closed Enthaltung und öffnet unabhängig vom Ergebnis ein getrenntes Gate, ohne eine Produktregel, Review-Lockerung oder Änderung unter src/sammlungslotse zu autorisieren.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a05d0d-43ab-7915-aaa4-60b50af83d03",
+      "created_on": "2026-09-01",
+      "external_refs": [
+        {
+          "system": "w3c_epub_33",
+          "value": "https://www.w3.org/TR/2026/REC-epub-33-20260113/"
+        },
+        {
+          "system": "w3c_epub_rs_33",
+          "value": "https://www.w3.org/TR/2024/REC-epub-rs-33-20241017/"
+        },
+        {
+          "system": "whatwg_html",
+          "value": "https://html.spec.whatwg.org/"
+        }
+      ],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_SYNTHETIC_NAVIGATION_SAFETY_MATRIX_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0018",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0015",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0015",
+          "type": "derived_from"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Synthetische EPUB-Navigationskontext- und Sicherheitsmatrix qualifizieren"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -1587,7 +1658,7 @@
           "type": "related_to"
         }
       ],
-      "status": "proposed",
+      "status": "done",
       "title": "EXP-0015-Ergebnis und gemeinsamen Navigationskontext bewerten"
     },
     "REQ-0001": {

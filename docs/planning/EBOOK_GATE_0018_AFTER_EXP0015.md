@@ -1,6 +1,6 @@
 # GATE-0018: EXP-0015-Ergebnis und gemeinsamen Navigationskontext bewerten
 
-Status: PROPOSED — OPEN FOR EXPLICIT SELECTION
+Status: DONE — OPTION A / EXP-0016 AUSGEWÄHLT
 
 Stand: 2026-09-01
 
@@ -13,6 +13,18 @@ die gemeinsame grobe Kontextklasse von jeder Aussage über Gefährlichkeit,
 Erreichbarkeit, EPUB-Gültigkeit oder eine erforderliche Produktkorrektur.
 Ohne ausdrückliche Auswahl wird weder ein Folgeexperiment noch ein
 Produktarbeitsgegenstand registriert.
+
+## Auswahlentscheidung
+
+Der Nutzer hat Option A am 2026-09-01 ausdrücklich ausgewählt. GATE-0018 ist
+damit abgeschlossen und ausschließlich EXP-0016 als akzeptiertes, noch nicht
+ausgeführtes Experiment registriert.
+
+Die Auswahl autorisiert nach Merge, Post-Merge-Prüfung und einem sauberen
+Ausführungspreimage nur die rein synthetische Navigationskontext- und
+Sicherheitsmatrix. Sie autorisiert keine weitere private Analyse, keine
+Produktregel und keine Lockerung oder Umgehung des bestehenden
+WI-0004-Review-Gates. B, C, K und P bleiben nicht ausgewählt.
 
 ## Verifizierte Evidenz
 
@@ -56,6 +68,8 @@ verhielt sich weiterhin vertragsgemäß.
 ## Optionen
 
 ### A — Rein synthetische Navigationskontext- und Sicherheitsmatrix vertiefen
+
+**Ausgewählt als EXP-0016.**
 
 Ein neues produktcodefreies Experiment könnte ausschließlich synthetisch
 externe Hyperlinks, Package-/Content-Navigation, Täuschungsfälle,
@@ -104,8 +118,11 @@ Entscheidungsmatrix klärt. K ist die sichere Endposition, wenn das bestehende
 Reviewverhalten genügt. B kann die Verständlichkeit erhöhen, verändert aber
 bereits Produktcode. C ist ohne die Evidenz aus A verfrüht.
 
-Die Empfehlung nimmt keine Option an. Eine Fortsetzung erfordert die
-ausdrückliche Auswahl von A, B, C, K oder P.
+Die Empfehlung nahm A für sich noch nicht an. Der Nutzer hat A inzwischen
+ausdrücklich ausgewählt. EXP-0016 bindet deshalb vorab eine ausschließlich
+synthetische, standardsbezogene Kontext-, Täuschungs- und Fehlkostenmatrix.
+Unabhängig vom Ergebnis benötigt jede Produktfortsetzung ein neues getrenntes
+Gate und für Produktcode zusätzlich einen angenommenen Arbeitsgegenstand.
 
 ## Harte Grenzen
 
@@ -124,7 +141,10 @@ ausdrückliche Auswahl von A, B, C, K oder P.
 
 - EXP-0015 ist `done`; Methode und pfadfreies Aggregat sind historisch
   gebunden.
-- GATE-0018 ist `proposed` und offen für eine ausdrückliche Auswahl.
-- A, B, C, K und P sind nicht ausgewählt.
+- GATE-0018 ist `done`.
+- EXP-0016 ist `accepted`, aber noch nicht ausgeführt.
+- B, C, K und P sind nicht ausgewählt.
 - Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
   unverändert.
+- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
+  `origin/main` und gegen ein sauberes Commit-Preimage.
