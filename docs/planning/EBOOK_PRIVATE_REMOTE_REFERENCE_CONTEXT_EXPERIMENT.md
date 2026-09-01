@@ -71,7 +71,7 @@ Nach bestandener Eingangskontrolle gilt genau diese Reihenfolge:
    vor dem Lesen Grenzen für Dateigröße, Eintragsanzahl, deklarierte
    Gesamtgröße, Einzelentry, relative Namen, Kompressionsverhältnis und
    insgesamt gelesene Markupbytes.
-4. Gelesen werden nur vorab erlaubte Paket-, XHTML-/HTML-, SVG-, NCX- und
+4. Gelesen werden nur vorab erlaubte Paket-, XHTML-/HTML-, SVG-, XML- und
    CSS-Einträge. Binäre Nutzdaten bleiben ungelesen.
 5. HTTP(S)-Werte werden ausschließlich im lokalen Parserzustand erkannt und
    sofort auf eine vorab gebundene Kontextklasse reduziert. Der Wert selbst,
@@ -83,8 +83,11 @@ Nach bestandener Eingangskontrolle gilt genau diese Reihenfolge:
 7. Erst nach drei vollständigen Läufen, nachgeprüften Quellen und
    vollständigem Cleanup wird genau ein gemeinsames Aggregat geschrieben.
 
-Es gibt keinen Netzwerkclient, keinen Subprozess, keine direkte
-Datenbanknutzung, keinen tiefen Werkzeuglauf und keine Bestandswirkung.
+Der fachliche Parserlauf verwendet keinen Netzwerkclient, keinen Subprozess,
+keine direkte Datenbanknutzung, keinen tiefen Werkzeuglauf und erzeugt keine
+Bestandswirkung. Vor jeder privaten Eingangsprüfung bindet ausschließlich ein
+read-only Git-Aufruf das vollständig eingecheckte Ausführungspreimage; dieser
+Governance-Aufruf erhält und verarbeitet keinen privaten Locator oder Inhalt.
 
 ## Vorab gebundene Kontexttaxonomie
 
@@ -174,8 +177,9 @@ Hauptlauf nicht.
 - Mindestgruppe `2`; seltene Klassen bleiben ohne Literal unterdrückt;
 - keine Vorkommenszahlen und keine Einzelzuordnung;
 - kein Produktimport und keine Änderung unter `src/sammlungslotse/`;
-- kein Netzwerk, Subprozess, tiefer Werkzeuglauf, Calibre, Persistenz oder
-  direkte Datenbanknutzung;
+- kein Netzwerk, fachlicher Subprozess, tiefer Werkzeuglauf, Calibre,
+  Persistenz oder direkte Datenbanknutzung; Git wird ausschließlich vor der
+  privaten Eingangsprüfung read-only für die Preimage-Bindung aufgerufen;
 - keine Aufbewahrung privater Arbeitskopien, Referenzen, Metadaten,
   ZIP-Eintragsnamen, Locators, Pfade, Hashes, Größen oder Rohoutputs;
 - keine neue öffentliche CLI-, API-, UI-, Agent-, Diagnose-, Such-, Routing-

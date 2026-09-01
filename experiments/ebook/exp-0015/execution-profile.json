@@ -1,0 +1,148 @@
+{
+  "artifact": "EXP-0015",
+  "implementation": {
+    "analysis_subprocess_execution": false,
+    "deep_tool_execution": false,
+    "direct_database_access": false,
+    "directory_discovery": false,
+    "git_preimage_read_only_process": true,
+    "network_access": false,
+    "persistence": false,
+    "product_code_changes": false,
+    "writer_surface": false
+  },
+  "input_contract": {
+    "confirmation_flag": "--confirm-same-exp-0014-inputs",
+    "count": 3,
+    "max_file_bytes": 4194304,
+    "max_total_bytes": 12582912,
+    "regular_files_only": true,
+    "suffix": ".epub"
+  },
+  "limits": {
+    "max_archive_entries": 512,
+    "max_compression_ratio": 200,
+    "max_expanded_bytes": 134217728,
+    "max_markup_entry_bytes": 2097152,
+    "max_markup_total_bytes": 16777216,
+    "max_relative_name_bytes": 512,
+    "minimum_group_size": 2,
+    "output_bytes": 8192,
+    "private_parser_runs": 3
+  },
+  "output_contract": {
+    "allowed_fields": [
+      "artifact",
+      "cleanup_complete",
+      "context_input_counts",
+      "input_count",
+      "minimum_group_size",
+      "parser_runs",
+      "path_free",
+      "qualification",
+      "remote_reference_input_count",
+      "schema",
+      "source_unchanged",
+      "status",
+      "suppressed_context_present",
+      "unclassified_input_count"
+    ],
+    "qualifications": [
+      "shared_context_present",
+      "no_shared_context",
+      "inconclusive"
+    ],
+    "schema": "sammlungslotse/exp-0015-private-reference-context-result/v1",
+    "statuses": [
+      "pass",
+      "inconclusive"
+    ]
+  },
+  "parser": {
+    "context_classes": [
+      "content.embedded_resource",
+      "content.navigation",
+      "markup.other_attribute",
+      "package.metadata_or_link",
+      "stylesheet.resource",
+      "svg.resource",
+      "text_or_script.literal"
+    ],
+    "implementation": "python-3.12-standard-library",
+    "markup_suffixes": [
+      ".xhtml",
+      ".html",
+      ".htm",
+      ".svg",
+      ".opf",
+      ".xml",
+      ".css"
+    ],
+    "parser_runs_per_private_input": 1,
+    "product_imports": false,
+    "remote_trigger_patterns": [
+      "attribute:href|poster|src=http(s)",
+      "stylesheet:url(http(s))"
+    ],
+    "zip_extraction": false
+  },
+  "privacy_contract": {
+    "minimum_group_size": 2,
+    "occurrence_counts_retained": false,
+    "per_input_assignments_retained": false,
+    "private_values_retained": false,
+    "rare_context_literal_retained": false,
+    "remote_values_retained": false,
+    "zip_entry_names_retained": false
+  },
+  "profile_id": "exp-0015-private-remote-context/v1",
+  "runtime_bindings": {
+    "files": [
+      {
+        "locator": "src/sammlungslotse/ebook_intake/preflight.py",
+        "sha256": "2a73da1bc50e317af996cf10f3447050b7ea16693bb78630de4faa9619ddcf88"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/manifest.json",
+        "sha256": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2"
+      }
+    ],
+    "test_0001_version": "0.3.0",
+    "wi_0004_remote_pattern_bound": true
+  },
+  "schema": "sammlungslotse/exp-0015-execution-profile/v1",
+  "synthetic_controls": {
+    "aggregation_repetitions": 2,
+    "context_classes": [
+      "content.embedded_resource",
+      "content.navigation",
+      "markup.other_attribute",
+      "package.metadata_or_link",
+      "stylesheet.resource",
+      "svg.resource",
+      "text_or_script.literal"
+    ],
+    "negative_controls": [
+      "two_inputs",
+      "four_inputs",
+      "duplicate_input",
+      "directory_input",
+      "link_input",
+      "oversized_input",
+      "invalid_archive",
+      "path_traversal",
+      "duplicate_entry",
+      "encrypted_entry",
+      "entry_limit",
+      "expanded_limit",
+      "markup_entry_limit",
+      "markup_total_limit",
+      "compression_ratio",
+      "private_output_field",
+      "partial_execution",
+      "incomplete_cleanup",
+      "source_change"
+    ],
+    "private_media_used": false
+  }
+}
