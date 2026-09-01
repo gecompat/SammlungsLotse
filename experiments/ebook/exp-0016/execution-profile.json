@@ -1,0 +1,145 @@
+{
+  "artifact": "EXP-0016",
+  "case_manifest": {
+    "case_count": 48,
+    "locator": "experiments/ebook/exp-0016/cases.json",
+    "sha256": "ad627375cd5464e2bbc5e21c25b57fad42d85d83071938d2fbcce6be8d289742"
+  },
+  "cost_order": [
+    "critical_false_continue",
+    "context_false_negative",
+    "context_mismatch",
+    "conservative_review",
+    "abstention"
+  ],
+  "execution_gate": {
+    "confirmation_flag": "--confirm-green-preimage-ci",
+    "green_preimage_ci_required": true
+  },
+  "implementation": {
+    "analysis_subprocess_execution": false,
+    "deep_tool_execution": false,
+    "direct_database_access": false,
+    "git_preimage_read_only_process": true,
+    "network_access": false,
+    "persistence": false,
+    "private_input_access": false,
+    "product_code_changes": false,
+    "product_code_imports": false,
+    "writer_surface": false
+  },
+  "output_contract": {
+    "allowed_fields": [
+      "acceptance",
+      "artifact",
+      "bindings",
+      "case_count",
+      "class_counts",
+      "cleanup_complete",
+      "effects",
+      "parser_runs",
+      "path_free",
+      "preimage_commit",
+      "repetitions",
+      "runs_semantically_identical",
+      "schema",
+      "scheme_counts",
+      "status",
+      "strategies"
+    ],
+    "schema": "sammlungslotse/exp-0016-navigation-safety-result/v1",
+    "statuses": [
+      "inconclusive",
+      "pass"
+    ],
+    "strategy_classifications": [
+      "eligible_with_tradeoffs",
+      "not_qualified"
+    ]
+  },
+  "parser": {
+    "context_classes": [
+      "ambiguous_or_deceptive",
+      "content.active_or_submission",
+      "content.user_activated_hyperlink",
+      "package.optional_linked_resource",
+      "publication.automatic_remote_resource",
+      "reference.local_or_other_scheme"
+    ],
+    "document_types": [
+      "css",
+      "nav",
+      "opf",
+      "svg",
+      "xhtml"
+    ],
+    "implementation": "python-3.12-standard-library",
+    "oracle_fields_used_for_classification": false,
+    "scheme_groups": [
+      "data_or_file",
+      "helper_or_other",
+      "http",
+      "https",
+      "local_relative_or_fragment",
+      "network_path_reference",
+      "none"
+    ]
+  },
+  "profile_id": "exp-0016-navigation-safety-matrix/v1",
+  "repetitions": 2,
+  "runtime_bindings": {
+    "files": [
+      {
+        "locator": "docs/planning/EBOOK_GATE_0018_AFTER_EXP0015.md",
+        "sha256": "9d40ad3353dcb66b8058ce9ae7693217e69a120eba033ab54da7cb46217ef3ca"
+      },
+      {
+        "locator": "docs/planning/EBOOK_PRIVATE_REMOTE_REFERENCE_CONTEXT_EXPERIMENT.md",
+        "sha256": "e4c8b7de4dc27f5becc23cc21367ebbad56029729bb521946a7e645d06bd4c74"
+      },
+      {
+        "locator": "docs/planning/EBOOK_SYNTHETIC_NAVIGATION_SAFETY_MATRIX_EXPERIMENT.md",
+        "sha256": "0b23f66f6914cc79c8fe6bc9be3aa9c04be55f9fddebdca689cafc90064c1807"
+      },
+      {
+        "locator": "experiments/ebook/exp-0016/cases.json",
+        "sha256": "ad627375cd5464e2bbc5e21c25b57fad42d85d83071938d2fbcce6be8d289742"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/preflight.py",
+        "sha256": "2a73da1bc50e317af996cf10f3447050b7ea16693bb78630de4faa9619ddcf88"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/manifest.json",
+        "sha256": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2"
+      },
+      {
+        "locator": "tools/experiments/run_exp_0016.py",
+        "sha256": "38e2b17c3455878bc853e1cbf0b25d61a31670e695aede496bf218c7011303f9"
+      }
+    ]
+  },
+  "schema": "sammlungslotse/exp-0016-execution-profile/v1",
+  "standards": [
+    {
+      "id": "w3c-epub-33",
+      "published_on": "2026-01-13",
+      "url": "https://www.w3.org/TR/2026/REC-epub-33-20260113/"
+    },
+    {
+      "id": "w3c-epub-rs-33",
+      "published_on": "2024-10-17",
+      "url": "https://www.w3.org/TR/2024/REC-epub-rs-33-20241017/"
+    },
+    {
+      "id": "whatwg-html",
+      "retrieved_on": "2026-09-01",
+      "url": "https://html.spec.whatwg.org/"
+    }
+  ],
+  "strategies": [
+    "review_all_http_s",
+    "classify_and_keep_review",
+    "strict_navigation_candidate"
+  ]
+}
