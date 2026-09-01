@@ -1,0 +1,369 @@
+{
+  "artifact": "EXP-0014",
+  "commands": {
+    "arguments": [
+      "tools/run_ebook_intake.py",
+      "--json"
+    ],
+    "intake_runs_per_private_input": 1
+  },
+  "implementation": {
+    "deep_tool_execution": false,
+    "direct_database_access": false,
+    "directory_discovery": false,
+    "network_access": false,
+    "persistence": false,
+    "private_values_retained": false,
+    "product_code_changes": false,
+    "writer_surface": false
+  },
+  "input_contract": {
+    "confirmation_flag": "--confirm-same-exp-0013-inputs",
+    "count": 3,
+    "max_file_bytes": 4194304,
+    "max_total_bytes": 12582912,
+    "regular_files_only": true,
+    "suffix": ".epub"
+  },
+  "limits": {
+    "intake_timeout_seconds": 20,
+    "max_code_bytes": 96,
+    "max_evidence_items_per_group": 128,
+    "max_value_fields_per_evidence": 8,
+    "output_bytes": 16384,
+    "private_intake_runs": 3,
+    "stderr_bytes": 8192,
+    "stdout_bytes": 131072,
+    "synthetic_intake_runs": 4
+  },
+  "output_contract": {
+    "allowed_fields": [
+      "artifact",
+      "cleanup_complete",
+      "finding_code_counts",
+      "input_count",
+      "intake_runs",
+      "next_action_counts",
+      "observation_code_counts",
+      "path_free",
+      "schema",
+      "source_unchanged",
+      "status",
+      "unclassified_finding_count",
+      "unclassified_observation_count"
+    ],
+    "schema": "sammlungslotse/exp-0014-private-preflight-cause-result/v1",
+    "statuses": [
+      "pass",
+      "inconclusive"
+    ]
+  },
+  "profile_id": "exp-0014-private-ingress-preflight-causes/v1",
+  "public_contract": {
+    "effect_fields": [
+      "deep_tool_started",
+      "domain_system_writes",
+      "filesystem_writes",
+      "network_access",
+      "original_modified"
+    ],
+    "finding_codes": [
+      "container.corrupt",
+      "format.epub",
+      "format.extension_mismatch",
+      "format.pdf_unsupported_for_deep_epub",
+      "format.zip_not_epub",
+      "ingress.unstable",
+      "input.not_regular_file",
+      "input.reparse_not_allowed",
+      "input.symlink_not_allowed",
+      "input.unavailable",
+      "protection.present",
+      "resource.entry_limit_exceeded",
+      "resource.expansion_limit_exceeded",
+      "resource.input_limit_exceeded",
+      "resource.markup_limit_exceeded",
+      "security.active_content",
+      "security.duplicate_entry",
+      "security.path_traversal",
+      "security.remote_resource"
+    ],
+    "format_capabilities": [
+      "supported",
+      "unsupported",
+      "unknown"
+    ],
+    "next_actions": [
+      "continue_deep_read_only",
+      "defer",
+      "stop",
+      "review",
+      "abstain"
+    ],
+    "observation_codes": [
+      "container.compressed_size",
+      "container.encryption_xml",
+      "container.entry_count",
+      "container.entry_parent_escape",
+      "container.expanded_size",
+      "container.mimetype.epub",
+      "container.mimetype_missing_or_ambiguous",
+      "container.open_error",
+      "container.zip_encrypted",
+      "epub.remote_reference.present",
+      "epub.script.present",
+      "filename.extension.epub",
+      "format.signature.pdf",
+      "format.signature.zip",
+      "format.signature_unknown",
+      "input.not_regular_file",
+      "input.read_error",
+      "input.reparse_point",
+      "input.sha256",
+      "input.size",
+      "input.size_limit_exceeded",
+      "input.symlink",
+      "input.unavailable",
+      "markup.shallow_scan",
+      "snapshot.changed",
+      "snapshot.stable"
+    ],
+    "report_fields": [
+      "deep_read_only_allowed",
+      "effects",
+      "findings",
+      "format_capability",
+      "limits",
+      "next_action",
+      "observations",
+      "schema",
+      "snapshot"
+    ],
+    "report_schema": "sammlungslotse/ebook-intake-report/v1",
+    "triage_limits": {
+      "max_archive_entries": 512,
+      "max_expanded_bytes": 134217728,
+      "max_input_bytes": 33554432,
+      "max_markup_entry_bytes": 2097152,
+      "max_markup_total_bytes": 16777216,
+      "max_report_bytes": 131072
+    }
+  },
+  "runtime_bindings": {
+    "files": [
+      {
+        "locator": "tools/run_ebook_intake.py",
+        "sha256": "ea8fbac59221d7576c7a68d92821b1054e6d11ab6099d8e36bd217a5f0f9b6c4"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/__init__.py",
+        "sha256": "5a3854461e569698a92995a7ec8cd39eecfeab3a0c9637b7b25dc000b2b8259d"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/application.py",
+        "sha256": "da82da5c07f42f7eb4853a7627781906f389dbdb4a16152b5bd3d54f2260b123"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/batch.py",
+        "sha256": "0cf5e698669c242754e7fa3cdf8a612c15df56ed14ccf094b740335bd7869eab"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/cli.py",
+        "sha256": "493840b8f5ad2f2f97c0e7e605de25386ef3602936c5719b826cbc91e6e73b7a"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/deep_application.py",
+        "sha256": "7ed28fbd14a12e12a890f4de6b05cfdff5a6fc279090c08150a9cbadb92031f4"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/deep_model.py",
+        "sha256": "dd1d9b19acafca49e7ccf5b7477caca979c1a86206f0543a0bbb63da2838598f"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/deep_ports.py",
+        "sha256": "d85f7ee24d8e83b4a3babd24341239e7f9bf6ab2dcd17c30ecaecb7c55791b4b"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/deep_profile.py",
+        "sha256": "8382e235e9296be20fe0ddf54a837dc5da59f624c69543999d369c0bdc3ab562"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/deep_workspace.py",
+        "sha256": "c73161dfd2643b612c345f20b5a5d1fe315638e036791fb4ffc766b55365deb4"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/epubcheck_provider.py",
+        "sha256": "f606b5fc3e1184455456e9991b20e7df176b390d2188aa3bed451e0838860432"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/model.py",
+        "sha256": "18810819df8ff39a22dde7621ee445173f7d5612155cf484a2d193ca3085d2cd"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/podman_executor.py",
+        "sha256": "a10458ae6d5cfa8b404df2f91c1fd8fb90efdd696f68f292c87587b2558e2319"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/ports.py",
+        "sha256": "03ef7072762c67ac9918c3f51d0f117577f973e9ef71a755ba4b500ebac27e09"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/preflight.py",
+        "sha256": "2a73da1bc50e317af996cf10f3447050b7ea16693bb78630de4faa9619ddcf88"
+      },
+      {
+        "locator": "src/sammlungslotse/ebook_intake/snapshot.py",
+        "sha256": "a4b1d722f4433c62da96f5d02dba3cb11547ec5c626e2231fde112a192d99ede"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/manifest.json",
+        "sha256": "633528745f09b9359ad30bbedc54112d9c2cb820e0b954c36d198d38169126e2"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/cases/ingress-stable-minimal/stable.epub",
+        "sha256": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/cases/epub-active-or-remote/active-remote.epub",
+        "sha256": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/cases/container-corrupt/corrupt.epub",
+        "sha256": "d287ad53734d4e2ee69d468076a7cac7fa98d57b7b54f9d04f8327a6c8803cb5"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/cases/format-unknown/unknown.epub",
+        "sha256": "32666b5952ee086b06aa474b091f385acd5d320c975f87f753d6efdcca7d1234"
+      }
+    ],
+    "test_0001_version": "0.3.0"
+  },
+  "schema": "sammlungslotse/exp-0014-execution-profile/v1",
+  "synthetic_controls": {
+    "actual_cli_cases": [
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/cases/ingress-stable-minimal/stable.epub",
+        "next_action": "continue_deep_read_only"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/cases/epub-active-or-remote/active-remote.epub",
+        "next_action": "review"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/cases/container-corrupt/corrupt.epub",
+        "next_action": "stop"
+      },
+      {
+        "locator": "tests/fixtures/ebook/test-0001/v0.3/cases/format-unknown/unknown.epub",
+        "next_action": "abstain"
+      }
+    ],
+    "aggregation_repetitions": 2,
+    "negative_controls": [
+      "two_inputs",
+      "four_inputs",
+      "duplicate_input",
+      "directory_input",
+      "link_input",
+      "oversized_input",
+      "partial_execution",
+      "invalid_json",
+      "unknown_codes",
+      "private_output_field",
+      "incomplete_cleanup"
+    ],
+    "projection_matrix": {
+      "expected": {
+        "finding_code_counts": {
+          "container.corrupt": 1,
+          "format.epub": 2,
+          "ingress.unstable": 1,
+          "security.active_content": 1,
+          "security.remote_resource": 1
+        },
+        "next_action_counts": {
+          "abstain": 1,
+          "continue_deep_read_only": 1,
+          "defer": 1,
+          "review": 1,
+          "stop": 1
+        },
+        "observation_code_counts": {
+          "container.open_error": 1,
+          "epub.remote_reference.present": 1,
+          "epub.script.present": 1,
+          "format.signature.zip": 1,
+          "format.signature_unknown": 1,
+          "input.sha256": 1,
+          "input.size": 1,
+          "snapshot.changed": 1,
+          "snapshot.stable": 1
+        },
+        "status": "inconclusive",
+        "unclassified_finding_count": 1,
+        "unclassified_observation_count": 1
+      },
+      "reports": [
+        {
+          "finding_codes": [
+            "format.epub"
+          ],
+          "next_action": "continue_deep_read_only",
+          "observation_codes": [
+            "input.sha256",
+            "input.size",
+            "snapshot.stable"
+          ],
+          "unclassified_finding_count": 0,
+          "unclassified_observation_count": 0
+        },
+        {
+          "finding_codes": [
+            "format.epub",
+            "security.active_content",
+            "security.remote_resource"
+          ],
+          "next_action": "review",
+          "observation_codes": [
+            "epub.remote_reference.present",
+            "epub.script.present"
+          ],
+          "unclassified_finding_count": 0,
+          "unclassified_observation_count": 0
+        },
+        {
+          "finding_codes": [
+            "container.corrupt"
+          ],
+          "next_action": "stop",
+          "observation_codes": [
+            "container.open_error",
+            "format.signature.zip"
+          ],
+          "unclassified_finding_count": 0,
+          "unclassified_observation_count": 0
+        },
+        {
+          "finding_codes": [],
+          "next_action": "abstain",
+          "observation_codes": [
+            "format.signature_unknown"
+          ],
+          "unclassified_finding_count": 0,
+          "unclassified_observation_count": 0
+        },
+        {
+          "finding_codes": [
+            "ingress.unstable"
+          ],
+          "next_action": "defer",
+          "observation_codes": [
+            "snapshot.changed"
+          ],
+          "unclassified_finding_count": 1,
+          "unclassified_observation_count": 1
+        }
+      ]
+    }
+  }
+}
