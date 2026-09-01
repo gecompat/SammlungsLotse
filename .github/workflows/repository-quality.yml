@@ -84,6 +84,7 @@ jobs:
           tools/provision_calibre_readonly_profile.py
           tools/materialize_calibre_qualification_library.py
           tools/qualify_calibre_readonly_profile.py
+          tools/qualify_ebook_intake_context.py
           tools/qualify_ebook_identity.py
           tools/qualify_ebook_calibre_identity.py
           tools/run_repository_tests.py

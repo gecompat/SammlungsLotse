@@ -1,8 +1,8 @@
 # WI-0014: Review-Kontexterklärung V2 für die EPUB-Eingangstriage umsetzen
 
-Status: ACCEPTED — OPTION B AUS GATE-0020, IMPLEMENTIERUNG NOCH NICHT BEGONNEN
+Status: IMPLEMENTED — COMMITGEBUNDENE PRODUKTQUALIFIKATION AUSSTEHEND
 
-Stand: 2026-09-01
+Stand: 2026-09-02
 
 Artifact: WI-0014
 
@@ -146,6 +146,31 @@ Parserorakel, tatsächliche CLI-Projektion und Repositoryregression sind drei
 getrennte Nachweise. Ein grüner Teilnachweis ersetzt keinen der beiden
 anderen. Unveränderte Vollprüfungen werden erst auf dem stabilen Kandidaten
 und nicht nach jeder Zwischenänderung wiederholt.
+
+## Implementierungszwischenstand
+
+Der additive V2-Kandidat ist umgesetzt. Das interne Modell trägt eine
+validierte, sortierte Kontextprojektion; `context.py` reproduziert die sechs
+EXP-0016-Klassen mit Standardbibliotheksparsern. Die bestehende flache
+WI-0004-Erkennung bleibt alleinige Autorität für `next_action` und das
+Deep-Read-Gate. Einzel-, Batch- und kombinierter JSON-Weg aktivieren V2 nur
+über `--json --report-version v2`; alle Default- und Humanpfade bleiben V1.
+
+`runtime/ebook-intake-context/profile.json` und
+`tools/qualify_ebook_intake_context.py` binden den Ausgangscommit, beide
+synthetischen Fallmatrizen, die vollständige Intake-Laufzeit und die drei
+öffentlichen Projektionsflächen. Der tatsächliche Hauptlauf bleibt bis zu
+einem sauberen, vollständig getesteten und in beiden Pflichtchecks grünen
+Preimage gesperrt. Deshalb ist WI-0014 in diesem Zwischenstand noch nicht
+`done`.
+
+Auf dem stabilen lokalen Kandidaten bestanden 76 fokussierte Produkt- und
+Boundary-Prüfungen, der historische EXP-0014-Nachweis und 255/255 durch den
+Repositoryadapter ausgeführte Tests. Die wegen der erweiterten Intake-
+Laufzeit erforderliche WI-0005-Requalifizierung bestand unabhängig 12/12
+Kriterien. Projekt-, Registry-, Kompilierungs-, Diff- und Foundation-
+Prüfungen waren ebenfalls grün. Der nächste neue Nachweis ist damit nicht ein
+weiterer lokaler Volltest, sondern die Pflicht-CI auf dem sauberen Commit.
 
 ## Ergebnisfolge
 

@@ -310,8 +310,14 @@ GATE-0020 ist abgeschlossen und WI-0014 als review-beibehaltender,
 pfadfreier V2-Produktarbeitsgegenstand `accepted`. Der Vertrag hält Human-
 und Standard-JSON-Ausgabe bytekompatibel, bindet die sechs EXP-0016-
 Kontextklassen samt fail-closed Rückfall und lässt das WI-0004-Review-Gate
-unverändert. Produktcode beginnt erst nach Merge und Post-Merge-Prüfung
-dieser Vertragswave in einem neuen sauberen Worktree.
+unverändert. Der getrennte additive Implementierungskandidat liegt im neuen
+sauberen Worktree vor: Einzel-, Batch- und kombinierter JSON-Weg aktivieren
+V2 ausschließlich explizit; die 48 EXP-0016-Orakel und fokussierte
+Produktregression sind grün. Auch der einmalige vollständige lokale
+Kandidatenlauf mit 255/255 ausgeführten Tests und die unabhängige
+WI-0005-Requalifizierung mit 12/12 Kriterien sind grün. WI-0014 bleibt bis
+zum commitgebundenen synthetischen Hauptlauf und dessen Ergebnisbindung
+`accepted`.
 
 ## Nicht übernehmen
 

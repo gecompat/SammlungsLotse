@@ -281,8 +281,14 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   review-beibehaltende, pfadfreie V2-Kontexterklärung `accepted`. Der Vertrag
   hält Human- und Standard-JSON-Ausgabe bytekompatibel, bindet die sechs
   EXP-0016-Kontextklassen samt fail-closed Rückfall und lässt das
-  WI-0004-Review-Gate unverändert. Produktcode beginnt erst nach Merge und
-  Post-Merge-Prüfung dieser Vertragswave in einem neuen sauberen Worktree.
+  WI-0004-Review-Gate unverändert. Der getrennte additive
+  Implementierungskandidat liegt im neuen sauberen Worktree vor. V2 ist nur
+  explizit für Einzel-, Batch- und kombiniertes JSON aktiv; V1, Humanweg,
+  `review` und Deep-Read-Gate bleiben unverändert. Der stabile lokale
+  Kandidat bestand 255/255 Repositorytests; die davon getrennte
+  WI-0005-Requalifizierung bestand 12/12 Kriterien. WI-0014 bleibt bis zum
+  commitgebundenen synthetischen Hauptlauf und dessen Ergebnisbindung
+  `accepted`.
 
 ## Harte Grenzen
 

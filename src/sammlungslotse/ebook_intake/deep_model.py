@@ -10,7 +10,9 @@ from .model import TriageReport
 
 
 DEEP_REPORT_SCHEMA = "sammlungslotse/deep-read-only-report/v1"
-COMBINED_REPORT_SCHEMA = "sammlungslotse/ebook-intake-with-deep-report/v1"
+COMBINED_REPORT_SCHEMA_V1 = "sammlungslotse/ebook-intake-with-deep-report/v1"
+COMBINED_REPORT_SCHEMA_V2 = "sammlungslotse/ebook-intake-combined-report/v2"
+COMBINED_REPORT_SCHEMA = COMBINED_REPORT_SCHEMA_V1
 EXECUTION_STATES = frozenset(
     {
         "completed",
@@ -181,6 +183,13 @@ class CombinedIntakeReport:
     def to_dict(self) -> dict[str, object]:
         return {
             "deep_read_only": self.deep_read_only.to_dict(),
-            "schema": COMBINED_REPORT_SCHEMA,
+            "schema": COMBINED_REPORT_SCHEMA_V1,
             "triage": self.triage.to_dict(),
+        }
+
+    def to_dict_v2(self) -> dict[str, object]:
+        return {
+            "deep_read_only": self.deep_read_only.to_dict(),
+            "schema": COMBINED_REPORT_SCHEMA_V2,
+            "triage": self.triage.to_dict_v2(),
         }

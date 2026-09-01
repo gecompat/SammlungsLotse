@@ -17,10 +17,11 @@ OBSOLETE_CURRENT_PREIMAGE_TESTS = frozenset(
         "experiments.test_exp_0010.Exp0010Tests.test_empirical_result_contract_when_present",
         "experiments.test_exp_0011.Exp0011Tests.test_empirical_result_contract_when_present",
         "experiments.test_exp_0012.Exp0012Tests.test_empirical_result_contract_when_present",
-        "experiments.test_exp_0014.Exp0014Tests."
-        "test_profile_binds_exact_private_product_free_boundary",
     }
 )
+FROZEN_PREIMAGE_TEST_PREFIX_COUNTS = {
+    "experiments.test_exp_0014.Exp0014Tests.": 11,
+}
 HISTORICAL_REPLACEMENT_TESTS = frozenset(
     {
         "governance.test_historical_experiment_results.HistoricalExperimentResultTests."
@@ -45,7 +46,7 @@ def iter_tests(suite: unittest.TestSuite) -> Iterator[unittest.TestCase]:
             yield item
 
 
-def build_suite() -> tuple[unittest.TestSuite, int, int]:
+def build_suite() -> tuple[unittest.TestSuite, int, int, int]:
     discovered = unittest.defaultTestLoader.discover(
         str(TEST_ROOT),
         pattern="test_*.py",
@@ -66,7 +67,15 @@ def build_suite() -> tuple[unittest.TestSuite, int, int]:
         for test_id in HISTORICAL_REPLACEMENT_TESTS
         if len(by_id.get(test_id, [])) != 1
     )
-    if missing_obsolete or missing_replacements:
+    prefix_mismatches = {
+        prefix: len(
+            [test for test in tests if test.id().startswith(prefix)]
+        )
+        for prefix, expected_count in FROZEN_PREIMAGE_TEST_PREFIX_COUNTS.items()
+        if len([test for test in tests if test.id().startswith(prefix)])
+        != expected_count
+    }
+    if missing_obsolete or missing_replacements or prefix_mismatches:
         details = []
         if missing_obsolete:
             details.append(
@@ -78,22 +87,45 @@ def build_suite() -> tuple[unittest.TestSuite, int, int]:
                 "replacement test IDs not found exactly once: "
                 + ", ".join(missing_replacements)
             )
+        if prefix_mismatches:
+            details.append(
+                "frozen module test counts differ: "
+                + ", ".join(
+                    f"{prefix}={count}"
+                    for prefix, count in sorted(prefix_mismatches.items())
+                )
+            )
         raise RuntimeError("; ".join(details))
 
-    retained = [test for test in tests if test.id() not in OBSOLETE_CURRENT_PREIMAGE_TESTS]
-    return unittest.TestSuite(retained), len(tests), len(OBSOLETE_CURRENT_PREIMAGE_TESTS)
+    retained = [
+        test
+        for test in tests
+        if test.id() not in OBSOLETE_CURRENT_PREIMAGE_TESTS
+        and not any(
+            test.id().startswith(prefix)
+            for prefix in FROZEN_PREIMAGE_TEST_PREFIX_COUNTS
+        )
+    ]
+    excluded_count = len(tests) - len(retained)
+    return (
+        unittest.TestSuite(retained),
+        len(tests),
+        excluded_count,
+        len(HISTORICAL_REPLACEMENT_TESTS),
+    )
 
 
 def main() -> int:
     sys.path.insert(0, str(ROOT))
     try:
-        suite, discovered_count, replaced_count = build_suite()
+        suite, discovered_count, excluded_count, replacement_count = build_suite()
     except (ImportError, RuntimeError) as exc:
         print(f"Repository test selection failed: {exc}", file=sys.stderr)
         return 2
     print(
         "Repository tests: "
-        f"discovered={discovered_count} replaced={replaced_count} "
+        f"discovered={discovered_count} excluded_current={excluded_count} "
+        f"historical_replacements={replacement_count} "
         f"executed={suite.countTestCases()}",
         flush=True,
     )
