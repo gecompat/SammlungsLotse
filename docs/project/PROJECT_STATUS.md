@@ -268,7 +268,8 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   providerneutralen read-only Snapshot-Handoff ohne Bestandswirkung;
 - getrennte deutsche und deterministische JSON-CLI unter
   `tools/run_ebook_calibre_identity.py`, exakte Calibre-9.13.0-
-  Profilbindung und nach WI-0013 gegen Preimage `dde1326` erneuerter
+  Profilbindung und nach dem WI-0014-Implementierungskandidaten gegen
+  Preimage `7cb8407` erneuerter
   eingecheckter 23/23-Produktnachweis mit tatsächlichen synthetischen Podman-,
   Grenz-, Recovery- und Cleanupfällen;
 - ausgewertetes GATE-0008 mit katalogisierten qualitätssteigernden
@@ -396,9 +397,12 @@ vollständige Repositorytest entdeckte 270 Tests, schloss vier einzelne
 eingefrorene Current-Preimage-Prüfungen und das elfprüfige eingefrorene
 EXP-0014-Modul aus, ersetzte sie durch fünf Historical-Preimage-Prüfungen und
 führte 255 Tests erfolgreich aus. Die separat erforderliche aktuelle
-WI-0005-Deep-Read-only-Requalifizierung bestand 12/12 Kriterien. Repository-
-und v2-Registry-Prüfung waren für 60 Artefakte erfolgreich; `compileall` und
-`git diff --check` waren grün. Der Foundation-Validator am exakten
+WI-0005-Deep-Read-only-Requalifizierung bestand 12/12 Kriterien. Die nach
+der V2-Modellerweiterung ebenfalls erforderliche WI-0011-Requalifizierung
+lief tatsächlich über Podman erneut 23/23 Kriterien und vollständiges
+Cleanup. Repository- und v2-Registry-Prüfung waren für 60 Artefakte
+erfolgreich; `compileall` und `git diff --check` waren grün. Der
+Foundation-Validator am exakten
 installierten Quellcommit
 `d49f978f33001fcc098998ff7c04ffb209b28033` meldete 0 Warnungen, 0 Fehler
 und 0 Blocker. Diese Evidenz belegt den lokalen Implementierungskandidaten,

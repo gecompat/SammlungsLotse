@@ -429,19 +429,19 @@ Outputlimit, Timeout, Unterbrechung und Recovery aus. Er prüft Pfadfreiheit,
 Bytegleichheit, Rollen, fünf Identitätsebenen, Quellunverändertheit und
 vollständiges Task- und Container-Cleanup.
 
-Nach WI-0013 wurde dieser abhängige Produktweg gegen den neuen
-Analyzer-Preimage-Commit
-`dde132646f9e578f582231c2a7be946134490184` erneut tatsächlich qualifiziert.
+Nach dem WI-0014-Implementierungskandidaten wurde dieser abhängige Produktweg
+gegen den erweiterten Intake-Preimage-Commit
+`7cb840785c5fba1e5148fbe05bbaf1b1f92a4f0a` erneut tatsächlich qualifiziert.
 Der aktuelle eingecheckte Nachweis mit SHA-256
-`90fbe6856aeb09f89e382c59312f7035ac9777de57a316fc336bb81fcf5a7d4e`
+`4418272946704246b4710bea92faf2021ae7f1d5c4225f915c9f15beb9c27fe9`
 bestand weiterhin 23/23 Kriterien.
 
 Der tatsächliche ausschließlich synthetische Podman-Lauf verwendet neue
 kontrollierte Pfade unter `C:\rep`:
 
     python tools/qualify_ebook_calibre_identity.py \
-      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0013-wi0011-requalification \
-      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0013-wi0011-requalification
+      --qualification-root C:\rep\tmp\SammlungsLotse\wi-0014-wi0011-requalification \
+      --evidence-root C:\rep\artifacts\SammlungsLotse\wi-0014-wi0011-requalification
 
 Qualifikations- und Evidenzziel müssen neue strikte Unterpfade sein. Die
 Taskwurzel wird vollständig entfernt; die 22 pfadfreien stdout-/stderr-

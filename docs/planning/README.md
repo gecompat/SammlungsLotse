@@ -315,8 +315,10 @@ sauberen Worktree vor: Einzel-, Batch- und kombinierter JSON-Weg aktivieren
 V2 ausschließlich explizit; die 48 EXP-0016-Orakel und fokussierte
 Produktregression sind grün. Auch der einmalige vollständige lokale
 Kandidatenlauf mit 255/255 ausgeführten Tests und die unabhängige
-WI-0005-Requalifizierung mit 12/12 Kriterien sind grün. WI-0014 bleibt bis
-zum commitgebundenen synthetischen Hauptlauf und dessen Ergebnisbindung
+WI-0005-Requalifizierung mit 12/12 Kriterien sind grün. Der abhängige
+WI-0011-Weg wurde auf dem Kandidaten ebenfalls tatsächlich mit Podman erneut
+qualifiziert und bestand 23/23 Kriterien. WI-0014 bleibt bis zum
+commitgebundenen synthetischen Hauptlauf und dessen Ergebnisbindung
 `accepted`.
 
 ## Nicht übernehmen

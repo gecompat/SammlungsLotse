@@ -168,9 +168,12 @@ Auf dem stabilen lokalen Kandidaten bestanden 76 fokussierte Produkt- und
 Boundary-Prüfungen, der historische EXP-0014-Nachweis und 255/255 durch den
 Repositoryadapter ausgeführte Tests. Die wegen der erweiterten Intake-
 Laufzeit erforderliche WI-0005-Requalifizierung bestand unabhängig 12/12
-Kriterien. Projekt-, Registry-, Kompilierungs-, Diff- und Foundation-
-Prüfungen waren ebenfalls grün. Der nächste neue Nachweis ist damit nicht ein
-weiterer lokaler Volltest, sondern die Pflicht-CI auf dem sauberen Commit.
+Kriterien. Der ebenfalls vom erweiterten Intake-Modell abhängige WI-0011-
+Produktweg wurde tatsächlich mit Podman erneut qualifiziert und bestand
+23/23 Kriterien. Projekt-, Registry-, Kompilierungs-, Diff- und Foundation-
+Prüfungen waren ebenfalls grün. Der nächste neue Nachweis ist damit nicht
+ein weiterer lokaler Volltest, sondern die Pflicht-CI auf dem sauberen
+Ergebnisbindungscommit.
 
 ## Ergebnisfolge
 
