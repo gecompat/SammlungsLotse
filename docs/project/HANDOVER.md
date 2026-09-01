@@ -272,9 +272,15 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   zwei Wiederholungen, den direkten unveränderten WI-0005-Provider- und
   Executorpfad, eine IPv4-Loopback-Messkanarie sowie Isolations-, Timeout-,
   Output- und Cleanupgrenzen. Fokusprüfungen bleiben containerfrei; der
-  Hauptlauf ist bis zu einer grünen exakten Preimage-CI gesperrt. B, C, K und
-  P bleiben nicht ausgewählt. Ein Produktarbeitsgegenstand ist nicht
-  registriert und das WI-0004-Review-Gate bleibt unverändert.
+  erste vollständige Lauf auf Preimage `2bb29e0` blieb wegen einer
+  Harnessabweichung `inconclusive`: Beide Wiederholungen besaßen identische
+  Zustände, Assessments und Providercodes, aber die um zwei Byte abweichende
+  Rohbericht-Gesamtgröße war fälschlich Teil der Semantikprojektion. Der
+  erste Bericht bleibt unverändert außerhalb von Git. Nur ein korrigiertes,
+  erneut lokal und in beiden Pflichtchecks grünes Preimage darf vollständig
+  neu ausgeführt werden. B, C, K und P bleiben nicht ausgewählt. Ein
+  Produktarbeitsgegenstand ist nicht registriert und das WI-0004-Review-Gate
+  bleibt unverändert.
 
 ## Harte Grenzen
 

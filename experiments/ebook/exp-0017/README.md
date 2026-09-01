@@ -1,6 +1,6 @@
 # EXP-0017 Ausführung
 
-Status: ACCEPTED — PREIMAGE IN PREPARATION, NOT EXECUTED
+Status: ACCEPTED — CORRECTED PREIMAGE IN PREPARATION
 
 Stand: 2026-09-01
 
@@ -56,3 +56,23 @@ WI-0004-Gate und WI-0005-Profil bleiben unverändert.
 
 Ein methodischer `pass` ist keine Produktfreigabe. Unabhängig vom Ausgang
 öffnet die spätere Ergebnisbindungswave ein neues, getrenntes Gate.
+
+## Nicht autoritativer erster Lauf
+
+Das erste grüne Ausführungspreimage
+`2bb29e0ac2b4dd45ac452364ece0f9addbb1572a` wurde genau einmal ausgeführt.
+Alle 24 Matrixaufrufe waren `completed`, pro Wiederholung wurden alle zwölf
+Providerprozesse gestartet, isoliert und bereinigt. Orakelmismatches,
+Kanarientreffer und verbotene Wirkungen waren null; Assessments und
+Providercode-Häufigkeiten waren identisch. Der Bericht blieb dennoch korrekt
+`inconclusive`, weil der Harness die um zwei Byte abweichende
+Rohbericht-Gesamtgröße fälschlich als Teil der semantischen Gleichheit
+behandelte.
+
+Dieser 4.439-Byte-Bericht mit SHA-256
+`42e36e7680c512b39006e9ae5ba582bfe4916525c336db6118987d594095c728`
+bleibt unverändert außerhalb von Git und wird nicht als EXP-0017-Ergebnis
+übernommen. Die Korrektur entfernt ausschließlich Rohbericht-Größenrauschen
+aus der Semantikprojektion; die getrennten Größenaggregate bleiben sichtbar.
+Ein neuer vollständiger Lauf ist erst nach neuem sauberem Preimage und erneut
+grüner exakter CI zulässig.

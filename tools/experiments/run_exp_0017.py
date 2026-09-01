@@ -1160,6 +1160,23 @@ def summarize_repetition(index: int, outcomes: list[dict[str, Any]]) -> dict[str
     }
 
 
+def semantic_repetition(outcomes: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Remove report-size noise while retaining parser and provider semantics."""
+
+    return [
+        {
+            "case_id": outcome["case_id"],
+            "parser": outcome["parser"],
+            "provider": {
+                key: value
+                for key, value in outcome["provider"].items()
+                if key != "raw_report_bytes"
+            },
+        }
+        for outcome in outcomes
+    ]
+
+
 def _isolation_exact(isolation: dict[str, Any], deep: DeepRuntimeProfile) -> bool:
     expected_cap_drop = {
         "CAP_CHOWN",
@@ -1265,7 +1282,8 @@ def build_result(
         for index, outcomes in enumerate(repetitions, start=1)
     ]
     identical = len(repetitions) == EXPECTED_REPETITIONS and all(
-        canonical_bytes(value) == canonical_bytes(repetitions[0])
+        canonical_bytes(semantic_repetition(value))
+        == canonical_bytes(semantic_repetition(repetitions[0]))
         for value in repetitions[1:]
     )
     provider_complete = all(

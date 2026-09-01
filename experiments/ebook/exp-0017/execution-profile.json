@@ -69,7 +69,7 @@
   "profile_id": "exp-0017-downstream-isolation/v1",
   "repetitions": 2,
   "runtime_bindings": {
-    "aggregate_sha256": "a9897a0b03049a54f32e7759d988fd47f594df2e3f5809da46eac95e7340d297",
+    "aggregate_sha256": "4c13e5df3ed7afd6f035fd14abecaa0ad671b25ab415f3e683a872a3ac6c4e45",
     "files": [
       {
         "locator": "docs/planning/EBOOK_GATE_0019_AFTER_EXP0016.md",
@@ -165,7 +165,7 @@
       },
       {
         "locator": "tools/experiments/run_exp_0017.py",
-        "sha256": "949ee84bf2dfc6aef8e642b3ce0ab65ca2925a7e9d2605fb860f47ee33203817"
+        "sha256": "067ec810473b9fade2364488c7a7dbabe969e207939c55387e8156b0dc714af4"
       },
       {
         "locator": "tools/provision_ebook_deep_profile.py",

@@ -100,9 +100,11 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   Enthaltungen und null kritischen Fehlfortsetzungen je Strategie.
   Der Nutzer hat in GATE-0019 ausdrücklich Option A gewählt. GATE-0019 ist
   abgeschlossen und EXP-0017 als rein synthetische Downstream-Isolations-
-  und Threat-Model-Wave angenommen. Das getrennte Ausführungs-Preimage ist
-  implementiert, aber weder ein Hauptlauf noch ein Ergebnis existiert. Ein
-  Produktarbeitsgegenstand ist nicht registriert.
+  und Threat-Model-Wave angenommen. Der erste vollständige Lauf auf dem
+  getrennten Ausführungs-Preimage blieb wegen einer zu strikten
+  Semantikprojektion `inconclusive`; der Bericht wird nicht übernommen. Ein
+  korrigiertes Preimage ist in Arbeit. Ein Produktarbeitsgegenstand ist nicht
+  registriert.
 
 ## Vorhanden
 
@@ -359,7 +361,11 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   vier Täuschungskontexten, zwei Wiederholungen, direkter unveränderter
   WI-0005-Provider- und Executorpfad, lokale IPv4-Loopback-Messkanarie,
   effektive Netzwerklosigkeit sowie fail-closed Timeout-, Output- und
-  Cleanupgrenzen; Produktcode und private Medien bleiben außerhalb;
+  Cleanupgrenzen; der erste vollständige Lauf hatte 24 abgeschlossene,
+  isolierte und bereinigte Providerläufe, null Orakelmismatches und null
+  Kanarientreffer, blieb aber wegen zwei Byte Rohbericht-Größenrauschen in
+  der damaligen Semantikprojektion `inconclusive`; Produktcode und private
+  Medien bleiben außerhalb;
 
 ## Nicht vorhanden
 
@@ -1313,8 +1319,10 @@ EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018, EXP-0016 und
 GATE-0019 sind abgeschlossen. Der Nutzer hat für GATE-0019 ausdrücklich A
 gewählt. EXP-0017 ist `accepted`; sein getrenntes Ausführungs-Preimage ist
 implementiert. Der ausschließlich synthetische Hauptlauf bleibt bis zum
-sauberen Commit, einmalig grünen lokalen Volltest und beiden grünen
-Pflichtchecks auf exakt diesem Commit gesperrt. B, C, K und P sind nicht
+neuen sauberen Korrekturcommit, erneut grünem lokalen Volltest und beiden
+grünen Pflichtchecks auf exakt diesem Commit gesperrt. Der erste
+`inconclusive`-Bericht auf `2bb29e0` wird weder überschrieben noch als
+Ergebnis übernommen. B, C, K und P sind nicht
 ausgewählt; ein Produktarbeitsgegenstand ist nicht registriert. V1 bleibt
 Standard; nur
 `--json --report-version v2` aktiviert V2.

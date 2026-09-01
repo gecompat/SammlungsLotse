@@ -276,6 +276,13 @@ vollständig lokal und durch beide Pflichtchecks grünen exakten Preimage
 gesperrt und wird danach einmal explizit unter den dokumentierten engen
 `C:\rep`-Temp- und Artefaktpfaden ausgeführt.
 
+Semantische Wiederholungsidentität umfasst Parserklasse, S3-Literal,
+Ausführungszustand, Assessment, vollständige Providercode-Häufigkeiten und
+alle booleschen Laufgrenzen. Die weiterhin getrennt berichteten
+Rohbericht-Größenaggregate sind technische Messwerte und dürfen wegen
+laufzeitabhängiger Berichtsfelder nicht selbst die semantische Identität
+ändern.
+
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
     python -m unittest discover -s tests/product -p "test_*.py"

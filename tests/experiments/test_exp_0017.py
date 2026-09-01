@@ -190,6 +190,7 @@ class Exp0017Tests(unittest.TestCase):
             )
             for _ in range(2)
         ]
+        repetitions[1][0]["provider"]["raw_report_bytes"] += 2
         deep = DeepRuntimeProfile.load(run_exp_0017.DEEP_PROFILE_PATH)
         isolation = {
             "cap_drop": sorted(
@@ -279,6 +280,11 @@ class Exp0017Tests(unittest.TestCase):
         self.assertEqual(18, len(result["acceptance"]))
         self.assertTrue(all(result["acceptance"].values()))
         self.assertEqual("pass", result["status"])
+        self.assertNotEqual(
+            result["provider_repetitions"][0]["raw_report_total_bytes"],
+            result["provider_repetitions"][1]["raw_report_total_bytes"],
+        )
+        self.assertTrue(result["runs_semantically_identical"])
         self.assertEqual(result, run_exp_0017.validate_result_dict(result))
         serialized = run_exp_0017.canonical_bytes(result)
         self.assertNotIn(b"127.0.0.1", serialized)

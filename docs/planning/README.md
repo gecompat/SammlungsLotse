@@ -301,8 +301,13 @@ Netzwerklosigkeit sowie Timeout-, Output- und Cleanup-Grenzen. B, C, K und P
 bleiben nicht ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert;
 Produktcode und WI-0004-Review-Gate bleiben unverändert. Das getrennte
 Ausführungs-Preimage mit Manifest, In-Memory-Materialisierer, Runner und
-containerfreien Fokusprüfungen ist implementiert; `result.json` und ein
-Hauptlauf existieren noch nicht.
+containerfreien Fokusprüfungen ist implementiert. Der erste vollständige Lauf
+auf Preimage `2bb29e0` blieb ausschließlich wegen einer zu strikten
+Semantikprojektion `inconclusive`: Rohbericht-Größenrauschen von zwei Byte
+wurde mit Providersemantik verwechselt, obwohl Zustände, Assessments und
+Codes identisch waren. Der Bericht bleibt unverändert außerhalb von Git. Ein
+korrigiertes Preimage benötigt erneut vollständige lokale und exakte
+GitHub-CI-Evidenz, bevor ein neuer vollständiger Lauf zulässig ist.
 
 ## Nicht übernehmen
 
