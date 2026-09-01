@@ -55,6 +55,7 @@ Experimente und spätere Entscheidungen:
 - [EXP-0016: synthetische EPUB-Navigationskontext- und Sicherheitsmatrix qualifizieren](EBOOK_SYNTHETIC_NAVIGATION_SAFETY_MATRIX_EXPERIMENT.md);
 - [GATE-0019: EXP-0016-Ergebnis und mögliche Reviewdifferenzierung bewerten](EBOOK_GATE_0019_AFTER_EXP0016.md);
 - [EXP-0017: synthetische Downstream-Isolation des tiefen EPUB-Pfads qualifizieren](EBOOK_SYNTHETIC_DOWNSTREAM_ISOLATION_EXPERIMENT.md);
+- [GATE-0020: EXP-0017-Ergebnis und sichere Produktfortsetzung bewerten](EBOOK_GATE_0020_AFTER_EXP0017.md);
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -294,20 +295,19 @@ Alle 16 Methodenkriterien bestanden; alle drei Strategien sind innerhalb der
 Matrix `eligible_with_tradeoffs`, mit jeweils zehn fail-closed Enthaltungen
 und null kritischen Fehlfortsetzungen. GATE-0019 ist als getrenntes
 Ergebnisgate abgeschlossen; der Nutzer hat ausdrücklich Option A gewählt.
-EXP-0017 ist als genau eine synthetische Downstream-Isolations- und
-Threat-Model-Wave `accepted`. Sie bindet zwölf Fälle, den unveränderten
-WI-0005-Provider- und Executorstand, eine lokale Messkanarie, effektive
-Netzwerklosigkeit sowie Timeout-, Output- und Cleanup-Grenzen. B, C, K und P
-bleiben nicht ausgewählt. Ein Produktarbeitsgegenstand ist nicht registriert;
-Produktcode und WI-0004-Review-Gate bleiben unverändert. Das getrennte
-Ausführungs-Preimage mit Manifest, In-Memory-Materialisierer, Runner und
-containerfreien Fokusprüfungen ist implementiert. Der erste vollständige Lauf
-auf Preimage `2bb29e0` blieb ausschließlich wegen einer zu strikten
-Semantikprojektion `inconclusive`: Rohbericht-Größenrauschen von zwei Byte
-wurde mit Providersemantik verwechselt, obwohl Zustände, Assessments und
-Codes identisch waren. Der Bericht bleibt unverändert außerhalb von Git. Ein
-korrigiertes Preimage benötigt erneut vollständige lokale und exakte
-GitHub-CI-Evidenz, bevor ein neuer vollständiger Lauf zulässig ist.
+EXP-0017 ist abgeschlossen. Das saubere Preimage `53a1e2d` bestand den
+vollständigen lokalen Repositorytest und beide exakten GitHub-Pflichtchecks;
+der danach einmal ausgeführte synthetische Hauptlauf bestand 18/18 Kriterien
+mit zwölf Fällen, zwei semantisch identischen Wiederholungen, 24
+Providerläufen, null Orakelmismatches und null Deep-Path-Kanarientreffern.
+Effektives `network=none`, fail-closed Timeout- und Outputproben sowie
+vollständiges Task- und Container-Cleanup sind historisch gebunden. Der
+erste `inconclusive`-Bericht auf `2bb29e0` bleibt unverändert außerhalb von
+Git; seine eng begrenzte Semantikprojektionskorrektur ist transparent
+dokumentiert. GATE-0020 ist als getrenntes Ergebnisgate `proposed`. A, B, C,
+K und P sind nicht ausgewählt; ein Folgeexperiment oder
+Produktarbeitsgegenstand ist nicht registriert. Produktcode und
+WI-0004-Review-Gate bleiben unverändert.
 
 ## Nicht übernehmen
 

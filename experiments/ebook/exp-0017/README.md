@@ -1,45 +1,46 @@
 # EXP-0017 Ausführung
 
-Status: ACCEPTED — CORRECTED PREIMAGE IN PREPARATION
+Status: DONE — METHOD PASSED
 
 Stand: 2026-09-01
 
 Dieser Ordner bindet die ausschließlich synthetische Ausführung aus
 `docs/planning/EBOOK_SYNTHETIC_DOWNSTREAM_ISOLATION_EXPERIMENT.md`.
 
-Enthalten sind zunächst:
+Enthalten sind:
 
 - `cases.json`: genau zwölf aus EXP-0016 abgeleitete Orakelfälle;
 - `execution-profile.json`: exakte Fall-, Produkt-, Runtime-, Isolations-,
   Threat-Model-, Ausführungs- und Ausgabegrenzen;
+- `result.json`: ausschließlich pfadfreie Aggregate des maßgeblichen Laufs;
 - dieser Ausführungshinweis.
 
-Ein `result.json` existiert absichtlich noch nicht. Der Hauptlauf ist erst
-zulässig, nachdem der vollständige lokale Repositorytest einmal auf dem
-sauberen Ausführungspreimage bestanden hat und beide GitHub-Pflichtchecks
-exakt denselben Commit grün melden.
-
-## Preimage-Prüfung
+## Historische Ergebnisprüfung
 
 ```powershell
-python tools/experiments/run_exp_0017.py --validate-profile
+python tools/experiments/validate_exp_0017_result.py
 ```
 
-Die Prüfung liest ausschließlich Vertrag, Manifest, Produkt- und
-Runtime-Bindungen sowie das saubere Git-Preimage. Sie startet keinen
-Container und materialisiert kein EPUB.
+Die dauerhafte Prüfung bindet Ergebnis, Profil, Fallmanifest und Runner an
+das historische Git-Preimage
+`53a1e2dbefd03c7d770e949490ea1ec7783bfe98`. Sie startet weder Container noch
+EPUBCheck und materialisiert kein EPUB. Der ursprüngliche Aufruf
+`python tools/experiments/run_exp_0017.py --validate-profile` bleibt für das
+eingefrorene Ausführungspreimage gültig; spätere Dokumentations- und
+Ergebnisänderungen werden absichtlich nicht als neuer Laufpreimage
+umgedeutet.
 
 ## Gebundener Hauptlauf
 
-Nach grüner Preimage-CI darf genau ein vollständiger Lauf mit neuen,
-begrenzten Pfaden unter `C:\rep` erfolgen:
+Nach grüner Preimage-CI erfolgte genau ein maßgeblicher vollständiger Lauf
+mit neuen, begrenzten Pfaden unter `C:\rep`:
 
 ```powershell
 python tools/experiments/run_exp_0017.py `
   --execute `
   --confirm-green-preimage-ci `
-  --temp-root C:\rep\tmp\SammlungsLotse\exp-0017\qualification `
-  --result C:\rep\artifacts\SammlungsLotse\exp-0017\qualification\result.json
+  --temp-root C:\rep\tmp\SammlungsLotse\exp-0017\qualification-corrected `
+  --result C:\rep\artifacts\SammlungsLotse\exp-0017\qualification-corrected\result.json
 ```
 
 Der Runner erzeugt die EPUB-Bytes ausschließlich im Speicher. Eine
@@ -54,8 +55,30 @@ keine EPUBs, Rohberichte, Meldungstexte, URLs, Ports, Container- oder
 Tasknamen, Hostdaten, Zeitstempel oder absolute Pfade. Produktcode,
 WI-0004-Gate und WI-0005-Profil bleiben unverändert.
 
-Ein methodischer `pass` ist keine Produktfreigabe. Unabhängig vom Ausgang
-öffnet die spätere Ergebnisbindungswave ein neues, getrenntes Gate.
+Ein methodischer `pass` ist keine Produktfreigabe. Die Ergebnisbindungswave
+öffnet deshalb ein neues, getrenntes Gate.
+
+## Maßgebliches Ergebnis
+
+Der Hauptlauf bestand alle 18 methodischen Kriterien:
+
+- zwölf Fälle, zwei Wiederholungen und genau 24 Providerläufe;
+- null Kontext-, Schemagruppen- oder S3-Orakelmismatches;
+- semantisch identische Wiederholungen bei vollständig bewahrten
+  Providercode-Häufigkeiten;
+- genau eine Kontrollverbindung und null Deep-Path-Kanarientreffer;
+- effektiv zurückgelesenes `network=none` und vollständige
+  Isolationsübereinstimmung;
+- fail-closed Timeout- und Outputprobe;
+- vollständiges Task- und Container-Cleanup;
+- unveränderte Eingänge und null Produkt-, Bestands-, Persistenz-, externe
+  Netzwerk- oder private Wirkung.
+
+Das eingecheckte 4.429-Byte-Ergebnis besitzt SHA-256
+`ffb748bc7429b4362392c1464b6268bf404df74625420a8498d405558c88db61`.
+Es ist byteidentisch mit dem zunächst unter `C:\rep\artifacts` erzeugten und
+vor der Übernahme geprüften Bericht. GATE-0020 ist als getrenntes offenes
+Ergebnisgate registriert; keine Produktfortsetzung ist ausgewählt.
 
 ## Nicht autoritativer erster Lauf
 
@@ -74,5 +97,9 @@ Dieser 4.439-Byte-Bericht mit SHA-256
 bleibt unverändert außerhalb von Git und wird nicht als EXP-0017-Ergebnis
 übernommen. Die Korrektur entfernt ausschließlich Rohbericht-Größenrauschen
 aus der Semantikprojektion; die getrennten Größenaggregate bleiben sichtbar.
-Ein neuer vollständiger Lauf ist erst nach neuem sauberem Preimage und erneut
-grüner exakter CI zulässig.
+Der danach korrigierte Commit
+`53a1e2dbefd03c7d770e949490ea1ec7783bfe98` bestand den vollständigen lokalen
+Repositorytest und beide exakten Pflichtchecks. Nur dieser neue Preimage
+wurde anschließend genau einmal vollständig ausgeführt und liefert das oben
+gebundene Ergebnis. Kein weiterer Lauf ist für die Ergebnisbindung nötig
+oder vorgesehen.

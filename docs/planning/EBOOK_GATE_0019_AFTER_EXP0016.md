@@ -166,9 +166,9 @@ Arbeitsgegenstand.
 
 - EXP-0016 ist `done`; Methode, Matrix und Ergebnis sind historisch gebunden.
 - GATE-0019 ist `done`.
-- EXP-0017 ist `accepted`, aber noch nicht ausgeführt.
-- B, C, K und P sind nicht ausgewählt.
-- Kein Produktarbeitsgegenstand ist registriert; Produktcode und das
-  WI-0004-Review-Gate bleiben unverändert.
-- Die Ausführung beginnt erst in einer neuen isolierten Wave vom gemergten
-  `origin/main` und gegen ein sauberes Commit-Preimage.
+- EXP-0017 ist inzwischen `done`; sein 18/18-Pass ist historisch gebunden.
+- B, C, K und P wurden in GATE-0019 nicht ausgewählt.
+- GATE-0020 ist als getrenntes Ergebnisgate `proposed`; dort ist keine Option
+  ausgewählt.
+- Kein Folgeexperiment oder Produktarbeitsgegenstand ist registriert;
+  Produktcode und WI-0004-Review-Gate bleiben unverändert.

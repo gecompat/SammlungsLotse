@@ -144,9 +144,10 @@ Gate und für Produktcode zusätzlich einen angenommenen Arbeitsgegenstand.
 - GATE-0018 ist `done`.
 - EXP-0016 ist `done`; Matrix, Runner und Ergebnis sind historisch gebunden.
 - GATE-0019 ist `done`; der Nutzer hat dort Option A ausgewählt.
-- EXP-0017 ist `accepted`, aber noch nicht ausgeführt.
-- B, C, K und P sind nicht ausgewählt.
-- Kein Produktarbeitsgegenstand ist registriert; Produktcode bleibt
-  unverändert.
+- EXP-0017 ist inzwischen `done`; sein 18/18-Pass ist historisch gebunden.
+- GATE-0020 ist als getrenntes Ergebnisgate `proposed`; dort ist keine Option
+  ausgewählt.
+- Kein Folgeexperiment oder Produktarbeitsgegenstand ist registriert;
+  Produktcode bleibt unverändert.
 - Die Ausführung erfolgte in einer neuen isolierten Wave vom gemergten
   `origin/main` und gegen ein sauberes Commit-Preimage.

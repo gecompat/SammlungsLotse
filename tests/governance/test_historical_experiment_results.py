@@ -12,6 +12,7 @@ from tools.experiments import validate_exp_0013_result
 from tools.experiments import validate_exp_0014_result
 from tools.experiments import validate_exp_0015_result
 from tools.experiments import validate_exp_0016_result
+from tools.experiments import validate_exp_0017_result
 
 
 class HistoricalExperimentResultTests(unittest.TestCase):
@@ -91,6 +92,18 @@ class HistoricalExperimentResultTests(unittest.TestCase):
             ],
         )
         self.assertTrue(result["path_free"])
+
+    def test_exp_0017_result_against_historical_preimage(self) -> None:
+        result = validate_exp_0017_result.validate(
+            validate_exp_0017_result.RESULT_PATH
+        )
+        self.assertEqual("pass", result["status"])
+        self.assertEqual(12, result["case_count"])
+        self.assertEqual(24, result["provider_runs"])
+        self.assertTrue(result["runs_semantically_identical"])
+        self.assertEqual(1, result["canary"]["control_connections"])
+        self.assertEqual(0, result["canary"]["deep_path_connections"])
+        self.assertTrue(all(result["acceptance"].values()))
 
 
 if __name__ == "__main__":

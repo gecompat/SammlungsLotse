@@ -265,20 +265,19 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   hatte null kritische Fehlfortsetzungen, False Negatives oder Context
   Mismatches. Private Eingänge, Produktimport, Netzwerk, Persistenz, tiefer
   Werkzeuglauf und Bestandswirkung fehlten; Produktcode blieb unverändert.
-  Der Nutzer hat in GATE-0019 ausdrücklich Option A gewählt. GATE-0019 ist
-  `done`; EXP-0017 ist als rein synthetische Downstream-Isolations- und
-  Threat-Model-Wave `accepted`, aber noch nicht ausgeführt. Das getrennte
-  Ausführungs-Preimage implementiert genau zwölf zur Laufzeit erzeugte EPUBs,
-  zwei Wiederholungen, den direkten unveränderten WI-0005-Provider- und
-  Executorpfad, eine IPv4-Loopback-Messkanarie sowie Isolations-, Timeout-,
-  Output- und Cleanupgrenzen. Fokusprüfungen bleiben containerfrei; der
-  erste vollständige Lauf auf Preimage `2bb29e0` blieb wegen einer
-  Harnessabweichung `inconclusive`: Beide Wiederholungen besaßen identische
-  Zustände, Assessments und Providercodes, aber die um zwei Byte abweichende
-  Rohbericht-Gesamtgröße war fälschlich Teil der Semantikprojektion. Der
-  erste Bericht bleibt unverändert außerhalb von Git. Nur ein korrigiertes,
-  erneut lokal und in beiden Pflichtchecks grünes Preimage darf vollständig
-  neu ausgeführt werden. B, C, K und P bleiben nicht ausgewählt. Ein
+  Der Nutzer hat in GATE-0019 ausdrücklich Option A gewählt. GATE-0019 und
+  EXP-0017 sind `done`. Das saubere Preimage `53a1e2d` bestand den
+  vollständigen lokalen Repositorytest und beide exakten GitHub-
+  Pflichtchecks; der danach einmal ausgeführte synthetische Hauptlauf bestand
+  18/18 Kriterien mit zwölf Fällen, zwei semantisch identischen
+  Wiederholungen, 24 Providerläufen, null Orakelmismatches und null
+  Deep-Path-Kanarientreffern. Effektives `network=none`, fail-closed Timeout-
+  und Outputproben sowie vollständiges Task- und Container-Cleanup sind
+  historisch gebunden. Der erste vollständige Lauf auf Preimage `2bb29e0`
+  blieb wegen einer zu breiten Semantikprojektion `inconclusive`; dieser
+  Bericht bleibt unverändert außerhalb von Git und die eng begrenzte
+  Korrektur ist transparent dokumentiert. GATE-0020 ist `proposed`; A, B, C,
+  K und P sind nicht ausgewählt. Ein Folgeexperiment oder
   Produktarbeitsgegenstand ist nicht registriert und das WI-0004-Review-Gate
   bleibt unverändert.
 

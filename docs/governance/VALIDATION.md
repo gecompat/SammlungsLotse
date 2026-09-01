@@ -262,19 +262,29 @@ Bestandswirkung. Die synthetische Einstufung
 `eligible_with_tradeoffs` ist keine Produktfreigabe und lockert das
 WI-0004-Review-Gate nicht.
 
-Für das angenommene, noch nicht ausgeführte EXP-0017-Preimage gilt:
+Für den eingecheckten empirischen EXP-0017-Nachweis gilt:
 
-    python tools/experiments/run_exp_0017.py --validate-profile
+    python tools/experiments/validate_exp_0017_result.py
 
-Die Prüfung startet weder Podman noch EPUBCheck. Sie bindet den sauberen
-Git-Commit, genau zwölf aus EXP-0016 abgeleitete Orakelfälle, den
-deterministischen In-Memory-EPUB-Materialisierer, alle aktuellen
-`ebook_intake`-Produktdateien, Runner, Qualifier, WI-0005-Profil, Provider,
-Image- und Isolationsgrenzen sowie den pfad- und rohfreien Ergebnisvertrag.
-Der tatsächliche Doppellauf ist kein CI-Schritt. Er bleibt bis zu einem
-vollständig lokal und durch beide Pflichtchecks grünen exakten Preimage
-gesperrt und wird danach einmal explizit unter den dokumentierten engen
-`C:\rep`-Temp- und Artefaktpfaden ausgeführt.
+Die dauerhafte CI-Prüfung startet weder Podman noch EPUBCheck und
+materialisiert kein EPUB. Sie liest das vollständige historische Preimage
+`53a1e2dbefd03c7d770e949490ea1ec7783bfe98` aus Git, prüft die unveränderten
+Fallmanifest-, Profil- und Runnerdateien und bindet das eingefrorene
+4.429-Byte-Ergebnis über SHA-256
+`ffb748bc7429b4362392c1464b6268bf404df74625420a8498d405558c88db61`.
+Danach erzwingt sie genau zwölf Fälle, zwei semantisch identische
+Wiederholungen, 24 tatsächliche Providerläufe, alle 18 erfüllten
+Methodenkriterien, null Parsermismatches und Deep-Path-Kanarientreffer,
+vollständige Provideraggregate, effektive Isolation, fail-closed Timeout-
+und Outputproben, vollständiges Cleanup und die fehlende Produkt-, Bestands-
+oder private Wirkung.
+
+Der tatsächliche synthetische Podman-Lauf war ein einmaliger, vorab durch den
+vollständigen lokalen Repositorytest und beide Pflichtchecks auf exakt dem
+Preimage gesperrter Ausführungsschritt. Er wird in CI und bei späteren
+Validierungen nicht wiederholt. Der ursprüngliche Aufruf
+`python tools/experiments/run_exp_0017.py --validate-profile` bleibt nur für
+das eingefrorene Ausführungspreimage der maßgebliche Vorabvertrag.
 
 Semantische Wiederholungsidentität umfasst Parserklasse, S3-Literal,
 Ausführungszustand, Assessment, vollständige Providercode-Häufigkeiten und

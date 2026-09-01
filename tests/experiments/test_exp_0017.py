@@ -10,6 +10,7 @@ import zipfile
 from pathlib import Path
 
 from tools.experiments import run_exp_0017
+from tools.experiments import validate_exp_0017_result
 
 from sammlungslotse.ebook_intake.deep_model import (
     DeepEffects,
@@ -55,7 +56,17 @@ class _FakeProvider:
 class Exp0017Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.profile, cls.cases = run_exp_0017.load_contract()
+        if validate_exp_0017_result.RESULT_PATH.is_file():
+            cls.result = validate_exp_0017_result.validate(
+                validate_exp_0017_result.RESULT_PATH
+            )
+            cls.profile = run_exp_0017.load_json(run_exp_0017.PROFILE_PATH)
+            cls.cases = run_exp_0017.validate_manifest(
+                run_exp_0017.load_json(run_exp_0017.CASE_MANIFEST_PATH)
+            )
+        else:
+            cls.result = None
+            cls.profile, cls.cases = run_exp_0017.load_contract()
         cls.classified = run_exp_0017.classify_cases(cls.cases)
         cls.authority = "127.0.0.1:49152"
 
@@ -335,10 +346,10 @@ class Exp0017Tests(unittest.TestCase):
         self.assertNotIn("DeepReadOnlyService", source)
 
     def test_result_contract_when_present(self) -> None:
-        if not run_exp_0017.RESULT_PATH.is_file():
+        if self.result is None:
             self.skipTest("result.json is created only after green preimage CI")
-        result = run_exp_0017.validate_result()
-        self.assertIn(result["status"], {"inconclusive", "pass"})
+        self.assertEqual("pass", self.result["status"])
+        self.assertTrue(all(self.result["acceptance"].values()))
 
 
 if __name__ == "__main__":
