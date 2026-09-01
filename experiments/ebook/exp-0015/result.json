@@ -1,0 +1,18 @@
+{
+  "artifact": "EXP-0015",
+  "cleanup_complete": true,
+  "context_input_counts": {
+    "content.navigation": 3
+  },
+  "input_count": 3,
+  "minimum_group_size": 2,
+  "parser_runs": 3,
+  "path_free": true,
+  "qualification": "shared_context_present",
+  "remote_reference_input_count": 3,
+  "schema": "sammlungslotse/exp-0015-private-reference-context-result/v1",
+  "source_unchanged": true,
+  "status": "pass",
+  "suppressed_context_present": false,
+  "unclassified_input_count": 0
+}

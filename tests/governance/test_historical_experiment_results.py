@@ -10,6 +10,7 @@ from tools.experiments import validate_exp_0011_result
 from tools.experiments import validate_exp_0012_result
 from tools.experiments import validate_exp_0013_result
 from tools.experiments import validate_exp_0014_result
+from tools.experiments import validate_exp_0015_result
 
 
 class HistoricalExperimentResultTests(unittest.TestCase):
@@ -60,6 +61,19 @@ class HistoricalExperimentResultTests(unittest.TestCase):
         self.assertEqual(
             3, result["finding_code_counts"]["security.remote_resource"]
         )
+        self.assertTrue(result["path_free"])
+
+    def test_exp_0015_result_against_historical_preimage(self) -> None:
+        result = validate_exp_0015_result.validate(
+            validate_exp_0015_result.RESULT_PATH
+        )
+        self.assertEqual("pass", result["status"])
+        self.assertEqual(3, result["input_count"])
+        self.assertEqual(
+            3, result["context_input_counts"]["content.navigation"]
+        )
+        self.assertFalse(result["suppressed_context_present"])
+        self.assertEqual(0, result["unclassified_input_count"])
         self.assertTrue(result["path_free"])
 
 

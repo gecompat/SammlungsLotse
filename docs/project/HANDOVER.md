@@ -249,12 +249,16 @@ Läufe ergaben `review`, `format.epub`, `epub.remote_reference.present` und
 unverändert und das Cleanup vollständig. Private URLs, Domains, Werte,
 Locators und Rohberichte wurden nicht aufbewahrt. Der Nutzer hat in GATE-0017
 ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
-bestätigt. GATE-0017 ist `done`; EXP-0015 ist `accepted`, aber noch nicht
-ausgeführt. Das Experiment darf nach Merge und sauberem Preimage nur grobe
-Kontextpräsenz gruppieren, Klassenliterale ab Mindestgruppe zwei zeigen und
-weder URLs, Domains, ZIP-Eintragsnamen, Vorkommenszahlen noch
-Einzelzuordnungen aufbewahren. B, C, K und P bleiben nicht ausgewählt. Ein
-Produktarbeitsgegenstand ist nicht registriert.
+  bestätigt. GATE-0017 und EXP-0015 sind `done`. Beide erforderlichen
+  GitHub-Checks waren auf dem sauberen Preimage vor dem privaten Lauf grün.
+  Die synthetische Kontrolle bestand mit 7/7 Kontextklassen,
+  19/19 Negativkontrollen und 32 Parserläufen. Der private Hauptlauf
+  verarbeitete genau drei neutrale Kopien; das pfadfreie Aggregat enthält
+  ausschließlich `content.navigation=3`, keine seltene bekannte Klasse und
+  null unklassifizierte Eingänge. Quellen blieben unverändert und das Cleanup
+  vollständig; private Werte und Einzelzuordnungen wurden nicht aufbewahrt.
+  GATE-0018 ist `proposed`; A, B, C, K und P bleiben nicht ausgewählt. Ein
+  Produktarbeitsgegenstand ist nicht registriert.
 
 ## Harte Grenzen
 

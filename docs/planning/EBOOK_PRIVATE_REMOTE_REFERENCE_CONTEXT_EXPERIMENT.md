@@ -1,6 +1,6 @@
 # EXP-0015: Private Remote-Referenzkontexte produktcodefrei und pfadfrei gruppieren
 
-Status: ACCEPTED — NOT EXECUTED
+Status: DONE — EXECUTED, METHOD PASSED; SHARED NAVIGATION CONTEXT 3/3
 
 Stand: 2026-09-01
 
@@ -14,11 +14,11 @@ bestätigt. EXP-0015 prüft ausschließlich, ob mindestens zwei dieser drei
 Eingänge dieselbe vorab gebundene grobe Kontextklasse für eine HTTP(S)-
 Remote-Referenz besitzen.
 
-Die Auswahl autorisiert diesen Experimentvertrag und seine getrennte
+Die Auswahl autorisierte diesen Experimentvertrag und seine getrennte
 Ausführung nach Merge, Post-Merge-Prüfung und sauberem Commit-Preimage. Sie
-autorisiert keine Produktkorrektur, keine neue Diagnoseoberfläche, keine
-Lockerung des WI-0004-Review-Gates und keinen Produktcode. Das Ergebnis
-öffnet ein neues getrenntes Ergebnisgate.
+autorisiert weiterhin keine Produktkorrektur, keine neue Diagnoseoberfläche,
+keine Lockerung des WI-0004-Review-Gates und keinen Produktcode. Das Ergebnis
+ist ausschließlich in GATE-0018 zur getrennten Auswahl geöffnet.
 
 ## Gebundene Ausgangslage
 
@@ -71,7 +71,7 @@ Nach bestandener Eingangskontrolle gilt genau diese Reihenfolge:
    vor dem Lesen Grenzen für Dateigröße, Eintragsanzahl, deklarierte
    Gesamtgröße, Einzelentry, relative Namen, Kompressionsverhältnis und
    insgesamt gelesene Markupbytes.
-4. Gelesen werden nur vorab erlaubte Paket-, XHTML-/HTML-, SVG-, NCX- und
+4. Gelesen werden nur vorab erlaubte Paket-, XHTML-/HTML-, SVG-, XML- und
    CSS-Einträge. Binäre Nutzdaten bleiben ungelesen.
 5. HTTP(S)-Werte werden ausschließlich im lokalen Parserzustand erkannt und
    sofort auf eine vorab gebundene Kontextklasse reduziert. Der Wert selbst,
@@ -83,8 +83,11 @@ Nach bestandener Eingangskontrolle gilt genau diese Reihenfolge:
 7. Erst nach drei vollständigen Läufen, nachgeprüften Quellen und
    vollständigem Cleanup wird genau ein gemeinsames Aggregat geschrieben.
 
-Es gibt keinen Netzwerkclient, keinen Subprozess, keine direkte
-Datenbanknutzung, keinen tiefen Werkzeuglauf und keine Bestandswirkung.
+Der fachliche Parserlauf verwendet keinen Netzwerkclient, keinen Subprozess,
+keine direkte Datenbanknutzung, keinen tiefen Werkzeuglauf und erzeugt keine
+Bestandswirkung. Vor jeder privaten Eingangsprüfung bindet ausschließlich ein
+read-only Git-Aufruf das vollständig eingecheckte Ausführungspreimage; dieser
+Governance-Aufruf erhält und verarbeitet keinen privaten Locator oder Inhalt.
 
 ## Vorab gebundene Kontexttaxonomie
 
@@ -167,6 +170,43 @@ Die synthetischen Kontrollen belegen Methode, Grenzen und
 Datenschutzprojektion. Sie ersetzen den ausdrücklich ausgewählten privaten
 Hauptlauf nicht.
 
+## Ergebnis
+
+Das saubere Ausführungspreimage ist Commit
+`cefe2d29b54b8e6cbc60b07b1485da473565cda7`. Vor dem privaten Hauptlauf
+bestanden auf genau diesem Commit beide erforderlichen GitHub-Checks
+`repository-quality` und `registry-integrity`.
+
+Die synthetische Kontrolle bestand mit sieben von sieben Kontextklassen,
+19 von 19 Negativkontrollen, 32 gebundenen Parserläufen, zwei identischen
+Aggregationswiederholungen und vollständigem Cleanup. Danach verarbeitete der
+bestätigte Hauptlauf genau drei EPUBs mit je einem Parserlauf auf einer
+neutralen task-privaten Kopie.
+
+Das einzige gemeinsame Klassenliteral lautet `content.navigation` und ist in
+drei von drei Eingängen präsent. Alle drei Eingänge enthielten mindestens
+eine vom gebundenen WI-0004-Muster erfasste HTTP(S)-Referenz. Es gab keine nur
+einmal vertretene bekannte Klasse und keinen unklassifizierten Eingang.
+Quellen blieben bytegleich unverändert; Taskmaterial wurde vollständig
+bereinigt.
+
+Der Befund enthält keine Vorkommenszahl, Einzelzuordnung, URL, Domain,
+ZIP-Eintragsbezeichnung oder Inhaltsaussage. `content.navigation` unterscheidet
+absichtlich nicht zwischen einzelnen Tag-, Dokument- oder
+Nutzungskonstellationen und belegt weder Erreichbarkeit noch Ausführung oder
+Gefährlichkeit.
+
+Das 483-Byte-Ergebnis besitzt den SHA-256-Wert
+`651ad195b54531d20e0fc6ff882df6e1d4b38765e877057faf7858f36dae50a1`.
+Der historische Validator lautet:
+
+```powershell
+python tools/experiments/validate_exp_0015_result.py
+```
+
+GATE-0018 trennt die Bewertung des gemeinsamen Navigationskontexts von jeder
+möglichen Produktfortsetzung.
+
 ## Harte Grenzen
 
 - genau drei in GATE-0017 erneut bestätigte private EPUBs im Hauptlauf;
@@ -174,8 +214,9 @@ Hauptlauf nicht.
 - Mindestgruppe `2`; seltene Klassen bleiben ohne Literal unterdrückt;
 - keine Vorkommenszahlen und keine Einzelzuordnung;
 - kein Produktimport und keine Änderung unter `src/sammlungslotse/`;
-- kein Netzwerk, Subprozess, tiefer Werkzeuglauf, Calibre, Persistenz oder
-  direkte Datenbanknutzung;
+- kein Netzwerk, fachlicher Subprozess, tiefer Werkzeuglauf, Calibre,
+  Persistenz oder direkte Datenbanknutzung; Git wird ausschließlich vor der
+  privaten Eingangsprüfung read-only für die Preimage-Bindung aufgerufen;
 - keine Aufbewahrung privater Arbeitskopien, Referenzen, Metadaten,
   ZIP-Eintragsnamen, Locators, Pfade, Hashes, Größen oder Rohoutputs;
 - keine neue öffentliche CLI-, API-, UI-, Agent-, Diagnose-, Such-, Routing-
@@ -217,20 +258,19 @@ Ein methodischer `pass` oder eine gemeinsame Kontextklasse ist keine
 Produktfreigabe. Der Befund beschreibt nur diesen ausdrücklich begrenzten
 Dreiersatz und öffnet ein getrenntes Ergebnisgate.
 
-## Ausführungsfolge
+## Historisch durchgeführte Ausführungsfolge
 
-1. Diese Auswahl- und Vertragswave wird validiert, gemergt und auf
+1. Die Auswahl- und Vertragswave wurde validiert, gemergt und auf
    `origin/main` post-merge geprüft.
-2. Profil, Runner, synthetische Kontrollen und Tests werden danach in einem
+2. Profil, Runner, synthetische Kontrollen und Tests wurden danach in einem
    neuen isolierten Worktree ohne Produktcode implementiert und als sauberes
    Preimage committed.
-3. Erst gegen dieses Preimage werden die drei bereits mit Option A erneut
+3. Erst nach grüner CI auf diesem Preimage wurden die drei mit Option A erneut
    bestätigten Locators genau einmal je task-privater Kopie verarbeitet.
-4. Ein historischer Validator bindet ausschließlich die zulässige
+4. Der historische Validator bindet ausschließlich die zulässige
    Mindestgruppenaggregation an das Preimage. Private Arbeits- oder Rohdaten
    bleiben außerhalb von Git.
-5. Das Ergebnis öffnet ein neues getrenntes Gate; EXP-0015 wählt keine
-   Produktfortsetzung.
+5. Das Ergebnis öffnet GATE-0018; EXP-0015 wählt keine Produktfortsetzung.
 
 ## Nicht-Ziele
 
