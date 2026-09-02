@@ -2,15 +2,17 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-01
+Stand: 2026-09-02
 
 ## Aktueller Stand
 
 SammlungsLotse ist als eigenständiges Projekt initialisiert. Nach
 ergebnisoffener E-Book-Erkundung ist WI-0004 als erster eng begrenzter,
 reversibler Produktprototyp implementiert und lokal vollständig abgenommen.
-AI Repository Foundation 1.7.0 ist semantisch integriert. Die Bewertung steht
-unter docs/governance/FOUNDATION_UPGRADE_1_7.md.
+AI Repository Foundation 1.8.0 ist semantisch integriert. Die vollständige
+Feature-Bewertung steht unter docs/governance/FOUNDATION_UPGRADE_1_8.md. Die
+optionale Fähigkeit `rule-context-cache` ist empfohlen, aber nicht ausgewählt;
+es wurde kein persistenter Cache angelegt oder konfiguriert.
 
 main ist geschützt. Änderungen benötigen die erfolgreichen Checks
 repository-quality und registry-integrity.
