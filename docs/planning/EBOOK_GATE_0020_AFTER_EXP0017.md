@@ -169,6 +169,7 @@ gebundenen WI-0014-Vertrag zulässig.
 - WI-0014 ist inzwischen `done` und bestand 16/16 commitgebundene
   Produktkriterien; die damaligen Optionen A, C, K und P bleiben nicht
   ausgewählt.
-- GATE-0021 ist als getrenntes Ergebnisgate `proposed`; dort ist keine Option
-  ausgewählt.
+- GATE-0021 ist `done`; der Nutzer hat dort Option A gewählt. Der
+  qualifizierte V2-Vertrag bleibt als enges JSON-Opt-in stabil und löst keine
+  Folgearbeit aus.
 - Das WI-0004-Review-Gate bleibt unverändert.

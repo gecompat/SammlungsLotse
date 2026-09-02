@@ -293,8 +293,9 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   WI-0005-Requalifizierung bestand 12/12 Kriterien. Der abhängige WI-0011-
   Weg bestand auf demselben Kandidaten erneut 23/23. Der einmalige
   WI-0014-Hauptlauf auf dem beidseitig CI-grünen Preimage `ed7f173` bestand
-  16/16 Kriterien und ist eingecheckt gebunden. GATE-0021 ist als getrenntes
-  Ergebnisgate `proposed`; A, B, K und P sind nicht ausgewählt.
+  16/16 Kriterien und ist eingecheckt gebunden. GATE-0021 ist `done`: Der
+  Nutzer hat Option A gewählt. Der qualifizierte V2-Vertrag bleibt als enges
+  JSON-Opt-in stabil; es wird keine Folgearbeit registriert.
 
 ## Harte Grenzen
 
@@ -315,8 +316,6 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
 - Deployment und UI;
 - konkrete REST- und Agent-Verträge;
 - V1-Deprecation oder -Entfernung sowie eine eigene Publikationsstufe;
-- Auswahl in GATE-0021 zwischen Stabilhalten von V2, weiterer additiver
-  Erklärung, Konservieren und Pausieren;
 - konkrete FolioTone-Wiederverwendung;
 - Tiefe der ersten Formatunterstützung und konkrete Qualitätsprofile;
 - Accessibility- und externe Metadatenprovider-Adapter sowie weitere tiefe

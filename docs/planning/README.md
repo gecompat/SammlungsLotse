@@ -320,9 +320,9 @@ WI-0005-Requalifizierung mit 12/12 Kriterien sind grün. Der abhängige
 WI-0011-Weg wurde auf dem Kandidaten ebenfalls tatsächlich mit Podman erneut
 qualifiziert und bestand 23/23 Kriterien. Der danach einmalig auf dem grünen
 Preimage `ed7f173` ausgeführte WI-0014-Hauptlauf bestand 16/16 Kriterien;
-sein pfadfreier Nachweis ist eingecheckt. GATE-0021 bewertet als neues
-`proposed` Ergebnisgate Stabilhalten, weitere additive Erklärung,
-Konservieren und Pausieren. Keine Option ist ausgewählt.
+sein pfadfreier Nachweis ist eingecheckt. GATE-0021 ist `done`: Der Nutzer
+hat Option A gewählt. Der qualifizierte V2-Vertrag bleibt als enges
+JSON-Opt-in stabil; es wird keine Folgearbeit registriert.
 
 ## Nicht übernehmen
 
