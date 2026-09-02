@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-01
+Stand: 2026-09-02
 
 ## Phase
 
@@ -113,15 +113,17 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   Bericht; V1, Humanweg, `review` und Deep-Read-Gate bleiben unverändert. Der
   einmalige commitgebundene Hauptlauf auf Preimage `ed7f173` bestand 16/16
   Kriterien. GATE-0021 ist als getrenntes Ergebnisgate `proposed`; keine
-  Option ist ausgewählt.
+  Option ist ausgewählt. AI Repository Foundation 1.8.0 ist davon getrennt
+  semantisch integriert; die optionale Rule-Context-Cache-Fähigkeit bleibt
+  ausdrücklich nicht ausgewählt.
 
 ## Vorhanden
 
 - eigenständiges GitHub-Repository und lokale Codex-Projektzuordnung;
 - MIT-Lizenz für eigenständig entwickelte SammlungsLotse-Inhalte;
-- AI Repository Foundation 1.7.0;
-- vollständige semantische 1.7-Upgrade-Bewertung unter
-  docs/governance/FOUNDATION_UPGRADE_1_7.md;
+- AI Repository Foundation 1.8.0;
+- vollständige semantische 1.8-Upgrade-Bewertung unter
+  docs/governance/FOUNDATION_UPGRADE_1_8.md;
 - Projektauftrag, Produktgrenzen und Glossar;
 - projektbezogene Datenschutz-, Git-, Dokumentations- und
   Wiederverwendungsregeln;
@@ -389,6 +391,25 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
 - Release.
 
 ## Validierung
+
+Foundation-1.8-Upgrade-Wave: FOUNDATION_INTEGRITY, PROJECT_SEMANTIC und
+RUNTIME_EMPIRICAL lokal validiert am 2026-09-02 unter Windows und Python
+3.12.10. Der Foundation-1.8-Zielvalidator am exakten Quellcommit
+`7ddc29988b23570f462e46ebf527f8dfdd05fd75` meldete 4 INFO, 0 Warnungen,
+0 Fehler und 0 Blocker. Repository- und v2-Registry-Prüfung waren für 62
+Artefakte erfolgreich. Der vollständige Repositorytest entdeckte 273 Tests,
+ersetzte 15 eingefrorene Current-Preimage-Prüfungen durch fünf historische
+Prüfungen und führte 258 Tests erfolgreich aus. `compileall` und
+`git diff --check` waren grün.
+
+Die getrennte Foundation-Quellprüfung meldete für Transfer-Manifest und
+Feature-Katalog jeweils 0 Blocker; alle 94 Foundation-Tests bestanden. Der
+Foundation-Projektvalidator meldete 0 Fehler und 0 Blocker sowie zwei
+bekannte Self-Scan-Warnungen, weil sein eigener Quelltext die Suchmuster für
+einen absoluten Benutzerpfad und ein Platzhalterliteral enthält. Die
+optionale Fähigkeit `rule-context-cache` wurde nicht installiert oder
+ausgeführt. Diese Evidenz belegt die 1.8-Integration, nicht die Auswahl einer
+GATE-0021-Option oder einer persistenten Cachekonfiguration.
 
 WI-0014-Ergebnisbindungs- und GATE-0021-Wave: PROJECT_SEMANTIC,
 RUNTIME_EMPIRICAL und FOUNDATION_INTEGRITY lokal validiert am 2026-09-02
@@ -1417,6 +1438,11 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
+WI-0015 ist abgeschlossen: Foundation 1.8.0 ist manifestgetreu und semantisch
+integriert; der einzige neue Feature-Kandidat `rule-context-cache` ist
+`RECOMMENDED`, seine optionale Referenzimplementierung aber nicht ausgewählt.
+Die Produktfortsetzung bleibt davon unabhängig.
+
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
 EXP-0013, GATE-0016, EXP-0014, GATE-0017, EXP-0015, GATE-0018, EXP-0016,
@@ -1435,6 +1461,10 @@ und Writes bleiben nicht autorisiert.
 
 ## Offene Punkte
 
+- Die optionale Foundation-Fähigkeit `rule-context-cache` ist empfohlen, aber
+  nicht ausgewählt. Eine spätere Einführung benötigt eine eigene Bewertung
+  des lokalen, nicht versionierten Cacheziels; semantische Analysen dürfen
+  nicht persistent gespeichert werden.
 - Eine professionelle Markenähnlichkeitsprüfung ist vor einer wirtschaftlich
   wesentlichen breiten Vermarktung weiterhin erforderlich.
 - Eine spätere Entscheidung kann getrennte Core-Safety- und CI-Gates-Rulesets
