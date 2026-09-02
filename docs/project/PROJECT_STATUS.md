@@ -112,10 +112,11 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   V2 bleibt explizites JSON-Opt-in für Einzel-, Batch- und kombinierten
   Bericht; V1, Humanweg, `review` und Deep-Read-Gate bleiben unverändert. Der
   einmalige commitgebundene Hauptlauf auf Preimage `ed7f173` bestand 16/16
-  Kriterien. GATE-0021 ist als getrenntes Ergebnisgate `proposed`; keine
-  Option ist ausgewählt. AI Repository Foundation 1.8.0 ist davon getrennt
-  semantisch integriert; die optionale Rule-Context-Cache-Fähigkeit bleibt
-  ausdrücklich nicht ausgewählt.
+  Kriterien. GATE-0021 ist `done`: Der Nutzer hat ausdrücklich Option A
+  gewählt. Der qualifizierte V2-Vertrag bleibt als enges JSON-Opt-in stabil;
+  es wird keine Folgearbeit registriert. AI Repository Foundation 1.8.0 ist
+  davon getrennt semantisch integriert; die optionale Rule-Context-Cache-
+  Fähigkeit bleibt ausdrücklich nicht ausgewählt.
 
 ## Vorhanden
 
@@ -422,7 +423,8 @@ exakten installierten Quellcommit
 und 0 Blocker. Der vollständige Repositorytest wird auf dem finalen
 Ergebnisbindungscommit durch die erforderliche GitHub-CI ausgeführt und
 lokal nicht redundant wiederholt. Diese Evidenz belegt Ergebnisbindung und
-das ergebnisoffene Gate, nicht die Auswahl einer GATE-0021-Option.
+das damals ergebnisoffene Gate; die Auswahl von Option A erfolgte anschließend
+ausdrücklich durch den Nutzer.
 
 WI-0014-Implementierungskandidat: PROJECT_SEMANTIC, RUNTIME_EMPIRICAL und
 FOUNDATION_INTEGRITY lokal validiert am 2026-09-02 unter Windows und Python
@@ -1451,10 +1453,9 @@ in GATE-0020 ausdrücklich Option B gewählt. Der enge review-beibehaltende
 V2-Produktvertrag bestand 16/16 commitgebundene Kriterien. Human- und
 Standard-JSON-Ausgabe bleiben bytekompatibles V1; nur
 `--json --report-version v2` aktiviert die pfadfreie Kontexterklärung. Das
-WI-0004-Review-Gate bleibt unverändert. GATE-0021 ist `proposed` und stellt
-Stabilhalten, weitere additive Erklärung, Konservieren und Pausieren
-gegenüber. Keine Option ist ausgewählt; ohne neue ausdrückliche Auswahl
-beginnt keine Folgearbeit.
+WI-0004-Review-Gate bleibt unverändert. GATE-0021 ist `done`; der Nutzer hat
+Option A gewählt. Der qualifizierte V2-Vertrag bleibt als enges explizites
+JSON-Opt-in stabil. Es wird kein Folgearbeitsgegenstand registriert.
 Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.

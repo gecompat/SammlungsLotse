@@ -1,6 +1,6 @@
 # GATE-0021: WI-0014-Ergebnis und sichere Produktfortsetzung bewerten
 
-Status: PROPOSED — KEINE OPTION AUSGEWÄHLT
+Status: DONE — OPTION A AUSGEWÄHLT
 
 Stand: 2026-09-02
 
@@ -97,8 +97,13 @@ wenn derzeit kein weiterer Erklärwert benötigt wird. B ist nur sinnvoll,
 wenn eine konkrete zusätzliche Nutzeroberfläche ausdrücklich gewünscht wird.
 P bleibt die bewusste Pause.
 
-Die Empfehlung ist keine Auswahl. A, B, K und P bleiben ungewählt, bis der
-Nutzer eine Option ausdrücklich auswählt.
+## Auswahl
+
+Der Nutzer hat am 2026-09-02 ausdrücklich Option A gewählt. Der
+qualifizierte V2-Vertrag bleibt damit in seinem bestehenden engen Umfang als
+explizites JSON-Opt-in stabil. Es wird kein Folgearbeitsgegenstand
+registriert und keine neue Produktfläche, Reviewlockerung oder weitere
+Autorisierung abgeleitet.
 
 ## Harte Grenzen
 
@@ -114,7 +119,7 @@ Nutzer eine Option ausdrücklich auswählt.
 ## Gate-Stand
 
 - WI-0014 ist `done` und mit 16/16 Kriterien qualifiziert.
-- GATE-0021 ist `proposed`; keine Option ist ausgewählt.
+- GATE-0021 ist `done`; Option A ist ausdrücklich ausgewählt.
 - V1 bleibt Standard, V2 bleibt explizites JSON-Opt-in.
 - `review` und `deep_read_only_allowed=false` bleiben unverändert.
-- Ohne neue ausdrückliche Auswahl beginnt keine Folgearbeit.
+- Option A registriert keine Folgearbeit.

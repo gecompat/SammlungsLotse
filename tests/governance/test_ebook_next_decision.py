@@ -933,7 +933,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         }
         self.assertEqual({"WI-0014"}, followups)
 
-    def test_wi0014_result_opens_gate0021_without_selecting_followup(self) -> None:
+    def test_wi0014_result_closes_gate0021_with_option_a(self) -> None:
         self.assertEqual("pass", self.wi0014_result["status"])
         self.assertEqual(
             "ed7f173896b7365d2f91fb47baa1bc4065c23bcb",
@@ -947,7 +947,7 @@ class EbookNextDecisionTests(unittest.TestCase):
         self.assertTrue(self.wi0014_result["cleanup_complete"])
 
         gate = self.artifacts["GATE-0021"]
-        self.assertEqual("proposed", gate["status"])
+        self.assertEqual("done", gate["status"])
         self.assertEqual(
             "docs/planning/EBOOK_GATE_0021_AFTER_WI0014.md",
             gate["locator"],
@@ -967,12 +967,9 @@ class EbookNextDecisionTests(unittest.TestCase):
             "### P — E-Book-Zweig pausieren",
         ):
             self.assertIn(heading, self.post_wi0014_gate)
+        self.assertIn("Option A gewählt", self.post_wi0014_gate)
         self.assertIn(
-            "A, B, K und P bleiben ungewählt", self.post_wi0014_gate
-        )
-        self.assertIn(
-            "Ohne neue ausdrückliche Auswahl beginnt keine Folgearbeit",
-            self.post_wi0014_gate,
+            "Option A registriert keine Folgearbeit", self.post_wi0014_gate
         )
 
 

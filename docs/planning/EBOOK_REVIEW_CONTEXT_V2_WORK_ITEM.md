@@ -187,10 +187,10 @@ WI-0014 ist damit `done`.
 ## Ergebnisfolge
 
 Die bestandene Implementierung und Produktqualifikation hat GATE-0021 als
-getrenntes Ergebnisgate geöffnet. Es darf V2 stabil halten, weitere additive
-Erklärung erwägen, konservieren oder pausieren; es wählt ohne neue
-ausdrückliche Nutzerentscheidung keine weitere Produktänderung. Derzeit ist
-keine Option ausgewählt.
+getrenntes Ergebnisgate geöffnet. Der Nutzer hat anschließend ausdrücklich
+Option A gewählt: V2 bleibt in seinem bestehenden engen Umfang als explizites
+JSON-Opt-in stabil. Die Auswahl registriert keine Folgearbeit und leitet keine
+weitere Produktänderung ab.
 
 ## Nicht-Ziele
 
