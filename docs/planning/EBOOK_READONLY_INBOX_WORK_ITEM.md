@@ -149,6 +149,10 @@ Ausschließlich synthetische Produktverträge prüfen die rekursive EPUB/PDF-
 Erfassung, Zähler, Positionsfolge, fehlende Ordner, Link-Sperre,
 Kandidaten- und Bytegrenzen, die unveränderte Standardausgabe, den lokalen
 Label-Opt-in, die fehlende Tiefenautomatik und unveränderte Originale.
+Weil die gemeinsame CLI erweitert wurde, ist auch das bestehende
+WI-0005-EPUBCheck-Profil mit denselben synthetischen Eingängen erneut
+qualifiziert: 12/12 Kriterien, `network=none`, entfernter Container und
+bereinigter Timeout-Task. Es wurde kein neuer Containervertrag eingeführt.
 
 ## Annahmeentscheidung
 

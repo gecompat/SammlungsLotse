@@ -123,6 +123,9 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   namensfrei, lokale relative Labels sind ein separater Human-Opt-in und der
   Ordnerweg startet keinen tiefen Werkzeuglauf. Persistenz, Schreibwirkung und
   reale private Ausführungen bleiben außerhalb.
+  Das wegen der gemeinsamen CLI erneut gebundene WI-0005-EPUBCheck-Profil
+  bestand mit unverändertem Profil 12/12 ausschließlich synthetische
+  Kriterien; Container- und Timeout-Task-Cleanup blieben vollständig.
 
 ## Vorhanden
 

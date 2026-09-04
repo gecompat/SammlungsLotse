@@ -302,6 +302,9 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   namensfrei; lokale relative Labels sind ein Human-Opt-in. Er startet keine
   tiefe Prüfung und autorisiert weder reale private Eingänge noch
   Schreibwirkung.
+  Das wegen der gemeinsamen CLI erneut gebundene WI-0005-EPUBCheck-Profil
+  bestand unverändert 12/12 ausschließlich synthetische Kriterien mit
+  vollständigem Container- und Timeout-Task-Cleanup.
 
 ## Harte Grenzen
 
