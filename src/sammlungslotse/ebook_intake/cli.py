@@ -14,6 +14,7 @@ from .batch import BatchIntakeService, BatchLimits, BatchReport
 from .deep_application import DeepReadOnlyService
 from .deep_model import CombinedIntakeReport, DeepToolResult
 from .deep_profile import DeepRuntimeProfile
+from .directory import DirectoryIntakeReport, DirectoryIntakeService
 from .epubcheck_provider import EpubCheckProvider
 from .model import Evidence, TriageLimits, TriageReport
 from .snapshot import LocalFileSnapshotReader
@@ -190,6 +191,68 @@ def render_batch_human(report: BatchReport) -> str:
     return output
 
 
+def render_directory_json(
+    report: DirectoryIntakeReport, report_version: str = "v1"
+) -> str:
+    payload = json.dumps(
+        report.to_dict(report_version),
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
+    if len(payload.encode("utf-8")) > report.limits.max_report_bytes:
+        raise RuntimeError("bounded directory report exceeds its output limit")
+    return payload
+
+
+def render_directory_human(
+    report: DirectoryIntakeReport,
+    *,
+    local_labels: tuple[str, ...] = (),
+) -> str:
+    lines = [
+        "SammlungsLotse E-Book-Ordner-Eingangsbericht",
+        f"Inventarstatus: {report.status}",
+        f"Inventar vollständig: {'ja' if report.inventory_complete else 'nein'}",
+        f"Reguläre EPUB-Eingänge: {dict(report.candidate_counts)['epub']}",
+        f"Reguläre PDF-Eingänge: {dict(report.candidate_counts)['pdf']}",
+        "Übersprungene Links oder Reparse Points: "
+        f"{report.skipped_link_or_reparse_points}",
+        f"Deklarierte Eingangsbytes: {report.declared_candidate_bytes}",
+        f"Snapshot-Summe: {report.total_snapshot_bytes} Bytes",
+    ]
+    if report.reason_codes:
+        lines.append(f"Gründe: {', '.join(report.reason_codes)}")
+    for item in report.items:
+        lines.extend(["", f"Eingang {item.input_index + 1}"])
+        if item.status != "completed" or item.triage is None:
+            lines.extend([f"Status: {item.status}", f"Gründe: {', '.join(item.reason_codes) or 'keine'}"])
+            continue
+        lines.extend(render_human(item.triage).splitlines()[1:])
+    summary = report.to_dict()["summary"]
+    assert isinstance(summary, dict)
+    actions = summary["next_actions"]
+    assert isinstance(actions, dict)
+    lines.extend(
+        ["", "Zusammenfassung Folgeaktionen: " + " | ".join(
+            f"{key}={value}" for key, value in sorted(actions.items())
+        )]
+    )
+    if local_labels:
+        if len(local_labels) != len(report.items):
+            raise ValueError("local labels differ from directory report items")
+        lines.append("")
+        lines.append("Lokale Labels (ausdrücklicher Opt-in):")
+        lines.extend(
+            f"  - Eingang {index + 1}: {label}"
+            for index, label in enumerate(local_labels)
+        )
+    output = "\n".join(lines)
+    if len(output.encode("utf-8")) > report.limits.max_report_bytes:
+        raise RuntimeError("bounded directory report exceeds its output limit")
+    return output
+
+
 def _default_deep_profile() -> Path:
     return (
         Path(__file__).resolve().parents[3]
@@ -205,7 +268,17 @@ def parser() -> argparse.ArgumentParser:
         description="Eine lokale Datei flach und ausschließlich read-only triagieren.",
     )
     result.add_argument(
-        "input", nargs="+", type=Path, help="eine oder mehrere lokale Eingabedateien"
+        "input", nargs="*", type=Path, help="eine oder mehrere lokale Eingabedateien"
+    )
+    result.add_argument(
+        "--input-directory",
+        type=Path,
+        help="genau einen lokalen Ordner rekursiv und read-only inventarisieren",
+    )
+    result.add_argument(
+        "--show-local-labels",
+        action="store_true",
+        help="nur mit --input-directory relative lokale Labels auf stdout ausgeben",
     )
     result.add_argument(
         "--json", action="store_true", help="pfadbereinigten JSON-Vertrag ausgeben"
@@ -336,14 +409,35 @@ def _run_batch(args: argparse.Namespace) -> tuple[str, int]:
     return output, 0
 
 
+def _run_directory(args: argparse.Namespace) -> tuple[str, int]:
+    report, local_labels = DirectoryIntakeService().inspect(args.input_directory)
+    output = (
+        render_directory_json(report, args.report_version or "v1")
+        if args.json
+        else render_directory_human(
+            report, local_labels=local_labels if args.show_local_labels else ()
+        )
+    )
+    return output, (3 if report.has_internal_error else 0)
+
+
 def main(argv: list[str] | None = None) -> int:
     _configure_utf8_streams()
     argument_parser = parser()
     args = argument_parser.parse_args(argv)
     if args.report_version is not None and not args.json:
         argument_parser.error("--report-version requires --json")
+    if args.input_directory is not None:
+        if args.input or args.deep_read_only or args.deep_profile or args.deep_temp_root:
+            argument_parser.error("directory mode is exclusive")
+        if args.show_local_labels and args.json:
+            argument_parser.error("local labels require human output")
+    elif args.show_local_labels or not args.input:
+        argument_parser.error("input mode is missing")
     try:
-        if len(args.input) == 1:
+        if args.input_directory is not None:
+            output, exit_code = _run_directory(args)
+        elif len(args.input) == 1:
             output, exit_code = _run_single(args)
         else:
             output, exit_code = _run_batch(args)

@@ -165,10 +165,19 @@ def git_bytes(*arguments: str) -> bytes:
     return completed.stdout
 
 
-def _bound_locators() -> tuple[str, ...]:
+def _bound_locators_at(commit: str) -> tuple[str, ...]:
     product = tuple(
-        path.relative_to(ROOT).as_posix()
-        for path in sorted((SRC / "sammlungslotse" / "ebook_intake").glob("*.py"))
+        line
+        for line in git_bytes(
+            "ls-tree",
+            "-r",
+            "--name-only",
+            commit,
+            "src/sammlungslotse/ebook_intake",
+        )
+        .decode("utf-8")
+        .splitlines()
+        if line.endswith(".py")
     )
     fixed = (
         "docs/planning/EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md",
@@ -180,6 +189,10 @@ def _bound_locators() -> tuple[str, ...]:
         "tools/run_ebook_intake.py",
     )
     return tuple(sorted(set((*product, *fixed))))
+
+
+def _bound_locators() -> tuple[str, ...]:
+    return _bound_locators_at(_current_preimage())
 
 
 def _current_preimage() -> str:
@@ -735,7 +748,9 @@ def validate_result_dict(result: dict[str, Any]) -> dict[str, Any]:
     if validate_profile(profile).get("baseline_commit") != baseline:
         raise QualificationError("qualification baseline is not profile-bound")
     bindings = result.get("bindings")
-    if not isinstance(bindings, dict) or set(bindings) != set(_bound_locators()):
+    if not isinstance(bindings, dict) or set(bindings) != set(
+        _bound_locators_at(preimage)
+    ):
         raise QualificationError("qualification bindings differ")
     for locator, digest in bindings.items():
         if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
