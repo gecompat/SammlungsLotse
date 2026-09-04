@@ -58,7 +58,7 @@ Experimente und spätere Entscheidungen:
 - [GATE-0020: EXP-0017-Ergebnis und sichere Produktfortsetzung bewerten](EBOOK_GATE_0020_AFTER_EXP0017.md);
 - [WI-0014: Review-Kontexterklärung V2 für die EPUB-Eingangstriage umsetzen](EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md);
 - [GATE-0021: WI-0014-Ergebnis und sichere Produktfortsetzung bewerten](EBOOK_GATE_0021_AFTER_WI0014.md);
-- [WI-0016: read-only E-Book-Eingangsordner transparent erfassen](EBOOK_READONLY_INBOX_WORK_ITEM.md) — vorgeschlagen, nicht angenommen;
+- [WI-0016: read-only E-Book-Eingangsordner transparent erfassen](EBOOK_READONLY_INBOX_WORK_ITEM.md) — angenommen, nicht implementiert;
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
 - [E-Book-Experimentverträge](EBOOK_EXPERIMENTS.md).
@@ -325,10 +325,11 @@ sein pfadfreier Nachweis ist eingecheckt. GATE-0021 ist `done`: Der Nutzer
 hat Option A gewählt. Der qualifizierte V2-Vertrag bleibt als enges
 JSON-Opt-in stabil; es wird keine Folgearbeit registriert.
 
-WI-0016 ist als getrennte nächste mögliche Produktwave `proposed`. Der
-Vorschlag begrenzt einen ausdrücklich gewählten read-only E-Book-Eingangsordner
-auf bestehende Triagegrenzen, ohne Persistenz, externe Dienste oder
-Schreiboperation. Er ist nicht angenommen und autorisiert keinen Produktcode.
+WI-0016 ist als getrennte nächste Produktwave `accepted`. Die Annahme
+autorisiert ausschließlich die begrenzte read-only Implementierung für einen
+ausdrücklich gewählten E-Book-Eingangsordner innerhalb bestehender
+Triagegrenzen, ohne Persistenz, externe Dienste oder Schreiboperation. Sie
+ist noch nicht implementiert und autorisiert keine reale private Ausführung.
 
 ## Nicht übernehmen
 
