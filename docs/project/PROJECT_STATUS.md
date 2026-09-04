@@ -117,10 +117,10 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   es wird keine Folgearbeit registriert. AI Repository Foundation 1.8.0 ist
   davon getrennt semantisch integriert; die optionale Rule-Context-Cache-
   Fähigkeit bleibt ausdrücklich nicht ausgewählt.
-  WI-0016 ist als read-only E-Book-Eingangsordner `proposed` vorbereitet,
-  aber nicht angenommen: Er begrenzt nur eine mögliche spätere
-  Ordnerinventarisierung auf bestehende Triage-, Datenschutz- und
-  Schreibgrenzen und autorisiert keinen Produktcode.
+  WI-0016 ist als read-only E-Book-Eingangsordner `accepted`, aber noch nicht
+  implementiert. Die Annahme autorisiert ausschließlich die begrenzte spätere
+  Ordnerinventarisierung innerhalb bestehender Triage-, Datenschutz- und
+  Schreibgrenzen; eine reale private Ausführung bleibt getrennt freizugeben.
 
 ## Vorhanden
 

@@ -1,6 +1,6 @@
 # WI-0016: Read-only E-Book-Eingangsordner transparent erfassen
 
-Status: PROPOSED — NICHT ANGENOMMEN, KEINE IMPLEMENTIERUNG AUTORISIERT
+Status: ACCEPTED — IMPLEMENTIERUNG INNERHALB DIESES VERTRAGS AUTORISIERT
 
 Stand: 2026-09-04
 
@@ -8,15 +8,15 @@ Artifact: WI-0016
 
 ## Zweck
 
-Dieser vorgeschlagene Arbeitsgegenstand bereitet den ersten sichtbaren
+Dieser angenommene Arbeitsgegenstand bereitet den ersten sichtbaren
 Eingangsablauf über einen ausdrücklich gewählten lokalen E-Book-Ordner vor.
 Er verbindet die vorhandene Einzel- und Mehrdatei-Triage zu einer für einen
 Menschen nachvollziehbaren, weiterhin rein read-only Ordnerübersicht. Er
 macht aus einem Ordner weder eine Bibliothek noch einen verwalteten Bestand.
 
-Der Gegenstand ist erst nach ausdrücklicher Annahme implementierbar. Er wählt
-weder eine allgemeine Produktarchitektur noch Persistenz, Suche, Routing,
-Calibre-Zugriff oder einen Writer.
+Die Annahme autorisiert ausschließlich die spätere Implementierungswave
+innerhalb dieses Vertrags. Sie wählt weder eine allgemeine Produktarchitektur
+noch Persistenz, Suche, Routing, Calibre-Zugriff oder einen Writer.
 
 ## Kleinster Nutzwert
 
@@ -120,9 +120,9 @@ schreibende Operation.
 
 ## Annahmeentscheidung
 
-Die Vorbereitung registriert nur einen prüfbaren Vorschlag. Vor Annahme sind
-insbesondere der lokale Label-Opt-in, die festen Ordnergrenzen und der Nutzen
-gegenüber der bestehenden expliziten Mehrdatei-CLI bewusst zu bestätigen.
-Eine Annahme autorisiert ausschließlich die hier beschriebene read-only
-Implementierungswave; reale private Eingänge, weitere Formate und jede
-Bestandswirkung bleiben getrennte Entscheidungen.
+Am 2026-09-04 ausdrücklich angenommen. Der lokale Label-Opt-in, die festen
+Ordnergrenzen und der Nutzen gegenüber der bestehenden expliziten
+Mehrdatei-CLI sind damit für diese Wave bestätigt. Die Annahme autorisiert
+ausschließlich die hier beschriebene read-only Implementierungswave; reale
+private Eingänge, weitere Formate und jede Bestandswirkung bleiben getrennte
+Entscheidungen.

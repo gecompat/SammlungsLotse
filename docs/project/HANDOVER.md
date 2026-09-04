@@ -296,9 +296,10 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   16/16 Kriterien und ist eingecheckt gebunden. GATE-0021 ist `done`: Der
   Nutzer hat Option A gewählt. Der qualifizierte V2-Vertrag bleibt als enges
   JSON-Opt-in stabil; es wird keine Folgearbeit registriert.
-  WI-0016 ist als getrennte read-only Ordner-Eingangswave `proposed`, aber
-  nicht angenommen. Es erweitert weder den aktuellen Produktvertrag noch
-  autorisiert es Produktcode, reale private Eingänge oder Schreibwirkung.
+  WI-0016 ist als getrennte read-only Ordner-Eingangswave `accepted`, aber
+  noch nicht implementiert. Die Annahme autorisiert die begrenzte
+  Implementierungswave, nicht aber reale private Eingänge oder
+  Schreibwirkung.
 
 ## Harte Grenzen
 
