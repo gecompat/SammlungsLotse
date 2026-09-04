@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -226,9 +227,29 @@ class DeepReadOnlyContractTests(unittest.TestCase):
     def test_qualification_binds_the_complete_intake_runtime(self) -> None:
         qualification = json.loads(QUALIFICATION_PATH.read_text(encoding="utf-8"))
         bound = set(qualification["preimage_sha256"])
-        package_root = ROOT / "src" / "sammlungslotse" / "ebook_intake"
+        evidence_commit = subprocess.run(
+            ["git", "log", "-1", "--format=%H", "--", str(QUALIFICATION_PATH)],
+            cwd=ROOT,
+            capture_output=True,
+            check=True,
+            encoding="utf-8",
+        ).stdout.strip()
+        files = subprocess.run(
+            [
+                "git",
+                "ls-tree",
+                "-r",
+                "--name-only",
+                evidence_commit,
+                "src/sammlungslotse/ebook_intake",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            check=True,
+            encoding="utf-8",
+        ).stdout.splitlines()
         expected = {
-            f"ebook_intake/{path.name}" for path in package_root.glob("*.py")
+            f"ebook_intake/{Path(path).name}" for path in files if path.endswith(".py")
         }
         expected.update({"runner", "sammlungslotse/__init__.py"})
         self.assertTrue(expected.issubset(bound), sorted(expected - bound))

@@ -98,9 +98,22 @@ positionsgebundenen und pfadfreien Bericht:
 
     python tools/run_ebook_intake.py --json DATEI_A DATEI_B
 
-Es werden keine Verzeichnisse durchsucht. Die schnelle Prüfung bleibt
-Standard; `--deep-read-only` bleibt ein ausdrückliches Opt-in und benötigt
-weiterhin den konfigurierten WI-0005-Task-Root.
+Ein ausdrücklich gewählter lokaler Ordner kann zusätzlich rekursiv und
+read-only inventarisiert werden. Nur reguläre EPUB- und PDF-Dateien innerhalb
+der festen 32-Kandidaten- und 256-MiB-Grenze werden erfasst; Standardausgaben
+bleiben pfad- und namensfrei:
+
+    python tools/run_ebook_intake.py --input-directory ORDNER
+
+Relative lokale Dateilabels erscheinen ausschließlich auf ausdrücklichen
+Human-Opt-in und nie im JSON-Vertrag:
+
+    python tools/run_ebook_intake.py --show-local-labels --input-directory ORDNER
+
+Die schnelle Prüfung bleibt Standard. Der Ordnermodus startet keine tiefe
+Prüfung; `--deep-read-only` bleibt ein ausdrückliches Opt-in für die
+bestehenden expliziten Dateieingänge und benötigt weiterhin den konfigurierten
+WI-0005-Task-Root.
 
 Der Lauf schreibt keine Berichtsdatei und führt die angezeigte Folgeaktion
 nicht aus. Reale oder private Sammlungsmedien sind keine qualifizierte

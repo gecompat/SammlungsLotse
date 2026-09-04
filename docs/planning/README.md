@@ -325,11 +325,13 @@ sein pfadfreier Nachweis ist eingecheckt. GATE-0021 ist `done`: Der Nutzer
 hat Option A gewählt. Der qualifizierte V2-Vertrag bleibt als enges
 JSON-Opt-in stabil; es wird keine Folgearbeit registriert.
 
-WI-0016 ist als getrennte nächste Produktwave `accepted`. Die Annahme
-autorisiert ausschließlich die begrenzte read-only Implementierung für einen
-ausdrücklich gewählten E-Book-Eingangsordner innerhalb bestehender
-Triagegrenzen, ohne Persistenz, externe Dienste oder Schreiboperation. Sie
-ist noch nicht implementiert und autorisiert keine reale private Ausführung.
+WI-0016 ist `done`. Der neue explizite `--input-directory`-Modus inventarisiert
+genau einen lokalen Ordner rekursiv und read-only innerhalb bestehender
+Triagegrenzen. Reguläre EPUB und PDF werden positionsgebunden berichtet,
+Links und Reparse Points nicht verfolgt, Grenzen fail-closed sichtbar gemacht
+und Standardausgaben bleiben pfad- und namensfrei. Lokale relative Labels
+sind ausschließlich ein Human-Opt-in; Persistenz, externe Dienste,
+Schreiboperationen und reale private Ausführungen bleiben außerhalb.
 
 ## Nicht übernehmen
 

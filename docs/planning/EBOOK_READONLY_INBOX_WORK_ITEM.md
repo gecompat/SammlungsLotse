@@ -1,6 +1,6 @@
 # WI-0016: Read-only E-Book-Eingangsordner transparent erfassen
 
-Status: ACCEPTED — IMPLEMENTIERUNG INNERHALB DIESES VERTRAGS AUTORISIERT
+Status: DONE — IMPLEMENTIERT UND SYNTHETISCH ABGENOMMEN
 
 Stand: 2026-09-04
 
@@ -8,14 +8,14 @@ Artifact: WI-0016
 
 ## Zweck
 
-Dieser angenommene Arbeitsgegenstand bereitet den ersten sichtbaren
+Dieser angenommene Arbeitsgegenstand bildet den ersten sichtbaren
 Eingangsablauf über einen ausdrücklich gewählten lokalen E-Book-Ordner vor.
 Er verbindet die vorhandene Einzel- und Mehrdatei-Triage zu einer für einen
 Menschen nachvollziehbaren, weiterhin rein read-only Ordnerübersicht. Er
 macht aus einem Ordner weder eine Bibliothek noch einen verwalteten Bestand.
 
-Die Annahme autorisiert ausschließlich die spätere Implementierungswave
-innerhalb dieses Vertrags. Sie wählt weder eine allgemeine Produktarchitektur
+Die Annahme autorisierte ausschließlich die Implementierungswave innerhalb
+dieses Vertrags. Sie wählt weder eine allgemeine Produktarchitektur
 noch Persistenz, Suche, Routing, Calibre-Zugriff oder einen Writer.
 
 ## Kleinster Nutzwert
@@ -117,6 +117,42 @@ Verzeichnissuche, PDF-Analyse, Dublettensuche, Werk- oder Ausgabenentscheidung,
 Metadatenanreicherung, Calibre-Integration, Browser, REST, Agents,
 Persistenz, Index, Hintergrundverarbeitung, Quarantäne oder irgendeine
 schreibende Operation.
+
+## Implementierung und synthetische Abnahme
+
+Die sichtbare Oberfläche bleibt `tools/run_ebook_intake.py`. Der neue Modus
+ist ausschließlich über einen expliziten Ordnerparameter erreichbar:
+
+```text
+python tools/run_ebook_intake.py --input-directory ORDNER
+python tools/run_ebook_intake.py --show-local-labels --input-directory ORDNER
+```
+
+Der Produktcode erfasst genau einen regulären, nicht verlinkten und nicht als
+Reparse Point markierten Ordner rekursiv. Er nimmt nur reguläre `.epub`- und
+`.pdf`-Dateien in eine stabile relative Reihenfolge auf. Bei einer
+Kandidatenüberschreitung markiert der Bericht das Inventar ausdrücklich als
+nicht vollständig. Vor jeder Triage
+stoppt er ohne versteckte Teil-Auswahl, wenn mehr als 32 Kandidaten oder mehr
+als 256 MiB deklarierte Eingangsbytes vorliegen. Die Snapshot-Summe wird beim
+Lesen erneut begrenzt. Nicht zugängliche Ordner, Link-/Reparse-Eingänge und
+instabile einzelne Dateien bleiben über pfadfreie Status- beziehungsweise
+Triagecodes sichtbar und führen nicht zu einer Schreibwirkung.
+
+Der Standardbericht enthält nur Zähler, Positionen und die bestehenden
+pfadfreien Einzelberichte. `--show-local-labels` ist ein Human-Opt-in für
+relative Labels auf stdout; er ist mit JSON unvereinbar. Der Ordnermodus
+startet keinen tiefen Werkzeuglauf; der vorhandene `--deep-read-only`-Weg
+bleibt für die bisherigen expliziten Dateieingänge getrennt.
+
+Ausschließlich synthetische Produktverträge prüfen die rekursive EPUB/PDF-
+Erfassung, Zähler, Positionsfolge, fehlende Ordner, Link-Sperre,
+Kandidaten- und Bytegrenzen, die unveränderte Standardausgabe, den lokalen
+Label-Opt-in, die fehlende Tiefenautomatik und unveränderte Originale.
+Weil die gemeinsame CLI erweitert wurde, ist auch das bestehende
+WI-0005-EPUBCheck-Profil mit denselben synthetischen Eingängen erneut
+qualifiziert: 12/12 Kriterien, `network=none`, entfernter Container und
+bereinigter Timeout-Task. Es wurde kein neuer Containervertrag eingeführt.
 
 ## Annahmeentscheidung
 
