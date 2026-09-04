@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-02
+Stand: 2026-09-04
 
 ## Aktueller Stand
 
@@ -44,8 +44,8 @@ EXP-0003 ist mit vierzehn erfolgreichen Evidenzkriterien abgeschlossen:
 EPUBCheck- und Ace-Rohberichte bleiben getrennt und verlustfrei, unbekannte
 Codes sowie manueller Prüfbedarf bleiben sichtbar. Das erprobte Ace-Profil
 ist wegen deaktivierter Chromium-Sandbox und offener npm-Advisories nicht
-produktqualifiziert. GitHub Dependabot meldet zusätzlich elf offene Befunde,
-zehn `high` und einen `moderate`, ausschließlich im eingefrorenen
+produktqualifiziert. GitHub Dependabot meldet zusätzlich zwölf offene Befunde,
+zehn `high` und zwei `moderate`, ausschließlich im eingefrorenen
 EXP-0003-Ace/npm-Baum. EXP-0004 ist mit fünfzehn erfolgreichen Kriterien
 abgeschlossen: Sechs Sollpaare bleiben auf fünf Identitätsebenen getrennt,
 Kandidaten zeigen positive und negative Evidenz, fehlende Evidenz bleibt
@@ -296,6 +296,9 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   16/16 Kriterien und ist eingecheckt gebunden. GATE-0021 ist `done`: Der
   Nutzer hat Option A gewählt. Der qualifizierte V2-Vertrag bleibt als enges
   JSON-Opt-in stabil; es wird keine Folgearbeit registriert.
+  WI-0016 ist als getrennte read-only Ordner-Eingangswave `proposed`, aber
+  nicht angenommen. Es erweitert weder den aktuellen Produktvertrag noch
+  autorisiert es Produktcode, reale private Eingänge oder Schreibwirkung.
 
 ## Harte Grenzen
 
