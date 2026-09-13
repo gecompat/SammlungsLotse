@@ -1469,6 +1469,16 @@ Automatische Suche, mehrere Dateien, IDs oder Bibliotheken, neue
 Calibre-Felder, externe Metadaten, Persistenz, Routing, Browser, REST, Agents
 und Writes bleiben nicht autorisiert.
 
+GATE-0022 ist unter der ausdrücklichen Autonomie-Autorisierung angenommen und
+abgeschlossen. Es wählt EXP-0018 als kleinste, produktcodefreie und
+ausschließlich synthetische Fortsetzung zur Erklärbarkeit der WI-0016-
+Ordneraggregate. Der Runner, die Sechsfallmatrix und fokussierte Harness-
+Tests sind vorbereitet; der eingecheckte empirische Ergebnislauf ist bis zu
+einem sauberen Preimage mit den erforderlichen grünen Checks `not executed`.
+Eine lokale Python-3.14-Charakterisierung ist keine Ersatzvalidierung: Die
+historischen bytegebundenen ZIP-Nachweise bleiben an Python 3.12 gebunden und
+eine getrennte Portabilitätsbewertung ist erforderlich.
+
 ## Offene Punkte
 
 - Die optionale Foundation-Fähigkeit `rule-context-cache` ist empfohlen, aber

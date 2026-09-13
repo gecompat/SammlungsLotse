@@ -58,6 +58,8 @@ Experimente und spätere Entscheidungen:
 - [GATE-0020: EXP-0017-Ergebnis und sichere Produktfortsetzung bewerten](EBOOK_GATE_0020_AFTER_EXP0017.md);
 - [WI-0014: Review-Kontexterklärung V2 für die EPUB-Eingangstriage umsetzen](EBOOK_REVIEW_CONTEXT_V2_WORK_ITEM.md);
 - [GATE-0021: WI-0014-Ergebnis und sichere Produktfortsetzung bewerten](EBOOK_GATE_0021_AFTER_WI0014.md);
+- [GATE-0022: nächste sichere E-Book-Fortsetzung nach dem Eingangsordner bewerten](EBOOK_GATE_0022_AFTER_INBOX.md);
+- [EXP-0018: synthetische Erklärbarkeit von E-Book-Eingangsordneraggregaten prüfen](EBOOK_INBOX_AGGREGATE_EXPLANATION_EXPERIMENT.md);
 - [WI-0016: read-only E-Book-Eingangsordner transparent erfassen](EBOOK_READONLY_INBOX_WORK_ITEM.md) — implementiert und synthetisch abgenommen;
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
