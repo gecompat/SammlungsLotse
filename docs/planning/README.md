@@ -60,6 +60,8 @@ Experimente und spätere Entscheidungen:
 - [GATE-0021: WI-0014-Ergebnis und sichere Produktfortsetzung bewerten](EBOOK_GATE_0021_AFTER_WI0014.md);
 - [GATE-0022: nächste sichere E-Book-Fortsetzung nach dem Eingangsordner bewerten](EBOOK_GATE_0022_AFTER_INBOX.md);
 - [EXP-0018: synthetische Erklärbarkeit von E-Book-Eingangsordneraggregaten prüfen](EBOOK_INBOX_AGGREGATE_EXPLANATION_EXPERIMENT.md);
+- [GATE-0023: sichere Validierungsportabilität nach EXP-0018 bewerten](EBOOK_GATE_0023_VALIDATION_PORTABILITY.md);
+- [WI-0017: fehlende Windows-Symlink-Fähigkeit sichtbar behandeln](EBOOK_SYMLINK_CAPABILITY_MAINTENANCE_WORK_ITEM.md);
 - [WI-0016: read-only E-Book-Eingangsordner transparent erfassen](EBOOK_READONLY_INBOX_WORK_ITEM.md) — implementiert und synthetisch abgenommen;
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);
 - [TEST-0001-Referenzkorpus](EBOOK_REFERENCE_CORPUS.md);
