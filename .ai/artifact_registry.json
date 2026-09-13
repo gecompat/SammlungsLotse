@@ -2776,7 +2776,7 @@
           "type": "related_to"
         }
       ],
-      "status": "done",
+      "status": "accepted",
       "title": "Fehlende Windows-Symlink-Fähigkeit in synthetischen Kontrollen sichtbar behandeln"
     }
   },

@@ -21,8 +21,8 @@ werden.
 
 ### A — Fehlende Symlink-Fähigkeit eng als Skip behandeln
 
-WI-0017 vereinheitlicht ausschließlich die beiden optionalen synthetischen
-Kontrollen. Bei verfügbarer Fähigkeit bleiben sie unverändert aktiv; bei
+WI-0017 vereinheitlicht ausschließlich nicht eingefrorene optionale
+synthetische Kontrollen. Bei verfügbarer Fähigkeit bleiben sie unverändert aktiv; bei
 nachweislich fehlender Fähigkeit wird der Test sichtbar übersprungen.
 
 ### B — Historische ZIP-Nachweise neu erzeugen

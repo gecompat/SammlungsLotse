@@ -171,10 +171,7 @@ class Exp0013Tests(unittest.TestCase):
             with self.assertRaises(run_exp_0013.ExperimentError):
                 run_exp_0013.validate_private_inputs([inputs[0], inputs[1], directory_input])
             link = root / "link.epub"
-            try:
-                link.symlink_to(inputs[0])
-            except OSError as exc:
-                self.skipTest(f"symlink capability unavailable: {exc}")
+            link.symlink_to(inputs[0])
             with self.assertRaises(run_exp_0013.ExperimentError):
                 run_exp_0013.validate_private_inputs([inputs[0], inputs[1], link])
             oversized = root / "oversized.epub"
