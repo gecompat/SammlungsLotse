@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-04
+Stand: 2026-09-13
 
 ## Phase
 
@@ -126,6 +126,17 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   Das wegen der gemeinsamen CLI erneut gebundene WI-0005-EPUBCheck-Profil
   bestand mit unverändertem Profil 12/12 ausschließlich synthetische
   Kriterien; Container- und Timeout-Task-Cleanup blieben vollständig.
+  GATE-0022 und EXP-0018 sind abgeschlossen: Die synthetische
+  Ordneraggregat-Erklärung bestand 7/7 Kriterien über sechs Fälle mit je zwei
+  bytegleichen Wiederholungen, ohne Produktwirkung oder Lockerung von
+  `review`. GATE-0023 und WI-0017 sind ebenfalls abgeschlossen: Fehlende
+  Windows-Symlink-Fähigkeit wird im nicht eingefrorenen Testpfad als Skip und
+  im Repository-Testselektor für den eingefrorenen EXP-0013-Kontrolltest als
+  sichtbare Capability-Ausnahme behandelt; fähige Hosts und CI behalten die
+  Kontrolle. GATE-0024 hält die bestätigte ZIP-Reproduzierbarkeitsgrenze
+  getrennt: Python 3.13 mit zlib 1.3.1 reproduziert TEST-0001 bytegenau,
+  Python 3.14 mit zlib-ng nicht. Fixtures und historische Evidenz blieben
+  unverändert; die kanonische Toolchainentscheidung ist offen.
 
 ## Vorhanden
 

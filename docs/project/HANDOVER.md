@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-04
+Stand: 2026-09-13
 
 ## Aktueller Stand
 
@@ -317,6 +317,17 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   lokalen Python-3.14-Laufzeit weichen historische bytegebundene
   ZIP-Nachweise ab; das ist kein Produktbefund und verlangt eine getrennte
   Portabilitätsbewertung.
+
+  GATE-0023 und WI-0017 sind `done`. Fehlende Windows-Symlink-Fähigkeit wird
+  im nicht eingefrorenen EXP-0015-Test als Skip behandelt. Der
+  Repository-Testselektor schließt zusätzlich genau den
+  symlink-abhängigen, eingefrorenen EXP-0013-Kontrolltest nur bei fehlender
+  Hostfähigkeit sichtbar aus; bei fähigen Hosts bleibt er aktiv. GATE-0024
+  ist als reine Entscheidungswave `done`: Python 3.13 mit zlib 1.3.1
+  reproduziert TEST-0001 bytegenau, Python 3.14 mit zlib-ng nicht. Es wurden
+  keine Fixtures, Generatoren, Hashes oder historischen Ergebnisse geändert;
+  eine kanonische Toolchain- oder neue Fixtureversionsentscheidung bleibt
+  offen.
 
 ## Harte Grenzen
 
