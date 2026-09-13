@@ -5,6 +5,8 @@ from __future__ import annotations
 
 import sys
 import unittest
+import os
+import tempfile
 from collections.abc import Iterator
 from pathlib import Path
 
@@ -22,6 +24,12 @@ OBSOLETE_CURRENT_PREIMAGE_TESTS = frozenset(
 FROZEN_PREIMAGE_TEST_PREFIX_COUNTS = {
     "experiments.test_exp_0014.Exp0014Tests.": 11,
 }
+CAPABILITY_OPTIONAL_TESTS = frozenset(
+    {
+        "experiments.test_exp_0013.Exp0013Tests."
+        "test_input_validation_requires_three_direct_bounded_regular_epubs",
+    }
+)
 HISTORICAL_REPLACEMENT_TESTS = frozenset(
     {
         "governance.test_historical_experiment_results.HistoricalExperimentResultTests."
@@ -46,7 +54,22 @@ def iter_tests(suite: unittest.TestSuite) -> Iterator[unittest.TestCase]:
             yield item
 
 
-def build_suite() -> tuple[unittest.TestSuite, int, int, int]:
+def symlink_capability_available() -> bool:
+    """Return whether this host can create the synthetic test symlink."""
+
+    with tempfile.TemporaryDirectory() as raw_directory:
+        directory = Path(raw_directory)
+        target = directory / "target"
+        link = directory / "link"
+        target.write_bytes(b"synthetic")
+        try:
+            os.symlink(target, link)
+        except OSError:
+            return False
+        return link.is_symlink()
+
+
+def build_suite() -> tuple[unittest.TestSuite, int, int, int, int]:
     discovered = unittest.defaultTestLoader.discover(
         str(TEST_ROOT),
         pattern="test_*.py",
@@ -97,6 +120,9 @@ def build_suite() -> tuple[unittest.TestSuite, int, int, int]:
             )
         raise RuntimeError("; ".join(details))
 
+    capability_optional = (
+        set() if symlink_capability_available() else CAPABILITY_OPTIONAL_TESTS
+    )
     retained = [
         test
         for test in tests
@@ -105,6 +131,7 @@ def build_suite() -> tuple[unittest.TestSuite, int, int, int]:
             test.id().startswith(prefix)
             for prefix in FROZEN_PREIMAGE_TEST_PREFIX_COUNTS
         )
+        and test.id() not in capability_optional
     ]
     excluded_count = len(tests) - len(retained)
     return (
@@ -112,13 +139,14 @@ def build_suite() -> tuple[unittest.TestSuite, int, int, int]:
         len(tests),
         excluded_count,
         len(HISTORICAL_REPLACEMENT_TESTS),
+        len(capability_optional),
     )
 
 
 def main() -> int:
     sys.path.insert(0, str(ROOT))
     try:
-        suite, discovered_count, excluded_count, replacement_count = build_suite()
+        suite, discovered_count, excluded_count, replacement_count, capability_count = build_suite()
     except (ImportError, RuntimeError) as exc:
         print(f"Repository test selection failed: {exc}", file=sys.stderr)
         return 2
@@ -126,6 +154,7 @@ def main() -> int:
         "Repository tests: "
         f"discovered={discovered_count} excluded_current={excluded_count} "
         f"historical_replacements={replacement_count} "
+        f"excluded_capability={capability_count} "
         f"executed={suite.countTestCases()}",
         flush=True,
     )
