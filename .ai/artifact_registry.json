@@ -2807,7 +2807,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Fehlende Windows-Symlink-Fähigkeit in synthetischen Kontrollen sichtbar behandeln"
     },
     "WI-0018": {

@@ -1,6 +1,6 @@
 # WI-0017: Fehlende Windows-Symlink-Fähigkeit in synthetischen Kontrollen sichtbar behandeln
 
-Status: ACCEPTED — PARTIALLY IMPLEMENTED
+Status: DONE — IMPLEMENTED AND VALIDATED
 
 Stand: 2026-09-13
 
@@ -36,7 +36,8 @@ Sicherheitsbehauptung unverändert ausführbar.
 ## Aktueller Stand
 
 Der EXP-0015-Testpfad überspringt nun ausschließlich eine nicht verfügbare
-Symlink-Fähigkeit. Der EXP-0013-Testpfad ist Teil eines eingefrorenen
-historischen Preimages und darf nicht verändert werden; seine Behandlung
-bleibt Gegenstand einer getrennten, nicht-historischen Teststrategie. Alle
-übrigen Fehler bleiben sichtbar.
+Symlink-Fähigkeit. Der Repository-Testselektor behandelt den eingefrorenen
+EXP-0013-Testpfad bei derselben fehlenden Hostfähigkeit sichtbar als
+capability-bedingt ausgeschlossen, ohne sein historisches Testmodul zu
+verändern. Bei verfügbarer Fähigkeit bleibt er Teil der Suite. Alle übrigen
+Fehler bleiben sichtbar.
