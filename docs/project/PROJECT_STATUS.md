@@ -1472,12 +1472,13 @@ und Writes bleiben nicht autorisiert.
 GATE-0022 ist unter der ausdrücklichen Autonomie-Autorisierung angenommen und
 abgeschlossen. Es wählt EXP-0018 als kleinste, produktcodefreie und
 ausschließlich synthetische Fortsetzung zur Erklärbarkeit der WI-0016-
-Ordneraggregate. Der Runner, die Sechsfallmatrix und fokussierte Harness-
-Tests sind vorbereitet; der eingecheckte empirische Ergebnislauf ist bis zu
-einem sauberen Preimage mit den erforderlichen grünen Checks `not executed`.
-Eine lokale Python-3.14-Charakterisierung ist keine Ersatzvalidierung: Die
-historischen bytegebundenen ZIP-Nachweise bleiben an Python 3.12 gebunden und
-eine getrennte Portabilitätsbewertung ist erforderlich.
+Ordneraggregate. Der produktcodefreie Lauf auf dem nach beiden GitHub-Checks
+grünen Preimage `da9f4b3` bestand 7/7 methodische Kriterien mit sechs Fällen
+in je zwei bytegleichen Wiederholungen. Der Nachweis bleibt pfadfrei und
+belegt fehlende Netzwerk-, Persistenz-, Fachsystem-, Writer- und
+Produktcodewirkung. Er qualifiziert keine neue Oberfläche und lockert weder
+`review` noch das Deep-Read-Gate. Die getrennte Portabilitätsbewertung für
+historische bytegebundene ZIP-Nachweise bleibt erforderlich.
 
 ## Offene Punkte
 
