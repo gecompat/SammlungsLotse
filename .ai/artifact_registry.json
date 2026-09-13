@@ -958,7 +958,7 @@
         {"target": "REQ-0002", "type": "related_to"},
         {"target": "RISK-0001", "type": "related_to"}
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Synthetische Evidenz für einen E-Book-Reviewplan prüfen"
     },
     "GATE-0001": {

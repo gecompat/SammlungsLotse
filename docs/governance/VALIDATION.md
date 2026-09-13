@@ -298,6 +298,17 @@ Rohbericht-Größenaggregate sind technische Messwerte und dürfen wegen
 laufzeitabhängiger Berichtsfelder nicht selbst die semantische Identität
 ändern.
 
+Für den eingecheckten synthetischen EXP-0019-Nachweis gilt:
+
+    python tools/experiments/run_exp_0019.py --validate-result
+
+Die Prüfung liest weder einen Eingangsordner noch eine Calibre-Bibliothek und
+startet weder Calibre noch Netzwerkzugriffe. Sie bindet genau zehn Fälle an
+die Fallmatrix und prüft zwei semantisch identische Wiederholungen,
+Kandidaten- und Bibliotheksgrenzen, Snapshot-Digests, fail-closed Klassen und
+die Abwesenheit von Pfaden oder Projektionsmetadaten im Ergebnis. Der
+methodische Erfolg qualifiziert keine Produkt-, Routing- oder Importwirkung.
+
 Für den WI-0004-Produktvertrag gelten zusätzlich:
 
     python -m unittest discover -s tests/product -p "test_*.py"

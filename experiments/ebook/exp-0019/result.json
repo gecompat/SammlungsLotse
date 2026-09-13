@@ -1,0 +1,149 @@
+{
+  "artifact": "EXP-0019",
+  "case_count": 10,
+  "case_manifest_sha256": "5022d1e490a7932cd2064edb5cc0d93d6e86b390d232cc14648fe4f2b28a75eb",
+  "effects": {
+    "calibre_execution": false,
+    "collection_modified": false,
+    "external_network_access": false,
+    "persistence": false,
+    "product_code_modified": false,
+    "writer_effects": false
+  },
+  "limits": {
+    "candidates_per_epub_max": 5,
+    "candidates_per_folder_max": 12,
+    "libraries_max": 3
+  },
+  "outcomes": [
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "C01",
+      "review_class": "review_new_candidate"
+    },
+    {
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "external_record_id": 101,
+          "library_position": 1,
+          "reason": "title_author",
+          "snapshot_digest": "0e78dc44fcac761dd8f8df046f5f6f6af7415eba27372c605e37a2e364e3c319"
+        }
+      ],
+      "case_id": "C02",
+      "review_class": "review_candidate_present"
+    },
+    {
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "external_record_id": 102,
+          "library_position": 2,
+          "reason": "title_author",
+          "snapshot_digest": "4fec42122f6310d39863fa6bca02a7d269199afb547b9686f9e1de23f87d403a"
+        }
+      ],
+      "case_id": "C03",
+      "review_class": "review_candidate_present"
+    },
+    {
+      "candidate_total": 1,
+      "candidates": [
+        {
+          "external_record_id": 103,
+          "library_position": 1,
+          "reason": "title",
+          "snapshot_digest": "b07d401cc6ac795b028c512488ea71ebba1a53f4fde3dd5627245c269a7beda0"
+        }
+      ],
+      "case_id": "C04",
+      "review_class": "review_candidate_present"
+    },
+    {
+      "candidate_total": 2,
+      "candidates": [
+        {
+          "external_record_id": 104,
+          "library_position": 1,
+          "reason": "title_author",
+          "snapshot_digest": "99814273cd01131adb64c4ea1b63f26c8dbf5adb05a5f4bf5af5271499824bfc"
+        },
+        {
+          "external_record_id": 105,
+          "library_position": 2,
+          "reason": "title_author",
+          "snapshot_digest": "5c4f269e7e6d3f8ecbd08e7fa74ef508a64a81c4e6e059f9bf1c2e796fb42e98"
+        }
+      ],
+      "case_id": "C05",
+      "review_class": "review_cross_library"
+    },
+    {
+      "candidate_total": 6,
+      "candidates": [
+        {
+          "external_record_id": 106,
+          "library_position": 1,
+          "reason": "title_author",
+          "snapshot_digest": "5027253ae687436308798c69b0ff142c4142d39e4c3e2d40eeaaec4e01f8dc3e"
+        },
+        {
+          "external_record_id": 107,
+          "library_position": 1,
+          "reason": "title_author",
+          "snapshot_digest": "5027253ae687436308798c69b0ff142c4142d39e4c3e2d40eeaaec4e01f8dc3e"
+        },
+        {
+          "external_record_id": 108,
+          "library_position": 1,
+          "reason": "title_author",
+          "snapshot_digest": "5027253ae687436308798c69b0ff142c4142d39e4c3e2d40eeaaec4e01f8dc3e"
+        },
+        {
+          "external_record_id": 109,
+          "library_position": 1,
+          "reason": "title_author",
+          "snapshot_digest": "5027253ae687436308798c69b0ff142c4142d39e4c3e2d40eeaaec4e01f8dc3e"
+        },
+        {
+          "external_record_id": 110,
+          "library_position": 1,
+          "reason": "title_author",
+          "snapshot_digest": "5027253ae687436308798c69b0ff142c4142d39e4c3e2d40eeaaec4e01f8dc3e"
+        }
+      ],
+      "case_id": "C06",
+      "review_class": "review_scope_incomplete"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "C07",
+      "review_class": "review_ingress_blocked"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "C08",
+      "review_class": "unsupported"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "C09",
+      "review_class": "not_assessed"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "C10",
+      "review_class": "not_assessed"
+    }
+  ],
+  "repetitions": 2,
+  "runs_semantically_identical": true,
+  "schema": "sammlungslotse/ebook-inbox-calibre-review-plan-experiment-result/v1",
+  "status": "pass"
+}
