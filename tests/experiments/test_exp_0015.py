@@ -301,6 +301,12 @@ class Exp0015Tests(unittest.TestCase):
     def test_synthetic_controls_cover_all_boundaries_and_cleanup(self) -> None:
         with tempfile.TemporaryDirectory(dir=test_temp_base()) as directory:
             temp_root = Path(directory) / "runtime"
+            probe = Path(directory) / "probe"
+            probe.write_bytes(b"synthetic")
+            try:
+                (Path(directory) / "probe-link").symlink_to(probe)
+            except OSError as exc:
+                self.skipTest(f"symlink capability unavailable: {exc}")
             with mock.patch.object(run_exp_0015, "ALLOWED_TEMP_ROOT", temp_root):
                 summary = run_exp_0015.run_synthetic_controls(
                     temp_root, self.profile

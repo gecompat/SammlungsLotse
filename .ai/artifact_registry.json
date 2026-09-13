@@ -1988,6 +1988,41 @@
       "status": "done",
       "title": "Nächste sichere E-Book-Fortsetzung nach dem Eingangsordner bewerten"
     },
+    "GATE-0023": {
+      "acceptance_criteria": "Ein dokumentiertes Gate trennt die lokale Windows-Symlink-Fähigkeit von der bytegebundenen ZIP-Reproduzierbarkeit, bewertet mindestens drei Fortsetzungen nach Sicherheits- und Validierungswirkung und nimmt höchstens einen eng begrenzten, registrierten Maintenance-Arbeitsgegenstand an, ohne historische Evidenz umzuschreiben oder Produktverhalten zu ändern.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a09a80-d4c5-7280-8bbb-d3754335fcba",
+      "created_on": "2026-09-13",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0023_VALIDATION_PORTABILITY.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0018",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "Sichere Validierungsportabilität nach EXP-0018 bewerten"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],
@@ -2708,6 +2743,41 @@
       ],
       "status": "done",
       "title": "Read-only E-Book-Eingangsordner transparent erfassen"
+    },
+    "WI-0017": {
+      "acceptance_criteria": "Die zwei synthetischen Testpfade, die ausschließlich eine optionale Windows-Symlink-Negativkontrolle benötigen, behandeln eine nachweislich nicht verfügbare Symlink-Fähigkeit einheitlich als sichtbaren Skip statt als Testfehler; vorhandene Symlink-Prüfungen bleiben bei verfügbarer Fähigkeit unverändert aktiv, Produktcode und historische Nachweise bleiben unverändert.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a09a80-d5b0-7c88-be81-6598a95eb5e3",
+      "created_on": "2026-09-13",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_SYMLINK_CAPABILITY_MAINTENANCE_WORK_ITEM.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0023",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Fehlende Windows-Symlink-Fähigkeit in synthetischen Kontrollen sichtbar behandeln"
     }
   },
   "prefixes": {
