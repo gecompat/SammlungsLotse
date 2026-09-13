@@ -132,6 +132,14 @@ Implementierungskandidaten bestand er gegen `7cb8407` erneut 23/23.
 
 ## Fortsetzung
 
+GATE-0025 ist `done`: Der Nutzer hat die autonome Entwicklung des ersten
+nützlichen E-Book-Ablaufs autorisiert. EXP-0019 ist als produktcodefreie,
+ausschließlich synthetische Evidenzwave `accepted`. Es prüft begrenzte
+Kandidaten- und Reviewklassen zwischen WI-0016-Eingangsordnern und bis zu drei
+Calibre-Projektionssnapshots. Ein Ergebnisgate entscheidet erst danach über
+einen read-only Produktarbeitsgegenstand. Reale Sammlungen, Persistenz,
+automatische Zielwahl und jede Calibre-Schreiboperation bleiben außerhalb.
+
 WI-0004 ist `done`. Der Produktcode liegt unter
 `src/sammlungslotse/ebook_intake/`, die sichtbare lokale Oberfläche unter
 `tools/run_ebook_intake.py`. Die Grenze endet nach stabilem

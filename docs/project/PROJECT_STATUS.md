@@ -137,6 +137,11 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   getrennt: Python 3.13 mit zlib 1.3.1 reproduziert TEST-0001 bytegenau,
   Python 3.14 mit zlib-ng nicht. Fixtures und historische Evidenz blieben
   unverändert; die kanonische Toolchainentscheidung ist offen.
+  Der Nutzer hat anschließend die erste nützliche E-Book-MVP-Linie autorisiert.
+  GATE-0025 ist `done` und wählt EXP-0019: Ein ausschließlich synthetischer
+  Nachweis soll Eingangsordner und begrenzte Calibre-Projektionssnapshots zu
+  einem erklärbaren Reviewplan verbinden. Produktcode, reale Bestände,
+  Persistenz, Routing- oder Importwirkung sind dadurch noch nicht angenommen.
 
 ## Vorhanden
 
