@@ -1,6 +1,6 @@
 # EXP-0019: Synthetische Evidenz für einen E-Book-Reviewplan prüfen
 
-Status: ACCEPTED — NOT EXECUTED
+Status: DONE — METHOD PASSED
 
 Stand: 2026-09-13
 
@@ -50,3 +50,15 @@ Der Nachweis ist nur bestanden, wenn:
 ## Ergebnisgrenzen und Folge
 
 Ein bestandener Nachweis qualifiziert nur die gebundene synthetische Matrix. Er beweist keine Kandidatenvollständigkeit, keine reale Calibre-Kompatibilität und keine Qualität einer späteren Routing- oder Importentscheidung. Ein anschließendes Ergebnisgate bewertet getrennt, ob ein eng begrenzter Produktarbeitsgegenstand für einen ephemeren, read-only Reviewplan angenommen wird.
+
+## Ergebnis
+
+Der gebundene Doppellauf ist bestanden. Alle zehn Orakelklassen wurden in
+zwei semantisch identischen Wiederholungen erreicht. Kandidatengründe,
+Bibliothekspositionen und Snapshot-Digests blieben sichtbar; die sechsfach
+gebundene Grenzprobe blieb `review_scope_incomplete`. Der Ergebnisnachweis
+enthält keine Eingangs- oder Projektionsmetadaten, Pfade oder private Daten.
+
+Die Ausführung verwendete weder Calibre noch einen Eingangsordner und hatte
+keine Netzwerk-, Persistenz-, Produktcode-, Writer- oder Bestandswirkung.
+Der prüfbare Nachweis liegt unter `experiments/ebook/exp-0019/`.

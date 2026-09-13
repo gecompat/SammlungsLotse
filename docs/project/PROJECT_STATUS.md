@@ -138,10 +138,12 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   Python 3.14 mit zlib-ng nicht. Fixtures und historische Evidenz blieben
   unverändert; die kanonische Toolchainentscheidung ist offen.
   Der Nutzer hat anschließend die erste nützliche E-Book-MVP-Linie autorisiert.
-  GATE-0025 ist `done` und wählt EXP-0019: Ein ausschließlich synthetischer
-  Nachweis soll Eingangsordner und begrenzte Calibre-Projektionssnapshots zu
-  einem erklärbaren Reviewplan verbinden. Produktcode, reale Bestände,
-  Persistenz, Routing- oder Importwirkung sind dadurch noch nicht angenommen.
+  GATE-0025 und EXP-0019 sind `done`: Der ausschließlich synthetische
+  Doppellauf erreichte alle zehn gebundenen Reviewklassen semantisch
+  identisch. Kandidatengrenzen, Bibliothekspositionen, Snapshot-Digests und
+  fail-closed-Nichtbeurteilungen blieben sichtbar. Produktcode, reale
+  Bestände, Persistenz, Routing- oder Importwirkung sind weiterhin nicht
+  angenommen.
 
 ## Vorhanden
 
