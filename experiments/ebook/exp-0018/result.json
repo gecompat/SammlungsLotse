@@ -1,0 +1,48 @@
+{
+  "case_count": 6,
+  "cases": [
+    {
+      "exit_code": 0,
+      "key": "continue_only",
+      "priority_class": "review_deep_read_only",
+      "report_sha256": "9b669d3363ddf3b8754363957a10f2864e31dfe10cccae873dc51460e7d008a2"
+    },
+    {
+      "exit_code": 0,
+      "key": "review_only",
+      "priority_class": "manual_review_required",
+      "report_sha256": "7c6e2443152373f041439e9728c2c8f562d479dab97377fd88af5afd578a6706"
+    },
+    {
+      "exit_code": 0,
+      "key": "unsupported_only",
+      "priority_class": "no_supported_epub",
+      "report_sha256": "0efd870140da661c7196c1927f9012eab7d1ccc9b2de5982ecf54144079625d8"
+    },
+    {
+      "exit_code": 0,
+      "key": "mixed",
+      "priority_class": "manual_review_required",
+      "report_sha256": "4266986926c07914a59b56e58cc117295bcb228aeeb63953c154a6cb7d5e9a75"
+    },
+    {
+      "exit_code": 3,
+      "key": "candidate_limit",
+      "priority_class": "inventory_incomplete",
+      "report_sha256": "830570d337eb0ad466e24af7f5b8ded2f6a7b6569e26397047d43c5e911adbf2"
+    },
+    {
+      "exit_code": 3,
+      "key": "unavailable",
+      "priority_class": "inventory_unavailable",
+      "report_sha256": "3750f72ccaf13d19d9a36793b9c7c3d9c639b225253aa157f11203292571769f"
+    }
+  ],
+  "fixture_hashes": {
+    "remote": "c41eecd6dbd4b3674b1db3a9ec6220146605381854092055646ad6a251695a79",
+    "stable": "7081a352f25857ad8327f6e971435b0d94b0b3559cadcdbcce6f07d256127cc9"
+  },
+  "network": "not_used",
+  "product_code_changed": false,
+  "schema": "sammlungslotse/ebook-inbox-aggregate-experiment-result/v1"
+}

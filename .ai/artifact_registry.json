@@ -888,6 +888,53 @@
       "status": "done",
       "title": "Synthetische Downstream-Isolation des tiefen EPUB-Pfads qualifizieren"
     },
+    "EXP-0018": {
+      "acceptance_criteria": "Ein produktcodefreier, ausschließlich synthetischer und pfadfreier Nachweis bewertet eine vorab gebundene kleine Matrix aus WI-0016-Ordnerszenarien darauf, ob die bestehenden Aggregatzähler und Einzelentscheidungen deterministisch, vollständig und ohne Lockerung von review oder deep_read_only_allowed in begrenzte manuelle Prioritätsklassen projizierbar sind; der Nachweis erzeugt keine neue öffentliche Oberfläche, verwendet keine realen Daten und hat keine Netzwerk-, Persistenz-, Fachsystem-, Schreib- oder Bestandswirkung.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a09a75-d9cd-7f7e-8597-e639dc7c6ee3",
+      "created_on": "2026-09-13",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_INBOX_AGGREGATE_EXPLANATION_EXPERIMENT.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0022",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "Synthetische Erklärbarkeit von E-Book-Eingangsordneraggregaten prüfen"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -1893,6 +1940,53 @@
       ],
       "status": "done",
       "title": "WI-0014-Ergebnis und sichere Produktfortsetzung bewerten"
+    },
+    "GATE-0022": {
+      "acceptance_criteria": "Ein dokumentiertes Ergebnisgate bewertet mindestens drei getrennte nächste Fortsetzungen nach WI-0016 anhand von Nutzerwert, Evidenzreife, Datenschutz, Sicherheitsgrenzen, Kopplung, Reversibilität und Validierbarkeit; es bestimmt höchstens eine eng begrenzte, registrierte Folgearbeit und autorisiert weder Produktcode noch reale/private Medien, Netzwerk, Persistenz, Bestandswirkung oder Writer ohne getrennten angenommenen Vertrag.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a09a75-55b2-7d70-a3c4-fbc97c039e4b",
+      "created_on": "2026-09-13",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0022_AFTER_INBOX.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0006",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "Nächste sichere E-Book-Fortsetzung nach dem Eingangsordner bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",

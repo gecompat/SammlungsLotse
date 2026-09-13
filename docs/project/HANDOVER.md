@@ -306,6 +306,18 @@ ausdrücklich Option A gewählt und denselben Dreiersatz für EXP-0015 erneut
   bestand unverändert 12/12 ausschließlich synthetische Kriterien mit
   vollständigem Container- und Timeout-Task-Cleanup.
 
+  GATE-0022 ist unter der ausdrücklichen Autonomie-Autorisierung `done` und
+  wählt EXP-0018 als produktcodefreie, ausschließlich synthetische
+  Erklärbarkeitswave für WI-0016-Ordneraggregate. Der Lauf auf dem nach beiden
+  GitHub-Checks grünen Preimage `da9f4b3` bestand 7/7 methodische Kriterien
+  mit sechs Fällen in je zwei bytegleichen Wiederholungen. Der pfadfreie
+  Nachweis belegt vollständiges Cleanup und fehlende Netzwerk-, Persistenz-,
+  Fachsystem-, Writer- und Produktcodewirkung; er qualifiziert keine neue
+  Oberfläche und lockert weder `review` noch das Deep-Read-Gate. Unter der
+  lokalen Python-3.14-Laufzeit weichen historische bytegebundene
+  ZIP-Nachweise ab; das ist kein Produktbefund und verlangt eine getrennte
+  Portabilitätsbewertung.
+
 ## Harte Grenzen
 
 - Fachsysteme bleiben führend.

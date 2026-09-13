@@ -1,0 +1,11 @@
+{
+  "schema": "sammlungslotse/ebook-inbox-aggregate-experiment-cases/v1",
+  "cases": [
+    {"key": "continue_only", "expected_class": "review_deep_read_only"},
+    {"key": "review_only", "expected_class": "manual_review_required"},
+    {"key": "unsupported_only", "expected_class": "no_supported_epub"},
+    {"key": "mixed", "expected_class": "manual_review_required"},
+    {"key": "candidate_limit", "expected_class": "inventory_incomplete"},
+    {"key": "unavailable", "expected_class": "inventory_unavailable"}
+  ]
+}
