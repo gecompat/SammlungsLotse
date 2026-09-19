@@ -1,6 +1,6 @@
 # EXP-0023: Linux-Zombie-Cleanup von EXP-0007 synthetisch requalifizieren
 
-Status: ACCEPTED
+Status: DONE
 
 Stand: 2026-09-20
 
@@ -59,3 +59,12 @@ Neuausführung der historischen EXP-0007-Laufzeitqualifikation.
 
 Ein bestandener Maintenance-Nachweis ist keine Produkt-, Runtime- oder
 Adapterfreigabe.
+
+## Ergebnis
+
+Die getrennte historische Git-Preimage-Prüfung und die beiden synthetischen
+POSIX-Zustandskontrollen bestanden. Der vollständige Repositoryadapter lief
+lokal mit 300 Tests und vier fähigkeitsbedingten Skips; auf Pull Request 95
+bestanden außerdem `repository-quality` und `registry-integrity` unter
+GitHub-Linux. Damit ist der eng begrenzte Maintenance-Nachweis abgeschlossen.
+Er behauptet keine erneute historische EXP-0007-Laufzeitqualifikation.

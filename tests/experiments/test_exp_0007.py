@@ -99,6 +99,18 @@ class Exp0007ContractTests(unittest.TestCase):
         ):
             self.assertTrue(self.runner.DRIVER.process_exists(42))
 
+    def test_posix_unreadable_process_state_remains_live(self) -> None:
+        with (
+            patch.object(self.runner.DRIVER.os, "name", "posix"),
+            patch.object(self.runner.DRIVER.os, "kill"),
+            patch.object(
+                self.runner.DRIVER.Path,
+                "read_text",
+                side_effect=OSError("synthetic unavailable process state"),
+            ),
+        ):
+            self.assertTrue(self.runner.DRIVER.process_exists(42))
+
     def test_empirical_result_is_complete(self) -> None:
         if not RESULT.exists():
             self.skipTest("result.json is created by the explicit empirical run")

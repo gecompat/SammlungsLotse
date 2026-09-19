@@ -174,14 +174,15 @@ doch die normalisierten Projektdigests der gemeinsamen synthetischen
 Bibliothek wichen voneinander ab. Das Ergebnis autorisiert weder einen
 Runtimewechsel noch eine Lockerung der Vergleichssemantik.
 
-EXP-0023 ist angenommen: Der CI-Blocker aus EXP-0007 wird eng als
+EXP-0023 ist `done`: Der CI-Blocker aus EXP-0007 wurde eng als
 POSIX-Zombie-Semantik behandelt. Die aktuelle Driver-Korrektur trennt einen
 nicht fortsetzungsfähigen Zombie von einem aktiven Kindprozess; zwei
 synthetische Kontrollen erzwingen beide Zustände. Das eingefrorene
 EXP-0007-Ergebnis bleibt unverändert und erhält einen separaten historischen
 Git-Preimage-Validator. Lokal bestanden dessen Prüfung sowie der vollständige
-Repositoryadapter mit 300 Tests und vier fähigkeitsbedingten Skips; erst die
-GitHub-Checks des exakten PR-Commits entscheiden über Merge.
+Repositoryadapter mit 300 Tests und vier fähigkeitsbedingten Skips. Beide
+GitHub-Pflichtchecks bestanden für den exakten PR-Commit; der Stand ist nach
+`origin/main` gemergt.
 
 WI-0004 ist `done`. Der Produktcode liegt unter
 `src/sammlungslotse/ebook_intake/`, die sichtbare lokale Oberfläche unter

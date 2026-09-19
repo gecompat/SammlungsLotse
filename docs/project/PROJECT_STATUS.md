@@ -1540,14 +1540,15 @@ synthetischen Bibliothek unterschieden sich jedoch. Der Befund autorisiert
 keinen Runtimewechsel und darf nicht durch Lockerung der Vergleichssemantik
 überschrieben werden.
 
-EXP-0023 ist angenommen und hält die Wartungswave für einen Linux-
+EXP-0023 ist `done` und hielt die Wartungswave für einen Linux-
 Zombie-Befund in EXP-0007 eng getrennt: Der aktuelle POSIX-Live-Check erkennt
 einen nicht fortsetzungsfähigen Zombie nicht mehr als aktives Kind; aktive
 Kinder bleiben aktiv. Der historische EXP-0007-Nachweis bleibt unverändert
 und wird jetzt separat gegen sein Git-Preimage validiert. Der lokale
-Repositoryadapter bestand 300 Tests (vier fähigkeitsbedingte Skips); die
-ausstehende GitHub-Prüfung bleibt für den exakten Pull-Request-Commit
-maßgeblich.
+Repositoryadapter bestand 300 Tests (vier fähigkeitsbedingte Skips). Für den
+exakten Pull-Request-Commit bestanden auch `repository-quality` und
+`registry-integrity` unter GitHub-Linux; der Stand wurde danach nach
+`origin/main` gemergt.
 
 ## Offene Punkte
 
