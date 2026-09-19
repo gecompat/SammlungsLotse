@@ -1518,6 +1518,15 @@ GATE-0028 `done`: EXP-0021 ist als getrennte, produktcodefreie und
 ausschließlich synthetische Docker-Äquivalenzprüfung angenommen. Sie darf den
 Podman-Produktvertrag nicht ersetzen und entscheidet keinen Runtimewechsel.
 
+EXP-0021 ist `done`: Das lokal bereits vorhandene Podman-Image wurde ohne
+Netzwerk in den getrennten Docker-Speicher übertragen und unter eigener
+Docker-Config-ID gebunden. Der produktcodefreie Doppellauf materialisierte
+eine task-private synthetische Calibre-Bibliothek; beide Projektionen waren
+hashgleich, der Bibliothekssnapshot unverändert und alle Container sowie der
+Taskroot bereinigt. Die Evidenz qualifiziert nur die gebundene Docker-
+Projektionsumgebung, weder einen Ersatz der öffentlichen Podman-CLI noch einen
+Runtimewechsel.
+
 ## Offene Punkte
 
 - Die optionale Foundation-Fähigkeit `rule-context-cache` ist empfohlen, aber
