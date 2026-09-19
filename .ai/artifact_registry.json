@@ -2102,6 +2102,41 @@
       "status": "done",
       "title": "Erste nutzbare E-Book-Reviewplanung auswählen"
     },
+    "GATE-0026": {
+      "acceptance_criteria": "Der bestandene EXP-0019-Nachweis wird getrennt bewertet; jede ausgewählte Folge bleibt auf einen expliziten Eingangsordner und genau eine explizite Calibre-Bibliothek, einen ephemeren read-only Reviewplan, sichtbare Unsicherheit und null Bestandswirkung begrenzt.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0ba9f-bf03-7f44-ba69-5d803261bc57",
+      "created_on": "2026-09-19",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0026_AFTER_EXP0019.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "EXP-0019-Ergebnis und eng begrenzten E-Book-Reviewplan bewerten"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],
@@ -2892,6 +2927,61 @@
       ],
       "status": "rejected",
       "title": "Inkompatible ZIP-Toolchain bei Fixture-Reproduktion eindeutig ausweisen"
+    },
+    "WI-0019": {
+      "acceptance_criteria": "Genau ein expliziter Eingangsordner und genau eine explizite Calibre-Bibliothek ergeben einen ephemeren, pfadfreien und deterministischen manuellen Reviewplan mit höchstens fünf begründeten Kandidaten je EPUB; bestehende Verträge bleiben unverändert, und Netzwerk, Persistenz, Import, Writer sowie Bestandswirkung bleiben null.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0baa0-e984-79c1-b8ac-d5ee8995fa91",
+      "created_on": "2026-09-19",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/EBOOK_INBOX_CALIBRE_REVIEW_PLAN_WORK_ITEM.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0026",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0007",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "Ephemeren read-only E-Book-Reviewplan umsetzen"
     }
   },
   "prefixes": {

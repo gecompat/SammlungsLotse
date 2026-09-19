@@ -63,6 +63,8 @@ Experimente und spätere Entscheidungen:
 - [GATE-0023: sichere Validierungsportabilität nach EXP-0018 bewerten](EBOOK_GATE_0023_VALIDATION_PORTABILITY.md);
 - [GATE-0025: erste nutzbare E-Book-Reviewplanung auswählen](EBOOK_GATE_0025_INBOX_CALIBRE_REVIEW_MVP.md);
 - [EXP-0019: synthetische Evidenz für einen E-Book-Reviewplan prüfen](EBOOK_INBOX_CALIBRE_REVIEW_PLAN_EXPERIMENT.md);
+- [GATE-0026: EXP-0019-Ergebnis und eng begrenzten E-Book-Reviewplan bewerten](EBOOK_GATE_0026_AFTER_EXP0019.md);
+- [WI-0019: ephemeren read-only E-Book-Reviewplan umsetzen](EBOOK_INBOX_CALIBRE_REVIEW_PLAN_WORK_ITEM.md);
 - [WI-0017: fehlende Windows-Symlink-Fähigkeit sichtbar behandeln](EBOOK_SYMLINK_CAPABILITY_MAINTENANCE_WORK_ITEM.md);
 - [WI-0016: read-only E-Book-Eingangsordner transparent erfassen](EBOOK_READONLY_INBOX_WORK_ITEM.md) — implementiert und synthetisch abgenommen;
 - [Nutzerszenarien und Messverträge](EBOOK_SCENARIOS_AND_METRICS.md);

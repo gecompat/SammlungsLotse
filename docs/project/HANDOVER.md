@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-13
+Stand: 2026-09-19
 
 ## Aktueller Stand
 
@@ -134,11 +134,17 @@ Implementierungskandidaten bestand er gegen `7cb8407` erneut 23/23.
 
 GATE-0025 und EXP-0019 sind `done`: Der produktcodefreie, ausschließlich
 synthetische Doppellauf erreichte alle zehn gebundenen Klassen semantisch
-identisch. Kandidaten blieben begrenzte Suchhinweise mit Grund,
-Bibliotheksposition und Snapshot-Digest; Grenztreffer und nicht beurteilbare
-Fälle blieben fail-closed sichtbar. Ein Ergebnisgate entscheidet erst danach
-über einen read-only Produktarbeitsgegenstand. Reale Sammlungen, Persistenz,
-automatische Zielwahl und jede Calibre-Schreiboperation bleiben außerhalb.
+identisch. GATE-0026 hat unter der Autonomie-Autorisierung den kleinsten
+Folgeumfang ausgewählt; WI-0019 ist umgesetzt und lokal validiert. Der neue
+separate Befehl `tools/run_ebook_review_plan.py` verbindet genau einen
+ausdrücklich gewählten Eingangsordner mit genau einer ausdrücklich gewählten
+Calibre-Bibliothek zu einem ephemeren manuellen Reviewplan. Kandidaten bleiben
+auf fünf je EPUB begrenzt und sind weder Same-, New-, Ziel- noch
+Importbehauptungen. Nicht-EPUBs, geschlossene Ingress-Gates, unvollständige
+Inventare und nicht sicher beurteilbare Projektionen bleiben fail-closed.
+Die vollständige Python-3.13-Prüfung führte 277 Tests erfolgreich aus (vier
+fähigkeitsbedingte Symlink-Skips). Reale Sammlungen, Persistenz, automatische
+Zielwahl und jede Calibre-Schreiboperation bleiben außerhalb.
 
 WI-0004 ist `done`. Der Produktcode liegt unter
 `src/sammlungslotse/ebook_intake/`, die sichtbare lokale Oberfläche unter

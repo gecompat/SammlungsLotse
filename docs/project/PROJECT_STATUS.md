@@ -1498,6 +1498,19 @@ Produktcodewirkung. Er qualifiziert keine neue Oberfläche und lockert weder
 `review` noch das Deep-Read-Gate. Die getrennte Portabilitätsbewertung für
 historische bytegebundene ZIP-Nachweise bleibt erforderlich.
 
+GATE-0025 und EXP-0019 sind `done`. GATE-0026 hat unter derselben
+Autonomie-Autorisierung WI-0019 als kleinste Produktwave angenommen. WI-0019
+ist abgeschlossen: Genau ein expliziter Eingangsordner und genau eine
+explizite Calibre-Bibliothek erzeugen ausschließlich einen ephemeren,
+pfadfreien und deterministischen manuellen Reviewplan. Kandidaten bleiben auf
+fünf je EPUB begrenzt und begründen weder Same, New, Ziel noch Import.
+Geschlossene Ingress-Gates, nicht-EPUBs, unvollständige Inventare und nicht
+sicher beurteilbare Projektionen bleiben fail-closed. Die vollständige lokale
+Python-3.13-Prüfung führte 277 Tests erfolgreich aus (vier
+fähigkeitsbedingte Symlink-Skips); Governance-, Registry-, Compileall- und
+Diff-Prüfung waren ebenfalls erfolgreich. Netzwerk, Persistenz, Import,
+Writer und Bestandswirkung bleiben außerhalb.
+
 ## Offene Punkte
 
 - Die optionale Foundation-Fähigkeit `rule-context-cache` ist empfohlen, aber
