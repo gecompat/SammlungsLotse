@@ -1527,6 +1527,12 @@ Taskroot bereinigt. Die Evidenz qualifiziert nur die gebundene Docker-
 Projektionsumgebung, weder einen Ersatz der öffentlichen Podman-CLI noch einen
 Runtimewechsel.
 
+GATE-0029 ist unter derselben Autonomie-Autorisierung `done`. Es bewertet den
+Docker-Nachweis ausdrücklich als lokale Evidenz und wählt EXP-0022 als
+kleinste Folge: einen ausschließlich synthetischen, produktcodefreien
+Docker-Podman-Projektionsvergleich. Er darf weder Image-Identität noch
+Runtime-Austauschbarkeit oder eine Änderung öffentlicher Verträge behaupten.
+
 ## Offene Punkte
 
 - Die optionale Foundation-Fähigkeit `rule-context-cache` ist empfohlen, aber

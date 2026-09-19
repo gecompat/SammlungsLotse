@@ -1063,6 +1063,52 @@
       "status": "done",
       "title": "Synthetische Docker-Äquivalenz des Calibre-Reviewplan-Laufwegs prüfen"
     },
+    "EXP-0022": {
+      "acceptance_criteria": "Ein produktcodefreier, synthetischer Doppellauf vergleicht Docker- und Podman-Projektionen einer gemeinsamen task-privaten Calibre-Bibliothek auf pfadfreie normalisierte Ergebnisse, gebundene Isolation und vollständiges Cleanup; er behauptet weder Image-Identität noch automatische Runtime-Austauschbarkeit und ändert keinen Produktvertrag.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bb6a-ea9f-7a0b-a920-74a6217dba12",
+      "created_on": "2026-09-19",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_DOCKER_PODMAN_EQUIVALENCE_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0029",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0021",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0020",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0019",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Synthetische Docker-Podman-Projektionsäquivalenz prüfen"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -2320,6 +2366,48 @@
       ],
       "status": "accepted",
       "title": "Docker-Laufzeitoption für den E-Book-Reviewplan getrennt bewerten"
+    },
+    "GATE-0029": {
+      "acceptance_criteria": "Das EXP-0021-Ergebnis wird getrennt bewertet; jede Folge bewahrt Produktgrenzen und entscheidet weder ohne neuen Vertrag über einen Runtimewechsel noch über eine Änderung des Podman-CLI-Vertrags.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bb6a-e9d1-7f6a-b46a-5469c9f2b90c",
+      "created_on": "2026-09-19",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0029_AFTER_EXP0021.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0021",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0028",
+          "type": "related_to"
+        },
+        {
+          "target": "EXP-0020",
+          "type": "related_to"
+        },
+        {
+          "target": "WI-0019",
+          "type": "related_to"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Docker-Qualifikationsergebnis und nächste Runtime-Fortsetzung bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
