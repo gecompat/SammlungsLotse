@@ -946,20 +946,92 @@
       "priority": "high",
       "registration_state": "REGISTERED",
       "relations": [
-        {"target": "CAP-0002", "type": "parent"},
-        {"target": "GATE-0025", "type": "depends_on"},
-        {"target": "WI-0016", "type": "depends_on"},
-        {"target": "WI-0011", "type": "depends_on"},
-        {"target": "EXP-0012", "type": "related_to"},
-        {"target": "EXP-0018", "type": "related_to"},
-        {"target": "TEST-0001", "type": "depends_on"},
-        {"target": "DEC-0002", "type": "governed_by"},
-        {"target": "REQ-0001", "type": "related_to"},
-        {"target": "REQ-0002", "type": "related_to"},
-        {"target": "RISK-0001", "type": "related_to"}
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0025",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0016",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0011",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0012",
+          "type": "related_to"
+        },
+        {
+          "target": "EXP-0018",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
       ],
       "status": "done",
       "title": "Synthetische Evidenz für einen E-Book-Reviewplan prüfen"
+    },
+    "EXP-0020": {
+      "acceptance_criteria": "Zwei synthetische Wiederholungen des öffentlichen WI-0019-CLI-Wegs belegen deterministische begrenzte Reviewhinweise, Pfadfreiheit, Quellenunverändertheit, Cleanup und null Netzwerk-, Persistenz-, Import-, Writer- und Bestandswirkung.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bac4-26ae-727a-8251-fb59aa65bc8d",
+      "created_on": "2026-09-19",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_REVIEW_PLAN_QUALIFICATION_EXPERIMENT.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0027",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "depends_on"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Synthetische End-to-End-Qualifikation des E-Book-Reviewplans"
     },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
@@ -2091,13 +2163,34 @@
       "priority": "high",
       "registration_state": "REGISTERED",
       "relations": [
-        {"target": "CAP-0002", "type": "parent"},
-        {"target": "GATE-0022", "type": "related_to"},
-        {"target": "EXP-0018", "type": "depends_on"},
-        {"target": "DEC-0002", "type": "governed_by"},
-        {"target": "REQ-0001", "type": "related_to"},
-        {"target": "REQ-0002", "type": "related_to"},
-        {"target": "RISK-0001", "type": "related_to"}
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0022",
+          "type": "related_to"
+        },
+        {
+          "target": "EXP-0018",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
       ],
       "status": "done",
       "title": "Erste nutzbare E-Book-Reviewplanung auswählen"
@@ -2136,6 +2229,41 @@
       ],
       "status": "done",
       "title": "EXP-0019-Ergebnis und eng begrenzten E-Book-Reviewplan bewerten"
+    },
+    "GATE-0027": {
+      "acceptance_criteria": "Das WI-0019-Ergebnis wird getrennt bewertet; jede Folge bleibt auf eine synthetische Einzelbibliothek, einen read-only Reviewplan sowie null Netzwerk-, Persistenz-, Import- und Bestandswirkung begrenzt.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bac3-d811-7726-912b-ef6558d5b6c9",
+      "created_on": "2026-09-19",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0027_AFTER_WI0019.md",
+      "priority": "high",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "WI-0019-Ergebnis und nächste sichere Reviewplan-Fortsetzung bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
