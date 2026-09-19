@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -73,6 +74,30 @@ class Exp0007ContractTests(unittest.TestCase):
         self.assertIsNone(
             self.runner.PRIVATE_PATH_PATTERN.search("fixture://TEST-0001/0.2.0/case")
         )
+
+    def test_posix_zombie_is_not_treated_as_live_child(self) -> None:
+        with (
+            patch.object(self.runner.DRIVER.os, "name", "posix"),
+            patch.object(self.runner.DRIVER.os, "kill"),
+            patch.object(
+                self.runner.DRIVER.Path,
+                "read_text",
+                return_value="42 (synthetic-child) Z 1 1 1 0\n",
+            ),
+        ):
+            self.assertFalse(self.runner.DRIVER.process_exists(42))
+
+    def test_posix_active_child_remains_live(self) -> None:
+        with (
+            patch.object(self.runner.DRIVER.os, "name", "posix"),
+            patch.object(self.runner.DRIVER.os, "kill"),
+            patch.object(
+                self.runner.DRIVER.Path,
+                "read_text",
+                return_value="42 (synthetic-child) S 1 1 1 0\n",
+            ),
+        ):
+            self.assertTrue(self.runner.DRIVER.process_exists(42))
 
     def test_empirical_result_is_complete(self) -> None:
         if not RESULT.exists():

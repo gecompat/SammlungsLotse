@@ -9,6 +9,7 @@ from tools.experiments import validate_exp_0010_result
 from tools.experiments import validate_exp_0011_result
 from tools.experiments import validate_exp_0012_result
 from tools.experiments import validate_exp_0013_result
+from tools.experiments import validate_exp_0007_result
 from tools.experiments import validate_exp_0014_result
 from tools.experiments import validate_exp_0015_result
 from tools.experiments import validate_exp_0016_result
@@ -16,6 +17,9 @@ from tools.experiments import validate_exp_0017_result
 
 
 class HistoricalExperimentResultTests(unittest.TestCase):
+    def test_exp_0007_result_against_historical_preimage(self) -> None:
+        self.assertEqual("pass", validate_exp_0007_result.validate()["status"])
+
     def test_exp_0009_result_against_historical_preimage(self) -> None:
         result = validate_exp_0009_result.validate(
             validate_exp_0009_result.RESULT_PATH

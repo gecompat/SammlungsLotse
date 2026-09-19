@@ -1106,8 +1106,34 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Synthetische Docker-Podman-Projektionsäquivalenz prüfen"
+    },
+    "EXP-0023": {
+      "acceptance_criteria": "Der Linux-Zombie-Fix wird mit einer neuen synthetischen, getrennten EXP-0007-Evidenz qualifiziert; historische Evidenz bleibt unverändert, Timeout- und Prozessgruppen-Kill-Grenzen bleiben erhalten.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bbd7-bbb7-7b4b-a230-864b0157f55b",
+      "created_on": "2026-09-20",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_EXP0007_LINUX_ZOMBIE_REQUALIFICATION.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0007",
+          "type": "related_to"
+        },
+        {
+          "target": "EXP-0022",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Linux-Zombie-Cleanup von EXP-0007 synthetisch requalifizieren"
     },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",

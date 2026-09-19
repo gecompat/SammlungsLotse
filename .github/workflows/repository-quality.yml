@@ -42,7 +42,7 @@ jobs:
       - name: Validate EXP-0006 empirical result contract
         run: python tools/experiments/run_exp_0006.py --validate-result
       - name: Validate EXP-0007 empirical result contract
-        run: python tools/experiments/run_exp_0007.py --validate-result
+        run: python tools/experiments/validate_exp_0007_result.py
       - name: Validate EXP-0009 empirical result contract
         run: python tools/experiments/validate_exp_0009_result.py
       - name: Validate EXP-0010 empirical result contract

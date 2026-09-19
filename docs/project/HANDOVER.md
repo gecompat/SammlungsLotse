@@ -168,6 +168,21 @@ task-privaten synthetischen Calibre-Bibliothek in Docker und Podman. Er ist
 produktcodefrei und entscheidet weder über Image-Identität noch über einen
 Runtimewechsel oder eine Änderung des öffentlichen WI-0019-Vertrags.
 
+EXP-0022 ist `done` mit `not_qualified`: Beide Runtimes erfüllten ihre
+gebundenen Isolations- und Cleanup-Grenzen und waren intern deterministisch,
+doch die normalisierten Projektdigests der gemeinsamen synthetischen
+Bibliothek wichen voneinander ab. Das Ergebnis autorisiert weder einen
+Runtimewechsel noch eine Lockerung der Vergleichssemantik.
+
+EXP-0023 ist angenommen: Der CI-Blocker aus EXP-0007 wird eng als
+POSIX-Zombie-Semantik behandelt. Die aktuelle Driver-Korrektur trennt einen
+nicht fortsetzungsfähigen Zombie von einem aktiven Kindprozess; zwei
+synthetische Kontrollen erzwingen beide Zustände. Das eingefrorene
+EXP-0007-Ergebnis bleibt unverändert und erhält einen separaten historischen
+Git-Preimage-Validator. Lokal bestanden dessen Prüfung sowie der vollständige
+Repositoryadapter mit 300 Tests und vier fähigkeitsbedingten Skips; erst die
+GitHub-Checks des exakten PR-Commits entscheiden über Merge.
+
 WI-0004 ist `done`. Der Produktcode liegt unter
 `src/sammlungslotse/ebook_intake/`, die sichtbare lokale Oberfläche unter
 `tools/run_ebook_intake.py`. Die Grenze endet nach stabilem

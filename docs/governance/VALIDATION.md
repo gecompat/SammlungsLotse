@@ -147,7 +147,7 @@ vollständige lokale Podman-Lauf ist als eigener expliziter Befehl unter
 
 Für den eingecheckten empirischen EXP-0007-Nachweis gilt:
 
-    python tools/experiments/run_exp_0007.py --validate-result
+    python tools/experiments/validate_exp_0007_result.py
 
 Diese CI-geeignete Prüfung wiederholt weder Windows-Prozesse, Containerläufe
 noch die optionale EPUBCheck-Kompatibilitätsprüfung. Sie bindet das Ergebnis
