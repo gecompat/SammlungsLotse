@@ -146,6 +146,14 @@ Die vollständige Python-3.13-Prüfung führte 277 Tests erfolgreich aus (vier
 fähigkeitsbedingte Symlink-Skips). Reale Sammlungen, Persistenz, automatische
 Zielwahl und jede Calibre-Schreiboperation bleiben außerhalb.
 
+GATE-0027 und EXP-0020 halten die noch ausstehende End-to-End-Qualifikation
+am bestehenden Podman-Produktvertrag fest. Der lokale Podman-Server erfüllt
+dessen Mindestversion nicht. GATE-0028 ist deshalb unter der ausdrücklichen
+Docker-Anweisung `done`; EXP-0021 ist als separate, produktcodefreie und
+ausschließlich synthetische Docker-Äquivalenzprüfung angenommen. Sie verwendet
+ein eigenes Profil und darf weder den bestehenden Podman-Executor noch die
+öffentliche CLI oder einen Runtimewechsel vorwegnehmen.
+
 WI-0004 ist `done`. Der Produktcode liegt unter
 `src/sammlungslotse/ebook_intake/`, die sichtbare lokale Oberfläche unter
 `tools/run_ebook_intake.py`. Die Grenze endet nach stabilem

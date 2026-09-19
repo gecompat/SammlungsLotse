@@ -1033,6 +1033,36 @@
       "status": "accepted",
       "title": "Synthetische End-to-End-Qualifikation des E-Book-Reviewplans"
     },
+    "EXP-0021": {
+      "acceptance_criteria": "Ein separater Docker-Nachweis prüft ausschließlich mit synthetischen Daten einen begrenzten read-only Calibre-Lauf mit zwei Wiederholungen, prüfbarer Isolation, unveränderten Quellen, vollständigem Cleanup und null Netzwerk-, Persistenz-, Import-, Writer- und Bestandswirkung; er verändert weder Produktcode noch den Podman-Vertrag.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bb04-1441-736e-bcce-d3315be14be4",
+      "created_on": "2026-09-19",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_DOCKER_REVIEWPLAN_QUALIFICATION_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "GATE-0028",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0020",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Synthetische Docker-Äquivalenz des Calibre-Reviewplan-Laufwegs prüfen"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
@@ -2264,6 +2294,32 @@
       ],
       "status": "done",
       "title": "WI-0019-Ergebnis und nächste sichere Reviewplan-Fortsetzung bewerten"
+    },
+    "GATE-0028": {
+      "acceptance_criteria": "Die Docker-Laufzeitoption wird getrennt bewertet; eine angenommene Folge bleibt produktcodefrei, ausschließlich synthetisch und auf einen read-only Nachweis ohne Netzwerk, Persistenz, Import, Writer oder Bestandswirkung begrenzt.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bb04-1350-741c-8b1c-3f3c4d897b81",
+      "created_on": "2026-09-19",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0028_DOCKER_RUNTIME_OPTION.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "WI-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "EXP-0020",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Docker-Laufzeitoption für den E-Book-Reviewplan getrennt bewerten"
     },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
