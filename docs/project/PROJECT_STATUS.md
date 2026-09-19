@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-13
+Stand: 2026-09-19
 
 ## Phase
 
@@ -1510,6 +1510,13 @@ Python-3.13-Prüfung führte 277 Tests erfolgreich aus (vier
 fähigkeitsbedingte Symlink-Skips); Governance-, Registry-, Compileall- und
 Diff-Prüfung waren ebenfalls erfolgreich. Netzwerk, Persistenz, Import,
 Writer und Bestandswirkung bleiben außerhalb.
+
+GATE-0027 und EXP-0020 binden die ausstehende synthetische End-to-End-
+Qualifikation an den bestehenden öffentlichen Podman-Weg. Dessen lokale
+Servervoraussetzung ist nicht erfüllt. Auf ausdrückliche Docker-Anweisung ist
+GATE-0028 `done`: EXP-0021 ist als getrennte, produktcodefreie und
+ausschließlich synthetische Docker-Äquivalenzprüfung angenommen. Sie darf den
+Podman-Produktvertrag nicht ersetzen und entscheidet keinen Runtimewechsel.
 
 ## Offene Punkte
 
