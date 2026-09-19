@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.util
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -35,6 +36,15 @@ class Exp0020Tests(unittest.TestCase):
         self.assertTrue(exp._safe({"acceptance": {"clean": True}}))
         self.assertFalse(exp._safe({"title": "synthetic"}))
         self.assertFalse(exp._safe({"value": "C:\\private"}))
+
+    def test_runtime_preflight_fails_before_any_materialization(self) -> None:
+        with tempfile.TemporaryDirectory() as directory, patch.object(
+            exp.CalibrePodmanExecutor,
+            "_runtime_and_image",
+            side_effect=RuntimeError("synthetic unavailable"),
+        ):
+            with self.assertRaisesRegex(exp.QualificationError, "runtime_unavailable"):
+                exp.qualify(Path(directory) / "new-task")
 
 
 if __name__ == "__main__":
