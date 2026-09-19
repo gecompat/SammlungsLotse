@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TEST_ROOT = ROOT / "tests"
 OBSOLETE_CURRENT_PREIMAGE_TESTS = frozenset(
     {
+        "experiments.test_exp_0007.Exp0007ContractTests.test_empirical_result_is_complete",
         "experiments.test_exp_0009.Exp0009Tests.test_empirical_result_contract_when_present",
         "experiments.test_exp_0010.Exp0010Tests.test_empirical_result_contract_when_present",
         "experiments.test_exp_0011.Exp0011Tests.test_empirical_result_contract_when_present",
@@ -32,6 +33,8 @@ CAPABILITY_OPTIONAL_TESTS = frozenset(
 )
 HISTORICAL_REPLACEMENT_TESTS = frozenset(
     {
+        "governance.test_historical_experiment_results.HistoricalExperimentResultTests."
+        "test_exp_0007_result_against_historical_preimage",
         "governance.test_historical_experiment_results.HistoricalExperimentResultTests."
         "test_exp_0009_result_against_historical_preimage",
         "governance.test_historical_experiment_results.HistoricalExperimentResultTests."

@@ -66,6 +66,17 @@ def process_exists(pid: int) -> bool:
         return False
     except PermissionError:
         return True
+    # `kill(pid, 0)` also succeeds for a terminated-but-unreaped zombie on
+    # Linux. A zombie cannot continue the timed-out probe's work, so it must
+    # not make the process-edge cleanup control fail because the init process
+    # has not reaped it yet.
+    try:
+        stat = Path(f"/proc/{pid}/stat").read_text(encoding="ascii")
+    except OSError:
+        return True
+    fields = stat.rsplit(")", 1)[-1].lstrip().split(maxsplit=1)
+    if fields and fields[0] == "Z":
+        return False
     return True
 
 
