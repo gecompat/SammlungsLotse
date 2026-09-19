@@ -30,3 +30,13 @@ Ein erfolgreicher Lauf beweist keine Kandidatenvollständigkeit, keine
 Dublettengleichheit, keine Zielauswahl und keine reale
 Calibre-Kompatibilität. Mehrere Bibliotheken, Routing und jede schreibende
 Operation bleiben außerhalb.
+
+## Ausführungsstand
+
+Der Runner und seine synthetischen Verträge sind implementiert und lokal
+fokussiert geprüft. Der tatsächliche synthetische Lauf ist `pending manual
+validation`: Podman ist verfügbar, aber das exakt an WI-0007 gebundene Image
+`localhost/sammlungslotse-calibre-readonly:wi-0007` fehlt lokal. Der Lauf
+scheiterte vor Materialisierung und CLI-Ausführung kontrolliert; der neue
+Taskroot wurde vollständig bereinigt. Ein fehlendes Laufresultat wird nicht
+als bestandene Qualifikation dargestellt.
