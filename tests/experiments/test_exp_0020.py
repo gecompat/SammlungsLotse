@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -19,10 +20,16 @@ class Exp0020Tests(unittest.TestCase):
         self.assertTrue(all(len(exp.sha256_file(exp.CASES / item)) == 64 for item in exp.FIXTURES))
 
     def test_qualification_target_requires_new_child_of_protected_root(self) -> None:
-        with self.assertRaises(exp.QualificationError):
-            exp._new_child(exp.ALLOWED_ROOT)
-        with self.assertRaises(exp.QualificationError):
-            exp._new_child(exp.ALLOWED_ROOT.parent / "outside")
+        with tempfile.TemporaryDirectory() as directory:
+            allowed = Path(directory)
+            self.assertEqual(
+                (allowed / "new-task").resolve(),
+                exp._new_child(allowed / "new-task", allowed),
+            )
+            with self.assertRaises(exp.QualificationError):
+                exp._new_child(allowed, allowed)
+            with self.assertRaises(exp.QualificationError):
+                exp._new_child(allowed.parent / "outside", allowed)
 
     def test_public_result_guard_rejects_private_metadata_and_paths(self) -> None:
         self.assertTrue(exp._safe({"acceptance": {"clean": True}}))

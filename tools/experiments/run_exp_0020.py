@@ -49,8 +49,10 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def _new_child(path: Path) -> Path:
-    root = ALLOWED_ROOT.resolve(strict=True)
+def _new_child(path: Path, allowed_root: Path = ALLOWED_ROOT) -> Path:
+    """Validate a new disposable child; production keeps its fixed root."""
+
+    root = allowed_root.resolve(strict=True)
     candidate = path.resolve(strict=False)
     try:
         candidate.relative_to(root)
