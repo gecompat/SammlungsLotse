@@ -19,7 +19,7 @@
           "type": "governed_by"
         }
       ],
-      "status": "done",
+      "status": "accepted",
       "title": "Domänenübergreifende Qualitäts-, Such- und Integrationsassistenz"
     },
     "CAP-0002": {
@@ -1132,7 +1132,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Linux-Zombie-Cleanup von EXP-0007 synthetisch requalifizieren"
     },
     "GATE-0001": {
