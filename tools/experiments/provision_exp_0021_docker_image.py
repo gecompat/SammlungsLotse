@@ -19,12 +19,17 @@ def transfer(p):
  if check.returncode: raise ProvisionError("podman_source_unavailable")
  if not check.stdout: raise ProvisionError("podman_source_contract_differs")
  source=json.loads(check.stdout)[0]; d=p["docker_image"]
- if source.get("Id")!=src["id"] or source.get("Os")!=d["os"] or source.get("Architecture")!=d["architecture"] or source.get("Config",{}).get("Entrypoint")!=d["entrypoint"]: raise ProvisionError("podman_source_contract_differs")
+ source_id=str(source.get("Id", "")); source_id=source_id if source_id.startswith("sha256:") else "sha256:"+source_id
+ if source_id!=src["id"] or source.get("Os")!=d["os"] or source.get("Architecture")!=d["architecture"] or source.get("Config",{}).get("Entrypoint")!=d["entrypoint"]: raise ProvisionError("podman_source_contract_differs")
  save=subprocess.Popen(["podman","save",src["tag"]],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
  load=subprocess.run(["docker","load"],stdin=save.stdout,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,check=False)
  save.stdout.close(); save.wait()
  if save.returncode or load.returncode: raise ProvisionError("offline_transfer_failed")
- tag=subprocess.run(["docker","tag",src["id"],d["tag"]],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,check=False)
+ loaded=inspect(src["tag"])
+ if loaded is None: raise ProvisionError("docker_loaded_image_unavailable")
+ verify(loaded,p)
+ loaded_id=str(loaded["Id"]); loaded_id=loaded_id if loaded_id.startswith("sha256:") else "sha256:"+loaded_id
+ tag=subprocess.run(["docker","tag",loaded_id,d["tag"]],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,check=False)
  if tag.returncode: raise ProvisionError("docker_tag_failed")
 def main():
  a=argparse.ArgumentParser();a.add_argument("--from-podman",action="store_true");x=a.parse_args();p=load();v=inspect(p["docker_image"]["tag"])

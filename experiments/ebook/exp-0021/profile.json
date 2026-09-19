@@ -3,5 +3,5 @@
   "artifact": "EXP-0021",
   "synthetic_only": true,
   "source_podman_image": {"tag": "localhost/sammlungslotse-calibre-readonly:wi-0007", "id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5"},
-  "docker_image": {"tag": "sammlungslotse-exp-0021-calibre:wi-0007", "id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5", "os": "linux", "architecture": "amd64", "entrypoint": ["/usr/bin/env", "-i", "CALIBRE_CONFIG_DIRECTORY=/config", "HOME=/tmp/home", "LANG=C.UTF-8", "PATH=/opt/calibre:/usr/local/bin:/usr/bin:/bin", "QT_QPA_PLATFORM=offscreen", "python", "/opt/adapter/calibre_inventory_wrapper.py"]}
+  "docker_image": {"tag": "sammlungslotse-exp-0021-calibre:wi-0007", "id": "sha256:20c1c9944290ff5812fca4e3dd44032040e44cc2731aae1c5157ddc495312cb3", "os": "linux", "architecture": "amd64", "entrypoint": ["/usr/bin/env", "-i", "CALIBRE_CONFIG_DIRECTORY=/config", "HOME=/tmp/home", "LANG=C.UTF-8", "PATH=/opt/calibre:/usr/local/bin:/usr/bin:/bin", "QT_QPA_PLATFORM=offscreen", "python", "/opt/adapter/calibre_inventory_wrapper.py"]}
 }
