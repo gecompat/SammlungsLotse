@@ -275,6 +275,18 @@ def _read_epub(snapshot: Snapshot, index: int, limits: IdentityLimits) -> InputO
     )
 
 
+def observe_epub(snapshot: Snapshot, limits: IdentityLimits) -> InputObservation:
+    """Return bounded embedded metadata for a preflight-approved EPUB snapshot.
+
+    This is intentionally an observation only: it does not compare inputs or
+    derive an identity decision.
+    """
+
+    if snapshot.size_bytes > limits.max_input_bytes:
+        raise ValueError("input limit exceeded")
+    return _read_epub(snapshot, 0, limits)
+
+
 def _normalized_set(values: tuple[str, ...]) -> set[str]:
     return {_normalized(value) for value in values if _normalized(value)}
 
