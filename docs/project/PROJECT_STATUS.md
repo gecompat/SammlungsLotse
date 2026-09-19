@@ -1533,6 +1533,13 @@ kleinste Folge: einen ausschließlich synthetischen, produktcodefreien
 Docker-Podman-Projektionsvergleich. Er darf weder Image-Identität noch
 Runtime-Austauschbarkeit oder eine Änderung öffentlicher Verträge behaupten.
 
+EXP-0022 ist `done` mit `not_qualified`: Docker und Podman hielten ihre
+jeweiligen Isolations- und Cleanup-Grenzen ein und waren intern jeweils
+deterministisch; ihre normalisierten Projektdigests einer gemeinsamen
+synthetischen Bibliothek unterschieden sich jedoch. Der Befund autorisiert
+keinen Runtimewechsel und darf nicht durch Lockerung der Vergleichssemantik
+überschrieben werden.
+
 ## Offene Punkte
 
 - Die optionale Foundation-Fähigkeit `rule-context-cache` ist empfohlen, aber

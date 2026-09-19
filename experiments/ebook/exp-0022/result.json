@@ -1,0 +1,35 @@
+{
+  "artifact": "EXP-0022",
+  "cleanup": {
+    "containers_removed_by_runtime": true,
+    "task_root_removed_on_return": true
+  },
+  "effects": {
+    "external_network_access": false,
+    "import": false,
+    "persistence": false,
+    "product_code_modified": false,
+    "writer_effects": false
+  },
+  "library_snapshot_unchanged": true,
+  "projection_sha256": {
+    "docker": [
+      "1021935474dc7d4adbb51d6bf1dfe5268f14747ade9ea3f8de9dc58413e16c97",
+      "1021935474dc7d4adbb51d6bf1dfe5268f14747ade9ea3f8de9dc58413e16c97"
+    ],
+    "podman": [
+      "5ce9652a391f0e57a6c8f3b965f8c6ef4769ee9a16ce5927245c4c018d0ee56a",
+      "5ce9652a391f0e57a6c8f3b965f8c6ef4769ee9a16ce5927245c4c018d0ee56a"
+    ]
+  },
+  "repetitions_per_runtime": 2,
+  "runtime_bindings": {
+    "docker_image_id": "sha256:20c1c9944290ff5812fca4e3dd44032040e44cc2731aae1c5157ddc495312cb3",
+    "docker_platform": "linux/amd64",
+    "podman_image_id": "sha256:9aa46b7581aa647bb9000caff53b227694fc8ea28c0271eb83666f916b21c0a5",
+    "podman_platform": "linux/amd64"
+  },
+  "schema": "sammlungslotse/exp-0022-docker-podman-equivalence-result/v1",
+  "status": "not_qualified",
+  "synthetic_only": true
+}

@@ -168,6 +168,12 @@ task-privaten synthetischen Calibre-Bibliothek in Docker und Podman. Er ist
 produktcodefrei und entscheidet weder über Image-Identität noch über einen
 Runtimewechsel oder eine Änderung des öffentlichen WI-0019-Vertrags.
 
+EXP-0022 ist `done` mit `not_qualified`: Beide Runtimes erfüllten ihre
+gebundenen Isolations- und Cleanup-Grenzen und waren intern deterministisch,
+doch die normalisierten Projektdigests der gemeinsamen synthetischen
+Bibliothek wichen voneinander ab. Das Ergebnis autorisiert weder einen
+Runtimewechsel noch eine Lockerung der Vergleichssemantik.
+
 WI-0004 ist `done`. Der Produktcode liegt unter
 `src/sammlungslotse/ebook_intake/`, die sichtbare lokale Oberfläche unter
 `tools/run_ebook_intake.py`. Die Grenze endet nach stabilem

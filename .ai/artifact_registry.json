@@ -1106,7 +1106,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Synthetische Docker-Podman-Projektionsäquivalenz prüfen"
     },
     "GATE-0001": {

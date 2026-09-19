@@ -1,6 +1,6 @@
 # EXP-0022: Synthetische Docker-Podman-Projektionsäquivalenz
 
-Status: ACCEPTED
+Status: DONE — NOT_QUALIFIED
 
 Stand: 2026-09-19
 
@@ -32,4 +32,10 @@ Runtimewechsel.
 
 ## Ausführungsstand
 
-not executed.
+RUNTIME_EMPIRICAL ausgeführt am 2026-09-19. Beide Runtimes erfüllten die
+gebundene Isolation, bereinigten Container und Taskroot vollständig und
+lieferten je zwei intern hashgleiche Projektionen bei unverändertem
+Bibliothekssnapshot. Die normalisierten Docker- und Podman-Projektdigests
+unterscheiden sich jedoch. EXP-0022 ist deshalb `not_qualified`; es belegt
+keine Runtime-Austauschbarkeit. Die pfadfreie Evidenz steht unter
+`experiments/ebook/exp-0022/result.json`.
