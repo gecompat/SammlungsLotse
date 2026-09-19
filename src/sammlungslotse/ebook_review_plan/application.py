@@ -10,7 +10,7 @@ from sammlungslotse.calibre_inventory.model import (
     CalibreInventoryReport,
 )
 from sammlungslotse.calibre_inventory.ports import CalibreInventoryPort
-from sammlungslotse.ebook_identity.analyzer import observe_epub
+from sammlungslotse.ebook_identity.analyzer import _read_epub
 from sammlungslotse.ebook_identity.model import IdentityLimits
 from sammlungslotse.ebook_intake.directory import DirectoryIntakeService
 
@@ -39,6 +39,14 @@ def _strategies(
     if _values(languages) & _values(book.languages):
         matches.append("metadata.language_equal")
     return tuple(sorted(matches))
+
+
+def _observe_epub(snapshot, limits: IdentityLimits):
+    """Read bounded metadata without deriving an identity decision."""
+
+    if snapshot.size_bytes > limits.max_input_bytes:
+        raise ValueError("input limit exceeded")
+    return _read_epub(snapshot, 0, limits)
 
 
 class ReviewPlanService:
@@ -83,7 +91,7 @@ class ReviewPlanService:
         if not triage.deep_read_only_allowed:
             return ReviewPlanItem(index, "review_ingress_blocked", reason_codes=("ingress.preflight_gate_not_open",))
         try:
-            observed = observe_epub(triage.snapshot, IdentityLimits())
+            observed = _observe_epub(triage.snapshot, IdentityLimits())
         except (OSError, ValueError):
             return ReviewPlanItem(index, "not_assessed", reason_codes=("metadata.not_safely_observed",))
         candidates = []
