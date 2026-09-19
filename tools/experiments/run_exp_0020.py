@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import materialize_calibre_qualification_library as materializer  # noqa: E402
 from sammlungslotse.calibre_inventory.profile import CalibreRuntimeProfile  # noqa: E402
+from sammlungslotse.calibre_inventory.executor import CalibrePodmanExecutor  # noqa: E402
 from sammlungslotse.calibre_inventory.workspace import snapshot_library  # noqa: E402
 
 
@@ -84,8 +85,15 @@ def _run(inbox: Path, library: Path, tasks: Path) -> subprocess.CompletedProcess
 
 
 def qualify(root: Path) -> dict[str, Any]:
-    task_root = _new_child(root)
     profile = CalibreRuntimeProfile.load(PROFILE)
+    try:
+        # The public CLI enforces this exact runtime/image contract.  Check it
+        # before materialization so an unavailable runtime is not misreported
+        # as a zero-case product failure.
+        CalibrePodmanExecutor(profile)._runtime_and_image()
+    except (OSError, RuntimeError, ValueError, json.JSONDecodeError) as exc:
+        raise QualificationError("public_cli_runtime_unavailable") from exc
+    task_root = _new_child(root)
     fixtures = {str(item): sha256_file(CASES / item) for item in FIXTURES}
     task_root.mkdir(parents=True)
     try:
@@ -150,6 +158,7 @@ def main() -> int:
         if args.result is None:
             print(encoded, end="")
         else:
+            args.result.parent.mkdir(parents=True, exist_ok=True)
             args.result.write_text(encoded, encoding="utf-8", newline="\n")
         return 0 if result["status"] == "pass" else 4
     except KeyboardInterrupt:
