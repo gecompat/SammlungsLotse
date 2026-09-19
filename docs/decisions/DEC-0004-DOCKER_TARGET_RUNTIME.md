@@ -6,6 +6,8 @@ Datum: 2026-09-20
 
 Artifact: DEC-0004
 
+Artifact UID: urn:uuid:01a0bc0c-b17e-7272-a872-9778c5904d76
+
 ## Entscheidung
 
 Docker ist die Zielruntime für neue E-Book-Produktwege. Podman bleibt ein
