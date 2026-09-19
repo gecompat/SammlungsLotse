@@ -154,6 +154,14 @@ ausschließlich synthetische Docker-Äquivalenzprüfung angenommen. Sie verwende
 ein eigenes Profil und darf weder den bestehenden Podman-Executor noch die
 öffentliche CLI oder einen Runtimewechsel vorwegnehmen.
 
+EXP-0021 ist nun `done`: Das getrennte Docker-Profil bindet die beobachtete
+Docker-Config-ID unabhängig von der Podman-Quell-ID. Ein echter,
+netzwerkfreier und ausschließlich synthetischer Doppellauf materialisierte
+eine task-private Calibre-Bibliothek, lieferte zwei hashgleiche Projektionen,
+veränderte den Bibliothekssnapshot nicht und bereinigte Container und Taskroot
+vollständig. Der Nachweis gilt nur für die Docker-Projektionsumgebung; der
+öffentliche WI-0019-Podman-CLI-Vertrag bleibt unverändert.
+
 WI-0004 ist `done`. Der Produktcode liegt unter
 `src/sammlungslotse/ebook_intake/`, die sichtbare lokale Oberfläche unter
 `tools/run_ebook_intake.py`. Die Grenze endet nach stabilem

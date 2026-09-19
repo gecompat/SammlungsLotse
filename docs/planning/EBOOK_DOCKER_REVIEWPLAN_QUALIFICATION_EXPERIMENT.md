@@ -1,6 +1,6 @@
 # EXP-0021: Synthetische Docker-Äquivalenz des Calibre-Reviewplan-Laufwegs
 
-Status: ACCEPTED
+Status: DONE
 
 Stand: 2026-09-19
 
@@ -36,6 +36,13 @@ Lizenzbewertung oder eine reale Calibre-Bibliothek.
 
 ## Ausführungsstand
 
-not executed. Vor der Ausführung werden das eigene Docker-Profil, der
-synthetische Runner und die externe Werkzeugbewertung getrennt implementiert
-und geprüft.
+RUNTIME_EMPIRICAL validiert am 2026-09-19. Der netzwerkfreie Docker-Lauf
+materialisierte genau eine task-private synthetische Calibre-Bibliothek und
+führte zwei getrennte Projektionen aus. Beide Projektdigests waren identisch,
+der Bibliothekssnapshot blieb unverändert und Container sowie Taskroot wurden
+vollständig bereinigt. Die Docker-Config-ID unterscheidet sich dokumentiert
+von der Podman-Quell-ID; Linux/amd64 und der Entrypoint sind separat exakt
+gebunden. Das Ergebnis qualifiziert ausschließlich diese Docker-
+Projektionsumgebung, nicht den öffentlichen WI-0019-Podman-CLI-Vertrag oder
+einen Runtimewechsel. Die pfadfreie, commitgebundene Evidenz steht unter
+`experiments/ebook/exp-0021/result.json`.

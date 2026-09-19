@@ -1060,7 +1060,7 @@
           "type": "related_to"
         }
       ],
-      "status": "accepted",
+      "status": "done",
       "title": "Synthetische Docker-Äquivalenz des Calibre-Reviewplan-Laufwegs prüfen"
     },
     "GATE-0001": {
