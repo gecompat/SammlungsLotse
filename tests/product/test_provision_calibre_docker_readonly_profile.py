@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.util
 import io
 import json
+import os
 import sys
 import tarfile
 import tempfile
@@ -136,6 +137,18 @@ class DockerProvisionerTests(unittest.TestCase):
             digest = MODULE.safe_extract_archive(archive, destination)
             self.assertEqual(MODULE.sha512_file(archive), digest)
             self.assertTrue((destination / "calibredb").is_file())
+
+    def test_context_timestamps_are_canonicalized_to_epoch(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            context = Path(temporary) / "context"
+            nested = context / "nested"
+            nested.mkdir(parents=True)
+            payload = nested / "payload"
+            payload.write_bytes(b"x")
+            os.utime(payload, (123, 123))
+            MODULE.canonicalize_context_timestamps(context)
+            self.assertEqual(0, int(payload.stat().st_mtime))
+            self.assertEqual(0, int(nested.stat().st_mtime))
 
 
 if __name__ == "__main__":
