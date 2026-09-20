@@ -1,0 +1,26 @@
+{
+  "artifact": "WI-0020",
+  "bindings": {
+    "docker_image_id": "sha256:c07a99a129439121a9839fcee58625c8b31d71a6f09fa3c4bddf7544695790b0",
+    "docker_platform": "linux/amd64",
+    "executor_sha256": "2f4b1d1868e132cf22cae2a547ba1b360ca5d78baf4e9097bddafea013dcf483",
+    "profile_sha256": "f5ff5f2ed6c2438cc1823b7cc744e351ae0bbc596f9dd020ec401d71bd315cc0",
+    "provider_sha256": "d9e1915ed8d0ccb52374df5544e32ed31826f1b166982bbfa23948bb8b4bd946"
+  },
+  "effects": {
+    "external_network_access": false,
+    "import": false,
+    "persistence": false,
+    "product_code_modified": false,
+    "writer_effects": false
+  },
+  "library_snapshot_sha256": "f53518a1b42a43d27887c3c6b835ca9554c6fa7e5563b5bd2a66e97e5605ff12",
+  "projection_sha256": [
+    "219259c8a73452ecae1985e19695dc48c1132380113b29afcf204908c9cf70ea",
+    "219259c8a73452ecae1985e19695dc48c1132380113b29afcf204908c9cf70ea"
+  ],
+  "repetitions": 2,
+  "schema": "sammlungslotse/wi-0020-docker-qualification/v1",
+  "status": "pass",
+  "synthetic_only": true
+}
