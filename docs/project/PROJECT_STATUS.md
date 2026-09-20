@@ -7,11 +7,11 @@ Stand: 2026-09-20
 ## Phase
 
 Docker ist als Zielruntime entschieden; Podman bleibt ein unabhängiger,
-optionaler Paralleladapter. WI-0020 besitzt nun ein reproduzierbar lokal
-gebundenes Docker-Produktpreimage, jedoch weiterhin keine E2E-Qualifikation.
-Die zeitgebundene öffentliche Quellen- und Sicherheitsbeobachtung und die
-lokale Produktimage-Bindung ersetzen weder den synthetischen E2E-Nachweis noch
-die vollständige Produktqualifikation.
+optionaler Paralleladapter. WI-0020 besitzt ein reproduzierbar lokal
+gebundenes und synthetisch E2E-qualifiziertes Docker-Produktpreimage. Die
+pfadfreie, offline validierbare Evidenz bindet zwei identische Copy-on-read-
+Projektionen, Quellsnapshot, Netzwerklosigkeit und Cleanup. EXP-0025 kann
+damit als getrennte Mehrbibliotheks-Evidenzwave beginnen.
 Ein eigener Provisionierer nimmt nur ein explizit lokales, hashgebundenes
 Calibre-Archiv an, baut keinen Produktpfad und erzeugt bis zur separaten
 Bindung ausschließlich eine ungebundene Kandidatenbeobachtung.
