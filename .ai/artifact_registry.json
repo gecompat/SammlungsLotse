@@ -126,6 +126,24 @@
       "status": "accepted",
       "title": "Docker als Zielruntime mit optionalem Podman-Paralleladapter"
     },
+    "DEC-0005": {
+      "acceptance_criteria": "Die optionale Foundation-Referenzfähigkeit rule-context-cache wird unverändert installiert, nutzt ausschließlich operatorbereitgestellte nicht versionierte lokale Cacheziele und ersetzt weder native AGENTS-Discovery noch Repositoryregeln oder Validierungsevidenz.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bc3a-5288-7a54-88c6-3c248eb9d144",
+      "created_on": "2026-09-20",
+      "external_refs": [],
+      "kind": "decision",
+      "locator": "docs/decisions/DEC-0005-RULE_CONTEXT_CACHE.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "WI-0015",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Lokalen Rule-Context-Cache selektiv einführen"
+    },
     "EXP-0001": {
       "acceptance_criteria": "Wegwerfbare Experimente vergleichen unterstützte Calibre-Zugänge, Formatprüfer, Extraktion, Identitätsverfahren, Suche und isolierte Werkzeugausführung anhand des synthetischen Referenzkorpus.",
       "aliases": [],

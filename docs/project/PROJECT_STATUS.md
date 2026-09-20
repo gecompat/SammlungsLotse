@@ -1552,10 +1552,9 @@ exakten Pull-Request-Commit bestanden auch `repository-quality` und
 
 ## Offene Punkte
 
-- Die optionale Foundation-Fähigkeit `rule-context-cache` ist empfohlen, aber
-  nicht ausgewählt. Eine spätere Einführung benötigt eine eigene Bewertung
-  des lokalen, nicht versionierten Cacheziels; semantische Analysen dürfen
-  nicht persistent gespeichert werden.
+- `rule-context-cache` ist als lokale optionale Foundation-Fähigkeit
+  installiert. Ein Cacheziel bleibt operatorbereitgestellt, nicht versioniert
+  und außerhalb der Validierungsevidenz; native Discovery bleibt verpflichtend.
 - Eine professionelle Markenähnlichkeitsprüfung ist vor einer wirtschaftlich
   wesentlichen breiten Vermarktung weiterhin erforderlich.
 - Eine spätere Entscheidung kann getrennte Core-Safety- und CI-Gates-Rulesets

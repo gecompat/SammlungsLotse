@@ -11,7 +11,8 @@ ergebnisoffener E-Book-Erkundung ist WI-0004 als erster eng begrenzter,
 reversibler Produktprototyp implementiert und lokal vollständig abgenommen.
 AI Repository Foundation 1.8.0 ist semantisch integriert. Die vollständige
 Feature-Bewertung steht unter docs/governance/FOUNDATION_UPGRADE_1_8.md. Die
-optionale Fähigkeit `rule-context-cache` ist empfohlen, aber nicht ausgewählt;
+  optionale Fähigkeit `rule-context-cache` ist lokal installiert und nutzt nur
+  operatorbereitgestellte, nicht versionierte Cacheziele;
 es wurde kein persistenter Cache angelegt oder konfiguriert.
 
 main ist geschützt. Änderungen benötigen die erfolgreichen Checks
