@@ -75,7 +75,7 @@ class DockerProvisionerTests(unittest.TestCase):
         self.assertNotIn('"run"', source)
         self.assertNotIn('"create"', source)
         self.assertNotIn('"start"', source)
-        self.assertIn('"--pull=false"', source)
+        self.assertNotIn('"--pull', source)
         self.assertIn('"--network=none"', source)
 
     def test_wrong_archive_stops_before_docker_inspect_or_build(self) -> None:
@@ -96,13 +96,19 @@ class DockerProvisionerTests(unittest.TestCase):
             with patch.object(MODULE, "load_preimage", return_value=profile), patch.object(MODULE, "sha512_file", return_value="a" * 128), patch.object(MODULE, "safe_extract_archive", return_value="a" * 128), patch.object(MODULE, "verify_containerfile_reference", return_value=b"FROM docker.io/library/python@sha256:" + b"b" * 64 + b"\n"), patch.object(MODULE, "inspect_image", side_effect=[self.base(profile), self.candidate()]), patch.object(MODULE, "run") as run:
                 result = MODULE.provision(archive, Path(temporary) / "cache", "candidate:bound")
             build = run.call_args.args[0]
-            self.assertEqual("docker", build[0])
-            self.assertEqual("build", build[1])
-            self.assertIn("--pull=false", build)
+            self.assertEqual(["docker", "buildx", "build"], build[:3])
+            self.assertEqual("desktop-linux", build[build.index("--builder") + 1])
+            self.assertIn("--load", build)
+            self.assertIn("--provenance=false", build)
+            self.assertIn("--sbom=false", build)
+            self.assertIn("BUILDKIT_MULTI_PLATFORM=1", build)
+            self.assertIn("SOURCE_DATE_EPOCH=0", build)
+            self.assertNotIn("--pull", build)
             self.assertIn("--network=none", build)
             self.assertIn("--platform", build)
             self.assertEqual("linux/amd64", build[build.index("--platform") + 1])
             self.assertFalse(run.call_args.kwargs["capture"])
+            self.assertEqual("0", run.call_args.kwargs["environment"]["SOURCE_DATE_EPOCH"])
             self.assertEqual("unbound_observation", result["candidate_profile_state"])
             self.assertEqual(["A=1"], result["observed_image"]["container_environment"])
             self.assertEqual(MODULE.sha256_bytes(b"FROM docker.io/library/python@sha256:" + b"b" * 64 + b"\n"), result["containerfile_sha256"])
