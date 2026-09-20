@@ -52,6 +52,22 @@ class DockerProvisionerTests(unittest.TestCase):
         with self.assertRaises(MODULE.ProvisionError):
             MODULE.verify_base({"Os": "linux", "Architecture": "amd64", "RepoDigests": []}, "docker.io/library/python@sha256:" + "a" * 64)
 
+    def test_base_accepts_the_equivalent_docker_official_short_name(self) -> None:
+        digest = "sha256:" + "a" * 64
+        MODULE.verify_base(
+            {"Id": "sha256:" + "b" * 64, "Os": "linux", "Architecture": "amd64", "RepoDigests": ["python@" + digest]},
+            "docker.io/library/python@" + digest,
+        )
+
+    def test_containerfile_reference_must_equal_the_profile(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            runtime = Path(temporary)
+            (runtime / "Containerfile").write_text("FROM docker.io/library/python@sha256:" + "a" * 64 + "\n", encoding="utf-8")
+            profile = self.profile()
+            with patch.object(MODULE, "RUNTIME", runtime):
+                with self.assertRaises(MODULE.ProvisionError):
+                    MODULE.verify_containerfile_reference(profile)
+
     def test_source_has_no_automatic_network_or_runtime_start(self) -> None:
         source = (ROOT / "tools" / "provision_calibre_docker_readonly_profile.py").read_text(encoding="utf-8")
         self.assertNotIn("urllib", source)
@@ -77,7 +93,7 @@ class DockerProvisionerTests(unittest.TestCase):
             archive = Path(temporary) / "calibre.txz"
             archive.write_bytes(b"x")
             profile = self.profile()
-            with patch.object(MODULE, "load_preimage", return_value=profile), patch.object(MODULE, "sha512_file", return_value="a" * 128), patch.object(MODULE, "safe_extract_archive", return_value="a" * 128), patch.object(MODULE, "inspect_image", side_effect=[self.base(profile), self.candidate()]), patch.object(MODULE, "run") as run:
+            with patch.object(MODULE, "load_preimage", return_value=profile), patch.object(MODULE, "sha512_file", return_value="a" * 128), patch.object(MODULE, "safe_extract_archive", return_value="a" * 128), patch.object(MODULE, "verify_containerfile_reference"), patch.object(MODULE, "inspect_image", side_effect=[self.base(profile), self.candidate()]), patch.object(MODULE, "run") as run:
                 result = MODULE.provision(archive, Path(temporary) / "cache", "candidate:bound")
             build = run.call_args.args[0]
             self.assertEqual("docker", build[0])

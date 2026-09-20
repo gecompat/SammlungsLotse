@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 import tarfile
@@ -56,6 +57,14 @@ def sha256_json(value: Any) -> str:
     return hashlib.sha256(json.dumps(value, ensure_ascii=True, separators=(",", ":")).encode("utf-8")).hexdigest()
 
 
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        while chunk := stream.read(1024 * 1024):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 def load_preimage() -> dict[str, Any]:
     profile = json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
     if (
@@ -96,8 +105,25 @@ def inspect_image(reference: str) -> dict[str, Any]:
 def verify_base(base: dict[str, Any], reference: str) -> None:
     if base.get("Os") != "linux" or base.get("Architecture") != "amd64":
         raise ProvisionError("docker_base_platform_differs")
-    if reference not in base.get("RepoDigests", []):
+    if not str(base.get("Id", "")).startswith("sha256:"):
+        raise ProvisionError("docker_base_id_differs")
+    expected_repository, expected_digest = reference.split("@", maxsplit=1)
+    aliases = {expected_repository}
+    if expected_repository == "docker.io/library/python":
+        aliases.update({"library/python", "python"})
+    observed = {
+        item for item in base.get("RepoDigests", [])
+        if isinstance(item, str) and "@" in item
+    }
+    if not any(item.split("@", maxsplit=1)[0] in aliases and item.split("@", maxsplit=1)[1] == expected_digest for item in observed):
         raise ProvisionError("docker_base_digest_differs")
+
+
+def verify_containerfile_reference(profile: dict[str, Any]) -> None:
+    containerfile = (RUNTIME / "Containerfile").read_text(encoding="utf-8")
+    references = re.findall(r"^FROM (docker\.io/library/python@sha256:[0-9a-f]{64})$", containerfile, re.MULTILINE)
+    if references != [profile["base_image"]["reference"]]:
+        raise ProvisionError("containerfile_base_reference_differs")
 
 
 def verify_candidate(candidate: dict[str, Any], profile: dict[str, Any]) -> list[str]:
@@ -128,6 +154,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
     if cache_root.is_symlink() or (cache_root.exists() and not cache_root.is_dir()):
         raise ProvisionError("cache_root_is_not_a_real_directory")
     cache_root.mkdir(parents=True, exist_ok=True)
+    verify_containerfile_reference(profile)
     base_reference = profile["base_image"]["reference"]
     base = inspect_image(base_reference)
     verify_base(base, base_reference)
@@ -151,6 +178,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         "artifact_sha512": archive_digest,
         "candidate_image_id": image_id,
         "candidate_profile_state": "unbound_observation",
+        "containerfile_sha256": sha256_file(RUNTIME / "Containerfile"),
         "config_environment_sha256": sha256_json(environment),
         "observed_base_image_id": str(base.get("Id", "")),
         "observed_image": {
@@ -161,6 +189,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         },
         "platform": "linux/amd64",
         "profile_id": profile["profile_id"],
+        "wrapper_sha256": sha256_file(RUNTIME / "calibre_inventory_wrapper.py"),
     }
 
 
