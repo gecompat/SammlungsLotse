@@ -10,7 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
+import re
 import subprocess
 import tarfile
 import tempfile
@@ -56,6 +56,10 @@ def sha256_json(value: Any) -> str:
     return hashlib.sha256(json.dumps(value, ensure_ascii=True, separators=(",", ":")).encode("utf-8")).hexdigest()
 
 
+def sha256_bytes(value: bytes) -> str:
+    return hashlib.sha256(value).hexdigest()
+
+
 def load_preimage() -> dict[str, Any]:
     profile = json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
     if (
@@ -96,8 +100,30 @@ def inspect_image(reference: str) -> dict[str, Any]:
 def verify_base(base: dict[str, Any], reference: str) -> None:
     if base.get("Os") != "linux" or base.get("Architecture") != "amd64":
         raise ProvisionError("docker_base_platform_differs")
-    if reference not in base.get("RepoDigests", []):
+    if not str(base.get("Id", "")).startswith("sha256:"):
+        raise ProvisionError("docker_base_id_differs")
+    expected_repository, expected_digest = reference.split("@", maxsplit=1)
+    aliases = {expected_repository}
+    if expected_repository == "docker.io/library/python":
+        aliases.update({"library/python", "python"})
+    observed = {
+        item for item in base.get("RepoDigests", [])
+        if isinstance(item, str) and "@" in item
+    }
+    if not any(item.split("@", maxsplit=1)[0] in aliases and item.split("@", maxsplit=1)[1] == expected_digest for item in observed):
         raise ProvisionError("docker_base_digest_differs")
+
+
+def verify_containerfile_reference(profile: dict[str, Any]) -> bytes:
+    containerfile = (RUNTIME / "Containerfile").read_bytes()
+    try:
+        decoded = containerfile.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise ProvisionError("containerfile_is_not_utf8") from exc
+    references = re.findall(r"^FROM (docker\.io/library/python@sha256:[0-9a-f]{64})$", decoded, re.MULTILINE)
+    if references != [profile["base_image"]["reference"]]:
+        raise ProvisionError("containerfile_base_reference_differs")
+    return containerfile
 
 
 def verify_candidate(candidate: dict[str, Any], profile: dict[str, Any]) -> list[str]:
@@ -128,6 +154,8 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
     if cache_root.is_symlink() or (cache_root.exists() and not cache_root.is_dir()):
         raise ProvisionError("cache_root_is_not_a_real_directory")
     cache_root.mkdir(parents=True, exist_ok=True)
+    containerfile = verify_containerfile_reference(profile)
+    wrapper = (RUNTIME / "calibre_inventory_wrapper.py").read_bytes()
     base_reference = profile["base_image"]["reference"]
     base = inspect_image(base_reference)
     verify_base(base, base_reference)
@@ -136,8 +164,8 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         calibre = context / "calibre"
         calibre.mkdir()
         archive_digest = safe_extract_archive(archive, calibre)
-        shutil.copy2(RUNTIME / "Containerfile", context / "Containerfile")
-        shutil.copy2(RUNTIME / "calibre_inventory_wrapper.py", context / "calibre_inventory_wrapper.py")
+        (context / "Containerfile").write_bytes(containerfile)
+        (context / "calibre_inventory_wrapper.py").write_bytes(wrapper)
         run([
             "docker", "build", "--pull=false", "--no-cache", "--network=none", "--platform", "linux/amd64",
             "--tag", candidate_tag, "--file", str(context / "Containerfile"), str(context),
@@ -151,6 +179,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         "artifact_sha512": archive_digest,
         "candidate_image_id": image_id,
         "candidate_profile_state": "unbound_observation",
+        "containerfile_sha256": sha256_bytes(containerfile),
         "config_environment_sha256": sha256_json(environment),
         "observed_base_image_id": str(base.get("Id", "")),
         "observed_image": {
@@ -161,6 +190,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         },
         "platform": "linux/amd64",
         "profile_id": profile["profile_id"],
+        "wrapper_sha256": sha256_bytes(wrapper),
     }
 
 
