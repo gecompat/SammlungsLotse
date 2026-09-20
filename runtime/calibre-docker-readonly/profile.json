@@ -1,6 +1,6 @@
 {
   "base_image": {
-    "config_id": null,
+    "config_id": "sha256:9e87977b867847e186d066f531ef783b006d582a985c341c269446088d90f2c4",
     "reference": "docker.io/library/python@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
     "version": "3.12.14-slim-trixie"
   },
@@ -34,7 +34,7 @@
   },
   "image": {
     "command": [],
-    "container_environment": null,
+    "container_environment": ["PATH=/opt/calibre:/usr/local/bin:/usr/bin:/bin", "LANG=C.UTF-8", "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305", "PYTHON_VERSION=3.12.14", "PYTHON_SHA256=5c8462af5790baf43a321a1559dbe0db06d1be4300fb85fb53c40060668e548a", "CALIBRE_CONFIG_DIRECTORY=/config", "HOME=/tmp/home", "QT_QPA_PLATFORM=offscreen"],
     "entrypoint": [
       "/usr/bin/env",
       "-i",
@@ -46,12 +46,12 @@
       "python",
       "/opt/adapter/calibre_inventory_wrapper.py"
     ],
-    "id": null,
+    "id": "sha256:c07a99a129439121a9839fcee58625c8b31d71a6f09fa3c4bddf7544695790b0",
     "platform": "linux/amd64",
     "tag": "sammlungslotse-calibre-readonly:wi-0020"
   },
   "profile_id": "wi-0020-calibre-9.13.0-docker-linux-amd64/v1",
-  "profile_state": "preimage_unbound",
+  "profile_state": "bound_e2e_pending",
   "provider": {
     "artifact_bytes": 192554776,
     "artifact_sha512": "c018cb47805040a9a83dc16986db618c539a7dc62f85da2760b7e22e0e8ada7533a01be797cdbd04a5d5f66c8efa2b0ac2db4819700e561351267cb4842a3fc6",

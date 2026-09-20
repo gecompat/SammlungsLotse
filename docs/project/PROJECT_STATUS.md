@@ -7,12 +7,11 @@ Stand: 2026-09-20
 ## Phase
 
 Docker ist als Zielruntime entschieden; Podman bleibt ein unabhängiger,
-optionaler Paralleladapter. WI-0020 enthält bislang nur die separat getestete
-Docker-Executor-/Profilgrundlage sowie ein ausdrücklich nicht ausführbares
-Preimage, nicht jedoch eine vollständige Produktprofil-, Image- oder
-E2E-Qualifikation. Die zeitgebundene öffentliche Quellen- und
-Sicherheitsbeobachtung aktualisiert ausschließlich dessen Basisimage-Digest;
-sie bindet kein Produktimage und ersetzt weder Build noch E2E-Nachweis.
+optionaler Paralleladapter. WI-0020 besitzt nun ein reproduzierbar lokal
+gebundenes Docker-Produktpreimage, jedoch weiterhin keine E2E-Qualifikation.
+Die zeitgebundene öffentliche Quellen- und Sicherheitsbeobachtung und die
+lokale Produktimage-Bindung ersetzen weder den synthetischen E2E-Nachweis noch
+die vollständige Produktqualifikation.
 Ein eigener Provisionierer nimmt nur ein explizit lokales, hashgebundenes
 Calibre-Archiv an, baut keinen Produktpfad und erzeugt bis zur separaten
 Bindung ausschließlich eine ungebundene Kandidatenbeobachtung.

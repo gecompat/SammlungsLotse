@@ -1,6 +1,6 @@
-# WI-0020 Docker-Preimage
+# WI-0020 Docker-Produktpreimage
 
-Status: PREIMAGE — NICHT AUSFÜHRBAR
+Status: GEBUNDEN — E2E-QUALIFIKATION AUSSTEHEND
 
 Dieses Verzeichnis beschreibt ausschließlich die vorgesehenen lokalen
 Docker-Eingänge für die read-only Calibre-Projektion. Es ersetzt weder das
@@ -8,14 +8,14 @@ Podman-Profil unter `runtime/calibre-readonly/` noch den öffentlichen
 Produktvertrag.
 
 Die Image-ID, die Basisimage-Config-ID und die vollständige Docker-
-`Config.Env`-Projektion sind absichtlich noch nicht gebunden. `Config.Env`
+`Config.Env`-Projektion sind an zwei frische, identische lokale OCI-Exporte
+gebunden. `Config.Env`
 enthält auch gebundene, vom Basisimage geerbte Werte und ist deshalb nicht mit
 der festen Prozess-Whitelist gleichzusetzen: Der Entrypoint setzt die fünf
-zugelassenen Prozesswerte mit `env -i` neu. Deshalb darf
-`profile.json` nicht als Laufzeitprofil geladen und weder provisioniert noch
-gestartet werden. Ein späterer eigener Arbeitsgegenstand muss diese Werte nach
-einem reproduzierbaren, expliziten Docker-Build prüfen und erst danach das
-Profil aktivieren.
+zugelassenen Prozesswerte mit `env -i` neu. Diese Bindung ist noch keine
+Laufzeitqualifikation: Der synthetische WI-0020-E2E-Nachweis muss Image,
+Plattform, Containerisolation, Projektion und Cleanup gegen dieses Profil
+prüfen.
 
 Das vorgesehene Image bleibt Linux/amd64-gebunden, verwendet nur Calibre
 `9.13.0` aus dem gebundenen Artefakt und führt ausschließlich die feste
@@ -29,5 +29,5 @@ Preimage-Dateien enthalten absichtlich keinen Provisionierungs- oder
 Ausführungsbefehl.
 
 Die zeitgebundene Quellen- und Sicherheitsbeobachtung für das aktuelle
-Basisimage steht getrennt in `SOURCE_ASSESSMENT.md`. Sie bindet weder ein
-Produktimage noch eine E2E-Qualifikation.
+Basisimage sowie die lokale Buildbindung stehen getrennt in
+`SOURCE_ASSESSMENT.md`. Keine davon ersetzt die E2E-Qualifikation.

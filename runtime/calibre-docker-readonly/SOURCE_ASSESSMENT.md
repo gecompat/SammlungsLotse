@@ -48,3 +48,21 @@ Größe und SHA-512 prüfen, den Build ausschließlich gegen den gebundenen Dige
 ausführen, Image und Isolation auslesen sowie die synthetische WI-0020-
 Qualifikation durchführen. Bis dahin bleiben Image-ID, vollständige
 `Config.Env`, E2E-Evidenz und EXP-0025 ausdrücklich offen.
+
+## Lokale Produktpreimage-Bindung
+
+Nach erneuter lokaler Größen- und SHA-512-Prüfung des gebundenen
+Calibre-9.13.0-Archivs lieferten zwei frische netzwerklose Linux/amd64-
+BuildKit-OCI-Exporte mit Epochenzeitstempeln dieselbe lokale Image-ID
+`sha256:c07a99a129439121a9839fcee58625c8b31d71a6f09fa3c4bddf7544695790b0`.
+Image-Konfiguration und Layerfolge waren identisch. Der lokale Docker-
+Inspectwert der Basisreferenz lautet der oben gebundene Indexdigest
+`sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9`;
+das Feld `base_image.config_id` bindet dagegen den oben dokumentierten
+Linux/amd64-OCI-Config-Digest
+`sha256:9e87977b867847e186d066f531ef783b006d582a985c341c269446088d90f2c4`.
+Die vollständige `Config.Env`-Reihenfolge ist im Profil gebunden.
+
+Dies ist ausschließlich ein gebundenes Produktpreimage. Es wurden keine
+Container erstellt oder gestartet und keine Bibliothek verwendet. E2E-
+Evidenz, zurückgelesene Containerisolation und EXP-0025 bleiben offen.

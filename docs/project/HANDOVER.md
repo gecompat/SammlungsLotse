@@ -6,11 +6,11 @@ Stand: 2026-09-20
 
 ## Aktueller Stand
 
-Docker ist die angenommene Zielruntime; der bisherige WI-0020-Stand enthält
-die separat getestete Executor-/Profilgrundlage und ein ausdrücklich nicht
-ausführbares Preimage. Eine eigene profil-, image- und E2E-gebundene
-Docker-Produktqualifikation steht weiter aus. Die aktuelle öffentliche
-Basisimage-Beobachtung ist nur als nicht qualifizierendes Preimage unter
+Docker ist die angenommene Zielruntime; WI-0020 enthält die separat getestete
+Executor-/Profilgrundlage und ein reproduzierbar lokal gebundenes, aber noch
+nicht E2E-qualifiziertes Produktpreimage. Die eigene synthetische Docker-
+Produktqualifikation steht weiter aus. Öffentliche Basisimage-Beobachtung und
+lokale Produktimage-Bindung sind unter
 `runtime/calibre-docker-readonly/SOURCE_ASSESSMENT.md` dokumentiert.
 Der eigene Docker-Provisionierer akzeptiert ausschließlich ein explizites,
 lokales und hashgebundenes Calibre-Archiv; er lädt, zieht oder startet nichts
