@@ -2601,6 +2601,56 @@
       "status": "done",
       "title": "Mehrbibliotheks-Routingmatrix für den E-Book-Reviewplan bewerten"
     },
+    "GATE-0032": {
+      "acceptance_criteria": "Das Ergebnisgate bewertet den EXP-0024-Befund unverändert und darf ausschließlich ein separates, produktcodefreies Docker-Experiment mit 2 bis 3 task-privaten TEST-0001-Calibre-Bibliotheken autorisieren. Es darf weder eine öffentliche Mehrbibliotheksoberfläche, Zielwahl, Import, Persistenz, Discovery, Writer, Runtimeäquivalenz noch eine Lockerung bestehender Read-only- und Datenschutzgrenzen freigeben.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bd72-c77a-7f20-9e55-ae2a5cbbd3e6",
+      "created_on": "2026-09-20",
+      "external_refs": [],
+      "kind": "gate",
+      "locator": "docs/planning/EBOOK_GATE_0032_DOCKER_MULTI_LIBRARY_PROJECTION.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "EXP-0024",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0020",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "WI-0019",
+          "type": "related_to"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "EXP-0024-Ergebnis und reale Mehrbibliotheks-Projektionsgrenze bewerten"
+    },
     "REQ-0001": {
       "acceptance_criteria": "Qualität bleibt als versionierter Vektor einzelner Befunde mit Evidenz, Methode, Gültigkeitsbereich und Unsicherheit erhalten; eine Zusammenfassung ersetzt keine Einzelbefunde.",
       "aliases": [],
