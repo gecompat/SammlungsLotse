@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import re
+import stat
 import subprocess
 import tarfile
 import tempfile
@@ -148,6 +149,33 @@ def verify_candidate(candidate: dict[str, Any], profile: dict[str, Any]) -> list
     return environment
 
 
+def canonicalize_context_timestamps(context: Path) -> None:
+    """Make every task-private context entry use the BuildKit epoch input."""
+    try:
+        files: list[Path] = []
+        directories: list[Path] = []
+        for entry in [context, *context.rglob("*")]:
+            metadata = entry.stat(follow_symlinks=False)
+            if (
+                entry.is_symlink()
+                or getattr(metadata, "st_file_attributes", 0) & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+                or not (stat.S_ISREG(metadata.st_mode) or stat.S_ISDIR(metadata.st_mode))
+            ):
+                raise ProvisionError("docker_context_has_symlink")
+            (files if stat.S_ISREG(metadata.st_mode) else directories).append(entry)
+        for entry in [*sorted(files), *sorted(directories, key=lambda value: (len(value.parts), str(value)), reverse=True)]:
+            # Symlink and reparse-point entries were rejected above.  Do not
+            # pass ``follow_symlinks`` here: Windows' utime implementation
+            # does not expose that optional keyword for ordinary paths.
+            os.utime(entry, ns=(0, 0))
+            if entry.stat(follow_symlinks=False).st_mtime_ns != 0:
+                raise ProvisionError("docker_context_timestamp_normalization_failed")
+    except ProvisionError:
+        raise
+    except OSError as exc:
+        raise ProvisionError("docker_context_timestamp_normalization_failed") from exc
+
+
 def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, Any]:
     profile = load_preimage()
     provider = profile["provider"]
@@ -170,6 +198,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         archive_digest = safe_extract_archive(archive, calibre)
         (context / "Containerfile").write_bytes(containerfile)
         (context / "calibre_inventory_wrapper.py").write_bytes(wrapper)
+        canonicalize_context_timestamps(context)
         build_environment = dict(os.environ)
         build_environment["SOURCE_DATE_EPOCH"] = "0"
         run([
@@ -188,6 +217,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         "candidate_image_id": image_id,
         "candidate_profile_state": "unbound_observation",
         "containerfile_sha256": sha256_bytes(containerfile),
+        "context_timestamp_epoch": 0,
         "config_environment_sha256": sha256_json(environment),
         "observed_base_image_id": str(base.get("Id", "")),
         "observed_image": {
