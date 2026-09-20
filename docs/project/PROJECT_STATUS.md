@@ -10,7 +10,10 @@ Docker ist als Zielruntime entschieden; Podman bleibt ein unabhängiger,
 optionaler Paralleladapter. WI-0020 enthält bislang nur die separat getestete
 Docker-Executor-/Profilgrundlage sowie ein ausdrücklich nicht ausführbares
 Preimage, nicht jedoch eine vollständige Produktprofil-, Image- oder
-E2E-Qualifikation. GATE-0031 und EXP-0024 sind
+E2E-Qualifikation. Die zeitgebundene öffentliche Quellen- und
+Sicherheitsbeobachtung aktualisiert ausschließlich dessen Basisimage-Digest;
+sie bindet kein Produktimage und ersetzt weder Build noch E2E-Nachweis.
+GATE-0031 und EXP-0024 sind
 abgeschlossen: Die produktcodefreie, synthetische Mehrbibliotheksmatrix
 liefert ausschließlich deterministische, pfadfreie und fail-closed manuelle
 Routinghinweise. Zielwahl, Import, Persistenz, Discovery und Writer bleiben

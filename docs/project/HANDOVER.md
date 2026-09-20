@@ -9,8 +9,10 @@ Stand: 2026-09-20
 Docker ist die angenommene Zielruntime; der bisherige WI-0020-Stand enthält
 die separat getestete Executor-/Profilgrundlage und ein ausdrücklich nicht
 ausführbares Preimage. Eine eigene profil-, image- und E2E-gebundene
-Docker-Produktqualifikation steht weiter
-aus. GATE-0031 und EXP-0024 sind abgeschlossen: Die synthetische,
+Docker-Produktqualifikation steht weiter aus. Die aktuelle öffentliche
+Basisimage-Beobachtung ist nur als nicht qualifizierendes Preimage unter
+`runtime/calibre-docker-readonly/SOURCE_ASSESSMENT.md` dokumentiert.
+GATE-0031 und EXP-0024 sind abgeschlossen: Die synthetische,
 produktcodefreie Mehrbibliotheks-Routingmatrix endet bei deterministischen,
 pfadfreien manuellen Hinweisen. Zielwahl, Import, Persistenz, Discovery und
 Writer wurden nicht eingeführt.

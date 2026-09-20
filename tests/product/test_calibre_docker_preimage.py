@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -43,11 +44,19 @@ class DockerPreimageTests(unittest.TestCase):
 
     def test_containerfile_has_fixed_noninteractive_docker_shape(self) -> None:
         containerfile = (RUNTIME / "Containerfile").read_text(encoding="utf-8")
-        self.assertIn("FROM docker.io/library/python@sha256:", containerfile)
+        from_references = re.findall(r"^FROM (docker\.io/library/python@sha256:[0-9a-f]{64})$", containerfile, re.MULTILINE)
+        self.assertEqual([self.profile["base_image"]["reference"]], from_references)
         self.assertIn("USER 65532:65532", containerfile)
         self.assertIn('ENTRYPOINT ["/usr/bin/env", "-i"', containerfile)
         self.assertIn("CMD []", containerfile)
         self.assertNotIn("podman", containerfile.lower())
+
+    def test_source_assessment_is_bound_to_the_preimage_reference(self) -> None:
+        assessment = (RUNTIME / "SOURCE_ASSESSMENT.md").read_text(encoding="utf-8")
+        self.assertIn("Status: OBSERVED_PREIMAGE — NICHT QUALIFIZIEREND", assessment)
+        self.assertIn(self.profile["base_image"]["reference"].removeprefix("docker.io/library/python@"), assessment)
+        self.assertEqual(4, len(re.findall(r"sha256:[0-9a-f]{64}", assessment)))
+        self.assertIn("Linux/amd64", assessment)
 
     def test_wrapper_is_fixed_to_minimal_calibredb_list_contract(self) -> None:
         wrapper = (RUNTIME / "calibre_inventory_wrapper.py").read_text(encoding="utf-8")
