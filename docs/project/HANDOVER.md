@@ -2,9 +2,17 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-19
+Stand: 2026-09-20
 
 ## Aktueller Stand
+
+Docker ist die angenommene Zielruntime; der bisherige WI-0020-Stand enthält
+nur die separat getestete Executor-/Profilgrundlage. Eine eigene
+profil-, image- und E2E-gebundene Docker-Produktqualifikation steht weiter
+aus. GATE-0031 und EXP-0024 sind abgeschlossen: Die synthetische,
+produktcodefreie Mehrbibliotheks-Routingmatrix endet bei deterministischen,
+pfadfreien manuellen Hinweisen. Zielwahl, Import, Persistenz, Discovery und
+Writer wurden nicht eingeführt.
 
 SammlungsLotse ist als eigenständiges Projekt initialisiert. Nach
 ergebnisoffener E-Book-Erkundung ist WI-0004 als erster eng begrenzter,

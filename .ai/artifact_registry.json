@@ -1183,6 +1183,52 @@
       "status": "done",
       "title": "Linux-Zombie-Cleanup von EXP-0007 synthetisch requalifizieren"
     },
+    "EXP-0024": {
+      "acceptance_criteria": "Das Experiment belegt ausschließlich auf einer vorab gebundenen synthetischen Matrix eine deterministische, pfadfreie und fail-closed Mehrbibliotheks-Routingklassifikation bis zu nicht ausführbaren manuellen Hinweisen. Zwei Wiederholungen müssen semantisch identisch sein; Konflikte, Inventarlücken, Kandidatengrenzen und nicht beurteilbare Projektionen bleiben sichtbar. Es führt weder Produktcode noch Calibre-Ausführung, Netzwerk, Persistenz, Discovery, Zielwahl, Same-/New-/Importbehauptungen oder Writer ein.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bd3d-edda-7dd8-b7f2-5813c985eec8",
+      "created_on": "2026-09-20",
+      "external_refs": [],
+      "kind": "experiment",
+      "locator": "docs/planning/EBOOK_MULTI_LIBRARY_ROUTING_EXPERIMENT.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "GATE-0031",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0019",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "REQ-0002",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "done",
+      "title": "Synthetische Mehrbibliotheks-Routingmatrix für den E-Book-Reviewplan"
+    },
     "GATE-0001": {
       "acceptance_criteria": "Ein erster Ablauf wird erst nach Szenarien, Messgrößen, synthetischem Referenzkorpus und Adapter- und Werkzeugexperimenten angenommen.",
       "aliases": [],
