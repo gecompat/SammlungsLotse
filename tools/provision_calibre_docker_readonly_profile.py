@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import subprocess
 import tarfile
@@ -27,7 +28,9 @@ class ProvisionError(RuntimeError):
     """Raised when a candidate cannot be built without relaxing the preimage."""
 
 
-def run(arguments: list[str], timeout: float = 1200, *, capture: bool = True) -> subprocess.CompletedProcess[str]:
+def run(
+    arguments: list[str], timeout: float = 1200, *, capture: bool = True, environment: dict[str, str] | None = None,
+) -> subprocess.CompletedProcess[str]:
     result = subprocess.run(
         arguments,
         stdin=subprocess.DEVNULL,
@@ -36,6 +39,7 @@ def run(arguments: list[str], timeout: float = 1200, *, capture: bool = True) ->
         text=True,
         encoding="utf-8",
         errors="replace",
+        env=environment,
         timeout=timeout,
         check=False,
     )
@@ -166,10 +170,14 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         archive_digest = safe_extract_archive(archive, calibre)
         (context / "Containerfile").write_bytes(containerfile)
         (context / "calibre_inventory_wrapper.py").write_bytes(wrapper)
+        build_environment = dict(os.environ)
+        build_environment["SOURCE_DATE_EPOCH"] = "0"
         run([
-            "docker", "build", "--pull=false", "--no-cache", "--network=none", "--platform", "linux/amd64",
+            "docker", "buildx", "build", "--builder", "desktop-linux", "--load", "--provenance=false", "--sbom=false",
+            "--build-arg", "BUILDKIT_MULTI_PLATFORM=1", "--build-arg", "SOURCE_DATE_EPOCH=0",
+            "--no-cache", "--network=none", "--platform", "linux/amd64",
             "--tag", candidate_tag, "--file", str(context / "Containerfile"), str(context),
-        ], capture=False)
+        ], capture=False, environment=build_environment)
     candidate = inspect_image(candidate_tag)
     environment = verify_candidate(candidate, profile)
     image_id = str(candidate.get("Id", ""))
