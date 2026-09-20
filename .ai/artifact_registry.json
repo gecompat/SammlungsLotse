@@ -3358,6 +3358,44 @@
       ],
       "status": "done",
       "title": "Ephemeren read-only E-Book-Reviewplan umsetzen"
+    },
+    "WI-0020": {
+      "acceptance_criteria": "Ein separater Docker-gebundener Calibre-Adapter verwendet ein eigenes profil-, image- und inspect-gebundenes Docker-Produktprofil; er erhält Quellsnapshots unverändert, bleibt netzwerklos und read-only, bereinigt Task und Container fail-closed und verändert weder Podman-Profile noch öffentliche Verträge ohne explizite Versionierung.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a0bca0-7632-7111-87cf-1149eca1f193",
+      "created_on": "2026-09-20",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/planning/CALIBRE_DOCKER_READ_ONLY_PROJECTION_WORK_ITEM.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "CAP-0002",
+          "type": "parent"
+        },
+        {
+          "target": "DEC-0004",
+          "type": "depends_on"
+        },
+        {
+          "target": "WI-0007",
+          "type": "depends_on"
+        },
+        {
+          "target": "DEC-0002",
+          "type": "governed_by"
+        },
+        {
+          "target": "TEST-0001",
+          "type": "related_to"
+        },
+        {
+          "target": "RISK-0001",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Docker-gebundene read-only Calibre-Projektion umsetzen"
     }
   },
   "prefixes": {
