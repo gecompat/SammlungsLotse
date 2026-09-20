@@ -60,6 +60,10 @@ Desktop.ini
 !/runtime/ebook-deep-readonly/**
 !/runtime/calibre-readonly/
 !/runtime/calibre-readonly/**
+!/runtime/calibre-docker-readonly/
+!/runtime/calibre-docker-readonly/**
+/runtime/calibre-docker-readonly/__pycache__/
+/runtime/calibre-docker-readonly/**/*.py[cod]
 !/runtime/ebook-identity/
 !/runtime/ebook-identity/**
 !/runtime/ebook-calibre-identity/
