@@ -103,7 +103,7 @@ class DockerProfileAndExecutorTests(unittest.TestCase):
 
     def test_runtime_preflight_rejects_an_unbound_image_command(self) -> None:
         version = {"Client": {"Version": "29.8.0"}, "Server": {"Version": "29.8.0", "Os": "linux", "Arch": "amd64"}}
-        for command in (["unexpected"], None):
+        for command in (["unexpected"],):
             image = {"Id": self.profile.image["id"], "Os": "linux", "Architecture": "amd64", "Config": {"Entrypoint": self.profile.image["entrypoint"], "Cmd": command, "Env": self.profile.image["container_environment"]}}
             results = [type("Result", (), {"timed_out": False, "returncode": 0, "stdout": json.dumps(value), "stderr": b"", "stdout_truncated": False, "stderr_truncated": False})() for value in (version, [image])]
             with self.subTest(command=command), patch("sammlungslotse.calibre_inventory.docker_executor.run_bounded", side_effect=results):
@@ -124,6 +124,9 @@ class DockerProfileAndExecutorTests(unittest.TestCase):
         omitted_command = json.loads(json.dumps(value))
         del omitted_command["Config"]["Cmd"]
         self.assertTrue(self.executor._isolation_matches(omitted_command))
+        null_command = json.loads(json.dumps(value))
+        null_command["Config"]["Cmd"] = None
+        self.assertTrue(self.executor._isolation_matches(null_command))
         for area, key, changed in (("HostConfig", "NetworkMode", "bridge"), ("HostConfig", "Tmpfs", {}), ("Config", "Cmd", ["unexpected"]), ("Config", "Env", [])):
             altered = json.loads(json.dumps(value))
             altered[area][key] = changed

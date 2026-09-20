@@ -12,6 +12,11 @@ from .ports import InventoryExecution
 from .workspace import LibraryWorkspace
 
 
+def _normalized_empty_command(value: object, expected: object) -> object:
+    """Docker renders an explicit empty CMD as null for created containers."""
+    return [] if value is None and expected == [] else value
+
+
 class CalibreDockerExecutor:
     """Runs only a preflight-inspected Docker container; never falls back to Podman."""
 
@@ -81,7 +86,8 @@ class CalibreDockerExecutor:
         actual = str(values[0].get("Id", ""))
         if not actual.startswith("sha256:"):
             actual = f"sha256:{actual}"
-        if actual != self.profile.image["id"] or values[0].get("Os") != "linux" or values[0].get("Architecture") != "amd64" or values[0].get("Config", {}).get("Entrypoint") != self.profile.image["entrypoint"] or values[0].get("Config", {}).get("Cmd", []) != self.profile.image["command"] or values[0].get("Config", {}).get("Env") != self.profile.image["container_environment"]:
+        command = _normalized_empty_command(values[0].get("Config", {}).get("Cmd", []), self.profile.image["command"])
+        if actual != self.profile.image["id"] or values[0].get("Os") != "linux" or values[0].get("Architecture") != "amd64" or values[0].get("Config", {}).get("Entrypoint") != self.profile.image["entrypoint"] or command != self.profile.image["command"] or values[0].get("Config", {}).get("Env") != self.profile.image["container_environment"]:
             raise RuntimeError("Docker image differs")
 
     def _create_arguments(self, name: str, workspace: LibraryWorkspace) -> list[str]:
@@ -124,6 +130,6 @@ class CalibreDockerExecutor:
             and ulimits == {("core", 0, 0), ("nofile", 256, 256)} and set(mounts) == {"/library", "/output"}
             and len(mounts) == len(mount_values) == 2 and mounts.get("/library", {}).get("RW") is True
             and mounts.get("/output", {}).get("RW") is True and config.get("Entrypoint") == self.profile.image["entrypoint"]
-            and host.get("Tmpfs") == self.profile.execution["tmpfs"] and config.get("Cmd", []) == self.profile.execution["provider_arguments"]
+            and host.get("Tmpfs") == self.profile.execution["tmpfs"] and _normalized_empty_command(config.get("Cmd", []), self.profile.execution["provider_arguments"]) == self.profile.execution["provider_arguments"]
             and config.get("Env") == self.profile.image["container_environment"]
         )
