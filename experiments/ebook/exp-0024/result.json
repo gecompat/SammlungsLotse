@@ -1,0 +1,96 @@
+{
+  "artifact": "EXP-0024",
+  "case_count": 10,
+  "case_manifest_sha256": "a370555f9ff3f90d0d1e171056ac435a40de7b6eceadab11b709220e38dbd803",
+  "effects": {
+    "calibre_execution": false,
+    "container_execution": false,
+    "discovery": false,
+    "external_network_access": false,
+    "persistence": false,
+    "product_code_modified": false,
+    "writer_effects": false
+  },
+  "evidence_version": "test-0001/v0.3",
+  "limits": {
+    "candidates_per_input_max": 4,
+    "libraries_max": 3
+  },
+  "outcomes": [
+    {
+      "candidate_total": 1,
+      "candidates": [{"candidate_reason": "bound_evidence_key", "library_position": 1}],
+      "case_id": "M01",
+      "review_class": "review_target_candidate",
+      "state": "single_library_candidate"
+    },
+    {
+      "candidate_total": 1,
+      "candidates": [{"candidate_reason": "bound_evidence_key", "library_position": 2}],
+      "case_id": "M02",
+      "review_class": "review_target_candidate",
+      "state": "single_library_candidate"
+    },
+    {
+      "candidate_total": 2,
+      "candidates": [{"candidate_reason": "bound_evidence_key", "library_position": 3}, {"candidate_reason": "bound_evidence_key", "library_position": 3}],
+      "case_id": "M03",
+      "review_class": "review_target_candidate",
+      "state": "single_library_candidate"
+    },
+    {
+      "candidate_total": 2,
+      "candidates": [{"candidate_reason": "bound_evidence_key", "library_position": 1}, {"candidate_reason": "bound_evidence_key", "library_position": 2}],
+      "case_id": "M04",
+      "review_class": "review_cross_library",
+      "state": "cross_library_conflict"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "M05",
+      "review_class": "review_scope_incomplete",
+      "state": "inventory_incomplete"
+    },
+    {
+      "candidate_total": 5,
+      "candidates": [{"candidate_reason": "bound_evidence_key", "library_position": 1}, {"candidate_reason": "bound_evidence_key", "library_position": 1}, {"candidate_reason": "bound_evidence_key", "library_position": 1}, {"candidate_reason": "bound_evidence_key", "library_position": 1}],
+      "case_id": "M06",
+      "review_class": "review_scope_incomplete",
+      "state": "candidate_bound_exceeded"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "M07",
+      "review_class": "not_assessed",
+      "state": "ingress_not_clear"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "M08",
+      "review_class": "not_assessed",
+      "state": "projection_absent"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "M09",
+      "review_class": "review_scope_incomplete",
+      "state": "library_position_ambiguous"
+    },
+    {
+      "candidate_total": 0,
+      "candidates": [],
+      "case_id": "M10",
+      "review_class": "not_assessed",
+      "state": "no_bound_evidence"
+    }
+  ],
+  "repetitions": 2,
+  "rule_version": "routing-rules/v1",
+  "runs_semantically_identical": true,
+  "schema": "sammlungslotse/ebook-multi-library-routing-experiment-result/v1",
+  "status": "pass"
+}
