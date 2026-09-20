@@ -104,7 +104,7 @@ class DockerProvisionerTests(unittest.TestCase):
             self.assertIn("--provenance=false", build)
             self.assertIn("--sbom=false", build)
             exported = build[build.index("--output") + 1]
-            self.assertIn("type=docker", exported)
+            self.assertIn("type=oci", exported)
             self.assertIn("rewrite-timestamp=true", exported)
             self.assertIn("BUILDKIT_MULTI_PLATFORM=1", build)
             self.assertIn("SOURCE_DATE_EPOCH=0", build)

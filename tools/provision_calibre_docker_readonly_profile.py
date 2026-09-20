@@ -5,8 +5,8 @@ This tool is deliberately outside every product path.  It never downloads the
 Calibre archive, runs, creates, or starts a container, and it never changes
 profile.json.  Its build explicitly disables base-image pulls; an unavailable
 base must therefore fail the provision attempt.
-It imports only its own task-private Docker exporter archive into the local
-image store so that the resulting candidate can be inspected.
+It imports only its own task-private OCI exporter archive into the local image
+store so that the resulting candidate can be inspected.
 """
 
 from __future__ import annotations
@@ -216,7 +216,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
             "docker", "buildx", "build", "--builder", "desktop-linux", "--provenance=false", "--sbom=false",
             "--build-arg", "BUILDKIT_MULTI_PLATFORM=1", "--build-arg", "SOURCE_DATE_EPOCH=0",
             "--no-cache", "--pull=false", "--network=none", "--platform", "linux/amd64",
-            "--output", f"type=docker,name={candidate_tag},dest={exported_image},rewrite-timestamp=true",
+            "--output", f"type=oci,name={candidate_tag},dest={exported_image},rewrite-timestamp=true",
             "--tag", candidate_tag, "--file", str(context / "Containerfile"), str(context),
         ], capture=False, environment=build_environment)
         verify_exported_image(exported_image)
