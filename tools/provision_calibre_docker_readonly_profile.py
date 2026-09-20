@@ -139,12 +139,14 @@ def verify_candidate(candidate: dict[str, Any], profile: dict[str, Any]) -> list
     image = profile["image"]
     config = candidate.get("Config", {})
     environment = config.get("Env")
+    command = config.get("Cmd", [])
     if (
         candidate.get("Os") != "linux"
         or candidate.get("Architecture") != "amd64"
         or config.get("User") != "65532:65532"
         or config.get("Entrypoint") != image["entrypoint"]
-        or config.get("Cmd") != image["command"]
+        or not isinstance(command, list)
+        or command != image["command"]
         or not isinstance(environment, list)
         or not all(isinstance(item, str) and "=" in item for item in environment)
         or len(environment) != len(set(environment))
@@ -223,6 +225,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         run(["docker", "load", "--input", str(exported_image)], capture=False)
     candidate = inspect_image(candidate_tag)
     environment = verify_candidate(candidate, profile)
+    candidate_command = candidate["Config"].get("Cmd", [])
     image_id = str(candidate.get("Id", ""))
     if not image_id.startswith("sha256:"):
         raise ProvisionError("docker_candidate_id_differs")
@@ -235,7 +238,7 @@ def provision(archive: Path, cache_root: Path, candidate_tag: str) -> dict[str, 
         "config_environment_sha256": sha256_json(environment),
         "observed_base_image_id": str(base.get("Id", "")),
         "observed_image": {
-            "command": candidate["Config"]["Cmd"],
+            "command": candidate_command,
             "container_environment": environment,
             "entrypoint": candidate["Config"]["Entrypoint"],
             "user": candidate["Config"]["User"],

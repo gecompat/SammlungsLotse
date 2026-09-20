@@ -47,7 +47,12 @@ class DockerProvisionerTests(unittest.TestCase):
         profile = {"image": {"entrypoint": ["entry"], "command": []}}
         candidate = {"Os": "linux", "Architecture": "amd64", "Config": {"User": "65532:65532", "Entrypoint": ["entry"], "Cmd": [], "Env": ["A=1", "A=1"]}}
         with self.assertRaises(MODULE.ProvisionError):
-            MODULE.verify_candidate(candidate, profile)
+                MODULE.verify_candidate(candidate, profile)
+
+    def test_candidate_inspect_normalizes_omitted_empty_command(self) -> None:
+        profile = {"image": {"entrypoint": ["entry"], "command": []}}
+        candidate = {"Os": "linux", "Architecture": "amd64", "Config": {"User": "65532:65532", "Entrypoint": ["entry"], "Env": ["A=1"]}}
+        self.assertEqual(["A=1"], MODULE.verify_candidate(candidate, profile))
 
     def test_base_requires_exact_digest_and_linux_amd64(self) -> None:
         with self.assertRaises(MODULE.ProvisionError):
