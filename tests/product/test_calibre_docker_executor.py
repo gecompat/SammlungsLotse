@@ -101,6 +101,15 @@ class DockerProfileAndExecutorTests(unittest.TestCase):
                     self.executor._runtime_and_image()
             self.assertEqual(2, run.call_count)
 
+    def test_runtime_preflight_rejects_an_unbound_image_command(self) -> None:
+        version = {"Client": {"Version": "29.8.0"}, "Server": {"Version": "29.8.0", "Os": "linux", "Arch": "amd64"}}
+        for command in (["unexpected"], None):
+            image = {"Id": self.profile.image["id"], "Os": "linux", "Architecture": "amd64", "Config": {"Entrypoint": self.profile.image["entrypoint"], "Cmd": command, "Env": self.profile.image["container_environment"]}}
+            results = [type("Result", (), {"timed_out": False, "returncode": 0, "stdout": json.dumps(value), "stderr": b"", "stdout_truncated": False, "stderr_truncated": False})() for value in (version, [image])]
+            with self.subTest(command=command), patch("sammlungslotse.calibre_inventory.docker_executor.run_bounded", side_effect=results):
+                with self.assertRaisesRegex(RuntimeError, "image differs"):
+                    self.executor._runtime_and_image()
+
     def test_runtime_preflight_rejects_old_server_before_image(self) -> None:
         version = {"Client": {"Version": "29.8.0"}, "Server": {"Version": "28.9.0", "Os": "linux", "Arch": "amd64"}}
         result = type("Result", (), {"timed_out": False, "returncode": 0, "stdout": json.dumps(version), "stderr": b"", "stdout_truncated": False, "stderr_truncated": False})()
@@ -112,6 +121,9 @@ class DockerProfileAndExecutorTests(unittest.TestCase):
     def test_inspection_requires_all_security_boundaries(self) -> None:
         value = {"Image": self.profile.image["id"], "Config": {"User": "65532:65532", "Entrypoint": self.profile.image["entrypoint"], "Cmd": [], "Env": self.profile.image["container_environment"]}, "HostConfig": {"NetworkMode": "none", "ReadonlyRootfs": True, "Privileged": False, "CapAdd": [], "CapDrop": ["ALL"], "SecurityOpt": ["no-new-privileges"], "PidsLimit": 64, "Memory": 1073741824, "MemorySwap": 1073741824, "NanoCpus": 1000000000, "LogConfig": {"Type": "none"}, "Tmpfs": self.profile.execution["tmpfs"], "Ulimits": [{"Name": "core", "Soft": 0, "Hard": 0}, {"Name": "nofile", "Soft": 256, "Hard": 256}]}, "Mounts": [{"Destination": "/library", "RW": True}, {"Destination": "/output", "RW": True}]}
         self.assertTrue(self.executor._isolation_matches(value))
+        omitted_command = json.loads(json.dumps(value))
+        del omitted_command["Config"]["Cmd"]
+        self.assertTrue(self.executor._isolation_matches(omitted_command))
         for area, key, changed in (("HostConfig", "NetworkMode", "bridge"), ("HostConfig", "Tmpfs", {}), ("Config", "Cmd", ["unexpected"]), ("Config", "Env", [])):
             altered = json.loads(json.dumps(value))
             altered[area][key] = changed
