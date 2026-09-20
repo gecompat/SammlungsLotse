@@ -12,6 +12,9 @@ ausführbares Preimage. Eine eigene profil-, image- und E2E-gebundene
 Docker-Produktqualifikation steht weiter aus. Die aktuelle öffentliche
 Basisimage-Beobachtung ist nur als nicht qualifizierendes Preimage unter
 `runtime/calibre-docker-readonly/SOURCE_ASSESSMENT.md` dokumentiert.
+Der eigene Docker-Provisionierer akzeptiert ausschließlich ein explizites,
+lokales und hashgebundenes Calibre-Archiv; er lädt, zieht oder startet nichts
+und schreibt kein Laufzeitprofil.
 GATE-0031 und EXP-0024 sind abgeschlossen: Die synthetische,
 produktcodefreie Mehrbibliotheks-Routingmatrix endet bei deterministischen,
 pfadfreien manuellen Hinweisen. Zielwahl, Import, Persistenz, Discovery und
