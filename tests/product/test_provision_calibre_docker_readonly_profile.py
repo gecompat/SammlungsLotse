@@ -72,11 +72,10 @@ class DockerProvisionerTests(unittest.TestCase):
     def test_source_has_no_automatic_network_or_runtime_start(self) -> None:
         source = (ROOT / "tools" / "provision_calibre_docker_readonly_profile.py").read_text(encoding="utf-8")
         self.assertNotIn("urllib", source)
-        self.assertNotIn('"pull"', source)
         self.assertNotIn('"run"', source)
         self.assertNotIn('"create"', source)
         self.assertNotIn('"start"', source)
-        self.assertNotIn('"--pull', source)
+        self.assertIn('"--pull=false"', source)
         self.assertIn('"--network=none"', source)
 
     def test_wrong_archive_stops_before_docker_inspect_or_build(self) -> None:
@@ -94,22 +93,30 @@ class DockerProvisionerTests(unittest.TestCase):
             archive = Path(temporary) / "calibre.txz"
             archive.write_bytes(b"x")
             profile = self.profile()
-            with patch.object(MODULE, "load_preimage", return_value=profile), patch.object(MODULE, "sha512_file", return_value="a" * 128), patch.object(MODULE, "safe_extract_archive", return_value="a" * 128), patch.object(MODULE, "verify_containerfile_reference", return_value=b"FROM docker.io/library/python@sha256:" + b"b" * 64 + b"\n"), patch.object(MODULE, "inspect_image", side_effect=[self.base(profile), self.candidate()]), patch.object(MODULE, "run") as run:
+            with patch.object(MODULE, "load_preimage", return_value=profile), patch.object(MODULE, "sha512_file", return_value="a" * 128), patch.object(MODULE, "safe_extract_archive", return_value="a" * 128), patch.object(MODULE, "verify_containerfile_reference", return_value=b"FROM docker.io/library/python@sha256:" + b"b" * 64 + b"\n"), patch.object(MODULE, "inspect_image", side_effect=[self.base(profile), self.candidate()]), patch.object(MODULE, "verify_exported_image") as verify_export, patch.object(MODULE, "run") as run:
                 result = MODULE.provision(archive, Path(temporary) / "cache", "candidate:bound")
-            build = run.call_args.args[0]
+            build_call = next(call for call in run.call_args_list if call.args[0][:3] == ["docker", "buildx", "build"])
+            load_call = next(call for call in run.call_args_list if call.args[0][:2] == ["docker", "load"])
+            build = build_call.args[0]
             self.assertEqual(["docker", "buildx", "build"], build[:3])
             self.assertEqual("desktop-linux", build[build.index("--builder") + 1])
-            self.assertIn("--load", build)
+            self.assertNotIn("--load", build)
             self.assertIn("--provenance=false", build)
             self.assertIn("--sbom=false", build)
+            exported = build[build.index("--output") + 1]
+            self.assertIn("type=docker", exported)
+            self.assertIn("rewrite-timestamp=true", exported)
             self.assertIn("BUILDKIT_MULTI_PLATFORM=1", build)
             self.assertIn("SOURCE_DATE_EPOCH=0", build)
-            self.assertNotIn("--pull", build)
+            self.assertIn("--pull=false", build)
             self.assertIn("--network=none", build)
             self.assertIn("--platform", build)
             self.assertEqual("linux/amd64", build[build.index("--platform") + 1])
-            self.assertFalse(run.call_args.kwargs["capture"])
-            self.assertEqual("0", run.call_args.kwargs["environment"]["SOURCE_DATE_EPOCH"])
+            self.assertFalse(build_call.kwargs["capture"])
+            self.assertEqual("0", build_call.kwargs["environment"]["SOURCE_DATE_EPOCH"])
+            self.assertFalse(load_call.kwargs["capture"])
+            self.assertEqual("--input", load_call.args[0][2])
+            verify_export.assert_called_once()
             self.assertEqual("unbound_observation", result["candidate_profile_state"])
             self.assertEqual(["A=1"], result["observed_image"]["container_environment"])
             self.assertEqual(MODULE.sha256_bytes(b"FROM docker.io/library/python@sha256:" + b"b" * 64 + b"\n"), result["containerfile_sha256"])
@@ -149,6 +156,11 @@ class DockerProvisionerTests(unittest.TestCase):
             MODULE.canonicalize_context_timestamps(context)
             self.assertEqual(0, int(payload.stat().st_mtime))
             self.assertEqual(0, int(nested.stat().st_mtime))
+
+    def test_missing_export_is_rejected_before_docker_load(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            with self.assertRaisesRegex(MODULE.ProvisionError, "docker_candidate_export_missing"):
+                MODULE.verify_exported_image(Path(temporary) / "missing.tar")
 
 
 if __name__ == "__main__":
