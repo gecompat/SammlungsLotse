@@ -73,12 +73,23 @@ class DockerCalibreRuntimeProfile:
         image = self.image
         if not IMAGE_ID.fullmatch(str(image.get("id", ""))) or image.get("platform") != "linux/amd64":
             raise ValueError("Docker image binding differs")
-        entrypoint = image.get("entrypoint")
-        if not isinstance(entrypoint, list) or not all(isinstance(item, str) for item in entrypoint):
+        expected_process_environment = {
+            "CALIBRE_CONFIG_DIRECTORY": "/config", "HOME": "/tmp/home", "LANG": "C.UTF-8",
+            "PATH": "/opt/calibre:/usr/local/bin:/usr/bin:/bin", "QT_QPA_PLATFORM": "offscreen",
+        }
+        expected_entrypoint = [
+            "/usr/bin/env", "-i",
+            *[f"{key}={value}" for key, value in expected_process_environment.items()],
+            "python", "/opt/adapter/calibre_inventory_wrapper.py",
+        ]
+        if image.get("entrypoint") != expected_entrypoint:
             raise ValueError("Docker image entrypoint differs")
         if image.get("command") != [] or not isinstance(image.get("container_environment"), list) or not all(
-            isinstance(item, str) for item in image["container_environment"]
-        ):
+            isinstance(item, str) and "=" in item for item in image["container_environment"]
+        ) or len(image["container_environment"]) != len(set(image["container_environment"])):
+            # Docker Config.Env includes inherited image values.  It is bound
+            # exactly by the executor, but is intentionally distinct from the
+            # process environment reset by the fixed ``env -i`` entrypoint.
             raise ValueError("Docker image command or environment differs")
         base = data.get("base_image", {})
         if "@sha256:" not in str(base.get("reference", "")) or not IMAGE_ID.fullmatch(str(base.get("config_id", ""))):
@@ -101,16 +112,8 @@ class DockerCalibreRuntimeProfile:
                 raise ValueError(f"unexpected Docker execution value: {key}")
         if not VERSION.fullmatch(str(execution.get("docker_minimum_version", ""))):
             raise ValueError("invalid Docker minimum version")
-        expected_env = {
-            "CALIBRE_CONFIG_DIRECTORY": "/config", "HOME": "/tmp/home", "LANG": "C.UTF-8",
-            "PATH": "/opt/calibre:/usr/local/bin:/usr/bin:/bin", "QT_QPA_PLATFORM": "offscreen",
-        }
-        if execution.get("environment") != expected_env:
+        if execution.get("environment") != expected_process_environment:
             raise ValueError("unexpected Docker environment")
-        if set(image["container_environment"]) != {
-            f"{key}={value}" for key, value in expected_env.items()
-        }:
-            raise ValueError("unexpected Docker container environment")
         workspace = self.workspace
         for key in ("marker_schema", "max_children", "max_task_age_seconds", "max_files", "max_total_bytes", "max_file_bytes", "max_depth", "max_relative_path_bytes"):
             if key not in workspace:

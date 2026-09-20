@@ -28,6 +28,19 @@ class DockerPreimageTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             DockerCalibreRuntimeProfile(self.profile).validate()
 
+    def test_preimage_separates_unbound_image_environment_from_fixed_process_environment(self) -> None:
+        self.assertIsNone(self.profile["image"]["container_environment"])
+        self.assertEqual(
+            {
+                "CALIBRE_CONFIG_DIRECTORY": "/config",
+                "HOME": "/tmp/home",
+                "LANG": "C.UTF-8",
+                "PATH": "/opt/calibre:/usr/local/bin:/usr/bin:/bin",
+                "QT_QPA_PLATFORM": "offscreen",
+            },
+            self.profile["execution"]["environment"],
+        )
+
     def test_containerfile_has_fixed_noninteractive_docker_shape(self) -> None:
         containerfile = (RUNTIME / "Containerfile").read_text(encoding="utf-8")
         self.assertIn("FROM docker.io/library/python@sha256:", containerfile)

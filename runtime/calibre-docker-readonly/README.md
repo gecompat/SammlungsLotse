@@ -8,7 +8,10 @@ Podman-Profil unter `runtime/calibre-readonly/` noch den öffentlichen
 Produktvertrag.
 
 Die Image-ID, die Basisimage-Config-ID und die vollständige Docker-
-`Config.Env`-Projektion sind absichtlich noch nicht gebunden. Deshalb darf
+`Config.Env`-Projektion sind absichtlich noch nicht gebunden. `Config.Env`
+enthält auch gebundene, vom Basisimage geerbte Werte und ist deshalb nicht mit
+der festen Prozess-Whitelist gleichzusetzen: Der Entrypoint setzt die fünf
+zugelassenen Prozesswerte mit `env -i` neu. Deshalb darf
 `profile.json` nicht als Laufzeitprofil geladen und weder provisioniert noch
 gestartet werden. Ein späterer eigener Arbeitsgegenstand muss diese Werte nach
 einem reproduzierbaren, expliziten Docker-Build prüfen und erst danach das
