@@ -13,6 +13,9 @@ Preimage, nicht jedoch eine vollständige Produktprofil-, Image- oder
 E2E-Qualifikation. Die zeitgebundene öffentliche Quellen- und
 Sicherheitsbeobachtung aktualisiert ausschließlich dessen Basisimage-Digest;
 sie bindet kein Produktimage und ersetzt weder Build noch E2E-Nachweis.
+Ein eigener Provisionierer nimmt nur ein explizit lokales, hashgebundenes
+Calibre-Archiv an, baut keinen Produktpfad und erzeugt bis zur separaten
+Bindung ausschließlich eine ungebundene Kandidatenbeobachtung.
 GATE-0031 und EXP-0024 sind
 abgeschlossen: Die produktcodefreie, synthetische Mehrbibliotheksmatrix
 liefert ausschließlich deterministische, pfadfreie und fail-closed manuelle

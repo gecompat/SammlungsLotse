@@ -67,6 +67,7 @@ Ersatz eines alten Current-Preimage-Tests.
       tools/run_ebook_identity.py \
       tools/run_ebook_calibre_identity.py \
       tools/provision_calibre_readonly_profile.py \
+      tools/provision_calibre_docker_readonly_profile.py \
       tools/qualify_calibre_readonly_profile.py \
       tools/qualify_ebook_intake_context.py \
       tools/qualify_ebook_identity.py \
