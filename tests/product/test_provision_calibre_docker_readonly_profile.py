@@ -93,7 +93,7 @@ class DockerProvisionerTests(unittest.TestCase):
             archive = Path(temporary) / "calibre.txz"
             archive.write_bytes(b"x")
             profile = self.profile()
-            with patch.object(MODULE, "load_preimage", return_value=profile), patch.object(MODULE, "sha512_file", return_value="a" * 128), patch.object(MODULE, "safe_extract_archive", return_value="a" * 128), patch.object(MODULE, "verify_containerfile_reference"), patch.object(MODULE, "inspect_image", side_effect=[self.base(profile), self.candidate()]), patch.object(MODULE, "run") as run:
+            with patch.object(MODULE, "load_preimage", return_value=profile), patch.object(MODULE, "sha512_file", return_value="a" * 128), patch.object(MODULE, "safe_extract_archive", return_value="a" * 128), patch.object(MODULE, "verify_containerfile_reference", return_value=b"FROM docker.io/library/python@sha256:" + b"b" * 64 + b"\n"), patch.object(MODULE, "inspect_image", side_effect=[self.base(profile), self.candidate()]), patch.object(MODULE, "run") as run:
                 result = MODULE.provision(archive, Path(temporary) / "cache", "candidate:bound")
             build = run.call_args.args[0]
             self.assertEqual("docker", build[0])
@@ -105,6 +105,7 @@ class DockerProvisionerTests(unittest.TestCase):
             self.assertFalse(run.call_args.kwargs["capture"])
             self.assertEqual("unbound_observation", result["candidate_profile_state"])
             self.assertEqual(["A=1"], result["observed_image"]["container_environment"])
+            self.assertEqual(MODULE.sha256_bytes(b"FROM docker.io/library/python@sha256:" + b"b" * 64 + b"\n"), result["containerfile_sha256"])
             self.assertNotIn(str(archive), json.dumps(result))
 
     def test_unsafe_archive_member_is_rejected(self) -> None:
