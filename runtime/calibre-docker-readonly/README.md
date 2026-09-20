@@ -27,3 +27,7 @@ Discovery, Import und sonstige Writer bleiben außerhalb.
 Ein Bestandslauf darf weiterhin weder herunterladen noch bauen. Die
 Preimage-Dateien enthalten absichtlich keinen Provisionierungs- oder
 Ausführungsbefehl.
+
+Die zeitgebundene Quellen- und Sicherheitsbeobachtung für das aktuelle
+Basisimage steht getrennt in `SOURCE_ASSESSMENT.md`. Sie bindet weder ein
+Produktimage noch eine E2E-Qualifikation.
