@@ -2,7 +2,57 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-20
+Stand: 2026-10-05
+
+## Foundation-Integration WI-0021
+
+Foundation 1.19.0 aus `4aafd20442275d0fdedf291fc6e12e8fe1f683cc` ist im
+Feature-Branch integriert. Die vollständige Bewertung aller zehn Kandidaten
+steht unter [FOUNDATION_UPGRADE_1_19.md](../governance/FOUNDATION_UPGRADE_1_19.md).
+Ausgewählt bleiben `artifact-registry-github` und `rule-context-cache`.
+Der Cache liegt am manifestierten Zielpfad; Markdown-Discovery und eine
+Projektprüfung sichern die Erfassung der kanonischen Regeln und aller
+angenommenen Entscheidungen ab. Es ist kein persistenter Operatorcache
+eingerichtet. Installationsprovenienz und genaue Override-Gründe sind
+dateigenau aufgezeichnet. Produktprofile, historische IDs und Repositoryschutz
+bleiben erhalten.
+
+WI-0021 ist nach Implementierung, lokaler und commitgenauer GitHub-Validierung
+`done`. Am 2026-10-05
+bestanden unter Windows/Python 3.13.15:
+
+- `FOUNDATION_INTEGRITY`: 78 INFO, 0 Warnungen, 0 Fehler und 0 Blocker;
+- `PROJECT_SEMANTIC`: Projekt-, Discovery- und Registry-Prüfung für 89 Artefakte;
+- vollständiges semantisches Delta: alle zehn Kandidaten genau einmal bewertet;
+- `RUNTIME_EMPIRICAL`: 359 Tests entdeckt, 17 historische Current-Prüfungen
+  und ein fähigkeitsabhängiger Kontrolltest ausgeschlossen; 342 Tests liefen
+  mit vier sichtbaren Skips wegen fehlender Windows-Symlink-Fähigkeit;
+- TEST-0001 0.3.0: alle 30 Fälle und 49 Komponenten bytegenau reproduzierbar,
+  unveränderte Eingänge;
+- Kompilierung der betroffenen Governance-Werkzeuge und `git diff --check`.
+
+Der erste Suite-/Fixture-Lauf fand eine nicht versionierte generierte
+Bytecodedatei im Korpus. Nach begrenzter Entfernung genau dieser Datei bestand
+die vollständige Wiederholung mit deaktivierter Bytecode-Erzeugung. Weder
+Fixturebytes noch historische Hashes wurden angepasst.
+
+Der tatsächliche read-only Cache-Check erfasste 177 Quellen, darunter 80
+Projektquellen unter `docs/`, und meldete erwartungsgemäß `CACHE_MISS` wegen
+fehlenden Records; er schrieb keinen Cache. Der Projektvorabcheck und sechs
+Regressionstests sichern fehlende Verweise und Regelinvalidierung ab.
+
+Der bestehende serverseitige main-Schutz wurde read-only über GraphQL
+bestätigt: strikte erforderliche Checks `repository-quality` und
+`registry-integrity`, kein Force-Push. Das REST-API-Limit war ausgeschöpft;
+GraphQL blieb verfügbar.
+
+[Pull Request #125](https://github.com/gecompat/SammlungsLotse/pull/125)
+bestand `repository-quality` und `registry-integrity` auf dem exakten
+Implementierungscommit `45629bc2d642e0a610d0028b8ce60c9aecfd70f4`.
+Diese Befunde werden nicht auf spätere Commits übertragen: Auch der reine
+Abschluss-/Evidenzcommit benötigt vor dem Merge seine eigenen erfolgreichen
+erforderlichen Checks. GitHub bindet Merge und Post-Merge-Qualitätsprüfung an
+die jeweils aktuelle Revision.
 
 ## Phase
 
@@ -129,7 +179,7 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   einmalige commitgebundene Hauptlauf auf Preimage `ed7f173` bestand 16/16
   Kriterien. GATE-0021 ist `done`: Der Nutzer hat ausdrücklich Option A
   gewählt. Der qualifizierte V2-Vertrag bleibt als enges JSON-Opt-in stabil;
-  es wird keine Folgearbeit registriert. AI Repository Foundation 1.8.0 ist
+  es wird keine Folgearbeit registriert. AI Repository Foundation 1.19.0 ist
   davon getrennt semantisch integriert; die optionale Rule-Context-Cache-
   Fähigkeit bleibt ausdrücklich nicht ausgewählt.
   WI-0016 ist als read-only E-Book-Eingangsordner `done`. Der neue explizite
@@ -164,9 +214,9 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
 
 - eigenständiges GitHub-Repository und lokale Codex-Projektzuordnung;
 - MIT-Lizenz für eigenständig entwickelte SammlungsLotse-Inhalte;
-- AI Repository Foundation 1.8.0;
-- vollständige semantische 1.8-Upgrade-Bewertung unter
-  docs/governance/FOUNDATION_UPGRADE_1_8.md;
+- AI Repository Foundation 1.19.0;
+- vollständige semantische 1.19-Upgrade-Bewertung unter
+  docs/governance/FOUNDATION_UPGRADE_1_19.md;
 - Projektauftrag, Produktgrenzen und Glossar;
 - projektbezogene Datenschutz-, Git-, Dokumentations- und
   Wiederverwendungsregeln;

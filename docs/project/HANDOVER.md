@@ -2,7 +2,7 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-09-20
+Stand: 2026-10-05
 
 ## Aktueller Stand
 
@@ -23,11 +23,16 @@ Writer wurden nicht eingeführt.
 SammlungsLotse ist als eigenständiges Projekt initialisiert. Nach
 ergebnisoffener E-Book-Erkundung ist WI-0004 als erster eng begrenzter,
 reversibler Produktprototyp implementiert und lokal vollständig abgenommen.
-AI Repository Foundation 1.8.0 ist semantisch integriert. Die vollständige
-Feature-Bewertung steht unter docs/governance/FOUNDATION_UPGRADE_1_8.md. Die
-  optionale Fähigkeit `rule-context-cache` ist lokal installiert und nutzt nur
-  operatorbereitgestellte, nicht versionierte Cacheziele;
-es wurde kein persistenter Cache angelegt oder konfiguriert.
+WI-0021 ist nach lokaler und commitgenauer GitHub-Validierung abgeschlossen
+und integriert AI Repository Foundation 1.19.0 aus
+`4aafd20442275d0fdedf291fc6e12e8fe1f683cc`. Die vollständige Feature-Bewertung
+steht unter [FOUNDATION_UPGRADE_1_19.md](../governance/FOUNDATION_UPGRADE_1_19.md).
+Die optionale Fähigkeit `rule-context-cache` liegt am manifestierten Zielpfad
+und nutzt nur operatorbereitgestellte, nicht versionierte Cacheziele.
+Vor Cache-Check oder Record prüft `tools/governance/validate_rule_context.py`
+die vollständige Erfassung der Projektregeln und angenommenen Entscheidungen.
+Es wurde kein persistenter Cache angelegt oder konfiguriert. Die aktuelle
+lokale und GitHub-Validierung sowie der Wave-Status stehen im Projektstatus.
 
 main ist geschützt. Änderungen benötigen die erfolgreichen Checks
 repository-quality und registry-integrity.

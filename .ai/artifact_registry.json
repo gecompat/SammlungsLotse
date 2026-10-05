@@ -3580,6 +3580,29 @@
       ],
       "status": "accepted",
       "title": "Docker-gebundene read-only Calibre-Projektion umsetzen"
+    },
+    "WI-0021": {
+      "acceptance_criteria": "Foundation 1.19 ist vollständig semantisch bewertet, manifestgetreu integriert und mit exakter Installationsprovenienz dokumentiert. Der freigegebene Cache liegt am kanonischen Zielpfad und erfasst alle Projektregeln; Discovery-Lücken sowie Regeländerungen werden regressionsgeprüft. Projektverträge, Registry und Workflow-Anpassungen bleiben erhalten; lokale und erforderliche GitHub-Prüfungen bestehen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a10d32-5f56-75d6-8d88-5f2ec8582909",
+      "created_on": "2026-10-05",
+      "external_refs": [
+        {
+          "system": "github_pull_request",
+          "value": "https://github.com/gecompat/SammlungsLotse/pull/125"
+        }
+      ],
+      "kind": "work_item",
+      "locator": "docs/governance/FOUNDATION_UPGRADE_1_19.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "DEC-0005",
+          "type": "governed_by"
+        }
+      ],
+      "status": "done",
+      "title": "AI Repository Foundation 1.19 integrieren und Rule-Context-Discovery absichern"
     }
   },
   "prefixes": {

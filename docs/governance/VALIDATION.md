@@ -8,13 +8,13 @@ Foundation-Check belegt nicht die Projektrichtigkeit.
 ## FOUNDATION_INTEGRITY
 
 Die Foundation-Quellversion besitzt den kanonischen Validator. Für die
-installierte Foundation 1.8.0 und die ausgewählte Fähigkeit
-artifact-registry-github lautet der allgemeine Aufruf:
+installierte Foundation 1.19.0 und die ausgewählten Fähigkeiten
+`artifact-registry-github` und `rule-context-cache` lautet der allgemeine Aufruf:
 
     python tools/foundation_validator.py \
       --target <SammlungsLotse-Worktree> \
       --adapters default \
-      --capabilities artifact-registry-github \
+      --capabilities artifact-registry-github,rule-context-cache \
       --profile full
 
 Der Befehl wird im ausgecheckten Foundation-Quellrepository des dokumentierten
@@ -22,11 +22,12 @@ Quellcommits ausgeführt. Der Validator wird gemäß Foundation-Manifest nicht i
 dieses Zielrepository kopiert.
 
 Der installierte Quellstand ist
-`7ddc29988b23570f462e46ebf527f8dfdd05fd75`. Die vollständige semantische
+`4aafd20442275d0fdedf291fc6e12e8fe1f683cc`. Die vollständige semantische
 Upgrade-Bewertung steht in
-[FOUNDATION_UPGRADE_1_8.md](FOUNDATION_UPGRADE_1_8.md). Die optionale
-Fähigkeit `rule-context-cache` ist nicht ausgewählt; deshalb gehört kein
-persistenter Cachelauf zum Validierungsvertrag.
+[FOUNDATION_UPGRADE_1_19.md](FOUNDATION_UPGRADE_1_19.md). Der genaue Transfer
+und die begründeten Abweichungen stehen in
+[installation-provenance.json](../../.ai/foundation/installation-provenance.json).
+Ein persistenter Operatorcache ist kein Validierungsnachweis.
 
 ## PROJECT_SEMANTIC
 
@@ -38,8 +39,47 @@ Die aktuelle Projektinitialisierung besitzt folgende lokale Prüfungen:
       validate --registry .ai/artifact_registry.json
 
 Die erste Prüfung kontrolliert erforderliche Projektquellen, interne
-Dokumentlinks, Projektidentität, Registry-Locators und Repository-Hygiene. Die
+Dokumentlinks, Projektidentität, Registry-Locators, Repository-Hygiene und die
+vollständige Rule-Context-Discovery. Die
 zweite Prüfung kontrolliert die v2-Registry-Semantik.
+
+## Rule-Context-Cache
+
+Die angenommene [DEC-0005](../decisions/DEC-0005-RULE_CONTEXT_CACHE.md) bleibt
+führend. Das unveränderte Foundation-Werkzeug liegt unter
+`.ai/foundation/rule_context_cache/rule_context_cache.py`.
+
+Vor jedem Cache-Check oder Record ist die reine Projektprüfung auszuführen:
+
+    python tools/governance/validate_rule_context.py
+
+Sie prüft die tatsächliche transitive Erfassung der kanonischen Projektregeln,
+des Projektkontexts, der Registry und sämtlicher angenommener Entscheidungen.
+Ein fehlender oder unaufgelöster Verweis sperrt Cache-Wiederverwendung und
+Record. Die Prüfung liest keine Operatorcachedatei und ersetzt weder globale
+oder native Instruction-Discovery noch die Fingerprints des Foundation-Tools.
+Ein Erfolg hebt die normale scopeabhängige Lesereihenfolge nicht auf.
+
+Danach darf ein Check mit einem ausdrücklich operatorbereitgestellten,
+nicht versionierten Cacheziel erfolgen:
+
+    python .ai/foundation/rule_context_cache/rule_context_cache.py check \
+      --repository . --cwd . --cache-dir <Operatorcache> --json
+
+Ein neuer Lauf liest die relevanten Regeln vollständig. Nur wenn die exakte
+Analyse bereits unter dem vom Check bestätigten Schlüssel in derselben
+Sitzung verfügbar ist, darf `CACHE_HIT` Wiederverwendung erlauben.
+`PARTIAL_INVALIDATION` verlangt die erneute Analyse aller gemeldeten Quellen
+und transitiven Abhängigkeiten; `CACHE_MISS` oder Unsicherheit verlangt einen
+vollständigen Wiederaufbau. Erst nach abgeschlossener Analyse darf derselbe
+Aufruf mit `record` statt `check` einen lokalen Record atomar schreiben.
+Es wird kein projektweiter Cachepfad und kein persistenter Cache eingerichtet.
+
+Regressionstests prüfen die bisher übersehene Textverknüpfung, eine nicht
+verlinkte Projektregel, neue angenommene Entscheidungen, ungelöste Verweise
+und Invalidierung nach einer Regeländerung:
+
+    python -m unittest tests.governance.test_rule_context
 
 ## RUNTIME_EMPIRICAL
 
@@ -62,6 +102,7 @@ Ersatz eines alten Current-Preimage-Tests.
     python -m compileall -q \
       src/sammlungslotse \
       .ai/foundation/artifact_registry_github \
+      .ai/foundation/rule_context_cache \
       tools/run_ebook_intake.py \
       tools/run_calibre_inventory.py \
       tools/run_ebook_identity.py \
@@ -480,6 +521,24 @@ Beim ersten Pull Request, der die Registry einführt, existiert kein
 Registry-Basisstand. In diesem einmaligen Bootstrap-Fall wird der Head
 vollständig validiert. Merge- und Cross-PR-Vergleiche beginnen mit dem ersten
 nachfolgenden Pull Request.
+
+## CI-Supersession und Integrationsbindung
+
+Die vorhandenen Concurrency-Gruppen ersetzen ältere Läufe derselben
+Pull-Request- beziehungsweise Branchprüfung. Beide Workflows führen nur
+Repository-, Fixture-, Ergebnis- und Testprüfungen sowie lokale temporäre
+Testwirkungen auf wegwerfbaren Runnern aus. Sie provisionieren keine
+Produktumgebung, starten keine externen Containerexperimente und verändern
+keine persistenten Sammlungen oder externen Fachsysteme.
+
+Abgebrochene oder nicht gestartete Läufe sind keine erfolgreiche Validierung.
+Ein Merge benötigt erfolgreiche erforderliche Checks für den exakten
+Pull-Request-Head; ein älterer grüner Lauf ist kein Ersatz. Diese Wave führt
+keine Merge-Queue, Ruleset-Änderung oder zusätzliche Abbruchbefugnis ein.
+Vor Aufnahme persistenter oder externer Laufzeitmutationen ist die
+Abbruchstrategie neu zu bewerten. Ohne nachgewiesen idempotentes Cleanup und
+Recovery auch bei harter Unterbrechung darf ein solcher laufender Check nicht
+allein wegen eines neueren Commits abgebrochen werden.
 
 ## Verfügbarkeit verpflichtender Prüfungen
 
