@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "installed_version": "1.8.0",
+  "source_version": "1.19.0",
+  "source_ref": "4aafd20442275d0fdedf291fc6e12e8fe1f683cc",
+  "assessments": [
+    {
+      "feature_id": "ai-client-integration",
+      "candidate_reasons": [
+        "introduced_in:1.14.0",
+        "material_change:1.16.0"
+      ],
+      "classification": "RECOMMENDED",
+      "evidence": [
+        "AGENTS.md",
+        ".ai/foundation/AI_WORK_ORCHESTRATION_POLICY.md",
+        ".github/copilot-instructions.md",
+        "CLAUDE.md",
+        "GEMINI.md"
+      ],
+      "rationale": "Die Entwicklungsclients benötigen wahrheitsgetreue Requested-/Actual-Modellnachweise; die vorhandenen Adapter bleiben reine Discovery-Brücken.",
+      "recommendation": "Kernvertrag übernommen; optionale ai-client-integration bleibt nicht ausgewählt.",
+      "decision_required": "Clientkonfiguration, Remoteübertragung und Adaptersynthese benötigen bei späterer Einführung eine getrennte Entscheidung.",
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "ai-host-preparation",
+      "candidate_reasons": [
+        "introduced_in:1.13.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        "docs/product/PROJECT_CHARTER.md",
+        "docs/architecture/BOUNDARIES.md"
+      ],
+      "rationale": "Das Projekt provisioniert derzeit keine KI-Modelle oder Modelllaufzeiten. Die bestehenden EPUBCheck-/Calibre-Provisionierer sind getrennte Produktverträge.",
+      "recommendation": "Keine optionale ai-provisioning-Fähigkeit installieren.",
+      "decision_required": null,
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "ai-runtime-adapters",
+      "candidate_reasons": [
+        "introduced_in:1.11.0",
+        "material_change:1.16.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        "docs/product/PROJECT_CHARTER.md",
+        "docs/architecture/BOUNDARIES.md"
+      ],
+      "rationale": "Es existiert keine angenommene produktseitige Modelllaufzeit oder Runtime-Verbindung. Das Entwicklungswerkzeug allein wählt keine solche Projektfähigkeit.",
+      "recommendation": "Keine optionale ai-runtime-adapters-Fähigkeit installieren.",
+      "decision_required": null,
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "ai-work-execution",
+      "candidate_reasons": [
+        "introduced_in:1.12.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        "docs/governance/PROJECT_RULES.md",
+        "docs/architecture/BOUNDARIES.md"
+      ],
+      "rationale": "Es existiert kein Foundation-basierter resumierbarer KI-Executor; die read-only Produktwege erhalten keine neue Ausführungsarchitektur.",
+      "recommendation": "Keine optionale ai-executor-Fähigkeit installieren.",
+      "decision_required": null,
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "ai-work-orchestration",
+      "candidate_reasons": [
+        "introduced_in:1.10.0",
+        "material_change:1.12.0",
+        "material_change:1.13.0",
+        "material_change:1.14.0",
+        "material_change:1.17.0"
+      ],
+      "classification": "RECOMMENDED",
+      "evidence": [
+        "docs/governance/PROJECT_RULES.md",
+        ".ai/foundation/AI_WORK_ORCHESTRATION_POLICY.md"
+      ],
+      "rationale": "KI-gestützte Entwicklung und Dokumentation benötigen runtime-neutrale Planungs-, Autorisierungs- und Evidenzgrenzen.",
+      "recommendation": "Kernpolicy und Schemas übernommen; ai-work und ai-orchestrator bleiben nicht ausgewählt.",
+      "decision_required": "Spätere ausführbare Orchestrierung, Kosten und Remoteverarbeitung benötigen getrennte Auswahl und Autorisierung.",
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "central-artifact-registry",
+      "candidate_reasons": [
+        "material_change:1.17.1"
+      ],
+      "classification": "ALREADY_EQUIVALENT",
+      "evidence": [
+        ".ai/artifact_registry.json",
+        "docs/governance/IDENTITY_AND_REGISTRATION.md",
+        ".github/workflows/artifact-registry-integrity.yml"
+      ],
+      "rationale": "Die materielle Änderung 1.17.1 betrifft Actions-Versionen; checkout@v7 und setup-python@v7 sind bereits vorhanden. Die v2-Registry und Bootstrap-Erweiterung bleiben erhalten.",
+      "recommendation": "Registry-Tool aus exaktem Quellstand übernehmen; Workflow-Anpassung erhalten und als Intentional Override dokumentieren.",
+      "decision_required": null,
+      "selected_capabilities": [
+        "artifact-registry-github"
+      ]
+    },
+    {
+      "feature_id": "ci-supersession-and-integration-queue",
+      "candidate_reasons": [
+        "introduced_in:1.18.0"
+      ],
+      "classification": "RECOMMENDED",
+      "evidence": [
+        ".github/workflows/repository-quality.yml",
+        ".github/workflows/artifact-registry-integrity.yml",
+        "docs/governance/VALIDATION.md"
+      ],
+      "rationale": "Beide Workflows besitzen bereits cancel-in-progress. Der Projektvertrag ergänzt Ressourcenklassen, harte Abbruchgrenzen und exakte Commitbindung.",
+      "recommendation": "Bestehende Supersession beibehalten und dokumentieren; keine Queue oder Repositoryschutzänderung.",
+      "decision_required": "Vor persistenten oder externen Laufzeitmutationen sind Cleanup, Recovery und Abbruchverhalten neu zu entscheiden.",
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "installed-foundation-provenance",
+      "candidate_reasons": [
+        "introduced_in:1.15.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        ".ai/foundation/installation-provenance.json",
+        "docs/governance/FOUNDATION_UPGRADE_1_19.md"
+      ],
+      "rationale": "Die bisherige 1.8-Integration besitzt keinen Installationsbeleg. 1.19 verlangt exakte portable Hashes und begründete Abweichungen.",
+      "recommendation": "Receipt für alle Kernquellen, drei Adapter und die zwei bereits ausgewählten Fähigkeiten erzeugen.",
+      "decision_required": null,
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "model-routing-interoperability",
+      "candidate_reasons": [
+        "material_change:1.9.0",
+        "material_change:1.11.0",
+        "material_change:1.14.0",
+        "material_change:1.17.0"
+      ],
+      "classification": "RECOMMENDED",
+      "evidence": [
+        ".ai/foundation/MODEL_ROUTING_POLICY.md",
+        "AGENTS.md"
+      ],
+      "rationale": "Die existierende Tierpolicy ist kompatibel; aktuelle Evidenz, Erfolgskosten, Requested-/Actual-Trennung und wahrheitsgetreue Fallbacks ergänzen die Entwicklung.",
+      "recommendation": "Kernpolicy und Schemas übernehmen; optionalen model-router nicht installieren.",
+      "decision_required": "Konkrete Provider, Credentials, Budget und Remotegrenzen bleiben spätere Projekt-/Operatorentscheidungen.",
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "session-lifecycle-management",
+      "candidate_reasons": [
+        "introduced_in:1.19.0"
+      ],
+      "classification": "RECOMMENDED",
+      "evidence": [
+        "docs/project/PROJECT_STATUS.md",
+        "docs/project/HANDOVER.md",
+        ".ai/foundation/AI_WORK_ORCHESTRATION_POLICY.md"
+      ],
+      "rationale": "Viele aufeinanderfolgende Entwicklungswaves und Sitzungsübergaben machen metadatenbasierte natürliche Checkpoints anwendbar.",
+      "recommendation": "Kernvertrag übernommen; Repositoryquellen bleiben Wahrheit, unbekannte Metriken bleiben unbekannt und Nachfolgesitzungen werden nicht vorgetäuscht.",
+      "decision_required": "Automatische Rotation, Schwellen und persistenter Handoff-Laufzeitzustand werden in dieser Wave nicht gewählt.",
+      "selected_capabilities": []
+    }
+  ]
+}

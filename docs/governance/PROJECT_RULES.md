@@ -10,16 +10,18 @@ Arbeit zu lösen.
 
 Vor einer wesentlichen Änderung sind abhängig vom Umfang zu lesen:
 
-1. docs/project/PROJECT_STATUS.md;
-2. docs/project/HANDOVER.md;
-3. docs/product/PROJECT_CHARTER.md;
-4. docs/architecture/BOUNDARIES.md;
-5. docs/planning/README.md und .ai/artifact_registry.json bei Planung;
-6. betroffene Dateien unter docs/decisions/;
-7. docs/governance/DOCUMENTATION_STYLE.md bei Dokumentation;
-8. docs/governance/VALIDATION.md vor Auswahl oder Ausführung von Prüfungen;
-9. docs/reference/GLOSSARY.md bei Fachbegriffen;
-10. docs/governance/THIRD_PARTY_AND_REUSE.md bei Übernahme, Abhängigkeiten oder
+1. [Projektstatus](../project/PROJECT_STATUS.md);
+2. [Übergabe](../project/HANDOVER.md);
+3. [Projektauftrag](../product/PROJECT_CHARTER.md);
+4. [Produkt- und Systemgrenzen](../architecture/BOUNDARIES.md);
+5. [Planungseinstieg](../planning/README.md) und
+   [Artefaktregistry](../../.ai/artifact_registry.json) bei Planung;
+6. betroffene Dateien aus dem [Entscheidungsindex](../decisions/README.md);
+7. [Dokumentationsstil](DOCUMENTATION_STYLE.md) bei Dokumentation;
+8. [Validierung](VALIDATION.md) vor Auswahl oder Ausführung von Prüfungen;
+9. [Glossar](../reference/GLOSSARY.md) bei Fachbegriffen;
+10. [Drittmaterial und Wiederverwendung](THIRD_PARTY_AND_REUSE.md) bei
+   Übernahme, Abhängigkeiten oder
    externer Software.
 
 ## Projektphase
@@ -77,7 +79,7 @@ Operationstypen. Eine Freigabe ist nicht übertragbar.
 
 .ai/artifact_registry.json ist die Registration Authority für dauerhafte
 Projektartefakte. Die vollständigen Regeln stehen in
-docs/governance/IDENTITY_AND_REGISTRATION.md.
+[IDENTITY_AND_REGISTRATION.md](IDENTITY_AND_REGISTRATION.md).
 
 Backlog- oder Roadmap-Dokumente dürfen die Registry später darstellen, werden
 aber nicht zu einer konkurrierenden Autorität.

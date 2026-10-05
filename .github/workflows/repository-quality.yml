@@ -91,6 +91,7 @@ jobs:
           tools/qualify_ebook_calibre_identity.py
           tools/run_repository_tests.py
           .ai/foundation/artifact_registry_github
+          .ai/foundation/rule_context_cache
           tools/governance
           tools/fixtures
           tools/experiments

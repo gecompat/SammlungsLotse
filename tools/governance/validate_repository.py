@@ -35,6 +35,9 @@ REQUIRED_PATHS = [
     ".ai/artifact_registry.json",
     ".ai/foundation/AI_REPOSITORY_FOUNDATION_NOTICE.md",
     ".ai/foundation/artifact_registry_github/registry_semantic.py",
+    ".ai/foundation/rule_context_cache/rule_context_cache.py",
+    ".ai/foundation/installation-provenance.json",
+    "tools/governance/validate_rule_context.py",
     "docs/README.md",
     "docs/product/PROJECT_CHARTER.md",
     "docs/architecture/BOUNDARIES.md",
@@ -263,6 +266,19 @@ def validate() -> list[str]:
     agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
     if "docs/governance/PROJECT_RULES.md" not in agents:
         problems.append("AGENTS.md does not discover project-owned governance")
+
+    try:
+        spec = importlib.util.spec_from_file_location(
+            "sammlungslotse_rule_context_gate",
+            ROOT / "tools/governance/validate_rule_context.py",
+        )
+        if spec is None or spec.loader is None:
+            raise RuntimeError("rule-context gate is unavailable")
+        gate = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(gate)
+        problems.extend(gate.discovery_problems(ROOT))
+    except (OSError, ValueError, KeyError, RuntimeError, ImportError, AttributeError) as exc:
+        problems.append(f"rule-context discovery unavailable: {exc}")
 
     return problems
 
