@@ -6,6 +6,15 @@ Stand: 2026-10-05
 
 ## Aktueller Stand
 
+WI-0022 hat die vorhandenen Branches geprüft und konsolidiert. Die 20
+vollständig in origin/main enthaltenen lokalen Arbeitsbranches sind entfernt;
+die vier historischen EXP-0003-Dependabot-PRs und ihre Remote-Branches sind
+begründet ohne Merge geschlossen beziehungsweise gelöscht.
+Die eng begrenzte Dependabot-Ausnahme und die Abschlussvalidierung stehen
+unter [BRANCH_CONSOLIDATION_2026_10_05.md](../governance/BRANCH_CONSOLIDATION_2026_10_05.md).
+Die Ausnahme behebt keine Sicherheitsbefunde und autorisiert keinen neuen
+Ace-Einsatz.
+
 Docker ist die angenommene Zielruntime; WI-0020 enthält die separat getestete
 Executor-/Profilgrundlage und ein reproduzierbar lokal gebundenes,
 synthetisch E2E-qualifiziertes Produktpreimage. Die pfadfreie und offline

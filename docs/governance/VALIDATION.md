@@ -154,6 +154,18 @@ Rohbericht-Referenzen, Pfadgrenzen, Eingangs-Hashes und die sichtbare offene
 Ace-Risikoklassifikation. Der vollständige lokale Lauf ist unter
 `experiments/ebook/exp-0003/` dokumentiert.
 
+Der npm-Lock in EXP-0003 ist ein hashgebundener historischer Eingang dieses
+Nachweises. Automatische Lockfile-Updates würden den Ergebnisvertrag
+ungültig machen. `.github/dependabot.yml` ignoriert deshalb ausschließlich
+die npm-Abhängigkeiten dieses exakten Verzeichnisses für automatische
+Versions- und Sicherheitsupdate-PRs. GitHub-Actions-Updates und
+Sicherheitswarnungen bleiben davon unberührt. Diese Ausnahme behebt keine
+Schwachstelle und qualifiziert Ace nicht für den Produktbetrieb.
+Ein neuer Ace-Einsatz benötigt ein getrenntes, aktuell geprüftes Profil
+mit eigener Qualifikation; historische Hashes werden dafür nicht angepasst.
+Die Branch- und PR-Prüfung ist unter
+[WI-0022](BRANCH_CONSOLIDATION_2026_10_05.md) dokumentiert.
+
 Für den eingecheckten empirischen EXP-0004-Nachweis gilt:
 
     python tools/experiments/run_exp_0004.py --validate-result

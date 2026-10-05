@@ -4,6 +4,25 @@ Status: AUTHORITATIVE
 
 Stand: 2026-10-05
 
+## Branch-Konsolidierung WI-0022
+
+Die [vollständige Branch-Prüfung](../governance/BRANCH_CONSOLIDATION_2026_10_05.md)
+bestätigt, dass die 20 bisherigen lokalen Arbeitsbranches vollständig in der
+Historie von origin/main enthalten sind. Die vier zuvor offenen
+Dependabot-PRs #96, #123, #124 und #127 wurden ohne Merge geschlossen:
+Jeder verändert ausschließlich den historischen EXP-0003-npm-Lock und
+scheitert nachweislich an dessen gebundenem Profilhash.
+
+Die 20 lokalen Branches sind entfernt; nach Schließen der vier PRs bestanden
+vor dem neuen Konsolidierungs-PR ausschließlich main und null offene PRs
+auf GitHub. Die lokal geprüfte Konsolidierungswave ergänzt eine ausschließlich
+auf das historische Verzeichnis begrenzte Dependabot-Ausnahme und erhält
+die Warnungen sowie die fehlende Ace-Produktqualifikation. Automatische
+GitHub-Actions-Updates bleiben aktiv. Projekt- und Discovery-Verträge,
+90 Registry-Artefakte, vier Regressionstests und 14/14 EXP-0003-Kriterien
+sind lokal validiert. Die Übernahme benötigt die erfolgreichen Pflichtchecks
+des Konsolidierungs-PRs; Branchlöschungen entfernen keine Commits aus main.
+
 ## Foundation-Integration WI-0021
 
 Foundation 1.19.0 aus `4aafd20442275d0fdedf291fc6e12e8fe1f683cc` ist über
