@@ -3603,6 +3603,19 @@
       ],
       "status": "done",
       "title": "AI Repository Foundation 1.19 integrieren und Rule-Context-Discovery absichern"
+    },
+    "WI-0022": {
+      "acceptance_criteria": "Alle vorhandenen lokalen und entfernten Branches sind gegen origin/main geprüft; sinnvolle Änderungen sind über erfolgreiche Pflichtchecks integriert; bereits integrierte Branches und ungeeignete Pull Requests sind nachvollziehbar geschlossen und entfernt; historische EXP-0003-Nachweise bleiben byteidentisch und automatische Updates sind nur dort ausgenommen.",
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a10d4d-ad6b-7b9a-95a3-cbdaa73ceb12",
+      "created_on": "2026-10-05",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/governance/BRANCH_CONSOLIDATION_2026_10_05.md",
+      "registration_state": "REGISTERED",
+      "relations": [],
+      "status": "done",
+      "title": "Vorhandene Branches konsolidieren und eingefrorene Experimentnachweise schützen"
     }
   },
   "prefixes": {
