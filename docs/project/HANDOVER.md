@@ -23,7 +23,8 @@ Writer wurden nicht eingeführt.
 SammlungsLotse ist als eigenständiges Projekt initialisiert. Nach
 ergebnisoffener E-Book-Erkundung ist WI-0004 als erster eng begrenzter,
 reversibler Produktprototyp implementiert und lokal vollständig abgenommen.
-WI-0021 integriert AI Repository Foundation 1.19.0 aus
+WI-0021 ist nach lokaler und commitgenauer GitHub-Validierung abgeschlossen
+und integriert AI Repository Foundation 1.19.0 aus
 `4aafd20442275d0fdedf291fc6e12e8fe1f683cc`. Die vollständige Feature-Bewertung
 steht unter [FOUNDATION_UPGRADE_1_19.md](../governance/FOUNDATION_UPGRADE_1_19.md).
 Die optionale Fähigkeit `rule-context-cache` liegt am manifestierten Zielpfad

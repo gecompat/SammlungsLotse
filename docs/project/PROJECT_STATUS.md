@@ -17,7 +17,8 @@ eingerichtet. Installationsprovenienz und genaue Override-Gründe sind
 dateigenau aufgezeichnet. Produktprofile, historische IDs und Repositoryschutz
 bleiben erhalten.
 
-WI-0021 ist `ready` für die commitgenaue GitHub-Validierung. Am 2026-10-05
+WI-0021 ist nach Implementierung, lokaler und commitgenauer GitHub-Validierung
+`done`. Am 2026-10-05
 bestanden unter Windows/Python 3.13.15:
 
 - `FOUNDATION_INTEGRITY`: 78 INFO, 0 Warnungen, 0 Fehler und 0 Blocker;
@@ -43,8 +44,15 @@ Regressionstests sichern fehlende Verweise und Regelinvalidierung ab.
 Der bestehende serverseitige main-Schutz wurde read-only über GraphQL
 bestätigt: strikte erforderliche Checks `repository-quality` und
 `registry-integrity`, kein Force-Push. Das REST-API-Limit war ausgeschöpft;
-GraphQL blieb verfügbar. Erforderliche Checks für den Pull-Request-Head
-stehen bis zu ihrer tatsächlichen Ausführung aus.
+GraphQL blieb verfügbar.
+
+[Pull Request #125](https://github.com/gecompat/SammlungsLotse/pull/125)
+bestand `repository-quality` und `registry-integrity` auf dem exakten
+Implementierungscommit `45629bc2d642e0a610d0028b8ce60c9aecfd70f4`.
+Diese Befunde werden nicht auf spätere Commits übertragen: Auch der reine
+Abschluss-/Evidenzcommit benötigt vor dem Merge seine eigenen erfolgreichen
+erforderlichen Checks. GitHub bindet Merge und Post-Merge-Qualitätsprüfung an
+die jeweils aktuelle Revision.
 
 ## Phase
 
