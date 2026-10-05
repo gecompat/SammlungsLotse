@@ -6,9 +6,10 @@ Stand: 2026-10-05
 
 ## Foundation-Integration WI-0021
 
-Foundation 1.19.0 aus `4aafd20442275d0fdedf291fc6e12e8fe1f683cc` ist im
-Feature-Branch integriert. Die vollständige Bewertung aller zehn Kandidaten
-steht unter [FOUNDATION_UPGRADE_1_19.md](../governance/FOUNDATION_UPGRADE_1_19.md).
+Foundation 1.19.0 aus `4aafd20442275d0fdedf291fc6e12e8fe1f683cc` ist über
+Pull Request #125 auf main integriert. Die vollständige Bewertung aller zehn
+Kandidaten steht unter
+[FOUNDATION_UPGRADE_1_19.md](../governance/FOUNDATION_UPGRADE_1_19.md).
 Ausgewählt bleiben `artifact-registry-github` und `rule-context-cache`.
 Der Cache liegt am manifestierten Zielpfad; Markdown-Discovery und eine
 Projektprüfung sichern die Erfassung der kanonischen Regeln und aller
@@ -48,11 +49,13 @@ GraphQL blieb verfügbar.
 
 [Pull Request #125](https://github.com/gecompat/SammlungsLotse/pull/125)
 bestand `repository-quality` und `registry-integrity` auf dem exakten
-Implementierungscommit `45629bc2d642e0a610d0028b8ce60c9aecfd70f4`.
-Diese Befunde werden nicht auf spätere Commits übertragen: Auch der reine
-Abschluss-/Evidenzcommit benötigt vor dem Merge seine eigenen erfolgreichen
-erforderlichen Checks. GitHub bindet Merge und Post-Merge-Qualitätsprüfung an
-die jeweils aktuelle Revision.
+Implementierungscommit `45629bc2d642e0a610d0028b8ce60c9aecfd70f4` und erneut
+auf dem Abschlusscommit `271d25b0e6c6cf785d167e42a13c0fc8ee916de9`.
+Der geschützte Merge erzeugte main-Commit
+`96be39563b7f0bd9f6972a0a2482c95b4ac184e5`. Foundation- und Projektvalidator
+bestanden anschließend auch auf diesem integrierten Stand. GitHub bindet
+Merge und Post-Merge-Qualitätsprüfung an die jeweils aktuelle Revision;
+erfolgreiche Befunde werden nicht auf spätere Commits übertragen.
 
 ## Phase
 
@@ -180,8 +183,9 @@ Unbekannte Codes blieben null, Quellen unverändert und das Cleanup
   Kriterien. GATE-0021 ist `done`: Der Nutzer hat ausdrücklich Option A
   gewählt. Der qualifizierte V2-Vertrag bleibt als enges JSON-Opt-in stabil;
   es wird keine Folgearbeit registriert. AI Repository Foundation 1.19.0 ist
-  davon getrennt semantisch integriert; die optionale Rule-Context-Cache-
-  Fähigkeit bleibt ausdrücklich nicht ausgewählt.
+  davon getrennt semantisch integriert; die gemäß DEC-0005 ausgewählte
+  Rule-Context-Cache-Fähigkeit ist mit verpflichtender Discovery-Prüfung
+  installiert.
   WI-0016 ist als read-only E-Book-Eingangsordner `done`. Der neue explizite
   Ordnerweg inventarisiert reguläre EPUB/PDF-Eingänge rekursiv, begrenzt und
   ohne Link- oder Reparse-Point-Verfolgung. Standardberichte bleiben pfad- und
@@ -1532,10 +1536,10 @@ https://github.com/gecompat/SammlungsLotse/pull/8
 
 ## Nächster Schritt
 
-WI-0015 ist abgeschlossen: Foundation 1.8.0 ist manifestgetreu und semantisch
-integriert; der einzige neue Feature-Kandidat `rule-context-cache` ist
-`RECOMMENDED`, seine optionale Referenzimplementierung aber nicht ausgewählt.
-Die Produktfortsetzung bleibt davon unabhängig.
+WI-0015 bleibt als historische Foundation-1.8-Upgrade-Wave abgeschlossen.
+WI-0021 integriert jetzt Foundation 1.19.0 auf main, bewertet alle zehn
+Feature-Kandidaten und korrigiert die gemäß DEC-0005 ausgewählte
+Cache-Integration. Die Produktfortsetzung bleibt davon unabhängig.
 
 WI-0011, EXP-0009, GATE-0009, EXP-0010, GATE-0010, WI-0012, GATE-0011,
 EXP-0011, GATE-0012, WI-0013, GATE-0013, GATE-0014, EXP-0012, GATE-0015,
