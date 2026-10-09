@@ -165,8 +165,9 @@ Lokal am 2026-10-09 unter Windows/Python 3.13.15 mit zlib 1.3.1 erfolgreich:
 - Gepinnter Foundationvalidator, Profil `full`, beide ausgewählten Fähigkeiten:
   `FOUNDATION_INTEGRITY`, 82 INFO, null Warnungen/Fehler/Blocker.
 - `validate_repository.py`, v2-Registryvalidator: Projektverträge und 91 Artefakte.
-- `validate_rule_context.py`: 190 auffindbare Quellen, 88 unter `docs/`, keine
+- `validate_rule_context.py`: abschließend 191 auffindbare Quellen, 89 unter `docs/`, keine
   fehlende maßgebliche Quelle. Der Graph wurde erweitert, nicht verkürzt.
+  Vor Ergänzung der historischen GATE-0024-Referenz waren es 190/88.
 - `run_repository_tests.py`: 373 Tests entdeckt, 17 eingefrorene Current-
   Prüfungen ersetzt, sechs historische Ersatzprüfungen und eine sichtbare
   Capability-Ausnahme; 356 Tests ausgeführt, vier sichtbare Windows-Symlink-Skips.

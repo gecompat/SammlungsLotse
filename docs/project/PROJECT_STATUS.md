@@ -27,8 +27,8 @@ historische Prüfstände.
 
 Lokal bestanden am 2026-10-09 unter Windows/Python 3.13.15:
 Foundationintegrität (82 INFO, keine Warnung/Fehler/Blocker), Projekt- und
-Registryverträge für 91 Artefakte, vollständige Discovery für 190 Quellen
-(88 unter `docs/`), 356 Tests mit vier sichtbaren Symlink-Skips und bytegenaue
+Registryverträge für 91 Artefakte, abschließende vollständige Discovery für 191 Quellen
+(89 unter `docs/`), 356 Tests mit vier sichtbaren Symlink-Skips und bytegenaue
 Reproduktion aller 30 TEST-0001-Fälle/49 Komponenten. Sessionregression
 belegt unveränderte Wiederverwendung ohne Record, gezielte Invalidierung und
 fail-closed Verhalten bei fehlender Autorität oder Analyse. Der aktuelle
