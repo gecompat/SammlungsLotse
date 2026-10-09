@@ -6,23 +6,59 @@ Diese Regeln ergänzen die AI Repository Foundation. Bei einem echten Konflikt
 mit einer erforderlichen Foundation-Mindestregel ist der Konflikt vor der
 Arbeit zu lösen.
 
-## Verbindliche Lesereihenfolge
+## Auffindbarkeit und scopeabhängige Lektüre
 
-Vor einer wesentlichen Änderung sind abhängig vom Umfang zu lesen:
+Die vollständige Governance bleibt vom Root-Einstieg transitiv auffindbar.
+Der Discoveryvalidator prüft alle kanonischen Quellen und angenommenen
+Entscheidungen lokal. Das verlangt keine semantische Lektüre jeder verlinkten
+Datei und keine Erfassung aller Entscheidungen im Modellkontext.
 
-1. [Projektstatus](../project/PROJECT_STATUS.md);
-2. [Übergabe](../project/HANDOVER.md);
-3. [Projektauftrag](../product/PROJECT_CHARTER.md);
-4. [Produkt- und Systemgrenzen](../architecture/BOUNDARIES.md);
-5. [Planungseinstieg](../planning/README.md) und
+Zu Beginn einer Sitzung gelten die aktuelle native Instruction-Kette, das
+kurze Foundation-Ruleset und diese Projektregeln. Für den konkreten Auftrag
+werden die betroffenen Quellen und ihre transitiven semantischen Abhängigkeiten
+ausgewählt. Bei Unklarheit wird die Auswahl erweitert. Lesereihenfolge nach
+betroffener Grenze:
+
+1. relevante aktuelle Abschnitte aus [Projektstatus](../project/PROJECT_STATUS.md)
+   und [Übergabe](../project/HANDOVER.md) bei Fortsetzungs- oder Statusfragen;
+2. [Projektauftrag](../product/PROJECT_CHARTER.md) bei Auftrags-/Produktumfang;
+3. [Produkt- und Systemgrenzen](../architecture/BOUNDARIES.md) bei Produkt-,
+   Adapter-, Datenschutz- oder Wirkungsgrenzen;
+4. [Planungseinstieg](../planning/README.md) und
    [Artefaktregistry](../../.ai/artifact_registry.json) bei Planung;
-6. betroffene Dateien aus dem [Entscheidungsindex](../decisions/README.md);
-7. [Dokumentationsstil](DOCUMENTATION_STYLE.md) bei Dokumentation;
-8. [Validierung](VALIDATION.md) vor Auswahl oder Ausführung von Prüfungen;
-9. [Glossar](../reference/GLOSSARY.md) bei Fachbegriffen;
-10. [Drittmaterial und Wiederverwendung](THIRD_PARTY_AND_REUSE.md) bei
+5. betroffene Entscheidungen aus dem [Entscheidungsindex](../decisions/README.md)
+   und den Registry-Relationen; angenommener Status allein begründet keine
+   Relevanz für jede Bearbeitung;
+6. [Dokumentationsstil](DOCUMENTATION_STYLE.md) bei Dokumentation;
+7. [Validierung](VALIDATION.md) vor Auswahl oder Ausführung von Prüfungen;
+8. [Glossar](../reference/GLOSSARY.md) bei Fachbegriffen;
+9. [Drittmaterial und Wiederverwendung](THIRD_PARTY_AND_REUSE.md) bei
    Übernahme, Abhängigkeiten oder
    externer Software.
+
+Das [Dokumentationsinventar](../README.md) ist zusätzlich vollständig
+auffindbar; seine Links sind keine pauschale Lesepflicht.
+
+Unveränderte, tatsächlich verfügbare Sitzungsanalysen dürfen nach
+[DEC-0005](../decisions/DEC-0005-RULE_CONTEXT_CACHE.md) und der Foundation-
+Processing-Efficiency-Policy wiederverwendet werden. Vor Wiederverwendung
+werden aktuelle native Autorität, effektive Discoverykonfiguration, Scope,
+ausgewählte Working-Tree-Bytes und die vollständige semantische
+Abhängigkeitsinventur geprüft. Neue Links, Instructions oder maßgebliche
+Quellen lösen erneut den vollständigen Auffindbarkeitscheck aus.
+Ein Commit-/Worktreewechsel benötigt eine neue Bindungsprüfung; nur nach
+belegter Äquivalenz bleiben identische Analysen nutzbar. Fehlende Discovery-
+Evidenz oder verlorene Analyse bedeutet Lesen statt Wiederverwendung.
+
+Eine zusammenhängende Wave hat einen Implementierungsverantwortlichen,
+einen endlichen Umfang und vor Beginn eine Grenze mit Stoppverhalten. Ohne
+zuverlässige Verbrauchsmessung werden begrenzte Aufgaben und Agentanzahl
+statt behaupteter Geld-/Tokenlimits verwendet. Der konkrete Waveumfang und
+seine Abschlussgrenze werden im registrierten Arbeitsgegenstand festgehalten.
+Weitere Reviews benötigen eine konkrete offene Frage und Akzeptanzkriterien.
+Wiederholbare mechanische Prüfungen erfolgen lokal; bereits grüne Prüfungen
+werden nur bei geänderten Eingängen, neuen Befunden oder Pflichtbindung erneut
+ausgeführt. Vorgeschriebene unabhängige Reviews und Pflicht-CI bleiben erhalten.
 
 ## Projektphase
 

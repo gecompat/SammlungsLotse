@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Reject incomplete project governance discovery before cache reuse."""
+"""Check full governance reachability, independently of semantic read selection."""
 
 from __future__ import annotations
 
 import argparse
 import importlib.util
 import json
+import re
 import sys
 from pathlib import Path
 from types import ModuleType
@@ -42,12 +43,14 @@ def load_cache_tool(repository: Path) -> ModuleType:
     return module
 
 
-def discovery_problems(repository: Path, cache_tool: ModuleType | None = None) -> list[str]:
-    """Validate the repository graph, independently of host/global configuration.
+def discovery_inventory(repository: Path, cache_tool: ModuleType | None = None) -> dict:
+    """Validate the full graph, independently of host/global configuration.
 
     Fingerprinting and host instruction discovery remain the Foundation tool's
     responsibility. This project gate checks the actual transitive graph, not
-    just the presence of filenames in AGENTS.md. It writes no cache record.
+    just the presence of filenames in AGENTS.md. Reachability is not semantic
+    applicability: accepted decisions remain required here even when unrelated
+    to the caller's task. No cache record or semantic analysis is produced.
     """
     repository = repository.resolve()
     tool = cache_tool or load_cache_tool(repository)
@@ -59,6 +62,11 @@ def discovery_problems(repository: Path, cache_tool: ModuleType | None = None) -
     locations, _, reference_reasons = tool._discover_sources(options, chain)
     problems = [f"rule-context discovery: {code}" for code in sorted(set(reasons + reference_reasons))]
     required = set(REQUIRED_SOURCES)
+    # Detect newly declared authority independently of the links under test.
+    # Dropping an entry from the router must not hide an authoritative rule.
+    for path in sorted((repository / "docs").rglob("*.md")):
+        if re.search(r"(?m)^Status: AUTHORITATIVE\b", path.read_text(encoding="utf-8")):
+            required.add(path.relative_to(repository).as_posix())
     registry = json.loads((repository / ".ai/artifact_registry.json").read_text(encoding="utf-8"))
     for reference, record in registry["artifacts"].items():
         if reference.startswith("DEC-") and record.get("status") == "accepted":
@@ -69,23 +77,40 @@ def discovery_problems(repository: Path, cache_tool: ModuleType | None = None) -
                 required.add(locator)
     for missing in sorted(required - locations.keys()):
         problems.append(f"project rule is outside rule-context discovery: {missing}")
-    return problems
+    return {
+        "discovery_source_count": len(locations),
+        "project_source_count": sum(p.startswith("docs/") for p in locations),
+        "required_sources": sorted(required),
+        "discovered_sources": sorted(locations),
+        "problems": problems,
+    }
+
+
+def discovery_problems(repository: Path, cache_tool: ModuleType | None = None) -> list[str]:
+    """Compatibility entrypoint used by the repository's semantic validator."""
+    return discovery_inventory(repository, cache_tool)["problems"]
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, default=ROOT)
+    parser.add_argument("--json", action="store_true", help="content-free reachability inventory")
     args = parser.parse_args()
     try:
-        problems = discovery_problems(args.repository)
+        inventory = discovery_inventory(args.repository)
+        problems = inventory["problems"]
     except (OSError, ValueError, KeyError, RuntimeError, ImportError, AttributeError) as exc:
         print(f"[BLOCK] rule-context discovery unavailable: {exc}")
         return 2
+    if args.json:
+        print(json.dumps(inventory, indent=2, sort_keys=True))
+        return 2 if problems else 0
     for problem in problems:
         print(f"[BLOCK] {problem}")
     if problems:
         return 2
-    print("[OK] project governance is covered by rule-context discovery")
+    print(f"[OK] governance reachable: {inventory['discovery_source_count']} sources, "
+          f"{inventory['project_source_count']} under docs/; semantic selection remains task-scoped")
     return 0
 
 
