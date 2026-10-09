@@ -18,8 +18,12 @@ werden vor Wiederverwendung geprüft. Der persistente Cachevertrag bleibt
 unverändert streng und optional. Die lokale Abschlussvalidierung ist unter
 Python 3.13.15 erfolgreich (356 Tests, vier sichtbare Capability-Skips);
 Foundation-, Projekt-, Registry-, Discovery- und Fixtureverträge bestehen.
-Die geschützte PR-Integration und beide Pflichtchecks auf dem exakten Head
-stehen noch aus; Ergebnisse stehen im WI-0023-Bericht.
+[PR #129](https://github.com/gecompat/SammlungsLotse/pull/129) führt den
+geprüften Abschlusszustand. Beide Pflichtchecks bestanden auf
+`52ff07fa0b85726f83ad02a22a71b1e437b17920`; die abschließende Statusänderung
+unterliegt denselben Checks auf ihrem eigenen Head. WI-0023 ist im PR `done`
+und erst durch den geschützten Merge kanonisch. Aktueller Head und tatsächliche
+Integration sind am PR nachprüfbar; Details stehen im WI-0023-Bericht.
 
 WI-0022 hat die vorhandenen Branches geprüft und konsolidiert. Die 20
 vollständig in origin/main enthaltenen lokalen Arbeitsbranches sind entfernt;

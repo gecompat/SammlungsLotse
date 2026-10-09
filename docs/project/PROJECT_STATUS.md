@@ -6,7 +6,7 @@ Stand: 2026-10-09
 
 ## Foundation- und Governanceupgrade WI-0023
 
-Foundation 1.20.0 aus `39ae5c534bb0cf78046485754ed1be7867bf9534` ist lokal
+Foundation 1.20.0 aus `39ae5c534bb0cf78046485754ed1be7867bf9534` ist
 installiert. Die [vollständige Bewertung](../governance/FOUNDATION_UPGRADE_1_20.md)
 erfasst 21 Kandidaten und die dateigenaue Provenienz. Ausgewählt bleiben
 `artifact-registry-github` und `rule-context-cache`. Root-Einstieg,
@@ -34,7 +34,13 @@ belegt unveränderte Wiederverwendung ohne Record, gezielte Invalidierung und
 fail-closed Verhalten bei fehlender Autorität oder Analyse. Der aktuelle
 Python-3.14-Lauf blieb an der dokumentierten ZIP-Reproduzierbarkeitsgrenze
 nicht grün; alle Eingänge blieben unverändert. Details stehen im WI-0023-Bericht.
-Die geschützte PR-Integration und commitgenaue Pflicht-CI stehen noch aus.
+[PR #129](https://github.com/gecompat/SammlungsLotse/pull/129) bestand beide
+Pflichtchecks auf `52ff07fa0b85726f83ad02a22a71b1e437b17920`. Der
+Abschlusszustand von WI-0023 ist im PR `done` und wird durch den geschützten
+Merge kanonisch. Auch die abschließende Status-/Evidenzänderung benötigt
+beide Checks auf ihrem exakten Head. Aktueller Head und tatsächlicher Merge
+sind am verlinkten PR nachprüfbar; ältere grüne Checks ersetzen diese Bindung
+nicht. Es ist keine neue Produkt- oder Automationswave ausgewählt.
 
 ## Branch-Konsolidierung WI-0022
 

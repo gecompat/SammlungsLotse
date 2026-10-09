@@ -3640,7 +3640,7 @@
           "type": "governed_by"
         }
       ],
-      "status": "in_progress",
+      "status": "done",
       "title": "Foundation 1.20 und scopeabhängige Governance integrieren"
     }
   },

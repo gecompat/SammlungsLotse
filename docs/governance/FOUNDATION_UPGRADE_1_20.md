@@ -190,5 +190,13 @@ Diese Wave trifft keine neue allgemeine Toolchainentscheidung. Die Pflicht-CI
 verwendet ihren bestehenden Python-3.12-Pfad.
 
 Die geschützte PR-Integration benötigt beide Pflichtchecks auf dem exakten
-Head. Ihre Bindung wird nach erfolgreichem Lauf ergänzt. Kein historischer
-grüner Befund wird als Ergebnis für den neuen Head übernommen.
+Head. [PR #129](https://github.com/gecompat/SammlungsLotse/pull/129)
+bestand `repository-quality` und `registry-integrity` auf dem exakten
+Implementierungscommit `52ff07fa0b85726f83ad02a22a71b1e437b17920`.
+Der dokumentierte Abschlusszustand von WI-0023 ist im PR `done`; gemäß
+Registryvertrag wird er erst durch den geschützten Merge nach main kanonisch.
+Die abschließende Evidenz-/Statusänderung unterliegt erneut beiden Checks
+auf ihrem eigenen Head. Die aktuelle Head-/Mergebindung ist am verlinkten
+PR nachprüfbar; kein historischer grüner Befund wird auf einen späteren
+Head übertragen. Synchronisation und Bereinigung des eigenen Branches sind
+die abschließenden Integrationsschritte, keine neue Produktwave.
