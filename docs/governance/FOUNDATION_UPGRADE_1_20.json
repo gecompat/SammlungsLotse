@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "installed_version": "1.19.0",
+  "source_version": "1.20.0",
+  "source_ref": "39ae5c534bb0cf78046485754ed1be7867bf9534",
+  "assessments": [
+    {
+      "feature_id": "ai-client-integration",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        "docs/governance/PROJECT_RULES.md",
+        ".ai/foundation/installation-provenance.json"
+      ],
+      "rationale": "Keine Clientkonfiguration, Modellauswahl, Adaptererzeugung oder neue Session wird in WI-0023 eingeführt. Die Coreverträge werden aktualisiert; die optionale Runtime bleibt ungewählt."
+    },
+    {
+      "feature_id": "ai-host-preparation",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        "docs/governance/PROJECT_RULES.md"
+      ],
+      "rationale": "Kein Provisionierungsauftrag oder Download von Laufzeitsoftware. Die isolierte Lock-Audit-Abfrage installiert keine Pakete; vorhandene Git-, Python- und npm-Werkzeuge genügen."
+    },
+    {
+      "feature_id": "ai-runtime-adapters",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        ".ai/foundation/installation-provenance.json",
+        "docs/architecture/BOUNDARIES.md"
+      ],
+      "rationale": "Keine Adapterruntime, Remote-Modellverbindung, Credentials oder Clientintegration ausgewählt. Produktadapterautorität bleibt projektgeführt; Schemas werden als Core übertragen."
+    },
+    {
+      "feature_id": "ai-work-execution",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        "docs/governance/PROJECT_RULES.md",
+        "docs/governance/VALIDATION.md"
+      ],
+      "rationale": "Kein optionaler Executor, keine persistenten Checkpoints oder Replay-Protokolle nötig. Taskautorisierte lokale Arbeit und geschützter PR erfüllen den endlichen Governanceumfang."
+    },
+    {
+      "feature_id": "ai-work-orchestration",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        "docs/governance/PROJECT_RULES.md",
+        "docs/governance/FOUNDATION_UPGRADE_1_20.md"
+      ],
+      "rationale": "Aktualisierte Coreverträge erlauben gewöhnliche lokale deterministische Arbeit ohne obligatorischen Planner, WorkRequest oder DAG. Ein Implementierungsverantwortlicher und endlicher Taskumfang; kein neuer Runtime-Dienst.",
+      "selected_capabilities": []
+    },
+    {
+      "feature_id": "artifact-registration",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "ALREADY_EQUIVALENT",
+      "evidence": [
+        "docs/governance/IDENTITY_AND_REGISTRATION.md",
+        "tools/governance/register_artifact.py",
+        ".ai/artifact_registry.json"
+      ],
+      "rationale": "Menschen und AI verwenden dieselbe v2-Authority. WI-0023 wird über den vorhandenen Allocator bei null konkurrierenden offenen PRs angelegt; etablierte Referenzen und UIDs bleiben erhalten."
+    },
+    {
+      "feature_id": "authorization-envelope",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "ALREADY_EQUIVALENT",
+      "evidence": [
+        "docs/governance/PROJECT_RULES.md",
+        "docs/architecture/BOUNDARIES.md"
+      ],
+      "rationale": "Expliziter Auftrag autorisiert Governancekorrektur und PR-Integration. Die strengeren Produkt-Schreibverträge werden nicht auf gewöhnliche Repositoryarbeit ausgedehnt oder gelockert."
+    },
+    {
+      "feature_id": "bounded-processing-efficiency",
+      "candidate_reasons": [
+        "introduced_in:1.20.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        "AGENTS.md",
+        "docs/governance/PROJECT_RULES.md",
+        "docs/governance/VALIDATION.md",
+        "docs/decisions/DEC-0005-RULE_CONTEXT_CACHE.md",
+        "tests/governance/test_session_rule_reuse.py"
+      ],
+      "rationale": "Der Nutzer autorisiert die Korrektur teurer lokaler Arbeitsregeln ausdrücklich. Vollständige Auffindbarkeit bleibt Pflicht; semantische Auswahl und transitive Abhängigkeiten sind taskbezogen. DEC-0005 wird datiert fortgeschrieben. Core-Sessionwiederverwendung benötigt keinen Operatorcache; verlorene Analyse und unbekannte Autorität sperren Wiederverwendung.",
+      "recommendation": "Autorisierte scoped Lektüre und speicherbasierte Wiederverwendung umgesetzt. Weitere Reviews nur mit eigener offener Frage; mechanische Wiederholungen lokal.",
+      "decision_required": null
+    },
+    {
+      "feature_id": "central-artifact-registry",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "ALREADY_EQUIVALENT",
+      "evidence": [
+        ".ai/artifact_registry.json",
+        ".github/workflows/artifact-registry-integrity.yml",
+        "docs/governance/IDENTITY_AND_REGISTRATION.md"
+      ],
+      "rationale": "Bestehende zentrale v2-Registry, abgeleitete Allocation, Cross-PR-Kollisionserkennung und objektbasierter Merge bleiben führend. Projektworkflow-Override wird erhalten.",
+      "selected_capabilities": [
+        "artifact-registry-github"
+      ]
+    },
+    {
+      "feature_id": "ci-supersession-and-integration-queue",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "ALREADY_EQUIVALENT",
+      "evidence": [
+        ".github/workflows/repository-quality.yml",
+        ".github/workflows/artifact-registry-integrity.yml",
+        "docs/governance/VALIDATION.md"
+      ],
+      "rationale": "Vorhandene Concurrency ersetzt überholte Prüfungen auf wegwerfbaren Runnern. Merge bleibt an beide Pflichtchecks auf dem exakten Head gebunden. Keine Queue oder Rechteänderung nötig."
+    },
+    {
+      "feature_id": "foundation-baseline",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        "AGENTS.md",
+        ".ai/foundation/FOUNDATION_RULESET.md",
+        "docs/governance/PROJECT_RULES.md"
+      ],
+      "rationale": "Kurzer Basiseinstieg und separate Detailreferenz werden manifestgetreu integriert. Projektfakten, Datenschutz, Produktgrenzen und Entscheidungen bleiben projektgeführt."
+    },
+    {
+      "feature_id": "installed-foundation-provenance",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        ".ai/foundation/installation-provenance.json"
+      ],
+      "rationale": "Alle 78 ausgewählten Manifestquellen werden gegen portable Hashes und den gepinnten Commit geprüft. AGENTS und Registryworkflow behalten begründete semantische Overrides; neue dateigenaue Provenienz."
+    },
+    {
+      "feature_id": "layered-validation",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "ALREADY_EQUIVALENT",
+      "evidence": [
+        "docs/governance/VALIDATION.md",
+        "tools/governance/validate_repository.py",
+        "tools/run_repository_tests.py"
+      ],
+      "rationale": "Foundationintegrität, Projektsemantik und empirische Regression bleiben getrennte Prüfbereiche. Vollständige Pflicht-CI, Registry-, Discovery-, Fixture- und historische Ergebnisverträge bleiben erhalten."
+    },
+    {
+      "feature_id": "model-routing-interoperability",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        ".ai/foundation/installation-provenance.json",
+        "docs/governance/PROJECT_RULES.md"
+      ],
+      "rationale": "Kein optionaler Router oder konkreter Modellwahlauftrag. Ein Owner verwendet vorhandene lokale deterministische Werkzeuge. Keine Anbieterpreise, Ausführungsattestierung oder neue Remote-Autorität werden behauptet."
+    },
+    {
+      "feature_id": "persistent-identity",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "ALREADY_EQUIVALENT",
+      "evidence": [
+        "docs/governance/IDENTITY_AND_REGISTRATION.md",
+        ".ai/artifact_registry.json"
+      ],
+      "rationale": "UUIDv7-URN, flache stabile Referenzen, explizite Relationen und getrennte Locators sind etabliert. PRESERVE: keine historische Migration, Umbenennung oder neue Allocation Authority."
+    },
+    {
+      "feature_id": "repository-continuity-break-glass",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "RECOMMENDED",
+      "evidence": [
+        "docs/governance/VALIDATION.md",
+        "docs/governance/FOUNDATION_UPGRADE_1_20.md"
+      ],
+      "rationale": "Strikte Pflicht-CI bleibt ein Verfügbarkeitsengpass. Bereits bekannte Empfehlung bleibt sichtbar; Checks sind aktuell verfügbar. Der Auftrag autorisiert keine neue Bypass-Infrastruktur oder Branchschutzänderung.",
+      "recommendation": "Bei tatsächlichem Bedarf separat einen engen auditierten Ausfallpfad mit Nachvalidierung entscheiden; derzeit strikte Pflicht-CI beibehalten.",
+      "decision_required": "Separate angenommene Entscheidung zu berechtigten Akteuren, exakter Ausfallklassifikation, Audit und Nachvalidierung vor jeder Einführung."
+    },
+    {
+      "feature_id": "rule-context-cache",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        "docs/decisions/DEC-0005-RULE_CONTEXT_CACHE.md",
+        "tools/governance/validate_rule_context.py",
+        "tests/governance/test_rule_context.py",
+        "tests/governance/test_session_rule_reuse.py"
+      ],
+      "rationale": "Ausgewählte persistente Fähigkeit bleibt unverändert; ihr vollständiger Graph und ihre strengen Statussemantiken werden nicht scoped zurechtgestutzt. Separater Core-Sessionweg prüft die taskbezogene vollständige semantische Auswahl. Alle angenommenen Entscheidungen bleiben auffindbar.",
+      "selected_capabilities": [
+        "rule-context-cache"
+      ]
+    },
+    {
+      "feature_id": "rules-only-transfer",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        ".ai/foundation/installation-provenance.json",
+        "docs/governance/FOUNDATION_UPGRADE_1_20.md"
+      ],
+      "rationale": "Ausschließlich Manifest-Core, Defaultadapter und die zwei bereits ausgewählten Fähigkeiten übertragen. Foundation-Projektstatus, Registry, Tests und Source-Validator werden nicht kopiert; Rootlizenz bleibt unverändert."
+    },
+    {
+      "feature_id": "semantic-integration",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        "AGENTS.md",
+        "docs/governance/PROJECT_RULES.md",
+        "docs/governance/VALIDATION.md",
+        "docs/decisions/DEC-0005-RULE_CONTEXT_CACHE.md"
+      ],
+      "rationale": "Bisherige Cache-only-Kopplung ist eine autorisiert korrigierte lokale Workflowverschärfung, kein zu umgehender Sicherheitsvertrag. Komplementäre Produktregeln bleiben; neue deklarierte Autorität wird unabhängig von Links erkannt."
+    },
+    {
+      "feature_id": "semantic-upgrade-applicability",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [
+        "docs/governance/FOUNDATION_UPGRADE_1_20.json",
+        "tests/governance/test_foundation_upgrade.py"
+      ],
+      "rationale": "Vollständiger gepinnter Feature-Katalog: 21 Kandidaten genau einmal klassifiziert. Empfehlung und spätere Entscheidungsgrenze werden ausdrücklich aufgeführt, nicht stillschweigend umgesetzt."
+    },
+    {
+      "feature_id": "session-lifecycle-management",
+      "candidate_reasons": [
+        "material_change:1.20.0"
+      ],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [
+        "docs/governance/FOUNDATION_UPGRADE_1_20.md",
+        "docs/governance/PROJECT_RULES.md"
+      ],
+      "rationale": "Endlicher Governanceauftrag ohne neue Automation oder Orchestratorruntime. Keine verlässlichen numerischen Account-/Tokenmetriken oder automatischen Folgesitzungen belegt. Bei Kontextverlust werden relevante Regeln neu gelesen; Delta-Handover nur an einer tatsächlichen Fortsetzungsgrenze."
+    }
+  ]
+}

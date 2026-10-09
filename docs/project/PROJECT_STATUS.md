@@ -2,7 +2,39 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-10-05
+Stand: 2026-10-09
+
+## Foundation- und Governanceupgrade WI-0023
+
+Foundation 1.20.0 aus `39ae5c534bb0cf78046485754ed1be7867bf9534` ist lokal
+installiert. Die [vollständige Bewertung](../governance/FOUNDATION_UPGRADE_1_20.md)
+erfasst 21 Kandidaten und die dateigenaue Provenienz. Ausgewählt bleiben
+`artifact-registry-github` und `rule-context-cache`. Root-Einstieg,
+Projektregeln, Validierung und die datierte Fortschreibung von DEC-0005
+trennen vollständige Auffindbarkeit von taskbezogener semantischer Lektüre.
+Sichere Sessionwiederverwendung benötigt keinen persistenten Operatorcache;
+der optionale persistente Vertrag bleibt erhalten. Alle angenommenen
+Entscheidungen bleiben auffindbar; native Autorität, ausgewählte Bytes und
+transitive semantische Abhängigkeiten müssen aktuell geprüft sein.
+
+Der isolierte aktuelle Audit des unveränderten EXP-0003-Locks meldet 34
+betroffene npm-Pakete: 2 `critical`, 20 `high`, 12 `moderate`. Details,
+Primärquellen und getrennte GitHub-Alert-Evidenz stehen im WI-0023-Bericht.
+Ace bleibt außerhalb des Produktpfads. Historische Lock-/Fixturebytes und
+Hashes sind unverändert; ein neuer Einsatz benötigt getrennten registrierten
+Scope und aktuelle Qualifikation. Frühere Zählungen weiter unten sind
+historische Prüfstände.
+
+Lokal bestanden am 2026-10-09 unter Windows/Python 3.13.15:
+Foundationintegrität (82 INFO, keine Warnung/Fehler/Blocker), Projekt- und
+Registryverträge für 91 Artefakte, vollständige Discovery für 190 Quellen
+(88 unter `docs/`), 356 Tests mit vier sichtbaren Symlink-Skips und bytegenaue
+Reproduktion aller 30 TEST-0001-Fälle/49 Komponenten. Sessionregression
+belegt unveränderte Wiederverwendung ohne Record, gezielte Invalidierung und
+fail-closed Verhalten bei fehlender Autorität oder Analyse. Der aktuelle
+Python-3.14-Lauf blieb an der dokumentierten ZIP-Reproduzierbarkeitsgrenze
+nicht grün; alle Eingänge blieben unverändert. Details stehen im WI-0023-Bericht.
+Die geschützte PR-Integration und commitgenaue Pflicht-CI stehen noch aus.
 
 ## Branch-Konsolidierung WI-0022
 
@@ -13,17 +45,20 @@ Dependabot-PRs #96, #123, #124 und #127 wurden ohne Merge geschlossen:
 Jeder verändert ausschließlich den historischen EXP-0003-npm-Lock und
 scheitert nachweislich an dessen gebundenem Profilhash.
 
-Die 20 lokalen Branches sind entfernt; nach Schließen der vier PRs bestanden
-vor dem neuen Konsolidierungs-PR ausschließlich main und null offene PRs
-auf GitHub. Die lokal geprüfte Konsolidierungswave ergänzt eine ausschließlich
-auf das historische Verzeichnis begrenzte Dependabot-Ausnahme und erhält
-die Warnungen sowie die fehlende Ace-Produktqualifikation. Automatische
-GitHub-Actions-Updates bleiben aktiv. Projekt- und Discovery-Verträge,
-90 Registry-Artefakte, vier Regressionstests und 14/14 EXP-0003-Kriterien
-sind lokal validiert. Die Übernahme benötigt die erfolgreichen Pflichtchecks
-des Konsolidierungs-PRs; Branchlöschungen entfernen keine Commits aus main.
+Die Konsolidierungswave ist über
+[PR #128](https://github.com/gecompat/SammlungsLotse/pull/128) seit
+2026-10-05T18:28:10Z integriert, Mergecommit
+`bddb40ca6b5a133b7075196590724dc38ebb0d21`. Der Abgleich am 2026-10-09
+bestätigte denselben lokalen und entfernten main-Stand, null offene PRs vor
+WI-0023 sowie erfolgreiche Pflichtchecks `repository-quality` und
+`registry-integrity` für #128. Die 20 lokalen Branches sind entfernt;
+Branchlöschungen entfernen keine Commits aus main. Die enge Dependabot-
+Ausnahme ist auf dem Defaultbranch vorhanden, Sicherheitswarnungen bleiben
+offen und GitHub-Actions-Updates aktiv. Die 90 Registry-Artefakte, vier
+Regressionstests und 14/14 EXP-0003-Kriterien sind der historische lokale
+WI-0022-Prüfstand; sie werden nicht auf spätere Commits übertragen.
 
-## Foundation-Integration WI-0021
+## Historische Foundation-Integration WI-0021
 
 Foundation 1.19.0 aus `4aafd20442275d0fdedf291fc6e12e8fe1f683cc` ist über
 Pull Request #125 auf main integriert. Die vollständige Bewertung aller zehn

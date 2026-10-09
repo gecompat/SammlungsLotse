@@ -122,3 +122,17 @@ origin/main, der saubere lokale main-Checkout, null offene Pull Requests und
 das Fehlen weiterer lokaler oder entfernter Arbeitsbranches nachgeprüft.
 Künftige Produktplanung wird durch diesen Branch-Aufräumauftrag nicht
 abgeschlossen oder automatisch ausgeführt.
+
+## Nachtrag zum tatsächlichen Integrationsstand am 2026-10-09
+
+Der vorstehende Text hält den lokalen Vor-Merge-Prüfstand von WI-0022 fest.
+[PR #128](https://github.com/gecompat/SammlungsLotse/pull/128) wurde tatsächlich
+am 2026-10-05T18:28:10Z nach erfolgreichen Pflichtchecks
+`repository-quality` und `registry-integrity` gemergt. Mergecommit ist
+`bddb40ca6b5a133b7075196590724dc38ebb0d21`; er war vor WI-0023 der identische
+lokale und entfernte main-Stand. Vor dieser neuen Wave bestanden null offene
+PRs. Die Dependabot-Ausnahme ist auf dem Defaultbranch vorhanden. Das belegt
+keine Behebung der Sicherheitswarnungen oder neue Ace-Qualifikation.
+Die damaligen Prüfstände bleiben historisch; die neue aktuelle
+[Sicherheitsbewertung](FOUNDATION_UPGRADE_1_20.md) verändert weder Lock noch
+Fixturebytes oder historische Hashes.

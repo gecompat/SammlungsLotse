@@ -78,6 +78,24 @@ class RuleContextTests(unittest.TestCase):
             (root / "docs/governance/VALIDATION.md").unlink()
             self.assertTrue(any("UNRESOLVED_REFERENCE" in p for p in GATE.discovery_problems(root, CACHE)))
 
+    def test_new_declared_authority_cannot_be_hidden_by_omitting_its_link(self) -> None:
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            self.repository(root)
+            locator = "docs/governance/NEW_RULE.md"
+            (root / locator).write_text("Status: AUTHORITATIVE\n", encoding="utf-8")
+            self.assertTrue(any(locator in p for p in GATE.discovery_problems(root, CACHE)))
+
+    def test_inventory_is_reachability_not_a_semantic_read_plan(self) -> None:
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            self.repository(root)
+            inventory = GATE.discovery_inventory(root, CACHE)
+            self.assertEqual(inventory["problems"], [])
+            self.assertIn("docs/decisions/README.md", inventory["discovered_sources"])
+            self.assertNotIn("analysis_keys", inventory)
+            self.assertNotIn("reanalyze", inventory)
+
     def test_project_rule_change_invalidates_analysis(self) -> None:
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw)

@@ -8,7 +8,7 @@ Foundation-Check belegt nicht die Projektrichtigkeit.
 ## FOUNDATION_INTEGRITY
 
 Die Foundation-Quellversion besitzt den kanonischen Validator. Für die
-installierte Foundation 1.19.0 und die ausgewählten Fähigkeiten
+installierte Foundation 1.20.0 und die ausgewählten Fähigkeiten
 `artifact-registry-github` und `rule-context-cache` lautet der allgemeine Aufruf:
 
     python tools/foundation_validator.py \
@@ -22,9 +22,9 @@ Quellcommits ausgeführt. Der Validator wird gemäß Foundation-Manifest nicht i
 dieses Zielrepository kopiert.
 
 Der installierte Quellstand ist
-`4aafd20442275d0fdedf291fc6e12e8fe1f683cc`. Die vollständige semantische
+`39ae5c534bb0cf78046485754ed1be7867bf9534`. Die vollständige semantische
 Upgrade-Bewertung steht in
-[FOUNDATION_UPGRADE_1_19.md](FOUNDATION_UPGRADE_1_19.md). Der genaue Transfer
+[FOUNDATION_UPGRADE_1_20.md](FOUNDATION_UPGRADE_1_20.md). Der genaue Transfer
 und die begründeten Abweichungen stehen in
 [installation-provenance.json](../../.ai/foundation/installation-provenance.json).
 Ein persistenter Operatorcache ist kein Validierungsnachweis.
@@ -43,22 +43,46 @@ Dokumentlinks, Projektidentität, Registry-Locators, Repository-Hygiene und die
 vollständige Rule-Context-Discovery. Die
 zweite Prüfung kontrolliert die v2-Registry-Semantik.
 
-## Rule-Context-Cache
+## Governance-Discovery und Sessionwiederverwendung
 
 Die angenommene [DEC-0005](../decisions/DEC-0005-RULE_CONTEXT_CACHE.md) bleibt
 führend. Das unveränderte Foundation-Werkzeug liegt unter
 `.ai/foundation/rule_context_cache/rule_context_cache.py`.
 
-Vor jedem Cache-Check oder Record ist die reine Projektprüfung auszuführen:
+Vor Sessionwiederverwendung oder persistenten Cacheoperationen ist der
+vollständige Auffindbarkeitscheck für die aktuelle Discoverybindung auszuführen:
 
     python tools/governance/validate_rule_context.py
 
 Sie prüft die tatsächliche transitive Erfassung der kanonischen Projektregeln,
-des Projektkontexts, der Registry und sämtlicher angenommener Entscheidungen.
+des Projektkontexts, der Registry, deklarierter `AUTHORITATIVE`-Dokumente
+und sämtlicher angenommener Entscheidungen. `--json` liefert das inhaltsfreie
+Inventar und die aktuelle Quellenanzahl. Diese vollständige Auffindbarkeit
+ist keine verpflichtende semantische Lektüre oder Analyseliste.
 Ein fehlender oder unaufgelöster Verweis sperrt Cache-Wiederverwendung und
 Record. Die Prüfung liest keine Operatorcachedatei und ersetzt weder globale
 oder native Instruction-Discovery noch die Fingerprints des Foundation-Tools.
-Ein Erfolg hebt die normale scopeabhängige Lesereihenfolge nicht auf.
+Ein Erfolg hebt die scopeabhängige Auswahl samt semantischen Abhängigkeiten
+nicht auf. Der Check kann innerhalb derselben Sitzung bei unveränderter,
+erneut lokal verifizierter Discoverybindung wiederverwendet werden.
+Instructions, Verweise, deklarierte Autorität, neue angenommene Entscheidungen
+oder Scopeänderungen verlangen einen neuen Check. Geänderte Regelbytes und
+semantische Abhängigkeiten werden vor jeder Analysewiederverwendung geprüft.
+
+Der Sessionweg folgt `.ai/foundation/PROCESSING_EFFICIENCY_POLICY.md` und
+dem unveränderten Core `runtime/processing_efficiency.py`. Der Caller führt
+eine vollständige ausgewählte Abhängigkeitsinventur und belegt die aktuelle
+native Instruction-Reihenfolge/-Inhalte und effektive Discoverykonfiguration
+in `authority_key`. `capture_context` prüft ausgewählte Working-Tree-Bytes;
+`SessionContext.acknowledge` speichert ausschließlich tatsächlich ausgeführte
+Analysen im Speicher. `check` und `analysis_for` dürfen sie nur unter dem
+exakten aktuellen Schlüssel verwenden. Neue Commits/Worktrees benötigen
+einen frischen Bindungscheck. Unveränderte Autorität, Identität, Scope,
+Quellen und Abhängigkeiten dürfen danach äquivalente Analysen behalten.
+Unbekannte native Discovery oder verlorene Analyse sperrt Wiederverwendung.
+Die Repositoryprüfung stellt keine native Discoverybescheinigung aus.
+
+## Optionaler persistenter Rule-Context-Cache
 
 Danach darf ein Check mit einem ausdrücklich operatorbereitgestellten,
 nicht versionierten Cacheziel erfolgen:
@@ -75,11 +99,15 @@ vollständigen Wiederaufbau. Erst nach abgeschlossener Analyse darf derselbe
 Aufruf mit `record` statt `check` einen lokalen Record atomar schreiben.
 Es wird kein projektweiter Cachepfad und kein persistenter Cache eingerichtet.
 
-Regressionstests prüfen die bisher übersehene Textverknüpfung, eine nicht
-verlinkte Projektregel, neue angenommene Entscheidungen, ungelöste Verweise
-und Invalidierung nach einer Regeländerung:
+Regressionstests prüfen vollständige Auffindbarkeit unabhängig von der
+semantischen Auswahl, neue deklarierte Autorität und angenommene Entscheidungen,
+fehlende Verweise, unveränderte Sessionwiederverwendung ohne Record, geänderte
+dirty/untracked Regeln und transitive Invalidierung, neue Autorität/Scope/
+Abhängigkeiten, verlorene Analyse sowie den unveränderten persistenten Vertrag:
 
     python -m unittest tests.governance.test_rule_context
+
+    python -m unittest tests.governance.test_session_rule_reuse
 
 ## RUNTIME_EMPIRICAL
 

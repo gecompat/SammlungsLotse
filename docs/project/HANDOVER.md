@@ -2,9 +2,24 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-10-05
+Stand: 2026-10-09
 
 ## Aktueller Stand
+
+WI-0023 aktualisiert Foundation auf 1.20.0 aus
+`39ae5c534bb0cf78046485754ed1be7867bf9534`. Die aktuelle
+[Upgradebewertung](../governance/FOUNDATION_UPGRADE_1_20.md) und
+[DEC-0005-Fortschreibung](../decisions/DEC-0005-RULE_CONTEXT_CACHE.md) sind
+für Governance-/Cachefortsetzung maßgeblich. Vollständige Auffindbarkeit
+aller maßgeblichen Quellen bleibt Pflicht; semantische Auswahl ist taskbezogen.
+Sessionwiederverwendung braucht keinen persistenten Operatorcache. Aktuelle
+native Autorität, ausgewählte Inhalte und alle semantischen Abhängigkeiten
+werden vor Wiederverwendung geprüft. Der persistente Cachevertrag bleibt
+unverändert streng und optional. Die lokale Abschlussvalidierung ist unter
+Python 3.13.15 erfolgreich (356 Tests, vier sichtbare Capability-Skips);
+Foundation-, Projekt-, Registry-, Discovery- und Fixtureverträge bestehen.
+Die geschützte PR-Integration und beide Pflichtchecks auf dem exakten Head
+stehen noch aus; Ergebnisse stehen im WI-0023-Bericht.
 
 WI-0022 hat die vorhandenen Branches geprüft und konsolidiert. Die 20
 vollständig in origin/main enthaltenen lokalen Arbeitsbranches sind entfernt;
@@ -14,6 +29,9 @@ Die eng begrenzte Dependabot-Ausnahme und die Abschlussvalidierung stehen
 unter [BRANCH_CONSOLIDATION_2026_10_05.md](../governance/BRANCH_CONSOLIDATION_2026_10_05.md).
 Die Ausnahme behebt keine Sicherheitsbefunde und autorisiert keinen neuen
 Ace-Einsatz.
+Die Integration ist seit PR #128 am 2026-10-05 abgeschlossen; Mergecommit
+`bddb40ca6b5a133b7075196590724dc38ebb0d21` und beide erfolgreichen Pflichtchecks
+wurden am 2026-10-09 gegen GitHub und Repository abgeglichen.
 
 Docker ist die angenommene Zielruntime; WI-0020 enthält die separat getestete
 Executor-/Profilgrundlage und ein reproduzierbar lokal gebundenes,
@@ -32,16 +50,15 @@ Writer wurden nicht eingeführt.
 SammlungsLotse ist als eigenständiges Projekt initialisiert. Nach
 ergebnisoffener E-Book-Erkundung ist WI-0004 als erster eng begrenzter,
 reversibler Produktprototyp implementiert und lokal vollständig abgenommen.
-WI-0021 ist nach lokaler und commitgenauer GitHub-Validierung abgeschlossen
-und integriert AI Repository Foundation 1.19.0 aus
+Historisch ist WI-0021 nach lokaler und commitgenauer GitHub-Validierung abgeschlossen
+und integrierte AI Repository Foundation 1.19.0 aus
 `4aafd20442275d0fdedf291fc6e12e8fe1f683cc`. Die vollständige Feature-Bewertung
 steht unter [FOUNDATION_UPGRADE_1_19.md](../governance/FOUNDATION_UPGRADE_1_19.md).
-Die optionale Fähigkeit `rule-context-cache` liegt am manifestierten Zielpfad
-und nutzt nur operatorbereitgestellte, nicht versionierte Cacheziele.
-Vor Cache-Check oder Record prüft `tools/governance/validate_rule_context.py`
-die vollständige Erfassung der Projektregeln und angenommenen Entscheidungen.
-Es wurde kein persistenter Cache angelegt oder konfiguriert. Die aktuelle
-lokale und GitHub-Validierung sowie der Wave-Status stehen im Projektstatus.
+Die ausgewählte Fähigkeit `rule-context-cache` liegt weiterhin am manifestierten
+Zielpfad. Der aktuelle lokale Vertrag steht unter
+[Validierung](../governance/VALIDATION.md); es ist kein persistenter
+Operatorcache angelegt oder konfiguriert. Die aktuelle lokale und
+GitHub-Validierung sowie der Wave-Status stehen im Projektstatus.
 
 main ist geschützt. Änderungen benötigen die erfolgreichen Checks
 repository-quality und registry-integrity.
@@ -73,9 +90,11 @@ EXP-0003 ist mit vierzehn erfolgreichen Evidenzkriterien abgeschlossen:
 EPUBCheck- und Ace-Rohberichte bleiben getrennt und verlustfrei, unbekannte
 Codes sowie manueller Prüfbedarf bleiben sichtbar. Das erprobte Ace-Profil
 ist wegen deaktivierter Chromium-Sandbox und offener npm-Advisories nicht
-produktqualifiziert. GitHub Dependabot meldet zusätzlich zwölf offene Befunde,
-zehn `high` und zwei `moderate`, ausschließlich im eingefrorenen
-EXP-0003-Ace/npm-Baum. EXP-0004 ist mit fünfzehn erfolgreichen Kriterien
+produktqualifiziert. Die damalige GitHub-Zählung von zwölf offenen Befunden,
+zehn `high` und zwei `moderate`, bleibt Historie. Der aktuelle isolierte
+npm-Audit vom 2026-10-09 meldet 34 betroffene Pakete, darunter zwei
+`critical`; die getrennte GitHub-Zählung und Grenzen stehen im WI-0023-Bericht.
+Ace bleibt außerhalb des Produktpfads. EXP-0004 ist mit fünfzehn erfolgreichen Kriterien
 abgeschlossen: Sechs Sollpaare bleiben auf fünf Identitätsebenen getrennt,
 Kandidaten zeigen positive und negative Evidenz, fehlende Evidenz bleibt
 separat und Leseprobe/Vollausgabe führt auf Ausgabenebene zur Enthaltung. Die
