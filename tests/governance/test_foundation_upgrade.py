@@ -11,7 +11,20 @@ ROOT = Path(__file__).resolve().parents[2]
 class FoundationUpgradeTests(unittest.TestCase):
     def test_assessment_covers_exact_material_feature_delta(self):
         catalog = json.loads((ROOT / ".ai/foundation/feature_catalog.json").read_text(encoding="utf-8"))
-        assessment = json.loads((ROOT / "docs/governance/FOUNDATION_UPGRADE_1_20.json").read_text(encoding="utf-8"))
+        for release in ("1_20", "1_21"):
+            with self.subTest(release=release):
+                assessment = json.loads(
+                    (ROOT / f"docs/governance/FOUNDATION_UPGRADE_{release}.json").read_text(encoding="utf-8")
+                )
+                self.assert_complete_assessment(catalog, assessment)
+
+        current = json.loads((ROOT / "docs/governance/FOUNDATION_UPGRADE_1_21.json").read_text(encoding="utf-8"))
+        provenance = json.loads((ROOT / ".ai/foundation/installation-provenance.json").read_text(encoding="utf-8"))
+        self.assertEqual(current["source_ref"], provenance["source_commit"])
+        self.assertEqual(current["source_version"], catalog["ruleset_version"])
+        self.assertEqual(provenance["selection"]["capabilities"], ["artifact-registry-github", "rule-context-cache"])
+
+    def assert_complete_assessment(self, catalog, assessment):
         version = lambda value: tuple(map(int, value.split(".")))
         installed, source = version(assessment["installed_version"]), version(assessment["source_version"])
         expected = {}
@@ -35,10 +48,6 @@ class FoundationUpgradeTests(unittest.TestCase):
                 self.assertTrue((ROOT / relative).is_file(), relative)
             if item["classification"] in {"RECOMMENDED", "DECISION_REQUIRED", "CONFLICT"}:
                 self.assertTrue(item.get("recommendation") or item.get("decision_required"))
-        provenance = json.loads((ROOT / ".ai/foundation/installation-provenance.json").read_text(encoding="utf-8"))
-        self.assertEqual(assessment["source_ref"], provenance["source_commit"])
-        self.assertEqual(assessment["source_version"], catalog["ruleset_version"])
-        self.assertEqual(provenance["selection"]["capabilities"], ["artifact-registry-github", "rule-context-cache"])
 
 
 if __name__ == "__main__":

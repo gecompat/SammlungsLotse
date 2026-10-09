@@ -4,6 +4,26 @@ Status: AUTHORITATIVE
 
 Stand: 2026-10-09
 
+## Foundation 1.21 und Testzykluskorrektur WI-0024
+
+Foundation 1.21.0 aus `d720db4f2f0d043756a958d5195d0e62090b1c8f`
+ist für diese Governancewave installiert. Die
+[vollständige Bewertung](../governance/FOUNDATION_UPGRADE_1_21.md) erfasst
+alle sieben Feature-Kandidaten und den tatsächlichen Test-, Log-, Review-
+und Modellaufwand. Die ausgewählten Fähigkeiten und Projekt-/Produktgrenzen
+bleiben erhalten. [DEC-0006](../decisions/DEC-0006-CI_VALIDATION_SCOPE.md)
+bindet die neue, enge CI-Auswahl: beide Pflichtkontexte laufen für jeden
+PR-Head; nur bei einem exakten Status-/Handover-Diff entfallen nicht betroffene
+Runtime-Schritte. Doppelte direkte TEST-0001-/EXP-Ergebnisvalidatoren sind
+aus dem allgemeinen Workflow entfernt; die Suite und getrennte aktuelle
+Produktqualifikationen behalten ihre Verträge. Unbekannte Diffs führen zur
+Vollprüfung. WI-0024 führt keine Produkt- oder Experimentänderung ein.
+Lokal bestanden Foundationintegrität, Projekt-/Registryprüfung für 93
+Artefakte, Discovery für 194 Quellen, 361 Repository-Tests mit vier sichtbaren
+Windows-Symlink-Skips sowie die fünf aktuellen Produktqualifikations-
+Ergebnisvalidatoren. Diese Zahlen sind der lokale WI-0024-Prüfstand;
+Pflicht-CI bleibt an den exakten PR-Head gebunden.
+
 ## Foundation- und Governanceupgrade WI-0023
 
 Foundation 1.20.0 aus `39ae5c534bb0cf78046485754ed1be7867bf9534` ist
@@ -34,13 +54,12 @@ belegt unveränderte Wiederverwendung ohne Record, gezielte Invalidierung und
 fail-closed Verhalten bei fehlender Autorität oder Analyse. Der aktuelle
 Python-3.14-Lauf blieb an der dokumentierten ZIP-Reproduzierbarkeitsgrenze
 nicht grün; alle Eingänge blieben unverändert. Details stehen im WI-0023-Bericht.
-[PR #129](https://github.com/gecompat/SammlungsLotse/pull/129) bestand beide
-Pflichtchecks auf `52ff07fa0b85726f83ad02a22a71b1e437b17920`. Der
-Abschlusszustand von WI-0023 ist im PR `done` und wird durch den geschützten
-Merge kanonisch. Auch die abschließende Status-/Evidenzänderung benötigt
-beide Checks auf ihrem exakten Head. Aktueller Head und tatsächlicher Merge
-sind am verlinkten PR nachprüfbar; ältere grüne Checks ersetzen diese Bindung
-nicht. Es ist keine neue Produkt- oder Automationswave ausgewählt.
+[PR #129](https://github.com/gecompat/SammlungsLotse/pull/129) ist seit
+2026-10-09T11:26:30Z gemergt. Beide Pflichtchecks bestanden auf dem
+abschließenden PR-Head `973f7f49e474e256867ca11f8e5e59aff421f9fb`;
+der Mergecommit ist `fbcfe1abee1310690c75be83098de406740cf51c`.
+WI-0023 ist damit kanonisch `done`. Die früheren lokalen und CI-Zahlen in
+diesem Abschnitt bleiben der historische 1.20-Prüfstand.
 
 ## Branch-Konsolidierung WI-0022
 

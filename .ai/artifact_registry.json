@@ -144,6 +144,23 @@
       "status": "accepted",
       "title": "Lokalen Rule-Context-Cache selektiv einführen"
     },
+    "DEC-0006": {
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a120e0-9c38-730e-a19d-0ecd7ee1104f",
+      "created_on": "2026-10-09",
+      "external_refs": [],
+      "kind": "decision",
+      "locator": "docs/decisions/DEC-0006-CI_VALIDATION_SCOPE.md",
+      "registration_state": "REGISTERED",
+      "relations": [
+        {
+          "target": "WI-0024",
+          "type": "related_to"
+        }
+      ],
+      "status": "accepted",
+      "title": "Vertragsbezogene CI-Pruefungen ohne doppelte Validatorlaeufe"
+    },
     "EXP-0001": {
       "acceptance_criteria": "Wegwerfbare Experimente vergleichen unterstützte Calibre-Zugänge, Formatprüfer, Extraktion, Identitätsverfahren, Suche und isolierte Werkzeugausführung anhand des synthetischen Referenzkorpus.",
       "aliases": [],
@@ -3642,6 +3659,18 @@
       ],
       "status": "done",
       "title": "Foundation 1.20 und scopeabhängige Governance integrieren"
+    },
+    "WI-0024": {
+      "aliases": [],
+      "artifact_uid": "urn:uuid:01a120e0-7346-75c0-a66b-734b881ef859",
+      "created_on": "2026-10-09",
+      "external_refs": [],
+      "kind": "work_item",
+      "locator": "docs/governance/FOUNDATION_UPGRADE_1_21.md",
+      "registration_state": "REGISTERED",
+      "relations": [],
+      "status": "done",
+      "title": "Foundation 1.21 und effiziente Testzyklen integrieren"
     }
   },
   "prefixes": {

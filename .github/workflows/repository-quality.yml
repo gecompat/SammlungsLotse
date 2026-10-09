@@ -22,6 +22,16 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      - name: Select checks for the exact change
+        id: scope
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: >-
+          python tools/governance/select_repository_quality.py
+          --base "$BASE_SHA" --head "$HEAD_SHA"
+          --github-output "$GITHUB_OUTPUT"
       - name: Validate project repository contracts
         run: python tools/governance/validate_repository.py
       - name: Validate artifact registry
@@ -29,51 +39,26 @@ jobs:
           python .ai/foundation/artifact_registry_github/registry_semantic.py
           validate
           --registry .ai/artifact_registry.json
-      - name: Validate TEST-0001 E-book fixture corpus
-        run: python tools/fixtures/validate_ebook_reference_corpus.py
-      - name: Validate EXP-0002 empirical result contract
-        run: python tools/experiments/run_exp_0002.py --validate-result
-      - name: Validate EXP-0003 empirical result contract
-        run: python tools/experiments/run_exp_0003.py --validate-result
-      - name: Validate EXP-0004 empirical result contract
-        run: python tools/experiments/run_exp_0004.py --validate-result
-      - name: Validate EXP-0005 empirical result contract
-        run: python tools/experiments/run_exp_0005.py --validate-result
-      - name: Validate EXP-0006 empirical result contract
-        run: python tools/experiments/run_exp_0006.py --validate-result
-      - name: Validate EXP-0007 empirical result contract
-        run: python tools/experiments/validate_exp_0007_result.py
-      - name: Validate EXP-0009 empirical result contract
-        run: python tools/experiments/validate_exp_0009_result.py
-      - name: Validate EXP-0010 empirical result contract
-        run: python tools/experiments/validate_exp_0010_result.py
-      - name: Validate EXP-0011 empirical result contract
-        run: python tools/experiments/validate_exp_0011_result.py
-      - name: Validate EXP-0012 empirical result contract
-        run: python tools/experiments/validate_exp_0012_result.py
-      - name: Validate EXP-0013 empirical result contract
-        run: python tools/experiments/validate_exp_0013_result.py
-      - name: Validate EXP-0014 empirical result contract
-        run: python tools/experiments/validate_exp_0014_result.py
-      - name: Validate EXP-0015 empirical result contract
-        run: python tools/experiments/validate_exp_0015_result.py
-      - name: Validate EXP-0016 empirical result contract
-        run: python tools/experiments/validate_exp_0016_result.py
-      - name: Validate EXP-0017 empirical result contract
-        run: python tools/experiments/validate_exp_0017_result.py
       - name: Validate WI-0005 product qualification result
+        if: steps.scope.outputs.runtime_required == 'true'
         run: python tools/qualify_ebook_deep_profile.py --validate-result
       - name: Validate WI-0014 product qualification result
+        if: steps.scope.outputs.runtime_required == 'true'
         run: python tools/qualify_ebook_intake_context.py --validate-result
       - name: Validate WI-0007 product qualification result
+        if: steps.scope.outputs.runtime_required == 'true'
         run: python tools/qualify_calibre_readonly_profile.py --validate-result
       - name: Validate current EPUB identity product qualification result
+        if: steps.scope.outputs.runtime_required == 'true'
         run: python tools/qualify_ebook_identity.py --validate-result
       - name: Validate WI-0011 product qualification result
+        if: steps.scope.outputs.runtime_required == 'true'
         run: python tools/qualify_ebook_calibre_identity.py --validate-result
       - name: Run repository tests
+        if: steps.scope.outputs.runtime_required == 'true'
         run: python tools/run_repository_tests.py
       - name: Compile Python sources and tools
+        if: steps.scope.outputs.runtime_required == 'true'
         run: >-
           python -m compileall -q
           src/sammlungslotse
