@@ -59,6 +59,10 @@ Weitere Reviews benötigen eine konkrete offene Frage und Akzeptanzkriterien.
 Wiederholbare mechanische Prüfungen erfolgen lokal; bereits grüne Prüfungen
 werden nur bei geänderten Eingängen, neuen Befunden oder Pflichtbindung erneut
 ausgeführt. Vorgeschriebene unabhängige Reviews und Pflicht-CI bleiben erhalten.
+Für Tests gilt die Auswahl nach betroffenem Vertrag und Entwicklungsphase in
+[VALIDATION.md](VALIDATION.md). Der erforderliche CI-Status bleibt auf dem
+aktuellen PR-Head gebunden; die eng begrenzte Status-Diff-Auswahl folgt
+[DEC-0006](../decisions/DEC-0006-CI_VALIDATION_SCOPE.md).
 
 ## Projektphase
 

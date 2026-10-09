@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "installed_version": "1.20.0",
+  "source_version": "1.21.0",
+  "source_ref": "d720db4f2f0d043756a958d5195d0e62090b1c8f",
+  "assessments": [
+    {
+      "feature_id": "bounded-processing-efficiency",
+      "candidate_reasons": ["material_change:1.21.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": ["docs/governance/PROJECT_RULES.md", "docs/governance/VALIDATION.md", ".github/workflows/repository-quality.yml"],
+      "rationale": "Die neue Pflichtbewertung wird auf tatsächliche CI-, Test-, Log- und Reviewwege angewandt. Bestehende Session-/Cacheverträge bleiben erhalten; unnötige Validator-Doppelaufrufe und reine Status-Runtimeläufe werden beseitigt."
+    },
+    {
+      "feature_id": "foundation-baseline",
+      "candidate_reasons": ["material_change:1.21.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": ["AGENTS.md", ".ai/foundation/FOUNDATION_RULESET.md", "docs/governance/PROJECT_RULES.md"],
+      "rationale": "Der aktualisierte Root-Bridge-Abschnitt und das Ruleset verweisen auf die reale Overheadbewertung. Projektregeln bleiben außerhalb des Foundation-Blocks maßgeblich."
+    },
+    {
+      "feature_id": "installed-foundation-provenance",
+      "candidate_reasons": ["material_change:1.21.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [".ai/foundation/installation-provenance.json"],
+      "rationale": "Ausgewählte Manifestquellen werden gegen portable Hashes geprüft und der exakte Quellcommit wird dateigenau aufgezeichnet. Nur Root-Bridge und bestehender Registryworkflow sind begründete Ziel-Overrides."
+    },
+    {
+      "feature_id": "layered-validation",
+      "candidate_reasons": ["material_change:1.21.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": ["docs/governance/VALIDATION.md", ".github/workflows/repository-quality.yml", "docs/decisions/DEC-0006-CI_VALIDATION_SCOPE.md"],
+      "rationale": "Foundationintegrität bleibt getrennt von Projekt- und Runtimeprüfungen. Entwicklung, Integration und historische Qualifikation werden ausdrücklich getrennt; nicht anwendbare Runtime-Schritte werden nicht als frisch validiert gemeldet."
+    },
+    {
+      "feature_id": "processing-overhead-assessment",
+      "candidate_reasons": ["introduced_in:1.21.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": ["docs/governance/FOUNDATION_UPGRADE_1_21.md", "docs/decisions/DEC-0006-CI_VALIDATION_SCOPE.md", "tools/governance/select_repository_quality.py"],
+      "rationale": "Die dokumentierte Prüfung deckt tatsächliche Testtrigger, doppelte Validatoren, Selbsttests, Logs, Review- und Modellaufrufe sowie Polling ab. Der enge CI-Selektor ist fail-closed; verbleibende volle Checks haben einen begrenzten Schutzgrund."
+    },
+    {
+      "feature_id": "rules-only-transfer",
+      "candidate_reasons": ["material_change:1.21.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [".ai/foundation/installation-provenance.json", ".ai/foundation/feature_catalog.json"],
+      "rationale": "Nur manifestierte neue Corebytes und die schon ausgewählten Fähigkeiten/Adapter werden übernommen. Keine Foundation-Projektzustände, Tests oder nicht ausgewählten Laufzeitfähigkeiten werden kopiert."
+    },
+    {
+      "feature_id": "semantic-integration",
+      "candidate_reasons": ["material_change:1.21.0"],
+      "classification": "PROJECT_STRONGER",
+      "evidence": ["docs/governance/PROJECT_RULES.md", "docs/governance/VALIDATION.md", "docs/decisions/DEC-0006-CI_VALIDATION_SCOPE.md"],
+      "rationale": "Das Projekt behält vollständige Governance-Discovery, eigene Registry-/Produktverträge, Pflicht-CI und exakte Headbindung. Die stärkeren Regeln werden mit konkreter Overheadbewertung und begrenzter lokaler Korrektur erhalten statt pauschal gelockert."
+    }
+  ]
+}

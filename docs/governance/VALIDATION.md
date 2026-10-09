@@ -111,7 +111,13 @@ Abhängigkeiten, verlorene Analyse sowie den unveränderten persistenten Vertrag
 
 ## RUNTIME_EMPIRICAL
 
-Für Produkt-, Governance- und Fixture-Code gelten:
+Während Diagnose und Entwicklung laufen zunächst die Prüfungen des
+betroffenen Vertrags. Änderungen an Governance-Code prüfen seine fokussierten
+Regressionen; Änderungen an Produkt-, Fixture- oder gemeinsam genutztem
+Testcode prüfen die entsprechenden Runtime-Verträge. Ein unveränderter grüner
+Lauf wird nicht wegen eines weiteren Bearbeitungsschritts wiederholt.
+Für die vollständige Runtime-Integration eines stabilen Kandidaten und bei
+unklaren Abhängigkeiten gilt:
 
     python tools/run_repository_tests.py
 
@@ -552,6 +558,18 @@ Rohbelege bleiben außerhalb von Git für die manuelle Nachprüfung erhalten.
 
 Repository Quality führt die lokalen Projekt- und Governance-Prüfungen unter
 Python 3.12 aus.
+Der erforderliche Statuskontext läuft für jeden PR-Head und jeden Push auf
+`main`. Projekt- und Registryprüfung laufen stets. Nur ein exakt auf
+Projektstatus und/oder Übergabe begrenzter Git-Diff überspringt die dort
+nicht betroffenen Runtime-, Qualifikations- und Kompilierungsschritte gemäß
+[DEC-0006](../decisions/DEC-0006-CI_VALIDATION_SCOPE.md). Jeder andere oder
+unklare Diff verwendet den vollständigen Pfad. Die Suite führt die
+gespeicherten TEST-0001-, EXP-0002-bis-EXP-0007- und
+EXP-0009-bis-EXP-0017-Ergebnisprüfungen samt
+zusätzlichen Regressionen aus; diese identischen Validatoren werden nicht
+nochmals direkt im selben Workflow aufgerufen. Die getrennten aktuellen
+WI-Qualifikationsschritte bleiben erhalten. Ein übersprungener Schritt ist
+für den eng gebundenen Status-Diff `not applicable`, nicht frisch validiert.
 
 Artifact Registry Integrity validiert Registry-Änderungen, offene
 Pull-Request-Kollisionen, den objektbasierten Merge und die Gleichheit mit dem

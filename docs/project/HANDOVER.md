@@ -6,6 +6,21 @@ Stand: 2026-10-09
 
 ## Aktueller Stand
 
+WI-0024 installiert Foundation 1.21.0 aus
+`d720db4f2f0d043756a958d5195d0e62090b1c8f`. Die
+[Upgrade- und Overheadbewertung](../governance/FOUNDATION_UPGRADE_1_21.md)
+und [DEC-0006](../decisions/DEC-0006-CI_VALIDATION_SCOPE.md) sind für
+Validierungsfortsetzung maßgeblich. Ein exakter reiner Status-/Übergabe-Diff
+behält Projekt- und Registryprüfung auf dem aktuellen PR-Head, während
+nicht betroffene Runtime-Schritte entfallen. Alle anderen/unklaren Änderungen
+nehmen den vollständigen CI-Pfad. Die vorhandene Suite prüft die historischen
+Ergebnisverträge einmal; aktuelle WI-Qualifikationen bleiben getrennt.
+Produktcode, Fixtures und historische Evidenz wurden nicht geändert.
+Der lokale WI-0024-Prüfstand umfasst Foundation-, Projekt-, Registry- und
+Discoveryverträge (194 Quellen), 361 Tests mit vier sichtbaren
+Windows-Symlink-Skips und die fünf aktuellen Produktqualifikationen. Die
+erforderliche CI- und Mergebindung wird getrennt am PR nachgewiesen.
+
 WI-0023 aktualisiert Foundation auf 1.20.0 aus
 `39ae5c534bb0cf78046485754ed1be7867bf9534`. Die aktuelle
 [Upgradebewertung](../governance/FOUNDATION_UPGRADE_1_20.md) und
@@ -18,12 +33,12 @@ werden vor Wiederverwendung geprüft. Der persistente Cachevertrag bleibt
 unverändert streng und optional. Die lokale Abschlussvalidierung ist unter
 Python 3.13.15 erfolgreich (356 Tests, vier sichtbare Capability-Skips);
 Foundation-, Projekt-, Registry-, Discovery- und Fixtureverträge bestehen.
-[PR #129](https://github.com/gecompat/SammlungsLotse/pull/129) führt den
-geprüften Abschlusszustand. Beide Pflichtchecks bestanden auf
-`52ff07fa0b85726f83ad02a22a71b1e437b17920`; die abschließende Statusänderung
-unterliegt denselben Checks auf ihrem eigenen Head. WI-0023 ist im PR `done`
-und erst durch den geschützten Merge kanonisch. Aktueller Head und tatsächliche
-Integration sind am PR nachprüfbar; Details stehen im WI-0023-Bericht.
+[PR #129](https://github.com/gecompat/SammlungsLotse/pull/129) wurde am
+2026-10-09T11:26:30Z mit beiden erfolgreichen Pflichtchecks auf dem
+abschließenden Head `973f7f49e474e256867ca11f8e5e59aff421f9fb`
+integriert; Mergecommit
+`fbcfe1abee1310690c75be83098de406740cf51c`. WI-0023 ist kanonisch
+`done`; seine Validierungszahlen sind ein historischer 1.20-Prüfstand.
 
 WI-0022 hat die vorhandenen Branches geprüft und konsolidiert. Die 20
 vollständig in origin/main enthaltenen lokalen Arbeitsbranches sind entfernt;
