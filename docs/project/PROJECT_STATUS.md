@@ -2,7 +2,27 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-10-09
+Stand: 2026-10-10
+
+## Foundation-Upgrade WI-0025
+
+Foundation 1.23.0 aus `ec6ece8acde5328af0836bae559003eac1c51b41`
+ist für den neuen Integrationsstand übernommen. Die
+[vollständige Upgradebewertung](../governance/FOUNDATION_UPGRADE_1_23.md)
+erfasst sieben Kandidaten aus 1.22 und 1.23 und die weiter geltende
+Overheadprüfung. Defaultadapter, `artifact-registry-github` und
+`rule-context-cache` bleiben die einzigen ausgewählten Zusatzfähigkeiten.
+Stdio-Runtime und autonome Orchestratorsteuerung sind nicht eingerichtet;
+Projektgrenzen, Registry, historische Kennungen und read-only-Verträge bleiben
+unverändert. Die [aktuelle Provenienz](../../.ai/foundation/installation-provenance.json)
+bindet Quellcommit und alle 80 ausgewählten Dateien. Die manuelle Übergabe
+bleibt ausreichend; eine automatische Sessionrotation wäre ein eigener
+registrierter und qualifizierter Scope.
+Lokal bestanden Foundationintegrität (84 INFO), Projekt-/Registryprüfung
+für 94 Artefakte, Discovery für 197 Quellen, 361 Repository-Tests mit vier
+sichtbaren Windows-Symlink-Skips und 67 gezielte Tests am gepinnten
+Foundation-Quellstand. Diese Zahlen gehören zum WI-0025-Prüfstand; die
+Pflicht-CI validiert ihren eigenen exakten PR-Head.
 
 ## Foundation 1.21 und Testzykluskorrektur WI-0024
 
@@ -23,6 +43,12 @@ Artefakte, Discovery für 194 Quellen, 361 Repository-Tests mit vier sichtbaren
 Windows-Symlink-Skips sowie die fünf aktuellen Produktqualifikations-
 Ergebnisvalidatoren. Diese Zahlen sind der lokale WI-0024-Prüfstand;
 Pflicht-CI bleibt an den exakten PR-Head gebunden.
+[PR #130](https://github.com/gecompat/SammlungsLotse/pull/130) wurde am
+2026-10-09T13:47:17Z nach beiden erfolgreichen Pflichtchecks auf Head
+`29ac291c87e0477fae2ee1eff33b31c6b6221a44` gemergt; der Mergecommit
+ist `43aae03764b7679c276205062b7e7e8cd6a84a34`. Der nachgelagerte
+Repository-Quality-Lauf auf `main` war ebenfalls erfolgreich. WI-0024 ist
+kanonisch `done`; seine lokalen Zahlen bleiben ein historischer Prüfstand.
 
 ## Foundation- und Governanceupgrade WI-0023
 

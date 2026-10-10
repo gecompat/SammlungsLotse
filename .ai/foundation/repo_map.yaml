@@ -1,5 +1,5 @@
 schema_version: 1
-foundation_ruleset_version: 1.21.0
+foundation_ruleset_version: 1.23.0
 canonical_entrypoint: AGENTS.md
 authority:
   required_or_baseline:
@@ -68,6 +68,7 @@ authority:
     - .ai/foundation/schemas/model-evidence-sources.schema.json
     - .ai/foundation/schemas/ai-orchestration-request.schema.json
     - .ai/foundation/schemas/ai-orchestration-report.schema.json
+    - .ai/foundation/schemas/orchestrator-control.schema.json
     - .ai/foundation/schemas/session-lifecycle-request.schema.json
     - .ai/foundation/schemas/session-lifecycle-decision.schema.json
     - .ai/foundation/schemas/session-handoff.schema.json
