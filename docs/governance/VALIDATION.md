@@ -8,7 +8,7 @@ Foundation-Check belegt nicht die Projektrichtigkeit.
 ## FOUNDATION_INTEGRITY
 
 Die Foundation-Quellversion besitzt den kanonischen Validator. Für die
-installierte Foundation 1.20.0 und die ausgewählten Fähigkeiten
+installierte Foundation 1.23.0 und die ausgewählten Fähigkeiten
 `artifact-registry-github` und `rule-context-cache` lautet der allgemeine Aufruf:
 
     python tools/foundation_validator.py \
@@ -22,9 +22,9 @@ Quellcommits ausgeführt. Der Validator wird gemäß Foundation-Manifest nicht i
 dieses Zielrepository kopiert.
 
 Der installierte Quellstand ist
-`39ae5c534bb0cf78046485754ed1be7867bf9534`. Die vollständige semantische
+`ec6ece8acde5328af0836bae559003eac1c51b41`. Die vollständige semantische
 Upgrade-Bewertung steht in
-[FOUNDATION_UPGRADE_1_20.md](FOUNDATION_UPGRADE_1_20.md). Der genaue Transfer
+[FOUNDATION_UPGRADE_1_23.md](FOUNDATION_UPGRADE_1_23.md). Der genaue Transfer
 und die begründeten Abweichungen stehen in
 [installation-provenance.json](../../.ai/foundation/installation-provenance.json).
 Ein persistenter Operatorcache ist kein Validierungsnachweis.

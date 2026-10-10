@@ -11,14 +11,14 @@ ROOT = Path(__file__).resolve().parents[2]
 class FoundationUpgradeTests(unittest.TestCase):
     def test_assessment_covers_exact_material_feature_delta(self):
         catalog = json.loads((ROOT / ".ai/foundation/feature_catalog.json").read_text(encoding="utf-8"))
-        for release in ("1_20", "1_21"):
+        for release in ("1_20", "1_21", "1_23"):
             with self.subTest(release=release):
                 assessment = json.loads(
                     (ROOT / f"docs/governance/FOUNDATION_UPGRADE_{release}.json").read_text(encoding="utf-8")
                 )
                 self.assert_complete_assessment(catalog, assessment)
 
-        current = json.loads((ROOT / "docs/governance/FOUNDATION_UPGRADE_1_21.json").read_text(encoding="utf-8"))
+        current = json.loads((ROOT / "docs/governance/FOUNDATION_UPGRADE_1_23.json").read_text(encoding="utf-8"))
         provenance = json.loads((ROOT / ".ai/foundation/installation-provenance.json").read_text(encoding="utf-8"))
         self.assertEqual(current["source_ref"], provenance["source_commit"])
         self.assertEqual(current["source_version"], catalog["ruleset_version"])

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "installed_version": "1.21.0",
+  "source_version": "1.23.0",
+  "source_ref": "ec6ece8acde5328af0836bae559003eac1c51b41",
+  "assessments": [
+    {
+      "feature_id": "ai-runtime-adapters",
+      "candidate_reasons": ["material_change:1.22.0"],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [".ai/foundation/installation-provenance.json", "docs/governance/PROJECT_RULES.md"],
+      "rationale": "Das Projekt hat keine ausgewählte AI-Runtime-Adapterfähigkeit, keine benannte externe Modellverbindung und keinen Auftrag für Stdio-/HTTP-Konfiguration. Die aktualisierten Core-Policy- und Schemaverträge werden übertragen; eine ausführbare Verbindung oder Credential-Autorität wird nicht eingeführt."
+    },
+    {
+      "feature_id": "ai-work-execution",
+      "candidate_reasons": ["material_change:1.23.0"],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [".ai/foundation/installation-provenance.json", "docs/governance/PROJECT_RULES.md"],
+      "rationale": "Der optionale AI-Executor ist nicht installiert oder als Ausführungsweg ausgewählt. Die gemeinsame atomare State-I/O-Referenz wird als manifestierter Core übertragen, ohne Checkpointdienst, Replay oder externe Effekte einzurichten."
+    },
+    {
+      "feature_id": "ai-work-orchestration",
+      "candidate_reasons": ["material_change:1.22.0", "material_change:1.23.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [".ai/foundation/AI_WORK_ORCHESTRATION_POLICY.md", "docs/governance/PROJECT_RULES.md", ".ai/foundation/installation-provenance.json"],
+      "rationale": "Der providerneutrale Corevertrag für optionale Stdio-Verbindungen und deterministische Steuerung wird übernommen. Planner, Router, Adapter, Executor und Orchestrator bleiben ungewählt; Fähigkeiten erzeugen weder Ausführungs- noch Remote-Autorität."
+    },
+    {
+      "feature_id": "bounded-processing-efficiency",
+      "candidate_reasons": ["material_change:1.23.0"],
+      "classification": "PROJECT_STRONGER",
+      "evidence": ["docs/governance/PROJECT_RULES.md", "docs/governance/FOUNDATION_UPGRADE_1_21.md", "docs/decisions/DEC-0006-CI_VALIDATION_SCOPE.md"],
+      "rationale": "Ein Owner, endliche Wave, geänderte Eingänge für Wiederholungen und der eng begrenzte CI-Selektor bleiben wirksam. Automatische Continuation und Heartbeat sind nicht eingerichtet; die neue optionale gemeinsame Budget-/Dispatchmechanik lockert diese strengere lokale Grenze nicht."
+    },
+    {
+      "feature_id": "foundation-baseline",
+      "candidate_reasons": ["material_change:1.23.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": ["AGENTS.md", ".ai/foundation/FOUNDATION_RULESET.md", ".ai/foundation/repo_map.yaml"],
+      "rationale": "Versionierter Core, neue gemeinsame State-I/O-Referenz und Orchestrator-Control-Schema sind manifestgemäß übernommen. Der Root-Bridge-Hinweis macht die optionale Steuerung nur auffindbar und aktiviert sie nicht; Projekt-Governance bleibt maßgeblich."
+    },
+    {
+      "feature_id": "orchestrator-job-control",
+      "candidate_reasons": ["introduced_in:1.23.0"],
+      "classification": "NOT_APPLICABLE",
+      "evidence": [".ai/foundation/installation-provenance.json", "docs/governance/PROJECT_RULES.md", "docs/project/HANDOVER.md"],
+      "rationale": "Es gibt keinen ausgewählten Orchestrator, keine konfigurierte Host-Attestierung, keinen automatischen Job und keine Autorisierung für periodische Modell-Wakes oder externes Benachrichtigen. Die Coreverträge werden bereitgestellt; Aktivierung bräuchte einen getrennten endlichen Auftrag und eine dokumentierte Projektauswahl."
+    },
+    {
+      "feature_id": "session-lifecycle-management",
+      "candidate_reasons": ["material_change:1.23.0"],
+      "classification": "RECOMMENDED",
+      "evidence": ["docs/project/HANDOVER.md", "docs/governance/PROJECT_RULES.md", ".ai/foundation/installation-provenance.json"],
+      "rationale": "Das lang laufende Projekt besitzt bereits eine repositorygebundene manuelle Übergabe. Die neue gesicherte automatische Vorgänger-/Nachfolger-Rotation ist ohne ausgewählten Host und Orchestrator nicht ausführbar; die manuelle Fortsetzung bleibt aktuell ausreichend.",
+      "recommendation": "Manuelle Übergabe beibehalten. Erst bei einem eigenen Auftrag für automatische Sessionfortsetzung Host-Evidenz, Schwellen, externen Handoff-Speicher und Budget-/Owner-Fencing entscheiden und qualifizieren."
+    }
+  ]
+}

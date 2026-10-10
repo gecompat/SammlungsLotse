@@ -2,9 +2,23 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-10-09
+Stand: 2026-10-10
 
 ## Aktueller Stand
+
+WI-0025 übernimmt Foundation 1.23.0 aus
+`ec6ece8acde5328af0836bae559003eac1c51b41`. Die
+[Upgradebewertung](../governance/FOUNDATION_UPGRADE_1_23.md) hält alle sieben
+Featurekandidaten, Provenienz und Overheadbewertung fest. Ausgewählt bleiben
+Defaultadapter, `artifact-registry-github` und `rule-context-cache`.
+Orchestratorsteuerung, Stdio-Modellruntime und automatische Sessionrotation
+sind nicht aktiviert. Für Fortsetzung gelten die bisherigen Projektregeln,
+Discovery-/Cacheverträge und DEC-0006-CI-Auswahl; der Foundationvalidator
+belegt allein die Foundationintegrität.
+Lokal bestanden Foundation-, Projekt-, Registry- und Discoveryprüfungen
+(197 Quellen), 361 Repository-Tests mit vier sichtbaren Windows-Symlink-
+Skips sowie 67 gezielte Foundation-Quelltests. Erforderliche PR-Checks
+bleiben an den exakten Head gebunden.
 
 WI-0024 installiert Foundation 1.21.0 aus
 `d720db4f2f0d043756a958d5195d0e62090b1c8f`. Die
@@ -20,6 +34,12 @@ Der lokale WI-0024-Prüfstand umfasst Foundation-, Projekt-, Registry- und
 Discoveryverträge (194 Quellen), 361 Tests mit vier sichtbaren
 Windows-Symlink-Skips und die fünf aktuellen Produktqualifikationen. Die
 erforderliche CI- und Mergebindung wird getrennt am PR nachgewiesen.
+[PR #130](https://github.com/gecompat/SammlungsLotse/pull/130) ist seit
+2026-10-09T13:47:17Z nach beiden erfolgreichen Pflichtchecks auf dem
+abschließenden Head `29ac291c87e0477fae2ee1eff33b31c6b6221a44`
+integriert; Mergecommit
+`43aae03764b7679c276205062b7e7e8cd6a84a34`. Der nachgelagerte
+`main`-Lauf war erfolgreich und WI-0024 ist kanonisch `done`.
 
 WI-0023 aktualisiert Foundation auf 1.20.0 aus
 `39ae5c534bb0cf78046485754ed1be7867bf9534`. Die aktuelle
