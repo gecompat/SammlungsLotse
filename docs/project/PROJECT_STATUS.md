@@ -2,12 +2,36 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-10-10
+Stand: 2026-10-22
+
+## Foundation-Upgrade und Dokumentationswege WI-0026
+
+Foundation 1.25.0 aus `9e1b9974de58ea775d40c7c6045cd5057ba8b30c`
+ist für den aktuellen Integrationsstand übernommen. Die
+[Upgrade- und Overheadbewertung](../governance/FOUNDATION_UPGRADE_1_25.md)
+ordnet alle vier Featurekandidaten seit 1.23 ein. 81 manifestierte Dateien,
+darunter die neue optionale Testevidenzregel, sind in der
+[Provenienz](../../.ai/foundation/installation-provenance.json) an Quellcommit
+und Manifest gebunden. Defaultadapter, `artifact-registry-github` und
+`rule-context-cache` bleiben ausgewählt; geschützte Testevidenzanerkennung,
+AI-Runtime und automatische Orchestrierung sind nicht aktiviert.
+
+Der README führt nun zu einer [lokalen read-only-Anleitung](../guides/LOCAL_READONLY_EXAMPLES.md)
+mit synthetischen Eingängen. Ein [.ai-Überblick](../../.ai/README.md)
+erschließt menschlich den AI-/Registry-/Foundation-Prüfpfad. Die lange
+historische Planungsnavigation ist als begrenzte Altlast WI-0027 für die
+Projektpflege registriert; Auslöser ist ihr nächster materieller Umbau.
+Vollständige Dokumentationskonformität des Altbestands wird nicht behauptet.
+Lokal bestanden Foundationintegrität (85 INFO), Projekt- und Registryprüfung
+für 96 Artefakte, Discovery für 205 Quellen, 20 fokussierte Projekttests,
+65 Foundation-Quelltests und 361 Repository-Tests mit vier sichtbaren
+Windows-Symlink-Skips. Diese lokalen Zahlen sind ein datierter Prüfstand;
+die Pflicht-CI bindet den tatsächlichen PR-Head gesondert.
 
 ## Foundation-Upgrade WI-0025
 
 Foundation 1.23.0 aus `ec6ece8acde5328af0836bae559003eac1c51b41`
-ist für den neuen Integrationsstand übernommen. Die
+war der damalige Integrationsstand. Die
 [vollständige Upgradebewertung](../governance/FOUNDATION_UPGRADE_1_23.md)
 erfasst sieben Kandidaten aus 1.22 und 1.23 und die weiter geltende
 Overheadprüfung. Defaultadapter, `artifact-registry-github` und

@@ -8,6 +8,7 @@ Projektwahrheit.
 ## Produkt
 
 - [Projektauftrag](product/PROJECT_CHARTER.md)
+- [Lokale read-only-Beispiele mit synthetischen Eingängen](guides/LOCAL_READONLY_EXAMPLES.md)
 
 ## Architektur
 
@@ -15,6 +16,7 @@ Projektwahrheit.
 
 ## Governance
 
+- [AI-Einstieg](../AGENTS.md) und [Metadatenübersicht](../.ai/README.md)
 - [Projektregeln](governance/PROJECT_RULES.md)
 - [Dokumentationsstil](governance/DOCUMENTATION_STYLE.md)
 - [Validierung](governance/VALIDATION.md)

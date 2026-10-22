@@ -8,7 +8,7 @@ Foundation-Check belegt nicht die Projektrichtigkeit.
 ## FOUNDATION_INTEGRITY
 
 Die Foundation-Quellversion besitzt den kanonischen Validator. Für die
-installierte Foundation 1.23.0 und die ausgewählten Fähigkeiten
+installierte Foundation 1.25.0 und die ausgewählten Fähigkeiten
 `artifact-registry-github` und `rule-context-cache` lautet der allgemeine Aufruf:
 
     python tools/foundation_validator.py \
@@ -22,9 +22,9 @@ Quellcommits ausgeführt. Der Validator wird gemäß Foundation-Manifest nicht i
 dieses Zielrepository kopiert.
 
 Der installierte Quellstand ist
-`ec6ece8acde5328af0836bae559003eac1c51b41`. Die vollständige semantische
+`9e1b9974de58ea775d40c7c6045cd5057ba8b30c`. Die vollständige semantische
 Upgrade-Bewertung steht in
-[FOUNDATION_UPGRADE_1_23.md](FOUNDATION_UPGRADE_1_23.md). Der genaue Transfer
+[FOUNDATION_UPGRADE_1_25.md](FOUNDATION_UPGRADE_1_25.md). Der genaue Transfer
 und die begründeten Abweichungen stehen in
 [installation-provenance.json](../../.ai/foundation/installation-provenance.json).
 Ein persistenter Operatorcache ist kein Validierungsnachweis.
@@ -42,6 +42,25 @@ Die erste Prüfung kontrolliert erforderliche Projektquellen, interne
 Dokumentlinks, Projektidentität, Registry-Locators, Repository-Hygiene und die
 vollständige Rule-Context-Discovery. Die
 zweite Prüfung kontrolliert die v2-Registry-Semantik.
+
+Bei Änderungen an einer menschlichen Anleitung werden außerdem ihr
+vollständiger betroffener Leseweg und die nötigen Folgeseiten aus Sicht der
+Lesenden geprüft: Zweck, Voraussetzungen, Schritte, Ergebnis, Grenzen und
+Hilfe bei Abweichungen. Für AI-/Maschineninformationen führt der Pfad von
+`AGENTS.md` über `.ai/README.md` zur kanonischen Regel, Registry oder zum
+Schema und zur Prüf- beziehungsweise Evidenzstelle. Vorhandene Linkprüfungen
+sind nötig, belegen aber allein keine Verständlichkeit. Die
+[Foundation-Dokumentationsregel](../../.ai/foundation/DOCUMENTATION_POLICY.md)
+verlangt begrenzte, änderungsbezogene Auswahl statt pauschaler Neulektüre.
+
+Die neue
+[Test-Evidenz-Wiederverwendungsregel](../../.ai/foundation/TEST_EVIDENCE_REUSE_POLICY.md)
+ist ein optionaler Vertrag. Es existiert hier kein geschützter Erzeuger-
+und Verifier-Adapter für lokale-zu-CI-Anerkennung. Die vorhandenen Pflicht-CI-
+Checks werden ausgeführt und nicht durch lokale PASS-Dateien, Hashes oder
+übersprungene Jobs ersetzt. Eine spätere Aktivierung benötigt getrennte
+Projektentscheidungen über Vertrauensautorität, Äquivalenz, Frische und
+betroffene Gates sowie eine tatsächliche Host-/CI-Qualifikation.
 
 ## Governance-Discovery und Sessionwiederverwendung
 

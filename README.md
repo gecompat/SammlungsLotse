@@ -72,6 +72,7 @@ Rechtenachweis, Herkunftsdokumentation und eigene Tests im neuen Projekt.
 
 ## Dokumentation
 
+- [Lokale read-only-Beispiele mit synthetischen Eingängen](docs/guides/LOCAL_READONLY_EXAMPLES.md)
 - [Dokumentationsübersicht](docs/README.md)
 - [Projektauftrag](docs/product/PROJECT_CHARTER.md)
 - [Produkt- und Systemgrenzen](docs/architecture/BOUNDARIES.md)
@@ -86,61 +87,16 @@ Arbeitsgegenstand voraus. Die Python-3.12-Standardbibliothekswahl gilt nur für
 WI-0004 und ist keine allgemeine Stackentscheidung. Weitere Regeln stehen in
 [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Der lokale Prototyp kann ausschließlich gegen synthetische Testeingänge
-sichtbar ausgeführt werden:
+Für den ersten nachvollziehbaren Lauf führt die [Anleitung für lokale
+read-only-Beispiele](docs/guides/LOCAL_READONLY_EXAMPLES.md) von den
+Voraussetzungen über synthetische Eingänge und Berichtsausgabe bis zu Grenzen
+und Fehlerhinweisen. Aktuelle Prüf- und Projektstände stehen getrennt im
+[Projektstatus](docs/project/PROJECT_STATUS.md).
 
-    python tools/run_ebook_intake.py tests/fixtures/ebook/test-0001/v0.3/cases/ingress-stable-minimal/stable.epub
-
-    python tools/run_ebook_intake.py --json tests/fixtures/ebook/test-0001/v0.3/cases/ingress-stable-minimal/stable.epub
-
-Mehrere ausdrücklich ausgewählte Dateien erzeugen einen gemeinsamen,
-positionsgebundenen und pfadfreien Bericht:
-
-    python tools/run_ebook_intake.py --json DATEI_A DATEI_B
-
-Ein ausdrücklich gewählter lokaler Ordner kann zusätzlich rekursiv und
-read-only inventarisiert werden. Nur reguläre EPUB- und PDF-Dateien innerhalb
-der festen 32-Kandidaten- und 256-MiB-Grenze werden erfasst; Standardausgaben
-bleiben pfad- und namensfrei:
-
-    python tools/run_ebook_intake.py --input-directory ORDNER
-
-Relative lokale Dateilabels erscheinen ausschließlich auf ausdrücklichen
-Human-Opt-in und nie im JSON-Vertrag:
-
-    python tools/run_ebook_intake.py --show-local-labels --input-directory ORDNER
-
-Die schnelle Prüfung bleibt Standard. Der Ordnermodus startet keine tiefe
-Prüfung; `--deep-read-only` bleibt ein ausdrückliches Opt-in für die
-bestehenden expliziten Dateieingänge und benötigt weiterhin den konfigurierten
-WI-0005-Task-Root.
-
-Der Lauf schreibt keine Berichtsdatei und führt die angezeigte Folgeaktion
-nicht aus. Reale oder private Sammlungsmedien sind keine qualifizierte
-Eingabe des Prototyps.
-
-Die getrennte Calibre-Bestandsprojektion benötigt ein vorab bereitgestelltes,
-exakt gebundenes lokales Profil. Sie verarbeitet genau eine ausdrücklich
-angegebene Bibliothek über eine wegwerfbare Copy-on-read-Arbeitskopie:
-
-    python tools/provision_calibre_readonly_profile.py --cache-root C:\rep\cache\SammlungsLotse\calibre-readonly
-
-    python tools/run_calibre_inventory.py --json --temp-root C:\rep\tmp\SammlungsLotse\calibre-readonly CALIBRE_BIBLIOTHEK
-
-Die stdout-Ausgabe enthält nur Calibre-ID, Titel, Autoren, Sprachen und
-Formate. Sie kann private Sammlungsmetadaten enthalten und wird nicht
-persistiert. Mehrere Bibliotheken, automatische Erkennung, Content Server und
-jede schreibende Calibre-Operation bleiben außerhalb.
-
-Zwei ausdrücklich ausgewählte EPUB-Dateien können getrennt read-only auf
-fünf Identitätsebenen verglichen werden:
-
-    python tools/run_ebook_identity.py --json DATEI_1.epub DATEI_2.epub
-
-Der Bericht bezeichnet Eingänge nur als Position 1 und 2, trennt positive,
-negative und fehlende Evidenz und enthält sichtbare Enthaltung. Er sucht keine
-Dateien, vergleicht nicht gegen Calibre, persistiert nichts und löst keine
-Bestandsaktion aus.
+Die AI-Instruktionen beginnen in [AGENTS.md](AGENTS.md). Die [Übersicht zum
+`.ai`-Bereich](.ai/README.md) erklärt für Menschen Projektidentität, Registry,
+Foundation-Transfer und die zugehörigen Prüfwege; sie ersetzt keine dieser
+kanonischen Quellen.
 
 ## Lizenz
 
