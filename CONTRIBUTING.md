@@ -1,6 +1,10 @@
 # Beiträge
 
-SammlungsLotse befindet sich vor der Entwicklungsplanung.
+SammlungsLotse entwickelt einzelne, registrierte read-only-Verträge. Der
+[Projektstatus](docs/project/PROJECT_STATUS.md) nennt den aktuellen Stand;
+der [Planungseinstieg](docs/planning/README.md) trennt laufende Arbeit von
+historischen Untersuchungen. Für einen ersten lokalen Lauf mit synthetischen
+Eingängen dient die [read-only-Anleitung](docs/guides/LOCAL_READONLY_EXAMPLES.md).
 
 ## Vor einer Änderung
 

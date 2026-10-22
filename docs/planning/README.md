@@ -6,6 +6,16 @@ Die ergebnisoffene Entwicklungsplanung hat den ersten begrenzten
 Arbeitsgegenstand angenommen. Es gibt weiterhin keinen allgemeinen
 Produktbacklog und keine freigegebene technische Roadmap.
 
+Für den Einstieg nach Aufgabe: Der [Projektauftrag](../product/PROJECT_CHARTER.md)
+erklärt das Ziel, der [Projektstatus](../project/PROJECT_STATUS.md) den
+aktuellen Stand und die [Artefaktregistry](../../.ai/artifact_registry.json)
+die kanonischen Referenzen. Die folgende Liste ist ein gewachsener
+chronologischer Weg zu Planungs- und Nachweistexten. Ihre Gliederung nach
+heutigen Leseraufgaben und historischen Nachweisen ist als WI-0027 für die
+Projektpflege vorgemerkt; Auslöser ist der nächste materielle Umbau dieses
+Planungseinstiegs. Bis dahin ersetzt die Liste weder Projektstatus noch
+Registry.
+
 ## Aktueller Brainstorming-Stand
 
 Die E-Book-Linie stellt mit WI-0004 den ersten begrenzten Produktprototyp,

@@ -2,11 +2,27 @@
 
 Status: AUTHORITATIVE
 
-Stand: 2026-10-10
+Stand: 2026-10-22
 
 ## Aktueller Stand
 
-WI-0025 übernimmt Foundation 1.23.0 aus
+WI-0026 übernimmt Foundation 1.25.0 aus
+`9e1b9974de58ea775d40c7c6045cd5057ba8b30c`. Die
+[Upgradebewertung](../governance/FOUNDATION_UPGRADE_1_25.md) und
+[Provenienz](../../.ai/foundation/installation-provenance.json) binden vier
+Featureänderungen und 81 ausgewählte Dateien. Die
+[read-only-Anleitung](../guides/LOCAL_READONLY_EXAMPLES.md) und der
+[.ai-Überblick](../../.ai/README.md) ergänzen die betroffenen menschlichen
+Lesepfade. WI-0027 bleibt als begrenzte historische Planungs-Navigationslücke
+mit Projektpflege als Rolle und dem nächsten materiellen Indexumbau als
+Auslöser registriert. Optionale lokale-zu-CI-Testevidenzanerkennung ist nicht
+aktiviert; Pflicht-CI führt weiter ihre gebundenen Prüfungen aus.
+Lokal bestanden Foundation-, Projekt-, Registry- und Discoveryprüfungen
+(205 Quellen), 20 fokussierte Projekttests, 65 Foundation-Quelltests und
+361 Repository-Tests mit vier sichtbaren Windows-Symlink-Skips.
+PR-Head und Merge bleiben separate Integrationsbindungen.
+
+WI-0025 übernahm Foundation 1.23.0 aus
 `ec6ece8acde5328af0836bae559003eac1c51b41`. Die
 [Upgradebewertung](../governance/FOUNDATION_UPGRADE_1_23.md) hält alle sieben
 Featurekandidaten, Provenienz und Overheadbewertung fest. Ausgewählt bleiben

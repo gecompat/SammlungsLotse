@@ -1,12 +1,89 @@
 {
   "schema_version": 1,
-  "ruleset_version": "1.23.0",
+  "ruleset_version": "1.25.0",
   "assessment_classifications": ["NOT_APPLICABLE", "ALREADY_EQUIVALENT", "PROJECT_STRONGER", "APPLY_DEFAULT", "RECOMMENDED", "DECISION_REQUIRED", "CONFLICT"],
   "features": {
+    "human-documentation-paths": {
+      "title": "Understandable human documentation paths and separate AI control",
+      "introduced_in": "1.25.0",
+      "change_history": [],
+      "transfer_sources": [
+        "Documentation/Standards/DOCUMENTATION_POLICY.md",
+        ".ai/PROJECT_RULES.md",
+        ".ai/VALIDATION_POLICY.md",
+        "Documentation/Standards/SEMANTIC_INTEGRATION_POLICY.md",
+        "Documentation/Standards/UPGRADE_APPLICABILITY_POLICY.md",
+        "Documentation/Standards/FOUNDATION_REFERENCE.md",
+        "foundation/feature_catalog.json",
+        "foundation/AGENTS.template.md",
+        "foundation/FOUNDATION_RULESET.template.md",
+        "foundation/repo_map.template.yaml"
+      ],
+      "dependencies": [
+        "layered-validation",
+        "semantic-integration",
+        "bounded-processing-efficiency"
+      ],
+      "applicability": {
+        "mode": "ALWAYS",
+        "signals": [
+          "human_documentation",
+          "ai_control_discovery",
+          "existing_documentation_structure"
+        ],
+        "questions": [
+          "Can intended readers complete the central tasks and necessary continuation pages without chat history or unexplained work IDs?",
+          "Are shared authority, directory purposes, AI-control discovery and technical-inspection paths understandable?",
+          "How are documentation impacts of behavior/configuration changes selected and checked without repeatedly ingesting unchanged texts?",
+          "Which legacy gaps need concrete scope, owner or role, and resumption trigger in existing project planning?"
+        ]
+      },
+      "recommendation": {
+        "when_applicable": "APPLY_DEFAULT",
+        "summary": "Apply the documentation policy to new/materially changed paths, including behavior/configuration impacts with bounded context, and assess existing human/AI entry paths during integration. Plan scoped legacy remediation without claiming full documentation conformity from installed rules or passing links.",
+        "decision_required_when": [
+          "a needed directory or documentation migration exceeds current scope or has unresolved authority"
+        ]
+      }
+    },
+    "test-evidence-reuse": {
+      "title": "Optional local-to-remote test evidence recognition",
+      "introduced_in": "1.24.0",
+      "change_history": [],
+      "transfer_sources": [
+        "Documentation/Standards/TEST_EVIDENCE_REUSE_POLICY.md"
+      ],
+      "dependencies": [
+        "layered-validation",
+        "bounded-processing-efficiency"
+      ],
+      "applicability": {
+        "mode": "REPOSITORY_EVIDENCE",
+        "signals": [
+          "tests_run_in_multiple_validation_contexts",
+          "expensive_native_or_integration_gates",
+          "local_test_evidence_considered_for_ci"
+        ],
+        "questions": [
+          "Which gates explicitly permit evidence recognition and which require fresh execution?",
+          "Can a protected producer and verifier authenticate complete execution and current input/environment/freshness equivalence?",
+          "Is verification more economical than fresh execution?"
+        ]
+      },
+      "recommendation": {
+        "when_applicable": "RECOMMENDED",
+        "summary": "Assess protected evidence recognition for costly equivalent tests; preserve ordinary execution unless project trust and activation are explicitly established.",
+        "decision_required_when": [
+          "selecting producer/verifier trust authorities and protection",
+          "approving environment equivalence, freshness and eligible gates",
+          "activating a host or CI adapter"
+        ]
+      }
+    },
     "foundation-baseline": {
       "title": "Vendor-neutral repository governance baseline",
       "introduced_in": "1.0.0",
-      "change_history": [{"version": "1.20.0", "impact": "MATERIAL", "summary": "Add scoped entry routing and bounded processing defaults while preserving protected contracts and persistent cache compatibility."}, {"version": "1.21.0", "impact": "MATERIAL", "summary": "Require assessment of actual test/log/review/model overhead, justify bounded stronger exceptions, and separate development from qualification while preserving gates."}, {"version": "1.22.0", "impact": "NON_MATERIAL", "summary": "Review version mirrors and shared explanations for the optional provider-open runtime extension; this feature retains its existing semantic contract."}, {"version": "1.23.0", "impact": "MATERIAL", "summary": "Expose optional orchestrator control by one bootstrap reference and transfer its shared state helper and schema."}],
+      "change_history": [{"version": "1.20.0", "impact": "MATERIAL", "summary": "Add scoped entry routing and bounded processing defaults while preserving protected contracts and persistent cache compatibility."}, {"version": "1.21.0", "impact": "MATERIAL", "summary": "Require assessment of actual test/log/review/model overhead, justify bounded stronger exceptions, and separate development from qualification while preserving gates."}, {"version": "1.22.0", "impact": "NON_MATERIAL", "summary": "Review version mirrors and shared explanations for the optional provider-open runtime extension; this feature retains its existing semantic contract."}, {"version": "1.23.0", "impact": "MATERIAL", "summary": "Expose optional orchestrator control by one bootstrap reference and transfer its shared state helper and schema."}, {"version": "1.24.0", "impact": "NON_MATERIAL", "summary": "Index the new optional test-evidence policy and advance version mirrors without activating host or CI behavior."}],
       "transfer_sources": ["foundation/AGENTS.template.md", "foundation/FOUNDATION_RULESET.template.md", ".ai/PROJECT_RULES.md", ".ai/WORKING_RULES.md", "Documentation/Standards/SECURITY_AND_SAFE_OPERATIONS.md", "Documentation/Standards/DOCUMENTATION_POLICY.md", "Documentation/Standards/THIRD_PARTY_AND_LICENSING.md", "Documentation/Standards/SOURCE_AND_EVIDENCE_POLICY.md", "Documentation/Standards/DEPENDENCY_POLICY.md", "foundation/repo_map.template.yaml"],
       "applicability": {"mode": "ALWAYS", "signals": ["repository_uses_foundation"], "questions": ["Does the target already provide equivalent or stronger repository governance?", "Which project-specific rules must remain authoritative?"]},
       "recommendation": {"when_applicable": "APPLY_DEFAULT", "summary": "Integrate the reusable baseline while preserving equivalent or stronger target governance.", "decision_required_when": []}
@@ -55,7 +132,7 @@
     "layered-validation": {
       "title": "Layered Foundation/project/runtime validation ownership",
       "introduced_in": "1.1.2",
-      "change_history": [{"version": "1.7.0", "impact": "MATERIAL", "summary": "Validation now normalizes UTF-8 LF/CRLF-only working-tree differences and explicitly distinguishes substantive validation failure from validation-infrastructure unavailability so break-glass cannot turn a known red result into green."}, {"version": "1.20.0", "impact": "MATERIAL", "summary": "Add scoped entry routing and bounded processing defaults while preserving protected contracts and persistent cache compatibility."}, {"version": "1.21.0", "impact": "MATERIAL", "summary": "Require assessment of actual test/log/review/model overhead, justify bounded stronger exceptions, and separate development from qualification while preserving gates."}],
+      "change_history": [{"version": "1.7.0", "impact": "MATERIAL", "summary": "Validation now normalizes UTF-8 LF/CRLF-only working-tree differences and explicitly distinguishes substantive validation failure from validation-infrastructure unavailability so break-glass cannot turn a known red result into green."}, {"version": "1.20.0", "impact": "MATERIAL", "summary": "Add scoped entry routing and bounded processing defaults while preserving protected contracts and persistent cache compatibility."}, {"version": "1.21.0", "impact": "MATERIAL", "summary": "Require assessment of actual test/log/review/model overhead, justify bounded stronger exceptions, and separate development from qualification while preserving gates."}, {"version": "1.24.0", "impact": "MATERIAL", "summary": "Require protected producer/verifier trust and complete current gate equivalence for optional cross-host test recognition; retain ordinary validation without an adapter."}],
       "transfer_sources": [".ai/VALIDATION_POLICY.md"],
       "applicability": {"mode": "ALWAYS", "signals": ["project_has_validation_or_tests"], "questions": ["Which target semantic and runtime checks remain authoritative beyond Foundation integrity?"]},
       "recommendation": {"when_applicable": "APPLY_DEFAULT", "summary": "Separate FOUNDATION_INTEGRITY from PROJECT_SEMANTIC and RUNTIME_EMPIRICAL validation and preserve truthful unavailable/failed/validated distinctions.", "decision_required_when": []}
@@ -96,7 +173,7 @@
     "semantic-upgrade-applicability": {
       "title": "Complete semantic feature-delta assessment for Foundation upgrades",
       "introduced_in": "1.5.0",
-      "change_history": [{"version": "1.6.0", "impact": "NON_MATERIAL", "summary": "Feature catalog extended for the central registry feature; assessment mechanics are unchanged."}, {"version": "1.7.0", "impact": "NON_MATERIAL", "summary": "Catalog and version mirrors advanced for portable EOL validation and repository-continuity governance; upgrade-assessment mechanics are unchanged."}, {"version": "1.20.0", "impact": "MATERIAL", "summary": "Add scoped entry routing and bounded processing defaults while preserving protected contracts and persistent cache compatibility."}, {"version": "1.22.0", "impact": "NON_MATERIAL", "summary": "Review version mirrors and shared explanations for the optional provider-open runtime extension; this feature retains its existing semantic contract."}, {"version": "1.23.0", "impact": "NON_MATERIAL", "summary": "Review shared bootstrap/discovery, schema availability and version metadata for optional job control; this feature retains its existing semantic contract."}],
+      "change_history": [{"version": "1.6.0", "impact": "NON_MATERIAL", "summary": "Feature catalog extended for the central registry feature; assessment mechanics are unchanged."}, {"version": "1.7.0", "impact": "NON_MATERIAL", "summary": "Catalog and version mirrors advanced for portable EOL validation and repository-continuity governance; upgrade-assessment mechanics are unchanged."}, {"version": "1.20.0", "impact": "MATERIAL", "summary": "Add scoped entry routing and bounded processing defaults while preserving protected contracts and persistent cache compatibility."}, {"version": "1.22.0", "impact": "NON_MATERIAL", "summary": "Review version mirrors and shared explanations for the optional provider-open runtime extension; this feature retains its existing semantic contract."}, {"version": "1.23.0", "impact": "NON_MATERIAL", "summary": "Review shared bootstrap/discovery, schema availability and version metadata for optional job control; this feature retains its existing semantic contract."}, {"version": "1.24.0", "impact": "NON_MATERIAL", "summary": "Register the optional test-evidence-reuse policy feature; complete-delta assessment mechanics are unchanged."}],
       "transfer_sources": ["Documentation/Standards/UPGRADE_APPLICABILITY_POLICY.md", "foundation/feature_catalog.json", "foundation/schemas/feature-catalog.schema.json", "foundation/schemas/upgrade-assessment.schema.json", "Documentation/Standards/SEMANTIC_INTEGRATION_POLICY.md", ".ai/PROJECT_RULES.md", "foundation/FOUNDATION_RULESET.template.md", "foundation/repo_map.template.yaml"],
       "dependencies": ["semantic-integration"],
       "applicability": {"mode": "ALWAYS", "signals": ["installed_foundation_version_is_older_than_source"], "questions": ["What features were introduced or materially changed since the installed version?", "What repository evidence applies to each candidate?", "Which recommendations or project decisions must be surfaced explicitly?"]},
@@ -195,7 +272,7 @@
     "bounded-processing-efficiency": {
       "title": "Scoped rule loading, verified session reuse, proportionate review and shared budgets",
       "introduced_in": "1.20.0",
-      "change_history": [{"version": "1.21.0", "impact": "MATERIAL", "summary": "Require assessment of actual test/log/review/model overhead, justify bounded stronger exceptions, and separate development from qualification while preserving gates."}, {"version": "1.22.0", "impact": "NON_MATERIAL", "summary": "Review version mirrors and shared explanations for the optional provider-open runtime extension; this feature retains its existing semantic contract."}, {"version": "1.23.0", "impact": "MATERIAL", "summary": "Connect shared finite dispatch/budget reservations and pre-model heartbeat checks without invoking a model or resetting budgets on session change."}],
+      "change_history": [{"version": "1.21.0", "impact": "MATERIAL", "summary": "Require assessment of actual test/log/review/model overhead, justify bounded stronger exceptions, and separate development from qualification while preserving gates."}, {"version": "1.22.0", "impact": "NON_MATERIAL", "summary": "Review version mirrors and shared explanations for the optional provider-open runtime extension; this feature retains its existing semantic contract."}, {"version": "1.23.0", "impact": "MATERIAL", "summary": "Connect shared finite dispatch/budget reservations and pre-model heartbeat checks without invoking a model or resetting budgets on session change."}, {"version": "1.24.0", "impact": "MATERIAL", "summary": "Specify deterministic runner/oracle/cleanup reporting with no model-only PASS confirmation and conservative, economically selected test evidence recognition."}],
       "transfer_sources": [
         "Documentation/Standards/PROCESSING_EFFICIENCY_POLICY.md",
         "Documentation/Standards/FOUNDATION_REFERENCE.md",

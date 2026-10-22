@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "installed_version": "1.23.0",
+  "source_version": "1.25.0",
+  "source_ref": "9e1b9974de58ea775d40c7c6045cd5057ba8b30c",
+  "assessments": [
+    {
+      "feature_id": "bounded-processing-efficiency",
+      "candidate_reasons": ["material_change:1.24.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": [".ai/foundation/PROCESSING_EFFICIENCY_POLICY.md", "docs/governance/PROJECT_RULES.md", "docs/decisions/DEC-0006-CI_VALIDATION_SCOPE.md"],
+      "rationale": "Deterministische Runner dürfen bei vollständig erfolgreichem Ergebnis kompakte maschinenlesbare Befunde ohne zusätzlichen Modellaufruf liefern. Die bereits strengere lokale Auswahl nach Vertrag, endliche Wave, begrenzte Logs und aktuelle PR-Head-CI bleiben bestehen. Ein neuer Wiederverwendungsdienst oder Zahlenbudget wird nicht eingerichtet."
+    },
+    {
+      "feature_id": "human-documentation-paths",
+      "candidate_reasons": ["introduced_in:1.25.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": ["README.md", "docs/README.md", "docs/guides/LOCAL_READONLY_EXAMPLES.md", ".ai/README.md", "docs/governance/VALIDATION.md", ".ai/artifact_registry.json"],
+      "rationale": "Der README nennt Zweck und Grenzen, mischte bisher aber mehrere Ausführungsanleitungen in den Einstieg; ein expliziter menschlicher AI-/Registry-Inspektionspfad fehlte. Der aktuelle Lesepfad wird mit einer read-only-Anleitung und einem .ai-Überblick ergänzt. Die große historische Planungsnavigation bleibt als konkret registrierte Altlast WI-0027 mit Rolle und Auslöser sichtbar; vollständige Dokumentationskonformität wird nicht behauptet."
+    },
+    {
+      "feature_id": "layered-validation",
+      "candidate_reasons": ["material_change:1.24.0"],
+      "classification": "APPLY_DEFAULT",
+      "evidence": ["docs/governance/VALIDATION.md", ".ai/foundation/VALIDATION_POLICY.md", "tools/governance/validate_repository.py"],
+      "rationale": "Die bestehenden Foundation-, Projekt- und Runtime-Ebenen bleiben getrennt. Die neue menschliche Dokumentationsabnahme wird als betroffene PROJECT_SEMANTIC-Prüfung ergänzt; Linkintegrität oder FOUNDATION_INTEGRITY allein gelten nicht als Lesbarkeitsbeleg."
+    },
+    {
+      "feature_id": "test-evidence-reuse",
+      "candidate_reasons": ["introduced_in:1.24.0"],
+      "classification": "RECOMMENDED",
+      "evidence": [".ai/foundation/TEST_EVIDENCE_REUSE_POLICY.md", "docs/governance/VALIDATION.md", "docs/decisions/DEC-0006-CI_VALIDATION_SCOPE.md", ".github/workflows/repository-quality.yml"],
+      "rationale": "Lokale und CI-Tests überschneiden sich, doch es gibt keinen geschützten Produzenten, Verifier oder vollständige Äquivalenz-/Frischebindung für eine CI-Anerkennung. Die neue Policy wird als inaktive Regel übertragen; erforderliche Checks führen weiter die tatsächlichen Tests am gebundenen PR-Head aus.",
+      "recommendation": "Bei nachgewiesen hohem Aufwand nur in einem eigenen Scope geschützte Ausführungsevidenz, Host-/Trust-Autorität, Umgebungsäquivalenz, Frische und erlaubte Gates wirtschaftlich prüfen. Ohne diese Auswahl und Qualifikation normale CI-Ausführung beibehalten."
+    }
+  ]
+}

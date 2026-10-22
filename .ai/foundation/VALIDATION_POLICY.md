@@ -14,6 +14,12 @@ The Foundation validator establishes only `FOUNDATION_INTEGRITY` for an installe
 
 Existing target-project validators, static contracts, tests, reviews, and manual validation remain authoritative for their respective scopes. Installing or upgrading the Foundation must not delete, disable, weaken, or silently replace them. Select `PROJECT_SEMANTIC` and `RUNTIME_EMPIRICAL` checks impact-by-impact when the affected contract requires them.
 
+## Human documentation acceptance
+
+Apply `DOCUMENTATION_POLICY.md` when a change affects human reading paths, directory navigation, shared technical sources, or AI-control discovery, including behavior/configuration changes without documentation edits. Use its change-driven impact selection and bounded-context procedure; the responsible author checks the complete affected task and necessary continuation pages, including expected results, interpretation and help for deviations. A relevant technical-inspection path must lead from the AI entry to the authoritative contract, machine format and evidence or its explicit absence. After relocation, check links and other path consumers together.
+
+This is `PROJECT_SEMANTIC` validation. Use existing link checks and focused manual inspection where no checker exists; record paths, source binding, results and gaps in the existing PR or validation evidence. Neither passing links nor a green `FOUNDATION_INTEGRITY` check proves readability. Follow the documentation policy's gradual legacy adoption and scoped maintenance contract without new per-page metadata, mandatory extra reviewers, model calls, schemas, or tooling.
+
 ## Portable text representation and drift
 
 Foundation installation planning and installed-rule drift detection distinguish logical text content from platform-specific Git working-tree representation.
@@ -81,6 +87,8 @@ Map expensive checks to affected inputs, contracts, and consumers using existing
 Distinguish a validator's self-test from running that validator against current project inputs. Self-tests are warranted by changes to the tool, its dependencies/configuration/runtime, a new finding, or an explicit periodic/qualification requirement; an unrelated PR alone does not establish that need. Combine identical direct/suite validator executions at the same binding without dropping distinct assertions or negative controls. A repeated expensive check requires a changed relevant binding, new finding, required freshness/repetition, or previously unmet gate.
 
 Keep required current-head/integration checks visible. Only an explicitly supported gate may reuse prior evidence after proving relevant input/environment/freshness equivalence; record the original execution and current applicability, never claim a fresh execution. Preserve failed results and safe cleanup/cancellation boundaries. Workflow summaries distinguish executed, reused, not applicable, failed, and unknown work without treating skipped or inconclusive checks as validated.
+
+Cross-host or local-to-CI recognition follows `TEST_EVIDENCE_REUSE_POLICY.md`. Independently authenticate the authorized producer, complete test/oracle/cleanup result and current gate equivalence through a protected verifier. A hash, self-reported PASS or `independent` flag does not establish that trust. Without a supported adapter, retain ordinary execution. Installing the policy does not enable reuse or authorize CI status publication.
 
 The REQUIRED overhead assessment in `PROCESSING_EFFICIENCY_POLICY.md` checks whether target rules and actual execution implement these defaults or justify compatible exceptions. It covers tests and the log/review/model work surrounding them; fewer tests do not justify weaker correctness claims.
 
